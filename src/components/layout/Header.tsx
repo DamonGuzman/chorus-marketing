@@ -2,24 +2,23 @@
 
 import Link from "next/link";
 import { Logo, ChevronIcon } from "@/components/icons";
-import { Badge } from "@/components/ui";
-import { cn } from "@/lib/utils";
+import { ButtonLink } from "@/components/ui";
+import { PRIMARY_CTA_HREF, PRIMARY_CTA_LABEL } from "@/content/site";
 
 const navLinks = [
   { label: "About", href: "#about" },
   { label: "Use Cases", href: "#use-cases", hasDropdown: true },
   { label: "Pricing", href: "#pricing" },
   { label: "Features", href: "#features" },
-  { label: "Press", href: "#press" },
   { label: "FAQ", href: "#faq" },
 ];
 
 export function Header() {
   return (
-    <header className="absolute top-0 left-0 right-0 z-50 px-[30px] py-[30px]">
-      <nav className="flex items-center justify-between max-w-[1380px] mx-auto">
+    <header className="absolute top-6 md:top-[30px] left-6 right-6 md:left-[30px] md:right-[30px] z-50 h-[35px]">
+      <nav className="flex items-center justify-between h-full max-w-[1380px] mx-auto">
         {/* Logo */}
-        <Link href="/" className="text-white hover:opacity-80 transition-opacity">
+        <Link href="/" aria-label="Chorus home" className="text-white hover:opacity-80 transition-opacity">
           <Logo className="w-[30px] h-[29px]" />
         </Link>
 
@@ -29,10 +28,7 @@ export function Header() {
             <Link
               key={link.label}
               href={link.href}
-              className={cn(
-                "flex items-center gap-[7px] text-sm font-medium text-gray-100",
-                "hover:text-white transition-colors"
-              )}
+              className="flex items-center gap-[7px] text-[14px] leading-[22px] font-medium text-gray-100 hover:text-white transition-colors"
             >
               {link.label}
               {link.hasDropdown && (
@@ -43,7 +39,9 @@ export function Header() {
         </div>
 
         {/* CTA Button */}
-        <Badge>Control</Badge>
+        <ButtonLink href={PRIMARY_CTA_HREF} variant="outline" size="md">
+          {PRIMARY_CTA_LABEL}
+        </ButtonLink>
       </nav>
     </header>
   );

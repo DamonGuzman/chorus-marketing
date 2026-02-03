@@ -5,4 +5,5 @@ export { BlendIcon } from "./BlendIcon";
 export { CheckIcon } from "./CheckIcon";
 export { MailIcon } from "./MailIcon";
 export { ChevronIcon } from "./ChevronIcon";
-export { TwitterIcon, LinkedInIcon, InstagramIcon } from "./SocialIcons";
+export { FacebookIcon, XIcon, InstagramIcon } from "./SocialIcons";
+export { ChatIcon, BellIcon, DotsIcon, SearchIcon, PencilIcon, LockIcon, FileIcon } from "./AppIcons";

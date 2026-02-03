@@ -4,3 +4,20 @@ export { VisionSection } from "./VisionSection";
 export { TestimonialsSection } from "./TestimonialsSection";
 export { TeamSection } from "./TeamSection";
 export { CTASection } from "./CTASection";
+export { AutonomousAgentsSection } from "./AutonomousAgentsSection";
+export { BusinessContextSection } from "./BusinessContextSection";
+export { DifferenceSection } from "./DifferenceSection";
+export { CollaborationSection } from "./CollaborationSection";
+
+// New landing page sections
+export { NewHeroSection } from "./NewHeroSection";
+export { OldWaySection } from "./OldWaySection";
+export { ChorusWaySection } from "./ChorusWaySection";
+export { AIWorkforceSection } from "./AIWorkforceSection";
+export { HowItWorksSection } from "./HowItWorksSection";
+export { CapabilitiesSection } from "./CapabilitiesSection";
+export { FoundersSection } from "./FoundersSection";
+export { IntegrationsSection } from "./IntegrationsSection";
+export { PricingSection } from "./PricingSection";
+export { FAQSection } from "./FAQSection";
+export { FinalCTASection } from "./FinalCTASection";

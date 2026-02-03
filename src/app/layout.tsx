@@ -1,17 +1,10 @@
 import type { Metadata } from "next";
-import { Urbanist } from "next/font/google";
 import "./globals.css";
-
-const urbanist = Urbanist({
-  variable: "--font-urbanist",
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-  display: "swap",
-});
 
 export const metadata: Metadata = {
   title: "Chorus | The Agentic AI Platform",
-  description: "Chorus is the agentic AI platform that proves real magic exists. We don't promise the impossible. We deliver it.",
+  description:
+    "Chorus is the agentic AI platform for deploying autonomous agents that coordinate across your tools to turn goals into completed work.",
 };
 
 export default function RootLayout({
@@ -21,7 +14,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${urbanist.variable} font-urbanist antialiased`}>
+      <body className="font-urbanist antialiased">
         {children}
       </body>
     </html>

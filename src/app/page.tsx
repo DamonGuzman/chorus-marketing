@@ -1,11 +1,16 @@
 import { Header, Footer } from "@/components/layout";
 import {
-  HeroSection,
-  FeaturesSection,
-  VisionSection,
-  TestimonialsSection,
-  TeamSection,
-  CTASection,
+  NewHeroSection,
+  OldWaySection,
+  ChorusWaySection,
+  AIWorkforceSection,
+  HowItWorksSection,
+  CapabilitiesSection,
+  FoundersSection,
+  IntegrationsSection,
+  PricingSection,
+  FAQSection,
+  FinalCTASection,
 } from "@/components/sections";
 
 export default function Home() {
@@ -13,12 +18,17 @@ export default function Home() {
     <div className="min-h-screen bg-black">
       <Header />
       <main>
-        <HeroSection />
-        <FeaturesSection />
-        <VisionSection />
-        <TestimonialsSection />
-        <TeamSection />
-        <CTASection />
+        <NewHeroSection />
+        <OldWaySection />
+        <AIWorkforceSection />
+        <ChorusWaySection />
+        <HowItWorksSection />
+        <CapabilitiesSection />
+        <FoundersSection />
+        <IntegrationsSection />
+        <PricingSection />
+        <FAQSection />
+        <FinalCTASection />
       </main>
       <Footer />
     </div>
