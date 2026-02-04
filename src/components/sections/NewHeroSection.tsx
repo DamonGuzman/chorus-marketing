@@ -2,6 +2,7 @@ import Image from "next/image";
 import { ButtonLink, IntegrationLogo } from "@/components/ui";
 import { PRIMARY_CTA_HREF } from "@/content/site";
 import { Logo, ChatIcon, BellIcon, DotsIcon, SearchIcon, PencilIcon, LockIcon, CheckIcon, ChevronIcon } from "@/components/icons";
+import { TuringAgentsTaskPanel } from "@/components/figma/TuringAgentsTaskPanel";
 
 type AvatarVariant = "john" | "danny" | "frank" | "sarah";
 
@@ -11,13 +12,6 @@ const avatarSrc: Record<AvatarVariant, string> = {
   frank: "/images/team/member-3.png",
   sarah: "/images/team/member-4.png",
 };
-
-function getAvatarVariantForName(name: string): AvatarVariant {
-  if (name.startsWith("Frank")) return "frank";
-  if (name.startsWith("David")) return "john";
-  if (name.startsWith("Doone")) return "sarah";
-  return "danny";
-}
 
 function Avatar({
   alt,
@@ -49,36 +43,6 @@ const channelItems = [
   { name: "Standup meeting", color: "bg-[#EF4444]/25", locked: true },
   { name: "Financial Analysis", color: "bg-[#A259FF]/25" },
 ];
-
-function StepIndicator({
-  variant,
-  label,
-}: {
-  variant: "completed" | "in_progress" | "queued";
-  label: string;
-}) {
-  if (variant === "completed") {
-    return (
-      <div className="size-[22px] rounded-full bg-[#3EA34B] flex items-center justify-center">
-        <Image src="/images/figma/4229-62012/img.svg" alt="" width={12} height={10} />
-      </div>
-    );
-  }
-
-  if (variant === "in_progress") {
-    return (
-      <div className="size-[22px] rounded-full flex items-center justify-center" aria-label="In progress">
-        <Image src="/images/figma/4229-62012/imgGroup2.svg" alt="" width={15} height={15} />
-      </div>
-    );
-  }
-
-  return (
-    <div className="size-[22px] rounded-full bg-[#3D3C42] flex items-center justify-center">
-      <span className="text-[12px] font-semibold leading-none text-[#CBCACC]">{label}</span>
-    </div>
-  );
-}
 
 export function NewHeroSection() {
   return (
@@ -327,158 +291,7 @@ export function NewHeroSection() {
           </div>
 
           {/* Task Panel */}
-          <div className="w-[365px] shrink-0 bg-[#121212] rounded-[30px] px-[20px] pt-[30px] pb-[30px] shadow-[inset_0px_0px_8px_0px_rgba(255,255,255,0.27)]">
-            {/* Goal Card */}
-            <div className="bg-white/[0.04] border border-white/10 rounded-[16px] px-[12px] pt-[16px] pb-[12px]">
-              <p className="text-[14px] leading-[24px] font-bold text-[#CBCACC]">Track Monthly Revenue</p>
-              <div className="mt-[15px] flex items-center justify-between">
-                <div className="flex items-center gap-[4px]">
-                  <Image src="/images/figma/4229-62012/img1.svg" alt="" width={14} height={14} />
-                  <span className="text-[12px] font-semibold text-[#7D7C83]">Tasks :</span>
-                  <span className="text-[12px] font-semibold text-[#CBCACC]">7</span>
-                </div>
-
-                <div className="flex items-center">
-                  <div className="flex -space-x-[6px]">
-                    <Avatar variant="frank" alt="Frank" className="w-[24px] h-[24px] border-2 border-[#121212]" />
-                    <Avatar variant="sarah" alt="Sarah" className="w-[24px] h-[24px] border-2 border-[#121212]" />
-                    <Avatar variant="danny" alt="Danny" className="w-[24px] h-[24px] border-2 border-[#121212]" />
-                  </div>
-                  <span className="ml-[10px] text-[12px] font-semibold text-[#CBCACC]">+3</span>
-                </div>
-              </div>
-            </div>
-
-            {/* Task List */}
-            <div className="relative mt-[20px]">
-              <div
-                className="pointer-events-none absolute left-[17px] top-0 bottom-0 w-[2px]"
-                style={{
-                  backgroundImage: "radial-gradient(circle, rgba(161,161,161,0.55) 1px, transparent 1.7px)",
-                  backgroundSize: "2px 6px",
-                  backgroundPosition: "center top",
-                }}
-              />
-
-              <div className="space-y-[10px]">
-                {[
-                  {
-                    name: "Franks Lampard",
-                    status: "Completed",
-                    task: "Collect revenue data from bank APIs",
-                    apps: [
-                      { label: "qb", bg: "#2EB67D" },
-                      { label: "C", bg: "#F97316" },
-                      { label: "S", bg: "#3B82F6" },
-                    ],
-                    file: "Stripe_revenue_report.csv",
-                  },
-                  {
-                    name: "David Fincher",
-                    status: "In Progress",
-                    task: "Collect revenue data from bank APIs",
-                    subtask: "Initialize slide project with professional design for st...",
-                  },
-                  { name: "Doone Rosin", status: "Queued", task: "P&L Report Draft" },
-                  { name: "Doone Rosin", status: "Queued", task: "Categorize expenses" },
-                ].map((item, index) => {
-                  const variant =
-                    item.status === "Completed"
-                      ? ("completed" as const)
-                      : item.status === "In Progress"
-                        ? ("in_progress" as const)
-                        : ("queued" as const);
-
-                  return (
-                    <div key={index} className="flex gap-[12px]">
-                      <div className="w-[36px] shrink-0 flex justify-center pt-[18px] relative">
-                        <div className="relative z-10">
-                          <StepIndicator variant={variant} label={String(index + 1)} />
-                        </div>
-                        <div className="pointer-events-none absolute left-[28px] top-[28px]">
-                          <Image src="/images/figma/4229-62012/imgGroup1707483949.svg" alt="" width={17} height={2} />
-                        </div>
-                      </div>
-
-                      <div className="flex-1 bg-white/[0.04] border border-white/10 rounded-[16px] px-[12px] pt-[14px] pb-[12px]">
-                        <div className="flex items-center justify-between">
-                          <div className="flex items-center gap-[8px] rounded-full bg-white/[0.04] border border-white/10 px-[10px] py-[5px]">
-                            <Avatar
-                              variant={getAvatarVariantForName(item.name)}
-                              alt={item.name}
-                              className="w-[18px] h-[18px] border border-white/5"
-                            />
-                            <span className="text-[12px] font-semibold text-[#CBCACC]">{item.name}</span>
-                          </div>
-
-                          {item.status === "Completed" && (
-                            <div className="flex items-center gap-[8px]">
-                              <span className="size-[14px] rounded-full bg-[#3EA34B] flex items-center justify-center">
-                                <Image src="/images/figma/4229-62012/img.svg" alt="" width={8} height={6} />
-                              </span>
-                              <span className="text-[12px] font-semibold text-[#CBCACC]">Completed</span>
-                            </div>
-                          )}
-
-                          {item.status === "In Progress" && (
-                            <div className="flex items-center gap-[8px]">
-                              <Image src="/images/figma/4229-62012/imgGroup2.svg" alt="" width={15} height={15} />
-                              <span className="text-[12px] font-semibold text-[#CBCACC]">In Progress</span>
-                            </div>
-                          )}
-
-                          {item.status === "Queued" && (
-                            <div className="flex items-center gap-[8px]">
-                              <Image src="/images/figma/4229-62012/imgElements4.svg" alt="" width={9} height={11} />
-                              <span className="text-[12px] font-semibold text-[#7D7C83]">Queued</span>
-                            </div>
-                          )}
-                        </div>
-
-                        <div className="mt-[10px] flex items-center gap-[10px]">
-                          <Image src="/images/figma/4229-62012/img1.svg" alt="" width={14} height={14} />
-                          <p className="text-[14px] leading-[24px] font-bold text-[#CBCACC]">{item.task}</p>
-                        </div>
-
-                        {"subtask" in item && item.subtask && (
-                          <div className="mt-[6px] flex items-center gap-[8px] pl-[24px]">
-                            <Image src="/images/figma/4229-62012/img2.svg" alt="" width={14} height={14} />
-                            <span className="text-[12px] text-[#7D7C83]">{item.subtask}</span>
-                          </div>
-                        )}
-
-                        {item.apps && item.file && (
-                          <div className="mt-[10px] flex items-center gap-[10px] pl-[24px]">
-                            <div className="flex items-center gap-[8px]">
-                              <span className="text-[12px] font-semibold text-[#7D7C83]">Apps :</span>
-                              <div className="flex items-center gap-[6px]">
-                                {item.apps.map((app) => (
-                                  <span
-                                    key={app.label}
-                                    className="size-[18px] rounded-full flex items-center justify-center text-[10px] font-bold text-white"
-                                    style={{ backgroundColor: app.bg }}
-                                  >
-                                    {app.label}
-                                  </span>
-                                ))}
-                              </div>
-                            </div>
-
-                            <div className="flex items-center gap-[8px] px-[10px] py-[6px] bg-white/[0.04] border border-white/10 rounded-[10px]">
-                              <span className="size-[18px] rounded-[4px] bg-[#0F8B4C] flex items-center justify-center text-[11px] font-extrabold text-white leading-none">
-                                X
-                              </span>
-                              <span className="text-[12px] font-semibold text-[#CBCACC]">{item.file}</span>
-                            </div>
-                          </div>
-                        )}
-                      </div>
-                    </div>
-                  );
-                })}
-              </div>
-            </div>
-          </div>
+          <TuringAgentsTaskPanel />
         </div>
       </div>
     </section>

@@ -1,12 +1,8 @@
 import { cn } from "@/lib/utils";
 
-interface SectionProps {
-  children: React.ReactNode;
-  className?: string;
-  id?: string;
-}
+type SectionProps = React.ComponentPropsWithoutRef<"section">;
 
-export function Section({ children, className, id }: SectionProps) {
+export function Section({ children, className, id, ...props }: SectionProps) {
   return (
     <section
       id={id}
@@ -14,6 +10,7 @@ export function Section({ children, className, id }: SectionProps) {
         "bg-black",
         className
       )}
+      {...props}
     >
       {children}
     </section>

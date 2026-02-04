@@ -125,3 +125,104 @@ export function FileIcon({ className }: { className?: string }) {
   );
 }
 
+export function AddIcon({ className }: { className?: string }) {
+  return (
+    <svg className={cn("w-4 h-4", className)} viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <path
+        d="M12 5v14M5 12h14"
+        stroke="currentColor"
+        strokeWidth="1.8"
+        strokeLinecap="round"
+      />
+    </svg>
+  );
+}
+
+export function SmileIcon({ className }: { className?: string }) {
+  return (
+    <svg className={cn("w-4 h-4", className)} viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <path
+        d="M12 22a10 10 0 1 0 0-20 10 10 0 0 0 0 20Z"
+        stroke="currentColor"
+        strokeWidth="1.7"
+      />
+      <path
+        d="M8.2 14.2c.9 1.7 2.2 2.6 3.8 2.6s2.9-.9 3.8-2.6"
+        stroke="currentColor"
+        strokeWidth="1.7"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M9 10.2h.01M15 10.2h.01"
+        stroke="currentColor"
+        strokeWidth="2.4"
+        strokeLinecap="round"
+      />
+    </svg>
+  );
+}
+
+export function MicIcon({ className }: { className?: string }) {
+  return (
+    <svg className={cn("w-4 h-4", className)} viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <path
+        d="M12 14.5a3 3 0 0 0 3-3v-5a3 3 0 0 0-6 0v5a3 3 0 0 0 3 3Z"
+        stroke="currentColor"
+        strokeWidth="1.7"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M5.5 11.5a6.5 6.5 0 0 0 13 0"
+        stroke="currentColor"
+        strokeWidth="1.7"
+        strokeLinecap="round"
+      />
+      <path
+        d="M12 18.5v3"
+        stroke="currentColor"
+        strokeWidth="1.7"
+        strokeLinecap="round"
+      />
+    </svg>
+  );
+}
+
+export function FlagIcon({ className }: { className?: string }) {
+  return (
+    <svg className={cn("w-4 h-4", className)} viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <path
+        d="M6 3v18"
+        stroke="currentColor"
+        strokeWidth="1.7"
+        strokeLinecap="round"
+      />
+      <path
+        d="M6 4h12l-2 4 2 4H6"
+        stroke="currentColor"
+        strokeWidth="1.7"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
+export function ArrowRightRoundIcon({ className }: { className?: string }) {
+  return (
+    <svg className={cn("w-4 h-4", className)} viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <path
+        d="M5 12h12"
+        stroke="currentColor"
+        strokeWidth="1.7"
+        strokeLinecap="round"
+      />
+      <path
+        d="M13 7l5 5-5 5"
+        stroke="currentColor"
+        strokeWidth="1.7"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}

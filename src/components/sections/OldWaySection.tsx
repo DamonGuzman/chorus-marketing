@@ -1,3 +1,4 @@
+import { UserResearchIcon } from "@/components/icons";
 import { Section } from "@/components/ui";
 
 const oldWayItems = [
@@ -46,14 +47,24 @@ export function OldWaySection() {
           {oldWayItems.map((item, index) => (
             <div
               key={index}
-              className="bg-gray-950 rounded-[20px] border border-white/10 p-[30px] hover:border-white/20 transition-colors"
+              className="relative overflow-hidden rounded-[20px] border border-white/[0.34] bg-white/[0.02] backdrop-blur-[30px] pt-[30px] pb-[10px] px-[30px] flex flex-col gap-[26px] shadow-[inset_0px_0px_12px_0px_rgba(255,255,255,0.18)] transition-colors hover:border-white/50"
             >
-              <h3 className="text-[14px] leading-[1.5] font-bold text-white mb-[30px] min-h-[42px]">
-                {item.title}
-              </h3>
-              <p className="text-[11px] leading-[1.6] font-medium text-gray-400">
-                &ldquo;{item.description}&rdquo;
-              </p>
+              <div aria-hidden className="pointer-events-none absolute inset-0">
+                <div className="absolute inset-0 bg-gradient-to-b from-white/5 via-white/[0.02] to-transparent" />
+                <div className="absolute -top-[110px] -left-[110px] size-[260px] rounded-full bg-white/10 blur-[50px]" />
+                <div className="absolute -bottom-[140px] -right-[140px] size-[320px] rounded-full bg-purple-500/10 blur-[70px]" />
+              </div>
+
+              <UserResearchIcon className="relative text-gray-200/50" />
+
+              <div className="relative flex flex-col items-start gap-[30px]">
+                <h3 className="text-[20px] leading-[28px] font-bold text-gray-100 max-w-[172px]">
+                  {item.title}
+                </h3>
+                <p className="text-[14px] leading-[24px] font-medium text-gray-300 max-w-[219px]">
+                  &ldquo;{item.description}&rdquo;
+                </p>
+              </div>
             </div>
           ))}
         </div>

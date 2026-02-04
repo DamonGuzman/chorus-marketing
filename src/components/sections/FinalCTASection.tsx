@@ -1,4 +1,4 @@
-import { Section, ButtonLink } from "@/components/ui";
+import { Section, ButtonLink, PrismaticOrb } from "@/components/ui";
 import { PRIMARY_CTA_HREF, PRIMARY_CTA_LABEL } from "@/content/site";
 
 export function FinalCTASection() {
@@ -12,10 +12,15 @@ export function FinalCTASection() {
       {/* Glowing orb */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-[80%] w-[200px] h-[200px]">
         <div className="w-full h-full rounded-full bg-gradient-to-b from-purple-400/30 to-purple-600/10 blur-2xl animate-pulse" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80px] h-[80px] rounded-full bg-gradient-to-br from-purple-400 to-purple-600 shadow-glow-lg flex items-center justify-center">
-          <svg className="w-[32px] h-[32px] text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13 10V3L4 14h7v7l9-11h-7z" />
-          </svg>
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+          <PrismaticOrb size={149} className="shadow-[0_0_18px_rgba(255,255,255,0.06)]" />
+          <div className="absolute inset-0 flex items-center justify-center">
+            <div className="w-[78px] h-[78px] rounded-full bg-white/5 border border-white/10 backdrop-blur-sm shadow-glow-sm flex items-center justify-center">
+              <svg className="w-[30px] h-[30px] text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13 10V3L4 14h7v7l9-11h-7z" />
+              </svg>
+            </div>
+          </div>
         </div>
       </div>
 
