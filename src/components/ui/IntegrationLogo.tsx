@@ -53,7 +53,7 @@ export function IntegrationLogo({
 
     if (name === "Stripe") {
       return (
-        <span className={cn("font-extrabold leading-none", brand.textClass, size === "sm" ? "text-[9px]" : "text-[11px]")}>
+        <span className={cn("font-extrabold", brand.textClass, size === "sm" ? "text-[9px] leading-[16px]" : "text-[11px] leading-[24px]")}>
           S
         </span>
       );
@@ -61,7 +61,7 @@ export function IntegrationLogo({
 
     if (name === "HubSpot") {
       return (
-        <span className={cn("font-extrabold leading-none", brand.textClass, size === "sm" ? "text-[9px]" : "text-[11px]")}>
+        <span className={cn("font-extrabold", brand.textClass, size === "sm" ? "text-[9px] leading-[16px]" : "text-[11px] leading-[24px]")}>
           H
         </span>
       );
@@ -75,11 +75,11 @@ export function IntegrationLogo({
   };
 
   return (
-    <div
+    <span
       aria-label={name}
       title={name}
       className={cn(
-        "grid place-items-center border border-white/10",
+        "inline-grid place-items-center border border-white/10",
         "shadow-[0px_0px_16px_0px_rgba(175,130,249,0.06)]",
         brand.bgClass,
         shape === "circle" ? "rounded-full" : "rounded-[10px]",
@@ -89,6 +89,6 @@ export function IntegrationLogo({
       )}
     >
       {renderMark()}
-    </div>
+    </span>
   );
 }

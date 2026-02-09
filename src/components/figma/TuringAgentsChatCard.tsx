@@ -72,7 +72,7 @@ export function TuringAgentsChatCard({ className }: { className?: string }) {
   return (
     <div
       className={cn(
-        "bg-white/[0.04] rounded-[39.686px] shadow-[0px_4.42px_60.775px_0px_rgba(0,0,0,1)]",
+        "bg-[#0d0d0d] rounded-[39.686px] shadow-[0px_4.42px_60.775px_0px_rgba(0,0,0,1)]",
         "px-[11.906px] py-[3.969px]",
         "flex items-center justify-center",
         "w-[642.912px] h-[650.849px]",
