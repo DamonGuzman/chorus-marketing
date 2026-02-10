@@ -392,16 +392,13 @@ function AgentProfileCard() {
     >
       {/* Agent header */}
       <div className="flex items-start gap-[17px]">
-        {/* Avatar placeholder */}
-        <div className="size-[90px] shrink-0 rounded-[18px] bg-[#D9D9D9]" />
-
-        {/* Avatar image */}
+        {/* Profile avatar */}
         <Image
-          src="/images/team/member-1.png"
+          src="/images/figma/Ellipse 53.svg"
           alt="Frank"
           width={91}
-          height={113}
-          className="h-[113px] w-[91px] shrink-0 object-cover"
+          height={91}
+          className="size-[91px] shrink-0 rounded-full object-cover"
         />
 
         {/* Info */}
@@ -444,13 +441,13 @@ function AgentProfileCard() {
       {/* Action buttons */}
       <div className="mt-[26px] flex items-center gap-[14px]">
         <button className="inline-flex items-center gap-[7px] rounded-full bg-gradient-to-br from-purple-400 to-purple-600 px-[13px] py-[10px] pr-[22px] shadow-glow">
-          <ChatBubbleIcon />
+          <Image src="/images/figma/message-01.svg" alt="" width={16} height={16} />
           <span className="font-urbanist text-[12px] font-bold leading-[21px] text-white">
             Chat
           </span>
         </button>
         <button className="inline-flex items-center gap-[7px] rounded-full border-[2px] border-white/25 px-[28px] py-[10px]">
-          <PhoneIcon />
+          <Image src="/images/figma/call.svg" alt="" width={16} height={16} />
           <span className="font-urbanist text-[12px] font-bold leading-[21px] text-white">
             Call
           </span>
@@ -500,7 +497,7 @@ function TaskPanelCard() {
               </span>
               <span className="size-[4px] rounded-full bg-[#7D7C83]" />
               <div className="flex items-center gap-[5px]">
-                <div className="h-[14px] w-[16px] rounded-[2px] bg-[#D9D9D9]" />
+                <Image src="/images/figma/excel-icon.png" alt="CSV file" width={16} height={14} className="h-[14px] w-[16px] rounded-[2px] object-cover" />
                 <span className="font-urbanist text-[11px] font-semibold leading-[16px] text-[#7D7C83]">
                   Stripe_revenue_report.csv
                 </span>
@@ -510,10 +507,8 @@ function TaskPanelCard() {
 
           {/* Status */}
           <div className="flex shrink-0 items-center gap-[9px]">
-            <ProgressDots />
-            <span className="font-urbanist text-[11px] font-semibold leading-[16px] text-white">
-              In Progress
-            </span>
+            <Image src="/images/figma/Frame 1707484350.svg" alt="" width={74} height={16} className="h-[16px] w-auto" />
+            
           </div>
         </div>
 
@@ -558,7 +553,7 @@ function ConnectedAppsCard() {
         <div className="flex items-center gap-[10px]">
           {/* App icon */}
           <div className="flex size-[42px] shrink-0 items-center justify-center rounded-[11px] border border-white/10">
-            <SlackIcon />
+            <Image src="/images/figma/image 12.svg" alt="Slack" width={26} height={26} />
           </div>
 
           {/* App info */}
