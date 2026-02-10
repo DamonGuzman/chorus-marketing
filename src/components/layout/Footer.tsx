@@ -1,13 +1,13 @@
 import Link from "next/link";
-import { Logo, MailIcon, FacebookIcon, XIcon, InstagramIcon } from "@/components/icons";
-import { ButtonLink } from "@/components/ui";
-import { PRIMARY_CTA_HREF, PRIMARY_CTA_LABEL, SUPPORT_EMAIL } from "@/content/site";
+import { Logo, MailIcon, FacebookIcon, XIcon } from "@/components/icons";
 
 const footerLinks = {
   about: {
     title: "ABOUT",
     links: [
-      { label: "Why Chorus?", href: "/#about" },
+
+
+      { label: "Why VocAI?", href: "/#about" },
       { label: "Careers", href: "/careers" },
       { label: "Press", href: "/press" },
       { label: "Privacy Policy", href: "/privacy" },
@@ -17,10 +17,11 @@ const footerLinks = {
   products: {
     title: "PRODUCTS",
     links: [
-      { label: "Agent Builder", href: "/#features" },
-      { label: "Workflows", href: "/#features" },
-      { label: "Integrations", href: "/#integrations" },
-      { label: "Pricing", href: "/#pricing" },
+
+      { label: "Marketing Platform", href: "#" },
+      { label: "Sales Platform", href: "#" },
+      { label: "Client Management", href: "#" },
+      { label: "CMS", href: "#" },
     ],
   },
   community: {
@@ -29,57 +30,53 @@ const footerLinks = {
       { label: "Blog", href: "/blog" },
       { label: "Events", href: "/events" },
       { label: "Partners", href: "/partners" },
-      { label: "Community", href: "/community" },
+      { label: "Community Forum", href: "#" },
     ],
   },
   support: {
     title: "SUPPORT",
     links: [
       { label: "Help Center", href: "/help" },
-      { label: "Contact Us", href: "/contact" },
-      { label: "Chorus API", href: "/api" },
-      { label: "Status", href: "/status" },
-      { label: "Security", href: "/security" },
+      { label: "Contact us", href: "/contact" },
+      { label: "VocAI API", href: "/api" },
+      { label: "Integrations", href: "#integrations" },
+      { label: "Legal", href: "/terms" },
     ],
   },
 };
 
 export function Footer() {
-  const year = new Date().getFullYear();
-
   return (
-    <footer className="bg-black px-[100px] py-[75px]">
-      <div className="max-w-[1240px] mx-auto">
-        {/* Main Footer Content */}
-        <div className="flex flex-col lg:flex-row gap-12 lg:gap-[212px]">
-          {/* Brand Column */}
-          <div className="flex flex-col gap-[50px]">
-            <div className="flex flex-col gap-[42px]">
-              <Logo className="w-[49px] h-[47px] text-white" />
-              {/* Label: 14px, medium, 22px line-height */}
-              <p className="text-[14px] leading-[22px] font-medium text-gray-200 max-w-[354px]">
-                Chorus helps teams deploy autonomous agents that coordinate across your tools to turn goals into completed work.
+    <footer className="bg-black px-[96px] py-[80px]">
+      <div className="w-full flex flex-col gap-[40px]">
+        <div className="flex flex-col lg:flex-row items-start gap-[80px] lg:gap-[208px]">
+          <div className="flex flex-col items-start gap-[48px]">
+            <div className="flex flex-col items-start gap-[40px]">
+              <Logo className="w-[48px] h-[48px] text-white" />
+              <p className="max-w-[380px] text-[14px] leading-[20px] font-medium text-gray-200">
+                Giving modern marketing teams superpowers with short links that stand out.
               </p>
             </div>
-            <ButtonLink href={PRIMARY_CTA_HREF} variant="primary" size="md">
-              {PRIMARY_CTA_LABEL}
-            </ButtonLink>
+            <Link
+              href="#"
+              className="h-[40px] px-[32px] bg-white rounded-[50px] shadow-glow inline-flex items-center justify-center text-black text-[14px] leading-[24px] font-bold"
+            >
+              Get started
+            </Link>
           </div>
 
-          {/* Links Columns */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 lg:gap-[78px]">
+          <div className="flex items-start gap-[80px]">
             {Object.entries(footerLinks).map(([key, section]) => (
-              <div key={key} className="flex flex-col gap-[20px]">
-                {/* Section Label: 16px, semibold, 24px line-height, uppercase */}
-                <h4 className="text-[16px] leading-[24px] font-semibold text-white uppercase font-feature-stylistic">
+              <div key={key} className="flex flex-col items-start gap-[20px]">
+                <h4 className="text-[16px] leading-[24px] font-semibold text-white uppercase">
                   {section.title}
                 </h4>
-                <div className="flex flex-col gap-[22px]">
+                <div className="flex flex-col items-start gap-[20px]">
                   {section.links.map((link) => (
                     <Link
                       key={link.label}
                       href={link.href}
-                      className="text-[14px] leading-[22px] font-medium text-gray-200 hover:text-white transition-colors"
+                      className="text-[14px] leading-[20px] font-medium text-gray-200 hover:text-white transition-colors"
                     >
                       {link.label}
                     </Link>
@@ -90,38 +87,33 @@ export function Footer() {
           </div>
         </div>
 
-        {/* Divider */}
-        <div className="h-px bg-white/20 my-[41px]" />
+        <div className="h-px bg-white/25" />
 
-        {/* Bottom Bar */}
-        <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-          {/* Label: 14px, medium, 22px line-height */}
-          <p className="text-[14px] leading-[22px] font-medium text-gray-300">
-            © {year} chorus Ltd. All rights reserved.
+        <div className="flex flex-col lg:flex-row items-center justify-between gap-[32px]">
+          <p className="text-[14px] leading-[20px] font-medium text-gray-200">
+            © 2026 chorus Ltd. All rights reserved.
           </p>
 
-          <div className="flex items-center gap-[54px]">
-            {/* Email */}
-            <div className="flex items-center gap-[14px]">
-              <MailIcon className="w-6 h-6 text-gray-300" />
+          <div className="flex items-center gap-[56px]">
+            <div className="flex items-center gap-[14px] text-gray-200">
+              <MailIcon className="w-[20px] h-[20px]" />
               <Link
-                href={`mailto:${SUPPORT_EMAIL}`}
-                className="text-[14px] leading-[22px] font-medium text-gray-300 hover:text-white transition-colors"
+                href="mailto:support@vocai.com"
+                className="text-[14px] leading-[20px] font-medium hover:text-white transition-colors"
               >
-                {SUPPORT_EMAIL}
+                support@vocai.com
               </Link>
             </div>
 
-            {/* Social Links */}
-            <div className="flex items-center gap-[16px]">
-              <Link href="/facebook" className="text-gray-300 hover:text-white transition-colors" aria-label="Facebook">
-                <FacebookIcon className="w-[18px] h-[18px]" />
+            <div className="flex items-center gap-[16px] text-gray-200">
+              <Link href="/facebook" className="hover:text-white transition-colors" aria-label="Facebook">
+                <FacebookIcon className="w-[20px] h-[16px] text-gray-200" />
               </Link>
-              <Link href="/x" className="text-gray-300 hover:text-white transition-colors" aria-label="X">
-                <XIcon className="w-[16px] h-[15px]" />
+              <Link href="/x" className="hover:text-white transition-colors" aria-label="X">
+                <XIcon className="w-[16px] h-[16px] text-gray-200" />
               </Link>
-              <Link href="/instagram" className="text-gray-300 hover:text-white transition-colors" aria-label="Instagram">
-                <InstagramIcon className="w-[18px] h-[18px]" />
+              <Link href="/instagram" className="hover:text-white transition-colors" aria-label="Instagram">
+                <img src="/images/icons/instagram.svg" alt="" className="w-[20px] h-[16px]" />
               </Link>
             </div>
           </div>
