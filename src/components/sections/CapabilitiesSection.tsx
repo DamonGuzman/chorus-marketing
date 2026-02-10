@@ -1,86 +1,11 @@
 import { Section } from "@/components/ui";
 import Image from "next/image";
 
-function SalesIcon() {
-  return (
-    <svg aria-hidden viewBox="0 0 24 24" fill="none" className="size-[20px] text-white">
-      <path
-        d="M4 18V6M4 18H20M7 15l3-4 3 2 4-6"
-        stroke="currentColor"
-        strokeWidth="1.8"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
-  );
-}
-
-function FinanceIcon() {
-  return (
-    <svg aria-hidden viewBox="0 0 24 24" fill="none" className="size-[20px] text-white">
-      <path
-        d="M7 8c0-2.2 2.2-4 5-4s5 1.8 5 4-2.2 4-5 4-5-1.8-5-4Z"
-        stroke="currentColor"
-        strokeWidth="1.8"
-      />
-      <path
-        d="M7 8v4c0 2.2 2.2 4 5 4s5-1.8 5-4V8"
-        stroke="currentColor"
-        strokeWidth="1.8"
-      />
-      <path
-        d="M7 12v4c0 2.2 2.2 4 5 4s5-1.8 5-4v-4"
-        stroke="currentColor"
-        strokeWidth="1.8"
-      />
-    </svg>
-  );
-}
-
-function MarketingIcon() {
-  return (
-    <svg aria-hidden viewBox="0 0 24 24" fill="none" className="size-[20px] text-white">
-      <path
-        d="M12 3l7 6v8l-7 6-7-6V9l7-6Z"
-        stroke="currentColor"
-        strokeWidth="1.8"
-        strokeLinejoin="round"
-      />
-      <path
-        d="M9.5 12h5"
-        stroke="currentColor"
-        strokeWidth="1.8"
-        strokeLinecap="round"
-      />
-    </svg>
-  );
-}
-
-function OperationsIcon() {
-  return (
-    <svg aria-hidden viewBox="0 0 24 24" fill="none" className="size-[20px] text-white">
-      <path
-        d="M7 7h.01M17 7h.01M12 12h.01M7 17h.01M17 17h.01"
-        stroke="currentColor"
-        strokeWidth="3"
-        strokeLinecap="round"
-      />
-      <path
-        d="M7 7h10M7 7l5 5M17 7l-5 5M7 17h10M7 17l5-5M17 17l-5-5"
-        stroke="currentColor"
-        strokeWidth="1.8"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
-  );
-}
-
 const capabilityCards = [
-  { name: "Sales", Icon: SalesIcon },
-  { name: "Finance", Icon: FinanceIcon },
-  { name: "Marketing", Icon: MarketingIcon },
-  { name: "Operations", Icon: OperationsIcon },
+  { name: "Sales", iconSrc: "/images/figma/Sales.svg" },
+  { name: "Finance", iconSrc: "/images/figma/Finance.svg" },
+  { name: "Marketing", iconSrc: "/images/figma/Marketing.svg" },
+  { name: "Operations", iconSrc: "/images/figma/Operations.svg" },
 ] as const;
 
 const capabilityDescription = "You don’t have to work in IT or even be tech savvy to use our products.";
@@ -108,12 +33,12 @@ export function CapabilitiesSection() {
           {/* Left: capability cards */}
           <div className="w-full lg:w-[500px]">
             <div className="flex flex-col gap-[20px]">
-              {capabilityCards.map(({ name, Icon }, index) => (
+              {capabilityCards.map(({ name, iconSrc }, index) => (
                 <div
                   key={name}
                   className={[
                     "relative overflow-hidden rounded-[24px] border border-white/35",
-                    "bg-[linear-gradient(180deg,rgba(255,255,255,0.16)_0%,rgba(255,255,255,0.02)_45.19%,rgba(0,0,0,0)_100%)]",
+                    "bg-[linear-gradient(180deg,rgba(255,255,255,0.22)_0%,rgba(255,255,255,0.04)_45.19%,rgba(0,0,0,0)_100%)]",
                     "backdrop-blur-[25px]",
                     "flex items-center",
                     "px-[26px] py-[26px] lg:py-[25.5px] lg:px-[30.6px]",
@@ -124,8 +49,8 @@ export function CapabilitiesSection() {
                   data-figma-node="4229:62744"
                 >
                   <div className="flex items-start gap-[30px]">
-                    <div className="relative grid place-items-center size-[51px] shrink-0 rounded-full bg-white/10 border border-white/25 shadow-[0px_0px_16px_rgba(255,255,255,0.06)]">
-                      <Icon />
+                    <div className="relative grid place-items-center size-[64px] shrink-0">
+                      <Image src={iconSrc} alt="" width={60} height={60} className="size-[120px]" />
                     </div>
 
                     <div className="min-w-0">

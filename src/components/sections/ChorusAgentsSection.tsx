@@ -182,6 +182,22 @@ function CursorArrow({ className = "" }: { className?: string }) {
 }
 
 function CollaborateCard() {
+  const avatarOrbit = [
+    { src: "/images/figma/Ellipse 53.svg", angle: -90 },
+    { src: "/images/figma/Ellipse 54.svg", angle: 30 },
+    { src: "/images/figma/Ellipse 53 (1).svg", angle: 150 },
+  ];
+
+  const labelOrbit = [
+    { label: "Task", angle: 210 },
+    { label: "Chat", angle: -30 },
+    { label: "Goals", angle: 90 },
+  ];
+
+  const avatarRadius = 160;
+  const labelRadius = 210;
+  const arrowRadius = 160;
+
   return (
     <div className="relative flex-1 min-w-0 h-[671px] rounded-[40px] overflow-hidden bg-black">
       <div className="absolute inset-0 rounded-[40px] border border-white/35 pointer-events-none z-40" />
