@@ -1,4 +1,638 @@
-export function HowItWorksSection() {
-  return null;
+import Image from "next/image";
+
+import { Badge, Container, Section } from "@/components/ui";
+import { cn } from "@/lib/utils";
+
+/* ============================================================
+   Step data
+   ============================================================ */
+
+const steps = [
+  {
+    number: "1",
+    title: "AI That Works for Every Role",
+    description:
+      "Create AI agents for any role: SDR, Content Writer, Financial Analyst, Project Manager. Name them. Give them your data. Set their rules.",
+    active: true,
+  },
+  {
+    number: "2",
+    title: "Set the Direction",
+    description:
+      '"Launch our Q4 campaign." "Research 100 prospects and schedule 20 meetings." "Analyze spending and identify $50K in savings." Your AI workforce coordinates automatically—each agent knows its part and how it fits with the others. Just like humans, but faster and without the drama.',
+    active: false,
+  },
+  {
+    number: "3",
+    title: "Watch The Performance",
+    description:
+      "Real-time visibility into what\u2019s happening: emails sent, content created, analysis completed, deals closed. Full transparency. Every agent in sync. Zero micromanagement.",
+    active: false,
+  },
+];
+
+/* ============================================================
+   Small icon components for the agent card
+   ============================================================ */
+
+function BriefcaseIcon({ className }: { className?: string }) {
+  return (
+    <svg
+      className={cn("size-[12px] text-[#7D7C83]", className)}
+      viewBox="0 0 14 14"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      aria-hidden="true"
+    >
+      <rect
+        x="1"
+        y="3.5"
+        width="12"
+        height="9"
+        rx="2"
+        stroke="currentColor"
+        strokeWidth="1.1"
+      />
+      <path
+        d="M4.5 3.5V2.5a1 1 0 011-1h3a1 1 0 011 1v1"
+        stroke="currentColor"
+        strokeWidth="1.1"
+      />
+      <circle cx="7" cy="8" r="1" stroke="currentColor" strokeWidth="1" />
+    </svg>
+  );
 }
 
+function IdCardIcon({ className }: { className?: string }) {
+  return (
+    <svg
+      className={cn("size-[12px] text-[#7D7C83]", className)}
+      viewBox="0 0 14 14"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      aria-hidden="true"
+    >
+      <rect
+        x="1"
+        y="2"
+        width="12"
+        height="10"
+        rx="2"
+        stroke="currentColor"
+        strokeWidth="1.1"
+      />
+      <circle cx="5.5" cy="6" r="1.5" stroke="currentColor" strokeWidth="0.8" />
+      <path
+        d="M3 10c0-1.1.9-2 2-2h1c1.1 0 2 .9 2 2"
+        stroke="currentColor"
+        strokeWidth="0.8"
+      />
+    </svg>
+  );
+}
+
+function CalendarIcon({ className }: { className?: string }) {
+  return (
+    <svg
+      className={cn("size-[12px] text-[#7D7C83]", className)}
+      viewBox="0 0 14 14"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      aria-hidden="true"
+    >
+      <rect
+        x="1.5"
+        y="2"
+        width="11"
+        height="10.5"
+        rx="2"
+        stroke="currentColor"
+        strokeWidth="1.1"
+      />
+      <path d="M1.5 5.5h11" stroke="currentColor" strokeWidth="1.1" />
+      <path d="M4.5 1v2M9.5 1v2" stroke="currentColor" strokeWidth="1.1" />
+    </svg>
+  );
+}
+
+function ChatBubbleIcon({ className }: { className?: string }) {
+  return (
+    <svg
+      className={cn("size-[18px] text-white", className)}
+      viewBox="0 0 20 20"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      aria-hidden="true"
+    >
+      <rect
+        x="1.5"
+        y="2"
+        width="17"
+        height="14"
+        rx="3"
+        stroke="currentColor"
+        strokeWidth="1.4"
+      />
+      <path
+        d="M7 9h6M7 12h3"
+        stroke="currentColor"
+        strokeWidth="1.4"
+        strokeLinecap="round"
+      />
+    </svg>
+  );
+}
+
+function PhoneIcon({ className }: { className?: string }) {
+  return (
+    <svg
+      className={cn("size-[18px] text-white", className)}
+      viewBox="0 0 20 20"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      aria-hidden="true"
+    >
+      <rect
+        x="2"
+        y="2"
+        width="16"
+        height="16"
+        rx="3"
+        stroke="currentColor"
+        strokeWidth="1.2"
+      />
+    </svg>
+  );
+}
+
+function ClipboardIcon({ className }: { className?: string }) {
+  return (
+    <svg
+      className={cn("size-[18px] text-[#7D7C83]", className)}
+      viewBox="0 0 20 20"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      aria-hidden="true"
+    >
+      <rect
+        x="3"
+        y="3"
+        width="14"
+        height="15"
+        rx="2"
+        stroke="currentColor"
+        strokeWidth="1.1"
+      />
+      <path
+        d="M7 2h6v2a1 1 0 01-1 1H8a1 1 0 01-1-1V2z"
+        stroke="currentColor"
+        strokeWidth="1.1"
+      />
+      <path
+        d="M6 9h5M6 12h8"
+        stroke="currentColor"
+        strokeWidth="1.1"
+        strokeLinecap="round"
+      />
+    </svg>
+  );
+}
+
+function FlagIcon({ className }: { className?: string }) {
+  return (
+    <svg
+      className={cn("size-[12px] text-[#7D7C83]", className)}
+      viewBox="0 0 14 14"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      aria-hidden="true"
+    >
+      <path
+        d="M3 2v10M3 2l7 3.5L3 9"
+        stroke="currentColor"
+        strokeWidth="1.2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
+function ChevronRightIcon({ className }: { className?: string }) {
+  return (
+    <svg
+      className={cn("size-[18px] text-[#7D7C83]", className)}
+      viewBox="0 0 20 20"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      aria-hidden="true"
+    >
+      <path
+        d="M8 5l5 5-5 5"
+        stroke="currentColor"
+        strokeWidth="1.6"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
+function FileIcon({ className }: { className?: string }) {
+  return (
+    <svg
+      className={cn("size-[18px] text-[#7D7C83]", className)}
+      viewBox="0 0 20 20"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      aria-hidden="true"
+    >
+      <path
+        d="M4 3a2 2 0 012-2h5l5 5v10a2 2 0 01-2 2H6a2 2 0 01-2-2V3z"
+        stroke="currentColor"
+        strokeWidth="1.1"
+      />
+      <path d="M11 1v5h5" stroke="currentColor" strokeWidth="1.1" />
+    </svg>
+  );
+}
+
+function SlackIcon({ className }: { className?: string }) {
+  return (
+    <svg
+      className={cn("size-[26px]", className)}
+      viewBox="0 0 28 28"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      aria-hidden="true"
+    >
+      <path
+        d="M6.5 16.5a2 2 0 11-2-2h2v2zm1 0a2 2 0 114 0v5a2 2 0 11-4 0v-5z"
+        fill="#E01E5A"
+      />
+      <path
+        d="M11.5 6.5a2 2 0 11-2 2v-2h2zm0 1a2 2 0 110 4h-5a2 2 0 110-4h5z"
+        fill="#36C5F0"
+      />
+      <path
+        d="M21.5 11.5a2 2 0 11-2 2v-2h2zm-1 0a2 2 0 11-4 0v-5a2 2 0 114 0v5z"
+        fill="#2EB67D"
+      />
+      <path
+        d="M16.5 21.5a2 2 0 11-2-2h2v2zm0-1a2 2 0 110-4h5a2 2 0 110 4h-5z"
+        fill="#ECB22E"
+      />
+    </svg>
+  );
+}
+
+/* ============================================================
+   Progress dots (for "In Progress" indicator)
+   ============================================================ */
+
+function ProgressDots() {
+  return (
+    <span className="inline-flex items-center gap-[1px]">
+      {Array.from({ length: 8 }).map((_, i) => (
+        <span
+          key={i}
+          className="rounded-full bg-warning"
+          style={{
+            width: 1.5 + i * 0.2,
+            height: 1.5 + i * 0.2,
+            opacity: 0.6 + i * 0.05,
+          }}
+        />
+      ))}
+    </span>
+  );
+}
+
+/* ============================================================
+   Step item component (left side)
+   ============================================================ */
+
+function StepItem({
+  number,
+  title,
+  description,
+  active,
+  isLast,
+}: {
+  number: string;
+  title: string;
+  description: string;
+  active: boolean;
+  isLast: boolean;
+}) {
+  return (
+    <div className="flex items-stretch gap-6 md:gap-[80px]">
+      {/* Vertical line */}
+      <div className="flex w-[3px] shrink-0 flex-col">
+        <div
+          className={cn(
+            "h-full w-full rounded-full",
+            active ? "bg-[#D9D9D9]" : "bg-transparent"
+          )}
+        />
+      </div>
+
+      {/* Content card */}
+      <div
+        className={cn(
+          "flex-1 rounded-[24px] px-5 py-[30px] pb-5",
+          active ? "bg-white/[0.04]" : ""
+        )}
+      >
+        <div className="flex flex-col gap-5">
+          {/* Number badge + Title */}
+          <div className="flex items-center gap-5">
+            <div
+              className={cn(
+                "flex size-8 shrink-0 items-center justify-center rounded-full bg-white/[0.07]",
+                "text-center font-urbanist text-[16px] font-semibold leading-[24px]",
+                active ? "text-white" : "text-[#7D7C83]"
+              )}
+            >
+              {number}
+            </div>
+            <h3
+              className={cn(
+                "font-urbanist text-[18px] font-bold leading-[28px] md:text-[22px] md:leading-[31px]",
+                active ? "text-white" : "text-[#7D7C83]"
+              )}
+            >
+              {title}
+            </h3>
+          </div>
+
+          {/* Description */}
+          <p className="font-urbanist text-[14px] font-normal leading-[26px] text-[#7D7C83] md:text-[16px] md:leading-[31px]">
+            {description}
+          </p>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+/* ============================================================
+   Agent Card (right side visual)
+   ============================================================ */
+
+function AgentProfileCard() {
+  return (
+    <div
+      className={cn(
+        "w-full overflow-hidden rounded-[35px]",
+        "bg-black/0",
+        "shadow-[0px_4px_53px_rgba(0,0,0,1)]"
+      )}
+      style={{ padding: "31px 10px 3px 27px" }}
+    >
+      {/* Agent header */}
+      <div className="flex items-start gap-[17px]">
+        {/* Avatar placeholder */}
+        <div className="size-[90px] shrink-0 rounded-[18px] bg-[#D9D9D9]" />
+
+        {/* Avatar image */}
+        <Image
+          src="/images/team/member-1.png"
+          alt="Frank"
+          width={91}
+          height={113}
+          className="h-[113px] w-[91px] shrink-0 object-cover"
+        />
+
+        {/* Info */}
+        <div className="flex flex-col gap-[10px]">
+          {/* Name row */}
+          <div className="flex flex-wrap items-center gap-[10px]">
+            <span className="font-urbanist text-[19px] font-bold leading-[30px] text-white">
+              Frank
+            </span>
+            <span className="inline-flex items-center rounded-[4px] border border-white/10 bg-gray-600 px-[5px] py-[5px] font-urbanist text-[9px] font-semibold leading-[17px] text-gray-100">
+              AI Agent
+            </span>
+            <span className="inline-flex items-center rounded-[9px] border border-green px-[6px] py-[6px] font-urbanist text-[11px] font-normal leading-[21px] text-green">
+              Active
+            </span>
+          </div>
+
+          {/* Meta info */}
+          <div className="flex items-center gap-[9px]">
+            <BriefcaseIcon />
+            <span className="font-urbanist text-[12px] font-medium leading-[19px] text-[#7D7C83]">
+              Finance Manager
+            </span>
+          </div>
+          <div className="flex items-center gap-[9px]">
+            <IdCardIcon />
+            <span className="font-urbanist text-[12px] font-medium leading-[19px] text-[#7D7C83]">
+              ID : AGT-RES-2847
+            </span>
+          </div>
+          <div className="flex items-center gap-[9px]">
+            <CalendarIcon />
+            <span className="font-urbanist text-[12px] font-medium leading-[19px] text-[#7D7C83]">
+              Deployed at March 15, 2024
+            </span>
+          </div>
+        </div>
+      </div>
+
+      {/* Action buttons */}
+      <div className="mt-[26px] flex items-center gap-[14px]">
+        <button className="inline-flex items-center gap-[7px] rounded-full bg-gradient-to-br from-purple-400 to-purple-600 px-[13px] py-[10px] pr-[22px] shadow-glow">
+          <ChatBubbleIcon />
+          <span className="font-urbanist text-[12px] font-bold leading-[21px] text-white">
+            Chat
+          </span>
+        </button>
+        <button className="inline-flex items-center gap-[7px] rounded-full border-[2px] border-white/25 px-[28px] py-[10px]">
+          <PhoneIcon />
+          <span className="font-urbanist text-[12px] font-bold leading-[21px] text-white">
+            Call
+          </span>
+        </button>
+      </div>
+    </div>
+  );
+}
+
+/* ============================================================
+   Task Panel Card (overlapping, rotated)
+   ============================================================ */
+
+function TaskPanelCard() {
+  return (
+    <div
+      className="w-full rounded-[27px] bg-[#121212] px-[18px] py-[26px]"
+      style={{
+        boxShadow: "inset 0px 0px 7px rgba(255, 255, 255, 0.27)",
+        transform: "rotate(2deg)",
+      }}
+    >
+      {/* Header */}
+      <div className="flex items-baseline justify-between">
+        <span className="font-urbanist text-[13px] font-bold uppercase leading-[25px] text-gray-100">
+          Current Task (7)
+        </span>
+        <span className="font-urbanist text-[12px] font-semibold leading-[25px] text-[#7D7C83]">
+          View all
+        </span>
+      </div>
+
+      {/* Task item */}
+      <div className="mt-[17px] rounded-[13px] bg-[#1B1B1B] p-[18px]">
+        <div className="flex items-start gap-[10px]">
+          {/* File icon */}
+          <ClipboardIcon className="mt-[1px] shrink-0" />
+
+          {/* Task content */}
+          <div className="flex-1">
+            <p className="font-urbanist text-[12px] font-bold leading-[21px] text-gray-100">
+              Collect revenue data from bank APIs
+            </p>
+            <div className="mt-[10px] flex flex-wrap items-center gap-[10px]">
+              <span className="font-urbanist text-[11px] font-semibold leading-[16px] text-[#7D7C83]">
+                2 hours before
+              </span>
+              <span className="size-[4px] rounded-full bg-[#7D7C83]" />
+              <div className="flex items-center gap-[5px]">
+                <div className="h-[14px] w-[16px] rounded-[2px] bg-[#D9D9D9]" />
+                <span className="font-urbanist text-[11px] font-semibold leading-[16px] text-[#7D7C83]">
+                  Stripe_revenue_report.csv
+                </span>
+              </div>
+            </div>
+          </div>
+
+          {/* Status */}
+          <div className="flex shrink-0 items-center gap-[9px]">
+            <ProgressDots />
+            <span className="font-urbanist text-[11px] font-semibold leading-[16px] text-white">
+              In Progress
+            </span>
+          </div>
+        </div>
+
+        {/* Goal badge */}
+        <div className="mt-[14px] inline-flex items-center gap-[9px] rounded-[11px] border border-white/10 px-[16px] py-[9px]">
+          <FlagIcon />
+          <span className="font-urbanist text-[12px] font-bold leading-[19px] text-[#7D7C83]">
+            Goal :{" "}
+            <span className="leading-[21px]">Track Monthly Revenue</span>
+          </span>
+          <ChevronRightIcon />
+        </div>
+      </div>
+    </div>
+  );
+}
+
+/* ============================================================
+   Connected Apps Card
+   ============================================================ */
+
+function ConnectedAppsCard() {
+  return (
+    <div
+      className="w-full rounded-[27px] bg-[#121212] px-[18px] py-[26px]"
+      style={{
+        boxShadow: "inset 0px 0px 7px rgba(255, 255, 255, 0.27)",
+      }}
+    >
+      {/* Header */}
+      <div className="flex items-baseline justify-between">
+        <span className="font-urbanist text-[13px] font-bold uppercase leading-[25px] text-gray-100">
+          Connected Apps (4)
+        </span>
+        <span className="font-urbanist text-[12px] font-semibold leading-[25px] text-[#7D7C83]">
+          View all
+        </span>
+      </div>
+
+      {/* Slack app item */}
+      <div className="mt-[17px] overflow-hidden rounded-[13px] bg-white/[0.04] p-[10px]">
+        <div className="flex items-center gap-[10px]">
+          {/* App icon */}
+          <div className="flex size-[42px] shrink-0 items-center justify-center rounded-[11px] border border-white/10">
+            <SlackIcon />
+          </div>
+
+          {/* App info */}
+          <div className="flex flex-col gap-[9px]">
+            <span className="font-urbanist text-[14px] font-bold leading-[25px] text-white">
+              Slack
+            </span>
+            <div className="flex items-center gap-[5px]">
+              <FileIcon className="size-[14px]" />
+              <span className="font-urbanist text-[11px] font-medium text-[#7D7C83]">
+                3 tasks in progress
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+/* ============================================================
+   Main Section Export
+   ============================================================ */
+
+export function HowItWorksSection() {
+  return (
+    <Section
+      className="relative overflow-hidden py-[60px] md:py-[75px]"
+      id="how-it-works"
+    >
+      <Container>
+        <div className="mx-auto flex flex-col items-center gap-[57px]">
+          {/* ---- Header ---- */}
+          <div className="flex flex-col items-center gap-[24px]">
+            <Badge>Our Process</Badge>
+
+            <div className="flex flex-col items-center gap-[16px]">
+              <h2 className="text-center text-[36px] font-bold leading-[1.3] tracking-[-0.5px] text-white md:text-[50px] md:leading-[78px]">
+                How It Works
+              </h2>
+              <p className="max-w-[700px] text-center font-urbanist text-[18px] font-normal leading-[30px] text-[#7D7C83] md:text-[22px] md:leading-[36px]">
+                The best way to reach humans instead of spam folders. Deliver
+                transactional and marketing emails at scale.
+              </p>
+            </div>
+          </div>
+
+          {/* ---- Content ---- */}
+          <div className="w-full overflow-hidden rounded-[30px] bg-white/[0.06] px-4 py-[40px] md:py-[47px] md:pr-[30px] md:pb-[30px] md:pl-0">
+            <div className="flex flex-col gap-[40px] lg:flex-row lg:items-start lg:gap-[40px] xl:gap-[63px]">
+              {/* Left: Steps */}
+              <div className="flex w-full flex-col gap-0 lg:max-w-[480px] lg:shrink-0">
+                {steps.map((step, idx) => (
+                  <StepItem
+                    key={step.number}
+                    number={step.number}
+                    title={step.title}
+                    description={step.description}
+                    active={step.active}
+                    isLast={idx === steps.length - 1}
+                  />
+                ))}
+              </div>
+
+              {/* Right: Agent card visual stack */}
+              <div className="relative flex min-w-0 flex-1 flex-col gap-[22px]">
+                <AgentProfileCard />
+                <TaskPanelCard />
+                <ConnectedAppsCard />
+              </div>
+            </div>
+          </div>
+        </div>
+      </Container>
+    </Section>
+  );
+}

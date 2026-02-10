@@ -130,23 +130,21 @@ export function CapabilitiesSection() {
           {/* Right: team preview */}
           <div className="w-full lg:w-[700px]">
             <div className="relative">
-              {/* Floating icons */}
+              {/* Floating emoji orbs */}
               <div aria-hidden className="pointer-events-none hidden lg:block">
-                <div className="absolute left-1/2 top-0 -translate-x-1/2 -translate-y-1/2 grid place-items-center size-[84px] rounded-full border border-white/25 bg-white/10 shadow-[inset_0px_0px_10px_rgba(255,255,255,0.16)]">
-                  <div className="grid place-items-center size-[44px] rounded-full border border-white/20 bg-white/10">
-                    <SalesIcon />
-                  </div>
+                <div className="absolute left-1/2 top-0 -translate-x-1/2 -translate-y-1/2 z-10 grid place-items-center size-[84px] rounded-full bg-[#202020] shadow-[inset_0px_0px_5px_rgba(255,255,255,0.55),0px_4px_25px_rgba(0,0,0,0.25)]">
+                  <span className="text-[34px] leading-none">📈</span>
                 </div>
 
-                <div className="absolute left-0 top-1/2 -translate-x-1/2 -translate-y-1/2 grid place-items-center size-[84px] rounded-full border border-white/25 bg-white/10 shadow-[inset_0px_0px_10px_rgba(255,255,255,0.16)]">
+                <div className="absolute left-0 top-[55%] -translate-x-1/2 -translate-y-1/2 z-10 grid place-items-center size-[84px] rounded-full bg-[#202020] shadow-[inset_0px_0px_5px_rgba(255,255,255,0.55),0px_4px_25px_rgba(0,0,0,0.25)]">
                   <span className="text-[34px] leading-none">🧠</span>
                 </div>
 
-                <div className="absolute right-0 top-1/2 translate-x-1/2 -translate-y-1/2 grid place-items-center size-[84px] rounded-full border border-white/25 bg-white/10 shadow-[inset_0px_0px_10px_rgba(255,255,255,0.16)]">
+                <div className="absolute right-0 top-[30%] translate-x-1/2 -translate-y-1/2 z-10 grid place-items-center size-[84px] rounded-full bg-[#202020] shadow-[inset_0px_0px_5px_rgba(255,255,255,0.55),0px_4px_25px_rgba(0,0,0,0.25)]">
                   <span className="text-[34px] leading-none">🥳</span>
                 </div>
 
-                <div className="absolute right-[90px] bottom-0 translate-y-1/2 grid place-items-center size-[84px] rounded-full border border-white/25 bg-white/10 shadow-[inset_0px_0px_10px_rgba(255,255,255,0.16)]">
+                <div className="absolute right-[60px] bottom-0 translate-y-1/2 z-10 grid place-items-center size-[84px] rounded-full bg-[#202020] shadow-[inset_0px_0px_5px_rgba(255,255,255,0.55),0px_4px_25px_rgba(0,0,0,0.25)]">
                   <span className="text-[30px] leading-none">🚀</span>
                 </div>
               </div>
@@ -235,10 +233,10 @@ export function CapabilitiesSection() {
 
                 {/* Copy */}
                 <div className="mt-[64px]">
-                  <h3 className="text-[32px] sm:text-[36px] font-bold leading-[1.1] text-white">
+                  <h3 className="text-[24px] sm:text-[27px] font-bold leading-[31px] text-[#CBCACC]">
                     AI That Works for Every Role
                   </h3>
-                  <p className="mt-[18px] text-[15px] leading-[1.8] text-[#757575] max-w-[520px]">
+                  <p className="mt-[18px] text-[16px] sm:text-[19px] leading-[31px] font-normal text-[#7D7C83] max-w-[428px]">
                     Automate strategy, execution, and insights across teams—marketing, sales, finance, and beyond—so your people focus on goals, not busywork.
                   </p>
                 </div>
