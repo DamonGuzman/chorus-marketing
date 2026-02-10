@@ -13,7 +13,7 @@ function GlassCard({
   return (
     <div
       className={cn(
-        "relative overflow-hidden rounded-[35px]",
+        "relative overflow-hidden rounded-[24px]",
         "border border-white/10",
         "bg-gradient-to-b from-white/5 via-white/[0.02] to-transparent",
         "backdrop-blur-[30px]",
@@ -39,8 +39,8 @@ function InlinePill({
       className={cn(
         "inline-flex items-center justify-center",
         "rounded-full border border-white/15 bg-white/[0.03]",
-        "px-[12px] py-[2px]",
-        "font-feature-stylistic text-[16px] font-semibold leading-[24px] text-white",
+        "px-[10px] py-[2px]",
+        "font-feature-stylistic text-[14px] font-semibold leading-[22px] text-white",
         className
       )}
     >
@@ -108,93 +108,112 @@ function RocketIcon({ className }: { className?: string }) {
 
 function RadarCard() {
   return (
-    <GlassCard className="h-[312px] w-full max-w-[406px]">
-      <div className="relative h-full w-full p-[20px]">
-        <div className="relative mx-auto size-[260px]">
-          {/* Outer orbits with refined styling */}
-          <div className="absolute inset-0 rounded-full border-[0.54px] border-white/10" />
-          <div className="absolute inset-[22px] rounded-full border-[0.54px] border-white/10" />
-          {/* Innermost orbit with Figma styling */}
+    <GlassCard className="h-[250px] w-full max-w-[290px] !overflow-visible">
+      <div className="relative flex h-full w-full items-center justify-center">
+        {/* Orbital system container */}
+        <div className="relative size-[200px]">
+          {/* Outer orbit ring */}
+          <div className="absolute inset-0 rounded-full border-[0.6px] border-white/[0.08]" />
+          
+          {/* Middle orbit ring */}
+          <div className="absolute inset-[26px] rounded-full border-[0.6px] border-white/[0.10]" />
+          
+          {/* Inner orbit ring with glow */}
           <div 
-            className="absolute inset-[48px] rounded-full"
+            className="absolute inset-[50px] rounded-full"
             style={{
               border: '1.47px solid rgba(255, 255, 255, 0.06)',
-              background: 'linear-gradient(180deg, rgba(255, 255, 255, 0.06) 0%, rgba(255, 255, 255, 0.18) 50%, rgba(255, 255, 255, 0.05) 100%)',
-              backdropFilter: 'blur(88.18px)',
-              transform: 'rotate(2.69deg)'
+              background: 'linear-gradient(180deg, rgba(255, 255, 255, 0.04) 0%, rgba(255, 255, 255, 0.12) 50%, rgba(255, 255, 255, 0.04) 100%)',
+              backdropFilter: 'blur(88px)',
             }}
           />
 
+          {/* Center rocket circle */}
           <div 
-            className="absolute left-1/2 top-1/2 size-[84px] -translate-x-1/2 -translate-y-1/2 rounded-full flex items-center justify-center"
+            className="absolute left-1/2 top-1/2 flex size-[58px] -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full"
             style={{
               border: '1.47px solid rgba(255, 255, 255, 0.06)',
-              background: 'rgba(255, 255, 255, 0.03)'
+              background: 'rgba(255, 255, 255, 0.05)',
             }}
           >
             <img 
               src="/images/figma/rocket.svg" 
               alt="Rocket" 
-              className="w-[44px] h-[44px]"
+              className="h-[28px] w-[28px]"
             />
           </div>
 
-          {/* Sweep gradient effect - in front of rocket with exact Figma styling */}
+          {/* Sweep gradient overlay */}
           <div 
-            className="absolute inset-0 rounded-full pointer-events-none"
+            className="pointer-events-none absolute inset-0 rounded-full"
             style={{
               background: 'linear-gradient(180deg, #FBFBFB 0%, #958595 12%, #252525 20%)',
               transform: 'rotate(86.79deg)',
               boxShadow: '0px 3.75px 3.75px 0px rgba(0, 0, 0, 0.25)',
               mixBlendMode: 'soft-light',
-              opacity: 0.3
+              opacity: 0.3,
             }}
           />
 
-          <Avatar
-            src="/images/team/member-1.png"
-            alt="Team member"
-            className="absolute left-1/2 top-[-6px] size-[42px] -translate-x-1/2 border-white/20"
-          />
-          <Avatar
-            src="/images/team/member-2.png"
-            alt="Team member"
-            className="absolute left-[12px] top-1/2 size-[42px] -translate-y-1/2 border-white/20"
-          />
-          <Avatar
-            src="/images/team/member-4.png"
-            alt="Team member"
-            className="absolute right-[12px] top-1/2 size-[42px] -translate-y-1/2 border-white/20"
-          />
-
-          {/* Cursor icons - on 2nd orbit circle pointing inward as in Figma */}
-          <div className="absolute top-[105px] left-[22px]">
-            <img 
-              src="/images/figma/cursor-02.svg" 
-              alt="" 
-              className="w-[26px] h-[26px] rotate-[135deg]"
-            />
+          {/* Avatar: top center on outer orbit (~12 o'clock) - blue border */}
+          <div className="absolute left-1/2 top-[-6px] -translate-x-1/2">
+            <div className="size-[38px] overflow-hidden rounded-full border-[2px] border-[#5B6ABF]">
+              <img 
+                src="/images/figma/4229-62012/imgEllipse54.png" 
+                alt="Team member" 
+                className="h-full w-full object-cover"
+              />
+            </div>
           </div>
-          <div className="absolute bottom-[40px] right-[22px]">
-            <img 
-              src="/images/figma/cursor-02.svg" 
-              alt="" 
-              className="w-[26px] h-[26px] rotate-[-45deg]"
-            />
-          </div>
-        </div>
 
-        <div className="absolute left-[10px] top-1/2 -translate-y-1/2">
-          <div className="relative inline-flex items-center rounded-full border border-white/10 bg-white/[0.04] px-[14px] py-[6px] text-[12px] font-semibold text-[#CBCACC]">
-            AI Agents
-            <span className="absolute right-[-6px] top-1/2 size-[12px] -translate-y-1/2 rotate-45 bg-white/[0.04] border-r border-t border-white/10" />
+          {/* Avatar: bottom-left on outer orbit (~7-8 o'clock) - red border */}
+          <div className="absolute bottom-[10px] left-[-2px]">
+            <div className="size-[38px] overflow-hidden rounded-full border-[2px] border-[#E05A5A]">
+              <img 
+                src="/images/figma/4229-62012/imgEllipse55.png" 
+                alt="AI Agent" 
+                className="h-full w-full object-cover"
+              />
+            </div>
           </div>
-        </div>
 
-        <div className="absolute right-[10px] top-1/2 -translate-y-1/2">
-          <div className="relative inline-flex items-center rounded-full border border-white/10 bg-white/[0.04] px-[14px] py-[6px] text-[12px] font-semibold text-[#CBCACC]">
-            <span className="absolute left-[-6px] top-1/2 size-[12px] -translate-y-1/2 rotate-45 bg-white/[0.04] border-b border-l border-white/10" />
-            Team members
+          {/* Avatar: right on outer orbit (~3 o'clock) - purple border */}
+          <div className="absolute right-[-6px] top-[38%] -translate-y-1/2">
+            <div className="size-[38px] overflow-hidden rounded-full border-[2px] border-[#9B6EC7]">
+              <img 
+                src="/images/figma/4229-62012/imgEllipse56.png" 
+                alt="Team member" 
+                className="h-full w-full object-cover"
+              />
+            </div>
+          </div>
+
+          {/* AI Agents label + cursor icon: upper-left (~10 o'clock) */}
+          <div className="absolute left-[-16px] top-[30%] -translate-y-1/2">
+            <div className="flex items-center gap-[4px]">
+              <div className="inline-flex items-center rounded-[6px] bg-[#3A3A3C] px-[10px] py-[4px] text-[10px] font-bold text-white shadow-sm">
+                AI Agents
+              </div>
+              <img 
+                src="/images/figma/cursor-02.svg" 
+                alt="" 
+                className="h-[16px] w-[16px] rotate-[10deg] opacity-70"
+              />
+            </div>
+          </div>
+
+          {/* Team members label + cursor icon: lower-right (~5 o'clock) */}
+          <div className="absolute bottom-[14px] right-[-12px]">
+            <div className="flex items-center gap-[4px]">
+              <img 
+                src="/images/figma/cursor-02.svg" 
+                alt="" 
+                className="h-[16px] w-[16px] rotate-[190deg] opacity-70"
+              />
+              <div className="inline-flex items-center rounded-[6px] bg-[#3A3A3C] px-[10px] py-[4px] text-[10px] font-bold text-white shadow-sm">
+                Team members
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -204,8 +223,8 @@ function RadarCard() {
 
 function GoalCard() {
   return (
-    <div className="rounded-[22px] border border-white/10 bg-white/[0.03] px-[16px] py-[14px]">
-      <div className="flex items-start justify-between gap-[14px]">
+    <div className="rounded-[14px] border border-white/10 bg-white/[0.03] px-[14px] py-[12px]">
+      <div className="flex items-start justify-between gap-[10px]">
         <div className="min-w-0">
           <p className="font-feature-stylistic text-[14px] font-semibold leading-[22px] text-[#CBCACC]">
             Track Monthly Revenue
@@ -252,7 +271,7 @@ function GoalCard() {
 
 function TasksCard() {
   return (
-    <GlassCard className="w-full max-w-[360px] px-[18px] py-[18px]">
+    <GlassCard className="w-full max-w-[270px] px-[14px] py-[14px]">
       <div className="flex items-center gap-[10px] text-[#CBCACC]">
         <span className="inline-flex size-[18px] items-center justify-center rounded-full border border-white/15">
           <span className="size-[10px] rounded-full border-2 border-dashed border-[#CBCACC]/60" />
@@ -265,8 +284,8 @@ function TasksCard() {
       <div className="mt-[14px] space-y-[12px]">
         <GoalCard />
 
-        <div className="relative rounded-[22px] border border-white/10 bg-white/[0.03] px-[16px] py-[14px]">
-          <div className="absolute left-[8px] top-[14px] size-[18px] rounded-full border border-white/10 bg-white/[0.03]" />
+        <div className="relative rounded-[14px] border border-white/10 bg-white/[0.03] px-[14px] py-[12px]">
+          <div className="absolute left-[8px] top-[12px] size-[16px] rounded-full border border-white/10 bg-white/[0.03]" />
 
           <div className="flex items-center justify-between gap-[10px]">
             <div className="inline-flex items-center gap-[8px] rounded-full border border-white/10 bg-white/[0.03] px-[10px] py-[6px]">
@@ -312,7 +331,7 @@ function TasksCard() {
 
 function AgentCard() {
   return (
-    <GlassCard className="h-[324px] w-full max-w-[415px] px-[22px] py-[20px]">
+    <GlassCard className="h-[240px] w-full max-w-[290px] px-[16px] py-[14px]">
       <div className="flex items-center gap-[10px]">
         <Avatar
           src="/images/team/member-1.png"
@@ -323,7 +342,7 @@ function AgentCard() {
           <span className="font-feature-stylistic text-[15px] font-bold leading-[22px] text-white">
             Frank
           </span>
-          <span className="rounded-full bg-white/[0.04] px-[10px] py-[4px] font-feature-stylistic text-[11px] font-semibold leading-[16px] text-[#CBCACC]">
+          <span className="rounded-full border border-white/10 bg-white/[0.04] px-[10px] py-[3px] font-feature-stylistic text-[11px] font-semibold leading-[16px] text-[#CBCACC]">
             AI Agent
           </span>
           <span className="font-feature-stylistic text-[12px] font-medium leading-[18px] text-[#7D7C83]">
@@ -332,13 +351,13 @@ function AgentCard() {
         </div>
       </div>
 
-      <div className="mt-[18px] space-y-[10px]">
-        <div className="h-[14px] w-full rounded-full bg-white/[0.06]" />
-        <div className="h-[14px] w-[92%] rounded-full bg-white/[0.05]" />
-        <div className="h-[14px] w-[84%] rounded-full bg-white/[0.04]" />
+      <div className="mt-[14px] space-y-[8px]">
+        <div className="h-[12px] w-full rounded-full bg-white/[0.06]" />
+        <div className="h-[12px] w-[92%] rounded-full bg-white/[0.05]" />
+        <div className="h-[12px] w-[84%] rounded-full bg-white/[0.04]" />
       </div>
 
-      <div className="mt-[18px] flex items-center gap-[10px] rounded-[16px] bg-white/[0.03] px-[14px] py-[12px]">
+      <div className="mt-[14px] flex items-center gap-[10px] rounded-[12px] bg-white/[0.03] px-[12px] py-[10px]">
         <svg
           className="size-[16px] text-[#7D7C83]"
           viewBox="0 0 24 24"
@@ -358,12 +377,12 @@ function AgentCard() {
         </p>
       </div>
 
-      <div className="mt-[16px] space-y-[12px]">
-        <div className="flex items-center gap-[12px]">
-          <div className="size-[22px] rounded-full border border-white/10 bg-white/[0.03]" />
-          <div className="h-[18px] flex-1 rounded-[12px] bg-white/[0.04]" />
+      <div className="mt-[12px] space-y-[10px]">
+        <div className="flex items-center gap-[10px]">
+          <div className="size-[20px] rounded-full border border-white/10 bg-white/[0.03]" />
+          <div className="h-[14px] flex-1 rounded-[10px] bg-white/[0.04]" />
         </div>
-        <div className="h-[14px] w-[88%] rounded-full bg-white/[0.03]" />
+        <div className="h-[12px] w-[88%] rounded-full bg-white/[0.03]" />
       </div>
     </GlassCard>
   );
@@ -401,42 +420,51 @@ export function AIWorkforceSection() {
           </p>
         </div>
 
-        <div className="relative mt-[62px] lg:mt-[71px]">
-          <div className="hidden lg:block">
-            <p className="absolute left-[100px] mt-[-12px] text-[20px] leading-[28px] font-medium text-white/55">
-              You don&apos;t coordinate. You{" "}
-              <InlinePill className="mx-[6px]">orchestrate</InlinePill>
+        <div className="relative mt-[62px] md:mt-[71px]">
+          <div className="hidden md:flex md:items-center md:justify-between md:px-[30px]">
+            <p className="text-[16px] leading-[24px] font-medium tracking-[-0.2px] text-white/50">
+              You don&apos;t coordinate.You{" "}
+              <InlinePill className="mx-[3px] text-[14px]">orchestrate</InlinePill>
             </p>
-            <p className="absolute right-[100px] mt-[-12px] text-[20px] leading-[28px] font-medium text-white/55">
+            <p className="text-[16px] leading-[24px] font-medium tracking-[-0.2px] text-white/50">
               They{" "}
-              <InlinePill className="mx-[6px]">execute</InlinePill>. They{" "}
-              <InlinePill className="mx-[6px]">deliver</InlinePill>.
+              <InlinePill className="mx-[3px] text-[14px]">execute</InlinePill>.{" "}
+              They{" "}
+              <InlinePill className="mx-[3px] text-[14px]">deliver</InlinePill>.
             </p>
           </div>
 
-          <div className="grid gap-[22px] lg:relative lg:h-[420px] lg:gap-0 lg:[perspective:1200px]">
-            <div className="lg:hidden text-center text-[18px] leading-[26px] font-medium text-white/55">
+          {/* Mobile: stacked layout */}
+          <div className="flex flex-col items-center gap-[22px] md:hidden">
+            <div className="text-center text-[18px] leading-[26px] font-medium text-white/55">
               You don&apos;t coordinate. You <InlinePill>orchestrate</InlinePill>
             </div>
-            <div className="lg:absolute lg:left-0 lg:top-[56px] lg:rotate-[-10deg] lg:[transform-style:preserve-3d]">
-              <RadarCard />
-            </div>
+            <RadarCard />
 
-            <div className="lg:hidden text-center text-[18px] leading-[26px] font-medium text-white/55">
+            <div className="text-center text-[18px] leading-[26px] font-medium text-white/55">
               They <InlinePill>execute</InlinePill>. They{" "}
               <InlinePill>deliver</InlinePill>.
             </div>
-            <div className="lg:absolute lg:left-1/2 lg:top-[44px] lg:-translate-x-1/2 lg:rotate-[8deg] lg:[transform-style:preserve-3d]">
+            <AgentCard />
+            <TasksCard />
+          </div>
+
+          {/* Desktop: horizontal row with rotations matching Figma */}
+          <div className="hidden md:flex md:h-[320px] md:items-center md:justify-center md:gap-[18px] md:px-[20px]">
+            <div className="mt-[10px] rotate-[-3deg] [transform-style:preserve-3d]">
+              <RadarCard />
+            </div>
+            <div className="mt-[-6px] rotate-[0deg] [transform-style:preserve-3d]">
               <AgentCard />
             </div>
-
-            <div className="lg:absolute lg:right-0 lg:top-[74px] lg:rotate-[10deg] lg:[transform-style:preserve-3d]">
+            <div className="mt-[10px] rotate-[3deg] [transform-style:preserve-3d]">
               <TasksCard />
             </div>
           </div>
 
-          <p className="mt-[32px] text-center text-[18px] leading-[26px] font-medium text-white/55 md:text-[20px] md:leading-[28px]">
-            Skip management. <InlinePill>Set goals.</InlinePill>
+          <p className="mt-[28px] text-center text-[16px] leading-[24px] font-medium tracking-[-0.2px] text-white/50 md:text-[16px] md:leading-[24px]">
+            Skip management.{" "}
+            <InlinePill className="text-[14px]">Set goals.</InlinePill>
           </p>
         </div>
       </Container>
