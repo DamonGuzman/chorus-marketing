@@ -171,72 +171,138 @@ function GoalsCard() {
    CARD 2 — "They collaborate with each other"
    Robot center, avatar orbit, cursor+label pills
    ═══════════════════════════════════════════════════════════ */
+
+/* Cursor arrow SVG pointing toward center */
+function CursorArrow({ className = "" }: { className?: string }) {
+  return (
+    <svg width="14" height="18" viewBox="0 0 14 18" fill="none" className={`shrink-0 ${className}`}>
+      <path d="M1 1L13 9L7 11L4.5 17L1 1Z" fill="white" fillOpacity="0.85" />
+    </svg>
+  );
+}
+
 function CollaborateCard() {
   return (
     <div className="relative flex-1 min-w-0 h-[671px] rounded-[40px] overflow-hidden bg-black">
       <div className="absolute inset-0 rounded-[40px] border border-white/35 pointer-events-none z-40" />
-      <div className="absolute inset-0" style={{ background: "linear-gradient(180deg, rgba(0,0,0,0.78) 0%, black 100%)" }} />
 
-      {/* ── Orbit rings ── */}
-      <div className="absolute inset-0 z-[5] flex items-center justify-center" style={{ top: "-40px" }}>
-        <div className="absolute w-[420px] h-[410px] -rotate-3 rounded-full border-[2.5px] border-white/5" />
+      {/* Background gradient */}
+      <div className="absolute inset-0" style={{ background: "linear-gradient(180deg, #0a0a0a 0%, #080808 50%, #0d0d0d 100%)" }} />
+
+      {/* Landscape / terrain texture band near the bottom */}
+      <div
+        className="absolute inset-x-0 bottom-[130px] h-[100px] z-[3] opacity-40"
+        style={{
+          background: "linear-gradient(180deg, transparent 0%, rgba(40,35,25,0.35) 30%, rgba(30,25,15,0.25) 70%, transparent 100%)",
+        }}
+      />
+      {/* Subtle wavy/rocky ridge */}
+      <div
+        className="absolute inset-x-0 bottom-[140px] h-[50px] z-[3] opacity-20"
+        style={{
+          background: "radial-gradient(ellipse 80% 100% at 50% 100%, rgba(60,50,30,0.5) 0%, transparent 70%)",
+        }}
+      />
+
+      {/* Bottom fade to black for text readability */}
+      <div
+        className="absolute inset-0 z-[4] pointer-events-none"
+        style={{
+          background: "linear-gradient(180deg, transparent 0%, transparent 60%, rgba(0,0,0,0.7) 75%, black 88%)",
+        }}
+      />
+
+      {/* ── Orbit rings ── centered in the visual area (above text zone) */}
+      <div className="absolute inset-x-0 top-0 bottom-[170px] z-[5] flex items-center justify-center">
+        {/* Outermost orbit ring (new) */}
+        <div className="absolute w-[480px] h-[468px] rounded-full border-[2px] border-white/[0.03]" />
+        {/* Second orbit ring */}
+        <div className="absolute w-[380px] h-[370px] rounded-full border-[2px] border-white/[0.04]" />
+        {/* Middle gradient ring */}
         <div
-          className="absolute w-[320px] h-[330px] rounded-full"
-          style={{ background: "linear-gradient(297deg, rgba(251,251,251,0.10) 0%, rgba(149,149,149,0.02) 100%)" }}
+          className="absolute w-[290px] h-[280px] rounded-full"
+          style={{ background: "linear-gradient(297deg, rgba(251,251,251,0.08) 0%, rgba(149,149,149,0.02) 100%)" }}
         />
-        <div className="absolute w-[260px] h-[253px] -rotate-3 rounded-full border-[2.5px] border-white/10" />
+        {/* Inner orbit ring */}
+        <div className="absolute w-[230px] h-[224px] rounded-full border-[2px] border-white/[0.08]" />
+        {/* Core glow */}
         <div
-          className="absolute w-[140px] h-[134px] -rotate-3 rounded-full"
-          style={{ background: "linear-gradient(166deg, rgba(207,207,207,0.04) 0%, rgba(92,92,92,0.35) 100%)", backdropFilter: "blur(60px)" }}
+          className="absolute w-[130px] h-[126px] rounded-full"
+          style={{ background: "linear-gradient(166deg, rgba(207,207,207,0.04) 0%, rgba(92,92,92,0.30) 100%)", backdropFilter: "blur(60px)" }}
         />
 
-        {/* Bot icon center — actual Figma asset */}
+        {/* Bot icon center */}
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           src="/images/figma/Group 1707484101.svg"
           alt="AI Bot"
-          className="absolute w-[155px] h-[148px] -rotate-3"
+          className="absolute w-[80px] h-[76px]"
         />
 
-        {/* Orbiting avatar photos — actual Figma assets */}
-        <div className="absolute" style={{ top: "5%", left: "50%", transform: "translateX(-50%)" }}>
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/images/figma/Ellipse 53.svg" alt="" className="w-[50px] h-[50px] rounded-full" />
+        {/* ── Orbiting avatars with colored ring borders ── */}
+        {/* Top avatar — man with dark hair, blue/purple ring */}
+        <div className="absolute" style={{ top: "2%", left: "50%", transform: "translateX(-50%)" }}>
+          <div className="w-[60px] h-[60px] rounded-full p-[3px]" style={{ background: "linear-gradient(135deg, #6366F1, #8B5CF6)" }}>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src="/images/figma/Ellipse 53.svg" alt="" className="w-full h-full rounded-full object-cover" />
+          </div>
         </div>
-        <div className="absolute" style={{ top: "28%", right: "5%" }}>
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/images/figma/Ellipse 54.svg" alt="" className="w-[70px] h-[68px] -rotate-3" />
+
+        {/* Right avatar — woman, pink/purple ring */}
+        <div className="absolute" style={{ top: "35%", right: "2%" }}>
+          <div className="w-[64px] h-[64px] rounded-full p-[3px]" style={{ background: "linear-gradient(135deg, #C084FC, #A855F7)" }}>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src="/images/figma/Ellipse 54.svg" alt="" className="w-full h-full rounded-full object-cover" />
+          </div>
         </div>
-        <div className="absolute" style={{ bottom: "32%", left: "5%" }}>
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/images/figma/Ellipse 53 (1).svg" alt="" className="w-[70px] h-[68px] -rotate-3" />
+
+        {/* Bottom-left avatar — woman, red ring */}
+        <div className="absolute" style={{ bottom: "18%", left: "5%" }}>
+          <div className="w-[64px] h-[64px] rounded-full p-[3px] overflow-hidden" style={{ background: "linear-gradient(135deg, #EF4444, #DC2626)" }}>
+            <div className="w-full h-full rounded-full overflow-hidden">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/images/figma/Ellipse 53 (1).svg" alt="" className="w-full h-full rounded-full object-cover scale-[0.85]" />
+            </div>
+          </div>
         </div>
       </div>
 
       {/* ── Label pills with cursor arrows ── */}
-      <div className="absolute z-20" style={{ top: "30%", left: "10%" }}>
-        <div className="flex items-center gap-1">
-          <svg width="20" height="24" viewBox="0 0 20 24" fill="none"><path d="M2 2L18 12L10 14L6 22L2 2Z" fill="white"/></svg>
+
+      {/* Sales Agent — top center, label then arrow pointing downward */}
+      <div className="absolute z-20" style={{ top: "6%", left: "46%", transform: "translateX(-50%)" }}>
+        <div className="flex items-end gap-[4px]">
           <div className="px-[10px] py-[4px] bg-gray-600 rounded-[7px] border border-white/10">
-            <span className="text-white text-[16px] font-semibold leading-[30px]">Task</span>
+            <span className="text-white text-[14px] font-semibold leading-[26px]">Sales Agent</span>
           </div>
+          <CursorArrow className="rotate-[160deg] mb-[-4px]" />
         </div>
       </div>
-      <div className="absolute z-20" style={{ top: "15%", right: "8%" }}>
-        <div className="px-[10px] py-[4px] bg-gray-600 rounded-[7px] border border-white/10">
-          <span className="text-white text-[16px] font-semibold leading-[30px]">Chat</span>
+
+      {/* Finance Agent — left side, label then arrow pointing right */}
+      <div className="absolute z-20" style={{ top: "34%", left: "3%" }}>
+        <div className="flex items-center gap-[4px]">
+          <div className="px-[10px] py-[4px] bg-gray-600 rounded-[7px] border border-white/10">
+            <span className="text-white text-[14px] font-semibold leading-[26px]">Finance Agent</span>
+          </div>
+          <CursorArrow className="rotate-[0deg]" />
         </div>
       </div>
-      <div className="absolute z-20" style={{ bottom: "32%", right: "20%" }}>
-        <div className="px-[10px] py-[4px] bg-gray-600 rounded-[7px] border border-white/10">
-          <span className="text-white text-[16px] font-semibold leading-[30px]">Goals</span>
+
+      {/* UX Manager — bottom right, label then arrow pointing up-left */}
+      <div className="absolute z-20" style={{ bottom: "25%", right: "6%" }}>
+        <div className="flex items-end gap-[4px]">
+          <div className="px-[10px] py-[4px] bg-gray-600 rounded-[7px] border border-white/10">
+            <span className="text-white text-[14px] font-semibold leading-[26px]">UX Manager</span>
+          </div>
+          <CursorArrow className="rotate-[210deg] mb-[-2px]" />
         </div>
       </div>
 
       {/* ── Title + desc ── */}
-      <div className="absolute bottom-0 inset-x-0 z-30 flex flex-col items-center gap-1 pb-6 px-6">
-        <h3 className="text-white text-[26px] font-bold leading-[40px] text-center">They collaborate with each other</h3>
-        <p className="text-gray-300 text-[16px] font-bold leading-[26px] text-center max-w-[440px]">
+      <div className="absolute bottom-0 inset-x-0 z-30 flex flex-col items-center gap-[10px] pb-8 px-6">
+        <h3 className="text-white text-[26px] font-bold leading-[36px] text-center">They collaborate with each other</h3>
+        <p className="text-gray-300 text-[16px] font-medium leading-[26px] text-center max-w-[420px]">
           The best way to reach humans instead of spam folders. Deliver transactional and marketing emails at scale.
         </p>
       </div>

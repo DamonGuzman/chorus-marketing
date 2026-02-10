@@ -108,6 +108,12 @@
   }
 }
 
+/* ── Orbital integration animation ── */
+@keyframes center-pulse {
+  0%, 100% { box-shadow: 0 0 40px 8px rgba(255, 130, 120, 0.25), 0 0 80px 20px rgba(255, 130, 120, 0.10); }
+  50%      { box-shadow: 0 0 55px 14px rgba(255, 130, 120, 0.35), 0 0 100px 30px rgba(255, 130, 120, 0.15); }
+}
+
 /* ============================================
    CUSTOM UTILITIES
    ============================================ */

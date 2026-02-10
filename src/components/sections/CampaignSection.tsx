@@ -115,12 +115,12 @@ function Illustration() {
           backdropFilter: "blur(83px)",
         }}
       />
-      {/* Mail icon — white rounded square */}
-      <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[52px] h-[52px] bg-white rounded-[14px] flex items-center justify-center">
-        <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
-          <path d="M3 8L14 16L25 8" stroke="#111" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
-          <rect x="3" y="6" width="22" height="16" rx="3" stroke="#111" strokeWidth="2.5" />
-        </svg>
+      {/* Mail icon — dark rounded square with subtle glass edge */}
+      <div
+        className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[56px] h-[56px] rounded-[16px] flex items-center justify-center"
+      >
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img src="/images/figma/mail-02.svg" alt="" className="w-[88px] h-[88px]" />
       </div>
 
       {/* ── Horizontal glow lines (left & right) ── */}
