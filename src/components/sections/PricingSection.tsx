@@ -1,6 +1,7 @@
 import { Section } from "@/components/ui";
 import { CheckIcon } from "@/components/icons";
 import { cn } from "@/lib/utils";
+import { Badge } from "@/components/ui";
 
 const cardThemes = {
   dark: {
@@ -104,9 +105,9 @@ export function PricingSection() {
       <div className="max-w-[1280px] mx-auto px-6 lg:px-[96px]">
         <div className="flex flex-col items-center gap-[56px]">
           <div className="flex flex-col items-center gap-[24px] text-center">
-            <div className="h-[64px] px-[56px] rounded-[100px] inline-flex items-center justify-center border border-white/20 bg-[linear-gradient(180deg,#2B2B2B_0%,#141414_100%)] shadow-[0px_20px_50px_rgba(0,0,0,0.6)]">
-              <span className="text-white text-[28px] leading-[36px] font-semibold">Pricing</span>
-            </div>
+            <Badge className="px-3 py-1">
+              Pricing
+            </Badge>
 
             <div className="flex flex-col items-center gap-[16px]">
               <h2 className="text-[32px] leading-[40px] sm:text-[40px] sm:leading-[52px] lg:text-[48px] lg:leading-[78px] font-bold text-white">
