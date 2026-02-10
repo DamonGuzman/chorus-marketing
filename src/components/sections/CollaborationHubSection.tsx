@@ -35,7 +35,7 @@ function ListCard({ title, items }: { title: string; items: string[] }) {
 }
 
 /* ── Agent badge with robot icon + label ── */
-function AgentTag({ label, color }: { label: string; color: string }) {
+function AgentTag({ label, color, arrowRotation = 0 }: { label: string; color: string; arrowRotation?: number }) {
   return (
     <div className="flex items-center gap-[8px]">
       {/* Robot circle */}
@@ -43,20 +43,15 @@ function AgentTag({ label, color }: { label: string; color: string }) {
         className="w-[40px] h-[40px] rounded-full flex items-center justify-center shrink-0"
         style={{ background: color }}
       >
-        <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
-          <rect x="3" y="7" width="16" height="11" rx="4" fill="white" />
-          <circle cx="8" cy="12.5" r="1.5" fill={color} />
-          <circle cx="14" cy="12.5" r="1.5" fill={color} />
-          <line x1="11" y1="2" x2="11" y2="7" stroke="white" strokeWidth="1.5" />
-          <circle cx="11" cy="2" r="1.5" fill="white" />
-        </svg>
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img src="/images/figma/Group 1707484101.svg" alt="" className="w-[26px] h-[26px]" />
       </div>
       {/* Label pill */}
       <div className="h-[34px] px-[11px] flex items-center bg-gray-600 rounded-[8px] border border-white/10">
         <span className="text-white text-[19px] font-semibold leading-[37px]">{label}</span>
       </div>
       {/* Cursor arrow */}
-      <svg width="16" height="20" viewBox="0 0 16 20" fill="none" className="shrink-0">
+      <svg width="16" height="20" viewBox="0 0 16 20" fill="none" className="shrink-0" style={{ transform: `rotate(${arrowRotation}deg)` }}>
         <path d="M1 1L15 10L8 12L5 19L1 1Z" fill="white" fillOpacity="0.6" />
       </svg>
     </div>
@@ -136,14 +131,14 @@ function ComposedIllustration() {
         </div>
       </div>
 
-      {/* Sales Agent badge — top center */}
+      {/* Sales Agent badge — top center, arrow points down */}
       <div className="absolute" style={{ left: 170, top: 0 }}>
-        <AgentTag label="Sales Agent" color="#2081E2" />
+        <AgentTag label="Sales Agent" color="#2081E2" arrowRotation={200} />
       </div>
 
-      {/* Finance Agent badge — left, vertically centered */}
-      <div className="absolute" style={{ left: 0, top: 160 }}>
-        <AgentTag label="Finance Agent" color="#5952FF" />
+      {/* Finance Agent badge — left, arrow points right */}
+      <div className="absolute" style={{ left: 0, top: 140 }}>
+        <AgentTag label="Finance Agent" color="#5952FF" arrowRotation={120} />
       </div>
 
       {/* Steve Jan profile card — right, overlapping workspace */}
@@ -156,9 +151,21 @@ function ComposedIllustration() {
         <ProfileCard name="David Fincher" role="Project Manager" avatar="/images/figma/Ellipse 53.svg" />
       </div>
 
-      {/* UX Manager badge — bottom right */}
-      <div className="absolute" style={{ right: 10, bottom: 0 }}>
-        <AgentTag label="UX Manager" color="#388D46" />
+      {/* UX Manager badge — bottom right, arrow on left */}
+      <div className="absolute flex items-center gap-[8px]" style={{ right: 10, bottom: 0 }}>
+        {/* Cursor arrow — flipped to point left */}
+        <svg width="16" height="20" viewBox="0 0 16 20" fill="none" className="shrink-0" style={{ transform: "scaleX(-1)" }}>
+          <path d="M1 1L15 10L8 12L5 19L1 1Z" fill="white" fillOpacity="0.6" />
+        </svg>
+        {/* Robot circle */}
+        <div className="w-[40px] h-[40px] rounded-full flex items-center justify-center shrink-0" style={{ background: "#388D46" }}>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src="/images/figma/Group 1707484101.svg" alt="" className="w-[26px] h-[26px]" />
+        </div>
+        {/* Label pill */}
+        <div className="h-[34px] px-[11px] flex items-center bg-gray-600 rounded-[8px] border border-white/10">
+          <span className="text-white text-[19px] font-semibold leading-[37px]">UX Manager</span>
+        </div>
       </div>
     </div>
   );

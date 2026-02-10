@@ -38,9 +38,10 @@ function InlinePill({
     <span
       className={cn(
         "inline-flex items-center justify-center",
-        "rounded-full border border-white/15 bg-white/[0.03]",
-        "px-[10px] py-[2px]",
-        "font-feature-stylistic text-[14px] font-semibold leading-[22px] text-white",
+        "rounded-[18px] border border-white/15 bg-transparent",
+        "px-[11px] py-[4px]",
+        "shadow-[0px_4px_4px_rgba(0,0,0,0.25)]",
+        "font-urbanist text-[22px] font-normal text-[#CBCACC]",
         className
       )}
     >
@@ -108,7 +109,7 @@ function RocketIcon({ className }: { className?: string }) {
 
 function RadarCard() {
   return (
-    <GlassCard className="h-[250px] w-full max-w-[290px] !overflow-visible">
+    <GlassCard className="h-[294px] w-full max-w-[393px] !overflow-visible !rounded-[35px] !border-0 !bg-[#111111] !shadow-[inset_0px_0px_4.7px_rgba(255,255,255,0.27)]">
       <div className="relative flex h-full w-full items-center justify-center">
         {/* Orbital system container */}
         <div className="relative size-[200px]">
@@ -191,7 +192,7 @@ function RadarCard() {
           {/* AI Agents label + cursor icon: upper-left (~10 o'clock) */}
           <div className="absolute left-[-16px] top-[30%] -translate-y-1/2">
             <div className="flex items-center gap-[4px]">
-              <div className="inline-flex items-center rounded-[6px] bg-[#3A3A3C] px-[10px] py-[4px] text-[10px] font-bold text-white shadow-sm">
+              <div className="inline-flex items-center rounded-[5px] border border-white/10 bg-[#3D3C42] px-[7px] py-[4px] font-urbanist text-[13px] font-semibold leading-[25px] text-white">
                 AI Agents
               </div>
               <img 
@@ -210,7 +211,7 @@ function RadarCard() {
                 alt="" 
                 className="h-[16px] w-[16px] rotate-[190deg] opacity-70"
               />
-              <div className="inline-flex items-center rounded-[6px] bg-[#3A3A3C] px-[10px] py-[4px] text-[10px] font-bold text-white shadow-sm">
+              <div className="inline-flex items-center rounded-[5px] border border-white/10 bg-[#3D3C42] px-[7px] py-[4px] font-urbanist text-[13px] font-semibold leading-[25px] text-white">
                 Team members
               </div>
             </div>
@@ -223,46 +224,49 @@ function RadarCard() {
 
 function GoalCard() {
   return (
-    <div className="rounded-[14px] border border-white/10 bg-white/[0.03] px-[14px] py-[12px]">
-      <div className="flex items-start justify-between gap-[10px]">
-        <div className="min-w-0">
-          <p className="font-feature-stylistic text-[14px] font-semibold leading-[22px] text-[#CBCACC]">
-            Track Monthly Revenue
-          </p>
-          <div className="mt-[8px] flex items-center gap-[8px] text-[#7D7C83]">
+    <div className="rounded-[15px] border border-white/10 bg-white/[0.08] px-[12px] py-[15px]">
+      <div className="flex flex-col gap-[14px]">
+        <p className="font-urbanist text-[13px] font-bold leading-[23px] text-[#CBCACC]">
+          Track Monthly Revenue
+        </p>
+        <div className="flex items-center justify-between">
+          <div className="flex items-center gap-[5px] text-[#7D7C83]">
             <Image
               src="/images/figma/task-done-01.svg"
               alt=""
-              width={14}
-              height={14}
+              width={17}
+              height={17}
             />
-            <span className="font-feature-stylistic text-[12px] font-semibold leading-[18px]">
-              Tasks : <span className="text-[#CBCACC]">7</span>
+            <span className="font-urbanist text-[14px] font-semibold leading-[21px]">
+              Tasks : 
+            </span>
+            <span className="font-urbanist text-[14px] font-medium leading-[21px] text-[#7D7C83]">
+              7
             </span>
           </div>
-        </div>
 
-        <div className="flex items-center gap-[8px]">
-          <div className="flex -space-x-[10px]">
-            <Avatar
-              src="/images/team/member-1.png"
-              alt="Assignee"
-              className="size-[30px] border-white/15"
-            />
-            <Avatar
-              src="/images/team/member-2.png"
-              alt="Assignee"
-              className="size-[30px] border-white/15"
-            />
-            <Avatar
-              src="/images/team/member-4.png"
-              alt="Assignee"
-              className="size-[30px] border-white/15"
-            />
+          <div className="flex items-center gap-[4px]">
+            <div className="flex -space-x-[8px]">
+              <Avatar
+                src="/images/team/member-1.png"
+                alt="Assignee"
+                className="size-[30px] border-[1.3px] border-[#3D3C42]"
+              />
+              <Avatar
+                src="/images/team/member-2.png"
+                alt="Assignee"
+                className="size-[30px] border-[1.3px] border-[#3D3C42]"
+              />
+              <Avatar
+                src="/images/team/member-4.png"
+                alt="Assignee"
+                className="size-[30px] border-[1.3px] border-[#3D3C42]"
+              />
+            </div>
+            <span className="font-urbanist text-[14px] font-medium leading-[21px] text-[#7D7C83]">
+              +3
+            </span>
           </div>
-          <span className="font-feature-stylistic text-[12px] font-semibold leading-[18px] text-[#CBCACC]">
-            +3
-          </span>
         </div>
       </div>
     </div>
@@ -271,55 +275,55 @@ function GoalCard() {
 
 function TasksCard() {
   return (
-    <GlassCard className="w-full max-w-[270px] px-[14px] py-[14px]">
+    <GlassCard className="h-[294px] w-full max-w-[393px] !rounded-[35px] !border-0 !bg-[#111111] !shadow-[inset_0px_0px_4.7px_rgba(255,255,255,0.27)] px-[24px] py-[35px]">
+      {/* 7 tasks header */}
       <div className="flex items-center gap-[10px] text-[#CBCACC]">
         <span className="inline-flex size-[18px] items-center justify-center rounded-full border border-white/15">
           <span className="size-[10px] rounded-full border-2 border-dashed border-[#CBCACC]/60" />
         </span>
-        <span className="font-feature-stylistic text-[14px] font-semibold leading-[22px]">
+        <span className="font-urbanist text-[18px] font-bold leading-[30px]">
           7 tasks
         </span>
       </div>
 
-      <div className="mt-[14px] space-y-[12px]">
+      <div className="mt-[15px] space-y-[15px]">
         <GoalCard />
 
-        <div className="relative rounded-[14px] border border-white/10 bg-white/[0.03] px-[14px] py-[12px]">
-          <div className="absolute left-[8px] top-[12px] size-[16px] rounded-full border border-white/10 bg-white/[0.03]" />
-
+        {/* Second task card */}
+        <div className="rounded-[17px] border border-white/10 bg-white/[0.08] px-[13px] py-[17px]">
           <div className="flex items-center justify-between gap-[10px]">
-            <div className="inline-flex items-center gap-[8px] rounded-full border border-white/10 bg-white/[0.03] px-[10px] py-[6px]">
+            <div className="inline-flex items-center gap-[6px] rounded-[8px] border border-white/10 bg-white/[0.04] px-[10px] py-[6px]">
               <Avatar
                 src="/images/team/member-4.png"
                 alt="Doone Rosin"
-                className="size-[20px] border-white/10"
+                className="size-[23px] border-white/10"
               />
-              <span className="font-feature-stylistic text-[12px] font-semibold leading-[18px] text-[#CBCACC]">
+              <span className="font-urbanist text-[13px] font-semibold leading-[19px] text-[#CBCACC]">
                 Doone Rosin
               </span>
             </div>
 
-            <div className="flex items-center gap-[8px] text-[#7D7C83]">
+            <div className="flex items-center gap-[6px] text-[#7D7C83]">
               <Image
                 src="/images/figma/hourglass.svg"
                 alt=""
-                width={10}
+                width={9}
                 height={12}
               />
-              <span className="font-feature-stylistic text-[12px] font-semibold leading-[18px]">
+              <span className="font-urbanist text-[13px] font-semibold leading-[19px]">
                 Queued
               </span>
             </div>
           </div>
 
-          <div className="mt-[12px] flex items-center gap-[10px] text-[#CBCACC]">
+          <div className="mt-[13px] flex items-center gap-[8px] text-[#CBCACC]">
             <Image
               src="/images/figma/task-done-01.svg"
               alt=""
-              width={14}
-              height={14}
+              width={16}
+              height={16}
             />
-            <span className="font-feature-stylistic text-[14px] font-bold leading-[22px]">
+            <span className="font-urbanist text-[15px] font-bold leading-[25px]">
               P&amp;L Report Draft
             </span>
           </div>
@@ -331,58 +335,70 @@ function TasksCard() {
 
 function AgentCard() {
   return (
-    <GlassCard className="h-[240px] w-full max-w-[290px] px-[16px] py-[14px]">
-      <div className="flex items-center gap-[10px]">
-        <Avatar
-          src="/images/team/member-1.png"
-          alt="Frank"
-          className="size-[36px] border-white/15"
-        />
-        <div className="flex items-center gap-[10px]">
-          <span className="font-feature-stylistic text-[15px] font-bold leading-[22px] text-white">
-            Frank
-          </span>
-          <span className="rounded-full border border-white/10 bg-white/[0.04] px-[10px] py-[3px] font-feature-stylistic text-[11px] font-semibold leading-[16px] text-[#CBCACC]">
-            AI Agent
-          </span>
-          <span className="font-feature-stylistic text-[12px] font-medium leading-[18px] text-[#7D7C83]">
+    <GlassCard className="h-[294px] w-full max-w-[393px] !rounded-[35px] !border-0 !bg-[#111111] !shadow-[inset_0px_0px_4.7px_rgba(255,255,255,0.27)] px-[24px] py-[35px]">
+      <div className="flex flex-col gap-[12px]">
+        {/* Header row */}
+        <div className="flex items-center gap-[12px]">
+          <Avatar
+            src="/images/team/member-1.png"
+            alt="Frank"
+            className="size-[35px] border-white/15"
+          />
+          <div className="flex items-center gap-[5px]">
+            <span className="font-urbanist text-[16px] font-bold leading-[28px] text-white">
+              Frank
+            </span>
+            <span className="rounded-[5px] border border-white/10 bg-[#3D3C42] px-[7px] py-[3px] font-urbanist text-[12px] font-semibold leading-[23px] text-[#CBCACC]">
+              AI Agent
+            </span>
+          </div>
+          <span className="font-urbanist text-[16px] font-medium leading-[26px] text-[#7D7C83]">
             1.50 AM
           </span>
         </div>
-      </div>
 
-      <div className="mt-[14px] space-y-[8px]">
-        <div className="h-[12px] w-full rounded-full bg-white/[0.06]" />
-        <div className="h-[12px] w-[92%] rounded-full bg-white/[0.05]" />
-        <div className="h-[12px] w-[84%] rounded-full bg-white/[0.04]" />
-      </div>
-
-      <div className="mt-[14px] flex items-center gap-[10px] rounded-[12px] bg-white/[0.03] px-[12px] py-[10px]">
-        <svg
-          className="size-[16px] text-[#7D7C83]"
-          viewBox="0 0 24 24"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-          aria-hidden="true"
-        >
-          <path
-            d="M9 7.8v8.4L17 12 9 7.8z"
-            stroke="currentColor"
-            strokeWidth="1.6"
-            strokeLinejoin="round"
-          />
-        </svg>
-        <p className="font-feature-stylistic text-[14px] font-medium leading-[22px] text-[#CBCACC]">
-          Goal Created : <span className="text-white">Track Monthly Revenue</span>
-        </p>
-      </div>
-
-      <div className="mt-[12px] space-y-[10px]">
-        <div className="flex items-center gap-[10px]">
-          <div className="size-[20px] rounded-full border border-white/10 bg-white/[0.03]" />
-          <div className="h-[14px] flex-1 rounded-[10px] bg-white/[0.04]" />
+        {/* Chat bubble placeholder */}
+        <div className="rounded-tl-[15px] rounded-tr-[15px] rounded-bl-[15px] bg-white/[0.04] p-[12px]">
+          <div className="flex flex-col gap-[7px]">
+            <div className="h-[31px] w-[284px] rounded-[9px] bg-white/[0.05]" />
+            <div className="h-[34px] w-full rounded-[9px] bg-white/[0.05]" />
+          </div>
         </div>
-        <div className="h-[12px] w-[88%] rounded-full bg-white/[0.03]" />
+
+        {/* Goal Created row */}
+        <div
+          className="flex items-center gap-[12px] rounded-[19px] px-[21px] py-[12px]"
+          style={{
+            background: 'linear-gradient(90deg, rgba(242, 171, 83, 0) 0%, rgba(192, 136, 66, 0.27) 31%, rgba(140, 99, 48, 0) 100%)',
+          }}
+        >
+          <svg
+            className="size-[16px] text-[#7D7C83]"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            aria-hidden="true"
+          >
+            <path
+              d="M9 7.8v8.4L17 12 9 7.8z"
+              stroke="currentColor"
+              strokeWidth="1.6"
+              strokeLinejoin="round"
+            />
+          </svg>
+          <p className="font-urbanist text-[15px] font-medium leading-[26px] text-[#CBCACC]">
+            Goal Created : <span className="font-semibold text-white">Track Monthly Revenue</span>
+          </p>
+        </div>
+
+        {/* Skeleton rows (faded) */}
+        <div className="space-y-[9px] opacity-50">
+          <div className="flex items-start gap-[12px]">
+            <div className="size-[38px] shrink-0 rounded-full border border-white/10 bg-white/[0.08]" />
+            <div className="h-[57px] flex-1 rounded-[9px] border border-white/10 bg-white/[0.08]" />
+          </div>
+          <div className="h-[35px] w-full rounded-[9px] border border-white/10 bg-white/[0.08]" />
+        </div>
       </div>
     </GlassCard>
   );
@@ -391,83 +407,94 @@ function AgentCard() {
 export function AIWorkforceSection() {
   return (
     <Section
-      className="relative overflow-hidden py-[100px]"
+      className="relative overflow-hidden bg-black px-6 py-[75px] lg:px-[100px]"
       id="ai-workforce"
       data-node-id="4229:62416"
     >
-      <div className="pointer-events-none absolute inset-0 bg-black" />
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(180,138,251,0.16)_0%,rgba(0,0,0,0)_55%)]" />
+      <div className="mx-auto flex max-w-[1280px] flex-col items-center gap-[71px]">
+        {/* Header */}
+        <div className="flex flex-col items-center gap-[40px]">
+          <div className="flex flex-col items-center gap-[24px]">
+            {/* Badge */}
+            <div className="inline-flex items-center justify-center overflow-hidden rounded-full bg-white/[0.07] px-[12px] py-[4px]">
+              <span className="text-center font-urbanist text-[16px] font-semibold leading-[24px] text-white">
+                What Chorus Actually Is
+              </span>
+            </div>
 
-      <Container className="relative">
-        <div className="mx-auto flex max-w-[1108px] flex-col items-center text-center">
-          <div className="rounded-full border border-white/15 bg-white/[0.02] px-[18px] py-[8px] font-feature-stylistic text-[14px] font-semibold leading-[20px] text-white/90">
-            What Chorus Actually Is
+            {/* Title */}
+            <h2 className="text-center font-urbanist text-[36px] font-bold leading-[1.3] text-white md:text-[50px] md:leading-[78px]">
+              Your AI Workforce. Always in Sync.
+            </h2>
           </div>
 
-          <h2 className="mt-[24px] text-[40px] leading-[48px] font-bold tracking-[-0.5px] text-white md:text-[50px] md:leading-[78px]">
-            Your AI Workforce. Always in Sync.
-          </h2>
-
-          <p className="mt-[22px] text-[18px] leading-[30px] font-normal text-[#7D7C83] md:text-[22px] md:leading-[36px]">
+          {/* Description */}
+          <p className="max-w-[1108px] text-center font-urbanist text-[18px] font-normal leading-[30px] text-[#7D7C83] md:text-[22px] md:leading-[36px]">
             Forget chatbots that &quot;help&quot; you draft emails. Chorus gives you
             autonomous agents that coordinate with each other and run your{" "}
-            <span className="text-white">Sales</span>,{" "}
-            <span className="text-white">Marketing</span>,{" "}
-            <span className="text-white">Finance</span>,{" "}
-            <span className="text-white">Operations</span>,{" "}
-            <span className="text-white">Customer Success</span> - any department
-            you need.
+            <span className="font-medium text-white">Sales, Marketing, Finance, Operations, Customer Success</span>{" "}
+            - any department you need.
           </p>
         </div>
 
-        <div className="relative mt-[62px] md:mt-[71px]">
-          <div className="hidden md:flex md:items-center md:justify-between md:px-[30px]">
-            <p className="text-[16px] leading-[24px] font-medium tracking-[-0.2px] text-white/50">
-              You don&apos;t coordinate.You{" "}
-              <InlinePill className="mx-[3px] text-[14px]">orchestrate</InlinePill>
-            </p>
-            <p className="text-[16px] leading-[24px] font-medium tracking-[-0.2px] text-white/50">
-              They{" "}
-              <InlinePill className="mx-[3px] text-[14px]">execute</InlinePill>.{" "}
-              They{" "}
-              <InlinePill className="mx-[3px] text-[14px]">deliver</InlinePill>.
-            </p>
-          </div>
-
+        {/* Cards area */}
+        <div className="flex w-full flex-col items-center">
           {/* Mobile: stacked layout */}
           <div className="flex flex-col items-center gap-[22px] md:hidden">
-            <div className="text-center text-[18px] leading-[26px] font-medium text-white/55">
-              You don&apos;t coordinate. You <InlinePill>orchestrate</InlinePill>
-            </div>
+            <p className="text-center font-urbanist text-[18px] font-normal leading-[28px] text-[#7D7C83]">
+              You don&apos;t coordinate.You{" "}
+              <InlinePill>orchestrate</InlinePill>
+            </p>
             <RadarCard />
 
-            <div className="text-center text-[18px] leading-[26px] font-medium text-white/55">
-              They <InlinePill>execute</InlinePill>. They{" "}
-              <InlinePill>deliver</InlinePill>.
-            </div>
+            <p className="text-center font-urbanist text-[18px] font-normal leading-[28px] text-[#7D7C83]">
+              They <InlinePill>execute.</InlinePill>{" "}
+              They <InlinePill>deliver.</InlinePill>
+            </p>
             <AgentCard />
             <TasksCard />
+
+            <p className="text-center font-urbanist text-[18px] font-normal leading-[33px] text-[#7D7C83]">
+              Skip management.{" "}
+              <InlinePill>Set goals.</InlinePill>
+            </p>
           </div>
 
-          {/* Desktop: horizontal row with rotations matching Figma */}
-          <div className="hidden md:flex md:h-[320px] md:items-center md:justify-center md:gap-[18px] md:px-[20px]">
-            <div className="mt-[10px] rotate-[-3deg] [transform-style:preserve-3d]">
+          {/* Desktop: 3-column layout with labels above each card group */}
+          <div className="hidden md:flex md:items-start md:justify-center md:gap-[18px]">
+            {/* Left column: label + RadarCard */}
+            <div className="flex flex-col items-center gap-[12px] rotate-[-3deg] [transform-style:preserve-3d]">
+              <p className="text-center font-urbanist text-[22px] font-normal leading-[33px] text-[#7D7C83]">
+                You don&apos;t coordinate.You{" "}
+                <InlinePill className="text-[22px]">orchestrate</InlinePill>
+              </p>
               <RadarCard />
             </div>
-            <div className="mt-[-6px] rotate-[0deg] [transform-style:preserve-3d]">
+
+            {/* Center column: AgentCard (no top label, positioned higher) */}
+            <div className="mt-[40px] rotate-[4deg] [transform-style:preserve-3d]">
               <AgentCard />
             </div>
-            <div className="mt-[10px] rotate-[3deg] [transform-style:preserve-3d]">
+
+            {/* Right column: label + TasksCard */}
+            <div className="flex flex-col items-center gap-[12px] rotate-[-3deg] [transform-style:preserve-3d]">
+              <p className="text-center font-urbanist text-[22px] font-normal leading-[40px] text-[#7D7C83]">
+                They{" "}
+                <InlinePill className="text-[22px]">execute.</InlinePill>{" "}
+                They{" "}
+                <InlinePill className="text-[22px]">deliver.</InlinePill>
+              </p>
               <TasksCard />
             </div>
           </div>
 
-          <p className="mt-[28px] text-center text-[16px] leading-[24px] font-medium tracking-[-0.2px] text-white/50 md:text-[16px] md:leading-[24px]">
+          {/* Bottom label - desktop */}
+          <p className="mt-[28px] hidden text-center font-urbanist text-[22px] font-normal leading-[33px] text-[#7D7C83] md:block">
             Skip management.{" "}
-            <InlinePill className="text-[14px]">Set goals.</InlinePill>
+            <InlinePill className="text-[22px]">Set goals.</InlinePill>
           </p>
         </div>
-      </Container>
+      </div>
     </Section>
   );
 }

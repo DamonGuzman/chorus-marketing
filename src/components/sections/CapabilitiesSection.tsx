@@ -14,6 +14,21 @@ export function CapabilitiesSection() {
   return (
     <Section className="py-[100px] relative overflow-hidden" id="use-cases">
       <div className="max-w-[1280px] mx-auto px-6 lg:px-[100px] relative z-10">
+        {/* Section Header */}
+        <div className="flex flex-col items-center gap-[24px] mb-[60px]">
+          <div className="inline-flex items-center justify-center rounded-full bg-white/[0.07] px-[12px] py-[4px]">
+            <span className="text-center font-urbanist text-[16px] font-semibold leading-[24px] text-white">
+              Capabilities
+            </span>
+          </div>
+          <h2 className="text-center font-urbanist text-[40px] md:text-[50px] font-bold leading-[1.3] md:leading-[78px] text-white">
+            What Your AI Workforce Can Do
+          </h2>
+          <p className="text-center font-urbanist text-[18px] md:text-[22px] font-normal leading-[30px] md:leading-[36px] text-[#7D7C83]">
+            The best way to reach humans instead of spam folders. Deliver transactional and marketing emails at scale.
+          </p>
+        </div>
+
         <div className="flex flex-col lg:flex-row items-center justify-between gap-[44px]">
           {/* Left: capability cards */}
           <div className="w-full lg:w-[500px]">

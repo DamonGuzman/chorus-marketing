@@ -88,7 +88,7 @@ function TaskCard() {
 function Illustration() {
   return (
     <div className="relative w-[530px] h-[510px] shrink-0 hidden lg:block">
-      {/* Background flowing lines — rotated 180deg as in Figma so lines fan from left to right */}
+      {/* Background flowing lines — lines fan from hub outward */}
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
         src="/images/figma/image 29.svg"
@@ -97,10 +97,8 @@ function Illustration() {
         style={{
           width: 629,
           height: 493,
-          left: -40,
+          left: 60,
           top: 0,
-          transform: "scaleX(-1)",
-          transformOrigin: "50% 50%",
         }}
       />
 
@@ -108,7 +106,7 @@ function Illustration() {
       {/* White glow */}
       <div
         className="absolute rounded-[45px]"
-        style={{ left: 22, top: 172, width: 175, height: 124, background: "white", filter: "blur(7.84px)", boxShadow: "16px 16px 16px rgba(0,0,0,0.15)" }}
+        style={{ left: 10, top: 172, width: 175, height: 124, background: "white", filter: "blur(7.84px)", boxShadow: "16px 16px 16px rgba(0,0,0,0.15)" }}
       />
       {/* Dark square */}
       <div
@@ -120,28 +118,14 @@ function Illustration() {
         className="absolute rounded-[45px]"
         style={{ left: 30, top: 172, width: 133, height: 133, background: "linear-gradient(166deg, rgba(207,207,207,0.03) 0%, rgba(92,92,92,0.26) 100%)", border: "3.57px solid rgba(255,255,255,0.03)", backdropFilter: "blur(130px)" }}
       />
-      {/* Center icon – calendar/grid */}
-      <div className="absolute" style={{ left: 56, top: 203 }}>
-        <svg width="62" height="62" viewBox="0 0 62 62" fill="none">
-          <rect x="4" y="3" width="54" height="54" rx="10" fill="url(#calGrad)" />
-          <rect x="14" y="22" width="10" height="8" rx="2" fill="#101010" />
-          <rect x="27" y="22" width="10" height="8" rx="2" fill="#101010" />
-          <rect x="40" y="22" width="10" height="8" rx="2" fill="#101010" />
-          <rect x="14" y="34" width="10" height="8" rx="2" fill="#101010" />
-          <rect x="27" y="34" width="10" height="8" rx="2" fill="#101010" />
-          <rect x="40" y="34" width="10" height="8" rx="2" fill="#101010" />
-          <rect x="22" y="3" width="18" height="6" rx="3" fill="url(#calGrad)" />
-          <defs>
-            <linearGradient id="calGrad" x1="31" y1="3" x2="31" y2="57" gradientUnits="userSpaceOnUse">
-              <stop stopColor="rgba(255,255,255,0.91)" />
-              <stop offset="1" stopColor="rgba(153,153,153,0.49)" />
-            </linearGradient>
-          </defs>
-        </svg>
+      {/* Center icon */}
+      <div className="absolute" style={{ left: 60, top: 200 }}>
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img src="/images/figma/calendar-03.svg" alt="" className="w-[74px] h-[74px]" />
       </div>
 
       {/* ── Task card — positioned to the right, vertically centered-ish ── */}
-      <div className="absolute" style={{ right: 0, top: 20 }}>
+      <div className="absolute" style={{ right: 0, top: 41 }}>
         <TaskCard />
       </div>
     </div>

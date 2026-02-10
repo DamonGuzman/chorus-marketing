@@ -1,8 +1,7 @@
 /* ─────────────────────────────────────────────────────────
    Features Card Section
    "The Difference That Changes Everything"
-   Stacked cards with "Full Business Context" content
-   Faithful to Figma code structure
+   Card #3 — Full Business Context with orbital integration visual
    ───────────────────────────────────────────────────────── */
 
 /* ── Checkmark icon ── */
@@ -14,22 +13,235 @@ function CheckMark() {
   );
 }
 
-/* ── Integration dark bubble ── */
-function AppBubble({ size = 80 }: { size?: number }) {
+/* (Integration icons loaded from Figma SVG/PNG assets) */
+
+/* ═══════════════════════════════════════════════════════════
+   Orbit icon container (dark circle with subtle glass edge)
+   ═══════════════════════════════════════════════════════════ */
+function OrbitIcon({
+  children,
+  size = 62,
+}: {
+  children: React.ReactNode;
+  size?: number;
+}) {
   return (
     <div
-      className="rounded-full shrink-0"
+      className="rounded-full flex items-center justify-center shrink-0"
       style={{
         width: size,
         height: size,
-        background: "#202020",
-        boxShadow: "0px 0px 5.16px rgba(255,255,255,0.55) inset, 0px 3.98px 24.85px rgba(0,0,0,0.25)",
+        background: "radial-gradient(circle at 35% 35%, #2a2a2a 0%, #151515 60%, #0d0d0d 100%)",
+        boxShadow:
+          "0 0 5px rgba(255,255,255,0.45) inset, 0 4px 20px rgba(0,0,0,0.5)",
+        border: "1px solid rgba(255,255,255,0.08)",
       }}
-    />
+    >
+      {children}
+    </div>
   );
 }
 
-/* ── Main Section ── */
+/* ═══════════════════════════════════════════════════════════
+   Orbital Integration Animation
+   – 3 tilted elliptical rings
+   – 5 branded icons distributed on orbits
+   – Central glowing Chorus logo
+   – Animated glowing dots travelling the paths
+   ═══════════════════════════════════════════════════════════ */
+function OrbitalAnimation() {
+  return (
+    <div className="relative w-[500px] h-[420px]">
+      {/* ── SVG orbit paths + travelling dots ── */}
+      <svg
+        className="absolute inset-0 w-full h-full"
+        viewBox="0 0 500 420"
+        fill="none"
+        style={{ zIndex: 2 }}
+      >
+        <defs>
+          <linearGradient id="ring1Grad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stopColor="rgba(255,255,255,0.25)" />
+            <stop offset="50%" stopColor="rgba(255,255,255,0.06)" />
+            <stop offset="100%" stopColor="rgba(255,255,255,0.20)" />
+          </linearGradient>
+          <linearGradient id="ring2Grad" x1="100%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stopColor="rgba(255,255,255,0.18)" />
+            <stop offset="50%" stopColor="rgba(255,255,255,0.04)" />
+            <stop offset="100%" stopColor="rgba(255,255,255,0.15)" />
+          </linearGradient>
+          <linearGradient id="ring3Grad" x1="50%" y1="0%" x2="50%" y2="100%">
+            <stop offset="0%" stopColor="rgba(255,255,255,0.22)" />
+            <stop offset="50%" stopColor="rgba(255,255,255,0.03)" />
+            <stop offset="100%" stopColor="rgba(255,255,255,0.18)" />
+          </linearGradient>
+
+          {/* Glow filter for travelling dots */}
+          <filter id="dotGlow1" x="-300%" y="-300%" width="700%" height="700%">
+            <feGaussianBlur stdDeviation="4" result="blur" />
+            <feMerge>
+              <feMergeNode in="blur" />
+              <feMergeNode in="SourceGraphic" />
+            </feMerge>
+          </filter>
+          <filter id="dotGlow2" x="-300%" y="-300%" width="700%" height="700%">
+            <feGaussianBlur stdDeviation="3" result="blur" />
+            <feMerge>
+              <feMergeNode in="blur" />
+              <feMergeNode in="SourceGraphic" />
+            </feMerge>
+          </filter>
+        </defs>
+
+        {/* ── Orbit ring 1 — wide, tilted up-right ── */}
+        <ellipse
+          cx="250" cy="210" rx="225" ry="75"
+          stroke="url(#ring1Grad)" strokeWidth="1.2" fill="none"
+          transform="rotate(-15, 250, 210)"
+        />
+
+        {/* ── Orbit ring 2 — medium, tilted opposite ── */}
+        <ellipse
+          cx="250" cy="210" rx="210" ry="90"
+          stroke="url(#ring2Grad)" strokeWidth="1.0" fill="none"
+          transform="rotate(18, 250, 210)"
+        />
+
+        {/* ── Orbit ring 3 — narrower, steeper tilt ── */}
+        <ellipse
+          cx="250" cy="210" rx="190" ry="105"
+          stroke="url(#ring3Grad)" strokeWidth="0.8" fill="none"
+          transform="rotate(-5, 250, 210)"
+        />
+
+        {/*
+          Motion paths — invisible <path> equivalents of each ellipse.
+          An ellipse (cx,cy,rx,ry) becomes:
+            M cx-rx, cy
+            A rx ry 0 1 1 cx+rx, cy
+            A rx ry 0 1 1 cx-rx, cy  Z
+          Then the whole path is wrapped in the same rotate() transform.
+        */}
+        {/* Path for orbit 1: cx=250 cy=210 rx=225 ry=75, rotate(-15) */}
+        <path
+          id="orbitPath1"
+          d="M 25,210 A 225 75 0 1 1 475,210 A 225 75 0 1 1 25,210 Z"
+          fill="none" stroke="none"
+          transform="rotate(-15, 250, 210)"
+        />
+        {/* Path for orbit 2: cx=250 cy=210 rx=210 ry=90, rotate(18) */}
+        <path
+          id="orbitPath2"
+          d="M 40,210 A 210 90 0 1 1 460,210 A 210 90 0 1 1 40,210 Z"
+          fill="none" stroke="none"
+          transform="rotate(18, 250, 210)"
+        />
+
+        {/* ── Dot 1 — glides along orbit ring 1 ── */}
+        <circle r="5" fill="white" filter="url(#dotGlow1)">
+          <animateMotion dur="18s" repeatCount="indefinite">
+            <mpath href="#orbitPath1" />
+          </animateMotion>
+        </circle>
+
+        {/* ── Dot 2 — glides along orbit ring 2, opposite direction ── */}
+        <circle r="4" fill="white" filter="url(#dotGlow2)">
+          <animateMotion
+            dur="24s"
+            repeatCount="indefinite"
+            keyPoints="1;0"
+            keyTimes="0;1"
+            calcMode="linear"
+          >
+            <mpath href="#orbitPath2" />
+          </animateMotion>
+        </circle>
+      </svg>
+
+      {/* ── Central glowing Chorus logo ── */}
+      <div
+        className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full flex items-center justify-center overflow-hidden"
+        style={{
+          width: 90,
+          height: 90,
+          boxShadow: "0 0 40px 8px rgba(255,107,107,0.30), 0 0 80px 20px rgba(255,107,107,0.12)",
+          animation: "center-pulse 4s ease-in-out infinite",
+          zIndex: 15,
+        }}
+      >
+        {/* Coral orb background */}
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img src="/images/figma/Rectangle 36.svg" alt="" className="absolute inset-0 w-full h-full scale-[1.22]" />
+        {/* Chorus bird logo */}
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img src="/images/figma/bubble.svg" alt="Chorus" className="relative w-[40px] h-[40px]" />
+      </div>
+
+      {/* ── Orbiting integration icons ── */}
+
+      {/* Google Sheets — upper-left, sitting on ring 1 */}
+      <div
+        className="absolute"
+        style={{ top: "15%", left: "22%", zIndex: 10 }}
+      >
+        <OrbitIcon size={64}>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+
+          <img src="/images/figma/image 34.svg" alt="Google Calendar" className="w-[24px] h-[32px]" />
+        </OrbitIcon>
+      </div>
+
+      {/* HubSpot — upper-right */}
+      <div
+        className="absolute"
+        style={{ top: "22%", right: "8%", zIndex: 10 }}
+      >
+        <OrbitIcon size={64}>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src="/images/figma/image 33.svg" alt="HubSpot" className="w-[30px] h-[30px]" />
+        </OrbitIcon>
+      </div>
+
+      {/* Google Calendar — mid-left */}
+      <div
+        className="absolute"
+        style={{ top: "55%", left: "4%", zIndex: 10 }}
+      >
+        <OrbitIcon size={68}>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src="/images/figma/image 35.svg" alt="Gmail" className="w-[30px] h-[30px]" />
+          
+        </OrbitIcon>
+      </div>
+
+      {/* Gmail — mid-right */}
+      <div
+        className="absolute"
+        style={{ top: "50%", right: "8%", zIndex: 10 }}
+      >
+        <OrbitIcon size={64}>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src="/images/figma/image 32.svg" alt="Google Calendar" className="w-[24px] h-[32px]" />
+        </OrbitIcon>
+      </div>
+
+      {/* Slack — bottom-center */}
+      <div
+        className="absolute"
+        style={{ bottom: "20%", left: "42%", zIndex: 10 }}
+      >
+        <OrbitIcon size={64}>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src="/images/figma/image 12.svg" alt="Slack" className="w-[26px] h-[26px]" />
+        </OrbitIcon>
+      </div>
+    </div>
+  );
+}
+
+/* ═══════════════════════════════════════════════════════════
+   MAIN SECTION EXPORT
+   ═══════════════════════════════════════════════════════════ */
 export function FeaturesCardSection() {
   return (
     <section className="w-full bg-black px-6 md:px-[100px] py-[75px]">
@@ -51,7 +263,7 @@ export function FeaturesCardSection() {
         </div>
 
         {/* ── Stacked Cards ── */}
-        {/* Back card — 1013px wide */}
+        {/* Back card */}
         <div
           className="w-full max-w-[1013px] rounded-[37px] border border-white/20"
           style={{
@@ -61,7 +273,7 @@ export function FeaturesCardSection() {
           }}
         />
 
-        {/* Middle card — 1115px wide, overlapping */}
+        {/* Middle card */}
         <div
           className="w-full max-w-[1115px] -mt-[30px] rounded-[37px] border border-white/20"
           style={{
@@ -71,38 +283,36 @@ export function FeaturesCardSection() {
           }}
         />
 
-        {/* Front card — 1188px wide, main content */}
+        {/* ── Front card — Main Content ── */}
         <div
-          className="w-full max-w-[1188px] -mt-[30px] rounded-[40px] py-[60px] px-[50px] md:px-[56px]"
+          className="w-full max-w-[1188px] -mt-[30px] rounded-[40px] py-[50px] px-[40px] md:py-[60px] md:px-[56px] overflow-hidden"
           style={{
-            background: "black",
+            background: "linear-gradient(135deg, rgba(10,10,10,1) 0%, rgba(15,15,15,1) 50%, rgba(8,8,8,1) 100%)",
             outline: "1px solid #434343",
             outlineOffset: "-1px",
             backdropFilter: "blur(25.53px)",
           }}
         >
-          <div className="flex items-center gap-[22px]">
+          <div className="flex flex-col md:flex-row items-center gap-[30px] md:gap-[22px]">
             {/* ── Left side content ── */}
-            <div className="flex flex-col gap-[40px] shrink-0">
-              {/* Gradient circle icon */}
+            <div className="flex flex-col gap-[32px] shrink-0 md:max-w-[460px]">
+              {/* Gradient circle with number inside */}
               <div
-                className="w-[85px] h-[85px] rounded-full"
+                className="w-[85px] h-[85px] rounded-full flex items-center justify-center"
                 style={{
                   background: "linear-gradient(138deg, rgba(61,61,61,0.29) 0%, rgba(255,229,229,0) 100%)",
                   boxShadow: "0px 3.98px 24.85px rgba(0,0,0,0.25)",
                   border: "1.3px solid rgba(255,255,255,0.10)",
                 }}
-              />
-
-              {/* Number */}
-              <span className="text-white text-[30px] font-normal leading-[103px]">3</span>
+              >
+                <span className="text-white text-[30px] font-normal">3</span>
+              </div>
 
               {/* Text content */}
               <div className="flex flex-col gap-[20px]">
-                <h3 className="text-white text-[26px] font-bold">Full Business Context</h3>
+                <h3 className="text-white text-[26px] font-bold leading-[36px]">Full Business Context</h3>
 
                 <div className="flex flex-col gap-[28px]">
-                  {/* Description */}
                   <div className="flex flex-col gap-[27px]">
                     <p className="text-gray-100 text-[14px] font-medium leading-[22px] max-w-[433px]">
                       Because Chorus integrates with your entire stack (CRM, email, docs, calendar, Slack), your AI agents have complete context about:
@@ -133,74 +343,9 @@ export function FeaturesCardSection() {
               </div>
             </div>
 
-            {/* ── Right side — orbital decoration ── */}
-            <div className="relative flex-1 h-[360px] hidden md:block">
-              {/* Tilted oval ring 1 */}
-              <div
-                className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full border border-white/30"
-                style={{ width: 637, height: 67, transform: "translate(-50%, -50%) rotate(21deg)" }}
-              />
-              {/* Tilted oval ring 2 */}
-              <div
-                className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full border border-white/20"
-                style={{ width: 637, height: 67, transform: "translate(-50%, -60%) rotate(21deg)" }}
-              />
-
-              {/* Integration app bubbles positioned on the ring */}
-              <div className="absolute" style={{ top: "5%", left: "5%" }}>
-                <AppBubble size={73} />
-              </div>
-              <div className="absolute" style={{ top: "15%", left: "30%" }}>
-                <AppBubble size={81} />
-              </div>
-              <div className="absolute" style={{ top: "10%", right: "15%" }}>
-                <AppBubble size={80} />
-              </div>
-              <div className="absolute" style={{ top: "35%", right: "5%" }}>
-                <AppBubble size={80} />
-              </div>
-              <div className="absolute" style={{ bottom: "15%", left: "10%" }}>
-                <AppBubble size={85} />
-              </div>
-
-              {/* HubSpot orange circle inside a bubble */}
-              <div className="absolute" style={{ bottom: "20%", left: "35%" }}>
-                <div
-                  className="rounded-full flex items-center justify-center"
-                  style={{
-                    width: 80,
-                    height: 80,
-                    background: "#202020",
-                    boxShadow: "0px 0px 5.16px rgba(255,255,255,0.55) inset, 0px 3.98px 24.85px rgba(0,0,0,0.25)",
-                  }}
-                >
-                  <div className="w-[57px] h-[57px] rounded-full bg-[#FF5C35]" />
-                </div>
-              </div>
-
-              {/* White glowing dots */}
-              <div
-                className="absolute w-[11px] h-[11px] rounded-full bg-white"
-                style={{ top: "42%", left: "22%", filter: "blur(2px)", boxShadow: "4px 4px 4px rgba(0,0,0,0.5)" }}
-              />
-              <div
-                className="absolute w-[11px] h-[11px] rounded-full bg-white"
-                style={{ top: "55%", right: "25%", filter: "blur(2px)", boxShadow: "4px 4px 4px rgba(0,0,0,0.5)" }}
-              />
-
-              {/* Gmail red accent circle */}
-              <div
-                className="absolute"
-                style={{
-                  bottom: "5%",
-                  right: "10%",
-                  width: 97,
-                  height: 97,
-                  background: "#FF6B6B",
-                  borderRadius: 99,
-                  boxShadow: "0px 0px 4px rgba(0,0,0,0.96) inset, 0px 0px 10px rgba(255,107,107,0.43)",
-                }}
-              />
+            {/* ── Right side — Orbital integration visual ── */}
+            <div className="relative flex-1 min-h-[420px] hidden md:flex items-center justify-center">
+              <OrbitalAnimation />
             </div>
           </div>
         </div>
