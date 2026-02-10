@@ -47,78 +47,89 @@ const footerLinks = {
 
 export function Footer() {
   return (
-    <footer className="bg-black px-[96px] py-[80px]">
-      <div className="w-full flex flex-col gap-[40px]">
-        <div className="flex flex-col lg:flex-row items-start gap-[80px] lg:gap-[208px]">
-          <div className="flex flex-col items-start gap-[48px]">
-            <div className="flex flex-col items-start gap-[40px]">
-              <Logo className="w-[48px] h-[48px] text-white" />
-              <p className="max-w-[380px] text-[14px] leading-[20px] font-medium text-gray-200">
-                Giving modern marketing teams superpowers with short links that stand out.
-              </p>
+    <div className="w-full self-stretch px-24 py-20 bg-black inline-flex flex-col justify-start items-center gap-2.5">
+      <div className="w-full flex flex-col justify-between gap-10">
+        <div className="inline-flex justify-between gap-52">
+          <div className="inline-flex flex-col justify-start items-start gap-12">
+            <div className="flex flex-col justify-start items-start gap-10">
+              <img src="/images/figma/footer/Vector.png" />
+              <div className="w-96 justify-start text-[#7D7C83] text-sm font-medium font-['Urbanist'] leading-5"> Giving modern marketing teams superpowers with short links that stand out.</div>
             </div>
-            <Link
-              href="#"
-              className="h-[40px] px-[32px] bg-white rounded-[50px] shadow-glow inline-flex items-center justify-center text-black text-[14px] leading-[24px] font-bold"
-            >
-              Get started
-            </Link>
+            <div className="h-10 px-8 py-3 sm:bg-gradient-to-l sm:from-violet-400 sm:to-violet-500 md:bg-white rounded-[50px] sm:shadow-[0px_0px_8px_0px_rgba(175,130,249,0.63)] md:shadow-[0px_0px_8px_0px_rgba(175,130,249,0.63)] inline-flex justify-start items-center gap-2 overflow-hidden">
+              <div className="text-center justify-center text-black text-sm font-bold font-['Urbanist'] leading-6">Get started</div>
+            </div>
           </div>
-
-          <div className="flex items-start gap-[80px]">
-            {Object.entries(footerLinks).map(([key, section]) => (
-              <div key={key} className="flex flex-col items-start gap-[20px]">
-                <h4 className="text-[16px] leading-[24px] font-semibold text-white uppercase">
-                  {section.title}
-                </h4>
-                <div className="flex flex-col items-start gap-[20px]">
-                  {section.links.map((link) => (
-                    <Link
-                      key={link.label}
-                      href={link.href}
-                      className="text-[14px] leading-[20px] font-medium text-gray-200 hover:text-white transition-colors"
-                    >
-                      {link.label}
-                    </Link>
-                  ))}
-                </div>
+          <div className="flex justify-start items-start gap-20">
+            <div className="inline-flex flex-col justify-start items-start gap-5">
+              <div className="justify-start text-White text-base font-semibold font-['Urbanist'] leading-6">ABOUT</div>
+              <div className="flex flex-col justify-start items-start gap-5">
+                <div className="justify-start text-[#7D7C83] text-sm font-medium font-['Urbanist'] leading-5">Why VocAI?</div>
+                <div className="justify-start text-[#7D7C83] text-sm font-medium font-['Urbanist'] leading-5">Careers</div>
+                <div className="justify-start text-[#7D7C83] text-sm font-medium font-['Urbanist'] leading-5">Press</div>
+                <div className="justify-start text-[#7D7C83] text-sm font-medium font-['Urbanist'] leading-5">Privacy Policy</div>
+                <div className="justify-start text-[#7D7C83] text-sm font-medium font-['Urbanist'] leading-5">Terms &amp; Conditions</div>
               </div>
-            ))}
+            </div>
+            <div className="inline-flex flex-col justify-start items-start gap-5">
+              <div className="justify-start text-White text-base font-semibold font-['Urbanist'] leading-6">PRODUCTS</div>
+              <div className="flex flex-col justify-start items-start gap-5">
+                <div className="justify-start text-[#7D7C83] text-sm font-medium font-['Urbanist'] leading-5">Marketing Platform</div>
+                <div className="justify-start text-[#7D7C83] text-sm font-medium font-['Urbanist'] leading-5">Sales Platform</div>
+                <div className="justify-start text-[#7D7C83] text-sm font-medium font-['Urbanist'] leading-5">Client Management </div>
+                <div className="justify-start text-[#7D7C83] text-sm font-medium font-['Urbanist'] leading-5">CMS</div>
+              </div>
+            </div>
+            <div className="inline-flex flex-col justify-start items-start gap-5">
+              <div className="justify-start text-White text-base font-semibold font-['Urbanist'] leading-6">COMMUNITY</div>
+              <div className="flex flex-col justify-start items-start gap-5">
+                <div className="justify-start text-[#7D7C83] text-sm font-medium font-['Urbanist'] leading-5">Blog</div>
+                <div className="justify-start text-[#7D7C83] text-sm font-medium font-['Urbanist'] leading-5">Events</div>
+                <div className="justify-start text-[#7D7C83] text-sm font-medium font-['Urbanist'] leading-5">Partners</div>
+                <div className="justify-start text-[#7D7C83] text-sm font-medium font-['Urbanist'] leading-5">Community Forum</div>
+              </div>
+            </div>
+            <div className="inline-flex flex-col justify-start items-start gap-5">
+              <div className="justify-start text-White text-base font-semibold font-['Urbanist'] leading-6">SUPPORT</div>
+              <div className="flex flex-col justify-start items-start gap-5">
+                <div className="justify-start text-[#7D7C83] text-sm font-medium font-['Urbanist'] leading-5">Help Center</div>
+                <div className="justify-start text-[#7D7C83] text-sm font-medium font-['Urbanist'] leading-5">Contact us</div>
+                <div className="justify-start text-[#7D7C83] text-sm font-medium font-['Urbanist'] leading-5">VocAI API</div>
+                <div className="justify-start text-[#7D7C83] text-sm font-medium font-['Urbanist'] leading-5">Integrations</div>
+                <div className="justify-start text-[#7D7C83] text-sm font-medium font-['Urbanist'] leading-5">Legal</div>
+              </div>
+            </div>
           </div>
         </div>
-
-        <div className="h-px bg-white/25" />
-
-        <div className="flex flex-col lg:flex-row items-center justify-between gap-[32px]">
-          <p className="text-[14px] leading-[20px] font-medium text-gray-200">
-            © 2026 chorus Ltd. All rights reserved.
-          </p>
-
-          <div className="flex items-center gap-[56px]">
-            <div className="flex items-center gap-[14px] text-gray-200">
-              <MailIcon className="w-[20px] h-[20px]" />
-              <Link
-                href="mailto:support@vocai.com"
-                className="text-[14px] leading-[20px] font-medium hover:text-white transition-colors"
-              >
-                support@vocai.com
-              </Link>
+        <div className="w-full h-0 outline outline-1 outline-offset-[-0.50px] outline-white/25"></div>
+        <div className="w-full inline-flex justify-between gap-[706px]">
+          <div className="justify-start text-[#7D7C83] text-sm font-medium font-['Urbanist'] leading-5">© 2024 VocAI Ltd. All rights reserved.</div>
+          <div className="flex justify-start items-start gap-14">
+            <div className="flex justify-start items-center gap-3.5">
+              <div className="w-5 h-5 relative">
+                <img src={"/images/figma/footer/sms.svg"} />
+              </div>
+              <div className="justify-start text-[#7D7C83] text-sm font-medium font-['Urbanist'] leading-5">support@vocai.com</div>
             </div>
-
-            <div className="flex items-center gap-[16px] text-gray-200">
-              <Link href="/facebook" className="hover:text-white transition-colors" aria-label="Facebook">
-                <FacebookIcon className="w-[20px] h-[16px] text-gray-200" />
-              </Link>
-              <Link href="/x" className="hover:text-white transition-colors" aria-label="X">
-                <XIcon className="w-[16px] h-[16px] text-gray-200" />
-              </Link>
-              <Link href="/instagram" className="hover:text-white transition-colors" aria-label="Instagram">
-                <img src="/images/icons/instagram.svg" alt="" className="w-[20px] h-[16px]" />
-              </Link>
+            <div className="flex justify-start items-start gap-4">
+              <div className="w-5 h-4 relative">
+                <div data-color="Negative" data-platform="Facebook" className="w-5 h-4 left-0 top-0 absolute overflow-hidden">
+                  <img src="/images/figma/footer/fb.svg" />
+                </div>
+              </div>
+              <div className="w-4 h-4 relative">
+                <div data-color="Negative" data-platform="X (Twitter)" className="w-4 h-4 left-0 top-0 absolute overflow-hidden">
+                  <img src="/images/figma/footer/thread.svg" />
+                </div>
+              </div>
+              <div className="w-5 h-4 relative">
+                <div data-color="Negative" data-platform="Instagram" className="w-5 h-4 left-0 top-0 absolute overflow-hidden">
+                  <img src="/images/figma/footer/instagram.svg" />
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </footer>
+    </div>
   );
 }

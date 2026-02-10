@@ -8,14 +8,14 @@ export default function AboutUsPage() {
             <main>
                 <section id="about-us" className="bg-black py-[75px] overflow-hidden">
                     {/* first parent section */}
-                    <div className="relative w-full top-3 md:px-[30px] min-h-[600px] md:min-h-[700px] lg:min-h-[800px] flex items-center">
+                    <div className="relative w-full top-3 md:px-[30px] min-h-[600px] md:min-h-[700px] lg:min-h-[800px] flex flex-col md:flex-row justify-center md:justify-start">
                         {/* Left Content - Constrained */}
-                        <div className="relative max-w-[50%] px-6 md:px-24 py-20 flex flex-col justify-start items-start gap-8 z-10 pt-20">
+                        <div className="relative w-full md:max-w-[62%] px-6 md:px-24 py-20 flex flex-col justify-center items-center md:items-start gap-8 z-10 pt-20">
                             <Badge className="px-3 py-1">
                                 About us
                             </Badge>
 
-                            <div className="self-stretch">
+                            <div className="self-stretch text-center md:text-left">
                                 <h1 className="text-6xl font-bold font-['Urbanist'] leading-[74px]">
                                     <span className="text-white">Chorus is the </span>
                                     <span className="bg-gradient-to-r from-[#CACACC] to-[#7C7B82] bg-clip-text text-transparent">
@@ -27,13 +27,13 @@ export default function AboutUsPage() {
                                 </h1>
                             </div>
 
-                            <div className="self-stretch text-[#CACACC] text-3xl font-medium font-['Urbanist'] leading-9">
+                            <div className="self-stretch text-[#CACACC] text-3xl font-medium font-['Urbanist'] leading-9 text-center md:text-left">
                                 We don&apos;t promise the impossible. We deliver it.
                             </div>
                         </div>
 
                         {/* Right Image - Extends to edge */}
-                        <div className="absolute right-0 top-1/2 -translate-y-1/2 w-1/2 hidden lg:block">
+                        <div className="absolute right-0 top-1/2 -translate-y-1/2 w-full md:w-1/2 block z-0 opacity-80 md:opacity-100">
                             <img
                                 className="w-full h-auto object-contain"
                                 src="/images/figma/about-us/torch.svg"

@@ -109,7 +109,7 @@ export function IntegrationsSection() {
             </Badge>
             <div className="flex flex-col justify-start items-center gap-7">
               <div className="justify-start text-white text-5xl font-bold font-['Urbanist'] leading-[78px]">Works In Harmony With Your Current Stack</div>
-              <div className="w-[668px] text-center justify-start text-Secondary-Tint1 text-xl font-normal font-['Urbanist'] leading-9">More than just integrations, 10,000+ tools that can adapt — turning automation into intuition.</div>
+              <div className="w-[668px] text-center justify-start text-[#7C7B82] text-xl font-normal font-['Urbanist'] leading-9">More than just integrations, 10,000+ tools that can adapt — turning automation into intuition.</div>
             </div>
           </div>
         </div>
