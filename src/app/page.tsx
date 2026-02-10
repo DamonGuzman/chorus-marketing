@@ -9,7 +9,6 @@ import {
   FoundersSection,
   IntegrationsSection,
   PricingSection,
-  FAQSection,
   FinalCTASection,
 } from "@/components/sections";
 
@@ -27,7 +26,6 @@ export default function Home() {
         <FoundersSection />
         <IntegrationsSection />
         <PricingSection />
-        <FAQSection />
         <FinalCTASection />
       </main>
       <Footer />

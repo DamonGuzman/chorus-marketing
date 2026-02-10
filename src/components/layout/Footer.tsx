@@ -7,7 +7,7 @@ const footerLinks = {
   about: {
     title: "ABOUT",
     links: [
-      { label: "Why Chorus?", href: "#about" },
+      { label: "Why Chorus?", href: "/#about" },
       { label: "Careers", href: "/careers" },
       { label: "Press", href: "/press" },
       { label: "Privacy Policy", href: "/privacy" },
@@ -17,10 +17,10 @@ const footerLinks = {
   products: {
     title: "PRODUCTS",
     links: [
-      { label: "Agent Builder", href: "#features" },
-      { label: "Workflows", href: "#features" },
-      { label: "Integrations", href: "#integrations" },
-      { label: "Pricing", href: "#pricing" },
+      { label: "Agent Builder", href: "/#features" },
+      { label: "Workflows", href: "/#features" },
+      { label: "Integrations", href: "/#integrations" },
+      { label: "Pricing", href: "/#pricing" },
     ],
   },
   community: {

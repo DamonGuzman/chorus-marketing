@@ -1,66 +1,68 @@
-import { Section, ButtonLink, PrismaticOrb } from "@/components/ui";
-import { PRIMARY_CTA_HREF, PRIMARY_CTA_LABEL } from "@/content/site";
+import { ButtonLink } from "@/components/ui";
+import { PRIMARY_CTA_HREF } from "@/content/site";
 
 export function FinalCTASection() {
   return (
-    <Section className="py-[120px] relative overflow-hidden" id="cta">
-      {/* Background gradient glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[600px]">
-        <div className="absolute inset-0 bg-gradient-radial from-purple-500/20 via-purple-600/5 to-transparent blur-3xl" />
-      </div>
+    <section className="relative w-full bg-black overflow-hidden" style={{ paddingLeft: 100, paddingRight: 100, paddingTop: 75, paddingBottom: 75 }} id="cta">
+      {/* Top gradient glow / border effect */}
+      <div
+        className="absolute top-0 left-0 right-0 h-[515px] pointer-events-none"
+        style={{
+          background: "linear-gradient(180deg, rgba(255,255,255,0.16) 0%, rgba(255,255,255,0.02) 45%, rgba(0,0,0,0) 100%)",
+        }}
+      />
+      {/* Horizontal glowing line at top */}
+      <div
+        className="absolute top-0 left-1/2 -translate-x-1/2 h-[4px] rounded-full"
+        style={{
+          width: 1284,
+          background: "linear-gradient(90deg, rgba(255,255,255,0) 0%, #A4A4A4 52%, rgba(255,255,255,0) 100%)",
+        }}
+      />
 
-      {/* Glowing orb */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-[80%] w-[200px] h-[200px]">
-        <div className="w-full h-full rounded-full bg-gradient-to-b from-purple-400/30 to-purple-600/10 blur-2xl animate-pulse" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
-          <PrismaticOrb size={149} className="shadow-[0_0_18px_rgba(255,255,255,0.06)]" />
-          <div className="absolute inset-0 flex items-center justify-center">
-            <div className="w-[78px] h-[78px] rounded-full bg-white/5 border border-white/10 backdrop-blur-sm shadow-glow-sm flex items-center justify-center">
-              <svg className="w-[30px] h-[30px] text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13 10V3L4 14h7v7l9-11h-7z" />
-              </svg>
-            </div>
+      {/* Content */}
+      <div className="relative z-10 max-w-[1039px] mx-auto flex flex-col items-center gap-[50px]">
+        {/* Title + subtitle + pills */}
+        <div className="self-stretch flex flex-col items-center gap-[26px]">
+          <div className="self-stretch flex flex-col items-end gap-[40px]">
+            <h2 className="self-stretch text-center text-white text-[50px] font-bold leading-[68px]">
+              The Best Companies Don&apos;t Have More People. They Have Better Coordination.
+            </h2>
+            <p className="self-stretch text-center text-gray-100 text-[22px] font-normal leading-[36px]">
+              While competitors spend months hiring and aligning teams, you could have a complete, synchronized workforce executing tomorrow.
+            </p>
           </div>
-        </div>
-      </div>
-
-      <div className="max-w-[1039px] mx-auto px-6 lg:px-[100px] relative z-10 text-center">
-        {/* Main Headline */}
-        <h2 className="text-[40px] lg:text-[52px] leading-[1.2] font-bold text-white mb-[40px] mt-[100px]">
-          The Best Companies Don&apos;t Have More People.{" "}
-          <span className="text-gradient">They Have Better Coordination.</span>
-        </h2>
-
-        {/* Subtitle */}
-        <p className="text-[18px] lg:text-[20px] leading-[1.8] font-medium text-gray-300 mb-[50px] max-w-[1039px] mx-auto">
-          While competitors spend months hiring and aligning teams, you could have a complete, synchronized workforce executing tomorrow.
-        </p>
-
-        {/* Feature Points */}
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-[30px] sm:gap-[50px] mb-[50px]">
-          {[
-            "Build without hiring",
-            "Scale without friction",
-            "Grow with Chorus",
-          ].map((point, index) => (
-            <div key={index} className="flex items-center gap-[12px]">
-              <div className="w-[24px] h-[24px] rounded-full bg-purple-500/20 border border-purple-500/50 flex items-center justify-center">
-                <svg className="w-[14px] h-[14px] text-purple-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+          {/* Feature pills */}
+          <div className="inline-flex items-center gap-[25px]">
+            {["Build without hiring", "Scale without friction", "Grow with Chorus"].map((point) => (
+              <div
+                key={point}
+                className="h-[50px] py-[30px] pl-[36px] pr-[30px] rounded-full inline-flex items-center gap-[20px]"
+                style={{
+                  background: "rgba(255,255,255,0)",
+                  outline: "1px solid white",
+                  outlineOffset: "-1px",
+                  backdropFilter: "blur(30px)",
+                }}
+              >
+                <svg width="18" height="12" viewBox="0 0 18 12" fill="none" className="shrink-0">
+                  <path d="M2 6L7 10L16 2" stroke="#7D7C83" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
+                <span className="text-[16px] font-medium text-[#C1C1C1]">{point}</span>
               </div>
-              <span className="text-[16px] font-medium text-white">{point}</span>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
 
         {/* CTA Button */}
-        <div className="flex justify-center">
-          <ButtonLink href={PRIMARY_CTA_HREF} variant="primary" size="lg" className="px-[40px] py-[16px] text-[16px]">
-            {PRIMARY_CTA_LABEL}
-          </ButtonLink>
-        </div>
+        <a
+          href={PRIMARY_CTA_HREF}
+          className="h-[50px] px-[32px] py-[12px] bg-white text-gray-800 text-[14px] font-bold leading-[24px] rounded-full inline-flex items-center gap-[8px] overflow-hidden hover:bg-gray-50 transition-colors"
+          style={{ boxShadow: "0px 0px 8px rgba(175,130,249,0.63)" }}
+        >
+          Build Your Team Now
+        </a>
       </div>
-    </Section>
+    </section>
   );
 }
