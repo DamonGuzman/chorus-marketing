@@ -111,15 +111,45 @@ function RadarCard() {
     <GlassCard className="h-[312px] w-full max-w-[406px]">
       <div className="relative h-full w-full p-[20px]">
         <div className="relative mx-auto size-[260px]">
-          <div className="absolute inset-0 rounded-full border border-white/10" />
-          <div className="absolute inset-[22px] rounded-full border border-white/10" />
-          <div className="absolute inset-[48px] rounded-full border border-white/10" />
-          <div className="absolute inset-[96px] rounded-full border border-white/10" />
-          <div className="absolute inset-0 rounded-full bg-[conic-gradient(from_320deg,rgba(255,255,255,0.09)_0deg,rgba(255,255,255,0)_55deg,rgba(255,255,255,0)_360deg)] opacity-50" />
+          {/* Outer orbits with refined styling */}
+          <div className="absolute inset-0 rounded-full border-[0.54px] border-white/10" />
+          <div className="absolute inset-[22px] rounded-full border-[0.54px] border-white/10" />
+          {/* Innermost orbit with Figma styling */}
+          <div 
+            className="absolute inset-[48px] rounded-full"
+            style={{
+              border: '1.47px solid rgba(255, 255, 255, 0.06)',
+              background: 'linear-gradient(180deg, rgba(255, 255, 255, 0.06) 0%, rgba(255, 255, 255, 0.18) 50%, rgba(255, 255, 255, 0.05) 100%)',
+              backdropFilter: 'blur(88.18px)',
+              transform: 'rotate(2.69deg)'
+            }}
+          />
 
-          <div className="absolute left-1/2 top-1/2 size-[84px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-white/10 bg-white/[0.03] flex items-center justify-center">
-            <RocketIcon />
+          <div 
+            className="absolute left-1/2 top-1/2 size-[84px] -translate-x-1/2 -translate-y-1/2 rounded-full flex items-center justify-center"
+            style={{
+              border: '1.47px solid rgba(255, 255, 255, 0.06)',
+              background: 'rgba(255, 255, 255, 0.03)'
+            }}
+          >
+            <img 
+              src="/images/figma/rocket.svg" 
+              alt="Rocket" 
+              className="w-[44px] h-[44px]"
+            />
           </div>
+
+          {/* Sweep gradient effect - in front of rocket with exact Figma styling */}
+          <div 
+            className="absolute inset-0 rounded-full pointer-events-none"
+            style={{
+              background: 'linear-gradient(180deg, #FBFBFB 0%, #958595 12%, #252525 20%)',
+              transform: 'rotate(86.79deg)',
+              boxShadow: '0px 3.75px 3.75px 0px rgba(0, 0, 0, 0.25)',
+              mixBlendMode: 'soft-light',
+              opacity: 0.3
+            }}
+          />
 
           <Avatar
             src="/images/team/member-1.png"
@@ -137,8 +167,20 @@ function RadarCard() {
             className="absolute right-[12px] top-1/2 size-[42px] -translate-y-1/2 border-white/20"
           />
 
-          <div className="absolute bottom-[44px] right-[64px]">
-            <CursorIcon className="rotate-[18deg]" />
+          {/* Cursor icons - on 2nd orbit circle pointing inward as in Figma */}
+          <div className="absolute top-[105px] left-[22px]">
+            <img 
+              src="/images/figma/cursor-02.svg" 
+              alt="" 
+              className="w-[26px] h-[26px] rotate-[135deg]"
+            />
+          </div>
+          <div className="absolute bottom-[40px] right-[22px]">
+            <img 
+              src="/images/figma/cursor-02.svg" 
+              alt="" 
+              className="w-[26px] h-[26px] rotate-[-45deg]"
+            />
           </div>
         </div>
 

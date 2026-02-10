@@ -95,16 +95,19 @@ export function TuringAgentsTaskPanel({ className }: { className?: string }) {
   return (
     <div
       className={cn(
-        "relative shrink-0 bg-[#121212] rounded-[30.121px] px-[20.081px] pt-[30.121px] pb-[30px] font-feature-stylistic",
-        "w-[395.591px] h-[582.341px]",
+        "relative shrink-0 bg-[#0f0f0f] rounded-[30.121px] px-[20.081px] pt-[30.121px] pb-[40px] font-feature-stylistic",
+        "w-[395.591px] min-h-[620px]",
         className,
       )}
       data-node-id="4229:61984"
+      style={{
+        boxShadow: "0px 4px 60px 0px rgba(0, 0, 0, 0.8)",
+      }}
     >
       <div className="ml-[7.03px] w-[348.401px]" data-node-id="4229:61986">
         {/* Goal Card */}
         <div
-          className="bg-white/[0.04] border-[1.004px] border-white/10 rounded-[16.065px] px-[12.048px] pt-[16.065px] pb-[12.048px]"
+          className="bg-[#1a1a1a] border-[1.004px] border-white/[0.08] rounded-[16.065px] px-[12.048px] pt-[16.065px] pb-[12.048px]"
           data-node-id="4229:61987"
         >
           <p className="text-[14.057px] leading-[24.097px] font-bold text-[#CBCACC]" data-node-id="4229:61989">
@@ -150,7 +153,7 @@ export function TuringAgentsTaskPanel({ className }: { className?: string }) {
                     : ("queued" as const);
 
               return (
-                <div key={`${item.name}-${item.task}-${index}`} className="flex gap-[12.048px]" data-node-id="4229:62038">
+                <div key={`${item.name}-${item.task}-${index}`} className="flex gap-[12.048px] w-full" data-node-id="4229:62038">
                   <div className="w-[36.145px] shrink-0 flex justify-center pt-[18.073px] relative">
                     <div className="relative z-10">
                       <StepIndicator variant={variant} label={String(index + 1)} />
@@ -160,9 +163,9 @@ export function TuringAgentsTaskPanel({ className }: { className?: string }) {
                     </div>
                   </div>
 
-                  <div className="flex-1 bg-white/[0.04] border-[1.004px] border-white/10 rounded-[16.065px] px-[12.048px] pt-[14.057px] pb-[12.048px]">
+                  <div className="flex-1 min-w-0 bg-[#1a1a1a] border-[1.004px] border-white/[0.08] rounded-[16.065px] px-[12.048px] pt-[14.057px] pb-[12.048px]">
                     <div className="flex items-center justify-between">
-                      <div className="flex items-center gap-[8.032px] rounded-full bg-white/[0.04] border-[1.004px] border-white/10 px-[10.04px] py-[5.02px]">
+                      <div className="flex items-center gap-[8.032px] rounded-full bg-[#252525] border-[1.004px] border-white/[0.08] px-[10.04px] py-[5.02px]">
                         <Avatar
                           src={avatarSrc[getAvatarVariantForName(item.name)]}
                           alt={item.name}
@@ -208,14 +211,14 @@ export function TuringAgentsTaskPanel({ className }: { className?: string }) {
                     )}
 
                     {"apps" in item && item.apps && "file" in item && item.file && (
-                      <div className="mt-[10.04px] flex items-center gap-[10.04px] pl-[24.097px]">
-                        <div className="flex items-center gap-[8.032px]">
-                          <span className="text-[12.048px] font-semibold text-[#7D7C83]">Apps :</span>
-                          <div className="flex items-center gap-[6.024px]">
+                      <div className="mt-[10px] flex items-center gap-[6px] pl-[24.097px] pr-[12px]">
+                        <div className="flex items-center gap-[5px] shrink-0">
+                          <span className="text-[10px] font-semibold text-[#7D7C83] whitespace-nowrap">Apps :</span>
+                          <div className="flex items-center gap-[4px]">
                             {item.apps.map((app) => (
                               <span
                                 key={app.label}
-                                className="size-[18.073px] rounded-full flex items-center justify-center text-[10px] font-bold text-white"
+                                className="size-[18px] rounded-full grid place-items-center text-[8.5px] font-bold text-white shrink-0 leading-none"
                                 style={{ backgroundColor: app.bg }}
                               >
                                 {app.label}
@@ -224,11 +227,11 @@ export function TuringAgentsTaskPanel({ className }: { className?: string }) {
                           </div>
                         </div>
 
-                        <div className="flex items-center gap-[8.032px] px-[10.04px] py-[6.024px] bg-white/[0.04] border-[1.004px] border-white/10 rounded-[10.04px]">
-                          <span className="size-[18.073px] rounded-[4.016px] bg-[#0F8B4C] flex items-center justify-center text-[11px] font-extrabold text-white leading-none">
+                        <div className="flex items-center gap-[5px] px-[7px] py-[4px] bg-[#252525] border-[1.004px] border-white/[0.08] rounded-[7px] min-w-0 flex-1 max-w-[160px]">
+                          <span className="size-[15px] rounded-[3px] bg-[#10B981] flex items-center justify-center text-[8.5px] font-extrabold text-white leading-none shrink-0">
                             X
                           </span>
-                          <span className="text-[12.048px] font-semibold text-[#CBCACC]">{item.file}</span>
+                          <span className="text-[10px] font-semibold text-[#CBCACC] truncate">{item.file}</span>
                         </div>
                       </div>
                     )}
@@ -240,7 +243,7 @@ export function TuringAgentsTaskPanel({ className }: { className?: string }) {
         </div>
       </div>
 
-      <div className="absolute inset-0 pointer-events-none rounded-[inherit] shadow-[inset_0px_0px_8.032px_0px_rgba(255,255,255,0.27)]" aria-hidden />
+      <div className="absolute inset-0 pointer-events-none rounded-[inherit] shadow-[inset_0px_0px_6px_0px_rgba(255,255,255,0.15)]" aria-hidden />
     </div>
   );
 }

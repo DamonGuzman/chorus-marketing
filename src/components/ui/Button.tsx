@@ -1,6 +1,6 @@
 import { cn } from "@/lib/utils";
 
-export type ButtonVariant = "primary" | "secondary" | "outline";
+export type ButtonVariant = "primary" | "light" | "secondary" | "outline";
 export type ButtonSize = "sm" | "md" | "lg";
 
 export function buttonStyles({
@@ -25,6 +25,10 @@ export function buttonStyles({
     "transition-all duration-200",
     // Variants
     variant === "primary" && ["bg-gradient-primary text-white shadow-glow", "hover:opacity-90"],
+    variant === "light" && [
+      "bg-white text-black shadow-[0px_12px_40px_rgba(0,0,0,0.45)]",
+      "hover:bg-white/90",
+    ],
     variant === "secondary" && ["bg-gray-800 text-white border border-white/20", "hover:bg-gray-700"],
     variant === "outline" && [
       "bg-transparent backdrop-blur-[30px] border border-white/[0.34] text-gray-100",

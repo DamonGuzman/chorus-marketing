@@ -21,3 +21,4 @@ export {
   ArrowRightRoundIcon,
 } from "./AppIcons";
 export { UserResearchIcon } from "./UserResearchIcon";
+export { SearchPersonIcon, MountainIcon, CoinsIcon, CursorIcon } from "./OldWayIcons";

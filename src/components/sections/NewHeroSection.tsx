@@ -1,37 +1,9 @@
 import Image from "next/image";
-import { ButtonLink, IntegrationLogo } from "@/components/ui";
+import { ButtonLink } from "@/components/ui";
 import { PRIMARY_CTA_HREF } from "@/content/site";
 import { Logo, ChatIcon, BellIcon, DotsIcon, SearchIcon, PencilIcon, LockIcon, CheckIcon, ChevronIcon } from "@/components/icons";
+import { TuringAgentsChatCard } from "@/components/figma/TuringAgentsChatCard";
 import { TuringAgentsTaskPanel } from "@/components/figma/TuringAgentsTaskPanel";
-
-type AvatarVariant = "john" | "danny" | "frank" | "sarah";
-
-const avatarSrc: Record<AvatarVariant, string> = {
-  john: "/images/team/member-1.png",
-  danny: "/images/team/member-2.png",
-  frank: "/images/team/member-3.png",
-  sarah: "/images/team/member-4.png",
-};
-
-function Avatar({
-  alt,
-  variant,
-  className,
-}: {
-  alt: string;
-  variant: AvatarVariant;
-  className?: string;
-}) {
-  return (
-    <div
-      className={`relative overflow-hidden rounded-full border border-white/10 bg-white/5 ${className ?? ""}`}
-      aria-label={alt}
-      title={alt}
-    >
-      <Image src={avatarSrc[variant]} alt={alt} fill className="object-cover" />
-    </div>
-  );
-}
 
 const channelItems = [
   { name: "Marketing Campaign", color: "bg-[#36C5F0]/25" },
@@ -46,34 +18,50 @@ const channelItems = [
 
 export function NewHeroSection() {
   return (
-    <section className="relative bg-black min-h-[1157px] overflow-hidden" id="about">
-      {/* Background Glow Effect */}
-      <div className="absolute top-[88px] right-0 w-[1353px] h-[1235px] opacity-30">
-        <div className="absolute inset-0 bg-gradient-to-b from-purple-500/20 via-purple-600/10 to-transparent blur-3xl" />
-      </div>
-
+    <section className="relative bg-black h-[1157px] overflow-hidden" id="about">
       {/* Content */}
-      <div className="relative z-10 pt-[120px] md:pt-[165px] px-6 md:px-[30px] max-w-[1380px] mx-auto">
+      <div className="relative z-10 pt-[90px] px-[30px] max-w-[1440px] mx-auto">
         {/* Hero Header */}
-        <div className="flex flex-col items-center text-center gap-[29px]">
-          <div className="flex flex-col items-center text-center gap-[19px]">
-            <h1 className="text-[50px] md:text-[70px] leading-[60px] md:leading-[78px] font-extrabold tracking-[-1.4px] text-white">
+        <div className="flex flex-col items-center text-center gap-[25px]">
+          <div className="flex flex-col items-center text-center gap-[18px]">
+            <h1 className="text-[70px] leading-[78px] font-extrabold tracking-[-1.4px] text-white whitespace-nowrap">
               Stop Hiring. Start Building.
             </h1>
-            <p className="text-[18px] md:text-[22px] leading-[28px] md:leading-[36px] font-normal text-gray-100 max-w-[1034px]">
+            <p className="text-[17px] leading-[26px] font-normal text-gray-100 max-w-[920px]">
               The best way to reach humans instead of spam folders. Deliver transactional and marketing emails at scale.
             </p>
           </div>
 
-          <ButtonLink href={PRIMARY_CTA_HREF} variant="primary" size="md">
+          <ButtonLink href={PRIMARY_CTA_HREF} variant="light" size="md">
             Build Your Team Now
           </ButtonLink>
         </div>
 
-        {/* App Mockup */}
-        <div className="mt-[50px] flex gap-[35px] max-w-[1252px] mx-auto">
+        {/* App Mockup — fixed 1375px composition, scaled to fit */}
+        <div className="mt-[65px] overflow-visible">
+          {/* Responsive scale via CSS custom property */}
+          <style>{`
+            .hero-mockup { --s: 0.42; }
+            @media (min-width: 640px)  { .hero-mockup { --s: 0.44; } }
+            @media (min-width: 768px)  { .hero-mockup { --s: 0.52; } }
+            @media (min-width: 900px)  { .hero-mockup { --s: 0.60; } }
+            @media (min-width: 1024px) { .hero-mockup { --s: 0.68; } }
+            @media (min-width: 1200px) { .hero-mockup { --s: 0.82; } }
+            @media (min-width: 1380px) { .hero-mockup { --s: 0.92; } }
+            @media (min-width: 1440px) { .hero-mockup { --s: 0.955; } }
+            @media (min-width: 1500px) { .hero-mockup { --s: 1; } }
+          `}</style>
+          <div
+            className="hero-mockup mx-auto flex items-start"
+            style={{
+              width: '1375px',
+              transformOrigin: 'top center',
+              transform: 'scale(var(--s))',
+              marginBottom: 'calc(-651px * (1 - var(--s)))',
+            }}
+          >
           {/* Sidebar */}
-          <div className="w-[316px] shrink-0 p-[11px]">
+          <div className="w-[316px] shrink-0 p-[11px] relative z-10">
             {/* Logo */}
             <div className="flex items-center justify-between mb-[11px]">
               <Logo className="w-[33.7px] h-[32.05px] text-white" />
@@ -107,7 +95,6 @@ export function NewHeroSection() {
                   key={label}
                   className="relative flex items-center gap-[22px] px-[11px] py-[10px] rounded-lg hover:bg-white/5 transition-colors"
                 >
-                  <div aria-hidden className="absolute left-[104px] -top-[10px] w-[64px] h-[62px] bg-white/5 blur-[18px] opacity-40 rounded-full" />
                   <Icon className="text-white/60" />
                   <span className="text-[11px] font-medium text-white/80">{label}</span>
                 </div>
@@ -129,9 +116,9 @@ export function NewHeroSection() {
 
               <div className="relative space-y-0 pl-[12px]">
                 <div aria-hidden className="absolute left-[10px] top-[4px] bottom-[4px] w-px bg-white/10" />
-                {channelItems.map((channel) => (
+                {channelItems.map((channel, idx) => (
                   <div
-                    key={channel.name}
+                    key={`${channel.name}-${idx}`}
                     className={`relative flex items-center gap-[10px] pl-[14px] pr-[10px] py-[7px] rounded-[12px] ${
                       channel.active ? "bg-white/5" : ""
                     }`}
@@ -167,131 +154,12 @@ export function NewHeroSection() {
             </div>
           </div>
 
-          {/* Main Chat Area */}
-          <div className="flex-1 bg-gradient-to-b from-white/5 via-white/[0.02] to-transparent rounded-[40px] border border-white/10 shadow-[inset_0px_0px_8px_0px_rgba(255,255,255,0.27)] backdrop-blur-[30px] p-[20px]">
-            {/* Messages */}
-            <div className="space-y-[16px]">
-              {/* Message 1 - John Doe */}
-              <div className="flex gap-[10px]">
-                <Avatar variant="john" alt="John Doe" className="w-[28px] h-[28px] shrink-0" />
-                <div className="flex-1">
-                  <div className="flex items-center gap-[10px] mb-[10px]">
-                    <span className="text-[10px] font-medium text-white">John Doe</span>
-                    <span className="text-[10px] text-white/40">1:46 AM</span>
-                  </div>
-                  <div className="bg-white/5 rounded-[14px] px-[12px] py-[10px] max-w-[564px] border border-white/5">
-                    <p className="text-[10px] text-white/70 leading-relaxed">
-                      Hello Danny! I want to manage company&apos;s finances and team performance every month.
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              {/* Message 2 - Danny */}
-              <div className="flex gap-[10px]">
-                <Avatar variant="danny" alt="Danny" className="w-[28px] h-[28px] shrink-0" />
-                <div className="flex-1">
-                  <div className="flex items-center gap-[10px] mb-[10px]">
-                    <span className="text-[10px] font-medium text-white">Danny</span>
-                    <span className="text-[10px] text-white/40">1:50 AM</span>
-                  </div>
-                  <div className="bg-white/5 rounded-[14px] px-[12px] py-[10px] max-w-[531px] border border-white/5">
-                    <p className="text-[10px] text-white/70 leading-relaxed">
-                      Hey John. From your request, I can see that you&apos;re aiming to accomplish two main goals
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              {/* Message 3 - Frank AI Agent */}
-              <div className="flex gap-[10px]">
-                <div className="relative shrink-0">
-                  <Avatar variant="frank" alt="Frank" className="w-[28px] h-[28px]" />
-                  <div className="absolute -bottom-0.5 -right-0.5 px-[6px] py-[2px] bg-purple-600 rounded-full border border-white/10">
-                    <span className="text-[7px] font-medium text-white">AI Agent</span>
-                  </div>
-                </div>
-                <div className="flex-1">
-                  <div className="flex items-center gap-[10px] mb-[10px]">
-                    <span className="text-[10px] font-medium text-white">Frank</span>
-                    <span className="text-[10px] text-white/40">1:50 AM</span>
-                  </div>
-                  <div className="bg-white/5 rounded-[14px] px-[12px] py-[10px] max-w-[575px] border border-white/5">
-                    <p className="text-[10px] text-white/70 leading-relaxed mb-[12px]">
-                      From your request, you&apos;re aiming to accomplish two main goals. I&apos;ll connect with your CRM and task management tool
-                      <span className="inline-flex items-center gap-[6px] mx-[6px]">
-                        <span className="text-white/40">(</span>
-                        <span className="inline-flex items-center gap-[4px]">
-                          <IntegrationLogo name="Slack" size="sm" shape="circle" />
-                          <span className="text-[10px] text-white/70">Slack</span>
-                        </span>
-                        <span className="text-white/40">+</span>
-                        <span className="inline-flex items-center gap-[4px]">
-                          <IntegrationLogo name="Stripe" size="sm" shape="circle" />
-                          <span className="text-[10px] text-white/70">Stripe</span>
-                        </span>
-                        <span className="text-white/40">+</span>
-                        <span className="inline-flex items-center gap-[4px]">
-                          <IntegrationLogo name="HubSpot" size="sm" shape="circle" />
-                          <span className="text-[10px] text-white/70">HubSpot</span>
-                        </span>
-                        <span className="text-white/40">)</span>
-                      </span>
-                      to fetch automatically. Shall I connect?
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              {/* Message 4 - John Doe follow up */}
-              <div className="flex gap-[10px]">
-                <Avatar variant="john" alt="John Doe" className="w-[28px] h-[28px] shrink-0" />
-                <div className="flex-1">
-                  <div className="flex items-center gap-[10px] mb-[10px]">
-                    <span className="text-[10px] font-medium text-white">John Doe</span>
-                    <span className="text-[10px] text-white/40">1:46 AM</span>
-                  </div>
-                  <div className="bg-white/5 rounded-[14px] px-[12px] py-[10px] max-w-[305px] border border-white/5">
-                    <p className="text-[10px] text-white/70 leading-relaxed">
-                      Yes, connect Stripe now. I&apos;ll connect HubSpot later
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              {/* Goal Created row */}
-              <div className="flex items-center justify-between bg-gradient-to-r from-[#F2AB53]/15 via-white/5 to-white/[0.02] rounded-[14px] border border-white/5 px-[12px] py-[10px]">
-                <div className="flex items-center gap-[10px]">
-                  <span className="text-white/40 text-[10px]">⚑</span>
-                  <span className="text-[10px] text-white/70">Goal Created: Track Monthly Revenue</span>
-                </div>
-                <div className="flex items-center gap-[8px]">
-                  <span className="w-[6px] h-[6px] rounded-full bg-[#F2AB53]" />
-                  <span className="text-[10px] text-white/50">In progress</span>
-                  <ChevronIcon className="w-[10px] h-[6px] text-white/30" direction="right" />
-                </div>
-              </div>
-
-              {/* Composer */}
-              <div className="mt-[4px]">
-                <div className="text-[10px] text-white/40 px-[12px] py-[10px]">Ask or make anything</div>
-                <div className="flex items-center justify-between px-[12px] py-[10px] text-white/30">
-                  <div className="flex items-center gap-[10px]">
-                    <span className="text-[14px]">+</span>
-                    <span className="text-[10px]">@</span>
-                    <span className="text-[10px]">Aa</span>
-                  </div>
-                  <div className="flex items-center gap-[10px]">
-                    <span className="w-[16px] h-[16px] rounded-full border border-white/10" />
-                    <span className="w-[16px] h-[16px] rounded-full border border-white/10" />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+          {/* Chat Card */}
+          <TuringAgentsChatCard className="shrink-0 -ml-[80px] relative z-20 mt-[54px]" />
 
           {/* Task Panel */}
-          <TuringAgentsTaskPanel />
+          <TuringAgentsTaskPanel className="shrink-0 -ml-[30px] relative z-30 mt-[54px]" />
+          </div>
         </div>
       </div>
     </section>

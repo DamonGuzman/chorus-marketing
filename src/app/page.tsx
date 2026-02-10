@@ -20,8 +20,8 @@ export default function Home() {
       <main>
         <NewHeroSection />
         <OldWaySection />
-        <AIWorkforceSection />
         <ChorusWaySection />
+        <AIWorkforceSection />
         <HowItWorksSection />
         <CapabilitiesSection />
         <FoundersSection />
