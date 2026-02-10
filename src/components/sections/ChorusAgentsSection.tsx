@@ -172,6 +172,22 @@ function GoalsCard() {
    Robot center, avatar orbit, cursor+label pills
    ═══════════════════════════════════════════════════════════ */
 function CollaborateCard() {
+  const avatarOrbit = [
+    { src: "/images/figma/Ellipse 53.svg", angle: -90 },
+    { src: "/images/figma/Ellipse 54.svg", angle: 30 },
+    { src: "/images/figma/Ellipse 53 (1).svg", angle: 150 },
+  ];
+
+  const labelOrbit = [
+    { label: "Task", angle: 210 },
+    { label: "Chat", angle: -30 },
+    { label: "Goals", angle: 90 },
+  ];
+
+  const avatarRadius = 160;
+  const labelRadius = 210;
+  const arrowRadius = 160;
+
   return (
     <div className="relative flex-1 min-w-0 h-[671px] rounded-[40px] overflow-hidden bg-black">
       <div className="absolute inset-0 rounded-[40px] border border-white/35 pointer-events-none z-40" />
@@ -179,16 +195,10 @@ function CollaborateCard() {
 
       {/* ── Orbit rings ── */}
       <div className="absolute inset-0 z-[5] flex items-center justify-center" style={{ top: "-40px" }}>
-        <div className="absolute w-[420px] h-[410px] -rotate-3 rounded-full border-[2.5px] border-white/5" />
-        <div
-          className="absolute w-[320px] h-[330px] rounded-full"
-          style={{ background: "linear-gradient(297deg, rgba(251,251,251,0.10) 0%, rgba(149,149,149,0.02) 100%)" }}
-        />
-        <div className="absolute w-[260px] h-[253px] -rotate-3 rounded-full border-[2.5px] border-white/10" />
-        <div
-          className="absolute w-[140px] h-[134px] -rotate-3 rounded-full"
-          style={{ background: "linear-gradient(166deg, rgba(207,207,207,0.04) 0%, rgba(92,92,92,0.35) 100%)", backdropFilter: "blur(60px)" }}
-        />
+        <div className="absolute w-[460px] h-[460px] rounded-full bg-[radial-gradient(ellipse_at_center,rgba(255,255,255,0.12)_0%,rgba(255,255,255,0)_60%)] opacity-70" />
+        <div className="absolute w-[420px] h-[420px] rounded-full border border-white/12 shadow-[inset_0px_0px_30px_rgba(255,255,255,0.08)]" />
+        <div className="absolute w-[320px] h-[320px] rounded-full border border-white/16 bg-[linear-gradient(180deg,rgba(255,255,255,0.06)_0%,rgba(255,255,255,0)_70%)]" />
+        <div className="absolute w-[220px] h-[220px] rounded-full border border-white/20 shadow-[inset_0px_0px_24px_rgba(255,255,255,0.12)]" />
 
         {/* Bot icon center — actual Figma asset */}
         {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -199,37 +209,63 @@ function CollaborateCard() {
         />
 
         {/* Orbiting avatar photos — actual Figma assets */}
-        <div className="absolute" style={{ top: "5%", left: "50%", transform: "translateX(-50%)" }}>
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/images/figma/Ellipse 53.svg" alt="" className="w-[50px] h-[50px] rounded-full" />
-        </div>
-        <div className="absolute" style={{ top: "28%", right: "5%" }}>
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/images/figma/Ellipse 54.svg" alt="" className="w-[70px] h-[68px] -rotate-3" />
-        </div>
-        <div className="absolute" style={{ bottom: "32%", left: "5%" }}>
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/images/figma/Ellipse 53 (1).svg" alt="" className="w-[70px] h-[68px] -rotate-3" />
+        <div className="absolute w-[320px] h-[320px]">
+          {avatarOrbit.map((avatar) => (
+            <div
+              key={avatar.src}
+              className="absolute left-1/2 top-1/2"
+              style={{
+                transform: `translate(-50%, -50%) rotate(${avatar.angle}deg) translate(${avatarRadius}px)`,
+              }}
+            >
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={avatar.src}
+                alt=""
+                className="w-[58px] h-[58px] rounded-full shadow-[0px_6px_18px_rgba(0,0,0,0.55)]"
+                style={{ transform: `rotate(${-avatar.angle}deg)` }}
+              />
+            </div>
+          ))}
         </div>
       </div>
 
       {/* ── Label pills with cursor arrows ── */}
-      <div className="absolute z-20" style={{ top: "30%", left: "10%" }}>
-        <div className="flex items-center gap-1">
-          <svg width="20" height="24" viewBox="0 0 20 24" fill="none"><path d="M2 2L18 12L10 14L6 22L2 2Z" fill="white"/></svg>
-          <div className="px-[10px] py-[4px] bg-gray-600 rounded-[7px] border border-white/10">
-            <span className="text-white text-[16px] font-semibold leading-[30px]">Task</span>
-          </div>
+      <div className="absolute inset-0 z-30 flex items-center justify-center" style={{ top: "-40px" }}>
+        <div className="absolute w-[420px] h-[420px]">
+          {labelOrbit.map((label) => (
+            <div
+              key={`${label.label}-arrow`}
+              className="absolute left-1/2 top-1/2"
+              style={{
+                transform: `translate(-50%, -50%) rotate(${label.angle}deg) translate(${arrowRadius}px)`,
+              }}
+            >
+              <svg width="36" height="40" viewBox="0 0 20 24" fill="none" style={{ transform: "rotate(304deg)" }}>
+                <path d="M2 2L18 12L10 14L6 22L2 2Z" fill="white" />
+              </svg>
+            </div>
+          ))}
         </div>
       </div>
-      <div className="absolute z-20" style={{ top: "15%", right: "8%" }}>
-        <div className="px-[10px] py-[4px] bg-gray-600 rounded-[7px] border border-white/10">
-          <span className="text-white text-[16px] font-semibold leading-[30px]">Chat</span>
-        </div>
-      </div>
-      <div className="absolute z-20" style={{ bottom: "32%", right: "20%" }}>
-        <div className="px-[10px] py-[4px] bg-gray-600 rounded-[7px] border border-white/10">
-          <span className="text-white text-[16px] font-semibold leading-[30px]">Goals</span>
+
+      <div className="absolute inset-0 z-20 flex items-center justify-center" style={{ top: "-40px" }}>
+        <div className="absolute w-[420px] h-[420px]">
+          {labelOrbit.map((label) => (
+            <div
+              key={label.label}
+              className="absolute left-1/2 top-1/2"
+              style={{
+                transform: `translate(-50%, -50%) rotate(${label.angle}deg) translate(${labelRadius}px)`,
+              }}
+            >
+              <div className="flex items-center gap-[6px]" style={{ transform: `rotate(${-label.angle}deg)` }}>
+                <div className="px-[12px] py-[5px] bg-[#2d2d2d] rounded-[7px] border border-white/10 shadow-[0px_4px_16px_rgba(0,0,0,0.45)]">
+                  <span className="text-white text-[14px] font-semibold leading-[20px]">{label.label}</span>
+                </div>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
 
