@@ -119,8 +119,22 @@ export function IntegrationsSection() {
           {/* Layer 2: Gradient Overlay (fades icons) */}
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_50.00%_50.00%_at_50.00%_50.00%,_rgba(0,_0,_0,_0)_0%,_black_100%)] z-20 pointer-events-none" />
 
-          {/* Layer 3: Central Logo (topmost) */}
-          <img className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full z-30 w-[140px] h-[140px] md:w-auto md:h-auto" src="images/figma/landing-page/landing-page-animated-logo-icon.svg" alt="Integration visual" />
+          {/* Layer 3: Blue glowing circle video */}
+          <video
+            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-[25] w-[240px] h-[240px] md:w-[360px] md:h-[360px] rounded-full object-cover pointer-events-none"
+            src="/images/integration/round loop.mp4"
+            autoPlay
+            loop
+            muted
+            playsInline
+          />
+
+          {/* Layer 4: Central Logo (topmost, on top of video) */}
+          <img
+            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full z-30 w-[70px] h-[70px] md:w-[110px] md:h-[110px]"
+            src="/images/figma/landing-page/landing-page-animated-logo-icon.svg"
+            alt="Chorus logo"
+          />
 
 
           <div className="inline-flex flex-wrap justify-center items-center gap-5 relative z-10">
