@@ -60,7 +60,7 @@ export function Footer() {
             </div>
             <Link
               href="#"
-              className="h-[40px] px-[32px] bg-gradient-primary rounded-[50px] shadow-glow inline-flex items-center justify-center text-white text-[14px] leading-[24px] font-bold"
+              className="h-[40px] px-[32px] bg-white rounded-[50px] shadow-glow inline-flex items-center justify-center text-black text-[14px] leading-[24px] font-bold"
             >
               Get started
             </Link>
