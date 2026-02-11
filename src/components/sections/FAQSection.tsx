@@ -91,7 +91,7 @@ export function FAQSection() {
       <div className="max-w-[1280px] mx-auto px-6 lg:px-[100px]">
         {/* Header */}
         <div className="flex flex-col items-center gap-[16px] mb-[50px] text-center">
-          <h2 className="text-[40px] md:text-[50px] font-bold leading-[1.1] text-gradient italic">
+          <h2 className="text-[40px] md:text-[50px] font-bold leading-[1.1] text-white">
             Frequently Asked Questions
           </h2>
           <p className="text-[16px] font-semibold leading-[28px] text-gray-300">
