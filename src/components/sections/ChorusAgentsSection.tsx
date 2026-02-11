@@ -51,9 +51,9 @@ function AvatarStack() {
    ═══════════════════════════════════════════════════════════ */
 function GoalsCard() {
   return (
-    <div className="relative flex-1 min-w-0 h-[671px] rounded-[40px] overflow-hidden bg-black">
+    <div className="relative w-full md:flex-1 md:min-w-0 h-[550px] md:h-[671px] rounded-[30px] md:rounded-[40px] overflow-hidden bg-black">
       {/* Border */}
-      <div className="absolute inset-0 rounded-[40px] border border-white/35 pointer-events-none z-40" />
+      <div className="absolute inset-0 rounded-[30px] md:rounded-[40px] border border-white/35 pointer-events-none z-40" />
 
       {/* Dark terrain-like background */}
       <div
@@ -189,18 +189,18 @@ function CollaborateCard() {
   const arrowRadius = 160;
 
   return (
-    <div className="relative flex-1 min-w-0 h-[671px] rounded-[40px] overflow-hidden bg-black">
-      <div className="absolute inset-0 rounded-[40px] border border-white/35 pointer-events-none z-40" />
+    <div className="relative w-full md:flex-1 md:min-w-0 h-[550px] md:h-[671px] rounded-[30px] md:rounded-[40px] overflow-hidden bg-black">
+      <div className="absolute inset-0 rounded-[30px] md:rounded-[40px] border border-white/35 pointer-events-none z-40" />
       <div className="absolute inset-0" style={{ background: "linear-gradient(180deg, rgba(0,0,0,0.78) 0%, black 100%)" }} />
 
-      {/* ── Orbit rings ── */}
-      <div className="absolute inset-0 z-[5] flex items-center justify-center" style={{ top: "-40px" }}>
+      {/* ── Orbit system — scaled on mobile ── */}
+      <div className="absolute inset-0 z-[5] flex items-center justify-center scale-[0.65] md:scale-100" style={{ top: "-40px" }}>
         <div className="absolute w-[460px] h-[460px] rounded-full bg-[radial-gradient(ellipse_at_center,rgba(255,255,255,0.12)_0%,rgba(255,255,255,0)_60%)] opacity-70" />
         <div className="absolute w-[420px] h-[420px] rounded-full border border-white/12 shadow-[inset_0px_0px_30px_rgba(255,255,255,0.08)]" />
         <div className="absolute w-[320px] h-[320px] rounded-full border border-white/16 bg-[linear-gradient(180deg,rgba(255,255,255,0.06)_0%,rgba(255,255,255,0)_70%)]" />
         <div className="absolute w-[220px] h-[220px] rounded-full border border-white/20 shadow-[inset_0px_0px_24px_rgba(255,255,255,0.12)]" />
 
-        {/* Bot icon center — actual Figma asset */}
+        {/* Bot icon center */}
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           src="/images/figma/Group 1707484101.svg"
@@ -208,7 +208,7 @@ function CollaborateCard() {
           className="absolute w-[155px] h-[148px] -rotate-3"
         />
 
-        {/* Orbiting avatar photos — actual Figma assets */}
+        {/* Orbiting avatar photos */}
         <div className="absolute w-[320px] h-[320px]">
           {avatarOrbit.map((avatar) => (
             <div
@@ -228,10 +228,8 @@ function CollaborateCard() {
             </div>
           ))}
         </div>
-      </div>
 
-      {/* ── Label pills with cursor arrows ── */}
-      <div className="absolute inset-0 z-30 flex items-center justify-center" style={{ top: "-40px" }}>
+        {/* Label pills with cursor arrows */}
         <div className="absolute w-[420px] h-[420px]">
           {labelOrbit.map((label) => (
             <div
@@ -247,9 +245,7 @@ function CollaborateCard() {
             </div>
           ))}
         </div>
-      </div>
 
-      <div className="absolute inset-0 z-20 flex items-center justify-center" style={{ top: "-40px" }}>
         <div className="absolute w-[420px] h-[420px]">
           {labelOrbit.map((label) => (
             <div
@@ -270,9 +266,9 @@ function CollaborateCard() {
       </div>
 
       {/* ── Title + desc ── */}
-      <div className="absolute bottom-0 inset-x-0 z-30 flex flex-col items-center gap-1 pb-6 px-6">
-        <h3 className="text-white text-[26px] font-bold leading-[40px] text-center">They collaborate with each other</h3>
-        <p className="text-gray-300 text-[16px] font-bold leading-[26px] text-center max-w-[440px]">
+      <div className="absolute bottom-0 inset-x-0 z-30 flex flex-col items-center gap-1 pb-6 px-4 md:px-6">
+        <h3 className="text-white text-[22px] md:text-[26px] font-bold leading-[32px] md:leading-[40px] text-center">They collaborate with each other</h3>
+        <p className="text-gray-300 text-[14px] md:text-[16px] font-bold leading-[22px] md:leading-[26px] text-center max-w-[440px]">
           The best way to reach humans instead of spam folders. Deliver transactional and marketing emails at scale.
         </p>
       </div>
@@ -287,7 +283,7 @@ function CollaborateCard() {
 function DecisionsCard() {
   return (
     <div
-      className="relative w-full md:w-[393px] shrink-0 h-[535px] rounded-[40px] overflow-hidden border border-white"
+      className="relative w-full md:w-[393px] shrink-0 h-[480px] md:h-[535px] rounded-[30px] md:rounded-[40px] overflow-hidden border border-white"
       style={{
         background: "linear-gradient(101deg, rgba(255,255,255,0.06) 0%, rgba(255,255,255,0.10) 55%, rgba(255,255,255,0.05) 100%)",
         backdropFilter: "blur(30px)",
@@ -368,31 +364,31 @@ function DecisionsCard() {
    ═══════════════════════════════════════════════════════════ */
 function FeedbackCard() {
   return (
-    <div className="relative flex-1 min-w-0 h-[537px] rounded-[37px] overflow-hidden">
+    <div className="relative w-full md:flex-1 md:min-w-0 h-[480px] md:h-[537px] rounded-[30px] md:rounded-[37px] overflow-hidden">
       {/* Subtle dark blue/purple bg */}
       <div className="absolute inset-0" style={{ background: "linear-gradient(160deg, #0d0b15 0%, #12101a 40%, #0a0810 100%)" }} />
       {/* Border + gradient overlay */}
       <div
-        className="absolute inset-0 rounded-[37px] z-20 pointer-events-none"
+        className="absolute inset-0 rounded-[30px] md:rounded-[37px] z-20 pointer-events-none"
         style={{ background: "linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.70) 100%)", border: "0.92px solid rgba(255,255,255,0.35)" }}
       />
 
       {/* Title top-left */}
-      <div className="absolute top-[35px] left-[30px] z-30 max-w-[394px]">
-        <h3 className="text-white text-[26px] font-bold leading-[40px]">They learn from your feedback</h3>
+      <div className="absolute top-[24px] left-[20px] md:top-[35px] md:left-[30px] z-30 max-w-[280px] md:max-w-[394px]">
+        <h3 className="text-white text-[20px] md:text-[26px] font-bold leading-[30px] md:leading-[40px]">They learn from your feedback</h3>
       </div>
 
       {/* ── macOS Chat Window ── */}
-      <div className="absolute top-[90px] left-[30px] right-[30px] bottom-0 z-[15] md:left-[50px] md:right-[50px]">
-        <div className="w-full h-full bg-[#131313] rounded-t-[18px] border border-white overflow-hidden" style={{ backdropFilter: "blur(31px)" }}>
+      <div className="absolute top-[90px] md:top-[90px] left-[16px] right-[16px] bottom-0 z-[15] md:left-[50px] md:right-[50px]">
+        <div className="w-full h-full bg-[#131313] rounded-t-[14px] md:rounded-t-[18px] border border-white overflow-hidden" style={{ backdropFilter: "blur(31px)" }}>
           {/* Traffic light dots */}
-          <div className="flex items-center gap-[8px] px-[22px] pt-[14px] pb-[16px]">
+          <div className="flex items-center gap-[8px] px-[16px] md:px-[22px] pt-[12px] md:pt-[14px] pb-[12px] md:pb-[16px]">
             <div className="w-[10px] h-[9px] rounded-sm bg-[#F24E1E]" />
             <div className="w-[10px] h-[9px] rounded-sm bg-[#FFD02F]" />
             <div className="w-[10px] h-[9px] rounded-sm bg-[#A6C03D]" />
           </div>
 
-          <div className="flex flex-col gap-[14px] px-[22px] overflow-hidden">
+          <div className="flex flex-col gap-[10px] md:gap-[14px] px-[16px] md:px-[22px] overflow-hidden">
             {/* John Doe */}
             <div className="flex flex-col gap-[8px]">
               <div className="flex items-center gap-[8px]">
@@ -471,32 +467,32 @@ function FeedbackCard() {
    ═══════════════════════════════════════════════════════════ */
 export function ChorusAgentsSection() {
   return (
-    <section className="w-full bg-black px-6 md:px-[100px] py-[75px]">
+    <section className="w-full bg-black px-4 md:px-[100px] py-[50px] md:py-[75px]">
       <div className="max-w-[1240px] mx-auto flex flex-col items-center gap-[10px]">
         {/* Section Header */}
-        <div className="flex flex-col items-center gap-[24px] w-full">
+        <div className="flex flex-col items-center gap-[20px] md:gap-[24px] w-full">
           <div className="h-[36px] px-3 py-1 bg-white/7 rounded-full overflow-hidden inline-flex items-center justify-center">
             <span className="text-white text-[16px] font-bold leading-[24px] text-center">Chorus Agents</span>
           </div>
-          <div className="flex flex-col items-center gap-[32px] w-full">
-            <h2 className="text-white text-[36px] md:text-[50px] font-bold leading-[1.2] md:leading-[78px] text-center">
+          <div className="flex flex-col items-center gap-[20px] md:gap-[32px] w-full">
+            <h2 className="text-white text-[32px] md:text-[50px] font-bold leading-[1.2] md:leading-[78px] text-center">
               Autonomous Agents, Not Chatbots.
             </h2>
-            <p className="text-gray-300 text-[20px] md:text-[26px] font-medium leading-[36px] text-center">
+            <p className="text-gray-300 text-[16px] md:text-[26px] font-medium leading-[26px] md:leading-[36px] text-center">
               The Difference That Changes Everything
             </p>
           </div>
         </div>
 
         {/* Cards */}
-        <div className="flex flex-col gap-[40px] w-full">
+        <div className="flex flex-col gap-[20px] md:gap-[40px] w-full">
           {/* Top Row */}
-          <div className="flex flex-col md:flex-row items-start gap-[40px] w-full">
+          <div className="flex flex-col md:flex-row items-start gap-[20px] md:gap-[40px] w-full">
             <GoalsCard />
             <CollaborateCard />
           </div>
-          {/* Bottom Row — vertically centered */}
-          <div className="flex flex-col md:flex-row items-center gap-[44px] w-full">
+          {/* Bottom Row */}
+          <div className="flex flex-col md:flex-row items-center gap-[20px] md:gap-[44px] w-full">
             <DecisionsCard />
             <FeedbackCard />
           </div>

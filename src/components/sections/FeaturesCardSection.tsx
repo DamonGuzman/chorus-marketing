@@ -244,98 +244,110 @@ function OrbitalAnimation() {
    ═══════════════════════════════════════════════════════════ */
 export function FeaturesCardSection() {
   return (
-    <section className="w-full bg-black px-6 md:px-[100px] py-[75px]">
+    <section className="w-full bg-black px-4 md:px-[100px] py-[50px] md:py-[75px]">
       <div className="max-w-[1240px] mx-auto flex flex-col items-center gap-[10px]">
 
         {/* ── Section Header ── */}
-        <div className="flex flex-col items-center gap-[30px] w-full self-stretch">
+        <div className="flex flex-col items-center gap-[20px] md:gap-[30px] w-full self-stretch">
           <div className="h-[36px] px-3 py-1 bg-white/7 rounded-full overflow-hidden inline-flex items-center justify-center gap-2">
             <span className="text-white text-[16px] font-bold leading-[24px] text-center">Features</span>
           </div>
-          <div className="flex flex-col items-center gap-[32px] w-full self-stretch">
-            <h2 className="text-white text-[36px] md:text-[50px] font-bold leading-[1.2] md:leading-[78px] text-center">
+          <div className="flex flex-col items-center gap-[20px] md:gap-[32px] w-full self-stretch">
+            <h2 className="text-white text-[32px] md:text-[50px] font-bold leading-[1.2] md:leading-[78px] text-center">
               The Difference That Changes Everything
             </h2>
-            <p className="text-gray-300 text-[20px] md:text-[26px] font-medium leading-[36px] text-center">
+            <p className="text-gray-300 text-[16px] md:text-[26px] font-medium leading-[26px] md:leading-[36px] text-center">
               The Difference That Changes Everything
             </p>
           </div>
         </div>
 
-        {/* ── Stacked Cards ── */}
+        {/* ── Stacked Cards (same width as main, offset below) ── */}
         {/* Back card */}
         <div
-          className="w-full max-w-[1013px] rounded-[37px] border border-white/20"
+          className="w-full max-w-[1188px] rounded-[30px] md:rounded-[40px] border border-white/15"
           style={{
-            paddingTop: 56, paddingBottom: 56, paddingLeft: 52, paddingRight: 47,
-            background: "black", backdropFilter: "blur(24px)",
-            height: 60,
+            background: "#0a0a0a",
+            height: 30,
           }}
         />
 
         {/* Middle card */}
         <div
-          className="w-full max-w-[1115px] -mt-[30px] rounded-[37px] border border-white/20"
+          className="w-full max-w-[1188px] -mt-[14px] md:-mt-[16px] rounded-[30px] md:rounded-[40px] border border-white/20"
           style={{
-            paddingTop: 56, paddingBottom: 56, paddingLeft: 52, paddingRight: 47,
-            background: "black", backdropFilter: "blur(24px)",
-            height: 60,
+            background: "#0d0d0d",
+            height: 30,
           }}
         />
 
         {/* ── Front card — Main Content ── */}
         <div
-          className="w-full max-w-[1188px] -mt-[30px] rounded-[40px] py-[50px] px-[40px] md:py-[60px] md:px-[56px] overflow-hidden"
+          className="w-full max-w-[1188px] -mt-[18px] md:-mt-[30px] rounded-[30px] md:rounded-[40px] py-[36px] px-[24px] md:py-[60px] md:px-[56px] overflow-hidden"
           style={{
             background: "linear-gradient(135deg, rgba(10,10,10,1) 0%, rgba(15,15,15,1) 50%, rgba(8,8,8,1) 100%)",
             outline: "1px solid #434343",
             outlineOffset: "-1px",
             backdropFilter: "blur(25.53px)",
+            boxShadow: "0px 30px 100px rgba(0,0,0,0.7), 0px 0px 1px rgba(255,255,255,0.1)",
           }}
         >
           <div className="flex flex-col md:flex-row items-center gap-[30px] md:gap-[22px]">
             {/* ── Left side content ── */}
-            <div className="flex flex-col gap-[32px] shrink-0 md:max-w-[460px]">
+            <div className="flex flex-col gap-[24px] md:gap-[32px] shrink-0 md:max-w-[460px] w-full">
               {/* Gradient circle with number inside */}
               <div
-                className="w-[85px] h-[85px] rounded-full flex items-center justify-center"
+                className="w-[65px] h-[65px] md:w-[85px] md:h-[85px] rounded-full flex items-center justify-center"
                 style={{
                   background: "linear-gradient(138deg, rgba(61,61,61,0.29) 0%, rgba(255,229,229,0) 100%)",
                   boxShadow: "0px 3.98px 24.85px rgba(0,0,0,0.25)",
                   border: "1.3px solid rgba(255,255,255,0.10)",
                 }}
               >
-                <span className="text-white text-[30px] font-normal">3</span>
+                <span className="text-white text-[24px] md:text-[30px] font-normal">3</span>
+              </div>
+
+              {/* Orbital animation — mobile only, between number and text */}
+              <div className="md:hidden relative w-full overflow-visible" style={{ height: 'calc(420px * 0.6)' }}>
+                <div
+                  className="absolute top-0 left-1/2"
+                  style={{
+                    width: 500,
+                    height: 420,
+                    transformOrigin: 'top center',
+                    transform: 'translateX(-50%) scale(0.6)',
+                  }}
+                >
+                  <OrbitalAnimation />
+                </div>
               </div>
 
               {/* Text content */}
               <div className="flex flex-col gap-[20px]">
-                <h3 className="text-white text-[26px] font-bold leading-[36px]">Full Business Context</h3>
+                <h3 className="text-white text-[22px] md:text-[26px] font-bold leading-[32px] md:leading-[36px]">Full Business Context</h3>
 
-                <div className="flex flex-col gap-[28px]">
-                  <div className="flex flex-col gap-[27px]">
+                <div className="flex flex-col gap-[24px] md:gap-[28px]">
+                  <div className="flex flex-col gap-[20px] md:gap-[27px]">
                     <p className="text-gray-100 text-[14px] font-medium leading-[22px] max-w-[433px]">
                       Because Chorus integrates with your entire stack (CRM, email, docs, calendar, Slack), your AI agents have complete context about:
                     </p>
 
                     {/* Divider */}
-                    <div className="w-[433px] max-w-full h-0 border-t border-white/19" />
+                    <div className="w-full max-w-[433px] h-0 border-t border-white/19" />
 
                     {/* Checklist items */}
-                    <div className="flex flex-col gap-[17px]">
-                      <div className="flex flex-wrap gap-x-[28px] gap-y-[17px]">
-                        <div className="flex items-end gap-[16px]">
-                          <CheckMark />
-                          <span className="text-gray-300 text-[16px] font-medium">Your customers and pipeline</span>
-                        </div>
-                        <div className="flex items-end gap-[10px]">
-                          <CheckMark />
-                          <span className="text-gray-300 text-[16px] font-medium">Your processes and SOPs</span>
-                        </div>
-                      </div>
-                      <div className="flex items-end gap-[16px]">
+                    <div className="flex flex-col gap-[14px] md:gap-[17px]">
+                      <div className="flex items-center gap-[12px] md:gap-[16px]">
                         <CheckMark />
-                        <span className="text-gray-300 text-[16px] font-medium">Your messaging and brand voice</span>
+                        <span className="text-gray-300 text-[15px] md:text-[16px] font-medium">Your customers and pipeline</span>
+                      </div>
+                      <div className="flex items-center gap-[12px] md:gap-[16px]">
+                        <CheckMark />
+                        <span className="text-gray-300 text-[15px] md:text-[16px] font-medium">Your processes and SOPs</span>
+                      </div>
+                      <div className="flex items-center gap-[12px] md:gap-[16px]">
+                        <CheckMark />
+                        <span className="text-gray-300 text-[15px] md:text-[16px] font-medium">Your messaging and brand voice</span>
                       </div>
                     </div>
                   </div>
@@ -343,7 +355,7 @@ export function FeaturesCardSection() {
               </div>
             </div>
 
-            {/* ── Right side — Orbital integration visual ── */}
+            {/* ── Right side — Orbital integration visual (desktop only) ── */}
             <div className="relative flex-1 min-h-[420px] hidden md:flex items-center justify-center">
               <OrbitalAnimation />
             </div>
