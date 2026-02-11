@@ -19,10 +19,9 @@ function CheckBullet({ text }: { text: string }) {
 function ListCard({ title, items }: { title: string; items: string[] }) {
   return (
     <div
-      className="w-[440px] max-w-full flex flex-col gap-[23px]"
+      className="w-full md:w-[440px] max-w-full flex flex-col gap-[18px] md:gap-[23px] p-[20px] md:p-[24px] rounded-[20px] md:rounded-[24px]"
       style={{
-        paddingTop: 30, paddingBottom: 20, paddingLeft: 20, paddingRight: 20,
-        borderRadius: 24, outline: "0.85px solid white", outlineOffset: "-0.85px",
+        outline: "0.85px solid white", outlineOffset: "-0.85px",
         backdropFilter: "blur(25.53px)",
       }}
     >
@@ -101,7 +100,7 @@ function ProfileCard({ name, role, avatar }: { name: string; role: string; avata
 /* ── Right side composed illustration ── */
 function ComposedIllustration() {
   return (
-    <div className="relative w-[520px] h-[530px] shrink-0 hidden lg:block">
+    <div className="relative w-[520px] h-[530px] shrink-0">
       {/* Workspace background card — tall, behind everything */}
       <div
         className="absolute"
@@ -174,31 +173,55 @@ function ComposedIllustration() {
 /* ── Main Section ── */
 export function CollaborationHubSection() {
   return (
-    <section
-      className="w-full bg-black flex flex-col items-center gap-[10px]"
-      style={{ paddingTop: 75, paddingBottom: 150, paddingLeft: 100, paddingRight: 100 }}
-    >
-      <div className="self-stretch flex flex-col items-center gap-[36px]">
+    <section className="w-full bg-black flex flex-col items-center gap-[10px] px-4 py-[50px] md:px-[100px] md:py-[75px] md:pb-[150px]">
+      <div className="self-stretch flex flex-col items-center gap-[30px] md:gap-[36px]">
         {/* Header */}
-        <div className="self-stretch flex flex-col items-start gap-[40px]">
-          <div className="self-stretch flex flex-col items-center gap-[32px]">
-            <div className="h-[36px] px-3 py-1 bg-white/7 rounded-full overflow-hidden inline-flex items-center justify-center gap-[8px]">
-              <span className="text-white text-[16px] font-bold leading-[24px] text-center">
-                Your Team + AI Team = Unstoppable
-              </span>
+        <div className="self-stretch flex flex-col items-center gap-[20px] md:gap-[32px]">
+          <div className="h-[36px] px-3 py-1 bg-white/7 rounded-full overflow-hidden inline-flex items-center justify-center gap-[8px]">
+            <span className="text-white text-[14px] md:text-[16px] font-bold leading-[24px] text-center">
+              Your Team + AI Team = Unstoppable
+            </span>
+          </div>
+          <h2 className="text-white text-[28px] md:text-[50px] font-bold leading-[36px] md:leading-[78px] text-center">
+            Human-AI Collaboration
+          </h2>
+          <p className="text-gray-300 text-[16px] md:text-[26px] font-medium leading-[26px] md:leading-[36px] text-center">
+            Chorus isn&apos;t about replacing your people. It&apos;s about multiplying them.
+          </p>
+        </div>
+
+        {/* Mobile: illustration + list cards stacked */}
+        <div className="flex flex-col items-center gap-[30px] lg:hidden">
+          {/* Scaled illustration */}
+          <div className="relative w-full" style={{ height: 'calc(530px * 0.55)' }}>
+            <div
+              className="absolute top-0 left-1/2"
+              style={{
+                width: 520,
+                height: 530,
+                transformOrigin: 'top center',
+                transform: 'translateX(-50%) scale(0.55)',
+              }}
+            >
+              <ComposedIllustration />
             </div>
-            <h2 className="text-white text-[50px] font-bold leading-[78px]">
-              Human-AI Collaboration
-            </h2>
-            <p className="text-gray-300 text-[26px] font-medium leading-[36px] text-center">
-              Chorus isn&apos;t about replacing your people. It&apos;s about multiplying them.
-            </p>
+          </div>
+
+          {/* List cards */}
+          <div className="flex flex-col items-stretch gap-[20px] w-full">
+            <ListCard
+              title="Your humans focus on"
+              items={["Strategy & vision", "Complex decisions", "Relationships & creativity", "High-judgment situations"]}
+            />
+            <ListCard
+              title="Your AI agents handle"
+              items={["Execution & implementation", "Research & analysis", "Repetitive workflows", "Scale & speed"]}
+            />
           </div>
         </div>
 
-        {/* Content row */}
-        <div className="flex items-center gap-[78px] flex-wrap lg:flex-nowrap justify-center">
-          {/* Left: two list cards */}
+        {/* Desktop: side by side */}
+        <div className="hidden lg:flex items-center gap-[78px] justify-center">
           <div className="flex flex-col items-start gap-[20px]">
             <ListCard
               title="Your humans focus on"
@@ -209,8 +232,6 @@ export function CollaborationHubSection() {
               items={["Execution & implementation", "Research & analysis", "Repetitive workflows", "Scale & speed"]}
             />
           </div>
-
-          {/* Right: composed illustration */}
           <ComposedIllustration />
         </div>
       </div>

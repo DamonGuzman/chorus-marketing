@@ -14,7 +14,7 @@ import {
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-black">
+    <div className="min-h-screen bg-black overflow-x-hidden">
       <Header />
       <main>
         <NewHeroSection />
