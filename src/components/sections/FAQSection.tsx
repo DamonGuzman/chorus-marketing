@@ -1,56 +1,111 @@
-import { Section, Badge } from "@/components/ui";
+"use client";
+
+import { useState } from "react";
+import { Section } from "@/components/ui";
 
 const faqs = [
   {
-    q: "What makes Chorus different from a chatbot?",
-    a: "Chatbots respond to prompts. Chorus runs autonomous agents that plan and execute work across your tools, with guardrails, approvals, and visibility.",
+    q: "Is this actually real or is it just hype?",
+    a: "100% real. Chorus agents are already handling real work — sending emails, updating CRMs, analyzing data, managing projects. This isn't a demo or a concept. It's production-ready AI that executes.",
   },
   {
-    q: "Can I control what agents are allowed to do?",
-    a: "Yes. Define permissions, required approvals, budgets, and rules. Agents operate within those constraints and keep an audit trail of actions.",
+    q: "Will AI really replace human employees?",
+    a: "You've been reading too much sci-fi. Chorus doesn't replace humans - it helps amplify them and lets them focus on what they're best at: strategy and creativity. AI handles execution and the busy work.",
   },
   {
-    q: "Does Chorus work with my existing tools?",
-    a: "Chorus is designed to integrate with your current stack so agents can read context and take action where work already happens.",
+    q: "How is this different from ChatGPT or other AI assistants?",
+    a: "ChatGPT answers questions. Chorus takes action. Our agents don't just suggest — they execute across your tools with full context, guardrails, and audit trails.",
   },
   {
-    q: "How is pricing calculated?",
-    a: "Pricing is based on agent-hours and scale. Choose a plan, then pay for the work your AI workforce actually performs.",
+    q: "What if the AI makes mistakes?",
+    a: "Every agent operates within rules you define. They can require approval for sensitive actions, stay within budgets, and maintain complete audit trails. You're always in control.",
+  },
+  {
+    q: "How long does setup take?",
+    a: "Most teams are up and running within a day. Connect your tools, define your agents, set their rules, and they start working immediately.",
+  },
+  {
+    q: "Can I try before I commit?",
+    a: "Absolutely. Start with a free trial to see Chorus in action with your own data and workflows. No credit card required.",
   },
 ];
+
+function PlusIcon({ open }: { open: boolean }) {
+  return (
+    <div className="w-[32px] h-[32px] flex items-center justify-center shrink-0">
+      {open ? (
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+          <path d="M4 4L14 14M14 4L4 14" stroke="white" strokeWidth="2" strokeLinecap="round" />
+        </svg>
+      ) : (
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+          <path d="M9 2V16M2 9H16" stroke="white" strokeWidth="2" strokeLinecap="round" />
+        </svg>
+      )}
+    </div>
+  );
+}
+
+function FAQItem({ question, answer }: { question: string; answer: string }) {
+  const [open, setOpen] = useState(false);
+
+  return (
+    <div
+      className="rounded-[16px] border border-white/10 transition-all duration-300"
+      style={{
+        background: open
+          ? "linear-gradient(135deg, rgba(255,255,255,0.06) 0%, rgba(255,255,255,0.03) 100%)"
+          : "rgba(255,255,255,0.03)",
+      }}
+    >
+      <button
+        onClick={() => setOpen(!open)}
+        className="w-full flex items-center justify-between gap-[16px] px-[24px] py-[20px] text-left cursor-pointer"
+      >
+        <span className="text-white text-[16px] font-semibold leading-[26px]">
+          {question}
+        </span>
+        <PlusIcon open={open} />
+      </button>
+
+      <div
+        className="overflow-hidden transition-all duration-300"
+        style={{
+          maxHeight: open ? "200px" : "0",
+          opacity: open ? 1 : 0,
+        }}
+      >
+        <div className="px-[24px] pb-[20px]">
+          <p className="text-gray-300 text-[14px] font-medium leading-[24px]">
+            {answer}
+          </p>
+        </div>
+      </div>
+    </div>
+  );
+}
 
 export function FAQSection() {
   return (
     <Section className="py-[100px]" id="faq">
       <div className="max-w-[1280px] mx-auto px-6 lg:px-[100px]">
-        <div className="flex flex-col items-center gap-[15px] mb-[60px] text-center">
-          <Badge>FAQ</Badge>
-          <h2 className="text-[35px] leading-[1.1] font-bold text-white">Questions, Answered</h2>
-          <p className="text-[18px] leading-[36px] font-medium text-gray-300 max-w-[900px]">
-            Everything you need to know before deploying your AI workforce.
+        {/* Header */}
+        <div className="flex flex-col items-center gap-[16px] mb-[50px] text-center">
+          <h2 className="text-[40px] md:text-[50px] font-bold leading-[1.1] text-gradient italic">
+            Frequently Asked Questions
+          </h2>
+          <p className="text-[16px] font-semibold leading-[28px] text-gray-300">
+            Our commitment to transparency
           </p>
         </div>
 
-        <div className="max-w-[900px] mx-auto space-y-[12px]">
+        {/* FAQ items */}
+        <div className="max-w-[700px] mx-auto flex flex-col gap-[12px]">
           {faqs.map((item) => (
-            <details
-              key={item.q}
-              className="group bg-gray-950 rounded-[20px] border border-white/10 px-[24px] py-[18px] open:border-purple-500/30"
-            >
-              <summary className="cursor-pointer list-none flex items-center justify-between gap-6">
-                <span className="text-[16px] font-semibold text-white">{item.q}</span>
-                <span className="text-gray-400 group-open:text-purple-400 transition-colors">
-                  +
-                </span>
-              </summary>
-              <div className="pt-[12px] text-[14px] leading-[1.8] text-gray-200">
-                {item.a}
-              </div>
-            </details>
+            <FAQItem key={item.q} question={item.q} answer={item.a} />
           ))}
         </div>
       </div>
     </Section>
   );
 }
-

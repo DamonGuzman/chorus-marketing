@@ -205,13 +205,103 @@ export function ChorusWaySection() {
   ];
 
   return (
-    <Section className="relative py-[75px]" id="chorus-way">
+    <Section className="relative py-[50px] md:py-[75px]" id="chorus-way">
       <Container>
-        <div className="flex flex-col lg:flex-row gap-[52px] items-start lg:items-center">
+        {/* Mobile layout: centered, single column */}
+        <div className="flex flex-col lg:hidden items-center text-center gap-[30px]">
+          <Badge>The Solution</Badge>
+
+          <h2 className="text-[32px] leading-[42px] sm:text-[50px] sm:leading-[64px] tracking-[-0.5px] font-bold text-white">
+            <span className="block">The Chorus Way</span>
+            <span className="block">Manifest Your Team Instantly</span>
+          </h2>
+
+          <p className="text-[16px] leading-[28px] font-medium text-gray-300">
+            The best way to reach humans instead of spam folders. Deliver transactional and marketing emails at scale.
+          </p>
+
+          {/* Mobile orbit diagram — same as desktop, scaled down */}
+          <style>{`
+            .orbit-mobile { --orbit-s: 0.44; }
+            @media (min-width: 360px) { .orbit-mobile { --orbit-s: 0.48; } }
+            @media (min-width: 390px) { .orbit-mobile { --orbit-s: 0.50; } }
+            @media (min-width: 414px) { .orbit-mobile { --orbit-s: 0.53; } }
+            @media (min-width: 480px) { .orbit-mobile { --orbit-s: 0.60; } }
+            @media (min-width: 640px) { .orbit-mobile { --orbit-s: 0.75; } }
+          `}</style>
+          <div
+            className="orbit-mobile relative w-full overflow-hidden mx-auto"
+            style={{
+              maxWidth: 'calc(705px * var(--orbit-s))',
+              height: 'calc(506px * var(--orbit-s))',
+            }}
+          >
+            <div
+              className="absolute top-0 left-1/2 origin-top-center"
+              style={{
+                width: 705,
+                height: 506,
+                transformOrigin: 'top center',
+                transform: 'translateX(-50%) scale(var(--orbit-s))',
+              }}
+            >
+              {/* Concentric circles */}
+              <div className="absolute inset-0">
+                <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[72%] aspect-square rounded-full border border-white/10" />
+                <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[57.2%] aspect-square rounded-full border border-white/10" />
+                <div
+                  className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[44%] aspect-square rounded-full"
+                  style={{
+                    background: '#FFFFFF0A',
+                    border: '0.54px solid #FFFFFF4F',
+                    boxShadow: '0px 2.17px 2.17px 0px #00000040',
+                  }}
+                />
+              </div>
+
+              {/* Center orb */}
+              <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+                <img
+                  src="/images/figma/Group 1707484006.svg"
+                  alt="Chorus Logo Orb"
+                  className="size-[149px]"
+                />
+              </div>
+
+              {/* Callouts */}
+              {callouts.map((callout) => (
+                <ChorusWayCallout
+                  key={callout.label}
+                  label={callout.label}
+                  icon={callout.icon}
+                  iconBoxClassName={callout.iconBoxClassName}
+                  iconBoxStyle={callout.iconBoxStyle}
+                  className="absolute"
+                  style={{
+                    left: `${callout.leftPercent}%`,
+                    top: `${callout.topPercent}%`,
+                  }}
+                />
+              ))}
+            </div>
+          </div>
+
+          <p className="text-[16px] leading-[28px] font-medium text-gray-300">
+            VocAI CRM empowers a global network of over 250,000 businesses in 180 countries to convert more leads, engage
+            with customers, and grow their revenue.
+          </p>
+
+          <p className="text-[16px] leading-[28px] font-medium text-gray-300">
+            VocAI CRM empowers a global network of over 250,000 businesses in 180 countries to convert more leads,
+          </p>
+        </div>
+
+        {/* Desktop layout: side-by-side */}
+        <div className="hidden lg:flex lg:flex-row gap-[52px] items-center">
           <div className="flex flex-col gap-[43px] items-start max-w-[464px]">
             <Badge>The Solution</Badge>
 
-            <h2 className="text-[40px] sm:text-[50px] leading-[52px] sm:leading-[64px] tracking-[-0.5px] font-bold text-white whitespace-pre-wrap">
+            <h2 className="text-[50px] leading-[64px] tracking-[-0.5px] font-bold text-white whitespace-pre-wrap">
               <span className="block">The Chorus Way</span>
               <span className="block">Manifest Your Team Instantly</span>
             </h2>
@@ -226,15 +316,12 @@ export function ChorusWaySection() {
             </p>
           </div>
 
-          {/* Desktop: orbit diagram */}
-          <div className="hidden lg:block relative w-[705px] h-[506px] shrink-0">
+          {/* Desktop orbit diagram */}
+          <div className="relative w-[705px] h-[506px] shrink-0">
             {/* Concentric circles */}
             <div className="absolute inset-0">
-              {/* Outermost circle - simple border */}
               <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[72%] aspect-square rounded-full border border-white/10" />
-              {/* Middle circle - simple border */}
               <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[57.2%] aspect-square rounded-full border border-white/10" />
-              {/* Innermost circle - with exact Figma styling */}
               <div 
                 className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[44%] aspect-square rounded-full"
                 style={{ 
@@ -245,7 +332,7 @@ export function ChorusWaySection() {
               />
             </div>
 
-            {/* Center orb - from Figma SVG */}
+            {/* Center orb */}
             <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
               <img 
                 src="/images/figma/Group 1707484006.svg" 
@@ -269,22 +356,6 @@ export function ChorusWaySection() {
                 }}
               />
             ))}
-          </div>
-
-          {/* Mobile: stacked benefit cards */}
-          <div className="lg:hidden w-full">
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-[14px]">
-              {callouts.map((callout) => (
-                <ChorusWayCallout
-                  key={callout.label}
-                  label={callout.label.replaceAll("\n", " ")}
-                  icon={callout.icon}
-                  iconBoxClassName={callout.iconBoxClassName}
-                  iconBoxStyle={callout.iconBoxStyle}
-                  className="w-full"
-                />
-              ))}
-            </div>
           </div>
         </div>
       </Container>

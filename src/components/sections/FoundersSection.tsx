@@ -62,7 +62,7 @@ function LightCard({
 }) {
   return (
     <div
-      className="relative w-[379px] overflow-hidden rounded-[20px] border border-white/50 px-[30px] pb-[30px] pt-[35px] backdrop-blur-[30px]"
+      className="relative w-[300px] shrink-0 sm:w-[340px] lg:w-[379px] overflow-hidden rounded-[20px] border border-white/50 px-[24px] pb-[24px] pt-[30px] sm:px-[30px] sm:pb-[30px] sm:pt-[35px] backdrop-blur-[30px]"
       style={{
         background: "linear-gradient(37deg, #F6F6F6 0%, #CCCBCB 100%)",
       }}
@@ -116,7 +116,7 @@ function DarkCard({
 }) {
   return (
     <div
-      className="relative w-[379px] overflow-hidden rounded-[20px] border border-white/15 px-[30px] pb-[30px] pt-[35px] backdrop-blur-[30px]"
+      className="relative w-[300px] shrink-0 sm:w-[340px] lg:w-[379px] overflow-hidden rounded-[20px] border border-white/15 px-[24px] pb-[24px] pt-[30px] sm:px-[30px] sm:pb-[30px] sm:pt-[35px] backdrop-blur-[30px]"
       style={{
         background: "linear-gradient(45deg, #101010 0%, #242324 100%)",
       }}
@@ -160,7 +160,7 @@ function DarkCard({
 function GlassCard() {
   return (
     <div
-      className="relative w-[379px] overflow-hidden rounded-[20px] border border-white/20 px-[37px] pb-[30px] pt-[42px] backdrop-blur-[30px]"
+      className="relative w-[300px] shrink-0 sm:w-[340px] lg:w-[379px] overflow-hidden rounded-[20px] border border-white/20 px-[28px] pb-[24px] pt-[34px] sm:px-[37px] sm:pb-[30px] sm:pt-[42px] backdrop-blur-[30px]"
       style={{
         background:
           "linear-gradient(186deg, rgba(255,255,255,0.06) 0%, rgba(255,255,255,0.10) 55%, rgba(255,255,255,0.05) 100%)",
@@ -199,7 +199,7 @@ function GlassCard() {
 function GlassWhiteCard() {
   return (
     <div
-      className="relative w-[379px] overflow-hidden rounded-[20px] border border-white/20 px-[37px] pb-[30px] pt-[42px] backdrop-blur-[30px]"
+      className="relative w-[300px] shrink-0 sm:w-[340px] lg:w-[379px] overflow-hidden rounded-[20px] border border-white/20 px-[28px] pb-[24px] pt-[34px] sm:px-[37px] sm:pb-[30px] sm:pt-[42px] backdrop-blur-[30px]"
       style={{
         background:
           "linear-gradient(186deg, rgba(255,255,255,0.06) 0%, rgba(255,255,255,0.10) 55%, rgba(255,255,255,0.05) 100%)",
@@ -241,10 +241,10 @@ function GlassWhiteCard() {
 export function FoundersSection() {
   return (
     <Section
-      className="bg-black px-6 py-[75px] lg:px-[100px]"
+      className="bg-black px-4 py-[50px] md:py-[75px] lg:px-[100px]"
       id="testimonials"
     >
-      <div className="mx-auto flex max-w-[1280px] flex-col items-center gap-[57px]">
+      <div className="mx-auto flex max-w-[1280px] flex-col items-center gap-[40px] md:gap-[57px]">
         {/* Header */}
         <div className="flex flex-col items-center gap-[24px]">
           <div className="inline-flex items-center justify-center overflow-hidden rounded-full bg-white/[0.07] px-[12px] py-[4px]">
@@ -253,10 +253,10 @@ export function FoundersSection() {
             </span>
           </div>
           <div className="flex flex-col items-center gap-[16px]">
-            <h2 className="text-center font-urbanist text-[36px] font-bold leading-[1.3] text-white md:text-[50px] md:leading-[78px]">
+            <h2 className="text-center font-urbanist text-[32px] leading-[1.3] font-bold text-white md:text-[50px] md:leading-[78px]">
               Founders Are Already Building With Chorus
             </h2>
-            <p className="text-center font-urbanist text-[18px] font-normal leading-[30px] text-[#7D7C83] md:text-[22px] md:leading-[36px]">
+            <p className="text-center font-urbanist text-[16px] leading-[26px] font-normal text-[#7D7C83] md:text-[22px] md:leading-[36px]">
               The best way to reach humans instead of spam folders. Deliver
               transactional and marketing emails at scale.
             </p>
@@ -298,11 +298,20 @@ export function FoundersSection() {
           </div>
         </div>
 
-        {/* Mobile: single column */}
-        <div className="flex flex-col items-center gap-[30px] lg:hidden">
-          <GlassCard />
-          <DarkCard logo="/images/figma/image 23 (2).svg" alt="Raycas" />
-          <GlassWhiteCard />
+        {/* Mobile: horizontal scroll */}
+        <div className="w-full lg:hidden -mx-4 px-4 overflow-x-auto [scrollbar-width:none] [-webkit-overflow-scrolling:touch] [&::-webkit-scrollbar]:hidden">
+          <div className="flex items-start gap-[16px] w-max">
+            <LightCard
+              logo="/images/figma/image 23.svg"
+              alt="Perplexity"
+              logoWidth={158}
+              logoHeight={38}
+            />
+            <DarkCard logo="/images/figma/bbdo-logo.svg" alt="BBDO" />
+            <GlassCard />
+            <DarkCard logo="/images/figma/image 23 (2).svg" alt="Raycas" />
+            <GlassWhiteCard />
+          </div>
         </div>
       </div>
     </Section>

@@ -326,7 +326,7 @@ function StepItem({
   isLast: boolean;
 }) {
   return (
-    <div className="flex items-stretch gap-6 md:gap-[80px]">
+    <div className="flex items-stretch gap-4 md:gap-[80px]">
       {/* Vertical line */}
       <div className="flex w-[3px] shrink-0 flex-col">
         <div
@@ -367,7 +367,7 @@ function StepItem({
           </div>
 
           {/* Description */}
-          <p className="font-urbanist text-[14px] font-normal leading-[26px] text-[#7D7C83] md:text-[16px] md:leading-[31px]">
+          <p className="font-urbanist text-[14px] font-normal leading-[24px] text-[#7D7C83] md:text-[16px] md:leading-[31px]">
             {description}
           </p>
         </div>
@@ -384,34 +384,34 @@ function AgentProfileCard() {
   return (
     <div
       className={cn(
-        "w-full overflow-hidden rounded-[35px]",
+        "w-full min-w-0 overflow-hidden rounded-[35px]",
         "bg-black/0",
-        "shadow-[0px_4px_53px_rgba(0,0,0,1)]"
+        "shadow-[0px_4px_53px_rgba(0,0,0,1)]",
+        "p-4 pt-6 md:pt-[31px] md:pr-[10px] md:pb-[3px] md:pl-[27px]"
       )}
-      style={{ padding: "31px 10px 3px 27px" }}
     >
       {/* Agent header */}
-      <div className="flex items-start gap-[17px]">
+      <div className="flex items-start gap-3 md:gap-[17px]">
         {/* Profile avatar */}
         <Image
           src="/images/figma/Ellipse 53.svg"
           alt="Frank"
           width={91}
           height={91}
-          className="size-[91px] shrink-0 rounded-full object-cover"
+          className="size-[70px] shrink-0 rounded-full object-cover md:size-[91px]"
         />
 
         {/* Info */}
         <div className="flex flex-col gap-[10px]">
           {/* Name row */}
           <div className="flex flex-wrap items-center gap-[10px]">
-            <span className="font-urbanist text-[19px] font-bold leading-[30px] text-white">
+            <span className="font-urbanist text-[16px] font-bold leading-[24px] text-white md:text-[19px] md:leading-[30px]">
               Frank
             </span>
-            <span className="inline-flex items-center rounded-[4px] border border-white/10 bg-gray-600 px-[5px] py-[5px] font-urbanist text-[9px] font-semibold leading-[17px] text-gray-100">
+            <span className="inline-flex items-center rounded-[4px] border border-white/10 bg-gray-600 px-[5px] py-[5px] font-urbanist text-[8px] font-semibold leading-[15px] text-gray-100 md:text-[9px] md:leading-[17px]">
               AI Agent
             </span>
-            <span className="inline-flex items-center rounded-[9px] border border-green px-[6px] py-[6px] font-urbanist text-[11px] font-normal leading-[21px] text-green">
+            <span className="inline-flex items-center rounded-[9px] border border-green px-[5px] py-[5px] font-urbanist text-[10px] font-normal leading-[18px] text-green md:px-[6px] md:py-[6px] md:text-[11px] md:leading-[21px]">
               Active
             </span>
           </div>
@@ -419,19 +419,19 @@ function AgentProfileCard() {
           {/* Meta info */}
           <div className="flex items-center gap-[9px]">
             <BriefcaseIcon />
-            <span className="font-urbanist text-[12px] font-medium leading-[19px] text-[#7D7C83]">
+            <span className="font-urbanist text-[11px] font-medium leading-[17px] text-[#7D7C83] md:text-[12px] md:leading-[19px]">
               Finance Manager
             </span>
           </div>
           <div className="flex items-center gap-[9px]">
             <IdCardIcon />
-            <span className="font-urbanist text-[12px] font-medium leading-[19px] text-[#7D7C83]">
+            <span className="font-urbanist text-[11px] font-medium leading-[17px] text-[#7D7C83] md:text-[12px] md:leading-[19px]">
               ID : AGT-RES-2847
             </span>
           </div>
           <div className="flex items-center gap-[9px]">
             <CalendarIcon />
-            <span className="font-urbanist text-[12px] font-medium leading-[19px] text-[#7D7C83]">
+            <span className="font-urbanist text-[11px] font-medium leading-[17px] text-[#7D7C83] md:text-[12px] md:leading-[19px]">
               Deployed at March 15, 2024
             </span>
           </div>
@@ -464,7 +464,7 @@ function AgentProfileCard() {
 function TaskPanelCard() {
   return (
     <div
-      className="w-full rounded-[27px] bg-[#121212] px-[18px] py-[26px]"
+      className="w-full min-w-0 rounded-[27px] bg-[#121212] px-4 py-5 md:px-[18px] md:py-[26px]"
       style={{
         boxShadow: "inset 0px 0px 7px rgba(255, 255, 255, 0.27)",
         transform: "rotate(2deg)",
@@ -585,16 +585,16 @@ export function HowItWorksSection() {
       id="how-it-works"
     >
       <Container>
-        <div className="mx-auto flex flex-col items-center gap-[57px]">
+        <div className="mx-auto flex flex-col items-center gap-[40px] md:gap-[57px]">
           {/* ---- Header ---- */}
           <div className="flex flex-col items-center gap-[24px]">
             <Badge>Our Process</Badge>
 
             <div className="flex flex-col items-center gap-[16px]">
-              <h2 className="text-center text-[36px] font-bold leading-[1.3] tracking-[-0.5px] text-white md:text-[50px] md:leading-[78px]">
+              <h2 className="text-center text-[32px] font-bold leading-[1.3] tracking-[-0.5px] text-white md:text-[50px] md:leading-[78px]">
                 How It Works
               </h2>
-              <p className="max-w-[700px] text-center font-urbanist text-[18px] font-normal leading-[30px] text-[#7D7C83] md:text-[22px] md:leading-[36px]">
+              <p className="max-w-[700px] text-center font-urbanist text-[16px] font-normal leading-[26px] text-[#7D7C83] md:text-[22px] md:leading-[36px]">
                 The best way to reach humans instead of spam folders. Deliver
                 transactional and marketing emails at scale.
               </p>
@@ -602,10 +602,11 @@ export function HowItWorksSection() {
           </div>
 
           {/* ---- Content ---- */}
-          <div className="w-full overflow-hidden rounded-[30px] bg-white/[0.06] px-4 py-[40px] md:py-[47px] md:pr-[30px] md:pb-[30px] md:pl-0">
-            <div className="flex flex-col gap-[40px] lg:flex-row lg:items-start lg:gap-[40px] xl:gap-[63px]">
+          {/* Desktop: side-by-side steps + cards */}
+          <div className="hidden lg:block w-full overflow-hidden rounded-[30px] bg-white/[0.06] py-[47px] pr-[30px] pb-[30px] pl-0">
+            <div className="flex flex-row items-start gap-[40px] xl:gap-[63px]">
               {/* Left: Steps */}
-              <div className="flex w-full flex-col gap-0 lg:max-w-[480px] lg:shrink-0">
+              <div className="flex w-full flex-col gap-0 max-w-[480px] shrink-0">
                 {steps.map((step, idx) => (
                   <StepItem
                     key={step.number}
@@ -624,6 +625,39 @@ export function HowItWorksSection() {
                 <TaskPanelCard />
                 <ConnectedAppsCard />
               </div>
+            </div>
+          </div>
+
+          {/* Mobile: interleaved — step 1, then cards, then steps 2 & 3 */}
+          <div className="lg:hidden w-full overflow-hidden rounded-[30px] bg-white/[0.06] px-3 py-[30px]">
+            <div className="flex flex-col gap-[20px]">
+              {/* Step 1 (active) */}
+              <StepItem
+                number={steps[0].number}
+                title={steps[0].title}
+                description={steps[0].description}
+                active={steps[0].active}
+                isLast={false}
+              />
+
+              {/* Visual cards right after step 1 */}
+              <div className="flex w-full min-w-0 flex-col gap-[16px] px-1">
+                <AgentProfileCard />
+                <TaskPanelCard />
+                <ConnectedAppsCard />
+              </div>
+
+              {/* Steps 2 and 3 */}
+              {steps.slice(1).map((step, idx) => (
+                <StepItem
+                  key={step.number}
+                  number={step.number}
+                  title={step.title}
+                  description={step.description}
+                  active={step.active}
+                  isLast={idx === steps.length - 2}
+                />
+              ))}
             </div>
           </div>
         </div>

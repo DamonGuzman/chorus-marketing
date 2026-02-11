@@ -3,7 +3,7 @@ import { PRIMARY_CTA_HREF } from "@/content/site";
 
 export function FinalCTASection() {
   return (
-    <section className="relative w-full bg-black overflow-hidden" style={{ paddingLeft: 100, paddingRight: 100, paddingTop: 75, paddingBottom: 75 }} id="cta">
+    <section className="relative w-full bg-black overflow-hidden px-4 py-[50px] md:px-[100px] md:py-[75px]" id="cta">
       {/* Top gradient glow / border effect */}
       <div
         className="absolute top-0 left-0 right-0 h-[515px] pointer-events-none"
@@ -13,9 +13,8 @@ export function FinalCTASection() {
       />
       {/* Horizontal glowing line at top */}
       <div
-        className="absolute top-0 left-1/2 -translate-x-1/2 h-[4px] rounded-full"
+        className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-[1284px] h-[4px] rounded-full"
         style={{
-          width: 1284,
           background: "linear-gradient(90deg, rgba(255,255,255,0) 0%, #A4A4A4 52%, rgba(255,255,255,0) 100%)",
         }}
       />
@@ -25,15 +24,15 @@ export function FinalCTASection() {
         {/* Title + subtitle + pills */}
         <div className="self-stretch flex flex-col items-center gap-[26px]">
           <div className="self-stretch flex flex-col items-end gap-[40px]">
-            <h2 className="self-stretch text-center text-white text-[50px] font-bold leading-[68px]">
+            <h2 className="self-stretch text-center text-white text-[32px] leading-[42px] md:text-[50px] md:leading-[68px] font-bold">
               The Best Companies Don&apos;t Have More People. They Have Better Coordination.
             </h2>
-            <p className="self-stretch text-center text-gray-100 text-[22px] font-normal leading-[36px]">
+            <p className="self-stretch text-center text-gray-100 text-[16px] leading-[26px] md:text-[22px] md:leading-[36px] font-normal">
               While competitors spend months hiring and aligning teams, you could have a complete, synchronized workforce executing tomorrow.
             </p>
           </div>
-          {/* Feature pills */}
-          <div className="inline-flex items-center gap-[25px]">
+          {/* Feature pills — desktop: inline row, mobile: 2 top + 1 centered below */}
+          <div className="hidden md:flex items-center gap-[25px]">
             {["Build without hiring", "Scale without friction", "Grow with Chorus"].map((point) => (
               <div
                 key={point}
@@ -51,6 +50,45 @@ export function FinalCTASection() {
                 <span className="text-[16px] font-medium text-[#C1C1C1]">{point}</span>
               </div>
             ))}
+          </div>
+
+          {/* Mobile pills */}
+          <div className="flex flex-col items-center gap-[10px] md:hidden">
+            {/* Top row: two pills side by side */}
+            <div className="flex items-center gap-[10px]">
+              {["Build without hiring", "Scale without friction"].map((point) => (
+                <div
+                  key={point}
+                  className="h-[42px] px-[16px] rounded-full inline-flex items-center gap-[12px]"
+                  style={{
+                    background: "rgba(255,255,255,0)",
+                    outline: "1px solid white",
+                    outlineOffset: "-1px",
+                    backdropFilter: "blur(30px)",
+                  }}
+                >
+                  <svg width="16" height="11" viewBox="0 0 18 12" fill="none" className="shrink-0">
+                    <path d="M2 6L7 10L16 2" stroke="#7D7C83" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                  <span className="text-[13px] font-medium text-[#C1C1C1] whitespace-nowrap">{point}</span>
+                </div>
+              ))}
+            </div>
+            {/* Bottom row: one pill centered */}
+            <div
+              className="h-[42px] px-[16px] rounded-full inline-flex items-center gap-[12px]"
+              style={{
+                background: "rgba(255,255,255,0)",
+                outline: "1px solid white",
+                outlineOffset: "-1px",
+                backdropFilter: "blur(30px)",
+              }}
+            >
+              <svg width="16" height="11" viewBox="0 0 18 12" fill="none" className="shrink-0">
+                <path d="M2 6L7 10L16 2" stroke="#7D7C83" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+              <span className="text-[13px] font-medium text-[#C1C1C1] whitespace-nowrap">Grow with Chorus</span>
+            </div>
           </div>
         </div>
 

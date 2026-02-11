@@ -12,19 +12,19 @@ const capabilityDescription = "You don’t have to work in IT or even be tech sa
 
 export function CapabilitiesSection() {
   return (
-    <Section className="py-[100px] relative overflow-hidden" id="use-cases">
-      <div className="max-w-[1280px] mx-auto px-6 lg:px-[100px] relative z-10">
+    <Section className="py-[60px] md:py-[100px] relative overflow-hidden" id="use-cases">
+      <div className="max-w-[1280px] mx-auto px-4 md:px-6 lg:px-[100px] relative z-10">
         {/* Section Header */}
-        <div className="flex flex-col items-center gap-[24px] mb-[60px]">
+        <div className="flex flex-col items-center gap-[24px] mb-[40px] md:mb-[60px]">
           <div className="inline-flex items-center justify-center rounded-full bg-white/[0.07] px-[12px] py-[4px]">
             <span className="text-center font-urbanist text-[16px] font-semibold leading-[24px] text-white">
               Capabilities
             </span>
           </div>
-          <h2 className="text-center font-urbanist text-[40px] md:text-[50px] font-bold leading-[1.3] md:leading-[78px] text-white">
+          <h2 className="text-center font-urbanist text-[32px] md:text-[50px] font-bold leading-[1.3] md:leading-[78px] text-white">
             What Your AI Workforce Can Do
           </h2>
-          <p className="text-center font-urbanist text-[18px] md:text-[22px] font-normal leading-[30px] md:leading-[36px] text-[#7D7C83]">
+          <p className="text-center font-urbanist text-[16px] leading-[26px] md:text-[22px] md:leading-[36px] font-normal text-[#7D7C83]">
             The best way to reach humans instead of spam folders. Deliver transactional and marketing emails at scale.
           </p>
         </div>
@@ -32,7 +32,7 @@ export function CapabilitiesSection() {
         <div className="flex flex-col lg:flex-row items-center justify-between gap-[44px]">
           {/* Left: capability cards */}
           <div className="w-full lg:w-[500px]">
-            <div className="flex flex-col gap-[20px]">
+            <div className="flex flex-col gap-[16px] md:gap-[20px]">
               {capabilityCards.map(({ name, iconSrc }, index) => (
                 <div
                   key={name}
@@ -41,23 +41,24 @@ export function CapabilitiesSection() {
                     "bg-[linear-gradient(180deg,rgba(255,255,255,0.22)_0%,rgba(255,255,255,0.04)_45.19%,rgba(0,0,0,0)_100%)]",
                     "backdrop-blur-[25px]",
                     "flex items-center",
-                    "px-[26px] py-[26px] lg:py-[25.5px] lg:px-[30.6px]",
+                    "px-[20px] py-[22px] md:px-[26px] md:py-[26px] lg:py-[25.5px] lg:px-[30.6px]",
                     "lg:h-[147px]",
                     "shadow-[inset_0px_0px_6.62px_0px_rgba(255,255,255,0.12)]",
-                    index % 2 === 0 ? "lg:ml-[70px]" : "lg:ml-0",
+                    // Alternating offset on both mobile and desktop
+                    index % 2 === 0 ? "ml-[40px] md:ml-0 lg:ml-[70px]" : "mr-[40px] md:mr-0 lg:ml-0",
                   ].join(" ")}
                   data-figma-node="4229:62744"
                 >
-                  <div className="flex items-start gap-[30px]">
-                    <div className="relative grid place-items-center size-[64px] shrink-0">
-                      <Image src={iconSrc} alt="" width={60} height={60} className="size-[120px]" />
+                  <div className="flex items-start gap-[16px] md:gap-[30px]">
+                    <div className="relative grid place-items-center size-[48px] md:size-[64px] shrink-0 overflow-hidden">
+                      <Image src={iconSrc} alt="" width={60} height={60} className="size-[80px] md:size-[120px] object-contain" />
                     </div>
 
                     <div className="min-w-0">
-                      <h3 className="text-[26px] font-bold leading-normal text-white">
+                      <h3 className="text-[20px] md:text-[26px] font-bold leading-normal text-white">
                         {name}
                       </h3>
-                      <p className="mt-[14px] text-[15px] leading-[23.826px] font-semibold text-[#757575]">
+                      <p className="mt-[10px] md:mt-[14px] text-[13px] md:text-[15px] leading-[21px] md:leading-[23.826px] font-semibold text-[#757575]">
                         {capabilityDescription}
                       </p>
                     </div>
@@ -67,8 +68,8 @@ export function CapabilitiesSection() {
             </div>
           </div>
 
-          {/* Right: team preview */}
-          <div className="w-full lg:w-[700px]">
+          {/* Right: team preview — hidden on mobile, shown on lg */}
+          <div className="hidden lg:block w-full lg:w-[700px]">
             <div className="relative">
               {/* Floating emoji orbs */}
               <div aria-hidden className="pointer-events-none hidden lg:block">
@@ -96,7 +97,7 @@ export function CapabilitiesSection() {
                   "shadow-[inset_0px_0px_6.62px_0px_rgba(255,255,255,0.27)]",
                   "backdrop-blur-[25px]",
                   "p-[28px] sm:p-[34px]",
-                  "min-h-[620px] lg:min-h-[650px]",
+                  "min-h-[500px] md:min-h-[620px] lg:min-h-[650px]",
                 ].join(" ")}
                 data-figma-node="4229:62783"
               >

@@ -41,7 +41,7 @@ function InlinePill({
         "rounded-[18px] border border-white/15 bg-transparent",
         "px-[11px] py-[4px]",
         "shadow-[0px_4px_4px_rgba(0,0,0,0.25)]",
-        "font-urbanist text-[22px] font-normal text-[#CBCACC]",
+        "font-urbanist text-[18px] font-normal text-[#CBCACC] md:text-[22px]",
         className
       )}
     >
@@ -109,7 +109,7 @@ function RocketIcon({ className }: { className?: string }) {
 
 function RadarCard() {
   return (
-    <GlassCard className="h-[294px] w-full max-w-[393px] !overflow-visible !rounded-[35px] !border-0 !bg-[#111111] !shadow-[inset_0px_0px_4.7px_rgba(255,255,255,0.27)]">
+    <GlassCard className="h-[294px] w-full max-w-full md:max-w-[393px] !overflow-visible !rounded-[35px] !border-0 !bg-[#111111] !shadow-[inset_0px_0px_4.7px_rgba(255,255,255,0.27)]">
       <div className="relative flex h-full w-full items-center justify-center">
         {/* Orbital system container */}
         <div className="relative size-[200px]">
@@ -275,7 +275,7 @@ function GoalCard() {
 
 function TasksCard() {
   return (
-    <GlassCard className="h-[294px] w-full max-w-[393px] !rounded-[35px] !border-0 !bg-[#111111] !shadow-[inset_0px_0px_4.7px_rgba(255,255,255,0.27)] px-[24px] py-[35px]">
+    <GlassCard className="h-[294px] w-full max-w-full md:max-w-[393px] !rounded-[35px] !border-0 !bg-[#111111] !shadow-[inset_0px_0px_4.7px_rgba(255,255,255,0.27)] px-[24px] py-[35px]">
       {/* 7 tasks header */}
       <div className="flex items-center gap-[10px] text-[#CBCACC]">
         <span className="inline-flex size-[18px] items-center justify-center rounded-full border border-white/15">
@@ -335,7 +335,7 @@ function TasksCard() {
 
 function AgentCard() {
   return (
-    <GlassCard className="h-[294px] w-full max-w-[393px] !rounded-[35px] !border-0 !bg-[#111111] !shadow-[inset_0px_0px_4.7px_rgba(255,255,255,0.27)] px-[24px] py-[35px]">
+    <GlassCard className="h-[294px] w-full max-w-full md:max-w-[393px] !rounded-[35px] !border-0 !bg-[#111111] !shadow-[inset_0px_0px_4.7px_rgba(255,255,255,0.27)] px-[24px] py-[35px]">
       <div className="flex flex-col gap-[12px]">
         {/* Header row */}
         <div className="flex items-center gap-[12px]">
@@ -407,11 +407,11 @@ function AgentCard() {
 export function AIWorkforceSection() {
   return (
     <Section
-      className="relative overflow-hidden bg-black px-6 py-[75px] lg:px-[100px]"
+      className="relative overflow-hidden bg-black px-4 py-[50px] md:py-[75px] lg:px-[100px]"
       id="ai-workforce"
       data-node-id="4229:62416"
     >
-      <div className="mx-auto flex max-w-[1280px] flex-col items-center gap-[71px]">
+      <div className="mx-auto flex max-w-[1280px] flex-col items-center gap-[50px] md:gap-[71px]">
         {/* Header */}
         <div className="flex flex-col items-center gap-[40px]">
           <div className="flex flex-col items-center gap-[24px]">
@@ -423,13 +423,13 @@ export function AIWorkforceSection() {
             </div>
 
             {/* Title */}
-            <h2 className="text-center font-urbanist text-[36px] font-bold leading-[1.3] text-white md:text-[50px] md:leading-[78px]">
+            <h2 className="text-center font-urbanist text-[32px] font-bold leading-[1.3] text-white md:text-[50px] md:leading-[78px]">
               Your AI Workforce. Always in Sync.
             </h2>
           </div>
 
           {/* Description */}
-          <p className="max-w-[1108px] text-center font-urbanist text-[18px] font-normal leading-[30px] text-[#7D7C83] md:text-[22px] md:leading-[36px]">
+          <p className="max-w-[1108px] text-center font-urbanist text-[16px] font-normal leading-[28px] text-[#7D7C83] md:text-[22px] md:leading-[36px]">
             Forget chatbots that &quot;help&quot; you draft emails. Chorus gives you
             autonomous agents that coordinate with each other and run your{" "}
             <span className="font-medium text-white">Sales, Marketing, Finance, Operations, Customer Success</span>{" "}
@@ -439,25 +439,25 @@ export function AIWorkforceSection() {
 
         {/* Cards area */}
         <div className="flex w-full flex-col items-center">
-          {/* Mobile: stacked layout */}
+          {/* Mobile: stacked layout — matching Figma order */}
           <div className="flex flex-col items-center gap-[22px] md:hidden">
             <p className="text-center font-urbanist text-[18px] font-normal leading-[28px] text-[#7D7C83]">
               You don&apos;t coordinate.You{" "}
               <InlinePill>orchestrate</InlinePill>
             </p>
-            <RadarCard />
+            <AgentCard />
 
             <p className="text-center font-urbanist text-[18px] font-normal leading-[28px] text-[#7D7C83]">
               They <InlinePill>execute.</InlinePill>{" "}
               They <InlinePill>deliver.</InlinePill>
             </p>
-            <AgentCard />
             <TasksCard />
 
             <p className="text-center font-urbanist text-[18px] font-normal leading-[33px] text-[#7D7C83]">
               Skip management.{" "}
               <InlinePill>Set goals.</InlinePill>
             </p>
+            <RadarCard />
           </div>
 
           {/* Desktop: 3-column layout with labels above each card group */}
