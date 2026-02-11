@@ -109,7 +109,7 @@ function RocketIcon({ className }: { className?: string }) {
 
 function RadarCard() {
   return (
-    <GlassCard className="h-[294px] w-full max-w-full md:max-w-[393px] !overflow-visible !rounded-[35px] !border-0 !bg-[#111111] !shadow-[inset_0px_0px_4.7px_rgba(255,255,255,0.27)]">
+    <GlassCard className="h-[294px] w-full max-w-[393px] !overflow-visible !rounded-[35px] !border-0 !bg-[#111111] !shadow-[inset_0px_0px_4.7px_rgba(255,255,255,0.27)]">
       <div className="relative flex h-full w-full items-center justify-center">
         {/* Orbital system container */}
         <div className="relative size-[200px]">
@@ -275,7 +275,7 @@ function GoalCard() {
 
 function TasksCard() {
   return (
-    <GlassCard className="h-[294px] w-full max-w-full md:max-w-[393px] !rounded-[35px] !border-0 !bg-[#111111] !shadow-[inset_0px_0px_4.7px_rgba(255,255,255,0.27)] px-[24px] py-[35px]">
+    <GlassCard className="h-[294px] w-full max-w-[393px] !rounded-[35px] !border-0 !bg-[#111111] !shadow-[inset_0px_0px_4.7px_rgba(255,255,255,0.27)] px-[24px] py-[35px]">
       {/* 7 tasks header */}
       <div className="flex items-center gap-[10px] text-[#CBCACC]">
         <span className="inline-flex size-[18px] items-center justify-center rounded-full border border-white/15">
@@ -335,7 +335,7 @@ function TasksCard() {
 
 function AgentCard() {
   return (
-    <GlassCard className="h-[294px] w-full max-w-full md:max-w-[393px] !rounded-[35px] !border-0 !bg-[#111111] !shadow-[inset_0px_0px_4.7px_rgba(255,255,255,0.27)] px-[24px] py-[35px]">
+    <GlassCard className="h-[294px] w-full max-w-[393px] !rounded-[35px] !border-0 !bg-[#111111] !shadow-[inset_0px_0px_4.7px_rgba(255,255,255,0.27)] px-[24px] py-[35px]">
       <div className="flex flex-col gap-[12px]">
         {/* Header row */}
         <div className="flex items-center gap-[12px]">
@@ -407,7 +407,7 @@ function AgentCard() {
 export function AIWorkforceSection() {
   return (
     <Section
-      className="relative overflow-hidden bg-black px-4 py-[50px] md:py-[75px] lg:px-[100px]"
+      className="relative overflow-hidden bg-black px-4 py-[50px] md:px-6 md:py-[75px] lg:px-[100px]"
       id="ai-workforce"
       data-node-id="4229:62416"
     >
@@ -440,7 +440,7 @@ export function AIWorkforceSection() {
         {/* Cards area */}
         <div className="flex w-full flex-col items-center">
           {/* Mobile: stacked layout — matching Figma order */}
-          <div className="flex flex-col items-center gap-[22px] md:hidden">
+          <div className="flex w-full flex-col items-center gap-[22px] md:hidden">
             <p className="text-center font-urbanist text-[18px] font-normal leading-[28px] text-[#7D7C83]">
               You don&apos;t coordinate.You{" "}
               <InlinePill>orchestrate</InlinePill>
