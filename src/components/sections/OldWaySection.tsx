@@ -30,8 +30,8 @@ const oldWayItems = [
 
 export function OldWaySection() {
   return (
-    <Section className="py-[75px]" id="old-way">
-      <div className="max-w-[1280px] mx-auto px-6 lg:px-[100px]">
+    <Section className="py-[50px] md:py-[75px]" id="old-way">
+      <div className="max-w-[1280px] mx-auto px-4 md:px-6 lg:px-[100px]">
         {/* Header */}
         <div className="text-center mb-[51px]">
           {/* Badge */}
@@ -39,10 +39,10 @@ export function OldWaySection() {
             <Badge>The Problem</Badge>
           </div>
 
-          <h2 className="text-[35px] leading-[1.1] font-bold text-white mb-[15px]">
+          <h2 className="text-[28px] leading-[36px] md:text-[35px] md:leading-[1.1] font-bold text-white mb-[15px]">
             The Old Way : Managing Individual Players
           </h2>
-          <p className="text-[18px] leading-[36px] font-medium text-gray-300 max-w-[1034px] mx-auto">
+          <p className="text-[16px] leading-[28px] md:text-[18px] md:leading-[36px] font-medium text-gray-300 max-w-[1034px] mx-auto">
             The best way to reach humans instead of spam folders. Deliver transactional and marketing emails at scale.
           </p>
         </div>
@@ -63,10 +63,10 @@ export function OldWaySection() {
               <item.Icon className="relative text-gray-200/50" />
 
               <div className="relative flex flex-col items-start gap-[30px]">
-                <h3 className="text-[20px] leading-[28px] font-bold text-gray-100 max-w-[172px]">
+                <h3 className="text-[20px] leading-[28px] font-bold text-gray-100 max-w-none md:max-w-[172px]">
                   {item.title}
                 </h3>
-                <p className="text-[14px] leading-[24px] font-medium text-gray-300 max-w-[219px]">
+                <p className="text-[14px] leading-[24px] font-medium text-gray-300 max-w-none md:max-w-[219px]">
                   {item.description}
                 </p>
               </div>
@@ -74,8 +74,8 @@ export function OldWaySection() {
           ))}
         </div>
 
-        {/* Pagination Arrows */}
-        <div className="flex items-center justify-center gap-[24px] mt-[40px]">
+        {/* Pagination Arrows - hidden on mobile since cards stack vertically */}
+        <div className="hidden md:flex items-center justify-center gap-[24px] mt-[40px]">
           <button
             type="button"
             aria-label="Previous"
