@@ -89,68 +89,72 @@ function GoalsCard() {
           <span className="text-gray-300 text-[16px] font-semibold leading-[28px]">Search goals</span>
         </div>
 
-        {/* Track Monthly Revenue card */}
-        <div
-          className="w-full max-w-[440px] rounded-[20px] py-3 px-4 flex flex-col gap-3"
-          style={{ background: "rgba(255,255,255,0.05)", boxShadow: "0px 4px 61px black" }}
-        >
-          <p className="text-gray-100 text-[16px] font-bold leading-[28px]">Track Monthly Revenue</p>
-          <div className="flex items-center justify-between">
-            <div className="flex items-center gap-[5px]">
-              <ClipboardIcon className="w-[16px] h-[16px] text-gray-300" />
-              <span className="text-gray-300 text-[14px] font-semibold leading-[22px]">Tasks :</span>
-              <span className="text-gray-300 text-[14px] font-bold leading-[22px]">7</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <AvatarStack />
-              <span className="text-gray-300 text-[14px] font-bold leading-[22px]">+3</span>
-            </div>
-          </div>
-        </div>
-
-        {/* Green checkmark connector */}
-        <div className="flex flex-col items-center -my-1">
-          <div className="w-px h-[16px] bg-gray-200/50" />
-          <div className="w-[22px] h-[22px] rounded-full bg-success flex items-center justify-center">
-            <CheckIcon className="w-[10px] h-[8px] text-white" />
-          </div>
-          <div className="w-px h-[8px] bg-gray-200/50" />
-        </div>
-
-        {/* Franks Lampard subtask card */}
-        <div
-          className="w-full max-w-[420px] rounded-[20px] py-3 px-4 flex flex-col gap-3"
-          style={{ background: "rgba(255,255,255,0.06)", boxShadow: "0px 4px 61px black" }}
-        >
-          <div className="flex items-center justify-between flex-wrap gap-2">
-            <div className="flex items-center gap-2 px-[10px] py-[3px] rounded-[10px] bg-white/4 border border-white/10">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/images/figma/Ellipse 53.svg" alt="" className="w-[22px] h-[22px] rounded-full shrink-0" />
-              <span className="text-gray-100 text-[14px] font-semibold leading-[22px]">Franks Lampard</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <div className="w-[16px] h-[16px] rounded-full bg-success flex items-center justify-center">
-                <CheckIcon className="w-[7px] h-[6px] text-white" />
+        <div className="w-full max-w-[440px] flex flex-col items-start">
+          {/* Track Monthly Revenue card */}
+          <div
+            className="w-full rounded-[20px] py-3 px-4 flex flex-col gap-3"
+            style={{ background: "rgba(255,255,255,0.05)", boxShadow: "0px 4px 61px black" }}
+          >
+            <p className="text-gray-100 text-[16px] font-bold leading-[28px]">Track Monthly Revenue</p>
+            <div className="flex items-center justify-between">
+              <div className="flex items-center gap-[5px]">
+                <ClipboardIcon className="w-[16px] h-[16px] text-gray-300" />
+                <span className="text-gray-300 text-[14px] font-semibold leading-[22px]">Tasks :</span>
+                <span className="text-gray-300 text-[14px] font-bold leading-[22px]">7</span>
               </div>
-              <span className="text-white text-[14px] font-bold">Completed</span>
+              <div className="flex items-center gap-2">
+                <AvatarStack />
+                <span className="text-gray-300 text-[14px] font-bold leading-[22px]">+3</span>
+              </div>
             </div>
           </div>
-          <div className="flex items-center gap-2">
-            <ClipboardIcon className="w-[16px] h-[16px] text-gray-300 shrink-0" />
-            <span className="text-gray-100 text-[16px] font-bold leading-[28px]">Collect revenue data from bank APIs</span>
+
+          {/* Green checkmark connector (left aligned to cards) */}
+          <div className="flex flex-col items-start -my-1 self-start">
+            <div className="h-[26px] border-l border-dotted border-gray-200/50 ml-[11px]" />
+            <div className="flex items-center">
+              <div className="w-[22px] h-[22px] rounded-full bg-success flex items-center justify-center">
+                <CheckIcon className="w-[10px] h-[8px] text-white" />
+              </div>
+              <div className="h-0 w-[20px] border-t border-dotted border-gray-200/50" />
+            </div>
           </div>
-          <div className="flex items-center gap-6 flex-wrap">
-            <div className="flex items-center gap-2">
-              <span className="text-gray-100 text-[14px] font-semibold leading-[22px]">Apps :</span>
-              <div className="flex items-center -space-x-[4px]">
-                <IntegrationLogo name="Slack" size="sm" shape="circle" />
-                <IntegrationLogo name="HubSpot" size="sm" shape="circle" />
-                <IntegrationLogo name="Stripe" size="sm" shape="circle" />
+
+          {/* Franks Lampard subtask card */}
+          <div
+            className="w-full max-w-[89%] ml-[40px] -mt-[20px] rounded-[20px] py-3 px-4 flex flex-col gap-3"
+            style={{ background: "rgba(255,255,255,0.06)", boxShadow: "0px 4px 61px black" }}
+          >
+            <div className="flex items-center justify-between flex-wrap gap-2">
+              <div className="flex items-center gap-2 px-[10px] py-[3px] rounded-[10px] bg-white/4 border border-white/10">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src="/images/figma/Ellipse 53.svg" alt="" className="w-[22px] h-[22px] rounded-full shrink-0" />
+                <span className="text-gray-100 text-[14px] font-semibold leading-[22px]">Franks Lampard</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <div className="w-[16px] h-[16px] rounded-full bg-success flex items-center justify-center">
+                  <CheckIcon className="w-[7px] h-[6px] text-white" />
+                </div>
+                <span className="text-white text-[14px] font-bold">Completed</span>
               </div>
             </div>
             <div className="flex items-center gap-2">
-              <IntegrationLogo name="Stripe" size="sm" shape="square" />
-              <span className="text-gray-100 text-[14px] font-semibold leading-[22px]">Stripe_revenue_report.csv</span>
+              <ClipboardIcon className="w-[16px] h-[16px] text-gray-300 shrink-0" />
+              <span className="text-gray-100 text-[14px] font-bold leading-[28px]">Collect revenue data from bank APIs</span>
+            </div>
+            <div className="flex items-center gap-6 flex-wrap">
+              <div className="flex items-center gap-2">
+                <span className="text-gray-100 text-[12px] font-semibold leading-[22px]">Apps :</span>
+                <div className="flex items-center -space-x-[4px]">
+                  <IntegrationLogo name="Slack" size="sm" shape="circle" />
+                  <IntegrationLogo name="HubSpot" size="sm" shape="circle" />
+                  <IntegrationLogo name="Stripe" size="sm" shape="circle" />
+                </div>
+              </div>
+              <div className="flex items-center gap-2">
+                <IntegrationLogo name="Stripe" size="sm" shape="square" />
+                <span className="text-gray-100 text-[12px] font-semibold leading-[22px]">Stripe_revenue_report.csv</span>
+              </div>
             </div>
           </div>
         </div>

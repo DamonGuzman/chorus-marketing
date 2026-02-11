@@ -61,19 +61,19 @@ function OrbitalAnimation() {
       >
         <defs>
           <linearGradient id="ring1Grad" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stopColor="rgba(255,255,255,0.25)" />
-            <stop offset="50%" stopColor="rgba(255,255,255,0.06)" />
-            <stop offset="100%" stopColor="rgba(255,255,255,0.20)" />
+            <stop offset="0%" stopColor="#FFFFFF" stopOpacity="0.85" />
+            <stop offset="50%" stopColor="#FFFFFF" stopOpacity="0.40" />
+            <stop offset="100%" stopColor="#FFFFFF" stopOpacity="0.85" />
           </linearGradient>
           <linearGradient id="ring2Grad" x1="100%" y1="0%" x2="0%" y2="100%">
-            <stop offset="0%" stopColor="rgba(255,255,255,0.18)" />
-            <stop offset="50%" stopColor="rgba(255,255,255,0.04)" />
-            <stop offset="100%" stopColor="rgba(255,255,255,0.15)" />
+            <stop offset="0%" stopColor="#FFFFFF" stopOpacity="0.80" />
+            <stop offset="50%" stopColor="#FFFFFF" stopOpacity="0.35" />
+            <stop offset="100%" stopColor="#FFFFFF" stopOpacity="0.80" />
           </linearGradient>
           <linearGradient id="ring3Grad" x1="50%" y1="0%" x2="50%" y2="100%">
-            <stop offset="0%" stopColor="rgba(255,255,255,0.22)" />
-            <stop offset="50%" stopColor="rgba(255,255,255,0.03)" />
-            <stop offset="100%" stopColor="rgba(255,255,255,0.18)" />
+            <stop offset="0%" stopColor="#FFFFFF" stopOpacity="0.80" />
+            <stop offset="50%" stopColor="#FFFFFF" stopOpacity="0.35" />
+            <stop offset="100%" stopColor="#FFFFFF" stopOpacity="0.80" />
           </linearGradient>
 
           {/* Glow filter for travelling dots */}
@@ -96,21 +96,21 @@ function OrbitalAnimation() {
         {/* ── Orbit ring 1 — wide, tilted up-right ── */}
         <ellipse
           cx="250" cy="210" rx="225" ry="75"
-          stroke="url(#ring1Grad)" strokeWidth="1.2" fill="none"
+          stroke="#FFFFFF" strokeOpacity="0.55" strokeWidth="1.6" fill="none"
           transform="rotate(-15, 250, 210)"
         />
 
         {/* ── Orbit ring 2 — medium, tilted opposite ── */}
         <ellipse
           cx="250" cy="210" rx="210" ry="90"
-          stroke="url(#ring2Grad)" strokeWidth="1.0" fill="none"
+          stroke="#FFFFFF" strokeOpacity="0.45" strokeWidth="1.4" fill="none"
           transform="rotate(18, 250, 210)"
         />
 
         {/* ── Orbit ring 3 — narrower, steeper tilt ── */}
         <ellipse
           cx="250" cy="210" rx="190" ry="105"
-          stroke="url(#ring3Grad)" strokeWidth="0.8" fill="none"
+          stroke="#FFFFFF" strokeOpacity="0.5" strokeWidth="1.2" fill="none"
           transform="rotate(-5, 250, 210)"
         />
 
