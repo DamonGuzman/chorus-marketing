@@ -35,11 +35,21 @@ function PlusIcon({ open }: { open: boolean }) {
     <div className="w-[32px] h-[32px] flex items-center justify-center shrink-0">
       {open ? (
         <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
-          <path d="M4 4L14 14M14 4L4 14" stroke="white" strokeWidth="2" strokeLinecap="round" />
+          <path
+            d="M4 4L14 14M14 4L4 14"
+            stroke="white"
+            strokeWidth="2"
+            strokeLinecap="round"
+          />
         </svg>
       ) : (
         <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
-          <path d="M9 2V16M2 9H16" stroke="white" strokeWidth="2" strokeLinecap="round" />
+          <path
+            d="M9 2V16M2 9H16"
+            stroke="white"
+            strokeWidth="2"
+            strokeLinecap="round"
+          />
         </svg>
       )}
     </div>
@@ -92,7 +102,13 @@ export function FAQSection() {
         {/* Header */}
         <div className="flex flex-col items-center gap-[16px] mb-[50px] text-center">
           <h2 className="text-[40px] md:text-[50px] font-bold leading-[1.1] text-white">
-            Frequently Asked Questions
+            <span className="bg-gradient-to-r from-[#CACACC] to-[#7C7B82] bg-clip-text text-transparent">
+              Frequently
+            </span>
+            <span className="bg-gradient-to-r from-[#7C7B82] via-[#7C7B82] to-[#7C7B82] bg-clip-text text-transparent">
+              {" "}
+              Asked Questions
+            </span>
           </h2>
           <p className="text-[16px] font-semibold leading-[28px] text-gray-300">
             Our commitment to transparency
