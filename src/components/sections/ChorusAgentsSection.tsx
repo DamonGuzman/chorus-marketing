@@ -145,14 +145,29 @@ function GoalsCard() {
             <div className="flex items-center gap-6 flex-wrap">
               <div className="flex items-center gap-2">
                 <span className="text-gray-100 text-[12px] font-semibold leading-[22px]">Apps :</span>
-                <div className="flex items-center -space-x-[4px]">
-                  <IntegrationLogo name="Slack" size="sm" shape="circle" />
-                  <IntegrationLogo name="HubSpot" size="sm" shape="circle" />
-                  <IntegrationLogo name="Stripe" size="sm" shape="circle" />
+                <div className="flex items-center -space-x-[2px]">
+                  {/* Slack */}
+                  <span className="inline-grid place-items-center w-[22px] h-[22px] rounded-full bg-[#4A154B] border border-white/15">
+                    <svg viewBox="0 0 24 24" className="size-full p-[4px]">
+                      <circle cx="8" cy="8" r="2.6" fill="#36C5F0" />
+                      <circle cx="16" cy="8" r="2.6" fill="#2EB67D" />
+                      <circle cx="8" cy="16" r="2.6" fill="#E01E5A" />
+                      <circle cx="16" cy="16" r="2.6" fill="#ECB22E" />
+                    </svg>
+                  </span>
+                  {/* HubSpot */}
+                  <span className="inline-grid place-items-center w-[22px] h-[22px] rounded-full bg-[#FF7A59] border border-white/15">
+                    <span className="text-white text-[10px] font-extrabold leading-none">H</span>
+                  </span>
+                  {/* Stripe */}
+                  <span className="inline-grid place-items-center w-[22px] h-[22px] rounded-full bg-[#635BFF] border border-white/15">
+                    <span className="text-white text-[10px] font-extrabold leading-none">S</span>
+                  </span>
                 </div>
               </div>
               <div className="flex items-center gap-2">
-                <IntegrationLogo name="Stripe" size="sm" shape="square" />
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src="/images/figma/excel-icon.png" alt="Excel file" className="w-[20px] h-[20px] rounded-[3px] object-cover" />
                 <span className="text-gray-100 text-[12px] font-semibold leading-[22px]">Stripe_revenue_report.csv</span>
               </div>
             </div>
