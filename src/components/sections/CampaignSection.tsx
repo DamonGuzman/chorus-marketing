@@ -7,22 +7,54 @@
 /* ── Dark filled satellite node ── */
 function Node({ children }: { children?: React.ReactNode }) {
   return (
-    <div className="w-[58px] h-[58px] rounded-full flex items-center justify-center shrink-0 bg-[#1a1a1a] border border-white/8">
+    <div className="w-[52px] h-[52px] rounded-full flex items-center justify-center shrink-0 bg-[#1a1a1a] border border-white/8">
       {children}
     </div>
   );
 }
 
-/* ── Horizontal glow line ── */
-function HGlow({ flip = false }: { flip?: boolean }) {
+const INNER_RING_RADIUS = 88;
+const INNER_RING_RY = 86;
+const CANVAS_SIZE = 420;
+const CENTER = CANVAS_SIZE / 2;
+const GLOW_LENGTH = 62;
+const GLOW_THICKNESS = 4;
+const NODE_SIZE = 53.5;
+const NODE_TOP = 27.5;
+const NODE_BOTTOM = 57.5;
+
+/* ── Horizontal glow line (tapered) ── */
+function HGlow({ reverse = false }: { reverse?: boolean }) {
   return (
     <div
-      className="h-[3.4px]"
+      className="h-[4px]"
       style={{
-        width: 52,
-        background: flip
-          ? "linear-gradient(270deg, #A0A0A0 0%, rgba(255,255,255,0) 100%)"
-          : "linear-gradient(90deg, #A0A0A0 0%, rgba(255,255,255,0) 100%)",
+        width: GLOW_LENGTH,
+        background: reverse
+          ? "linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.85) 100%)"
+          : "linear-gradient(90deg, rgba(255,255,255,0.85) 0%, rgba(255,255,255,0) 100%)",
+        clipPath: reverse
+          ? "polygon(0 45%, 100% 15%, 100% 85%, 0 55%)"
+          : "polygon(0 15%, 100% 45%, 100% 55%, 0 85%)",
+        boxShadow: "0px 0px 4.55px rgba(255,255,255,0.37)",
+      }}
+    />
+  );
+}
+
+/* ── Vertical glow line (tapered) ── */
+function VGlow({ reverse = false }: { reverse?: boolean }) {
+  return (
+    <div
+      className="w-[4px]"
+      style={{
+        height: GLOW_LENGTH,
+        background: reverse
+          ? "linear-gradient(0deg, rgba(255,255,255,0.85) 0%, rgba(255,255,255,0) 100%)"
+          : "linear-gradient(180deg, rgba(255,255,255,0.85) 0%, rgba(255,255,255,0) 100%)",
+        clipPath: reverse
+          ? "polygon(45% 0, 55% 0, 85% 100%, 15% 100%)"
+          : "polygon(15% 0, 85% 0, 55% 100%, 45% 100%)",
         boxShadow: "0px 0px 4.55px rgba(255,255,255,0.37)",
       }}
     />
@@ -94,6 +126,20 @@ function ThumbIcon() {
 
 /* ── Full Illustration ── */
 function Illustration() {
+  const topY = (NODE_TOP / 100) * CANVAS_SIZE + NODE_SIZE / 2;
+  const bottomY = (NODE_BOTTOM / 100) * CANVAS_SIZE + NODE_SIZE / 2;
+
+  const glowXAt = (y: number) => {
+    const dy = Math.min(Math.abs(y - CENTER), INNER_RING_RY);
+    const ratio = dy / INNER_RING_RY;
+    return INNER_RING_RADIUS * Math.sqrt(1 - ratio * ratio);
+  };
+
+  const leftXTop = CENTER - glowXAt(topY) - GLOW_LENGTH;
+  const leftXBottom = CENTER - glowXAt(bottomY) - GLOW_LENGTH;
+  const rightXTop = CENTER + glowXAt(topY);
+  const rightXBottom = CENTER + glowXAt(bottomY);
+
   return (
     <div className="relative w-[420px] h-[420px] shrink-0 hidden lg:block">
       {/* ── Central hub ── */}
@@ -124,19 +170,43 @@ function Illustration() {
       </div>
 
       {/* ── Horizontal glow lines (left & right) ── */}
-      {/* Left lines */}
-      <div className="absolute left-[5px] top-1/2 -translate-y-1/2 flex items-center gap-0">
-        <HGlow flip />
+      <div
+        className="absolute"
+        style={{ left: leftXTop, top: topY }}
+      >
+        <HGlow reverse />
       </div>
-      <div className="absolute left-[28px] top-[calc(50%-20px)] flex items-center">
-        <HGlow flip />
+      <div
+        className="absolute"
+        style={{ left: leftXBottom, top: bottomY }}
+      >
+        <HGlow reverse />
       </div>
-      {/* Right lines */}
-      <div className="absolute right-[5px] top-1/2 -translate-y-1/2 flex items-center">
+      <div
+        className="absolute"
+        style={{ left: rightXTop, top: topY }}
+      >
         <HGlow />
       </div>
-      <div className="absolute right-[28px] top-[calc(50%+20px)] flex items-center">
+      <div
+        className="absolute"
+        style={{ left: rightXBottom, top: bottomY }}
+      >
         <HGlow />
+      </div>
+
+      {/* ── Vertical glow lines (top & bottom) ── */}
+      <div
+        className="absolute"
+        style={{ left: `calc(50% - ${GLOW_THICKNESS / 2}px)`, top: `calc(50% - ${INNER_RING_RADIUS}px - ${GLOW_LENGTH}px)` }}
+      >
+        <VGlow reverse />
+      </div>
+      <div
+        className="absolute"
+        style={{ left: `calc(50% - ${GLOW_THICKNESS / 2}px)`, top: `calc(50% + ${INNER_RING_RADIUS}px)` }}
+      >
+        <VGlow />
       </div>
 
       {/* ── Top node (Heart) ── */}
@@ -153,26 +223,34 @@ function Illustration() {
 
       {/* ── Left-top node (Chat bubble) ── */}
       <div className="absolute flex items-center" style={{ left: 0, top: "28%" }}>
-        <Node><ChatIcon /></Node>
+        <div className="-translate-x-[36px]">
+          <Node><ChatIcon /></Node>
+        </div>
         <Line dir="h" len={50} />
       </div>
 
       {/* ── Left-bottom node (Database) ── */}
       <div className="absolute flex items-center" style={{ left: "5%", top: "58%" }}>
-        <Node><DbIcon /></Node>
+        <div className="-translate-x-[1px]">
+          <Node><DbIcon /></Node>
+        </div>
         <Line dir="h" len={42} />
       </div>
 
       {/* ── Right-top node (Megaphone) ── */}
       <div className="absolute flex items-center" style={{ right: 0, top: "28%" }}>
         <Line dir="h" len={50} />
-        <Node><MegaphoneIcon /></Node>
+        <div className="translate-x-[36px]">
+          <Node><MegaphoneIcon /></Node>
+        </div>
       </div>
 
       {/* ── Right-bottom node (Thumbs up) ── */}
       <div className="absolute flex items-center" style={{ right: "5%", top: "58%" }}>
         <Line dir="h" len={42} />
-        <Node><ThumbIcon /></Node>
+        <div className="translate-x-[1px]">
+          <Node><ThumbIcon /></Node>
+        </div>
       </div>
     </div>
   );
