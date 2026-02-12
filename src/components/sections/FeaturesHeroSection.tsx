@@ -90,7 +90,14 @@ export function FeaturesHeroSection() {
       <div className="relative z-10 flex flex-col items-center pt-[80px] md:pt-[100px] px-6">
         <div className="flex flex-col items-center gap-[20px] md:gap-[27px] max-w-[960px]">
           <h1 className="text-center text-white text-[38px] md:text-[64px] font-bold leading-[1.1] md:leading-[58px] md:not-italic tracking-tight">
-            Your AI Workforce, Unpacked
+            <span className="text-white">Your AI </span>
+            <span className="bg-gradient-to-r from-[#CACACC] to-[#7C7B82] bg-clip-text text-transparent">
+              Workforce
+            </span>
+            <span className="bg-gradient-to-r from-[#7C7B82] via-[#7C7B82] to-[#7C7B82] bg-clip-text text-transparent">
+              {" "}
+              , Unpacked
+            </span>
           </h1>
           <p className="text-center text-gray-300 text-[16px] md:text-[28px] font-medium leading-[26px] md:leading-[36px] max-w-[940px]">
             The capabilities that let you direct instead of micromanage
