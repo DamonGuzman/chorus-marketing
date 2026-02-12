@@ -108,6 +108,14 @@ function RocketIcon({ className }: { className?: string }) {
 }
 
 function RadarCard() {
+  const outerOrbitRadius = 100;
+  const aiAgentsAngle = 210;
+  const teamMembersAngle = 45;
+  const cursorBaseAngle = 225; // cursor SVG points up-left
+
+  const cursorRotate = (orbitAngle: number) =>
+    (orbitAngle + 180 - cursorBaseAngle + 360) % 360;
+
   return (
     <GlassCard className="h-[294px] w-full max-w-[393px] !overflow-visible !rounded-[35px] !border-0 !bg-[#111111] !shadow-[inset_0px_0px_4.7px_rgba(255,255,255,0.27)]">
       <div className="relative flex h-full w-full items-center justify-center">
@@ -189,33 +197,45 @@ function RadarCard() {
             </div>
           </div>
 
-          {/* AI Agents label + cursor icon: upper-left (~10 o'clock) */}
-          <div className="absolute left-[-16px] top-[30%] -translate-y-1/2">
-            <div className="flex items-center gap-[4px]">
-              <div className="inline-flex items-center rounded-[5px] border border-white/10 bg-[#3D3C42] px-[7px] py-[4px] font-urbanist text-[13px] font-semibold leading-[25px] text-white">
-                AI Agents
-              </div>
-              <img 
-                src="/images/figma/cursor-02.svg" 
-                alt="" 
-                className="h-[16px] w-[16px] rotate-[10deg] opacity-70"
-              />
+        {/* AI Agents label + cursor icon: upper-left on outer orbit (~10 o'clock) */}
+        <div
+          className="absolute left-1/2 top-1/2"
+          style={{
+            transform: `translate(-50%, -50%) rotate(${aiAgentsAngle}deg) translateX(${outerOrbitRadius}px) rotate(-${aiAgentsAngle}deg)`,
+          }}
+        >
+          <div className="relative inline-flex items-center">
+            <div className="inline-flex -translate-x-[6px] -translate-y-[6px] items-center rounded-[5px] border border-white/10 bg-[#3D3C42] px-[7px] py-[4px] font-urbanist text-[13px] font-semibold leading-[25px] text-white">
+              AI Agents
             </div>
+            <img
+              src="/images/figma/cursor-02.svg"
+              alt=""
+              className="absolute -bottom-[6px] -right-[6px] h-[16px] w-[16px] opacity-70"
+              style={{ transform: `rotate(${cursorRotate(aiAgentsAngle)}deg)` }}
+            />
           </div>
+        </div>
 
-          {/* Team members label + cursor icon: lower-right (~5 o'clock) */}
-          <div className="absolute bottom-[14px] right-[-12px]">
-            <div className="flex items-center gap-[4px]">
-              <img 
-                src="/images/figma/cursor-02.svg" 
-                alt="" 
-                className="h-[16px] w-[16px] rotate-[190deg] opacity-70"
-              />
-              <div className="inline-flex items-center rounded-[5px] border border-white/10 bg-[#3D3C42] px-[7px] py-[4px] font-urbanist text-[13px] font-semibold leading-[25px] text-white">
-                Team members
-              </div>
+        {/* Team members label + cursor icon: lower-right on outer orbit (~5 o'clock) */}
+        <div
+          className="absolute left-1/2 top-1/2"
+          style={{
+            transform: `translate(-50%, -50%) rotate(${teamMembersAngle}deg) translateX(${outerOrbitRadius}px) rotate(-${teamMembersAngle}deg)`,
+          }}
+        >
+          <div className="relative inline-flex items-center">
+            <div className="inline-flex translate-x-[6px] translate-y-[6px] items-center whitespace-nowrap rounded-[5px] border border-white/10 bg-[#3D3C42] px-[7px] py-[4px] font-urbanist text-[13px] font-semibold leading-[25px] text-white">
+              Team members
             </div>
+            <img
+              src="/images/figma/cursor-02.svg"
+              alt=""
+              className="absolute -top-[6px] -left-[6px] h-[16px] w-[16px] opacity-70"
+              style={{ transform: `rotate(${cursorRotate(teamMembersAngle)}deg)` }}
+            />
           </div>
+        </div>
         </div>
       </div>
     </GlassCard>
