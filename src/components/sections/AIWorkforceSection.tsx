@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-import { Avatar, Container, Section } from "@/components/ui";
+import { Avatar, Badge, Container, Section } from "@/components/ui";
 import { cn } from "@/lib/utils";
 
 function GlassCard({
@@ -41,7 +41,7 @@ function InlinePill({
         "rounded-[18px] border border-white/15 bg-transparent",
         "px-[11px] py-[4px]",
         "shadow-[0px_4px_4px_rgba(0,0,0,0.25)]",
-        "font-urbanist text-[18px] font-normal text-[#CBCACC] md:text-[22px]",
+        "font-['Urbanist'] text-[18px] font-normal text-gray-100 md:text-2xl",
         className
       )}
     >
@@ -427,34 +427,30 @@ function AgentCard() {
 export function AIWorkforceSection() {
   return (
     <Section
-      className="relative overflow-hidden bg-black px-4 py-[50px] md:px-6 md:py-[75px] lg:px-[100px]"
+      className="relative overflow-hidden bg-black px-4 py-[50px] md:px-24 md:py-20 md:flex md:flex-col md:items-center"
       id="ai-workforce"
-      data-node-id="4229:62416"
     >
-      <div className="mx-auto flex max-w-[1280px] flex-col items-center gap-[50px] md:gap-[71px]">
+      <div className="flex flex-col justify-start items-center gap-[50px] md:gap-16">
         {/* Header */}
-        <div className="flex flex-col items-center gap-[40px]">
-          <div className="flex flex-col items-center gap-[24px]">
-            {/* Badge */}
-            <div className="inline-flex items-center justify-center overflow-hidden rounded-full bg-white/[0.07] px-[12px] py-[4px]">
-              <span className="text-center font-urbanist text-[16px] font-semibold leading-[24px] text-white">
-                What Chorus Actually Is
-              </span>
-            </div>
+        <div className="flex flex-col justify-start items-center gap-[30px] md:gap-10">
+          <div className="flex flex-col justify-start items-center gap-[20px] md:gap-6">
+            <Badge>What Chorus Actually Is</Badge>
 
             {/* Title */}
-            <h2 className="text-center font-urbanist text-[32px] font-bold leading-[1.3] text-white md:text-[50px] md:leading-[78px]">
-              Your AI Workforce. Always in Sync.
-            </h2>
+            <div className="flex flex-col justify-start items-center gap-10">
+              <h2 className="text-center text-white text-[32px] font-bold font-['Urbanist'] leading-[1.3] md:text-5xl md:leading-[78px]">
+                Your AI Workforce. Always in Sync.
+              </h2>
+            </div>
           </div>
 
           {/* Description */}
-          <p className="max-w-[1108px] text-center font-urbanist text-[16px] font-normal leading-[28px] text-[#7D7C83] md:text-[22px] md:leading-[36px]">
-            Forget chatbots that &quot;help&quot; you draft emails. Chorus gives you
-            autonomous agents that coordinate with each other and run your{" "}
-            <span className="font-medium text-white">Sales, Marketing, Finance, Operations, Customer Success</span>{" "}
-            - any department you need.
-          </p>
+          <div className="md:w-[1108px] text-center font-['Urbanist'] text-[16px] font-normal leading-[28px] text-gray-300 md:text-xl md:leading-9">
+            <span className="text-gray-300 md:text-xl font-normal font-['Urbanist'] md:leading-9">Forget chatbots that &quot;help&quot; you draft emails. Chorus gives you
+            autonomous agents that coordinate with each other and run your </span>
+            <span className="text-white md:text-xl font-medium font-['Urbanist'] md:leading-9">Sales, Marketing, Finance, Operations, Customer Success</span>
+            <span className="text-gray-300 md:text-xl font-normal font-['Urbanist'] md:leading-9"> - any department you need.</span>
+          </div>
         </div>
 
         {/* Cards area */}
@@ -484,9 +480,9 @@ export function AIWorkforceSection() {
           <div className="hidden md:flex md:items-start md:justify-center md:gap-[18px]">
             {/* Left column: label + RadarCard */}
             <div className="flex flex-col items-center gap-[12px] rotate-[-3deg] [transform-style:preserve-3d]">
-              <p className="text-center font-urbanist text-[22px] font-normal leading-[33px] text-[#7D7C83]">
+              <p className="text-center font-['Urbanist'] text-2xl font-normal leading-8 text-gray-300">
                 You don&apos;t coordinate.You{" "}
-                <InlinePill className="text-[22px]">orchestrate</InlinePill>
+                <InlinePill>orchestrate</InlinePill>
               </p>
               <RadarCard />
             </div>
@@ -498,20 +494,20 @@ export function AIWorkforceSection() {
 
             {/* Right column: label + TasksCard */}
             <div className="flex flex-col items-center gap-[12px] rotate-[-3deg] [transform-style:preserve-3d]">
-              <p className="text-center font-urbanist text-[22px] font-normal leading-[40px] text-[#7D7C83]">
+              <p className="text-center font-['Urbanist'] text-2xl font-normal leading-10 text-gray-300">
                 They{" "}
-                <InlinePill className="text-[22px]">execute.</InlinePill>{" "}
+                <InlinePill>execute.</InlinePill>{" "}
                 They{" "}
-                <InlinePill className="text-[22px]">deliver.</InlinePill>
+                <InlinePill>deliver.</InlinePill>
               </p>
               <TasksCard />
             </div>
           </div>
 
           {/* Bottom label - desktop */}
-          <p className="mt-[28px] hidden text-center font-urbanist text-[22px] font-normal leading-[33px] text-[#7D7C83] md:block">
+          <p className="mt-[28px] hidden text-center font-['Urbanist'] text-2xl font-normal text-gray-300 md:block">
             Skip management.{" "}
-            <InlinePill className="text-[22px]">Set goals.</InlinePill>
+            <InlinePill>Set goals.</InlinePill>
           </p>
         </div>
       </div>

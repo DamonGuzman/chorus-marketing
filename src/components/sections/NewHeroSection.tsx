@@ -19,22 +19,34 @@ export function NewHeroSection() {
 
   return (
     <section className="relative bg-black overflow-hidden" id="about">
-      {/* Content */}
-      <div className="relative z-10 pt-[70px] md:pt-[90px] px-4 sm:px-6 md:px-[30px] max-w-[1440px] mx-auto pb-12 md:pb-0">
-        {/* Hero Header */}
-        <div className="flex flex-col items-center text-center gap-[20px] md:gap-[25px]">
-          <div className="flex flex-col items-center text-center gap-[14px] md:gap-[18px]">
-            <h1 className="text-[40px] leading-[44px] md:text-[70px] md:leading-[78px] font-extrabold tracking-[-1.4px] text-white md:whitespace-nowrap">
-              Stop Hiring. Start Building.
-            </h1>
-            <p className="text-[15px] leading-[24px] md:text-[17px] md:leading-[26px] font-normal text-gray-100 max-w-[920px]">
-              The best way to reach humans instead of spam folders. Deliver transactional and marketing emails at scale.
-            </p>
-          </div>
+      {/* Stars SVG behind the animation cards */}
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
+        src="/images/figma/stars.svg"
+        alt=""
+        aria-hidden="true"
+        className="hidden md:block absolute pointer-events-none"
+        style={{ right: '250px', top: '100px', width: 'auto', height: '1000px' }}
+      />
 
-          <ButtonLink href={PRIMARY_CTA_HREF} variant="light" size="md">
-            Build Your Team Now
-          </ButtonLink>
+      {/* Content */}
+      <div className="relative z-10 pt-[70px] md:pt-[160px] px-4 sm:px-6 md:px-24 max-w-[1440px] mx-auto pb-12 md:pb-0">
+        {/* Hero Header - max-w-[1183px] centered like Figma */}
+        <div className="w-full max-w-[1183px] mx-auto flex flex-col justify-start items-center">
+          <div className="self-stretch flex flex-col justify-start items-center gap-[20px] md:gap-7">
+            <div className="self-stretch flex flex-col justify-start items-center gap-[14px] md:gap-5">
+              <h1 className="self-stretch text-center text-[40px] leading-[44px] md:text-7xl md:leading-[78px] font-extrabold font-['Urbanist'] text-white">
+                Stop Hiring. Start Building.
+              </h1>
+              <p className="text-center text-[15px] leading-[24px] md:text-xl md:leading-9 font-normal font-['Urbanist'] text-gray-100">
+                The best way to reach humans instead of spam folders. Deliver transactional and marketing emails at scale.
+              </p>
+            </div>
+
+            <ButtonLink href={PRIMARY_CTA_HREF} variant="light" size="md">
+              Build Your Team Now
+            </ButtonLink>
+          </div>
         </div>
 
         {/* Mobile: Lottie animated hero banner */}

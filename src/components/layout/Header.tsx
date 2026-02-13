@@ -3,8 +3,9 @@
 import { useState } from "react";
 import Link from "next/link";
 import { Logo, ChevronIcon } from "@/components/icons";
-import { ButtonLink } from "@/components/ui";
+import { Badge, ButtonLink } from "@/components/ui";
 import { PRIMARY_CTA_HREF, PRIMARY_CTA_LABEL } from "@/content/site";
+
 
 const navLinks = [
   { label: "About", href: "/about-us" },
@@ -38,23 +39,23 @@ export function Header() {
 
   return (
     <header className="absolute top-6 md:top-[30px] left-6 right-6 md:left-[30px] md:right-[30px] z-50 h-[35px]">
-      <nav className="flex items-center justify-between h-full max-w-[1380px] mx-auto">
+      <nav className="flex justify-between items-center w-full max-w-[1380px] h-full mx-auto">
         {/* Logo */}
         <Link href="/" aria-label="Chorus home" className="text-white hover:opacity-80 transition-opacity">
           <Logo className="w-[30px] h-[29px]" />
         </Link>
 
         {/* Navigation Links - Desktop */}
-        <div className="hidden md:flex items-center gap-[42px]">
+        <div className="hidden md:flex justify-start items-center gap-10">
           {navLinks.map((link) => (
             <Link
               key={link.label}
               href={link.href}
-              className="flex items-center gap-[7px] text-[14px] leading-[22px] font-medium text-gray-100 hover:text-white transition-colors"
+              className="flex items-center gap-1.5 text-sm font-medium font-['Urbanist'] leading-5 text-gray-100 hover:text-white transition-colors"
             >
               {link.label}
               {link.hasDropdown && (
-                <ChevronIcon className="w-[6px] h-[3px] text-gray-100" />
+                <ChevronIcon className="w-1.5 h-[3px] text-white/50" />
               )}
             </Link>
           ))}
@@ -62,9 +63,27 @@ export function Header() {
 
         {/* CTA Button - Desktop only */}
         <div className="hidden md:block">
-          <ButtonLink href={PRIMARY_CTA_HREF} variant="outline" size="md">
-            {PRIMARY_CTA_LABEL}
-          </ButtonLink>
+          <Link
+            href={PRIMARY_CTA_HREF}
+            className="relative w-28 h-9 rounded-[100px] overflow-hidden inline-flex justify-center items-center transition-all duration-200 hover:brightness-125"
+          >
+            {/* Gradient border — bright top-left to bottom-right, dark at top-right and bottom-left bends */}
+            <span
+              aria-hidden="true"
+              className="absolute inset-0 rounded-[100px]"
+              style={{
+                background: 'conic-gradient(from 135deg at 50% 50%, rgba(255,255,255,0.28) 0deg, rgba(255,255,255,0.05) 90deg, rgba(255,255,255,0.28) 180deg, rgba(255,255,255,0.05) 270deg, rgba(255,255,255,0.28) 360deg)',
+              }}
+            />
+            {/* Inner fill */}
+            <span
+              aria-hidden="true"
+              className="absolute inset-[1px] rounded-[100px] bg-[#131313]"
+            />
+            <span className="relative z-10 text-center text-white text-sm font-bold font-['Urbanist'] leading-6">
+              {PRIMARY_CTA_LABEL}
+            </span>
+          </Link>
         </div>
 
         {/* Hamburger Button - Mobile only */}

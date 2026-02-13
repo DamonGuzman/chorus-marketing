@@ -112,38 +112,37 @@ export function PricingSection() {
   }, []);
 
   return (
-    <Section className="pt-[50px] pb-[80px] md:pt-[80px] md:pb-[144px]" id="pricing">
-      <div className="max-w-[1280px] mx-auto px-4 md:px-6 lg:px-[96px]">
-        <div className="flex flex-col items-center gap-[56px]">
-          <div className="flex flex-col items-center gap-[24px] text-center">
-            <Badge className="px-3 py-1">
-              Pricing
-            </Badge>
+    <Section className="px-4 pt-[50px] pb-[80px] md:px-24 md:pt-20 md:pb-36 md:flex md:flex-col md:items-center" id="pricing">
+      <div className="flex flex-col justify-start items-center gap-14">
+        <div className="flex flex-col justify-start items-center gap-6">
+          <Badge className="w-32">
+            Pricing
+          </Badge>
 
-            <div className="flex flex-col items-center gap-[16px]">
-              <h2 className="text-[28px] leading-[36px] sm:text-[40px] sm:leading-[52px] lg:text-[48px] font-bold text-white">
-                Stop Paying Six Figures Per Employee
-              </h2>
-              <p className="max-w-[920px] lg:max-w-none text-[16px] leading-[26px] md:text-[18px] md:leading-[32px] lg:text-[20px] text-gray-200 lg:whitespace-nowrap">
-                The best way to reach humans instead of spam folders. Deliver transactional and marketing emails at scale.
-              </p>
-            </div>
+          <div className="flex flex-col justify-start items-center gap-4">
+            <h2 className="text-[28px] leading-[36px] md:text-5xl md:leading-[78px] font-bold font-['Urbanist'] text-white">
+              Stop Paying Six Figures Per Employee
+            </h2>
+            <p className="text-center text-[16px] leading-[26px] md:text-xl md:leading-9 font-normal font-['Urbanist'] text-gray-300">
+              The best way to reach humans instead of spam folders. Deliver transactional and marketing emails at scale.
+            </p>
           </div>
+        </div>
 
           <div className="flex flex-col items-center gap-[40px] w-full">
             <div className="flex flex-wrap items-center justify-center gap-[18px]">
-              <span className="text-white text-[16px] md:text-[18px] leading-[24px] font-medium">Billed Monthly</span>
-              <div className="relative w-[56px] h-[24px] rounded-[34px] bg-gray-600">
-                <div className="absolute right-[2px] top-[2px] w-[20px] h-[20px] bg-white rounded-full shadow-[0px_0px_88px_0px_rgba(0,0,0,1)]" />
+              <span className="text-white text-[16px] md:text-lg leading-6 font-medium font-['Urbanist']">Billed Monthly</span>
+              <div className="relative w-14 h-6 bg-gray-600 rounded-[34.42px]">
+                <div className="w-4 h-4 p-[2.75px] absolute right-[2px] top-[2.85px] bg-white rounded-[10.32px] shadow-[0px_0px_88.33px_0px_rgba(0,0,0,1)]" />
               </div>
-              <div className="flex items-center gap-[6px]">
-                <span className="text-white text-[16px] md:text-[18px] leading-[24px] font-medium">Billed Annually</span>
-                <span className="text-gray-300 text-[14px] leading-[24px] font-medium">(Save 35%)</span>
+              <div className="inline-flex justify-center items-start">
+                <span className="text-white text-[16px] md:text-lg leading-6 font-medium font-['Urbanist']">Billed Annually</span>
+                <span className="text-gray-300 text-sm leading-6 font-medium font-['Urbanist']">(Save 35%)</span>
               </div>
             </div>
 
             {/* Desktop: grid layout */}
-            <div className="hidden lg:grid lg:grid-cols-3 lg:gap-[40px] w-full">
+            <div className="hidden lg:grid lg:grid-cols-3 lg:gap-10 w-full">
               {plans.map((plan) => {
                 const theme = cardThemes[plan.theme];
 
@@ -294,7 +293,6 @@ export function PricingSection() {
             </div>
           </div>
         </div>
-      </div>
     </Section>
   );
 }

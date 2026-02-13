@@ -326,40 +326,38 @@ function StepItem({
   isLast: boolean;
 }) {
   return (
-    <div className="flex items-stretch gap-4 md:gap-[80px]">
+    <div className="self-stretch inline-flex justify-start items-center gap-4 md:gap-20">
       {/* Vertical line */}
-      <div className="flex w-[3px] shrink-0 flex-col">
-        <div
-          className={cn(
-            "h-full w-full rounded-full",
-            active ? "bg-[#D9D9D9]" : "bg-transparent"
-          )}
-        />
-      </div>
+      <div
+        className={cn(
+          "w-[3px] h-44 shrink-0",
+          active ? "bg-zinc-300" : "bg-transparent"
+        )}
+      />
 
       {/* Content card */}
       <div
         className={cn(
-          "flex-1 rounded-[24px] px-5 py-[30px] pb-5",
-          active ? "bg-white/[0.04]" : ""
+          "w-full md:w-96 px-5 pt-7 pb-5 rounded-3xl inline-flex flex-col justify-start items-start gap-2.5",
+          active ? "bg-white/5" : ""
         )}
       >
-        <div className="flex flex-col gap-5">
+        <div className="self-stretch flex flex-col justify-start items-start gap-5">
           {/* Number badge + Title */}
-          <div className="flex items-center gap-5">
+          <div className="inline-flex justify-start items-center gap-5">
             <div
               className={cn(
-                "flex size-8 shrink-0 items-center justify-center rounded-full bg-white/[0.07]",
-                "text-center font-urbanist text-[16px] font-semibold leading-[24px]",
-                active ? "text-white" : "text-[#7D7C83]"
+                "w-8 h-8 px-3 py-1 bg-white/5 rounded-[100px] flex justify-center items-center gap-2 overflow-hidden",
+                "text-center font-['Urbanist'] text-base font-semibold leading-6",
+                active ? "text-white" : "text-gray-300"
               )}
             >
               {number}
             </div>
             <h3
               className={cn(
-                "font-urbanist text-[18px] font-bold leading-[28px] md:text-[22px] md:leading-[31px]",
-                active ? "text-white" : "text-[#7D7C83]"
+                "font-['Urbanist'] text-[18px] font-bold leading-[28px] md:text-xl md:leading-8",
+                active ? "text-white" : "text-gray-300"
               )}
             >
               {title}
@@ -367,7 +365,7 @@ function StepItem({
           </div>
 
           {/* Description */}
-          <p className="font-urbanist text-[14px] font-normal leading-[24px] text-[#7D7C83] md:text-[16px] md:leading-[31px]">
+          <p className="self-stretch font-['Urbanist'] text-[14px] font-normal leading-[24px] text-gray-300 md:text-base md:leading-8">
             {description}
           </p>
         </div>
@@ -581,20 +579,20 @@ function ConnectedAppsCard() {
 export function HowItWorksSection() {
   return (
     <Section
-      className="relative overflow-hidden py-[60px] md:py-[75px]"
+      className="relative overflow-hidden py-[50px] md:py-20 md:px-24 md:flex md:flex-col md:items-center"
       id="how-it-works"
     >
-      <Container>
-        <div className="mx-auto flex flex-col items-center gap-[40px] md:gap-[57px]">
+      <div className="px-4 md:px-0">
+        <div className="flex flex-col justify-start items-center gap-[40px] md:gap-14">
           {/* ---- Header ---- */}
-          <div className="flex flex-col items-center gap-[24px]">
+          <div className="flex flex-col justify-start items-center gap-6">
             <Badge>Our Process</Badge>
 
-            <div className="flex flex-col items-center gap-[16px]">
-              <h2 className="text-center text-[32px] font-bold leading-[1.3] tracking-[-0.5px] text-white md:text-[50px] md:leading-[78px]">
+            <div className="flex flex-col justify-start items-center gap-4">
+              <h2 className="text-center text-white text-[32px] leading-[1.3] md:text-5xl md:leading-[78px] font-bold font-['Urbanist']">
                 How It Works
               </h2>
-              <p className="max-w-[700px] text-center font-urbanist text-[16px] font-normal leading-[26px] text-[#7D7C83] md:text-[22px] md:leading-[36px]">
+              <p className="text-center text-gray-300 text-[16px] leading-[26px] md:text-xl md:leading-9 font-normal font-['Urbanist']">
                 The best way to reach humans instead of spam folders. Deliver
                 transactional and marketing emails at scale.
               </p>
@@ -603,10 +601,10 @@ export function HowItWorksSection() {
 
           {/* ---- Content ---- */}
           {/* Desktop: side-by-side steps + cards */}
-          <div className="hidden lg:block w-full overflow-hidden rounded-[30px] bg-white/[0.06] py-[47px] pr-[30px] pb-[30px] pl-0">
-            <div className="flex flex-row items-start gap-[40px] xl:gap-[63px]">
+          <div className="hidden lg:flex pr-7 pt-12 pb-7 bg-white/5 rounded-[30px] flex-col justify-center items-start gap-2.5">
+            <div className="self-stretch inline-flex justify-start items-center gap-16">
               {/* Left: Steps */}
-              <div className="flex w-full flex-col gap-0 max-w-[480px] shrink-0">
+              <div className="w-[510px] inline-flex flex-col justify-start items-start gap-5">
                 {steps.map((step, idx) => (
                   <StepItem
                     key={step.number}
@@ -629,7 +627,7 @@ export function HowItWorksSection() {
           </div>
 
           {/* Mobile: interleaved — step 1, then cards, then steps 2 & 3 */}
-          <div className="lg:hidden w-full overflow-hidden rounded-[30px] bg-white/[0.06] px-3 py-[30px]">
+          <div className="lg:hidden w-full overflow-hidden rounded-[30px] bg-white/5 px-3 py-[30px]">
             <div className="flex flex-col gap-[20px]">
               {/* Step 1 (active) */}
               <StepItem
@@ -661,7 +659,7 @@ export function HowItWorksSection() {
             </div>
           </div>
         </div>
-      </Container>
+      </div>
     </Section>
   );
 }

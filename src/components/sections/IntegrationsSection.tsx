@@ -100,19 +100,18 @@ const IntegrationIcon = ({ src }: { src: string }) => (
 
 export function IntegrationsSection() {
   return (
-    <section id="integrations" className="w-full h-full px-4 py-[50px] md:px-[100px] md:py-[75px] bg-black inline-flex flex-col justify-start items-center gap-2.5 overflow-hidden">
-      <div className="self-stretch px-0 py-0 md:px-24 md:py-20 bg-black inline-flex flex-col justify-start items-center gap-2.5">
-        <div className="flex flex-col justify-start items-center gap-14">
-          <div className="flex flex-col justify-start items-center gap-6">
-            <Badge className="px-3 py-1">
-              Integration
-            </Badge>
-            <div className="flex flex-col justify-start items-center gap-7">
-              <div className="text-center text-white text-[32px] leading-[42px] md:text-5xl md:leading-[78px] font-bold font-['Urbanist']">Works In Harmony With Your Current Stack</div>
-              <div className="w-full max-w-[668px] text-center text-Secondary-Tint1 text-[16px] leading-[26px] md:text-xl md:leading-9 font-normal font-['Urbanist']">More than just integrations, 10,000+ tools that can adapt — turning automation into intuition.</div>
-            </div>
+    <section id="integrations" className="w-full px-4 py-[50px] md:px-24 md:py-20 bg-black flex flex-col items-center gap-2.5 overflow-hidden">
+      <div className="flex flex-col justify-start items-center gap-14">
+        <div className="flex flex-col justify-start items-center gap-6">
+          <Badge>
+            Integration
+          </Badge>
+          <div className="flex flex-col justify-start items-center gap-7">
+            <div className="text-center text-white text-[32px] leading-[42px] md:text-5xl md:leading-[78px] font-bold font-['Urbanist']">Works In Harmony With Your Current Stack</div>
+            <div className="w-full md:w-[668px] text-center text-gray-300 text-[16px] leading-[26px] md:text-xl md:leading-9 font-normal font-['Urbanist']">More than just integrations, 10,000+ tools that can adapt — turning automation into intuition.</div>
           </div>
         </div>
+      </div>
 
 
         <div className="w-full h-[400px] md:h-[602px] max-w-[1209px] relative overflow-hidden flex flex-col justify-center items-center gap-5">
@@ -168,8 +167,6 @@ export function IntegrationsSection() {
             ))}
           </div>
         </div>
-
-      </div>
-    </section >
+    </section>
   );
 }

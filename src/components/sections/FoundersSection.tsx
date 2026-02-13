@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { Section } from "@/components/ui";
+import { Badge, Section } from "@/components/ui";
 
 /* eslint-disable @next/next/no-img-element */
 
@@ -62,28 +62,28 @@ function LightCard({
 }) {
   return (
     <div
-      className="relative w-[300px] shrink-0 sm:w-[340px] lg:w-[379px] overflow-hidden rounded-[20px] border border-white/50 px-[24px] pb-[24px] pt-[30px] sm:px-[30px] sm:pb-[30px] sm:pt-[35px] backdrop-blur-[30px]"
+      className="relative w-[300px] shrink-0 sm:w-[340px] lg:w-96 overflow-hidden rounded-[20px] outline outline-1 outline-offset-[-1px] outline-white/30 backdrop-blur-[30px]"
       style={{
         background: "linear-gradient(37deg, #F6F6F6 0%, #CCCBCB 100%)",
       }}
     >
       <GridLines dark />
-      <div className="relative z-10 flex flex-col gap-[30px]">
+      <div className="relative z-10 flex flex-col gap-20 px-[24px] pb-[24px] pt-[30px] sm:px-[30px] sm:pb-[30px] sm:pt-[35px]">
         {/* Logo */}
         <img src={logo} alt={alt} width={logoWidth} height={logoHeight} />
 
         {/* Quote */}
-        <p className="font-urbanist text-[18px] font-bold leading-[28px] text-[#232227]">
+        <p className="w-80 text-lg font-bold font-['Urbanist'] leading-7 text-gray-800">
           {QUOTE_TEXT}
         </p>
 
         {/* Author */}
-        <div className="flex items-center justify-between">
-          <div className="flex flex-col gap-[6px]">
-            <span className="font-urbanist text-[16px] font-bold leading-[24px] text-[#222222]">
+        <div className="w-80 inline-flex justify-start items-start gap-40">
+          <div className="inline-flex flex-col justify-start items-start gap-1.5">
+            <span className="text-base font-bold font-['Urbanist'] leading-6 text-[#222222]">
               Theo Browne
             </span>
-            <span className="font-urbanist text-[14px] font-bold leading-[22px] text-[#222222]">
+            <span className="text-sm font-bold font-['Urbanist'] leading-5 text-[#222222]">
               CEO / Ping Labs
             </span>
           </div>
@@ -116,28 +116,28 @@ function DarkCard({
 }) {
   return (
     <div
-      className="relative w-[300px] shrink-0 sm:w-[340px] lg:w-[379px] overflow-hidden rounded-[20px] border border-white/15 px-[24px] pb-[24px] pt-[30px] sm:px-[30px] sm:pb-[30px] sm:pt-[35px] backdrop-blur-[30px]"
+      className="relative w-[300px] shrink-0 sm:w-[340px] lg:w-96 overflow-hidden rounded-[20px] outline outline-1 outline-offset-[-1px] outline-white/30 backdrop-blur-[30px]"
       style={{
         background: "linear-gradient(45deg, #101010 0%, #242324 100%)",
       }}
     >
       <GridLines />
-      <div className="relative z-10 flex flex-col gap-[30px]">
+      <div className="relative z-10 flex flex-col gap-20 px-[24px] pb-[24px] pt-[30px] sm:px-[30px] sm:pb-[30px] sm:pt-[35px]">
         {/* Logo */}
         <img src={logo} alt={alt} width={logoWidth} height={logoHeight} />
 
         {/* Quote */}
-        <p className="font-urbanist text-[18px] font-bold leading-[28px] text-[#CBCACC]">
+        <p className="w-80 text-lg font-bold font-['Urbanist'] leading-7 text-gray-100">
           {QUOTE_TEXT}
         </p>
 
         {/* Author */}
-        <div className="flex items-center justify-between">
-          <div className="flex flex-col gap-[6px]">
-            <span className="font-urbanist text-[16px] font-bold leading-[24px] text-white">
+        <div className="w-80 inline-flex justify-start items-start gap-40">
+          <div className="inline-flex flex-col justify-start items-start gap-1.5">
+            <span className="text-base font-bold font-['Urbanist'] leading-6 text-white">
               Theo Browne
             </span>
-            <span className="font-urbanist text-[14px] font-bold leading-[22px] text-white/[0.57]">
+            <span className="text-sm font-bold font-['Urbanist'] leading-5 text-white/60">
               CEO / Ping Labs
             </span>
           </div>
@@ -160,23 +160,23 @@ function DarkCard({
 function GlassCard() {
   return (
     <div
-      className="relative w-[300px] shrink-0 sm:w-[340px] lg:w-[379px] overflow-hidden rounded-[20px] border border-white/20 px-[28px] pb-[24px] pt-[34px] sm:px-[37px] sm:pb-[30px] sm:pt-[42px] backdrop-blur-[30px]"
+      className="relative w-[300px] shrink-0 sm:w-[340px] lg:w-96 rounded-[20px] outline outline-1 outline-offset-[-1px] outline-white/30 backdrop-blur-[30px] pl-9 pr-7 pt-10 pb-2.5"
       style={{
         background:
-          "linear-gradient(186deg, rgba(255,255,255,0.06) 0%, rgba(255,255,255,0.10) 55%, rgba(255,255,255,0.05) 100%)",
+          "linear-gradient(180deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.10) 50%, rgba(255,255,255,0.05) 100%)",
       }}
     >
       <GridLines />
-      <div className="relative z-10 flex flex-col gap-[44px]">
-        <p className="font-urbanist text-[18px] font-bold leading-[28px] text-[#CBCACC]">
+      <div className="relative z-10 flex flex-col justify-start items-start gap-11">
+        <p className="w-80 text-lg font-bold font-['Urbanist'] leading-7 text-gray-100">
           {QUOTE_TEXT}
         </p>
-        <div className="flex items-center justify-between">
-          <div className="flex flex-col gap-[6px]">
-            <span className="font-urbanist text-[16px] font-bold leading-[24px] text-white">
+        <div className="inline-flex justify-start items-start gap-40">
+          <div className="inline-flex flex-col justify-start items-start gap-1.5">
+            <span className="text-base font-bold font-['Urbanist'] leading-6 text-white">
               Theo Browne
             </span>
-            <span className="font-urbanist text-[14px] font-bold leading-[22px] text-[#7D7C83]">
+            <span className="text-sm font-bold font-['Urbanist'] leading-5 text-gray-300">
               CEO / Ping Labs
             </span>
           </div>
@@ -199,23 +199,23 @@ function GlassCard() {
 function GlassWhiteCard() {
   return (
     <div
-      className="relative w-[300px] shrink-0 sm:w-[340px] lg:w-[379px] overflow-hidden rounded-[20px] border border-white/20 px-[28px] pb-[24px] pt-[34px] sm:px-[37px] sm:pb-[30px] sm:pt-[42px] backdrop-blur-[30px]"
+      className="relative w-[300px] shrink-0 sm:w-[340px] lg:w-96 rounded-[20px] outline outline-1 outline-offset-[-1px] outline-white/30 backdrop-blur-[30px] pl-9 pr-7 pt-10 pb-2.5"
       style={{
         background:
-          "linear-gradient(186deg, rgba(255,255,255,0.06) 0%, rgba(255,255,255,0.10) 55%, rgba(255,255,255,0.05) 100%)",
+          "linear-gradient(180deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.10) 50%, rgba(255,255,255,0.05) 100%)",
       }}
     >
       <GridLines />
-      <div className="relative z-10 flex flex-col gap-[44px]">
-        <p className="font-urbanist text-[18px] font-bold leading-[28px] text-white">
+      <div className="relative z-10 flex flex-col justify-start items-start gap-11">
+        <p className="w-80 text-lg font-bold font-['Urbanist'] leading-7 text-white">
           {QUOTE_TEXT}
         </p>
-        <div className="flex items-center justify-between">
-          <div className="flex flex-col gap-[6px]">
-            <span className="font-urbanist text-[16px] font-bold leading-[24px] text-white">
+        <div className="inline-flex justify-start items-start gap-40">
+          <div className="inline-flex flex-col justify-start items-start gap-1.5">
+            <span className="text-base font-bold font-['Urbanist'] leading-6 text-white">
               Theo Browne
             </span>
-            <span className="font-urbanist text-[14px] font-bold leading-[22px] text-[#7D7C83]">
+            <span className="text-sm font-bold font-['Urbanist'] leading-5 text-gray-300">
               CEO / Ping Labs
             </span>
           </div>
@@ -241,22 +241,18 @@ function GlassWhiteCard() {
 export function FoundersSection() {
   return (
     <Section
-      className="bg-black px-4 py-[50px] md:py-[75px] lg:px-[100px]"
+      className="bg-black px-4 py-[50px] md:px-24 md:py-20 md:flex md:flex-col md:items-center"
       id="testimonials"
     >
-      <div className="mx-auto flex max-w-[1280px] flex-col items-center gap-[40px] md:gap-[57px]">
+      <div className="flex flex-col justify-start items-center gap-[40px] md:gap-14">
         {/* Header */}
-        <div className="flex flex-col items-center gap-[24px]">
-          <div className="inline-flex items-center justify-center overflow-hidden rounded-full bg-white/[0.07] px-[12px] py-[4px]">
-            <span className="text-center font-urbanist text-[16px] font-semibold leading-[24px] text-white">
-              Testimonials
-            </span>
-          </div>
-          <div className="flex flex-col items-center gap-[16px]">
-            <h2 className="text-center font-urbanist text-[32px] leading-[1.3] font-bold text-white md:text-[50px] md:leading-[78px]">
+        <div className="flex flex-col justify-start items-center gap-6">
+          <Badge>Testimonials</Badge>
+          <div className="flex flex-col justify-start items-center gap-4">
+            <h2 className="text-center text-white text-[32px] leading-[1.3] md:text-5xl md:leading-[78px] font-bold font-['Urbanist']">
               Founders Are Already Building With Chorus
             </h2>
-            <p className="text-center font-urbanist text-[16px] leading-[26px] font-normal text-[#7D7C83] md:text-[22px] md:leading-[36px]">
+            <p className="text-center text-gray-300 text-[16px] leading-[26px] md:text-xl md:leading-9 font-normal font-['Urbanist']">
               The best way to reach humans instead of spam folders. Deliver
               transactional and marketing emails at scale.
             </p>
@@ -264,9 +260,9 @@ export function FoundersSection() {
         </div>
 
         {/* 3-column masonry grid — desktop */}
-        <div className="hidden w-full items-start justify-center gap-[40px] lg:inline-flex">
+        <div className="hidden lg:inline-flex justify-start items-start gap-10">
           {/* Column 1 */}
-          <div className="inline-flex flex-col items-start gap-[40px]">
+          <div className="inline-flex flex-col justify-start items-start gap-11">
             <LightCard
               logo="/images/figma/image 23.svg"
               alt="Perplexity"
@@ -277,14 +273,14 @@ export function FoundersSection() {
           </div>
 
           {/* Column 2 */}
-          <div className="inline-flex flex-col items-start gap-[30px]">
+          <div className="inline-flex flex-col justify-start items-start gap-7">
             <GlassCard />
             <DarkCard logo="/images/figma/image 23 (2).svg" alt="Raycas" />
             <GlassWhiteCard />
           </div>
 
           {/* Column 3 */}
-          <div className="inline-flex flex-col items-start gap-[36px]">
+          <div className="inline-flex flex-col justify-start items-start gap-9">
             <DarkCard
               logo="/images/figma/image 23 (1).svg"
               alt="Clerk"
