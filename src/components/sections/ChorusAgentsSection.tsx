@@ -51,138 +51,142 @@ function AvatarStack() {
    ═══════════════════════════════════════════════════════════ */
 function GoalsCard() {
   return (
-    <div className="relative w-full md:flex-1 md:min-w-0 h-[550px] md:h-[671px] rounded-[30px] md:rounded-[40px] overflow-hidden bg-black">
-      {/* Border */}
-      <div className="absolute inset-0 rounded-[30px] md:rounded-[40px] border border-white/35 pointer-events-none z-40" />
+    <div className="relative w-full md:flex-1 md:min-w-0 h-[550px] md:h-[671px] rounded-[30px] md:rounded-[40px] overflow-hidden">
+    {/* Border */}
+    <div className="absolute inset-0 rounded-[30px] md:rounded-[40px] border border-white/35 pointer-events-none z-40" />
 
-      {/* Dark terrain-like background */}
-      <div
-        className="absolute inset-0"
-        style={{
-          background: "linear-gradient(180deg, #0a0a0a 0%, #111 40%, #1a1510 60%, #0d0d0d 80%, black 100%)",
-        }}
-      />
-      {/* Subtle landscape texture band */}
-      <div
-        className="absolute bottom-[180px] inset-x-0 h-[120px] opacity-30"
-        style={{
-          background: "linear-gradient(180deg, transparent 0%, rgba(80,60,30,0.3) 40%, rgba(60,40,20,0.2) 70%, transparent 100%)",
-        }}
-      />
+    {/* Background Image */}
+    <div 
+      className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+      style={{
+        backgroundImage: "url('/images/figma/features/features-light-on-stone.svg')",
+      }}
+    />
 
-      {/* Bottom fade to black for title readability */}
-      <div
-        className="absolute inset-0 z-20 pointer-events-none"
-        style={{
-          background: "linear-gradient(180deg, transparent 0%, transparent 55%, rgba(0,0,0,0.85) 70%, black 82%)",
-        }}
-      />
+    {/* Dark overlay to maintain readability */}
+    <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/30 to-black/30" />
 
-      {/* ── UI Elements ── */}
-      <div className="absolute inset-x-0 top-0 h-[460px] z-10 flex flex-col items-center px-6 pt-8 overflow-hidden">
-        {/* Search bar */}
+    {/* Subtle landscape texture band */}
+    <div
+      className="absolute bottom-[180px] inset-x-0 h-[120px] opacity-20"
+      style={{
+        background: "linear-gradient(180deg, transparent 0%, rgba(80,60,30,0.3) 40%, rgba(60,40,20,0.2) 70%, transparent 100%)",
+      }}
+    />
+
+    {/* Bottom fade to black for title readability */}
+    {/* <div
+      className="absolute inset-0 z-20 pointer-events-none"
+      style={{
+        background: "linear-gradient(180deg, transparent 0%, transparent 55%, rgba(0,0,0,0.85) 70%, black 82%)",
+      }}
+    /> */}
+
+    {/* ── UI Elements ── */}
+    <div className="absolute inset-x-0 top-0 h-[460px] z-10 flex flex-col items-center px-6 pt-8 overflow-hidden">
+      {/* Search bar */}
+      <div
+        className="w-full max-w-[370px] h-[52px] px-[20px] rounded-[24px] flex items-center gap-3 mb-4 backdrop-blur-sm"
+        style={{ background: "linear-gradient(90deg, rgba(51,51,51,0.3) 0%, rgba(1,1,1,0.4) 100%)" }}
+      >
+        <SearchIcon className="w-[20px] h-[20px] text-white/50" />
+        <span className="text-gray-300 text-[16px] font-semibold leading-[28px]">Search goals</span>
+      </div>
+
+      <div className="w-full max-w-[440px] flex flex-col items-start">
+        {/* Track Monthly Revenue card - Now with backdrop blur and transparency */}
         <div
-          className="w-full max-w-[370px] h-[52px] px-[20px] rounded-[24px] flex items-center gap-3 mb-4"
-          style={{ background: "linear-gradient(90deg, rgba(51,51,51,0.47) 0%, #010101 100%)" }}
+          className="w-full rounded-[20px] py-3 px-4 flex flex-col gap-3 backdrop-blur-md"
+          style={{ background: "rgba(255,255,255,0.08)", boxShadow: "0px 4px 61px rgba(0,0,0,0.5)" }}
         >
-          <SearchIcon className="w-[20px] h-[20px] text-white/50" />
-          <span className="text-gray-300 text-[16px] font-semibold leading-[28px]">Search goals</span>
+          <p className="text-gray-100 text-[16px] font-bold leading-[28px]">Track Monthly Revenue</p>
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-[5px]">
+              <ClipboardIcon className="w-[16px] h-[16px] text-gray-300" />
+              <span className="text-gray-300 text-[14px] font-semibold leading-[22px]">Tasks :</span>
+              <span className="text-gray-300 text-[14px] font-bold leading-[22px]">7</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <AvatarStack />
+              <span className="text-gray-300 text-[14px] font-bold leading-[22px]">+3</span>
+            </div>
+          </div>
         </div>
 
-        <div className="w-full max-w-[440px] flex flex-col items-start">
-          {/* Track Monthly Revenue card */}
-          <div
-            className="w-full rounded-[20px] py-3 px-4 flex flex-col gap-3"
-            style={{ background: "rgba(255,255,255,0.05)", boxShadow: "0px 4px 61px black" }}
-          >
-            <p className="text-gray-100 text-[16px] font-bold leading-[28px]">Track Monthly Revenue</p>
-            <div className="flex items-center justify-between">
-              <div className="flex items-center gap-[5px]">
-                <ClipboardIcon className="w-[16px] h-[16px] text-gray-300" />
-                <span className="text-gray-300 text-[14px] font-semibold leading-[22px]">Tasks :</span>
-                <span className="text-gray-300 text-[14px] font-bold leading-[22px]">7</span>
+        {/* Green checkmark connector (left aligned to cards) */}
+        <div className="flex flex-col items-start -my-1 self-start">
+          <div className="h-[26px] border-l border-dotted border-gray-200/50 ml-[11px]" />
+          <div className="flex items-center">
+            <div className="w-[22px] h-[22px] rounded-full bg-success flex items-center justify-center">
+              <CheckIcon className="w-[10px] h-[8px] text-white" />
+            </div>
+            <div className="h-0 w-[20px] border-t border-dotted border-gray-200/50" />
+          </div>
+        </div>
+
+        {/* Franks Lampard subtask card - Now with backdrop blur and transparency */}
+        <div
+          className="w-full max-w-[89%] ml-[40px] -mt-[20px] rounded-[20px] py-3 px-4 flex flex-col gap-3 backdrop-blur-md"
+          style={{ background: "rgba(255,255,255,0.08)", boxShadow: "0px 4px 61px rgba(0,0,0,0.5)" }}
+        >
+          <div className="flex items-center justify-between flex-wrap gap-2">
+            <div className="flex items-center gap-2 px-[10px] py-[3px] rounded-[10px] bg-white/4 border border-white/10">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/images/figma/Ellipse 53.svg" alt="" className="w-[22px] h-[22px] rounded-full shrink-0" />
+              <span className="text-gray-100 text-[14px] font-semibold leading-[22px]">Franks Lampard</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <div className="w-[16px] h-[16px] rounded-full bg-success flex items-center justify-center">
+                <CheckIcon className="w-[7px] h-[6px] text-white" />
               </div>
-              <div className="flex items-center gap-2">
-                <AvatarStack />
-                <span className="text-gray-300 text-[14px] font-bold leading-[22px]">+3</span>
-              </div>
+              <span className="text-white text-[14px] font-bold">Completed</span>
             </div>
           </div>
-
-          {/* Green checkmark connector (left aligned to cards) */}
-          <div className="flex flex-col items-start -my-1 self-start">
-            <div className="h-[26px] border-l border-dotted border-gray-200/50 ml-[11px]" />
-            <div className="flex items-center">
-              <div className="w-[22px] h-[22px] rounded-full bg-success flex items-center justify-center">
-                <CheckIcon className="w-[10px] h-[8px] text-white" />
-              </div>
-              <div className="h-0 w-[20px] border-t border-dotted border-gray-200/50" />
-            </div>
+          <div className="flex items-center gap-2">
+            <ClipboardIcon className="w-[16px] h-[16px] text-gray-300 shrink-0" />
+            <span className="text-gray-100 text-[14px] font-bold leading-[28px]">Collect revenue data from bank APIs</span>
           </div>
-
-          {/* Franks Lampard subtask card */}
-          <div
-            className="w-full max-w-[89%] ml-[40px] -mt-[20px] rounded-[20px] py-3 px-4 flex flex-col gap-3"
-            style={{ background: "rgba(255,255,255,0.06)", boxShadow: "0px 4px 61px black" }}
-          >
-            <div className="flex items-center justify-between flex-wrap gap-2">
-              <div className="flex items-center gap-2 px-[10px] py-[3px] rounded-[10px] bg-white/4 border border-white/10">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src="/images/figma/Ellipse 53.svg" alt="" className="w-[22px] h-[22px] rounded-full shrink-0" />
-                <span className="text-gray-100 text-[14px] font-semibold leading-[22px]">Franks Lampard</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <div className="w-[16px] h-[16px] rounded-full bg-success flex items-center justify-center">
-                  <CheckIcon className="w-[7px] h-[6px] text-white" />
-                </div>
-                <span className="text-white text-[14px] font-bold">Completed</span>
+          <div className="flex items-center gap-6 flex-wrap">
+            <div className="flex items-center gap-2">
+              <span className="text-gray-100 text-[12px] font-semibold leading-[22px]">Apps :</span>
+              <div className="flex items-center -space-x-[2px]">
+                {/* Slack */}
+                <span className="inline-grid place-items-center w-[22px] h-[22px] rounded-full bg-[#4A154B] border border-white/15">
+                  <svg viewBox="0 0 24 24" className="size-full p-[4px]">
+                    <circle cx="8" cy="8" r="2.6" fill="#36C5F0" />
+                    <circle cx="16" cy="8" r="2.6" fill="#2EB67D" />
+                    <circle cx="8" cy="16" r="2.6" fill="#E01E5A" />
+                    <circle cx="16" cy="16" r="2.6" fill="#ECB22E" />
+                  </svg>
+                </span>
+                {/* HubSpot */}
+                <span className="inline-grid place-items-center w-[22px] h-[22px] rounded-full bg-[#FF7A59] border border-white/15">
+                  <span className="text-white text-[10px] font-extrabold leading-none">H</span>
+                </span>
+                {/* Stripe */}
+                <span className="inline-grid place-items-center w-[22px] h-[22px] rounded-full bg-[#635BFF] border border-white/15">
+                  <span className="text-white text-[10px] font-extrabold leading-none">S</span>
+                </span>
               </div>
             </div>
             <div className="flex items-center gap-2">
-              <ClipboardIcon className="w-[16px] h-[16px] text-gray-300 shrink-0" />
-              <span className="text-gray-100 text-[14px] font-bold leading-[28px]">Collect revenue data from bank APIs</span>
-            </div>
-            <div className="flex items-center gap-6 flex-wrap">
-              <div className="flex items-center gap-2">
-                <span className="text-gray-100 text-[12px] font-semibold leading-[22px]">Apps :</span>
-                <div className="flex items-center -space-x-[2px]">
-                  {/* Slack */}
-                  <span className="inline-grid place-items-center w-[22px] h-[22px] rounded-full bg-[#4A154B] border border-white/15">
-                    <svg viewBox="0 0 24 24" className="size-full p-[4px]">
-                      <circle cx="8" cy="8" r="2.6" fill="#36C5F0" />
-                      <circle cx="16" cy="8" r="2.6" fill="#2EB67D" />
-                      <circle cx="8" cy="16" r="2.6" fill="#E01E5A" />
-                      <circle cx="16" cy="16" r="2.6" fill="#ECB22E" />
-                    </svg>
-                  </span>
-                  {/* HubSpot */}
-                  <span className="inline-grid place-items-center w-[22px] h-[22px] rounded-full bg-[#FF7A59] border border-white/15">
-                    <span className="text-white text-[10px] font-extrabold leading-none">H</span>
-                  </span>
-                  {/* Stripe */}
-                  <span className="inline-grid place-items-center w-[22px] h-[22px] rounded-full bg-[#635BFF] border border-white/15">
-                    <span className="text-white text-[10px] font-extrabold leading-none">S</span>
-                  </span>
-                </div>
-              </div>
-              <div className="flex items-center gap-2">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src="/images/figma/excel-icon.png" alt="Excel file" className="w-[20px] h-[20px] rounded-[3px] object-cover" />
-                <span className="text-gray-100 text-[12px] font-semibold leading-[22px]">Stripe_revenue_report.csv</span>
-              </div>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/images/figma/excel-icon.png" alt="Excel file" className="w-[20px] h-[20px] rounded-[3px] object-cover" />
+              <span className="text-gray-100 text-[12px] font-semibold leading-[22px]">Stripe_revenue_report.csv</span>
             </div>
           </div>
         </div>
       </div>
-
-      {/* ── Title + desc ── */}
-      <div className="absolute bottom-0 inset-x-0 z-30 flex flex-col items-center gap-1 pb-6 px-6">
-        <h3 className="text-white text-[26px] font-bold leading-[40px] text-center">You set goals, not tasks</h3>
-        <p className="text-gray-300 text-[16px] font-semibold leading-[26px] text-center max-w-[440px]">
-          The best way to reach humans instead of spam folders. Deliver transactional and marketing emails at scale.
-        </p>
-      </div>
     </div>
+
+    {/* ── Title + desc ── */}
+    <div className="absolute bottom-0 inset-x-0 z-30 flex flex-col items-center gap-1 pb-6 px-6">
+      <h3 className="text-white text-[26px] font-bold leading-[40px] text-center">You set goals, not tasks</h3>
+      <p className="text-gray-300 text-[16px] font-semibold leading-[26px] text-center max-w-[440px]">
+        The best way to reach humans instead of spam folders. Deliver transactional and marketing emails at scale.
+      </p>
+    </div>
+  </div>
   );
 }
 
@@ -385,12 +389,9 @@ function FeedbackCard() {
   return (
     <div className="relative w-full md:flex-1 md:min-w-0 h-[480px] md:h-[537px] rounded-[30px] md:rounded-[37px] overflow-hidden">
       {/* Subtle dark blue/purple bg */}
-      <div className="absolute inset-0" style={{ background: "linear-gradient(160deg, #0d0b15 0%, #12101a 40%, #0a0810 100%)" }} />
-      {/* Border + gradient overlay */}
-      <div
-        className="absolute inset-0 rounded-[30px] md:rounded-[37px] z-20 pointer-events-none"
-        style={{ background: "linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.70) 100%)", border: "0.92px solid rgba(255,255,255,0.35)" }}
-      />
+      <div className="absolute inset-0" style={{
+        backgroundImage: "url('/images/figma/features/dessert-and-pearl.svg')",
+      }} />
 
       {/* Title top-left */}
       <div className="absolute top-[24px] left-[20px] md:top-[35px] md:left-[30px] z-30 max-w-[280px] md:max-w-[394px]">
@@ -399,7 +400,7 @@ function FeedbackCard() {
 
       {/* ── macOS Chat Window ── */}
       <div className="absolute top-[90px] md:top-[90px] left-[16px] right-[16px] bottom-0 z-[15] md:left-[50px] md:right-[50px]">
-        <div className="w-full h-full bg-[#131313] rounded-t-[14px] md:rounded-t-[18px] border border-white overflow-hidden" style={{ backdropFilter: "blur(31px)" }}>
+        <div className="w-full h-full bg-[#131313] rounded-t-[14px] md:rounded-t-[18px] border-[1.5px] border-white/10 overflow-hidden" style={{ backdropFilter: "blur(31px)" }}>
           {/* Traffic light dots */}
           <div className="flex items-center gap-[8px] px-[16px] md:px-[22px] pt-[12px] md:pt-[14px] pb-[12px] md:pb-[16px]">
             <div className="w-[10px] h-[9px] rounded-sm bg-[#F24E1E]" />
@@ -454,12 +455,12 @@ function FeedbackCard() {
                 </p>
                 <div className="flex items-center gap-[3px] mt-2">
                   <div className="h-[20px] pl-[4px] pr-[8px] bg-white/4 rounded-full border border-white/10 flex items-center gap-[5px]">
-                    <Dot color="#635BFF" size={16} />
+                    <img src={"images/figma/features/s.svg"}/>
                     <span className="text-gray-100 text-[11px] font-semibold leading-[16px]">Stripe</span>
                   </div>
                   <span className="text-white text-[13px] font-medium mx-[2px]">+</span>
                   <div className="h-[20px] pl-[4px] pr-[8px] bg-white/4 rounded-full border border-white/10 flex items-center gap-[5px]">
-                    <Dot color="#FF7A59" size={16} />
+                    <img src={"images/figma/features/nodes.svg"}/>
                     <span className="text-gray-100 text-[11px] font-semibold leading-[16px]">HubSpot</span>
                   </div>
                 </div>
@@ -487,13 +488,13 @@ function FeedbackCard() {
 export function ChorusAgentsSection() {
   return (
     <section className="w-full bg-black px-4 md:px-[100px] py-[50px] md:py-[75px]">
-      <div className="max-w-[1240px] mx-auto flex flex-col items-center gap-[10px]">
+      <div className="max-w-[1240px] mx-auto flex flex-col items-center gap-8">
         {/* Section Header */}
         <div className="flex flex-col items-center gap-[20px] md:gap-[24px] w-full">
           <div className="h-[36px] px-3 py-1 bg-white/7 rounded-full overflow-hidden inline-flex items-center justify-center">
             <span className="text-white text-[16px] font-bold leading-[24px] text-center">Chorus Agents</span>
           </div>
-          <div className="flex flex-col items-center gap-[20px] md:gap-[32px] w-full">
+          <div className="flex flex-col items-center gap-2 w-full">
             <h2 className="text-white text-[32px] md:text-[50px] font-bold leading-[1.2] md:leading-[78px] text-center">
               Autonomous Agents, Not Chatbots.
             </h2>
