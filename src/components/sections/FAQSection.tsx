@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useState } from "react";
 import { Section } from "@/components/ui";
 
@@ -31,27 +32,15 @@ const faqs = [
 ];
 
 function PlusIcon({ open }: { open: boolean }) {
+  const iconSrc = open
+    ? "/images/figma/x-icon.svg"
+    : "/images/figma/plus-icon.svg";
+  const iconAlt = open ? "Collapse" : "Expand";
+  const iconSize = open ? 24 : 17;
+
   return (
     <div className="w-[32px] h-[32px] flex items-center justify-center shrink-0">
-      {open ? (
-        <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
-          <path
-            d="M4 4L14 14M14 4L4 14"
-            stroke="white"
-            strokeWidth="2"
-            strokeLinecap="round"
-          />
-        </svg>
-      ) : (
-        <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
-          <path
-            d="M9 2V16M2 9H16"
-            stroke="white"
-            strokeWidth="2"
-            strokeLinecap="round"
-          />
-        </svg>
-      )}
+      <Image src={iconSrc} alt={iconAlt} width={iconSize} height={iconSize} />
     </div>
   );
 }
