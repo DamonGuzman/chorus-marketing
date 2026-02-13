@@ -10,36 +10,18 @@ const QUOTE_TEXT =
    Grid lines overlay
    ============================================================ */
 
-function GridLines({ dark = false }: { dark?: boolean }) {
-  const color = dark
-    ? "rgba(0, 0, 0, 0.06)"
-    : "rgba(255, 255, 255, 0.06)";
+function GridBg({ dark = false }: { dark?: boolean }) {
   return (
     <div className="pointer-events-none absolute inset-0 overflow-hidden rounded-[inherit]">
-      {/* Horizontal lines */}
-      {Array.from({ length: 8 }).map((_, i) => (
-        <div
-          key={`h-${i}`}
-          className="absolute left-0 right-0"
-          style={{
-            top: `${(i + 1) * 12.5}%`,
-            height: "1px",
-            background: color,
-          }}
-        />
-      ))}
-      {/* Vertical lines */}
-      {Array.from({ length: 6 }).map((_, i) => (
-        <div
-          key={`v-${i}`}
-          className="absolute top-0 bottom-0"
-          style={{
-            left: `${(i + 1) * 16.67}%`,
-            width: "1px",
-            background: color,
-          }}
-        />
-      ))}
+      <img
+        src="/images/figma/design.svg"
+        alt=""
+        className="absolute inset-0 w-full h-full object-cover"
+        style={{
+          opacity: dark ? 0.8 : 0.7,
+          filter: dark ? "invert(1)" : "none",
+        }}
+      />
     </div>
   );
 }
@@ -67,7 +49,7 @@ function LightCard({
         background: "linear-gradient(37deg, #F6F6F6 0%, #CCCBCB 100%)",
       }}
     >
-      <GridLines dark />
+      <GridBg dark />
       <div className="relative z-10 flex flex-col gap-20 px-[24px] pb-[24px] pt-[30px] sm:px-[30px] sm:pb-[30px] sm:pt-[35px]">
         {/* Logo */}
         <img src={logo} alt={alt} width={logoWidth} height={logoHeight} />
@@ -121,7 +103,7 @@ function DarkCard({
         background: "linear-gradient(45deg, #101010 0%, #242324 100%)",
       }}
     >
-      <GridLines />
+      <GridBg />
       <div className="relative z-10 flex flex-col gap-20 px-[24px] pb-[24px] pt-[30px] sm:px-[30px] sm:pb-[30px] sm:pt-[35px]">
         {/* Logo */}
         <img src={logo} alt={alt} width={logoWidth} height={logoHeight} />
@@ -166,7 +148,6 @@ function GlassCard() {
           "linear-gradient(180deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.10) 50%, rgba(255,255,255,0.05) 100%)",
       }}
     >
-      <GridLines />
       <div className="relative z-10 flex flex-col justify-start items-start gap-11">
         <p className="w-80 text-lg font-bold font-['Urbanist'] leading-7 text-gray-100">
           {QUOTE_TEXT}
@@ -205,7 +186,6 @@ function GlassWhiteCard() {
           "linear-gradient(180deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.10) 50%, rgba(255,255,255,0.05) 100%)",
       }}
     >
-      <GridLines />
       <div className="relative z-10 flex flex-col justify-start items-start gap-11">
         <p className="w-80 text-lg font-bold font-['Urbanist'] leading-7 text-white">
           {QUOTE_TEXT}
@@ -241,12 +221,12 @@ function GlassWhiteCard() {
 export function FoundersSection() {
   return (
     <Section
-      className="bg-black px-4 py-[50px] md:px-24 md:py-20 md:flex md:flex-col md:items-center"
+      className="bg-black px-4 py-[50px] md:px-[100px] md:py-20 md:flex md:flex-col md:items-center"
       id="testimonials"
     >
-      <div className="flex flex-col justify-start items-center gap-[40px] md:gap-14">
+      <div className="self-stretch flex flex-col justify-start items-center gap-[40px] md:gap-14">
         {/* Header */}
-        <div className="flex flex-col justify-start items-center gap-6">
+        <div className="self-stretch flex flex-col justify-start items-center gap-6">
           <Badge>Testimonials</Badge>
           <div className="flex flex-col justify-start items-center gap-4">
             <h2 className="text-center text-white text-[32px] leading-[1.3] md:text-5xl md:leading-[78px] font-bold font-['Urbanist']">
