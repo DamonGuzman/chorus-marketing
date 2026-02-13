@@ -112,15 +112,15 @@ export function PricingSection() {
   }, []);
 
   return (
-    <Section className="px-4 pt-[50px] pb-[80px] md:px-24 md:pt-20 md:pb-36 md:flex md:flex-col md:items-center" id="pricing">
-      <div className="flex flex-col justify-start items-center gap-14">
-        <div className="flex flex-col justify-start items-center gap-6">
+    <Section className="px-4 pt-[50px] pb-[80px] md:px-[100px] md:pt-20 md:pb-36 md:flex md:flex-col md:items-center" id="pricing">
+      <div className="self-stretch flex flex-col justify-start items-center gap-14">
+        <div className="self-stretch flex flex-col justify-start items-center gap-6">
           <Badge className="w-32">
             Pricing
           </Badge>
 
           <div className="flex flex-col justify-start items-center gap-4">
-            <h2 className="text-[28px] leading-[36px] md:text-5xl md:leading-[78px] font-bold font-['Urbanist'] text-white">
+            <h2 className="text-center text-[28px] leading-[36px] md:text-5xl md:leading-[78px] font-bold font-['Urbanist'] text-white">
               Stop Paying Six Figures Per Employee
             </h2>
             <p className="text-center text-[16px] leading-[26px] md:text-xl md:leading-9 font-normal font-['Urbanist'] text-gray-300">
@@ -156,7 +156,15 @@ export function PricingSection() {
                   >
                     <div aria-hidden className="pointer-events-none absolute inset-0">
                       <div className={cn("absolute inset-0", theme.glow)} />
-                      <div className={cn("absolute inset-0", theme.gridLines)} />
+                      <img
+                        src="/images/figma/design.svg"
+                        alt=""
+                        className="absolute inset-0 w-full h-full object-cover"
+                        style={{
+                          opacity: plan.theme === "light" ? 0.8 : 0.7,
+                          filter: plan.theme === "light" ? "invert(1)" : "none",
+                        }}
+                      />
                       <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(255,255,255,0.06)_0%,rgba(255,255,255,0)_40%)]" />
                     </div>
 
@@ -234,7 +242,15 @@ export function PricingSection() {
                     >
                       <div aria-hidden className="pointer-events-none absolute inset-0">
                         <div className={cn("absolute inset-0", theme.glow)} />
-                        <div className={cn("absolute inset-0", theme.gridLines)} />
+                        <img
+                          src="/images/figma/design.svg"
+                          alt=""
+                          className="absolute inset-0 w-full h-full object-cover"
+                          style={{
+                            opacity: plan.theme === "light" ? 0.8 : 0.7,
+                            filter: plan.theme === "light" ? "invert(1)" : "none",
+                          }}
+                        />
                         <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(255,255,255,0.06)_0%,rgba(255,255,255,0)_40%)]" />
                       </div>
 

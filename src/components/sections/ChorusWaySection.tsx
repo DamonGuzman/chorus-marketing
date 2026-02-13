@@ -17,7 +17,7 @@ export function ChorusWaySection() {
   }, []);
 
   return (
-    <Section className="relative py-[50px] md:py-20 md:px-24" id="chorus-way">
+    <Section className="relative py-[50px] md:py-20 md:px-[100px]" id="chorus-way">
       <div className="px-4 md:px-0">
         {/* Mobile layout: centered, single column */}
         <div className="flex flex-col lg:hidden items-center text-center gap-[30px]">

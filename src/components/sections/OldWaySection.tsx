@@ -30,13 +30,13 @@ const oldWayItems = [
 
 export function OldWaySection() {
   return (
-    <Section className="px-4 py-[50px] md:px-24 md:py-20 md:flex md:flex-col md:items-center" id="old-way">
-      <div className="flex flex-col justify-start items-center gap-6 md:gap-10">
+    <Section className="px-4 py-[50px] md:px-[100px] md:py-20 md:flex md:flex-col md:items-center" id="old-way">
+      <div className="self-stretch flex flex-col justify-start items-center gap-6 md:gap-10">
         {/* Header */}
-        <div className="flex flex-col justify-start items-center gap-6">
+        <div className="self-stretch flex flex-col justify-start items-center gap-6">
           <Badge>The Problem</Badge>
-          <div className="flex flex-col justify-start items-center gap-4">
-            <h2 className="text-[28px] leading-[36px] md:text-5xl md:leading-[78px] font-bold font-['Urbanist'] text-white">
+          <div className="self-stretch flex flex-col justify-start items-center gap-4">
+            <h2 className="text-center text-[28px] leading-[36px] md:text-5xl md:leading-[78px] font-bold font-['Urbanist'] text-white">
               The Old Way : Managing Individual Players
             </h2>
             <p className="text-center text-[16px] leading-[28px] md:text-xl md:leading-9 font-normal font-['Urbanist'] text-gray-300">

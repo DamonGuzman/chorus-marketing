@@ -1,9 +1,18 @@
 import { ButtonLink } from "@/components/ui";
 import { PRIMARY_CTA_HREF } from "@/content/site";
 
+/* eslint-disable @next/next/no-img-element */
+
 export function FinalCTASection() {
   return (
-    <section className="relative w-full bg-black overflow-hidden px-4 py-[50px] md:px-24 md:py-20" id="cta">
+    <section className="relative w-full bg-black overflow-hidden px-4 py-[50px] md:px-[100px] md:py-20" id="cta">
+      {/* Stars particle background (same as hero) */}
+      <img
+        src="/images/figma/stars.svg"
+        alt=""
+        className="pointer-events-none absolute left-[40%] top-[50%] -translate-x-1/2 -translate-y-[50%]"
+        style={{ width: '1400px', height: '1000px',left:"45%", top:"40%", opacity: 0.3 }}
+      />
       {/* Top gradient glow */}
       <div className="absolute top-0 left-0 right-0 h-[300px] md:h-[515px] bg-gradient-to-b from-white/20 via-white/0 to-black/0 pointer-events-none" />
       {/* Horizontal glowing line at top */}
