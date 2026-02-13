@@ -26,7 +26,7 @@ export function buttonStyles({
     // Variants
     variant === "primary" && ["bg-gradient-primary text-white shadow-glow", "hover:opacity-90"],
     variant === "light" && [
-      "bg-white text-black shadow-[0px_12px_40px_rgba(0,0,0,0.45)]",
+      "bg-white text-black shadow-[0px_0px_8px_0px_rgba(175,130,249,0.63)]",
       "hover:bg-white/90",
     ],
     variant === "secondary" && ["bg-gray-800 text-white border border-white/20", "hover:bg-gray-700"],

@@ -19,21 +19,19 @@ export function SectionHeader({
   return (
     <div
       className={cn(
-        // Gap between elements: 32px
-        "flex flex-col gap-[32px]",
+        "flex flex-col justify-start gap-4 md:gap-6",
         alignment === "center" && "items-center text-center",
         alignment === "left" && "items-start text-left",
         className
       )}
     >
       {badge && <Badge>{badge}</Badge>}
-      {/* Section Title: 50px, bold, 78px line-height, -0.5px letter-spacing */}
-      <h2 className="text-[50px] leading-[78px] font-bold text-white tracking-[-0.5px]">
+      {/* Section Title */}
+      <h2 className="text-[28px] leading-[36px] md:text-5xl md:leading-[78px] font-bold font-['Urbanist'] text-white">
         {title}
       </h2>
       {subtitle && (
-        /* Body Large: 28px, medium, 36px line-height */
-        <p className="text-[28px] leading-[36px] font-medium text-gray-300 max-w-[800px]">
+        <p className="text-[16px] leading-[26px] md:text-xl md:leading-9 font-normal font-['Urbanist'] text-gray-300">
           {subtitle}
         </p>
       )}

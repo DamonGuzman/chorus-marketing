@@ -1,4 +1,4 @@
-import { Section } from "@/components/ui";
+import { Badge, Section } from "@/components/ui";
 import Image from "next/image";
 
 const capabilityCards = [
@@ -12,21 +12,19 @@ const capabilityDescription = "You don’t have to work in IT or even be tech sa
 
 export function CapabilitiesSection() {
   return (
-    <Section className="py-[60px] md:py-[100px] relative overflow-hidden" id="use-cases">
-      <div className="max-w-[1280px] mx-auto px-4 md:px-6 lg:px-[100px] relative z-10">
+    <Section className="py-[50px] md:py-20 relative overflow-hidden" id="use-cases">
+      <div className="mx-auto px-4 md:px-24 relative z-10">
         {/* Section Header */}
-        <div className="flex flex-col items-center gap-[24px] mb-[40px] md:mb-[60px]">
-          <div className="inline-flex items-center justify-center rounded-full bg-white/[0.07] px-[12px] py-[4px]">
-            <span className="text-center font-urbanist text-[16px] font-semibold leading-[24px] text-white">
-              Capabilities
-            </span>
+        <div className="flex flex-col justify-start items-center gap-6 mb-[40px] md:mb-14">
+          <Badge>Capabilities</Badge>
+          <div className="flex flex-col justify-start items-center gap-4">
+            <h2 className="text-center text-white text-[32px] md:text-5xl font-bold font-['Urbanist'] leading-[1.3] md:leading-[78px]">
+              What Your AI Workforce Can Do
+            </h2>
+            <p className="text-center text-gray-300 text-[16px] leading-[26px] md:text-xl md:leading-9 font-normal font-['Urbanist']">
+              The best way to reach humans instead of spam folders. Deliver transactional and marketing emails at scale.
+            </p>
           </div>
-          <h2 className="text-center font-urbanist text-[32px] md:text-[50px] font-bold leading-[1.3] md:leading-[78px] text-white">
-            What Your AI Workforce Can Do
-          </h2>
-          <p className="text-center font-urbanist text-[16px] leading-[26px] md:text-[22px] md:leading-[36px] font-normal text-[#7D7C83]">
-            The best way to reach humans instead of spam folders. Deliver transactional and marketing emails at scale.
-          </p>
         </div>
 
         <div className="flex flex-col lg:flex-row items-center justify-between gap-[44px]">
@@ -37,30 +35,31 @@ export function CapabilitiesSection() {
                 <div
                   key={name}
                   className={[
-                    "relative overflow-hidden rounded-[24px] border border-white/35",
-                    "bg-[linear-gradient(180deg,rgba(255,255,255,0.22)_0%,rgba(255,255,255,0.04)_45.19%,rgba(0,0,0,0)_100%)]",
-                    "backdrop-blur-[25px]",
+                    "relative overflow-hidden rounded-3xl",
+                    "outline outline-[0.85px] outline-offset-[-0.85px] outline-white/30",
+                    "bg-gradient-to-r from-white/5 via-white/10 to-white/5",
+                    "backdrop-blur-xl",
                     "flex items-center",
-                    "px-[20px] py-[22px] md:px-[26px] md:py-[26px] lg:py-[25.5px] lg:px-[30.6px]",
-                    "lg:h-[147px]",
-                    "shadow-[inset_0px_0px_6.62px_0px_rgba(255,255,255,0.12)]",
-                    // Alternating offset on both mobile and desktop
+                    "pl-6 pr-4 py-5 md:pl-8 md:pr-6 md:py-6",
+                    "md:h-36",
                     index % 2 === 0 ? "ml-[40px] md:ml-0 lg:ml-[70px]" : "mr-[40px] md:mr-0 lg:ml-0",
                   ].join(" ")}
-                  data-figma-node="4229:62744"
                 >
-                  <div className="flex items-start gap-[16px] md:gap-[30px]">
-                    <div className="relative grid place-items-center size-[48px] md:size-[64px] shrink-0 overflow-hidden">
-                      <Image src={iconSrc} alt="" width={60} height={60} className="size-[80px] md:size-[120px] object-contain" />
+                  <div className="flex items-start gap-4 md:gap-7">
+                    <div className="relative grid place-items-center size-[48px] md:size-14 shrink-0 overflow-hidden">
+                      <div className="w-12 h-12 opacity-60 bg-white/50 rounded-full blur-xl absolute" />
+                      <Image src={iconSrc} alt="" width={60} height={60} className="size-14 object-contain relative" />
                     </div>
 
-                    <div className="min-w-0">
-                      <h3 className="text-[20px] md:text-[26px] font-bold leading-normal text-white">
-                        {name}
-                      </h3>
-                      <p className="mt-[10px] md:mt-[14px] text-[13px] md:text-[15px] leading-[21px] md:leading-[23.826px] font-semibold text-[#757575]">
-                        {capabilityDescription}
-                      </p>
+                    <div className="w-80 flex justify-start items-center gap-12">
+                      <div className="w-80 inline-flex flex-col justify-start items-start gap-4">
+                        <h3 className="text-[20px] md:text-2xl font-bold font-['Urbanist'] text-white">
+                          {name}
+                        </h3>
+                        <p className="w-80 text-[13px] md:text-base font-semibold font-['Urbanist'] leading-6 text-neutral-500">
+                          {capabilityDescription}
+                        </p>
+                      </div>
                     </div>
                   </div>
                 </div>

@@ -9,23 +9,25 @@ export function Badge({ children, className }: BadgeProps) {
   return (
     <div
       className={cn(
-        // Layout - flexible width with padding, fixed height
-        "inline-flex items-center justify-center",
-        "px-[16px] h-[24px]",
-        // Glass effect - semi-transparent background with blur
-        "bg-white/10 backdrop-blur-md",
-        // Border - lighter gray border for glass effect
-        "border border-white/30",
-        // Border radius: 100px (pill)
-        "rounded-[100px]",
-        // Typography: 16px, SemiBold (600), 24px line-height, center aligned
-        "text-[16px] leading-[24px] font-semibold text-white text-center",
-        // OpenType features
-        "font-feature-stylistic",
+        "relative inline-flex items-center justify-center",
+        "h-9 rounded-[100px] overflow-hidden",
         className
       )}
     >
-      {children}
+      {/* Gradient border — bright top, fading to dark bottom */}
+      <span
+        aria-hidden="true"
+        className="absolute inset-0 rounded-[100px] bg-gradient-to-b from-white/30 to-white/[0.04]"
+      />
+      {/* Inner fill */}
+      <span
+        aria-hidden="true"
+        className="absolute inset-[1px] rounded-[100px] bg-[#131313]"
+      />
+      {/* Text */}
+      <span className="relative z-10 px-3 py-1 text-base leading-6 font-semibold text-white text-center font-feature-stylistic">
+        {children}
+      </span>
     </div>
   );
 }

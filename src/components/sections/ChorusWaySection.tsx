@@ -17,19 +17,20 @@ export function ChorusWaySection() {
   }, []);
 
   return (
-    <Section className="relative py-[50px] md:py-[75px]" id="chorus-way">
-      <Container>
+    <Section className="relative py-[50px] md:py-20 md:px-24" id="chorus-way">
+      <div className="px-4 md:px-0">
         {/* Mobile layout: centered, single column */}
         <div className="flex flex-col lg:hidden items-center text-center gap-[30px]">
           <Badge>The Solution</Badge>
 
-          <h2 className="text-[32px] leading-[42px] sm:text-[50px] sm:leading-[64px] tracking-[-0.5px] font-bold text-white">
+          <h2 className="text-[32px] leading-[42px] sm:text-[50px] sm:leading-[64px] font-bold text-white">
             <span className="block">The Chorus Way</span>
             <span className="block">Manifest Your Team Instantly</span>
           </h2>
 
           <p className="text-[16px] leading-[28px] font-medium text-gray-300">
-            The best way to reach humans instead of spam folders. Deliver transactional and marketing emails at scale.
+            VocAI CRM empowers a global network of over 250,000 businesses in 180 countries to convert more leads, engage
+            with customers, and grow their revenue.
           </p>
 
           {/* Mobile Lottie animation */}
@@ -45,33 +46,27 @@ export function ChorusWaySection() {
           </div>
 
           <p className="text-[16px] leading-[28px] font-medium text-gray-300">
-            VocAI CRM empowers a global network of over 250,000 businesses in 180 countries to convert more leads, engage
-            with customers, and grow their revenue.
-          </p>
-
-          <p className="text-[16px] leading-[28px] font-medium text-gray-300">
             VocAI CRM empowers a global network of over 250,000 businesses in 180 countries to convert more leads,
           </p>
         </div>
 
         {/* Desktop layout: side-by-side */}
-        <div className="hidden lg:flex lg:flex-row gap-[52px] items-center">
-          <div className="flex flex-col gap-[43px] items-start max-w-[464px]">
+        <div className="hidden lg:flex w-[1240px] mx-auto justify-start items-center gap-12">
+          <div className="inline-flex flex-col justify-start items-start gap-11">
             <Badge>The Solution</Badge>
 
-            <h2 className="text-[50px] leading-[64px] tracking-[-0.5px] font-bold text-white whitespace-pre-wrap">
-              <span className="block">The Chorus Way</span>
-              <span className="block">Manifest Your Team Instantly</span>
-            </h2>
+            <div className="w-96 text-white text-5xl font-bold font-['Urbanist'] leading-[64px]">
+              The Chorus Way{" "}<br />Manifest Your Team Instantly
+            </div>
 
-            <p className="text-[18px] leading-[36px] font-medium text-gray-300 whitespace-pre-wrap">
+            <div className="w-[464px] h-28 text-gray-300 text-lg font-medium font-['Urbanist'] leading-9">
               VocAI CRM empowers a global network of over 250,000 businesses in 180 countries to convert more leads, engage
-              with customers, and grow their revenue.
-            </p>
+              with customers, and grow their revenue.<br />
+            </div>
 
-            <p className="text-[18px] leading-[36px] font-medium text-gray-300 whitespace-pre-wrap">
+            <div className="w-[464px] text-gray-300 text-lg font-medium font-['Urbanist'] leading-9">
               VocAI CRM empowers a global network of over 250,000 businesses in 180 countries to convert more leads,
-            </p>
+            </div>
           </div>
 
           {/* Desktop Lottie animation */}
@@ -87,7 +82,7 @@ export function ChorusWaySection() {
             )}
           </div>
         </div>
-      </Container>
+      </div>
     </Section>
   );
 }
