@@ -265,25 +265,17 @@ export function FeaturesCardSection() {
         {/* ── Stacked Cards (same width as main, offset below) ── */}
         {/* Back card */}
         <div
-          className="w-full max-w-[1188px] rounded-[30px] md:rounded-[40px] border border-white/15"
-          style={{
-            background: "#0a0a0a",
-            height: 30,
-          }}
+          className="w-[19rem] md:w-[85%] h-[3rem] max-w-[1188px] rounded-3xl bg-black border border-white/15"
         />
 
         {/* Middle card */}
         <div
-          className="w-full max-w-[1188px] -mt-[14px] md:-mt-[16px] rounded-[30px] md:rounded-[40px] border border-white/20"
-          style={{
-            background: "#0d0d0d",
-            height: 30,
-          }}
+          className="w-[22rem] md:w-[90%] h-[3rem] max-w-[1188px] -mt-[2rem] rounded-3xl bg-black border border-white/20"
         />
 
         {/* ── Front card — Main Content ── */}
         <div
-          className="w-full max-w-[1188px] -mt-[18px] md:-mt-[30px] rounded-[30px] md:rounded-[40px] py-[36px] px-[24px] md:py-[60px] md:px-[56px] overflow-hidden"
+          className="w-full max-w-[1188px] -mt-[2rem] rounded-3xl py-[36px] px-[24px] md:py-[60px] md:px-[56px] overflow-hidden"
           style={{
             background: "linear-gradient(135deg, rgba(10,10,10,1) 0%, rgba(15,15,15,1) 50%, rgba(8,8,8,1) 100%)",
             outline: "1px solid #434343",
