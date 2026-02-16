@@ -8,7 +8,8 @@
 function CheckMark() {
   return (
     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" className="shrink-0">
-      <path d="M5 13L9 17L19 7" stroke="#7D7C83" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M3 13L7 17L13 9" stroke="#7D7C83" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M9 13L13 17L21 7" stroke="#7D7C83" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
     </svg>
   );
 }
@@ -245,14 +246,14 @@ function OrbitalAnimation() {
 export function FeaturesCardSection() {
   return (
     <section className="w-full bg-black px-4 md:px-[100px] py-[50px] md:py-[75px]">
-      <div className="max-w-[1240px] mx-auto flex flex-col items-center gap-[10px]">
+      <div className="max-w-[1240px] mx-auto flex flex-col items-center gap-[20px]">
 
         {/* ── Section Header ── */}
         <div className="flex flex-col items-center gap-[20px] md:gap-[30px] w-full self-stretch">
           <div className="h-[36px] px-3 py-1 bg-white/7 rounded-full overflow-hidden inline-flex items-center justify-center gap-2">
             <span className="text-white text-[16px] font-bold leading-[24px] text-center">Features</span>
           </div>
-          <div className="flex flex-col items-center gap-[20px] md:gap-[32px] w-full self-stretch">
+          <div className="flex flex-col items-center gap-[4px] md:gap-[8px] w-full self-stretch">
             <h2 className="text-white text-[32px] md:text-[50px] font-bold leading-[1.2] md:leading-[78px] text-center">
               The Difference That Changes Everything
             </h2>
@@ -265,19 +266,19 @@ export function FeaturesCardSection() {
         {/* ── Stacked Cards (same width as main, offset below) ── */}
         {/* Back card */}
         <div
-          className="w-[19rem] md:w-[85%] h-[3rem] max-w-[1188px] rounded-3xl bg-black border border-white/15"
+          className="w-[19rem] md:w-[85%] h-[4.5rem] max-w-[1188px] rounded-3xl bg-black border border-white/15"
         />
 
         {/* Middle card */}
         <div
-          className="w-[22rem] md:w-[90%] h-[3rem] max-w-[1188px] -mt-[2rem] rounded-3xl bg-black border border-white/20"
+          className="w-[22rem] md:w-[90%] h-[5rem] max-w-[1188px] -mt-[2rem] rounded-3xl bg-black border border-white/20"
         />
 
         {/* ── Front card — Main Content ── */}
         <div
-          className="w-full max-w-[1188px] -mt-[2rem] rounded-3xl py-[36px] px-[24px] md:py-[60px] md:px-[56px] overflow-hidden"
+          className="w-full max-w-[1240px] -mt-[2rem] rounded-3xl py-[36px] px-[24px] md:py-[60px] md:px-[56px] overflow-hidden"
           style={{
-            background: "linear-gradient(135deg, rgba(10,10,10,1) 0%, rgba(15,15,15,1) 50%, rgba(8,8,8,1) 100%)",
+            background: "#000000",
             outline: "1px solid #434343",
             outlineOffset: "-1px",
             backdropFilter: "blur(25.53px)",
@@ -328,18 +329,24 @@ export function FeaturesCardSection() {
                     <div className="w-full max-w-[433px] h-0 border-t border-white/19" />
 
                     {/* Checklist items */}
-                    <div className="flex flex-col gap-[14px] md:gap-[17px]">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-y-[14px] md:gap-y-[17px] gap-x-[32px]">
                       <div className="flex items-center gap-[12px] md:gap-[16px]">
                         <CheckMark />
-                        <span className="text-gray-300 text-[15px] md:text-[16px] font-medium">Your customers and pipeline</span>
+                        <span className="text-gray-300 text-[15px] md:text-[16px] font-medium md:whitespace-nowrap">
+                          Your customers and pipeline
+                        </span>
                       </div>
                       <div className="flex items-center gap-[12px] md:gap-[16px]">
                         <CheckMark />
-                        <span className="text-gray-300 text-[15px] md:text-[16px] font-medium">Your processes and SOPs</span>
+                        <span className="text-gray-300 text-[15px] md:text-[16px] font-medium md:whitespace-nowrap">
+                          Your processes and SOPs
+                        </span>
                       </div>
                       <div className="flex items-center gap-[12px] md:gap-[16px]">
                         <CheckMark />
-                        <span className="text-gray-300 text-[15px] md:text-[16px] font-medium">Your messaging and brand voice</span>
+                        <span className="text-gray-300 text-[15px] md:text-[16px] font-medium md:whitespace-nowrap">
+                          Your messaging and brand voice
+                        </span>
                       </div>
                     </div>
                   </div>

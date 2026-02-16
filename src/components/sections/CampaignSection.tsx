@@ -24,12 +24,12 @@ const NODE_TOP = 27.5;
 const NODE_BOTTOM = 57.5;
 
 /* ── Horizontal glow line (tapered) ── */
-function HGlow({ reverse = false }: { reverse?: boolean }) {
+function HGlow({ reverse = false, len = GLOW_LENGTH }: { reverse?: boolean; len?: number }) {
   return (
     <div
       className="h-[4px]"
       style={{
-        width: GLOW_LENGTH,
+        width: len,
         background: reverse
           ? "linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.85) 100%)"
           : "linear-gradient(90deg, rgba(255,255,255,0.85) 0%, rgba(255,255,255,0) 100%)",
@@ -231,10 +231,15 @@ function Illustration() {
 
       {/* ── Left-bottom node (Database) ── */}
       <div className="absolute flex items-center" style={{ left: "5%", top: "58%" }}>
-        <div className="-translate-x-[1px]">
+        <div className="relative -translate-x-[1px]">
           <Node><DbIcon /></Node>
+          <div
+            className="absolute"
+            style={{ right: "calc(100% + 8px)", top: "50%", transform: "translateY(-50%)" }}
+          >
+            <HGlow len={42} />
+          </div>
         </div>
-        <Line dir="h" len={42} />
       </div>
 
       {/* ── Right-top node (Megaphone) ── */}
@@ -247,9 +252,14 @@ function Illustration() {
 
       {/* ── Right-bottom node (Thumbs up) ── */}
       <div className="absolute flex items-center" style={{ right: "5%", top: "58%" }}>
-        <Line dir="h" len={42} />
-        <div className="translate-x-[1px]">
+        <div className="relative translate-x-[1px]">
           <Node><ThumbIcon /></Node>
+          <div
+            className="absolute"
+            style={{ left: "calc(100% + 8px)", top: "50%", transform: "translateY(-50%)" }}
+          >
+            <HGlow reverse len={42} />
+          </div>
         </div>
       </div>
     </div>

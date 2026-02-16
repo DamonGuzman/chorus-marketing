@@ -57,6 +57,63 @@ function AgentTag({ label, color, arrowRotation = 0 }: { label: string; color: s
   );
 }
 
+/* ── Sales Agent badge (custom layout) ── */
+function SalesAgentTag() {
+  return (
+    <div className="relative flex items-start gap-[10px]">
+      {/* Robot circle */}
+      <div
+        className="mt-[2px] w-[50px] h-[50px] rounded-full flex items-center justify-center shrink-0"
+        style={{ background: "#2081E2" }}
+      >
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img src="/images/figma/robot-icon.svg" alt="" className="w-[52px] h-[54px]" />
+      </div>
+      {/* Label pill + arrow */}
+      <div className="relative mt-[2px]">
+        <div className="h-[34px] px-[11px] flex items-center bg-gray-600 rounded-[8px] border border-white/10">
+          <span className="text-white text-[19px] font-semibold leading-[37px]">Sales Agent</span>
+        </div>
+        <img
+          src="/images/icons/cursor-1.svg"
+          alt=""
+          className="absolute w-[30px] h-[40px]"
+          style={{ right: "-24px", bottom: "-26px", transform: "rotate(360deg)" }}
+        />
+      </div>
+    </div>
+  );
+}
+
+/* ── Finance Agent badge (custom layout) ── */
+function FinanceAgentTag() {
+  return (
+    <div className="flex items-center gap-[8px]">
+      {/* Robot circle */}
+      <div
+        className="w-[50px] h-[50px] rounded-full flex items-center justify-center shrink-0"
+        style={{ background: "#5952FF" }}
+      >
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img src="/images/figma/robot-icon.svg" alt="" className="w-[52px] h-[54px]" />
+      </div>
+      <div className="relative -mt-[8px] flex items-center gap-[8px]">
+        {/* Label pill */}
+        <div className="h-[34px] px-[11px] flex items-center bg-gray-600 rounded-[8px] border border-white/10">
+          <span className="text-white text-[19px] font-semibold leading-[37px]">Finance Agent</span>
+        </div>
+        {/* Cursor arrow */}
+        <img
+          src="/images/icons/cursor-1.svg"
+          alt=""
+          className="shrink-0 relative top-[1px] w-[30px] h-[40px]"
+          style={{ transform: "rotate(330deg)" }}
+        />
+      </div>
+    </div>
+  );
+}
+
 /* ── Three-dot menu ── */
 function DotsMenu() {
   return (
@@ -130,14 +187,14 @@ function ComposedIllustration() {
         </div>
       </div>
 
-      {/* Sales Agent badge — top center, arrow points down */}
-      <div className="absolute" style={{ left: 170, top: 0 }}>
-        <AgentTag label="Sales Agent" color="#2081E2" arrowRotation={200} />
+      {/* Sales Agent badge — top center */}
+      <div className="absolute" style={{ left: 170, top: 12 }}>
+        <SalesAgentTag />
       </div>
 
       {/* Finance Agent badge — left, arrow points right */}
-      <div className="absolute" style={{ left: 0, top: 140 }}>
-        <AgentTag label="Finance Agent" color="#5952FF" arrowRotation={120} />
+      <div className="absolute" style={{ left: -20, top: 128 }}>
+        <FinanceAgentTag />
       </div>
 
       {/* Steve Jan profile card — right, overlapping workspace */}
@@ -146,24 +203,29 @@ function ComposedIllustration() {
       </div>
 
       {/* David Fincher profile card — lower, slightly left */}
-      <div className="absolute" style={{ left: 30, top: 330 }}>
+      <div className="absolute" style={{ left: 30, top: 310 }}>
         <ProfileCard name="David Fincher" role="Project Manager" avatar="/images/figma/Ellipse 53.svg" />
       </div>
 
       {/* UX Manager badge — bottom right, arrow on left */}
-      <div className="absolute flex items-center gap-[8px]" style={{ right: 10, bottom: 0 }}>
-        {/* Cursor arrow — flipped to point left */}
-        <svg width="16" height="20" viewBox="0 0 16 20" fill="none" className="shrink-0" style={{ transform: "scaleX(-1)" }}>
-          <path d="M1 1L15 10L8 12L5 19L1 1Z" fill="white" fillOpacity="0.6" />
-        </svg>
-        {/* Robot circle */}
-        <div className="w-[40px] h-[40px] rounded-full flex items-center justify-center shrink-0" style={{ background: "#388D46" }}>
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/images/figma/Group 1707484101.svg" alt="" className="w-[26px] h-[26px]" />
-        </div>
-        {/* Label pill */}
-        <div className="h-[34px] px-[11px] flex items-center bg-gray-600 rounded-[8px] border border-white/10">
-          <span className="text-white text-[19px] font-semibold leading-[37px]">UX Manager</span>
+      <div className="absolute flex items-center" style={{ right: 44, bottom: 26 }}>
+        <div className="relative flex items-center gap-[8px]">
+          {/* Cursor arrow — top-left of tag */}
+          <img
+            src="/images/icons/cursor-1.svg"
+            alt=""
+            className="absolute w-[32px] h-[34px]"
+            style={{ left: "-21px", top: "-15px", transform: "rotate(195deg)" }}
+          />
+          {/* Label pill */}
+          <div className="h-[34px] px-[11px] flex items-center bg-gray-600 rounded-[8px] border border-white/10">
+            <span className="text-white text-[19px] font-semibold leading-[37px]">UX Manager</span>
+          </div>
+          {/* Robot circle */}
+          <div className="w-[50px] h-[50px] rounded-full flex items-center justify-center shrink-0" style={{ background: "#388D46" }}>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src="/images/figma/robot-icon.svg" alt="" className="w-[46px] h-[48px]" />
+          </div>
         </div>
       </div>
     </div>
