@@ -42,7 +42,7 @@ export default function AboutUsPage() {
           {/* mobile */}
           <div className="block md:hidden self-stretch h-[509px] relative bg-black overflow-hidden">
             <img
-              className="w-72 h-56 right-0 top-[293.99px] absolute"
+              className="w-72 h-56 right-0 top-[259px] absolute"
               src="/images/figma/about-us/torch.svg"
             />
             <div
