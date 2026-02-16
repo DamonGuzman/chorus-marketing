@@ -66,9 +66,9 @@ function AvatarStack() {
    ═══════════════════════════════════════════════════════════ */
 function GoalsCard() {
   return (
-    <div className="relative w-full md:flex-1 md:min-w-0 h-[550px] md:h-[671px] rounded-[30px] md:rounded-[40px] overflow-hidden">
+    <div className="relative w-80 md:w-auto md:flex-1 md:min-w-[300px] h-[550px] md:h-[671px] rounded-3xl md:rounded-[40px] overflow-hidden">
       {/* Border */}
-      <div className="absolute inset-0 rounded-[30px] md:rounded-[40px] border border-white/35 pointer-events-none z-40" />
+      <div className="absolute inset-0 rounded-3xl md:rounded-[40px] border border-white/35 pointer-events-none z-40" />
 
       {/* Background Image */}
       <div
@@ -273,8 +273,8 @@ function CollaborateCard() {
   const arrowRadius = 160;
 
   return (
-    <div className="w-full md:w-[600px] h-[700px] md:h-[671px] relative">
-      <div className="w-full md:w-[600px] h-[700px] md:h-[671px] left-0 top-0 absolute bg-gradient-to-b from-black/80 to-black rounded-[40px] border border-white/30" />
+    <div className="w-80 md:w-[600px] h-[550px] md:h-[671px] relative overflow-hidden">
+      <div className="w-80 md:w-[600px] h-[550px] md:h-[671px] left-0 top-0 absolute bg-gradient-to-b from-black/80 to-black rounded-3xl md:rounded-[40px] border border-white/30" />
       <div className="w-[467.27px] h-[455.33px] left-[49.47px] top-[32.39px] absolute rounded-full shadow-[0px_6.177914619445801px_6.177914619445801px_0px_rgba(0,0,0,0.25)] border-[2.85px] border-white/5" />
       <img
         className="w-16 h-16 left-[102.39px] top-[310.89px] absolute rounded-full"
@@ -333,11 +333,11 @@ function CollaborateCard() {
         </div>
       </div>
       
-      <div className="w-full md:w-[506.63px] h-28 md:left-[30.87px] top-[513px] absolute inline-flex flex-col justify-start items-center gap-2">
-        <div className="justify-center text-white text-2xl font-bold font-['Urbanist'] leading-[65.07px]">
+      <div className="w-72 md:w-[506.63px] h-16 md:h-28 left-[24px] md:left-[30.87px] top-[460px] md:top-[513px] absolute inline-flex flex-col justify-start items-center gap-4 md:gap-2">
+        <div className="justify-center text-white text-base md:text-2xl font-bold font-['Urbanist'] leading-9 md:leading-[65.07px]">
           They collaborate with each other
         </div>
-        <div className="w-full md:w-[526px] text-center justify-start text-white/40 text-base font-bold font-['Urbanist'] leading-8">
+        <div className="w-80 md:w-[526px] text-center justify-start text-white/40 text-[9px] md:text-base font-bold font-['Urbanist'] leading-4 md:leading-8">
           The best way to reach humans instead of spam folders. Deliver
           transactional and marketing emails at scale.
         </div>
@@ -353,7 +353,7 @@ function CollaborateCard() {
 function DecisionsCard() {
   return (
     <div
-      className="relative w-full md:w-[393px] shrink-0 h-[480px] md:h-[535px] rounded-[30px] md:rounded-[40px] overflow-hidden border border-white/20"
+      className="relative w-80 md:w-[393px] shrink-0 h-[477px] md:h-[535px] rounded-[36px] md:rounded-[40px] overflow-hidden border border-white/30"
       style={{
         background:
           "linear-gradient(101deg, rgba(255,255,255,0.06) 0%, rgba(255,255,255,0.10) 55%, rgba(255,255,255,0.05) 100%)",
@@ -461,7 +461,7 @@ function DecisionsCard() {
    ═══════════════════════════════════════════════════════════ */
 function FeedbackCard() {
   return (
-    <div className="relative w-full md:flex-1 md:min-w-0 h-[480px] md:h-[537px] rounded-[30px] md:rounded-[37px] overflow-hidden">
+    <div className="relative w-80 md:w-auto md:flex-1 md:min-w-[300px] h-56 md:h-[537px] rounded-2xl md:rounded-[37px] overflow-hidden">
       {/* Subtle dark blue/purple bg */}
       <div
         className="absolute inset-0"
@@ -471,46 +471,49 @@ function FeedbackCard() {
         }}
       />
 
+      {/* Overlay for mobile readability */}
+      <div className="md:hidden absolute inset-0 bg-gradient-to-b from-black/0 to-black/70 rounded-2xl border-[0.4px] border-white/30 z-[1]" />
+
       {/* Title top-left */}
-      <div className="absolute top-[24px] left-[20px] md:top-[35px] md:left-[30px] z-30 max-w-[280px] md:max-w-[394px]">
-        <h3 className="text-white text-[20px] md:text-[26px] font-bold leading-[30px] md:leading-[40px]">
+      <div className="absolute top-[21px] left-[18px] md:top-[35px] md:left-[30px] z-30 max-w-[176px] md:max-w-[394px]">
+        <h3 className="text-white text-xs md:text-[26px] font-bold leading-7 md:leading-[40px]">
           They learn from your feedback
         </h3>
       </div>
 
       {/* ── macOS Chat Window ── */}
-      <div className="absolute top-[90px] md:top-[90px] left-[16px] right-[16px] bottom-0 z-[15] md:left-[50px] md:right-[50px]">
+      <div className="absolute top-[43px] md:top-[90px] left-[24px] right-[24px] bottom-0 z-[15] md:left-[50px] md:right-[50px]">
         <div
-          className="w-full h-full bg-[#131313] rounded-t-[14px] md:rounded-t-[18px] border-[1.5px] border-white/10 overflow-hidden"
+          className="w-full h-full bg-[#131313] rounded-t-lg md:rounded-t-[18px] border-[0.45px] md:border-[1.5px] border-white/20 md:border-white/10 overflow-hidden"
           style={{ backdropFilter: "blur(31px)" }}
         >
           {/* Traffic light dots */}
-          <div className="flex items-center gap-[8px] px-[16px] md:px-[22px] pt-[12px] md:pt-[14px] pb-[12px] md:pb-[16px]">
-            <div className="w-[10px] h-[9px] rounded-sm bg-[#F24E1E]" />
-            <div className="w-[10px] h-[9px] rounded-sm bg-[#FFD02F]" />
-            <div className="w-[10px] h-[9px] rounded-sm bg-[#A6C03D]" />
+          <div className="flex items-center gap-[8px] px-[10px] md:px-[22px] pt-[8px] md:pt-[14px] pb-[8px] md:pb-[16px]">
+            <div className="w-1 md:w-[10px] h-1 md:h-[9px] rounded-sm bg-[#F24E1E]" />
+            <div className="w-1 md:w-[10px] h-1 md:h-[9px] rounded-sm bg-[#FFD02F]" />
+            <div className="w-1 md:w-[10px] h-1 md:h-[9px] rounded-sm bg-[#A6C03D]" />
           </div>
 
-          <div className="flex flex-col gap-[10px] md:gap-[14px] px-[16px] md:px-[22px] overflow-hidden">
+          <div className="flex flex-col gap-1 md:gap-[14px] px-[10px] md:px-[22px] overflow-hidden">
             {/* John Doe */}
-            <div className="flex flex-col gap-[8px]">
-              <div className="flex items-center gap-[8px]">
+            <div className="flex flex-col gap-1 md:gap-[8px]">
+              <div className="flex items-center gap-1 md:gap-[8px]">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src="/images/figma/image 19.svg"
                   alt=""
-                  className="w-[26px] h-[26px] rounded-full shrink-0"
+                  className="w-3 md:w-[26px] h-3 md:h-[26px] rounded-full shrink-0"
                 />
-                <div className="w-[8px] h-[8px] rounded-full bg-green border border-white" />
-                <span className="text-white text-[13px] font-bold leading-[22px]">
+                <div className="w-1 md:w-[8px] h-1 md:h-[8px] rounded-full bg-green border border-white" />
+                <span className="text-white text-[6px] md:text-[13px] font-bold leading-3 md:leading-[22px]">
                   John Doe
                 </span>
-                <span className="text-gray-300 text-[13px] font-medium leading-[20px]">
+                <span className="text-gray-300 text-[6px] md:text-[13px] font-medium leading-[10px] md:leading-[20px] line-clamp-1">
                   1.46 AM
                 </span>
               </div>
-              <div className="p-[10px] bg-white/6 rounded-[14px]">
-                <p className="text-gray-100 text-[13px] font-medium leading-[20px]">
+              <div className="p-1.5 md:p-[10px] bg-white/6 rounded-lg md:rounded-[14px]">
+                <p className="text-gray-100 text-[6px] md:text-[13px] font-medium leading-[10px] md:leading-[20px] line-clamp-1">
                   Hello Danny! I want to manage company&apos;s finances and team
                   performance every month.
                 </p>
@@ -518,23 +521,23 @@ function FeedbackCard() {
             </div>
 
             {/* Danny */}
-            <div className="flex flex-col gap-[8px]">
-              <div className="flex items-center gap-[8px]">
+            <div className="flex flex-col gap-1 md:gap-[8px]">
+              <div className="flex items-center gap-1 md:gap-[8px]">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src="/images/figma/features/man-memoji.svg"
                   alt=""
-                  className="w-[26px] h-[26px] rounded-full shrink-0"
+                  className="w-3 md:w-[26px] h-3 md:h-[26px] rounded-full shrink-0"
                 />
-                <span className="text-white text-[13px] font-bold leading-[22px]">
+                <span className="text-white text-[6px] md:text-[13px] font-bold leading-3 md:leading-[22px]">
                   Danny
                 </span>
-                <span className="text-gray-300 text-[13px] font-medium leading-[20px]">
+                <span className="text-gray-300 text-[6px] md:text-[13px] font-medium leading-[10px] md:leading-[20px] line-clamp-1">
                   1.50 AM
                 </span>
               </div>
-              <div className="px-[10px] py-[14px] rounded-[14px] border-2 border-white/10">
-                <p className="text-white text-[13px] font-medium leading-[20px]">
+              <div className="px-1.5 md:px-[10px] py-2 md:py-[14px] rounded-lg md:rounded-[14px] border md:border-2 border-white/10">
+                <p className="text-white text-[6px] md:text-[13px] font-medium leading-[10px] md:leading-[20px] line-clamp-1">
                   Hey John. From your request, I can see that you&apos;re aiming
                   to accomplish two main goals
                 </p>
@@ -542,41 +545,44 @@ function FeedbackCard() {
             </div>
 
             {/* Frank AI Agent */}
-            <div className="flex flex-col gap-[8px]">
-              <div className="flex items-center gap-[8px]">
+            <div className="flex flex-col gap-1 md:gap-[8px]">
+              <div className="flex items-center gap-1 md:gap-[8px]">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src="/images/figma/features/boy-memoji.svg"
                   alt=""
-                  className="w-[26px] h-[26px] rounded-full shrink-0"
+                  className="w-3 md:w-[26px] h-3 md:h-[26px] rounded-full shrink-0"
                 />
-                <span className="text-white text-[13px] font-bold leading-[22px]">
+                <span className="text-white text-[6px] md:text-[13px] font-bold leading-3 md:leading-[22px]">
                   Frank
                 </span>
-                <AgentBadge />
-                <span className="text-gray-300 text-[13px] font-medium leading-[20px]">
+                <span className="hidden md:inline"><AgentBadge /></span>
+                <span className="md:hidden inline-flex items-center px-[4px] py-[1px] bg-gray-600 rounded-[3px] border border-white/10 text-[4px] leading-[8px] font-semibold text-gray-100">
+                  AI Agent
+                </span>
+                <span className="text-gray-300 text-[6px] md:text-[13px] font-medium leading-[10px] md:leading-[20px] line-clamp-1">
                   1.50 AM
                 </span>
               </div>
-              <div className="p-[10px] bg-white/6 rounded-[14px]">
-                <p className="text-gray-100 text-[13px] font-medium leading-[24px]">
+              <div className="p-1.5 md:p-[10px] bg-white/6 rounded-lg md:rounded-[14px]">
+                <p className="text-gray-100 text-[6px] md:text-[13px] font-medium leading-3 md:leading-[24px]">
                   From your request, you&apos;re aiming to accomplish two main
                   goals. I&apos;ll connect with your CRM and task management
                   tool to fetch automatically. Shall I connect?
                 </p>
-                <div className="flex items-center gap-[3px] mt-2">
-                  <div className="h-[20px] pl-[4px] pr-[8px] bg-white/4 rounded-full border border-white/10 flex items-center gap-[5px]">
-                    <img src={"images/figma/features/s.svg"} />
-                    <span className="text-gray-100 text-[11px] font-semibold leading-[16px]">
+                <div className="flex items-center gap-[3px] mt-1 md:mt-2">
+                  <div className="h-2.5 md:h-[20px] pl-[2px] md:pl-[4px] pr-1 md:pr-[8px] bg-white/4 rounded-full border border-white/10 flex items-center gap-[3px] md:gap-[5px]">
+                    <img src={"images/figma/features/s.svg"} className="w-2 h-2 md:w-auto md:h-auto" />
+                    <span className="text-gray-100 text-[5px] md:text-[11px] font-semibold leading-[8px] md:leading-[16px]">
                       Stripe
                     </span>
                   </div>
-                  <span className="text-white text-[13px] font-medium mx-[2px]">
+                  <span className="text-white text-[6px] md:text-[13px] font-medium mx-[1px] md:mx-[2px]">
                     +
                   </span>
-                  <div className="h-[20px] pl-[4px] pr-[8px] bg-white/4 rounded-full border border-white/10 flex items-center gap-[5px]">
-                    <img src={"images/figma/features/nodes.svg"} />
-                    <span className="text-gray-100 text-[11px] font-semibold leading-[16px]">
+                  <div className="h-2.5 md:h-[20px] pl-[2px] md:pl-[4px] pr-1 md:pr-[8px] bg-white/4 rounded-full border border-white/10 flex items-center gap-[3px] md:gap-[5px]">
+                    <img src={"images/figma/features/nodes.svg"} className="w-2 h-2 md:w-auto md:h-auto" />
+                    <span className="text-gray-100 text-[5px] md:text-[11px] font-semibold leading-[8px] md:leading-[16px]">
                       HubSpot
                     </span>
                   </div>
@@ -585,18 +591,21 @@ function FeedbackCard() {
             </div>
 
             {/* Partial trailing Frank */}
-            <div className="flex items-center gap-[8px]">
+            <div className="flex items-center gap-1 md:gap-[8px]">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src="/images/figma/features/boy-memoji.svg"
                 alt=""
-                className="w-[26px] h-[26px] rounded-full shrink-0"
+                className="w-3 md:w-[26px] h-3 md:h-[26px] rounded-full shrink-0"
               />
-              <span className="text-white text-[13px] font-bold leading-[22px]">
+              <span className="text-white text-[6px] md:text-[13px] font-bold leading-3 md:leading-[22px]">
                 Frank
               </span>
-              <AgentBadge />
-              <span className="text-gray-300 text-[13px] font-medium leading-[20px]">
+              <span className="hidden md:inline"><AgentBadge /></span>
+              <span className="md:hidden inline-flex items-center px-[4px] py-[1px] bg-gray-600 rounded-[3px] border border-white/10 text-[4px] leading-[8px] font-semibold text-gray-100">
+                AI Agent
+              </span>
+              <span className="text-gray-300 text-[6px] md:text-[13px] font-medium leading-[10px] md:leading-[20px] line-clamp-1">
                 1.50 AM
               </span>
             </div>
@@ -612,34 +621,34 @@ function FeedbackCard() {
    ═══════════════════════════════════════════════════════════ */
 export function ChorusAgentsSection() {
   return (
-    <section className="w-full bg-black px-4 md:px-[100px] py-[50px] md:py-[75px]">
-      <div className="max-w-[1240px] mx-auto flex flex-col items-center gap-8">
+    <section className="w-full bg-black px-4 md:px-[100px] py-10 md:py-[75px]">
+      <div className="max-w-[1240px] mx-auto flex flex-col items-center gap-4 md:gap-8">
         {/* Section Header */}
-        <div className="flex flex-col items-center gap-[20px] md:gap-[24px] w-full">
-          <div className="h-[36px] px-3 py-1 bg-white/7 rounded-full overflow-hidden inline-flex items-center justify-center">
-            <span className="text-white text-[16px] font-bold leading-[24px] text-center">
+        <div className="flex flex-col items-center gap-4 md:gap-[24px] w-full">
+          <div className="h-8 md:h-[36px] px-3 py-1 bg-white/5 md:bg-white/7 rounded-full overflow-hidden inline-flex items-center justify-center">
+            <span className="text-white text-sm md:text-[16px] font-semibold md:font-bold leading-6 md:leading-[24px] text-center">
               Chorus Agents
             </span>
           </div>
-          <div className="flex flex-col items-center gap-2 w-full">
-            <h2 className="text-white text-[32px] md:text-[50px] font-bold leading-[1.2] md:leading-[78px] text-center">
+          <div className="flex flex-col items-center gap-4 md:gap-2 w-full">
+            <h2 className="text-white text-2xl md:text-[50px] font-bold leading-8 md:leading-[78px] text-center max-w-[384px] md:max-w-none">
               Autonomous Agents, Not Chatbots.
             </h2>
-            <p className="text-gray-300 text-[16px] md:text-[26px] font-medium leading-[26px] md:leading-[36px] text-center">
+            <p className="text-gray-300 text-sm md:text-[26px] font-normal md:font-medium leading-6 md:leading-[36px] text-center max-w-80 md:max-w-none">
               The Difference That Changes Everything
             </p>
           </div>
         </div>
 
         {/* Cards */}
-        <div className="flex flex-col gap-[20px] md:gap-[40px] w-full">
+        <div className="flex flex-col gap-4 md:gap-[40px] w-full items-center md:items-stretch">
           {/* Top Row */}
-          <div className="flex flex-col md:flex-row items-start gap-[20px] md:gap-[40px] w-full">
+          <div className="flex flex-col md:flex-row items-center md:items-start gap-4 md:gap-[40px] w-full">
             <GoalsCard />
             <CollaborateCard />
           </div>
           {/* Bottom Row */}
-          <div className="flex flex-col md:flex-row items-center gap-[20px] md:gap-[44px] w-full">
+          <div className="flex flex-col md:flex-row items-center gap-4 md:gap-[44px] w-full">
             <DecisionsCard />
             <FeedbackCard />
           </div>
