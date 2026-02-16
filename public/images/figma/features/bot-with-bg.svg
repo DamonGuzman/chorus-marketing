@@ -1,0 +1,18 @@
+<svg width="162" height="155" viewBox="0 0 162 155" fill="none" xmlns="http://www.w3.org/2000/svg">
+<foreignObject x="-141.849" y="-141.868" width="445.086" height="438.649"><div xmlns="http://www.w3.org/1999/xhtml" style="backdrop-filter:blur(72.66px);clip-path:url(#bgblur_0_4271_70388_clip_path);height:100%;width:100%"></div></foreignObject><ellipse data-figma-bg-blur-radius="145.317" cx="77.224" cy="74.0067" rx="77.224" ry="74.0067" transform="matrix(0.998952 -0.0457724 0.0479806 0.998848 0 7.06946)" fill="url(#paint0_linear_4271_70388)"/>
+<rect x="41.9248" y="69.8873" width="78.8454" height="20.1234" rx="10.0628" fill="white"/>
+<rect x="79.6904" y="41.3102" width="3.29667" height="10.7325" fill="#D8D8D8"/>
+<rect x="72.165" y="51.2355" width="18.4064" height="12.7448" rx="6.3731" fill="white"/>
+<rect x="46.8926" y="54.587" width="68.8181" height="50.8452" rx="25.4253" fill="white"/>
+<rect x="53.6104" y="66.1266" width="55.494" height="27.6362" rx="13.8196" fill="#626262"/>
+<ellipse cx="67.3499" cy="79.9455" rx="5.49446" ry="5.36625" fill="white"/>
+<ellipse cx="95.3773" cy="79.9455" rx="5.49446" ry="5.36625" fill="white"/>
+<ellipse cx="81.3428" cy="36.6148" rx="5.63182" ry="5.50041" fill="white"/>
+<defs>
+<clipPath id="bgblur_0_4271_70388_clip_path" transform="translate(141.849 141.868)"><ellipse cx="77.224" cy="74.0067" rx="77.224" ry="74.0067" transform="matrix(0.998952 -0.0457724 0.0479806 0.998848 0 7.06946)"/>
+</clipPath><linearGradient id="paint0_linear_4271_70388" x1="39.6556" y1="6.16722" x2="131.808" y2="77.0109" gradientUnits="userSpaceOnUse">
+<stop stop-color="#CECECE" stop-opacity="0.03"/>
+<stop offset="1" stop-color="#5C5C5C" stop-opacity="0.41"/>
+</linearGradient>
+</defs>
+</svg>

@@ -1,6 +1,6 @@
 export function FeaturesHeroSection() {
   return (
-    <section className="relative w-full h-[850px] md:h-[790px] bg-black overflow-hidden">
+    <section className="relative w-full bg-black overflow-hidden">
       {/* ── Decorative Concentric Rings (desktop only) ── */}
       <div
         className="hidden md:block absolute left-1/2 top-[100px] -translate-x-1/2 w-[935px] h-[911px] -rotate-3 rounded-full border-[2.85px] border-white/5 pointer-events-none"
@@ -30,62 +30,6 @@ export function FeaturesHeroSection() {
         }}
       />
 
-      {/* ── Tilted Card Backgrounds (desktop only) ── */}
-      <div
-        className="hidden md:block absolute left-1/2 -translate-x-1/2 top-[644px] w-[793px] h-[589px] -rotate-[23deg] rounded-[26px] pointer-events-none"
-        style={{ background: "rgba(255, 255, 255, 0.04)" }}
-      />
-      <div
-        className="hidden md:block absolute left-1/2 -translate-x-1/2 top-[513px] w-[793px] h-[589px] -rotate-[23deg] rounded-[26px] pointer-events-none"
-        style={{ background: "rgba(255, 255, 255, 0.06)" }}
-      />
-
-      {/* ── Mobile: Shadow card copies (same image, darkened, offset) ── */}
-      {/* Outermost shadow — most offset, most faded */}
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img
-        src="/images/figma/test.svg"
-        alt=""
-        aria-hidden="true"
-        className="md:hidden absolute left-[55%] top-[360px] w-[750px] sm:w-[800px] h-auto pointer-events-none z-[1]"
-        style={{
-          translate: "-50% 0",
-          rotate: "-4deg",
-          opacity: 0.35,
-        }}
-      />
-      {/* Inner shadow — less offset, slightly brighter */}
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img
-        src="/images/figma/test.svg"
-        alt=""
-        aria-hidden="true"
-        className="md:hidden absolute left-[55%] top-[350px] w-[750px] sm:w-[800px] h-auto pointer-events-none z-[2]"
-        style={{
-          translate: "-50% 0",
-          rotate: "-4deg",
-          opacity: 0.55,
-        }}
-      />
-
-      {/* ── Dashboard Image (main card) ── */}
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img
-        src="/images/figma/test.svg"
-        alt="Chorus AI Workforce Dashboard"
-        className="absolute left-[55%] md:left-[50%] top-[340px] md:top-[240px] w-[750px] sm:w-[800px] md:w-full md:max-w-[1028px] h-auto z-[3] -rotate-[4deg] md:rotate-0"
-        style={{ translate: "-50% 0" }}
-      />
-
-      {/* ── Bottom Fade Gradient ── */}
-      <div
-        className="absolute bottom-0 left-0 right-0 h-[220px] md:h-[260px] pointer-events-none z-[5]"
-        style={{
-          background:
-            "linear-gradient(0deg, #000000 0%, rgba(0, 0, 0, 0.8) 40%, rgba(0, 0, 0, 0) 100%)",
-        }}
-      />
-
       {/* ── Hero Text ── */}
       <div className="relative z-10 flex flex-col items-center pt-[80px] md:pt-[100px] px-6">
         <div className="flex flex-col items-center gap-[20px] md:gap-[27px] max-w-[960px]">
@@ -103,6 +47,43 @@ export function FeaturesHeroSection() {
             The capabilities that let you direct instead of micromanage
           </p>
         </div>
+      </div>
+
+      {/* ── Mobile: Dashboard Image ── */}
+      <div className="md:hidden relative mt-[30px] overflow-hidden h-[320px]">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src="/images/figma/Group 1707484061.svg"
+          alt="Chorus AI Workforce Dashboard"
+          className="absolute left-1/2 -translate-x-1/2 w-[499px] h-80 object-contain z-[3]"
+        />
+        {/* Mobile Bottom Fade */}
+        <div
+          className="absolute bottom-0 left-0 right-0 h-[160px] pointer-events-none z-[5]"
+          style={{
+            background:
+              "linear-gradient(0deg, #000000 0%, rgba(0, 0, 0, 0.8) 40%, rgba(0, 0, 0, 0) 100%)",
+          }}
+        />
+      </div>
+
+      {/* ── Desktop: Dashboard Image (absolute positioned) ── */}
+      <div className="hidden md:block relative h-[500px]">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src="/images/figma/features/features-ai-workforce.png"
+          alt="Chorus AI Workforce Dashboard"
+          className="absolute left-1/2 top-0 w-full max-w-[1028px] h-auto z-[3] rotate-[5deg]"
+          style={{ translate: "-50% 0" }}
+        />
+        {/* Desktop Bottom Fade */}
+        <div
+          className="absolute bottom-0 left-0 right-0 h-[6rem] pointer-events-none z-[5]"
+          style={{
+            background:
+              "linear-gradient(0deg, #000000 0%, rgba(0, 0, 0, 0.8) 40%, rgba(0, 0, 0, 0) 100%)",
+          }}
+        />
       </div>
     </section>
   );
