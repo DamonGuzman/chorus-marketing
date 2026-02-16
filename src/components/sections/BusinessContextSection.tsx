@@ -4,7 +4,7 @@ export function BusinessContextSection() {
   return (
     <section className="relative bg-black overflow-hidden">
       {/* Section Header: Your AI Team Knows Your Business */}
-      <div className="py-[75px] px-6 lg:px-[100px]">
+      <div className="py-[75px] px-6 lg:px-8">
         <div className="max-w-[1240px] mx-auto">
           <div className="flex flex-col items-center gap-[15px]">
             <Badge>CONTEXT</Badge>
@@ -69,7 +69,7 @@ function BusinessContextItem({
   children: React.ReactNode;
 }) {
   return (
-    <div className="py-[75px] px-6 lg:px-[100px]">
+    <div className="py-[75px] px-6 lg:px-8">
       <div className="max-w-[1240px] mx-auto">
         <div className="flex flex-col lg:flex-row gap-[60px] items-start">
           {/* Left Side - Step Numbers and Text */}

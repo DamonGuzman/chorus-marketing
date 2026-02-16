@@ -24,7 +24,7 @@ const features = [
 
 export function FeaturesSection() {
   return (
-    <Section className="py-[75px] px-[100px]">
+    <Section className="py-[75px] px-8">
       <div className="flex flex-col lg:flex-row items-start justify-center gap-[51px] max-w-[1240px] mx-auto">
         {features.map((feature, index) => (
           <div key={feature.title} className="flex items-start gap-[51px]">
