@@ -53,8 +53,9 @@ export function GoalDrivenSection() {
         </div>
 
         {/* Right – Animated illustration */}
-        <div className="w-full max-w-[700px] h-[478px]">
-          <div className="w-[556.86px] h-[529.58px] relative">
+        <div className="w-full h-full">
+          <img src={"images/figma/features/settings-image.png"}/>
+          {/* <div className="w-[556.86px] h-[529.58px] relative">
             <div className="w-28 h-28 left-[213.37px] top-0 absolute bg-gradient-to-b from-white/0 to-white/10 rounded-full border-1 border-white/10" />
             <div className="w-20 h-20 left-[226px] top-[12px] absolute bg-neutral-800 rounded-full border-[1.50px] border-white/10" />
             <div className="w-10 h-10 left-[246.80px] top-[33px] absolute overflow-hidden">
@@ -141,7 +142,7 @@ export function GoalDrivenSection() {
                 </div>
               </div>
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
     </section>

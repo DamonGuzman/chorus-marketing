@@ -49,15 +49,11 @@ function SmallAvatarStack() {
 function TaskCard() {
   return (
     <div
-      className="w-[222px] p-[27px] rounded-[35px] flex flex-col gap-[17px]"
-      style={{
-        background: "#111111",
-        boxShadow: "0px 0px 6.4px rgba(255,255,255,0.27) inset",
-      }}
+      className="w-[222px] p-[27px] rounded-[35px] flex flex-col gap-[17px] h-[24rem] bg-[#111111] shadow-[inset_0px_0px_6.4px_rgba(255,255,255,0.27)]"
     >
       {/* Header */}
       <div className="flex flex-col gap-[20px]">
-        <p className="text-gray-100 text-[16px] font-bold leading-[31px]">Track Monthly Revenue</p>
+        <p className="text-gray-100 text-sm font-bold">Track Monthly Revenue</p>
         <div className="flex flex-col gap-[13px]">
           <div className="flex items-center gap-[6px]">
             <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
@@ -125,7 +121,7 @@ function Illustration() {
       </div>
 
       {/* ── Task card — positioned to the right, vertically centered-ish ── */}
-      <div className="absolute" style={{ right: 0, top: 41 }}>
+      <div className="absolute -right-[7.3rem] top-[3.3rem]">
         <TaskCard />
       </div>
     </div>
