@@ -55,12 +55,12 @@ function LightCard({
         <img src={logo} alt={alt} width={logoWidth} height={logoHeight} />
 
         {/* Quote */}
-        <p className="w-80 text-lg font-bold font-['Urbanist'] leading-7 text-gray-800">
+        <p className="text-lg font-bold font-['Urbanist'] leading-7 text-gray-800">
           {QUOTE_TEXT}
         </p>
 
         {/* Author */}
-        <div className="w-80 inline-flex justify-start items-start gap-40">
+        <div className="w-full inline-flex justify-between items-start">
           <div className="inline-flex flex-col justify-start items-start gap-1.5">
             <span className="text-base font-bold font-['Urbanist'] leading-6 text-[#222222]">
               Theo Browne
@@ -109,12 +109,12 @@ function DarkCard({
         <img src={logo} alt={alt} width={logoWidth} height={logoHeight} />
 
         {/* Quote */}
-        <p className="w-80 text-lg font-bold font-['Urbanist'] leading-7 text-gray-100">
+        <p className="text-lg font-bold font-['Urbanist'] leading-7 text-gray-100">
           {QUOTE_TEXT}
         </p>
 
         {/* Author */}
-        <div className="w-80 inline-flex justify-start items-start gap-40">
+        <div className="w-full inline-flex justify-between items-start">
           <div className="inline-flex flex-col justify-start items-start gap-1.5">
             <span className="text-base font-bold font-['Urbanist'] leading-6 text-white">
               Theo Browne
@@ -149,10 +149,10 @@ function GlassCard() {
       }}
     >
       <div className="relative z-10 flex flex-col justify-start items-start gap-11">
-        <p className="w-80 text-lg font-bold font-['Urbanist'] leading-7 text-gray-100">
+        <p className="text-lg font-bold font-['Urbanist'] leading-7 text-gray-100">
           {QUOTE_TEXT}
         </p>
-        <div className="inline-flex justify-start items-start gap-40">
+        <div className="w-full inline-flex justify-between items-start">
           <div className="inline-flex flex-col justify-start items-start gap-1.5">
             <span className="text-base font-bold font-['Urbanist'] leading-6 text-white">
               Theo Browne
@@ -187,10 +187,10 @@ function GlassWhiteCard() {
       }}
     >
       <div className="relative z-10 flex flex-col justify-start items-start gap-11">
-        <p className="w-80 text-lg font-bold font-['Urbanist'] leading-7 text-white">
+        <p className="text-lg font-bold font-['Urbanist'] leading-7 text-white">
           {QUOTE_TEXT}
         </p>
-        <div className="inline-flex justify-start items-start gap-40">
+        <div className="w-full inline-flex justify-between items-start">
           <div className="inline-flex flex-col justify-start items-start gap-1.5">
             <span className="text-base font-bold font-['Urbanist'] leading-6 text-white">
               Theo Browne
@@ -221,18 +221,18 @@ function GlassWhiteCard() {
 export function FoundersSection() {
   return (
     <Section
-      className="bg-black px-4 py-[50px] md:px-[100px] md:py-20 md:flex md:flex-col md:items-center"
+      className="bg-black px-4 py-10 md:px-[100px] md:py-20 md:flex md:flex-col md:items-center"
       id="testimonials"
     >
-      <div className="self-stretch flex flex-col justify-start items-center gap-[40px] md:gap-14">
+      <div className="self-stretch flex flex-col justify-start items-center gap-6 md:gap-14">
         {/* Header */}
         <div className="self-stretch flex flex-col justify-start items-center gap-6">
           <Badge>Testimonials</Badge>
           <div className="flex flex-col justify-start items-center gap-4">
-            <h2 className="text-center text-white text-[32px] leading-[1.3] md:text-5xl md:leading-[78px] font-bold font-['Urbanist']">
+            <h2 className="w-80 md:w-auto text-center text-white text-2xl leading-8 md:text-5xl md:leading-[78px] font-bold font-['Urbanist']">
               Founders Are Already Building With Chorus
             </h2>
-            <p className="text-center text-gray-300 text-[16px] leading-[26px] md:text-xl md:leading-9 font-normal font-['Urbanist']">
+            <p className="w-full text-center text-gray-300 text-sm leading-6 md:text-xl md:leading-9 font-normal font-['Urbanist']">
               The best way to reach humans instead of spam folders. Deliver
               transactional and marketing emails at scale.
             </p>

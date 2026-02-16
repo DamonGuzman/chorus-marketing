@@ -17,24 +17,24 @@ export function ChorusWaySection() {
   }, []);
 
   return (
-    <Section className="relative py-[50px] md:py-20 md:px-[100px]" id="chorus-way">
+    <Section className="relative py-10 md:py-20 md:px-[100px]" id="chorus-way">
       <div className="px-4 md:px-0">
         {/* Mobile layout: centered, single column */}
-        <div className="flex flex-col lg:hidden items-center text-center gap-[30px]">
+        <div className="flex flex-col lg:hidden items-center text-center gap-5">
           <Badge>The Solution</Badge>
 
-          <h2 className="text-[32px] leading-[42px] sm:text-[50px] sm:leading-[64px] font-bold text-white">
-            <span className="block">The Chorus Way</span>
-            <span className="block">Manifest Your Team Instantly</span>
-          </h2>
+          <div className="flex flex-col justify-start items-center gap-4">
+            <h2 className="w-full text-center text-2xl leading-8 sm:text-[50px] sm:leading-[64px] font-bold text-white">
+              The Chorus Way<br />Manifest Your Team Instantly
+            </h2>
 
-          <p className="text-[16px] leading-[28px] font-medium text-gray-300">
-            VocAI CRM empowers a global network of over 250,000 businesses in 180 countries to convert more leads, engage
-            with customers, and grow their revenue.
-          </p>
+            <p className="w-80 text-center text-sm leading-6 font-normal text-gray-300">
+              The best way to reach humans instead of spam folders. Deliver transactional and marketing emails at scale.
+            </p>
+          </div>
 
           {/* Mobile Lottie animation */}
-          <div className="w-full max-w-[380px] h-[260px] pointer-events-none overflow-hidden mx-auto flex items-center justify-center">
+          <div className="w-full h-[260px] pointer-events-none overflow-hidden mx-auto flex items-center justify-center">
             {animationData && (
               <Lottie
                 animationData={animationData}
@@ -45,7 +45,7 @@ export function ChorusWaySection() {
             )}
           </div>
 
-          <p className="text-[16px] leading-[28px] font-medium text-gray-300">
+          <p className="w-80 text-center text-sm leading-6 font-medium text-gray-300">
             VocAI CRM empowers a global network of over 250,000 businesses in 180 countries to convert more leads,
           </p>
         </div>

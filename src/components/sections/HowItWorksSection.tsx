@@ -356,7 +356,7 @@ function StepItem({
             </div>
             <h3
               className={cn(
-                "font-['Urbanist'] text-[18px] font-bold leading-[28px] md:text-xl md:leading-8",
+                "font-['Urbanist'] text-base font-bold leading-8 md:text-xl md:leading-8",
                 active ? "text-white" : "text-gray-300"
               )}
             >
@@ -365,7 +365,7 @@ function StepItem({
           </div>
 
           {/* Description */}
-          <p className="self-stretch font-['Urbanist'] text-[14px] font-normal leading-[24px] text-gray-300 md:text-base md:leading-8">
+          <p className="self-stretch font-['Urbanist'] text-sm font-normal leading-6 text-gray-300 md:text-base md:leading-8">
             {description}
           </p>
         </div>
@@ -580,20 +580,20 @@ function ConnectedAppsCard() {
 export function HowItWorksSection() {
   return (
     <Section
-      className="relative overflow-hidden py-[50px] md:py-20 md:px-[100px] md:flex md:flex-col md:items-center"
+      className="relative overflow-hidden py-10 md:py-20 md:px-[100px] md:flex md:flex-col md:items-center"
       id="how-it-works"
     >
       <div className="self-stretch px-4 md:px-0">
-        <div className="flex flex-col justify-start items-center gap-[40px] md:gap-14">
+        <div className="flex flex-col justify-start items-center gap-6 md:gap-14">
           {/* ---- Header ---- */}
           <div className="flex flex-col justify-start items-center gap-6">
             <Badge>Our Process</Badge>
 
             <div className="flex flex-col justify-start items-center gap-4">
-              <h2 className="text-center text-white text-[32px] leading-[1.3] md:text-5xl md:leading-[78px] font-bold font-['Urbanist']">
+              <h2 className="text-center text-white text-2xl leading-8 md:text-5xl md:leading-[78px] font-bold font-['Urbanist']">
                 How It Works
               </h2>
-              <p className="text-center text-gray-300 text-[16px] leading-[26px] md:text-xl md:leading-9 font-normal font-['Urbanist']">
+              <p className="w-full text-center text-gray-300 text-sm leading-6 md:text-xl md:leading-9 font-normal font-['Urbanist']">
                 The best way to reach humans instead of spam folders. Deliver
                 transactional and marketing emails at scale.
               </p>

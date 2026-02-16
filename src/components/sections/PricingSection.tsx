@@ -112,32 +112,32 @@ export function PricingSection() {
   }, []);
 
   return (
-    <Section className="px-4 pt-[50px] pb-[80px] md:px-[100px] md:pt-20 md:pb-36 md:flex md:flex-col md:items-center" id="pricing">
-      <div className="self-stretch flex flex-col justify-start items-center gap-14">
+    <Section className="px-4 pt-10 pb-10 md:px-[100px] md:pt-20 md:pb-36 md:flex md:flex-col md:items-center" id="pricing">
+      <div className="self-stretch flex flex-col justify-start items-center gap-6 md:gap-14">
         <div className="self-stretch flex flex-col justify-start items-center gap-6">
           <Badge className="w-32">
             Pricing
           </Badge>
 
-          <div className="flex flex-col justify-start items-center gap-4">
-            <h2 className="text-center text-[28px] leading-[36px] md:text-5xl md:leading-[78px] font-bold font-['Urbanist'] text-white">
+          <div className="flex flex-col justify-start items-center gap-5 md:gap-4">
+            <h2 className="w-80 md:w-auto text-center text-2xl leading-8 md:text-5xl md:leading-[78px] font-bold font-['Urbanist'] text-white">
               Stop Paying Six Figures Per Employee
             </h2>
-            <p className="text-center text-[16px] leading-[26px] md:text-xl md:leading-9 font-normal font-['Urbanist'] text-gray-300">
-              The best way to reach humans instead of spam folders. Deliver transactional and marketing emails at scale.
+            <p className="w-80 md:w-auto text-center text-sm leading-6 md:text-xl md:leading-9 font-normal font-['Urbanist'] text-gray-300">
+              More than just integrations, 10,000+ tools that can adapt — turning automation into intuition.
             </p>
           </div>
         </div>
 
           <div className="flex flex-col items-center gap-[40px] w-full">
             <div className="flex flex-wrap items-center justify-center gap-[18px]">
-              <span className="text-white text-[16px] md:text-lg leading-6 font-medium font-['Urbanist']">Billed Monthly</span>
-              <div className="relative w-14 h-6 bg-gray-600 rounded-[34.42px]">
-                <div className="w-4 h-4 p-[2.75px] absolute right-[2px] top-[2.85px] bg-white rounded-[10.32px] shadow-[0px_0px_88.33px_0px_rgba(0,0,0,1)]" />
+              <span className="text-white text-sm md:text-lg leading-5 md:leading-6 font-medium font-['Urbanist']">Billed Monthly</span>
+              <div className="relative w-10 h-5 md:w-14 md:h-6 bg-gray-600 rounded-3xl">
+                <div className="w-3.5 h-3.5 md:w-4 md:h-4 p-0.5 absolute right-[2px] top-[2.17px] md:top-[2.85px] bg-white rounded-lg md:rounded-[10.32px] shadow-[0px_0px_67px_0px_rgba(0,0,0,1)] md:shadow-[0px_0px_88.33px_0px_rgba(0,0,0,1)]" />
               </div>
               <div className="inline-flex justify-center items-start">
-                <span className="text-white text-[16px] md:text-lg leading-6 font-medium font-['Urbanist']">Billed Annually</span>
-                <span className="text-gray-300 text-sm leading-6 font-medium font-['Urbanist']">(Save 35%)</span>
+                <span className="text-white text-sm md:text-lg leading-5 md:leading-6 font-medium font-['Urbanist']">Billed Annually</span>
+                <span className="text-gray-300 text-xs md:text-sm leading-5 md:leading-6 font-medium font-['Urbanist']">(Save 35%)</span>
               </div>
             </div>
 

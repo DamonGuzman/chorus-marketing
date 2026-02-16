@@ -27,66 +27,60 @@ function InlinePill({
 export function AIWorkforceSection() {
   return (
     <Section
-      className="relative bg-black px-4 py-[50px] md:px-[100px] md:py-20 md:flex md:flex-col md:items-center overflow-hidden"
+      className="self-stretch bg-black px-4 py-10 md:px-[100px] md:py-20 inline-flex md:flex flex-col justify-start items-center gap-6 md:gap-16 overflow-hidden"
       id="ai-workforce"
     >
-      <div className="self-stretch flex flex-col justify-start items-center gap-[50px] md:gap-16">
-        {/* Header */}
-        <div className="self-stretch flex flex-col justify-start items-center gap-[30px] md:gap-10">
-          <div className="self-stretch flex flex-col justify-start items-center gap-[20px] md:gap-6">
-            <Badge>What Chorus Actually Is</Badge>
+      {/* Header */}
+      <Badge>What Chorus Actually Is</Badge>
 
-            {/* Title */}
-            <div className="flex flex-col justify-start items-center gap-10">
-              <h2 className="text-center text-white text-[32px] font-bold font-['Urbanist'] leading-[1.3] md:text-5xl md:leading-[78px]">
-                Your AI Workforce. Always in Sync.
-              </h2>
-            </div>
-          </div>
+      <div className="flex flex-col justify-start items-center gap-4">
+        <h2 className="w-full md:w-auto text-center text-white text-2xl leading-8 font-bold font-['Urbanist'] md:text-5xl md:leading-[78px]">
+          Your AI Workforce. Always in Sync.
+        </h2>
 
-          {/* Description */}
-          <div className="w-full md:max-w-[1108px] text-center font-['Urbanist'] text-[16px] font-normal leading-[28px] text-gray-300 md:text-xl md:leading-9">
-            <span className="text-gray-300 md:text-xl font-normal font-['Urbanist'] md:leading-9">Forget chatbots that &quot;help&quot; you draft emails. Chorus gives you
-            autonomous agents that coordinate with each other and run your </span>
-            <span className="text-white md:text-xl font-medium font-['Urbanist'] md:leading-9">Sales, Marketing, Finance, Operations, Customer Success</span>
-            <span className="text-gray-300 md:text-xl font-normal font-['Urbanist'] md:leading-9"> - any department you need.</span>
-          </div>
+        {/* Description */}
+        <div className="w-full md:max-w-[1108px] text-center font-['Urbanist'] text-sm leading-6 font-normal text-gray-300 md:text-xl md:leading-9">
+          <span className="text-gray-300 md:text-xl font-normal font-['Urbanist'] md:leading-9">Forget chatbots that &quot;help&quot; you draft emails. Chorus gives you
+          autonomous agents that coordinate with each other and run your </span>
+          <span className="text-white text-sm md:text-xl font-medium font-['Urbanist'] leading-6 md:leading-9">Sales, Marketing, Finance, Operations, Customer Success</span>
+          <span className="text-gray-300 md:text-xl font-normal font-['Urbanist'] md:leading-9"> - any department you need.</span>
         </div>
+      </div>
 
-        {/* Cards area */}
-        <div className="flex w-full flex-col items-center">
-          {/* Mobile: stacked layout */}
-          <div className="flex w-full flex-col items-center gap-[22px] md:hidden">
-            <p className="text-center font-['Urbanist'] text-[18px] font-normal leading-[28px] text-gray-300 rotate-[-3deg] translate-x-[40px] translate-y-[10px] -mt-[20px]">
-              You don&apos;t coordinate.You{" "}
-              <InlinePill>orchestrate</InlinePill>
-            </p>
-            <img
-              src="/images/figma/Frame 1707484612-1.svg"
-              alt="AI Agent chat card"
-              className="w-full max-w-[393px]"
-            />
+      {/* Cards area */}
+      <div className="flex w-full flex-col items-center">
+        {/* Mobile: stacked layout */}
+        <div className="flex w-full flex-col items-center gap-0 md:hidden">
+          <p className="text-center font-['Urbanist'] text-sm font-normal leading-5 text-gray-300">
+            You don&apos;t coordinate.You{" "}
+            <span className="text-gray-100">orchestrate</span>
+          </p>
+          <img
+            src="/images/figma/Frame 1707484612-1.svg"
+            alt="AI Agent chat card"
+            className="w-80 h-[260px] rotate-[-4deg]"
+          />
 
-            <p className="text-center font-urbanist text-[18px] font-normal leading-[28px] rotate-[-3deg] text-[#7D7C83]">
-              They <InlinePill>execute.</InlinePill>{" "}
-              They <InlinePill>deliver.</InlinePill>
-            </p>
-            <img
-              src="/images/figma/Frame 1707484613.svg"
-              alt="Tasks card"
-              className="w-full max-w-[393px]"
-            />
+          <p className="text-center font-['Urbanist'] text-sm font-normal leading-6 text-gray-400">
+            They <span className="text-gray-100">execute.</span>{" "}
+            They <span className="text-gray-100">deliver.</span>
+          </p>
+          <img
+            src="/images/figma/Frame 1707484613.svg"
+            alt="Tasks card"
+            className="w-80 h-[260px] rotate-[3.5deg]"
+          />
 
-            <p className="text-center font-urbanist text-[18px] font-normal leading-[33px] text-[#7D7C83]">
-              Skip management.{" "}
-              <InlinePill>Set goals.</InlinePill>
-            </p>
-            <img
-              src="/images/figma/Frame 1707484612.svg"
-              alt="Radar card"
-              className="w-full max-w-[393px]"
-            />
-          </div>
+          <p className="text-center font-['Urbanist'] text-sm font-normal leading-6 text-gray-400">
+            Skip management.{" "}
+            <span className="text-gray-100">Set goals.</span>
+          </p>
+          <img
+            src="/images/figma/Frame 1707484612.svg"
+            alt="Radar card"
+            className="w-80 h-[260px] rotate-[3deg]"
+          />
+        </div>
 
           {/* Desktop: overlapping 3-card layout */}
           <div className="hidden md:block">
@@ -130,7 +124,6 @@ export function AIWorkforceSection() {
             </p>
           </div>
         </div>
-      </div>
     </Section>
   );
 }

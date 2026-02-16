@@ -93,28 +93,28 @@ const shuffleArray = (array: string[]) => {
 const randomIcons = shuffleArray(integrationIcons);
 
 const IntegrationIcon = ({ src }: { src: string }) => (
-  <div className="w-14 h-14 md:w-20 md:h-20 bg-neutral-800 rounded-full shadow-[0px_3.9766557216644287px_24.854097366333008px_0px_rgba(0,0,0,0.25)] shadow-[inset_0px_0px_5.159178733825684px_0px_rgba(255,255,255,0.55)] flex justify-center items-center">
-    <img src={`/images/figma/landing-page/${src}`} alt="Integration" className="w-8 h-8 md:w-12 md:h-12 object-contain" />
+  <div className="w-9 h-9 md:w-20 md:h-20 bg-neutral-800 rounded-full shadow-[0px_1.73px_10.79px_0px_rgba(0,0,0,0.25)] shadow-[inset_0px_0px_2.24px_0px_rgba(255,255,255,0.55)] md:shadow-[0px_3.98px_24.85px_0px_rgba(0,0,0,0.25)] md:shadow-[inset_0px_0px_5.16px_0px_rgba(255,255,255,0.55)] flex justify-center items-center">
+    <img src={`/images/figma/landing-page/${src}`} alt="Integration" className="w-5 h-5 md:w-12 md:h-12 object-contain" />
   </div>
 );
 
 export function IntegrationsSection() {
   return (
-    <section id="integrations" className="w-full px-4 py-[50px] md:px-[100px] md:py-20 bg-black flex flex-col items-center gap-2.5 overflow-hidden">
-      <div className="self-stretch flex flex-col justify-start items-center gap-14">
+    <section id="integrations" className="w-full px-4 py-10 md:px-[100px] md:py-20 bg-black flex flex-col items-center gap-2.5 overflow-hidden">
+      <div className="self-stretch flex flex-col justify-start items-center gap-6 md:gap-14">
         <div className="self-stretch flex flex-col justify-start items-center gap-6">
           <Badge>
             Integration
           </Badge>
-          <div className="self-stretch flex flex-col justify-start items-center gap-7">
-            <div className="text-center text-white text-[32px] leading-[42px] md:text-5xl md:leading-[78px] font-bold font-['Urbanist']">Works In Harmony With Your Current Stack</div>
-            <div className="w-full md:w-[668px] text-center text-gray-300 text-[16px] leading-[26px] md:text-xl md:leading-9 font-normal font-['Urbanist']">More than just integrations, 10,000+ tools that can adapt — turning automation into intuition.</div>
+          <div className="self-stretch flex flex-col justify-start items-center gap-4 md:gap-7">
+            <div className="w-80 md:w-auto text-center text-white text-2xl leading-8 md:text-5xl md:leading-[78px] font-bold font-['Urbanist']">Works In Harmony With Your Current Stack</div>
+            <div className="w-80 md:w-[668px] text-center text-gray-300 text-sm leading-6 md:text-xl md:leading-9 font-normal font-['Urbanist']">More than just integrations, 10,000+ tools that can adapt — turning automation into intuition.</div>
           </div>
         </div>
       </div>
 
 
-        <div className="w-full h-[400px] md:h-[602px] max-w-[1209px] relative overflow-hidden flex flex-col justify-center items-center gap-5">
+        <div className="w-full h-[340px] md:h-[602px] max-w-[1209px] relative overflow-hidden flex flex-col justify-center items-center gap-1.5 md:gap-5">
           {/* Layer 2: Gradient Overlay (fades icons) */}
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_50.00%_50.00%_at_50.00%_50.00%,_rgba(0,_0,_0,_0)_0%,_black_100%)] z-20 pointer-events-none" />
 
@@ -143,32 +143,32 @@ export function IntegrationsSection() {
           />
 
 
-          <div className="inline-flex flex-wrap justify-center items-center gap-5 relative z-10">
+          <div className="inline-flex flex-wrap justify-center items-center gap-2 md:gap-5 relative z-10">
             {randomIcons.slice(0, 9).map((icon, i) => (
               <IntegrationIcon key={i} src={icon} />
             ))}
           </div>
-          <div className="self-stretch inline-flex flex-wrap justify-center items-center gap-5 relative z-10">
+          <div className="self-stretch inline-flex flex-wrap justify-center items-center gap-2 md:gap-5 relative z-10">
             {randomIcons.slice(9, 19).map((icon, i) => (
               <IntegrationIcon key={i} src={icon} />
             ))}
           </div>
-          <div className="inline-flex flex-wrap justify-center items-center gap-5 relative z-10">
+          <div className="inline-flex flex-wrap justify-center items-center gap-2 md:gap-5 relative z-10">
             {randomIcons.slice(19, 28).map((icon, i) => (
               <IntegrationIcon key={i} src={icon} />
             ))}
           </div>
-          <div className="self-stretch inline-flex flex-wrap justify-center items-center gap-5 relative z-10">
+          <div className="self-stretch inline-flex flex-wrap justify-center items-center gap-2 md:gap-5 relative z-10">
             {randomIcons.slice(28, 38).map((icon, i) => (
               <IntegrationIcon key={i} src={icon} />
             ))}
           </div>
-          <div className="inline-flex flex-wrap justify-center items-center gap-5 relative z-10">
+          <div className="inline-flex flex-wrap justify-center items-center gap-2 md:gap-5 relative z-10">
             {randomIcons.slice(38, 47).map((icon, i) => (
               <IntegrationIcon key={i} src={icon} />
             ))}
           </div>
-          <div className="self-stretch inline-flex flex-wrap justify-center items-center gap-5 relative z-10">
+          <div className="self-stretch inline-flex flex-wrap justify-center items-center gap-2 md:gap-5 relative z-10">
             {randomIcons.slice(47, 57).map((icon, i) => (
               <IntegrationIcon key={i} src={icon} />
             ))}
