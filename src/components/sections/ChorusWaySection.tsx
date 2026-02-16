@@ -17,10 +17,10 @@ export function ChorusWaySection() {
   }, []);
 
   return (
-    <Section className="relative py-10 md:py-20 md:px-8" id="chorus-way">
+    <Section className="relative py-10 md:py-20 md:px-8 overflow-hidden" id="chorus-way">
       <div className="px-4 md:px-0">
         {/* Mobile layout: centered, single column */}
-        <div className="flex flex-col lg:hidden items-center text-center gap-5">
+        <div className="flex flex-col md:hidden items-center text-center gap-5">
           <Badge>The Solution</Badge>
 
           <div className="flex flex-col justify-start items-center gap-4">
@@ -51,33 +51,32 @@ export function ChorusWaySection() {
         </div>
 
         {/* Desktop layout: side-by-side */}
-        <div className="hidden lg:flex w-[1240px] mx-auto justify-start items-center gap-12">
-          <div className="inline-flex flex-col justify-start items-start gap-11">
+        <div className="hidden md:flex w-full max-w-[1240px] mx-auto justify-start items-center gap-6 lg:gap-12">
+          <div className="md:w-[42%] md:shrink-0 lg:w-auto lg:shrink inline-flex flex-col justify-start items-start gap-6 lg:gap-11">
             <Badge>The Solution</Badge>
 
-            <div className="w-96 text-white text-5xl font-bold font-['Urbanist'] leading-[64px]">
+            <div className="w-full lg:w-96 text-white md:text-3xl md:leading-[42px] lg:text-5xl font-bold font-['Urbanist'] lg:leading-[64px]">
               The Chorus Way{" "}<br />Manifest Your Team Instantly
             </div>
 
-            <div className="w-[464px] h-28 text-gray-300 text-lg font-medium font-['Urbanist'] leading-9">
+            <div className="w-full lg:max-w-[464px] md:text-sm md:leading-7 lg:text-lg text-gray-300 font-medium font-['Urbanist'] lg:leading-9">
               VocAI CRM empowers a global network of over 250,000 businesses in 180 countries to convert more leads, engage
               with customers, and grow their revenue.<br />
             </div>
 
-            <div className="w-[464px] text-gray-300 text-lg font-medium font-['Urbanist'] leading-9">
+            <div className="w-full lg:max-w-[464px] md:text-sm md:leading-7 lg:text-lg text-gray-300 font-medium font-['Urbanist'] lg:leading-9">
               VocAI CRM empowers a global network of over 250,000 businesses in 180 countries to convert more leads,
             </div>
           </div>
 
           {/* Desktop Lottie animation */}
-          <div className="w-[700px] h-[478px] shrink-0 pointer-events-none overflow-visible -mr-[100px] -mt-[40px]">
+          <div className="flex-1 min-w-0 pointer-events-none overflow-visible lg:-mr-[60px] lg:-mt-[40px]">
             {animationData && (
               <Lottie
                 animationData={animationData}
                 loop
                 autoplay
-                style={{ width: 1500, height: 967 }}
-                className="origin-top-left scale-[0.65] -translate-y-[30px]"
+                className="w-full h-auto md:scale-[0.85] md:origin-left lg:scale-100 lg:origin-center"
               />
             )}
           </div>

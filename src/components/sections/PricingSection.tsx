@@ -57,7 +57,7 @@ const plans: PricingPlan[] = [
     name: "Personal",
     subtitle: "Perfect plan for starters",
     price: "Free",
-    priceClass: "text-[36px] leading-[48px]",
+    priceClass: "text-[36px] leading-[48px] md:text-[24px] md:leading-[32px] lg:text-[36px] lg:leading-[48px]",
     description: "Right for new businesses",
     features: [
       "300 emails/day",
@@ -72,7 +72,7 @@ const plans: PricingPlan[] = [
     name: "Professional",
     subtitle: "Perfect plan for starters",
     price: "$89",
-    priceClass: "text-[48px] leading-[48px]",
+    priceClass: "text-[48px] leading-[48px] md:text-[28px] md:leading-[36px] lg:text-[48px] lg:leading-[48px]",
     period: "/ Month",
     description: "Right for new businesses",
     features: [
@@ -89,7 +89,7 @@ const plans: PricingPlan[] = [
     name: "Enterprise",
     subtitle: "Perfect plan for starters",
     price: "Customize Price",
-    priceClass: "text-[36px] leading-[48px]",
+    priceClass: "text-[36px] leading-[48px] md:text-[24px] md:leading-[32px] lg:text-[36px] lg:leading-[48px]",
     description: "Right for new businesses",
     features: [
       "300 emails/day",
@@ -113,14 +113,14 @@ export function PricingSection() {
 
   return (
     <Section className="px-4 pt-10 pb-10 md:px-8 md:pt-20 md:pb-36 md:flex md:flex-col md:items-center" id="pricing">
-      <div className="self-stretch flex flex-col justify-start items-center gap-6 md:gap-14">
+      <div className="w-full max-w-[1240px] mx-auto flex flex-col justify-start items-center gap-6 md:gap-14">
         <div className="self-stretch flex flex-col justify-start items-center gap-6">
           <Badge className="w-32">
             Pricing
           </Badge>
 
           <div className="flex flex-col justify-start items-center gap-5 md:gap-4">
-            <h2 className="w-80 md:w-auto text-center text-2xl leading-8 md:text-5xl md:leading-[78px] font-bold font-['Urbanist'] text-white">
+            <h2 className="w-80 md:w-auto text-center text-2xl leading-8 md:text-3xl md:leading-[42px] lg:text-5xl lg:leading-[78px] font-bold font-['Urbanist'] text-white">
               Stop Paying Six Figures Per Employee
             </h2>
             <p className="w-80 md:w-auto text-center text-sm leading-6 md:text-xl md:leading-9 font-normal font-['Urbanist'] text-gray-300">
@@ -142,7 +142,7 @@ export function PricingSection() {
             </div>
 
             {/* Desktop: grid layout */}
-            <div className="hidden lg:grid lg:grid-cols-3 lg:gap-10 w-full">
+            <div className="hidden md:grid md:grid-cols-3 md:gap-5 lg:gap-10 w-full">
               {plans.map((plan) => {
                 const theme = cardThemes[plan.theme];
 
@@ -150,7 +150,7 @@ export function PricingSection() {
                   <div
                     key={plan.name}
                     className={cn(
-                      "relative overflow-hidden rounded-[20px] px-[33px] pt-[56px] pb-[40px] min-h-[629px] flex flex-col",
+                      "relative overflow-hidden rounded-[20px] px-[16px] pt-[24px] pb-[20px] lg:px-[33px] lg:pt-[56px] lg:pb-[40px] min-h-[380px] lg:min-h-[629px] flex flex-col",
                       theme.card
                     )}
                   >
@@ -168,27 +168,27 @@ export function PricingSection() {
                       <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(255,255,255,0.06)_0%,rgba(255,255,255,0)_40%)]" />
                     </div>
 
-                    <div className="relative z-10 flex flex-col gap-[32px] h-full">
-                      <div className="flex flex-col gap-[24px]">
-                        <div className="flex flex-col gap-[12px]">
-                          <h3 className={cn("text-[20px] leading-[32px] font-semibold", theme.title)}>
+                    <div className="relative z-10 flex flex-col gap-[14px] lg:gap-[32px] h-full">
+                      <div className="flex flex-col gap-[14px] lg:gap-[24px]">
+                        <div className="flex flex-col gap-[6px] lg:gap-[12px]">
+                          <h3 className={cn("text-[16px] lg:text-[20px] leading-[24px] lg:leading-[32px] font-semibold", theme.title)}>
                             {plan.name}
                           </h3>
-                          <p className={cn("text-[14px] leading-[28px] font-medium", theme.subtitle)}>
+                          <p className={cn("text-[12px] lg:text-[14px] leading-[20px] lg:leading-[28px] font-medium", theme.subtitle)}>
                             {plan.subtitle}
                           </p>
                         </div>
 
-                        <div className="flex flex-col gap-[12px]">
+                        <div className="flex flex-col gap-[8px] lg:gap-[12px]">
                           <div className="flex items-end gap-[6px]">
                             <span className={cn("font-bold", plan.priceClass, theme.price)}>{plan.price}</span>
                             {plan.period ? (
-                              <span className={cn("text-[16px] leading-[28px] font-medium", theme.period)}>
+                              <span className={cn("text-[13px] lg:text-[16px] leading-[22px] lg:leading-[28px] font-medium", theme.period)}>
                                 {plan.period}
                               </span>
                             ) : null}
                           </div>
-                          <p className={cn("text-[16px] leading-[28px] font-medium", theme.description)}>
+                          <p className={cn("text-[13px] lg:text-[16px] leading-[22px] lg:leading-[28px] font-medium", theme.description)}>
                             {plan.description}
                           </p>
                         </div>
@@ -196,20 +196,20 @@ export function PricingSection() {
 
                       <div
                         className={cn(
-                          "h-[48px] w-full rounded-[50px] flex items-center justify-center text-[14px] leading-[24px] font-bold",
+                          "h-[38px] lg:h-[48px] w-full rounded-[50px] flex items-center justify-center text-[12px] lg:text-[14px] leading-[24px] font-bold",
                           theme.button
                         )}
                       >
                         Current Plan
                       </div>
 
-                      <div className="flex flex-col gap-[20px]">
+                      <div className="flex flex-col gap-[12px] lg:gap-[20px]">
                         {plan.features.map((feature, index) => (
-                          <div key={`${plan.name}-${index}`} className="flex items-center gap-[12px]">
-                            <span className="flex size-[24px] items-center justify-center">
-                              <CheckIcon className={cn("w-[16px] h-[11px]", theme.icon)} />
+                          <div key={`${plan.name}-${index}`} className="flex items-center gap-[8px] lg:gap-[12px]">
+                            <span className="flex size-[20px] lg:size-[24px] items-center justify-center">
+                              <CheckIcon className={cn("w-[13px] lg:w-[16px] h-[9px] lg:h-[11px]", theme.icon)} />
                             </span>
-                            <span className={cn("text-[16px] leading-[24px] font-medium", theme.feature)}>
+                            <span className={cn("text-[13px] lg:text-[16px] leading-[20px] lg:leading-[24px] font-medium", theme.feature)}>
                               {feature}
                             </span>
                           </div>
@@ -222,7 +222,7 @@ export function PricingSection() {
             </div>
 
             {/* Mobile: horizontal scroll, Professional card centered initially */}
-            <div ref={scrollRef} className="lg:hidden w-full -mx-4 px-4 overflow-x-auto snap-x snap-mandatory [scrollbar-width:none] [-webkit-overflow-scrolling:touch] [&::-webkit-scrollbar]:hidden">
+            <div ref={scrollRef} className="md:hidden w-full -mx-4 px-4 overflow-x-auto snap-x snap-mandatory [scrollbar-width:none] [-webkit-overflow-scrolling:touch] [&::-webkit-scrollbar]:hidden">
               <div className="flex gap-[16px] w-max">
                 {/* Original order — scroll auto-centers on Professional card */}
                 {[plans[0], plans[1], plans[2]].map((plan) => {

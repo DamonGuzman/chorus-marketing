@@ -27,7 +27,7 @@ export function GoalDrivenSection() {
         {/* Left – Step indicator */}
         <div className="hidden md:flex flex-col items-center gap-[26px] shrink-0">
           <span className="text-gray-300 text-[26px] font-medium leading-[36px] text-center">02</span>
-          <div className="w-[2px] h-[341px] bg-white/16 rounded-full overflow-hidden">
+          <div className="w-[2px] h-[on 341px] bg-white/16 rounded-full overflow-hidden">
             <div className="w-full h-[221px] bg-white rounded-full" />
           </div>
           <span className="text-gray-300 text-[26px] font-medium leading-[36px] text-center">03</span>

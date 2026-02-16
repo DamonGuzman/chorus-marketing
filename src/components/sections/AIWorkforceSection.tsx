@@ -15,7 +15,7 @@ function InlinePill({
         "rounded-[18px] border border-white/15 bg-transparent",
         "px-[11px] py-[4px]",
         "shadow-[0px_4px_4px_rgba(0,0,0,0.25)]",
-        "font-['Urbanist'] text-[18px] font-normal text-gray-100 md:text-2xl",
+        "font-['Urbanist'] text-[18px] font-normal text-gray-100 md:text-base lg:text-2xl",
         className
       )}
     >
@@ -34,15 +34,15 @@ export function AIWorkforceSection() {
       <Badge>What Chorus Actually Is</Badge>
 
       <div className="flex flex-col justify-start items-center gap-4">
-        <h2 className="w-full md:w-auto text-center text-white text-2xl leading-8 font-bold font-['Urbanist'] md:text-5xl md:leading-[78px]">
+        <h2 className="w-full md:w-auto text-center text-white text-2xl leading-8 font-bold font-['Urbanist'] md:text-3xl md:leading-[42px] lg:text-5xl lg:leading-[78px]">
           Your AI Workforce. Always in Sync.
         </h2>
 
         {/* Description */}
-        <div className="w-full md:max-w-[1108px] text-center font-['Urbanist'] text-sm leading-6 font-normal text-gray-300 md:text-xl md:leading-9">
+        <div className="w-full md:max-w-[1108px] text-center font-['Urbanist'] text-sm leading-6 font-normal text-gray-300 md:text-base md:leading-7 lg:text-xl lg:leading-9">
           <span className="text-gray-300 md:text-xl font-normal font-['Urbanist'] md:leading-9">Forget chatbots that &quot;help&quot; you draft emails. Chorus gives you
           autonomous agents that coordinate with each other and run your </span>
-          <span className="text-white text-sm md:text-xl font-medium font-['Urbanist'] leading-6 md:leading-9">Sales, Marketing, Finance, Operations, Customer Success</span>
+          <span className="text-white text-sm md:text-base lg:text-xl font-medium font-['Urbanist'] leading-6 md:leading-9">Sales, Marketing, Finance, Operations, Customer Success</span>
           <span className="text-gray-300 md:text-xl font-normal font-['Urbanist'] md:leading-9"> - any department you need.</span>
         </div>
       </div>
@@ -83,14 +83,14 @@ export function AIWorkforceSection() {
         </div>
 
           {/* Desktop: overlapping 3-card layout */}
-          <div className="hidden md:block">
+          <div className="hidden md:block md:max-w-[600px] lg:max-w-none mx-auto">
             {/* Labels row */}
             <div className="flex items-start justify-between mb-2">
-            <p className="font-['Urbanist'] text-[22px] font-normal leading-10 text-gray-300 text-right translate-x-[40px] rotate-[-3deg] translate-y-[10px] -mt-[20px]">
+            <p className="font-['Urbanist'] md:text-[16px] lg:text-[22px] font-normal leading-10 text-gray-300 text-right md:translate-x-[20px] lg:translate-x-[40px] rotate-[-3deg] translate-y-[10px] -mt-[20px]">
                 You don&apos;t coordinate.You{" "}
                 <InlinePill>orchestrate</InlinePill>
               </p>
-              <p className="font-['Urbanist'] text-[22px] font-normal leading-10 text-gray-300 text-right translate-x-[40px] rotate-[-3deg] translate-y-[10px] -mt-[20px]">
+              <p className="font-['Urbanist'] md:text-[16px] lg:text-[22px] font-normal leading-10 text-gray-300 text-right md:translate-x-[20px] lg:translate-x-[40px] rotate-[-3deg] translate-y-[10px] -mt-[20px]">
                 They{" "}
                 <InlinePill>execute.</InlinePill>{" "}
                 They{" "}
@@ -118,7 +118,7 @@ export function AIWorkforceSection() {
             </div>
 
             {/* Bottom label */}
-            <p className="mt-2 text-center font-['Urbanist'] text-[22px] font-normal text-gray-300 translate-x-[40px] rotate-[3deg]">
+            <p className="mt-2 text-center font-['Urbanist'] md:text-[16px] lg:text-[22px] font-normal text-gray-300 md:translate-x-[20px] lg:translate-x-[40px] rotate-[3deg]">
               Skip management.{" "}
               <InlinePill>Set goals.</InlinePill>
             </p>

@@ -23,7 +23,7 @@ export function FinalCTASection() {
         {/* Title + subtitle + pills */}
         <div className="self-stretch flex flex-col items-center gap-[20px] md:gap-6">
           <div className="self-stretch flex flex-col items-end gap-[24px] md:gap-10">
-            <h2 className="w-80 md:w-auto self-stretch text-center text-white text-2xl leading-8 md:text-5xl md:leading-[68px] font-bold font-['Urbanist']">
+            <h2 className="w-80 md:w-auto self-stretch text-center text-white text-2xl leading-8 md:text-3xl md:leading-[42px] lg:text-5xl lg:leading-[68px] font-bold font-['Urbanist']">
               The Best Companies Don&apos;t Have More People. They Have Better Coordination.
             </h2>
             <p className="self-stretch text-center text-gray-100 text-sm leading-5 md:text-xl md:leading-9 font-normal font-['Urbanist']">

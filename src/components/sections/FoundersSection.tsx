@@ -44,18 +44,18 @@ function LightCard({
 }) {
   return (
     <div
-      className="relative w-[300px] shrink-0 sm:w-[340px] lg:w-96 overflow-hidden rounded-[20px] outline outline-1 outline-offset-[-1px] outline-white/30 backdrop-blur-[30px]"
+      className="relative w-[300px] shrink-0 sm:w-[340px] md:w-full overflow-hidden rounded-[20px] outline outline-1 outline-offset-[-1px] outline-white/30 backdrop-blur-[30px]"
       style={{
         background: "linear-gradient(37deg, #F6F6F6 0%, #CCCBCB 100%)",
       }}
     >
       <GridBg dark />
-      <div className="relative z-10 flex flex-col gap-20 px-[24px] pb-[24px] pt-[30px] sm:px-[30px] sm:pb-[30px] sm:pt-[35px]">
+      <div className="relative z-10 flex flex-col gap-10 md:gap-8 lg:gap-20 px-[24px] pb-[24px] pt-[30px] sm:px-[30px] sm:pb-[30px] sm:pt-[35px] md:px-5 md:pb-5 md:pt-6 lg:px-[30px] lg:pb-[30px] lg:pt-[35px]">
         {/* Logo */}
-        <img src={logo} alt={alt} width={logoWidth} height={logoHeight} />
+        <img src={logo} alt={alt} width={logoWidth} height={logoHeight} className="h-8 md:h-6 lg:h-10 w-auto self-start" />
 
         {/* Quote */}
-        <p className="text-lg font-bold font-['Urbanist'] leading-7 text-gray-800">
+        <p className="text-lg md:text-sm md:leading-5 lg:text-lg font-bold font-['Urbanist'] leading-7 lg:leading-7 text-gray-800">
           {QUOTE_TEXT}
         </p>
 
@@ -98,18 +98,18 @@ function DarkCard({
 }) {
   return (
     <div
-      className="relative w-[300px] shrink-0 sm:w-[340px] lg:w-96 overflow-hidden rounded-[20px] outline outline-1 outline-offset-[-1px] outline-white/30 backdrop-blur-[30px]"
+      className="relative w-[300px] shrink-0 sm:w-[340px] md:w-full overflow-hidden rounded-[20px] outline outline-1 outline-offset-[-1px] outline-white/30 backdrop-blur-[30px]"
       style={{
         background: "linear-gradient(45deg, #101010 0%, #242324 100%)",
       }}
     >
       <GridBg />
-      <div className="relative z-10 flex flex-col gap-20 px-[24px] pb-[24px] pt-[30px] sm:px-[30px] sm:pb-[30px] sm:pt-[35px]">
+      <div className="relative z-10 flex flex-col gap-10 md:gap-8 lg:gap-20 px-[24px] pb-[24px] pt-[30px] sm:px-[30px] sm:pb-[30px] sm:pt-[35px] md:px-5 md:pb-5 md:pt-6 lg:px-[30px] lg:pb-[30px] lg:pt-[35px]">
         {/* Logo */}
-        <img src={logo} alt={alt} width={logoWidth} height={logoHeight} />
+        <img src={logo} alt={alt} width={logoWidth} height={logoHeight} className="h-8 md:h-6 lg:h-10 w-auto self-start" />
 
         {/* Quote */}
-        <p className="text-lg font-bold font-['Urbanist'] leading-7 text-gray-100">
+        <p className="text-lg md:text-sm md:leading-5 lg:text-lg font-bold font-['Urbanist'] leading-7 lg:leading-7 text-gray-100">
           {QUOTE_TEXT}
         </p>
 
@@ -142,14 +142,14 @@ function DarkCard({
 function GlassCard() {
   return (
     <div
-      className="relative w-[300px] shrink-0 sm:w-[340px] lg:w-96 rounded-[20px] outline outline-1 outline-offset-[-1px] outline-white/30 backdrop-blur-[30px] pl-9 pr-7 pt-10 pb-2.5"
+      className="relative w-[300px] shrink-0 sm:w-[340px] md:w-full rounded-[20px] outline outline-1 outline-offset-[-1px] outline-white/30 backdrop-blur-[30px] pl-9 pr-7 pt-10 pb-2.5 md:pl-5 md:pr-4 md:pt-6 md:pb-2 lg:pl-9 lg:pr-7 lg:pt-10 lg:pb-2.5"
       style={{
         background:
           "linear-gradient(180deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.10) 50%, rgba(255,255,255,0.05) 100%)",
       }}
     >
-      <div className="relative z-10 flex flex-col justify-start items-start gap-11">
-        <p className="text-lg font-bold font-['Urbanist'] leading-7 text-gray-100">
+      <div className="relative z-10 flex flex-col justify-start items-start gap-11 md:gap-6 lg:gap-11">
+        <p className="text-lg md:text-sm md:leading-5 lg:text-lg font-bold font-['Urbanist'] leading-7 lg:leading-7 text-gray-100">
           {QUOTE_TEXT}
         </p>
         <div className="w-full inline-flex justify-between items-start">
@@ -180,14 +180,14 @@ function GlassCard() {
 function GlassWhiteCard() {
   return (
     <div
-      className="relative w-[300px] shrink-0 sm:w-[340px] lg:w-96 rounded-[20px] outline outline-1 outline-offset-[-1px] outline-white/30 backdrop-blur-[30px] pl-9 pr-7 pt-10 pb-2.5"
+      className="relative w-[300px] shrink-0 sm:w-[340px] md:w-full rounded-[20px] outline outline-1 outline-offset-[-1px] outline-white/30 backdrop-blur-[30px] pl-9 pr-7 pt-10 pb-2.5 md:pl-5 md:pr-4 md:pt-6 md:pb-2 lg:pl-9 lg:pr-7 lg:pt-10 lg:pb-2.5"
       style={{
         background:
           "linear-gradient(180deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.10) 50%, rgba(255,255,255,0.05) 100%)",
       }}
     >
-      <div className="relative z-10 flex flex-col justify-start items-start gap-11">
-        <p className="text-lg font-bold font-['Urbanist'] leading-7 text-white">
+      <div className="relative z-10 flex flex-col justify-start items-start gap-11 md:gap-6 lg:gap-11">
+        <p className="text-lg md:text-sm md:leading-5 lg:text-lg font-bold font-['Urbanist'] leading-7 lg:leading-7 text-white">
           {QUOTE_TEXT}
         </p>
         <div className="w-full inline-flex justify-between items-start">
@@ -229,8 +229,8 @@ export function FoundersSection() {
         <div className="self-stretch flex flex-col justify-start items-center gap-6">
           <Badge>Testimonials</Badge>
           <div className="flex flex-col justify-start items-center gap-4">
-            <h2 className="w-80 md:w-auto text-center text-white text-2xl leading-8 md:text-5xl md:leading-[78px] font-bold font-['Urbanist']">
-              Founders Are Already Building With Chorus
+            <h2 className="w-80 md:w-auto text-center text-white text-2xl leading-8 md:text-3xl md:leading-[42px] lg:text-5xl lg:leading-[78px] font-bold font-['Urbanist']">
+            Founders Are Already Building With Chorus
             </h2>
             <p className="w-full text-center text-gray-300 text-sm leading-6 md:text-xl md:leading-9 font-normal font-['Urbanist']">
               The best way to reach humans instead of spam folders. Deliver
@@ -240,9 +240,9 @@ export function FoundersSection() {
         </div>
 
         {/* 3-column masonry grid — desktop */}
-        <div className="hidden lg:inline-flex justify-start items-start gap-10">
+        <div className="hidden md:inline-flex justify-start items-start gap-5 xl:gap-10 w-full max-w-[1240px]">
           {/* Column 1 */}
-          <div className="inline-flex flex-col justify-start items-start gap-11">
+          <div className="flex-1 min-w-0 inline-flex flex-col justify-start items-start gap-11">
             <LightCard
               logo="/images/figma/image 23.svg"
               alt="Perplexity"
@@ -253,14 +253,14 @@ export function FoundersSection() {
           </div>
 
           {/* Column 2 */}
-          <div className="inline-flex flex-col justify-start items-start gap-7">
+          <div className="flex-1 min-w-0 inline-flex flex-col justify-start items-start gap-7">
             <GlassCard />
             <DarkCard logo="/images/figma/image 23 (2).svg" alt="Raycas" />
             <GlassWhiteCard />
           </div>
 
           {/* Column 3 */}
-          <div className="inline-flex flex-col justify-start items-start gap-9">
+          <div className="flex-1 min-w-0 inline-flex flex-col justify-start items-start gap-9">
             <DarkCard
               logo="/images/figma/image 23 (1).svg"
               alt="Clerk"
@@ -275,7 +275,7 @@ export function FoundersSection() {
         </div>
 
         {/* Mobile: horizontal scroll */}
-        <div className="w-full lg:hidden -mx-4 px-4 overflow-x-auto [scrollbar-width:none] [-webkit-overflow-scrolling:touch] [&::-webkit-scrollbar]:hidden">
+        <div className="w-full md:hidden -mx-4 px-4 overflow-x-auto [scrollbar-width:none] [-webkit-overflow-scrolling:touch] [&::-webkit-scrollbar]:hidden">
           <div className="flex items-start gap-[16px] w-max">
             <LightCard
               logo="/images/figma/image 23.svg"

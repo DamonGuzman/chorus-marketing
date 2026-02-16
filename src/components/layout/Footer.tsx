@@ -49,12 +49,12 @@ export function Footer() {
   return (
     <footer className="bg-black px-4 py-10 md:px-8 md:py-20 md:flex md:flex-col md:items-center">
       <div className="flex flex-col justify-start items-start gap-8 md:gap-10">
-        <div className="flex flex-col lg:inline-flex lg:flex-row lg:justify-start lg:items-start lg:gap-52 gap-8 md:gap-[40px]">
+        <div className="flex flex-col md:inline-flex md:flex-row md:justify-start md:items-start md:gap-10 xl:gap-52 gap-8 md:gap-[40px]">
           {/* Logo + description + CTA */}
           <div className="inline-flex flex-col justify-start items-start gap-9 md:gap-12">
             <div className="flex flex-col justify-start items-start gap-10 md:gap-10">
               <Logo className="w-12 h-11 text-white" />
-              <p className="w-48 md:w-96 text-sm leading-5 font-medium font-['Urbanist'] text-gray-300">
+              <p className="w-48 md:w-56 lg:w-96 text-sm leading-5 font-medium font-['Urbanist'] text-gray-300">
                 Giving modern marketing teams superpowers with short links that stand out.
               </p>
             </div>
@@ -67,18 +67,18 @@ export function Footer() {
           </div>
 
           {/* Link columns — single column on mobile, row on md+ */}
-          <div className="flex flex-col gap-6 md:flex md:flex-row md:justify-start md:items-start md:gap-20">
+          <div className="flex flex-col gap-6 md:flex md:flex-row md:justify-start md:items-start md:gap-4 lg:gap-20">
             {Object.entries(footerLinks).map(([key, section]) => (
               <div key={key} className="inline-flex flex-col justify-start items-start gap-5">
-                <h4 className="text-base leading-6 font-semibold font-['Urbanist'] text-white uppercase">
+                <h4 className="text-base md:text-sm lg:text-base leading-6 font-semibold font-['Urbanist'] text-white uppercase">
                   {section.title}
                 </h4>
-                <div className="flex flex-col justify-start items-start gap-5">
+                <div className="flex flex-col justify-start items-start gap-5 md:gap-3 lg:gap-5">
                   {section.links.map((link) => (
                     <Link
                       key={link.label}
                       href={link.href}
-                      className="text-sm leading-5 font-medium font-['Urbanist'] text-gray-300 hover:text-white transition-colors"
+                      className="text-sm md:text-xs lg:text-sm leading-5 font-medium font-['Urbanist'] text-gray-300 hover:text-white transition-colors"
                     >
                       {link.label}
                     </Link>
@@ -89,15 +89,15 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="w-72 md:w-[1250px] h-0 outline outline-1 outline-offset-[-0.50px] outline-white/25" />
+        <div className="w-72 md:w-full md:max-w-[1250px] h-0 outline outline-1 outline-offset-[-0.50px] outline-white/25" />
 
         {/* Bottom bar */}
-        <div className="w-full md:w-[1250px] flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6 md:gap-[32px]">
+        <div className="w-full md:max-w-[1250px] flex flex-col md:flex-row items-start md:items-center justify-between gap-6 md:gap-[32px]">
           <p className="text-sm leading-5 font-medium font-['Urbanist'] text-gray-300">
             © 2026 chorus Ltd. All rights reserved.
           </p>
 
-          <div className="flex items-center justify-between w-full lg:w-auto gap-14 md:gap-14">
+          <div className="flex items-center justify-between w-full md:w-auto gap-14 md:gap-14">
             <div className="flex items-center gap-3.5 text-gray-300">
               <MailIcon className="w-5 h-5" />
               <Link
