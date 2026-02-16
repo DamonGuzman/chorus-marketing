@@ -1,6 +1,7 @@
 import { Header, Footer } from "@/components/layout";
 import { Badge } from "@/components/ui";
 import { PressCarousel } from "@/components/sections/PressCarousel";
+import { FinalCTASection } from "@/components/sections";
 
 export default function AboutUsPage() {
   return (
@@ -358,103 +359,7 @@ export default function AboutUsPage() {
           </div>
 
           {/* Final CTA Section */}
-          <div>
-            <div className="w-full h-1 bg-linear-to-r from-white/0 via-neutral-400 to-white/0 rounded-full" />
-            <div className="relative w-full min-h-[500px] md:h-[632px] px-4 md:px-24 py-[50px] md:py-20 bg-linear-to-b from-white/20 via-white/0 to-black/0 flex flex-col justify-center items-center overflow-hidden">
-              {/* Background Image */}
-              <div
-                className="absolute inset-0 z-0"
-                style={{
-                  backgroundImage: "url(/images/figma/about-us/Vector.png)",
-                  backgroundSize: "cover",
-                  backgroundPosition: "center",
-                  backgroundRepeat: "no-repeat",
-                }}
-              />
-
-              {/* Content */}
-              <div className="w-full max-w-[1039px] flex flex-col justify-start items-center gap-[30px] md:gap-12 z-10">
-                <div className="w-full flex flex-col justify-start items-center gap-[20px] md:gap-6">
-                  <div className="w-full flex flex-col justify-start items-center gap-[20px] md:gap-10">
-                    <h2 className="text-center text-white text-[26px] md:text-5xl font-bold md:not-italic font-['Urbanist'] leading-[36px] md:leading-[68px]">
-                      The Best Companies Don&apos;t Have More People. They Have
-                      <br className="md:hidden" /> Better Coordination.
-                    </h2>
-                    <p className="text-center text-gray-500 text-[14px] md:text-xl font-normal font-['Urbanist'] leading-[22px] md:leading-9">
-                      While competitors spend months hiring and aligning teams,
-                      you could have a complete, synchronized workforce
-                      executing tomorrow.
-                    </p>
-                  </div>
-
-                  {/* Feature Badges — desktop */}
-                  <div className="hidden md:flex flex-wrap justify-center items-center gap-6">
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <div className="h-12 px-9 py-3 bg-white/0 rounded-pill border border-white/30 backdrop-blur-[30px] flex items-center gap-5">
-                      <img src="images/figma/about-us/group.svg" alt="" />
-                      <span className="text-stone-300 text-base font-medium font-['Urbanist']">
-                        Build without hiring
-                      </span>
-                    </div>
-                    <div className="h-12 px-9 py-3 bg-white/0 rounded-pill border border-white/30 backdrop-blur-[30px] flex items-center gap-5">
-                      <img src="images/figma/about-us/group.svg" alt="" />
-                      <span className="text-stone-300 text-base font-medium font-['Urbanist']">
-                        Scale without friction
-                      </span>
-                    </div>
-                    <div className="h-12 px-9 py-3 bg-white/0 rounded-pill border border-white/30 backdrop-blur-[30px] flex items-center gap-3.5">
-                      <img src="images/figma/about-us/group.svg" alt="" />
-                      <span className="text-stone-300 text-base font-medium font-['Urbanist']">
-                        Grow with Chorus
-                      </span>
-                    </div>
-                  </div>
-
-                  {/* Feature Badges — mobile */}
-                  <div className="flex flex-col items-center gap-[8px] md:hidden">
-                    <div className="flex items-center gap-[8px]">
-                      {["Build without hiring", "Scale without friction"].map(
-                        (text) => (
-                          <div
-                            key={text}
-                            className="h-[36px] px-[12px] rounded-full flex items-center gap-[8px] border border-white/30 backdrop-blur-[30px]"
-                          >
-                            {/* eslint-disable-next-line @next/next/no-img-element */}
-                            <img
-                              src="images/figma/about-us/group.svg"
-                              alt=""
-                              className="w-[16px] h-[16px]"
-                            />
-                            <span className="text-stone-300 text-[11px] font-medium font-['Urbanist'] whitespace-nowrap">
-                              {text}
-                            </span>
-                          </div>
-                        ),
-                      )}
-                    </div>
-                    <div className="h-[36px] px-[12px] rounded-full flex items-center gap-[8px] border border-white/30 backdrop-blur-[30px]">
-                      {/* eslint-disable-next-line @next/next/no-img-element */}
-                      <img
-                        src="images/figma/about-us/group.svg"
-                        alt=""
-                        className="w-[16px] h-[16px]"
-                      />
-                      <span className="text-stone-300 text-[11px] font-medium font-['Urbanist'] whitespace-nowrap">
-                        Grow with Chorus
-                      </span>
-                    </div>
-                  </div>
-                </div>
-
-                {/* CTA Button */}
-                <button className="h-[42px] md:h-12 px-[24px] md:px-8 py-[10px] md:py-3 bg-white rounded-pill shadow-[0px_0px_8px_0px_rgba(175,130,249,0.63)] flex justify-center items-center gap-2 overflow-hidden hover:bg-gray-100 transition-colors">
-                  <span className="text-center text-black text-[13px] md:text-sm font-bold font-['Urbanist'] leading-6">
-                    Build Your Team Now
-                  </span>
-                </button>
-              </div>
-            </div>
-          </div>
+          <FinalCTASection />
         </section>
       </main>
       <Footer />
