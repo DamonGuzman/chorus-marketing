@@ -2,7 +2,7 @@ import { Badge } from "@/components/ui";
 
 export function DifferenceSection() {
   return (
-    <section className="relative bg-black py-[75px] px-6 lg:px-[100px] overflow-hidden">
+    <section className="relative bg-black py-[75px] px-6 lg:px-8 overflow-hidden">
       <div className="max-w-[1240px] mx-auto">
         {/* Section Header */}
         <div className="flex flex-col items-center gap-[15px] mb-[80px]">

@@ -132,7 +132,7 @@ function Illustration() {
 
 export function PipelineSection() {
   return (
-    <section className="w-full bg-black px-6 md:px-[100px] py-[75px]">
+    <section className="w-full bg-black px-6 md:px-8 py-[75px]">
       <div className="max-w-[1240px] mx-auto flex items-center justify-between gap-10">
         {/* Left – Step indicator */}
         <div className="flex flex-col items-center gap-[26px] shrink-0">

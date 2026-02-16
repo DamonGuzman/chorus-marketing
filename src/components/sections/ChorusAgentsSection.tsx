@@ -621,8 +621,8 @@ function FeedbackCard() {
    ═══════════════════════════════════════════════════════════ */
 export function ChorusAgentsSection() {
   return (
-    <section className="w-full bg-black px-4 md:px-[100px] py-10 md:py-[75px]">
-      <div className="max-w-[1240px] mx-auto flex flex-col items-center gap-4 md:gap-8">
+    <section className="w-full bg-black px-4 md:px-8 py-[50px] md:py-[75px]">
+      <div className="max-w-[1240px] mx-auto flex flex-col items-center gap-[10px]">
         {/* Section Header */}
         <div className="flex flex-col items-center gap-4 md:gap-[24px] w-full">
           <div className="h-8 md:h-[36px] px-3 py-1 bg-white/5 md:bg-white/7 rounded-full overflow-hidden inline-flex items-center justify-center">

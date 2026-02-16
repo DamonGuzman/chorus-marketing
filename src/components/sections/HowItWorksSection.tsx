@@ -326,7 +326,7 @@ function StepItem({
   isLast: boolean;
 }) {
   return (
-    <div className="self-stretch inline-flex justify-start items-center gap-4 md:gap-20">
+    <div className="self-stretch inline-flex justify-start items-center gap-4 md:gap-6 lg:gap-20">
       {/* Vertical line */}
       <div
         className={cn(
@@ -338,7 +338,7 @@ function StepItem({
       {/* Content card */}
       <div
         className={cn(
-          "w-full md:w-96 px-5 pt-7 pb-5 rounded-3xl inline-flex flex-col justify-start items-start gap-2.5",
+          "w-full md:w-full lg:w-96 px-5 pt-7 pb-5 rounded-3xl inline-flex flex-col justify-start items-start gap-2.5",
           active ? "bg-white/5" : ""
         )}
       >
@@ -356,7 +356,7 @@ function StepItem({
             </div>
             <h3
               className={cn(
-                "font-['Urbanist'] text-[18px] font-bold leading-[28px] md:text-xl md:leading-8",
+                "font-['Urbanist'] text-base font-bold leading-8 md:text-base md:leading-7 lg:text-xl lg:leading-8",
                 active ? "text-white" : "text-gray-300"
               )}
             >
@@ -365,7 +365,7 @@ function StepItem({
           </div>
 
           {/* Description */}
-          <p className="self-stretch font-['Urbanist'] text-[14px] font-normal leading-[24px] text-gray-300 md:text-base md:leading-8">
+          <p className="self-stretch font-['Urbanist'] text-sm font-normal leading-6 text-gray-300 md:text-sm md:leading-6 lg:text-base lg:leading-8">
             {description}
           </p>
         </div>
@@ -385,51 +385,52 @@ function AgentProfileCard() {
         "w-full min-w-0 overflow-hidden rounded-[35px]",
         "bg-black/0",
         "shadow-[0px_4px_53px_rgba(0,0,0,1)]",
-        "p-4 pt-6 md:pt-[31px] md:pr-[10px] md:pb-[3px] md:pl-[27px]"
+        "p-5 pt-8 pb-8 md:pt-[40px] md:pr-[24px] md:pb-[40px] md:pl-[30px]",
+        "h-full flex flex-col"
       )}
     >
       {/* Agent header */}
-      <div className="flex items-start gap-3 md:gap-[17px]">
+      <div className="flex items-start gap-4 md:gap-[20px]">
         {/* Profile avatar */}
         <Image
           src="/images/figma/Ellipse 53.svg"
           alt="Frank"
-          width={91}
-          height={91}
-          className="size-[70px] shrink-0 rounded-full object-cover md:size-[91px]"
+          width={110}
+          height={110}
+          className="size-[80px] shrink-0 rounded-full object-cover md:size-[110px]"
         />
 
         {/* Info */}
-        <div className="flex flex-col gap-[10px]">
+        <div className="flex flex-col gap-[12px]">
           {/* Name row */}
           <div className="flex flex-wrap items-center gap-[10px]">
-            <span className="font-urbanist text-[16px] font-bold leading-[24px] text-white md:text-[19px] md:leading-[30px]">
+            <span className="font-urbanist text-[18px] font-bold leading-[26px] text-white md:text-[22px] md:leading-[32px]">
               Frank
             </span>
-            <span className="inline-flex items-center rounded-[4px] border border-white/10 bg-gray-600 px-[5px] py-[5px] font-urbanist text-[8px] font-semibold leading-[15px] text-gray-100 md:text-[9px] md:leading-[17px]">
+            <span className="inline-flex items-center rounded-[5px] border border-white/10 bg-gray-600 px-[7px] py-[5px] font-urbanist text-[10px] font-semibold leading-[16px] text-gray-100 md:text-[11px] md:leading-[18px]">
               AI Agent
             </span>
-            <span className="inline-flex items-center rounded-[9px] border border-green px-[5px] py-[5px] font-urbanist text-[10px] font-normal leading-[18px] text-green md:px-[6px] md:py-[6px] md:text-[11px] md:leading-[21px]">
+            <span className="inline-flex items-center rounded-[9px] border border-green px-[7px] py-[5px] font-urbanist text-[11px] font-normal leading-[18px] text-green md:px-[8px] md:py-[6px] md:text-[12px] md:leading-[20px]">
               Active
             </span>
           </div>
 
           {/* Meta info */}
           <div className="flex items-center gap-[9px]">
-            <BriefcaseIcon />
-            <span className="font-urbanist text-[11px] font-medium leading-[17px] text-[#7D7C83] md:text-[12px] md:leading-[19px]">
+            <BriefcaseIcon className="md:size-[14px]" />
+            <span className="font-urbanist text-[12px] font-medium leading-[18px] text-[#7D7C83] md:text-[14px] md:leading-[22px]">
               Finance Manager
             </span>
           </div>
           <div className="flex items-center gap-[9px]">
-            <IdCardIcon />
-            <span className="font-urbanist text-[11px] font-medium leading-[17px] text-[#7D7C83] md:text-[12px] md:leading-[19px]">
+            <IdCardIcon className="md:size-[14px]" />
+            <span className="font-urbanist text-[12px] font-medium leading-[18px] text-[#7D7C83] md:text-[14px] md:leading-[22px]">
               ID : AGT-RES-2847
             </span>
           </div>
           <div className="flex items-center gap-[9px]">
-            <CalendarIcon />
-            <span className="font-urbanist text-[11px] font-medium leading-[17px] text-[#7D7C83] md:text-[12px] md:leading-[19px]">
+            <CalendarIcon className="md:size-[14px]" />
+            <span className="font-urbanist text-[12px] font-medium leading-[18px] text-[#7D7C83] md:text-[14px] md:leading-[22px]">
               Deployed at March 15, 2024
             </span>
           </div>
@@ -437,16 +438,16 @@ function AgentProfileCard() {
       </div>
 
       {/* Action buttons */}
-      <div className="mt-[26px] flex items-center gap-[14px]">
-        <button className="inline-flex items-center gap-[7px] rounded-full bg-gradient-to-br from-purple-400 to-purple-600 px-[13px] py-[10px] pr-[22px] shadow-glow">
-          <Image src="/images/figma/message-01.svg" alt="" width={16} height={16} />
-          <span className="font-urbanist text-[12px] font-bold leading-[21px] text-white">
+      <div className="mt-auto pt-[30px] flex items-center gap-[14px]">
+        <button className="inline-flex items-center gap-[8px] rounded-full bg-gradient-to-br from-purple-400 to-purple-600 px-[18px] py-[12px] pr-[26px] shadow-glow">
+          <Image src="/images/figma/message-01.svg" alt="" width={18} height={18} />
+          <span className="font-urbanist text-[14px] font-bold leading-[22px] text-white">
             Chat
           </span>
         </button>
-        <button className="inline-flex items-center gap-[7px] rounded-full border-[2px] border-white/25 px-[28px] py-[10px]">
-          <Image src="/images/figma/call.svg" alt="" width={16} height={16} />
-          <span className="font-urbanist text-[12px] font-bold leading-[21px] text-white">
+        <button className="inline-flex items-center gap-[8px] rounded-full border-[2px] border-white/25 px-[32px] py-[12px]">
+          <Image src="/images/figma/call.svg" alt="" width={18} height={18} />
+          <span className="font-urbanist text-[14px] font-bold leading-[22px] text-white">
             Call
           </span>
         </button>
@@ -579,20 +580,20 @@ function ConnectedAppsCard() {
 export function HowItWorksSection() {
   return (
     <Section
-      className="relative overflow-hidden py-[50px] md:py-20 md:px-24 md:flex md:flex-col md:items-center"
+      className="relative overflow-hidden py-10 md:py-20 md:px-8 md:flex md:flex-col md:items-center"
       id="how-it-works"
     >
-      <div className="px-4 md:px-0">
-        <div className="flex flex-col justify-start items-center gap-[40px] md:gap-14">
+      <div className="self-stretch px-4 md:px-0">
+        <div className="flex flex-col justify-start items-center gap-6 md:gap-14">
           {/* ---- Header ---- */}
           <div className="flex flex-col justify-start items-center gap-6">
             <Badge>Our Process</Badge>
 
             <div className="flex flex-col justify-start items-center gap-4">
-              <h2 className="text-center text-white text-[32px] leading-[1.3] md:text-5xl md:leading-[78px] font-bold font-['Urbanist']">
+              <h2 className="text-center text-white text-2xl leading-8 md:text-3xl md:leading-[42px] lg:text-5xl lg:leading-[78px] font-bold font-['Urbanist']">
                 How It Works
               </h2>
-              <p className="text-center text-gray-300 text-[16px] leading-[26px] md:text-xl md:leading-9 font-normal font-['Urbanist']">
+              <p className="w-full text-center text-gray-300 text-sm leading-6 md:text-xl md:leading-9 font-normal font-['Urbanist']">
                 The best way to reach humans instead of spam folders. Deliver
                 transactional and marketing emails at scale.
               </p>
@@ -601,10 +602,10 @@ export function HowItWorksSection() {
 
           {/* ---- Content ---- */}
           {/* Desktop: side-by-side steps + cards */}
-          <div className="hidden lg:flex pr-7 pt-12 pb-7 bg-white/5 rounded-[30px] flex-col justify-center items-start gap-2.5">
-            <div className="self-stretch inline-flex justify-start items-center gap-16">
+          <div className="hidden md:flex md:pr-4 md:pt-8 md:pb-4 lg:pr-7 lg:pt-12 lg:pb-7 bg-white/5 rounded-[30px] flex-col justify-center items-start gap-2.5">
+            <div className="self-stretch inline-flex justify-start items-center md:gap-6 lg:gap-16">
               {/* Left: Steps */}
-              <div className="w-[510px] inline-flex flex-col justify-start items-start gap-5">
+              <div className="md:w-[38%] lg:w-full lg:max-w-[510px] inline-flex flex-col justify-start items-start gap-5">
                 {steps.map((step, idx) => (
                   <StepItem
                     key={step.number}
@@ -617,17 +618,20 @@ export function HowItWorksSection() {
                 ))}
               </div>
 
-              {/* Right: Agent card visual stack */}
-              <div className="relative flex min-w-0 flex-1 flex-col gap-[22px]">
-                <AgentProfileCard />
-                <TaskPanelCard />
-                <ConnectedAppsCard />
+              {/* Right: Agent card visual */}
+              <div className="relative min-w-0 md:w-[62%] lg:flex-1">
+                <img
+                  src="/images/figma/Group 1707484029.svg"
+                  alt="Agent profile card"
+                  className="w-full h-full object-contain"
+                  style={{ imageRendering: "auto", WebkitFontSmoothing: "antialiased" }}
+                />
               </div>
             </div>
           </div>
 
           {/* Mobile: interleaved — step 1, then cards, then steps 2 & 3 */}
-          <div className="lg:hidden w-full overflow-hidden rounded-[30px] bg-white/5 px-3 py-[30px]">
+          <div className="md:hidden w-full overflow-hidden rounded-[30px] bg-white/5 px-3 py-[30px]">
             <div className="flex flex-col gap-[20px]">
               {/* Step 1 (active) */}
               <StepItem
@@ -638,11 +642,14 @@ export function HowItWorksSection() {
                 isLast={false}
               />
 
-              {/* Visual cards right after step 1 */}
-              <div className="flex w-full min-w-0 flex-col gap-[16px] px-1">
-                <AgentProfileCard />
-                <TaskPanelCard />
-                <ConnectedAppsCard />
+              {/* Visual card after step 1 */}
+              <div className="w-full px-1">
+                <img
+                  src="/images/figma/Group 1707484029.svg"
+                  alt="Agent profile card"
+                  className="w-full"
+                  style={{ imageRendering: "auto", WebkitFontSmoothing: "antialiased" }}
+                />
               </div>
 
               {/* Steps 2 and 3 */}

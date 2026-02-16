@@ -11,18 +11,20 @@ const benefits = [
 
 export function CTASection() {
   return (
-    <section className="relative bg-black h-[632px] flex items-center justify-center overflow-hidden px-[100px]">
-      {/* Background Image */}
+    <section className="relative bg-black h-[632px] flex items-center justify-center overflow-hidden px-8">
+      {/* Background layers */}
       <div className="absolute inset-0">
-        <Image
-          src="/images/decorative/cta-bg.png"
-          alt=""
-          fill
-          className="object-cover opacity-50"
+        {/* Grid pattern */}
+        <div
+          className="absolute inset-0 z-[1]"
+          style={{
+            backgroundImage:
+              "linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px)",
+            backgroundSize: "60px 60px",
+          }}
         />
         {/* Top decorative line */}
-        <div className="absolute top-0 left-[100px] right-[100px] h-px bg-gradient-to-r from-transparent via-purple-500/50 to-transparent" />
-        <div className="absolute inset-0 bg-gradient-fade" />
+        <div className="absolute top-0 left-[100px] right-[100px] h-px bg-gradient-to-r from-transparent via-purple-500/50 to-transparent z-[2]" />
       </div>
 
       {/* Content */}

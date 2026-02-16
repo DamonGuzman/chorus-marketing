@@ -329,7 +329,7 @@ function ComposedIllustration() {
 /* ── Main Section ── */
 export function CollaborationHubSection() {
   return (
-    <section className="w-full bg-black flex flex-col items-center gap-[10px] px-4 py-[50px] md:px-[100px] md:py-[75px] md:pb-[150px]">
+    <section className="w-full bg-black flex flex-col items-center gap-[10px] px-4 py-[50px] md:px-8 md:py-[75px] md:pb-[150px]">
       <div className="self-stretch flex flex-col items-center gap-[30px] md:gap-[36px]">
         {/* Header */}
         <div className="self-stretch flex flex-col items-center gap-[20px] md:gap-[32px]">

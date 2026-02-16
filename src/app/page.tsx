@@ -16,7 +16,7 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-black overflow-x-hidden">
       <Header />
-      <main>
+      <main className="width-full mx-auto">
         <NewHeroSection />
         <OldWaySection />
         <ChorusWaySection />
