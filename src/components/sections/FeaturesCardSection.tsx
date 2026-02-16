@@ -199,7 +199,7 @@ function OrbitalAnimation() {
       >
         <OrbitIcon size={64}>
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/images/figma/image 33.svg" alt="HubSpot" className="w-[30px] h-[30px]" />
+          <img src="/images/figma/image 33.svg" alt="HubSpot" className="w-[30px] h-[30px] rounded-full" />
         </OrbitIcon>
       </div>
 
@@ -245,7 +245,7 @@ function OrbitalAnimation() {
    ═══════════════════════════════════════════════════════════ */
 export function FeaturesCardSection() {
   return (
-    <section className="w-full bg-black px-4 md:px-[100px] py-[50px] md:py-[75px]">
+    <section className="w-full bg-black px-4 md:px-section-x py-[50px] md:py-section-y">
       <div className="max-w-[1240px] mx-auto flex flex-col items-center gap-[20px]">
 
         {/* ── Section Header ── */}
@@ -266,17 +266,17 @@ export function FeaturesCardSection() {
         {/* ── Stacked Cards (same width as main, offset below) ── */}
         {/* Back card */}
         <div
-          className="w-[19rem] md:w-[85%] h-[4.5rem] max-w-[1188px] rounded-3xl bg-black border border-white/15"
+          className="w-76 md:w-[85%] h-18 max-w-[1188px] rounded-3xl bg-black border border-white/15"
         />
 
         {/* Middle card */}
         <div
-          className="w-[22rem] md:w-[90%] h-[5rem] max-w-[1188px] -mt-[2rem] rounded-3xl bg-black border border-white/20"
+          className="w-88 md:w-[90%] h-20 max-w-[1188px] -mt-10 rounded-3xl bg-black border border-white/20"
         />
 
         {/* ── Front card — Main Content ── */}
         <div
-          className="w-full max-w-[1240px] -mt-[2rem] rounded-3xl py-[36px] px-[24px] md:py-[60px] md:px-[56px] overflow-hidden"
+          className="w-full max-w-[1240px] -mt-10 rounded-3xl py-[36px] px-[24px] md:py-[60px] md:px-[56px] overflow-hidden"
           style={{
             background: "#000000",
             outline: "1px solid #434343",
