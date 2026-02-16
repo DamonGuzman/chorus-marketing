@@ -22,11 +22,11 @@ export function FinalCTASection() {
       <div className="relative z-10 max-w-[1039px] mx-auto flex flex-col items-center gap-[30px] md:gap-12">
         {/* Title + subtitle + pills */}
         <div className="self-stretch flex flex-col items-center gap-[20px] md:gap-6">
-          <div className="self-stretch flex flex-col items-end gap-[24px] md:gap-10">
-            <h2 className="w-80 md:w-auto self-stretch text-center text-white text-2xl leading-8 md:text-3xl md:leading-[42px] lg:text-5xl lg:leading-[68px] font-bold font-['Urbanist']">
+          <div className="self-stretch flex flex-col items-center md:items-end gap-4 md:gap-10">
+            <h2 className="w-[340px] md:w-auto md:self-stretch text-center text-white text-2xl leading-8 md:text-3xl md:leading-[42px] lg:text-5xl lg:leading-[68px] font-bold font-['Urbanist']">
               The Best Companies Don&apos;t Have More People. They Have Better Coordination.
             </h2>
-            <p className="self-stretch text-center text-gray-100 text-sm leading-5 md:text-xl md:leading-9 font-normal font-['Urbanist']">
+            <p className="w-80 md:w-auto md:self-stretch text-center text-gray-100 text-xs leading-5 md:text-xl md:leading-9 font-normal font-['Urbanist']">
               While competitors spend months hiring and aligning teams, you could have a complete, synchronized workforce executing tomorrow.
             </p>
           </div>
@@ -35,11 +35,11 @@ export function FinalCTASection() {
             {["Build without hiring", "Scale without friction", "Grow with Chorus"].map((point) => (
               <div
                 key={point}
-                className="relative h-10 md:h-12 rounded-[50px] overflow-hidden backdrop-blur-[30px] inline-flex justify-center items-center"
+                className="relative w-40 md:w-auto h-10 md:h-12 rounded-[40px] md:rounded-[50px] overflow-hidden outline outline-[0.80px] outline-offset-[-0.80px] outline-white/30 md:outline-none backdrop-blur-xl md:backdrop-blur-[30px] inline-flex justify-center items-center"
               >
-                <span aria-hidden="true" className="absolute inset-0 rounded-[50px] bg-gradient-to-b from-white/30 to-white/[0.04]" />
-                <span aria-hidden="true" className="absolute inset-[1px] rounded-[50px] bg-[#131313]" />
-                <div className="relative z-10 inline-flex justify-start items-center gap-3 md:gap-5 pl-5 pr-4 md:pl-9 md:pr-7 py-7">
+                <span aria-hidden="true" className="hidden md:block absolute inset-0 rounded-[50px] bg-gradient-to-b from-white/30 to-white/[0.04]" />
+                <span aria-hidden="true" className="hidden md:block absolute inset-[1px] rounded-[50px] bg-[#131313]" />
+                <div className="relative z-10 inline-flex justify-start items-center gap-4 md:gap-5 pl-7 pr-6 md:pl-9 md:pr-7 py-6 md:py-7">
                   <svg width="14" height="10" viewBox="0 0 18 12" fill="none" className="shrink-0">
                     <path d="M2 6L7 10L16 2" stroke="#7D7C83" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
                   </svg>

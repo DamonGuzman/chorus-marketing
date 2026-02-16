@@ -44,32 +44,32 @@ function LightCard({
 }) {
   return (
     <div
-      className="relative w-[300px] shrink-0 sm:w-[340px] md:w-full overflow-hidden rounded-[20px] outline outline-1 outline-offset-[-1px] outline-white/30 backdrop-blur-[30px]"
+      className="relative w-72 h-96 shrink-0 md:w-full md:h-auto overflow-hidden rounded-xl md:rounded-[20px] outline outline-1 outline-offset-[-1px] outline-white/30 backdrop-blur-[30px]"
       style={{
         background: "linear-gradient(37deg, #F6F6F6 0%, #CCCBCB 100%)",
       }}
     >
       <GridBg dark />
-      <div className="relative z-10 flex flex-col gap-10 md:gap-8 lg:gap-20 px-[24px] pb-[24px] pt-[30px] sm:px-[30px] sm:pb-[30px] sm:pt-[35px] md:px-5 md:pb-5 md:pt-6 lg:px-[30px] lg:pb-[30px] lg:pt-[35px]">
+      <div className="relative z-10 flex flex-col gap-16 md:gap-8 lg:gap-20 px-[18px] pb-[18px] pt-[24px] md:px-5 md:pb-5 md:pt-6 lg:px-[30px] lg:pb-[30px] lg:pt-[35px]">
         {/* Logo */}
-        <img src={logo} alt={alt} width={logoWidth} height={logoHeight} className="h-8 md:h-6 lg:h-10 w-auto self-start" />
+        <img src={logo} alt={alt} width={logoWidth} height={logoHeight} className="w-28 h-7 md:h-6 lg:h-10 md:w-auto object-contain self-start" />
 
         {/* Quote */}
-        <p className="text-lg md:text-sm md:leading-5 lg:text-lg font-bold font-['Urbanist'] leading-7 lg:leading-7 text-gray-800">
+        <p className="w-60 md:w-auto text-sm leading-5 md:text-sm md:leading-5 lg:text-lg font-bold font-['Urbanist'] lg:leading-7 text-gray-800">
           {QUOTE_TEXT}
         </p>
 
         {/* Author */}
-        <div className="w-full inline-flex justify-between items-start">
-          <div className="inline-flex flex-col justify-start items-start gap-1.5">
-            <span className="text-base font-bold font-['Urbanist'] leading-6 text-[#222222]">
+        <div className="w-60 md:w-full inline-flex justify-between items-start">
+          <div className="inline-flex flex-col justify-start items-start gap-1">
+            <span className="text-xs md:text-base font-bold font-['Urbanist'] leading-4 md:leading-6 text-[#222222]">
               Theo Browne
             </span>
-            <span className="text-sm font-bold font-['Urbanist'] leading-5 text-[#222222]">
+            <span className="text-xs md:text-sm font-bold font-['Urbanist'] leading-4 md:leading-5 text-[#222222]">
               CEO / Ping Labs
             </span>
           </div>
-          <div className="size-[50px] shrink-0 overflow-hidden rounded-full">
+          <div className="size-9 md:size-[50px] shrink-0 overflow-hidden rounded-full">
             <Image
               src="/images/team/member-1.png"
               alt="Theo Browne"
@@ -98,32 +98,32 @@ function DarkCard({
 }) {
   return (
     <div
-      className="relative w-[300px] shrink-0 sm:w-[340px] md:w-full overflow-hidden rounded-[20px] outline outline-1 outline-offset-[-1px] outline-white/30 backdrop-blur-[30px]"
+      className="relative w-72 h-96 shrink-0 md:w-full md:h-auto overflow-hidden rounded-xl md:rounded-[20px] outline outline-1 outline-offset-[-1px] outline-white/30 backdrop-blur-[30px]"
       style={{
         background: "linear-gradient(45deg, #101010 0%, #242324 100%)",
       }}
     >
       <GridBg />
-      <div className="relative z-10 flex flex-col gap-10 md:gap-8 lg:gap-20 px-[24px] pb-[24px] pt-[30px] sm:px-[30px] sm:pb-[30px] sm:pt-[35px] md:px-5 md:pb-5 md:pt-6 lg:px-[30px] lg:pb-[30px] lg:pt-[35px]">
+      <div className="relative z-10 flex flex-col gap-16 md:gap-8 lg:gap-20 px-[18px] pb-[18px] pt-[24px] md:px-5 md:pb-5 md:pt-6 lg:px-[30px] lg:pb-[30px] lg:pt-[35px]">
         {/* Logo */}
-        <img src={logo} alt={alt} width={logoWidth} height={logoHeight} className="h-8 md:h-6 lg:h-10 w-auto self-start" />
+        <img src={logo} alt={alt} width={logoWidth} height={logoHeight} className="w-28 h-7 md:h-6 lg:h-10 md:w-auto object-contain self-start" />
 
         {/* Quote */}
-        <p className="text-lg md:text-sm md:leading-5 lg:text-lg font-bold font-['Urbanist'] leading-7 lg:leading-7 text-gray-100">
+        <p className="w-60 md:w-auto text-sm leading-5 md:text-sm md:leading-5 lg:text-lg font-bold font-['Urbanist'] lg:leading-7 text-gray-100">
           {QUOTE_TEXT}
         </p>
 
         {/* Author */}
-        <div className="w-full inline-flex justify-between items-start">
-          <div className="inline-flex flex-col justify-start items-start gap-1.5">
-            <span className="text-base font-bold font-['Urbanist'] leading-6 text-white">
+        <div className="w-60 md:w-full inline-flex justify-between items-start">
+          <div className="inline-flex flex-col justify-start items-start gap-1">
+            <span className="text-xs md:text-base font-bold font-['Urbanist'] leading-4 md:leading-6 text-white">
               Theo Browne
             </span>
-            <span className="text-sm font-bold font-['Urbanist'] leading-5 text-white/60">
+            <span className="text-xs md:text-sm font-bold font-['Urbanist'] leading-4 md:leading-5 text-white/60">
               CEO / Ping Labs
             </span>
           </div>
-          <div className="size-[50px] shrink-0 overflow-hidden rounded-full">
+          <div className="size-9 md:size-[50px] shrink-0 overflow-hidden rounded-full">
             <Image
               src="/images/team/member-1.png"
               alt="Theo Browne"
@@ -142,26 +142,26 @@ function DarkCard({
 function GlassCard() {
   return (
     <div
-      className="relative w-[300px] shrink-0 sm:w-[340px] md:w-full rounded-[20px] outline outline-1 outline-offset-[-1px] outline-white/30 backdrop-blur-[30px] pl-9 pr-7 pt-10 pb-2.5 md:pl-5 md:pr-4 md:pt-6 md:pb-2 lg:pl-9 lg:pr-7 lg:pt-10 lg:pb-2.5"
+      className="relative w-72 h-96 shrink-0 md:w-full md:h-auto rounded-xl md:rounded-[20px] outline outline-1 outline-offset-[-1px] outline-white/30 backdrop-blur-[30px] px-[18px] pt-[24px] pb-[18px] md:pl-5 md:pr-4 md:pt-6 md:pb-2 lg:pl-9 lg:pr-7 lg:pt-10 lg:pb-2.5"
       style={{
         background:
           "linear-gradient(180deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.10) 50%, rgba(255,255,255,0.05) 100%)",
       }}
     >
-      <div className="relative z-10 flex flex-col justify-start items-start gap-11 md:gap-6 lg:gap-11">
-        <p className="text-lg md:text-sm md:leading-5 lg:text-lg font-bold font-['Urbanist'] leading-7 lg:leading-7 text-gray-100">
+      <div className="relative z-10 flex flex-col justify-start items-start gap-16 md:gap-6 lg:gap-11 h-full">
+        <p className="w-60 md:w-auto text-sm leading-5 md:text-sm md:leading-5 lg:text-lg font-bold font-['Urbanist'] lg:leading-7 text-gray-100 flex-1">
           {QUOTE_TEXT}
         </p>
-        <div className="w-full inline-flex justify-between items-start">
-          <div className="inline-flex flex-col justify-start items-start gap-1.5">
-            <span className="text-base font-bold font-['Urbanist'] leading-6 text-white">
+        <div className="w-60 md:w-full inline-flex justify-between items-start">
+          <div className="inline-flex flex-col justify-start items-start gap-1">
+            <span className="text-xs md:text-base font-bold font-['Urbanist'] leading-4 md:leading-6 text-white">
               Theo Browne
             </span>
-            <span className="text-sm font-bold font-['Urbanist'] leading-5 text-gray-300">
+            <span className="text-xs md:text-sm font-bold font-['Urbanist'] leading-4 md:leading-5 text-gray-300">
               CEO / Ping Labs
             </span>
           </div>
-          <div className="size-[50px] shrink-0 overflow-hidden rounded-full">
+          <div className="size-9 md:size-[50px] shrink-0 overflow-hidden rounded-full">
             <Image
               src="/images/team/member-1.png"
               alt="Theo Browne"
@@ -180,26 +180,26 @@ function GlassCard() {
 function GlassWhiteCard() {
   return (
     <div
-      className="relative w-[300px] shrink-0 sm:w-[340px] md:w-full rounded-[20px] outline outline-1 outline-offset-[-1px] outline-white/30 backdrop-blur-[30px] pl-9 pr-7 pt-10 pb-2.5 md:pl-5 md:pr-4 md:pt-6 md:pb-2 lg:pl-9 lg:pr-7 lg:pt-10 lg:pb-2.5"
+      className="relative w-72 h-96 shrink-0 md:w-full md:h-auto rounded-xl md:rounded-[20px] outline outline-1 outline-offset-[-1px] outline-white/30 backdrop-blur-[30px] px-[18px] pt-[24px] pb-[18px] md:pl-5 md:pr-4 md:pt-6 md:pb-2 lg:pl-9 lg:pr-7 lg:pt-10 lg:pb-2.5"
       style={{
         background:
           "linear-gradient(180deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.10) 50%, rgba(255,255,255,0.05) 100%)",
       }}
     >
-      <div className="relative z-10 flex flex-col justify-start items-start gap-11 md:gap-6 lg:gap-11">
-        <p className="text-lg md:text-sm md:leading-5 lg:text-lg font-bold font-['Urbanist'] leading-7 lg:leading-7 text-white">
+      <div className="relative z-10 flex flex-col justify-start items-start gap-16 md:gap-6 lg:gap-11 h-full">
+        <p className="w-60 md:w-auto text-sm leading-5 md:text-sm md:leading-5 lg:text-lg font-bold font-['Urbanist'] lg:leading-7 text-white flex-1">
           {QUOTE_TEXT}
         </p>
-        <div className="w-full inline-flex justify-between items-start">
-          <div className="inline-flex flex-col justify-start items-start gap-1.5">
-            <span className="text-base font-bold font-['Urbanist'] leading-6 text-white">
+        <div className="w-60 md:w-full inline-flex justify-between items-start">
+          <div className="inline-flex flex-col justify-start items-start gap-1">
+            <span className="text-xs md:text-base font-bold font-['Urbanist'] leading-4 md:leading-6 text-white">
               Theo Browne
             </span>
-            <span className="text-sm font-bold font-['Urbanist'] leading-5 text-gray-300">
+            <span className="text-xs md:text-sm font-bold font-['Urbanist'] leading-4 md:leading-5 text-gray-300">
               CEO / Ping Labs
             </span>
           </div>
-          <div className="size-[50px] shrink-0 overflow-hidden rounded-full">
+          <div className="size-9 md:size-[50px] shrink-0 overflow-hidden rounded-full">
             <Image
               src="/images/team/member-1.png"
               alt="Theo Browne"
@@ -230,7 +230,8 @@ export function FoundersSection() {
           <Badge>Testimonials</Badge>
           <div className="flex flex-col justify-start items-center gap-4">
             <h2 className="w-80 md:w-auto text-center text-white text-2xl leading-8 md:text-3xl md:leading-[42px] lg:text-5xl lg:leading-[78px] font-bold font-['Urbanist']">
-            Founders Are Already Building With Chorus
+              <span className="md:hidden">The Best Companies Don&apos;t Have More People. They Have Better Coordination.</span>
+              <span className="hidden md:inline">Founders Are Already Building With Chorus</span>
             </h2>
             <p className="w-full text-center text-gray-300 text-sm leading-6 md:text-xl md:leading-9 font-normal font-['Urbanist']">
               The best way to reach humans instead of spam folders. Deliver

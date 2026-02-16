@@ -233,10 +233,10 @@ export function PricingSection() {
                       key={plan.name}
                       data-plan={plan.name}
                       className={cn(
-                        "relative overflow-hidden rounded-[20px] px-[28px] pt-[44px] pb-[32px] flex flex-col snap-center",
+                        "relative overflow-hidden rounded-xl px-[20px] pt-[32px] pb-[24px] flex flex-col snap-center border-[0.55px] border-white/30 backdrop-blur-lg",
                         plan.theme === "light"
-                          ? "w-[min(300px,78vw)] min-h-[580px]"
-                          : "w-[min(260px,68vw)] min-h-[520px] opacity-80",
+                          ? "w-52 h-[357px]"
+                          : "w-52 h-[357px] opacity-80",
                         theme.card
                       )}
                     >
@@ -254,27 +254,27 @@ export function PricingSection() {
                         <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(255,255,255,0.06)_0%,rgba(255,255,255,0)_40%)]" />
                       </div>
 
-                      <div className="relative z-10 flex flex-col gap-[24px] h-full">
-                        <div className="flex flex-col gap-[20px]">
-                          <div className="flex flex-col gap-[10px]">
-                            <h3 className={cn("text-[18px] leading-[28px] font-semibold", theme.title)}>
+                      <div className="relative z-10 flex flex-col gap-[14px] h-full">
+                        <div className="flex flex-col gap-[12px]">
+                          <div className="flex flex-col gap-[4px]">
+                            <h3 className={cn("text-[14px] leading-[20px] font-semibold", theme.title)}>
                               {plan.name}
                             </h3>
-                            <p className={cn("text-[13px] leading-[24px] font-medium", theme.subtitle)}>
+                            <p className={cn("text-[10px] leading-[16px] font-medium", theme.subtitle)}>
                               {plan.subtitle}
                             </p>
                           </div>
 
-                          <div className="flex flex-col gap-[10px]">
-                            <div className="flex items-end gap-[6px]">
-                              <span className={cn("font-bold", plan.priceClass, theme.price)}>{plan.price}</span>
+                          <div className="flex flex-col gap-[4px]">
+                            <div className="flex items-end gap-[4px]">
+                              <span className={cn("font-bold text-[24px] leading-[32px]", theme.price)}>{plan.price}</span>
                               {plan.period ? (
-                                <span className={cn("text-[14px] leading-[24px] font-medium", theme.period)}>
+                                <span className={cn("text-[10px] leading-[16px] font-medium", theme.period)}>
                                   {plan.period}
                                 </span>
                               ) : null}
                             </div>
-                            <p className={cn("text-[14px] leading-[24px] font-medium", theme.description)}>
+                            <p className={cn("text-[10px] leading-[16px] font-medium", theme.description)}>
                               {plan.description}
                             </p>
                           </div>
@@ -282,20 +282,20 @@ export function PricingSection() {
 
                         <div
                           className={cn(
-                            "h-[44px] w-full rounded-[50px] flex items-center justify-center text-[13px] leading-[24px] font-bold",
+                            "h-[32px] w-full rounded-[50px] flex items-center justify-center text-[10px] leading-[16px] font-bold",
                             theme.button
                           )}
                         >
                           Current Plan
                         </div>
 
-                        <div className="flex flex-col gap-[16px]">
+                        <div className="flex flex-col gap-[10px]">
                           {plan.features.map((feature, index) => (
-                            <div key={`${plan.name}-m-${index}`} className="flex items-center gap-[10px]">
-                              <span className="flex size-[20px] items-center justify-center">
-                                <CheckIcon className={cn("w-[14px] h-[10px]", theme.icon)} />
+                            <div key={`${plan.name}-m-${index}`} className="flex items-center gap-[6px]">
+                              <span className="flex size-[14px] items-center justify-center shrink-0">
+                                <CheckIcon className={cn("w-[10px] h-[7px]", theme.icon)} />
                               </span>
-                              <span className={cn("text-[14px] leading-[22px] font-medium", theme.feature)}>
+                              <span className={cn("text-[10px] leading-[14px] font-medium", theme.feature)}>
                                 {feature}
                               </span>
                             </div>

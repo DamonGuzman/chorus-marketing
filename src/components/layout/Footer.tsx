@@ -47,7 +47,7 @@ const footerLinks = {
 
 export function Footer() {
   return (
-    <footer className="bg-black px-4 py-10 md:px-8 md:py-20 md:flex md:flex-col md:items-center">
+    <footer className="bg-black px-10 py-10 md:px-8 md:py-20 md:flex md:flex-col md:items-center">
       <div className="flex flex-col justify-start items-start gap-8 md:gap-10">
         <div className="flex flex-col md:inline-flex md:flex-row md:justify-start md:items-start md:gap-10 xl:gap-52 gap-8 md:gap-[40px]">
           {/* Logo + description + CTA */}
