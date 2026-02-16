@@ -3,7 +3,7 @@ export function FeaturesHeroSection() {
     <section className="relative w-full bg-black overflow-hidden">
       {/* ── Decorative Concentric Rings (desktop only) ── */}
       <div
-        className="hidden md:block absolute left-1/2 top-[100px] -translate-x-1/2 w-[935px] h-[911px] -rotate-3 rounded-full border-[2.85px] border-white/5 pointer-events-none"
+        className="hidden md:block absolute left-1/2 top-section-x -translate-x-1/2 w-[935px] h-[911px] -rotate-3 rounded-full border-[2.85px] border-white/5 pointer-events-none"
         style={{
           boxShadow: "0px 6.18px 6.18px rgba(0, 0, 0, 0.25)",
         }}
@@ -31,14 +31,14 @@ export function FeaturesHeroSection() {
       />
 
       {/* ── Hero Text ── */}
-      <div className="relative z-10 flex flex-col items-center pt-[80px] md:pt-[100px] px-6">
+      <div className="relative z-10 flex flex-col items-center pt-[80px] md:pt-section-x px-6">
         <div className="flex flex-col items-center gap-[20px] md:gap-[27px] max-w-[960px]">
           <h1 className="text-center text-white text-[38px] md:text-[64px] font-bold leading-[1.1] md:leading-[58px] md:not-italic tracking-tight">
             <span className="text-white">Your AI </span>
-            <span className="bg-gradient-to-r from-[#CACACC] to-[#7C7B82] bg-clip-text text-transparent">
+            <span className="bg-linear-to-r from-[#CACACC] to-[#7C7B82] bg-clip-text text-transparent">
               Workforce
             </span>
-            <span className="bg-gradient-to-r from-[#7C7B82] via-[#7C7B82] to-[#7C7B82] bg-clip-text text-transparent">
+            <span className="bg-linear-to-r from-[#7C7B82] via-[#7C7B82] to-[#7C7B82] bg-clip-text text-transparent">
               {" "}
               , Unpacked
             </span>
@@ -49,21 +49,13 @@ export function FeaturesHeroSection() {
         </div>
       </div>
 
-      {/* ── Mobile: Dashboard Image ── */}
-      <div className="md:hidden relative mt-[30px] overflow-hidden h-[320px]">
+      {/* ── Mobile: Dashboard Image (full viewport width so image sticks to right edge) ── */}
+      <div className="block md:hidden h-96 relative w-screen left-1/2 -translate-x-1/2">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
-          src="/images/figma/Group 1707484061.svg"
+          src="/images/figma/features/first-card-mobile.png"
           alt="Chorus AI Workforce Dashboard"
-          className="absolute left-1/2 -translate-x-1/2 w-[499px] h-80 object-contain z-[3]"
-        />
-        {/* Mobile Bottom Fade */}
-        <div
-          className="absolute bottom-0 left-0 right-0 h-[160px] pointer-events-none z-[5]"
-          style={{
-            background:
-              "linear-gradient(0deg, #000000 0%, rgba(0, 0, 0, 0.8) 40%, rgba(0, 0, 0, 0) 100%)",
-          }}
+          className="absolute right-0 z-3"
         />
       </div>
 

@@ -22,7 +22,7 @@ export function GoalDrivenSection() {
   }, []);
 
   return (
-    <section className="w-full bg-black px-4 md:px-8 py-[50px] md:py-[75px] overflow-hidden">
+    <section className="w-full bg-black px-4 md:px-8 py-[50px] md:py-section-y overflow-hidden">
       <div className="flex flex-col md:flex-row max-w-[1240px] mx-auto items-center justify-between gap-10">
         {/* Left – Step indicator */}
         <div className="hidden md:flex flex-col items-center gap-[26px] shrink-0">
@@ -53,8 +53,8 @@ export function GoalDrivenSection() {
         </div>
 
         {/* Right – Animated illustration */}
-        <div className="w-full h-full">
-          <img src={"images/figma/features/settings-image.png"}/>
+        <div className="w-full h-full flex justify-end">
+          <img src={"images/figma/features/settings-image.png"} className="w-auto h-auto"/>
           {/* <div className="w-[556.86px] h-[529.58px] relative">
             <div className="w-28 h-28 left-[213.37px] top-0 absolute bg-gradient-to-b from-white/0 to-white/10 rounded-full border-1 border-white/10" />
             <div className="w-20 h-20 left-[226px] top-[12px] absolute bg-neutral-800 rounded-full border-[1.50px] border-white/10" />
