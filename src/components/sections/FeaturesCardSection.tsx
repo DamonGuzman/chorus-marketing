@@ -266,12 +266,12 @@ export function FeaturesCardSection() {
         {/* ── Stacked Cards (same width as main, offset below) ── */}
         {/* Back card */}
         <div
-          className="w-76 md:w-[85%] h-18 max-w-[1188px] rounded-3xl bg-black border border-white/15"
+          className="w-64 md:w-[85%] h-18 max-w-[1188px] rounded-3xl bg-black border border-white/15"
         />
 
         {/* Middle card */}
         <div
-          className="w-88 md:w-[90%] h-20 max-w-[1188px] -mt-[18%] md:-mt-10 rounded-3xl bg-black border border-white/20"
+          className="w-72 md:w-[90%] h-20 max-w-[1188px] -mt-[18%] md:-mt-10 rounded-3xl bg-black border border-white/20"
         />
 
         {/* ── Front card — Main Content ── */}
