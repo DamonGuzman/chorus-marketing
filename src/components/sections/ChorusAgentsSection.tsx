@@ -66,7 +66,7 @@ function AvatarStack() {
    ═══════════════════════════════════════════════════════════ */
 function GoalsCard() {
   return (
-    <div className="relative w-80 md:w-auto md:flex-1 md:min-w-[300px] h-[550px] md:h-[671px] rounded-3xl md:rounded-[40px] overflow-hidden">
+    <div className="relative w-80 md:w-auto md:flex-1 md:min-w-[300px] h-[500px] md:h-[671px] rounded-3xl md:rounded-[40px] overflow-hidden">
       {/* Border */}
       <div className="absolute inset-0 rounded-3xl md:rounded-[40px] border border-white/35 pointer-events-none z-40" />
 
@@ -84,123 +84,115 @@ function GoalsCard() {
 
       {/* Subtle landscape texture band */}
       <div
-        className="absolute bottom-[180px] inset-x-0 h-[120px] opacity-20"
+        className="absolute bottom-[180px] md:bottom-[180px] inset-x-0 h-[120px] opacity-20"
         style={{
           background:
             "linear-gradient(180deg, transparent 0%, rgba(80,60,30,0.3) 40%, rgba(60,40,20,0.2) 70%, transparent 100%)",
         }}
       />
 
-      {/* Bottom fade to black for title readability */}
-      {/* <div
-      className="absolute inset-0 z-20 pointer-events-none"
-      style={{
-        background: "linear-gradient(180deg, transparent 0%, transparent 55%, rgba(0,0,0,0.85) 70%, black 82%)",
-      }}
-    /> */}
-
       {/* ── UI Elements ── */}
-      <div className="absolute inset-x-0 top-0 h-[460px] z-10 flex flex-col items-center px-6 pt-8 overflow-hidden">
+      <div className="absolute inset-x-0 top-0 h-[400px] md:h-[460px] z-10 flex flex-col items-center px-4 md:px-6 pt-6 md:pt-8 overflow-hidden">
         {/* Search bar */}
         <div
-          className="w-full max-w-[370px] h-[52px] px-[20px] rounded-[24px] flex items-center gap-3 mb-4 backdrop-blur-sm"
+          className="w-full max-w-[320px] md:max-w-[370px] h-[44px] md:h-[52px] px-4 md:px-[20px] rounded-[20px] md:rounded-[24px] flex items-center gap-2 md:gap-3 mb-3 md:mb-4 backdrop-blur-sm"
           style={{
             background:
               "linear-gradient(90deg, rgba(51,51,51,0.3) 0%, rgba(1,1,1,0.4) 100%)",
           }}
         >
-          <SearchIcon className="w-[20px] h-[20px] text-white/50" />
-          <span className="text-gray-300 text-[16px] font-semibold leading-[28px]">
+          <SearchIcon className="w-4 h-4 md:w-[20px] md:h-[20px] text-white/50" />
+          <span className="text-gray-300 text-sm md:text-[16px] font-semibold leading-[24px] md:leading-[28px]">
             Search goals
           </span>
         </div>
 
-        <div className="w-full max-w-[440px] flex flex-col items-start">
-          {/* Track Monthly Revenue card - Now with backdrop blur and transparency */}
+        <div className="w-full max-w-[320px] md:max-w-[440px] flex flex-col items-start">
+          {/* Track Monthly Revenue card */}
           <div
-            className="w-full rounded-[20px] py-3 px-4 flex flex-col gap-3 backdrop-blur-md"
+            className="w-full rounded-[16px] md:rounded-[20px] py-2 md:py-3 px-3 md:px-4 flex flex-col gap-2 md:gap-3 backdrop-blur-md"
             style={{
               background: "rgba(255,255,255,0.08)",
               boxShadow: "0px 4px 61px rgba(0,0,0,0.5)",
             }}
           >
-            <p className="text-gray-100 text-[16px] font-bold leading-[28px]">
+            <p className="text-gray-100 text-sm md:text-[16px] font-bold leading-[24px] md:leading-[28px]">
               Track Monthly Revenue
             </p>
             <div className="flex items-center justify-between">
-              <div className="flex items-center gap-[5px]">
-                <ClipboardIcon className="w-[16px] h-[16px] text-gray-300" />
-                <span className="text-gray-300 text-[14px] font-semibold leading-[22px]">
+              <div className="flex items-center gap-1 md:gap-[5px]">
+                <ClipboardIcon className="w-3 h-3 md:w-[16px] md:h-[16px] text-gray-300" />
+                <span className="text-gray-300 text-xs md:text-[14px] font-semibold leading-[20px] md:leading-[22px]">
                   Tasks :
                 </span>
-                <span className="text-gray-300 text-[14px] font-bold leading-[22px]">
+                <span className="text-gray-300 text-xs md:text-[14px] font-bold leading-[20px] md:leading-[22px]">
                   7
                 </span>
               </div>
-              <div className="flex items-center gap-2">
+              <div className="flex items-center gap-1.5 md:gap-2">
                 <AvatarStack />
-                <span className="text-gray-300 text-[14px] font-bold leading-[22px]">
+                <span className="text-gray-300 text-xs md:text-[14px] font-bold leading-[20px] md:leading-[22px]">
                   +3
                 </span>
               </div>
             </div>
           </div>
 
-          {/* Green checkmark connector (left aligned to cards) */}
-          <div className="flex flex-col items-start -my-1 self-start">
-            <div className="h-[26px] border-l border-dotted border-gray-200/50 ml-[11px]" />
+          {/* Green checkmark connector */}
+          <div className="flex flex-col items-start -my-0.5 md:-my-1 self-start">
+            <div className="h-[20px] md:h-[26px] border-l border-dotted border-gray-200/50 ml-[9px] md:ml-[11px]" />
             <div className="flex items-center">
-              <div className="w-[22px] h-[22px] rounded-full bg-success flex items-center justify-center">
-                <CheckIcon className="w-[10px] h-[8px] text-white" />
+              <div className="w-[18px] h-[18px] md:w-[22px] md:h-[22px] rounded-full bg-success flex items-center justify-center">
+                <CheckIcon className="w-[8px] h-[6px] md:w-[10px] md:h-[8px] text-white" />
               </div>
-              <div className="h-0 w-[20px] border-t border-dotted border-gray-200/50" />
+              <div className="h-0 w-4 md:w-[20px] border-t border-dotted border-gray-200/50" />
             </div>
           </div>
 
-          {/* Franks Lampard subtask card - Now with backdrop blur and transparency */}
+          {/* Franks Lampard subtask card */}
           <div
-            className="w-full max-w-[89%] ml-[40px] -mt-[20px] rounded-[20px] py-3 px-4 flex flex-col gap-3 backdrop-blur-md"
+            className="w-full max-w-[89%] ml-[34px] md:ml-[40px] -mt-4 md:-mt-[20px] rounded-[16px] md:rounded-[20px] py-2 md:py-3 px-3 md:px-4 flex flex-col gap-2 md:gap-3 backdrop-blur-md"
             style={{
               background: "rgba(255,255,255,0.08)",
               boxShadow: "0px 4px 61px rgba(0,0,0,0.5)",
             }}
           >
-            <div className="flex items-center justify-between flex-wrap gap-2">
-              <div className="flex items-center gap-2 px-[10px] py-[3px] rounded-[10px] bg-white/4 border border-white/10">
+            <div className="flex items-center justify-between flex-wrap gap-1.5 md:gap-2">
+              <div className="flex items-center gap-1.5 md:gap-2 px-2 md:px-[10px] py-[2px] md:py-[3px] rounded-[8px] md:rounded-[10px] bg-white/4 border border-white/10">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src="/images/figma/Ellipse 53.svg"
                   alt=""
-                  className="w-[22px] h-[22px] rounded-full shrink-0"
+                  className="w-[18px] h-[18px] md:w-[22px] md:h-[22px] rounded-full shrink-0"
                 />
-                <span className="text-gray-100 text-[14px] font-semibold leading-[22px]">
+                <span className="text-gray-100 text-xs md:text-[14px] font-semibold leading-[20px] md:leading-[22px]">
                   Franks Lampard
                 </span>
               </div>
-              <div className="flex items-center gap-2">
-                <div className="w-[16px] h-[16px] rounded-full bg-success flex items-center justify-center">
-                  <CheckIcon className="w-[7px] h-[6px] text-white" />
+              <div className="flex items-center gap-1.5 md:gap-2">
+                <div className="w-[14px] h-[14px] md:w-[16px] md:h-[16px] rounded-full bg-success flex items-center justify-center">
+                  <CheckIcon className="w-[6px] h-[5px] md:w-[7px] md:h-[6px] text-white" />
                 </div>
-                <span className="text-white text-[14px] font-bold">
+                <span className="text-white text-xs md:text-[14px] font-bold">
                   Completed
                 </span>
               </div>
             </div>
-            <div className="flex items-center gap-2">
-              <ClipboardIcon className="w-[16px] h-[16px] text-gray-300 shrink-0" />
-              <span className="text-gray-100 text-[14px] font-bold leading-[28px]">
+            <div className="flex items-center gap-1.5 md:gap-2">
+              <ClipboardIcon className="w-3 h-3 md:w-[16px] md:h-[16px] text-gray-300 shrink-0" />
+              <span className="text-gray-100 text-xs md:text-[14px] font-bold leading-[22px] md:leading-[28px]">
                 Collect revenue data from bank APIs
               </span>
             </div>
-            <div className="flex items-center gap-6 flex-wrap">
-              <div className="flex items-center gap-2">
-                <span className="text-gray-100 text-[12px] font-semibold leading-[22px]">
+            <div className="flex items-center gap-4 md:gap-6 flex-wrap">
+              <div className="flex items-center gap-1.5 md:gap-2">
+                <span className="text-gray-100 text-[11px] md:text-[12px] font-semibold leading-[20px] md:leading-[22px]">
                   Apps :
                 </span>
                 <div className="flex items-center -space-x-[2px]">
                   {/* Slack */}
-                  <span className="inline-grid place-items-center w-[22px] h-[22px] rounded-full bg-[#4A154B] border border-white/15">
-                    <svg viewBox="0 0 24 24" className="size-full p-[4px]">
+                  <span className="inline-grid place-items-center w-[18px] h-[18px] md:w-[22px] md:h-[22px] rounded-full bg-[#4A154B] border border-white/15">
+                    <svg viewBox="0 0 24 24" className="size-full p-[3px] md:p-[4px]">
                       <circle cx="8" cy="8" r="2.6" fill="#36C5F0" />
                       <circle cx="16" cy="8" r="2.6" fill="#2EB67D" />
                       <circle cx="8" cy="16" r="2.6" fill="#E01E5A" />
@@ -208,27 +200,27 @@ function GoalsCard() {
                     </svg>
                   </span>
                   {/* HubSpot */}
-                  <span className="inline-grid place-items-center w-[22px] h-[22px] rounded-full bg-[#FF7A59] border border-white/15">
-                    <span className="text-white text-[10px] font-extrabold leading-none">
+                  <span className="inline-grid place-items-center w-[18px] h-[18px] md:w-[22px] md:h-[22px] rounded-full bg-[#FF7A59] border border-white/15">
+                    <span className="text-white text-[8px] md:text-[10px] font-extrabold leading-none">
                       H
                     </span>
                   </span>
                   {/* Stripe */}
-                  <span className="inline-grid place-items-center w-[22px] h-[22px] rounded-full bg-[#635BFF] border border-white/15">
-                    <span className="text-white text-[10px] font-extrabold leading-none">
+                  <span className="inline-grid place-items-center w-[18px] h-[18px] md:w-[22px] md:h-[22px] rounded-full bg-[#635BFF] border border-white/15">
+                    <span className="text-white text-[8px] md:text-[10px] font-extrabold leading-none">
                       S
                     </span>
                   </span>
                 </div>
               </div>
-              <div className="flex items-center gap-2">
+              <div className="flex items-center gap-1.5 md:gap-2">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src="/images/figma/excel-icon.png"
                   alt="Excel file"
-                  className="w-[20px] h-[20px] rounded-[3px] object-cover"
+                  className="w-4 h-4 md:w-[20px] md:h-[20px] rounded-[3px] object-cover"
                 />
-                <span className="text-gray-100 text-[12px] font-semibold leading-[22px]">
+                <span className="text-gray-100 text-[11px] md:text-[12px] font-semibold leading-[20px] md:leading-[22px]">
                   Stripe_revenue_report.csv
                 </span>
               </div>
@@ -238,11 +230,11 @@ function GoalsCard() {
       </div>
 
       {/* ── Title + desc ── */}
-      <div className="absolute bottom-0 inset-x-0 z-30 flex flex-col items-center gap-1 pb-6 px-6">
-        <h3 className="text-white text-[26px] font-bold leading-[40px] text-center">
+      <div className="absolute bottom-0 inset-x-0 z-30 flex flex-col items-center gap-1 pb-4 md:pb-6 px-4 md:px-6">
+        <h3 className="text-white text-xl md:text-[26px] font-bold leading-[32px] md:leading-[40px] text-center">
           You set goals, not tasks
         </h3>
-        <p className="text-gray-300 text-[16px] font-semibold leading-[26px] text-center max-w-[440px]">
+        <p className="text-gray-300 text-sm md:text-[16px] font-semibold leading-[22px] md:leading-[26px] text-center max-w-[320px] md:max-w-[440px]">
           The best way to reach humans instead of spam folders. Deliver
           transactional and marketing emails at scale.
         </p>
@@ -353,7 +345,7 @@ function CollaborateCard() {
 function DecisionsCard() {
   return (
     <div
-      className="relative w-80 md:w-[393px] shrink-0 h-[477px] md:h-[535px] rounded-[36px] md:rounded-[40px] overflow-hidden border border-white/30"
+      className="relative w-80 md:w-[393px] shrink-0 h-[515px] md:h-[535px] rounded-[36px] md:rounded-[40px] overflow-hidden border border-white/30"
       style={{
         background:
           "linear-gradient(101deg, rgba(255,255,255,0.06) 0%, rgba(255,255,255,0.10) 55%, rgba(255,255,255,0.05) 100%)",
@@ -446,7 +438,7 @@ function DecisionsCard() {
         </div>
 
         <div className="mt-auto pb-2">
-          <h3 className="text-white text-[26px] font-bold leading-[36px] text-center max-w-[291px] mx-auto">
+          <h3 className="text-white text:xs md:text-[26px] font-bold leading-[36px] text-center max-w-[291px] mx-auto">
             They make decisions within your guidelines
           </h3>
         </div>
@@ -464,7 +456,7 @@ function FeedbackCard() {
     <div className="relative w-80 md:w-auto md:flex-1 md:min-w-[300px] h-56 md:h-[537px] rounded-2xl md:rounded-[37px] overflow-hidden">
       {/* Subtle dark blue/purple bg */}
       <div
-        className="absolute inset-0"
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{
           backgroundImage:
             "url('/images/figma/features/dessert-and-pearl.svg')",
@@ -472,7 +464,7 @@ function FeedbackCard() {
       />
 
       {/* Overlay for mobile readability */}
-      <div className="md:hidden absolute inset-0 bg-gradient-to-b from-black/0 to-black/70 rounded-2xl border-[0.4px] border-white/30 z-[1]" />
+      <div className="md:hidden absolute inset-0 bg-linear-to-b from-black/0 to-black/30 z-1" />
 
       {/* Title top-left */}
       <div className="absolute top-[21px] left-[18px] md:top-[35px] md:left-[30px] z-30 max-w-[176px] md:max-w-[394px]">
@@ -482,7 +474,7 @@ function FeedbackCard() {
       </div>
 
       {/* ── macOS Chat Window ── */}
-      <div className="absolute top-[43px] md:top-[90px] left-[24px] right-[24px] bottom-0 z-[15] md:left-[50px] md:right-[50px]">
+      <div className="absolute top-[43px] md:top-[90px] left-[24px] right-[24px] bottom-0 z-15 md:left-[50px] md:right-[50px]">
         <div
           className="w-full h-full bg-[#131313] rounded-t-lg md:rounded-t-[18px] border-[0.45px] md:border-[1.5px] border-white/20 md:border-white/10 overflow-hidden"
           style={{ backdropFilter: "blur(31px)" }}

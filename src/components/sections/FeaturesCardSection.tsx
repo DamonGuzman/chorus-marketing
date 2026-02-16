@@ -271,12 +271,12 @@ export function FeaturesCardSection() {
 
         {/* Middle card */}
         <div
-          className="w-88 md:w-[90%] h-20 max-w-[1188px] -mt-10 rounded-3xl bg-black border border-white/20"
+          className="w-88 md:w-[90%] h-20 max-w-[1188px] -mt-[18%] md:-mt-10 rounded-3xl bg-black border border-white/20"
         />
 
         {/* ── Front card — Main Content ── */}
         <div
-          className="w-full max-w-[1240px] -mt-10 rounded-3xl py-[36px] px-[24px] md:py-[60px] md:px-[56px] overflow-hidden"
+          className="w-full max-w-[1240px] -mt-[18%] md:-mt-10 rounded-3xl py-[36px] px-[24px] md:py-[60px] md:px-[56px] overflow-hidden"
           style={{
             background: "#000000",
             outline: "1px solid #434343",
