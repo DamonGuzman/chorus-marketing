@@ -30,7 +30,7 @@ export function NewHeroSection() {
       />
 
       {/* Content */}
-      <div className="relative z-10 pt-[60px] md:pt-[160px] px-4 sm:px-6 md:px-[100px] max-w-[1440px] mx-auto pb-12 md:pb-0">
+      <div className="relative z-10 pt-[60px] md:pt-[110px] px-4 sm:px-6 md:px-8 max-w-[1440px] mx-auto pb-12 md:pb-0">
         {/* Hero Header - max-w-[1183px] centered like Figma */}
         <div className="w-full max-w-[1183px] mx-auto flex flex-col justify-start items-center">
           <div className="self-stretch flex flex-col justify-start items-center gap-[20px] md:gap-7">

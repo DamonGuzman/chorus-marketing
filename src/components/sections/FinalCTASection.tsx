@@ -5,7 +5,7 @@ import { PRIMARY_CTA_HREF } from "@/content/site";
 
 export function FinalCTASection() {
   return (
-    <section className="relative w-full bg-black overflow-hidden px-4 py-10 md:px-[100px] md:py-20" id="cta">
+    <section className="relative w-full bg-black overflow-hidden px-4 py-10 md:px-8 md:py-20" id="cta">
       {/* Stars particle background (same as hero) */}
       <img
         src="/images/figma/stars.svg"

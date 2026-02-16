@@ -11,7 +11,7 @@ const benefits = [
 
 export function CTASection() {
   return (
-    <section className="relative bg-black h-[632px] flex items-center justify-center overflow-hidden px-[100px]">
+    <section className="relative bg-black h-[632px] flex items-center justify-center overflow-hidden px-8">
       {/* Background layers */}
       <div className="absolute inset-0">
         {/* Grid pattern */}

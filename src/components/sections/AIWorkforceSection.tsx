@@ -27,7 +27,7 @@ function InlinePill({
 export function AIWorkforceSection() {
   return (
     <Section
-      className="self-stretch bg-black px-4 py-10 md:px-[100px] md:py-20 inline-flex md:flex flex-col justify-start items-center gap-6 md:gap-16 overflow-hidden"
+      className="self-stretch bg-black px-4 py-10 md:px-8 md:py-20 inline-flex md:flex flex-col justify-start items-center gap-6 md:gap-16 overflow-hidden"
       id="ai-workforce"
     >
       {/* Header */}

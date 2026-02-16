@@ -100,7 +100,7 @@ const IntegrationIcon = ({ src }: { src: string }) => (
 
 export function IntegrationsSection() {
   return (
-    <section id="integrations" className="w-full px-4 py-10 md:px-[100px] md:py-20 bg-black flex flex-col items-center gap-2.5 overflow-hidden">
+    <section id="integrations" className="w-full px-4 py-10 md:px-8 md:py-20 bg-black flex flex-col items-center gap-2.5 overflow-hidden">
       <div className="self-stretch flex flex-col justify-start items-center gap-6 md:gap-14">
         <div className="self-stretch flex flex-col justify-start items-center gap-6">
           <Badge>

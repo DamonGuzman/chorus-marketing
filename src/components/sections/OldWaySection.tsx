@@ -30,7 +30,7 @@ const oldWayItems = [
 
 export function OldWaySection() {
   return (
-    <Section className="self-stretch max-md:px-4 max-md:py-3 md:px-[100px] md:py-20 max-md:inline-flex md:flex flex-col justify-start items-center max-md:gap-4 md:gap-10" id="old-way">
+    <Section className="self-stretch max-md:px-4 max-md:py-3 md:px-8 md:py-20 max-md:inline-flex md:flex flex-col justify-start items-center max-md:gap-4 md:gap-10" id="old-way">
       {/* Header */}
       <div className="flex flex-col justify-start items-center gap-6">
         <Badge>The Problem</Badge>

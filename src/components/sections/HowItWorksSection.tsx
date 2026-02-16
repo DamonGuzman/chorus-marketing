@@ -580,7 +580,7 @@ function ConnectedAppsCard() {
 export function HowItWorksSection() {
   return (
     <Section
-      className="relative overflow-hidden py-10 md:py-20 md:px-[100px] md:flex md:flex-col md:items-center"
+      className="relative overflow-hidden py-10 md:py-20 md:px-8 md:flex md:flex-col md:items-center"
       id="how-it-works"
     >
       <div className="self-stretch px-4 md:px-0">

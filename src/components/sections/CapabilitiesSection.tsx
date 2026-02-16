@@ -27,7 +27,7 @@ const teamMembers = [
 
 export function CapabilitiesSection() {
   return (
-    <Section className="self-stretch px-4 py-10 md:py-20 md:px-[100px] inline-flex md:flex flex-col justify-start items-center gap-6 md:gap-14 relative overflow-hidden" id="use-cases">
+    <Section className="self-stretch px-4 py-10 md:py-20 md:px-8 inline-flex md:flex flex-col justify-start items-center gap-6 md:gap-14 relative overflow-hidden" id="use-cases">
       {/* Section Header */}
       <Badge>Capabilities</Badge>
       <div className="flex flex-col justify-start items-center gap-4">

@@ -112,7 +112,7 @@ export function PricingSection() {
   }, []);
 
   return (
-    <Section className="px-4 pt-10 pb-10 md:px-[100px] md:pt-20 md:pb-36 md:flex md:flex-col md:items-center" id="pricing">
+    <Section className="px-4 pt-10 pb-10 md:px-8 md:pt-20 md:pb-36 md:flex md:flex-col md:items-center" id="pricing">
       <div className="self-stretch flex flex-col justify-start items-center gap-6 md:gap-14">
         <div className="self-stretch flex flex-col justify-start items-center gap-6">
           <Badge className="w-32">

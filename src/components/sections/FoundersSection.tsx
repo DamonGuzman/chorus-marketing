@@ -221,7 +221,7 @@ function GlassWhiteCard() {
 export function FoundersSection() {
   return (
     <Section
-      className="bg-black px-4 py-10 md:px-[100px] md:py-20 md:flex md:flex-col md:items-center"
+      className="bg-black px-4 py-10 md:px-8 md:py-20 md:flex md:flex-col md:items-center"
       id="testimonials"
     >
       <div className="self-stretch flex flex-col justify-start items-center gap-6 md:gap-14">
