@@ -9,50 +9,39 @@ export default function AboutUsPage() {
       <main>
         <section
           id="about-us"
-          className="bg-black py-[50px] md:py-[75px] overflow-hidden"
+          className="bg-black py-[50px] md:py-section-y overflow-hidden"
         >
           {/* first parent section */}
           {/* desktop */}
-          <div className="hidden md:block relative w-full md:px-[30px] min-h-[650px] md:min-h-[700px] lg:min-h-[800px]">
-            {/* Torch Image - positioned behind text */}
-            <div className="absolute right-0 bottom-0 w-[70%] md:w-1/2 lg:top-1/2 lg:-translate-y-1/2 lg:bottom-auto z-0">
-              <img
-                className="w-full h-auto object-contain"
-                src="/images/figma/about-us/torch.svg"
-                alt="Torch illustration"
-              />
-            </div>
-
-            {/* Content - stacked: badge + title on top, then subtitle overlapping the image */}
-            <div className="relative w-full lg:max-w-[50%] px-4 md:px-24 pt-[80px] md:pt-20 flex flex-col justify-start items-center lg:items-start gap-6 md:gap-8 z-10 text-center lg:text-left">
-              <Badge className="px-3 py-1">About us</Badge>
-
-              <div className="self-stretch">
-                <h1 className="text-[36px] md:text-6xl font-bold font-['Urbanist'] leading-[46px] md:leading-[74px]">
-                  <span className="text-white">Chorus is the </span>
-                  <span className="bg-gradient-to-r from-[#CACACC] to-[#7C7B82] bg-clip-text text-transparent">
-                    agentic AI platform
-                  </span>
-                  <span className="bg-gradient-to-r from-[#7C7B82] via-[#7C7B82] to-[#7C7B82] bg-clip-text text-transparent">
-                    {" "}
-                    that proves real magic exists
-                  </span>
-                </h1>
+          <div className="hidden md:block self-stretch h-[659px] relative bg-black overflow-hidden">
+            <img
+              className="w-[736px] h-[571px] right-0 top-[88px] absolute"
+              src="/images/figma/about-us/torch.svg"
+            />
+            <div className="md:w-[80%] lg:w-[55%] left-[123px] top-[146px] absolute inline-flex flex-col justify-start items-start gap-8">
+              <div className="text-center justify-center text-White text-base font-bold font-['Urbanist'] leading-6">
+                <Badge className="px-3 py-1">About us</Badge>
               </div>
-            </div>
-
-            {/* Subtitle - positioned to overlap the torch image on mobile */}
-            <div className="absolute bottom-[180px] md:bottom-auto md:top-[420px] lg:top-[380px] left-0 w-full lg:w-[50%] px-4 md:px-24 z-10 text-center lg:text-left">
-              <p className="text-[#CACACC] text-[14px] md:text-3xl font-medium font-['Urbanist'] leading-[22px] md:leading-9 whitespace-nowrap">
+              <div className="self-stretch justify-center text-6xl font-bold font-['Urbanist'] leading-[74px]">
+                <span className="text-white">Chorus is the </span>{" "}
+                <span className="bg-linear-to-r from-[#CACACC] to-[#7C7B82] bg-clip-text text-transparent">
+                  agentic AI platform
+                </span>
+                <span className="bg-linear-to-r from-[#7C7B82] via-[#7C7B82] to-[#7C7B82] bg-clip-text text-transparent">
+                  {" "}
+                  that proves real magic exists
+                </span>
+              </div>
+              <div className="self-stretch justify-start text-gray-300 text-3xl font-medium font-['Urbanist'] leading-9">
                 We don&apos;t promise the impossible. We deliver it.
-              </p>
+              </div>
             </div>
           </div>
 
           {/* mobile */}
           <div className="block md:hidden self-stretch h-[509px] relative bg-black overflow-hidden">
             <img
-              className="w-72 h-56 left-[100px] top-[293.99px] absolute"
+              className="w-72 h-56 right-0 top-[293.99px] absolute"
               src="/images/figma/about-us/torch.svg"
             />
             <div
@@ -61,22 +50,20 @@ export default function AboutUsPage() {
               data-type="img"
               className="w-7 h-7 left-[527.21px] top-[55.38px] absolute rounded-3xl"
             >
-              <div className="w-7 h-7 left-[-1px] top-[-1px] absolute rounded-full outline outline-1 outline-gray-200" />
+              <div className="w-7 h-7 -left-px -top-px absolute rounded-full outline-1 outline-gray-200" />
             </div>
             <div className="w-52 h-80 left-[18px] top-[28.99px] absolute inline-flex flex-col justify-start items-start">
               <div className="flex flex-col justify-start items-center gap-7">
-                <div className="w-28 h-9 px-3 py-1 bg-white/5 rounded-[100px] inline-flex justify-center items-center gap-2 overflow-hidden">
-                  <div className="text-center justify-center text-White text-base font-bold font-['Urbanist'] leading-6">
-                    About us
-                  </div>
+                <div className="text-center justify-center text-White text-base font-bold font-['Urbanist'] leading-6">
+                  <Badge className="px-3 py-1">About us</Badge>
                 </div>
                 <div className="self-stretch flex flex-col justify-start items-start gap-6">
                   <div className="w-80 text-center justify-center text-white text-4xl font-bold font-['Urbanist'] leading-10">
                     <span className="text-white">Chorus is the </span>
-                    <span className="bg-gradient-to-r from-[#CACACC] to-[#7C7B82] bg-clip-text text-transparent">
+                    <span className="bg-linear-to-r from-[#CACACC] to-[#7C7B82] bg-clip-text text-transparent">
                       agentic AI platform
                     </span>
-                    <span className="bg-gradient-to-r from-[#7C7B82] via-[#7C7B82] to-[#7C7B82] bg-clip-text text-transparent">
+                    <span className="bg-linear-to-r from-[#7C7B82] via-[#7C7B82] to-[#7C7B82] bg-clip-text text-transparent">
                       {" "}
                       that proves real magic exists
                     </span>
@@ -241,7 +228,7 @@ export default function AboutUsPage() {
               <div className="w-full grid grid-cols-2 gap-14">
                 <div className="flex flex-row justify-start items-end gap-9">
                   <img
-                    className="w-64 h-56 rounded-[35px] border border-white/40 object-[inherit]"
+                    className="w-64 h-56 rounded-card border border-white/40 object-[inherit]"
                     src="images/figma/about-us/person-1.jpg"
                     alt="TechCrunch"
                   />
@@ -258,7 +245,7 @@ export default function AboutUsPage() {
                 </div>
                 <div className="flex flex-row justify-start items-end gap-9">
                   <img
-                    className="w-64 h-56 rounded-[35px] border border-white/40 object-[inherit]"
+                    className="w-64 h-56 rounded-card border border-white/40 object-[inherit]"
                     src="images/figma/about-us/person-2.jpg"
                     alt="The Information"
                   />
@@ -275,7 +262,7 @@ export default function AboutUsPage() {
               <div className="w-full grid grid-cols-2 gap-14 pl-64">
                 <div className="flex flex-row justify-start items-end gap-9">
                   <img
-                    className="w-64 h-56 rounded-[35px] border border-white/40 object-cover"
+                    className="w-64 h-56 rounded-card border border-white/40 object-cover"
                     src="images/figma/about-us/person-3.jpg"
                     alt="VentureBeat"
                   />
@@ -292,7 +279,7 @@ export default function AboutUsPage() {
                 </div>
                 <div className="flex flex-row justify-start items-end gap-9">
                   <img
-                    className="w-60 h-56 rounded-[35px] border border-white/40 object-cover"
+                    className="w-60 h-56 rounded-card border border-white/40 object-cover"
                     src="images/figma/about-us/person-4.jpg"
                     alt="TechCrunch"
                   />
@@ -311,7 +298,7 @@ export default function AboutUsPage() {
             </div>
 
             {/* CTA Button */}
-            <button className="h-12 px-8 py-3 bg-white rounded-[50px] shadow-[0px_0px_8px_0px_rgba(175,130,249,0.63)] flex justify-center items-center gap-2 overflow-hidden hover:bg-gray-100 transition-colors">
+            <button className="h-12 px-8 py-3 bg-white rounded-pill shadow-[0px_0px_8px_0px_rgba(175,130,249,0.63)] flex justify-center items-center gap-2 overflow-hidden hover:bg-gray-100 transition-colors">
               <span className="text-center text-black text-sm font-bold font-['Urbanist'] leading-6">
                 See The Proof
               </span>
@@ -372,8 +359,8 @@ export default function AboutUsPage() {
 
           {/* Final CTA Section */}
           <div>
-            <div className="w-full h-1 bg-gradient-to-r from-white/0 via-neutral-400 to-white/0 rounded-full" />
-            <div className="relative w-full min-h-[500px] md:h-[632px] px-4 md:px-24 py-[50px] md:py-20 bg-gradient-to-b from-white/20 via-white/0 to-black/0 flex flex-col justify-center items-center overflow-hidden">
+            <div className="w-full h-1 bg-linear-to-r from-white/0 via-neutral-400 to-white/0 rounded-full" />
+            <div className="relative w-full min-h-[500px] md:h-[632px] px-4 md:px-24 py-[50px] md:py-20 bg-linear-to-b from-white/20 via-white/0 to-black/0 flex flex-col justify-center items-center overflow-hidden">
               {/* Background Image */}
               <div
                 className="absolute inset-0 z-0"
@@ -403,19 +390,19 @@ export default function AboutUsPage() {
                   {/* Feature Badges — desktop */}
                   <div className="hidden md:flex flex-wrap justify-center items-center gap-6">
                     {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <div className="h-12 px-9 py-3 bg-white/0 rounded-[50px] border border-white/30 backdrop-blur-[30px] flex items-center gap-5">
+                    <div className="h-12 px-9 py-3 bg-white/0 rounded-pill border border-white/30 backdrop-blur-[30px] flex items-center gap-5">
                       <img src="images/figma/about-us/group.svg" alt="" />
                       <span className="text-stone-300 text-base font-medium font-['Urbanist']">
                         Build without hiring
                       </span>
                     </div>
-                    <div className="h-12 px-9 py-3 bg-white/0 rounded-[50px] border border-white/30 backdrop-blur-[30px] flex items-center gap-5">
+                    <div className="h-12 px-9 py-3 bg-white/0 rounded-pill border border-white/30 backdrop-blur-[30px] flex items-center gap-5">
                       <img src="images/figma/about-us/group.svg" alt="" />
                       <span className="text-stone-300 text-base font-medium font-['Urbanist']">
                         Scale without friction
                       </span>
                     </div>
-                    <div className="h-12 px-9 py-3 bg-white/0 rounded-[50px] border border-white/30 backdrop-blur-[30px] flex items-center gap-3.5">
+                    <div className="h-12 px-9 py-3 bg-white/0 rounded-pill border border-white/30 backdrop-blur-[30px] flex items-center gap-3.5">
                       <img src="images/figma/about-us/group.svg" alt="" />
                       <span className="text-stone-300 text-base font-medium font-['Urbanist']">
                         Grow with Chorus
@@ -460,7 +447,7 @@ export default function AboutUsPage() {
                 </div>
 
                 {/* CTA Button */}
-                <button className="h-[42px] md:h-12 px-[24px] md:px-8 py-[10px] md:py-3 bg-white rounded-[50px] shadow-[0px_0px_8px_0px_rgba(175,130,249,0.63)] flex justify-center items-center gap-2 overflow-hidden hover:bg-gray-100 transition-colors">
+                <button className="h-[42px] md:h-12 px-[24px] md:px-8 py-[10px] md:py-3 bg-white rounded-pill shadow-[0px_0px_8px_0px_rgba(175,130,249,0.63)] flex justify-center items-center gap-2 overflow-hidden hover:bg-gray-100 transition-colors">
                   <span className="text-center text-black text-[13px] md:text-sm font-bold font-['Urbanist'] leading-6">
                     Build Your Team Now
                   </span>
