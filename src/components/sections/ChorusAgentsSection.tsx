@@ -265,67 +265,64 @@ function CollaborateCard() {
   const arrowRadius = 160;
 
   return (
-    <div className="w-80 md:w-[600px] h-[550px] md:h-[671px] relative overflow-hidden">
-      <div className="w-80 md:w-[600px] h-[550px] md:h-[671px] left-0 top-0 absolute bg-gradient-to-b from-black/80 to-black rounded-3xl md:rounded-[40px] border border-white/30" />
-      <div className="w-[467.27px] h-[455.33px] left-[49.47px] top-[32.39px] absolute rounded-full shadow-[0px_6.177914619445801px_6.177914619445801px_0px_rgba(0,0,0,0.25)] border-[2.85px] border-white/5" />
-      <img
-        className="w-16 h-16 left-[102.39px] top-[310.89px] absolute rounded-full"
-        src="images/figma/features/man-memoji.svg"
-      />
-      <img
-        className="w-16 h-16 left-[456.03px] top-[235.97px] absolute rounded-full"
-        src="images/figma/features/girl-memoji.svg"
-      />
-      <img
-        className="w-16 h-16 left-[198.48px] top-[36.92px] absolute rounded-full"
-        src="images/figma/features/boy-memoji.svg"
-      />
-      <div className="w-96 h-96 left-[102px] top-[78.41px] absolute rounded-full shadow-[0px_6.177914619445801px_6.177914619445801px_0px_rgba(0,0,0,0.25)] border-[2.85px] border-white/10" />
-      <div className="w-96 h-96 left-[100.40px] top-[416.34px] absolute origin-top-left rotate-[-83.96deg] bg-neutral-800/20 rounded-full shadow-[0px_6.177914142608643px_6.177914142608643px_0px_rgba(0,0,0,0.25)]" />
-      <div className="w-72 h-72 left-[144.53px] top-[113.50px] absolute rounded-full shadow-[0px_6.177914619445801px_6.177914619445801px_0px_rgba(0,0,0,0.25)] border-[2.85px] border-white/10" />
-      <div className="w-40 h-36 left-[214.04px] top-[178.68px] absolute">
-        <img src="images/figma/features/bot-with-bg.svg" />
-      </div>
-      {/* <div className="w-20 h-5 left-[255.97px] top-[241.49px] absolute bg-white rounded-[53.76px]" /> */}
-      {/* <div className="w-[3.30px] h-2.5 left-[293.73px] top-[212.91px] absolute bg-zinc-300" /> */}
-      {/* <div className="w-5 h-3 left-[286.21px] top-[222.83px] absolute bg-white rounded-[38.40px]" /> */}
-      {/* <div className="w-16 h-12 left-[260.93px] top-[226.19px] absolute bg-white rounded-[189.44px]" /> */}
-      {/* <div className="w-14 h-7 left-[267.65px] top-[237.73px] absolute bg-zinc-600 rounded-[99.84px]" /> */}
-      <div className="w-2.5 h-2.5 left-[275.90px] top-[246.18px] absolute bg-White rounded-full" />
-      <div className="w-2.5 h-2.5 left-[303.92px] top-[246.18px] absolute bg-White rounded-full" />
-      {/* <div className="w-3 h-2.5 left-[289.75px] top-[202.71px] absolute bg-white rounded-full" /> */}
-      <div className="w-10 h-10 left-[9rem] top-[11.5rem] absolute origin-top-left rotate-[154.79deg] overflow-hidden">
-        <img src="images/figma/features/boy-cursor.svg" />
-      </div>
-      <div className="w-16 h-8 left-[44.03px] top-[140.73px] absolute inline-flex flex-col justify-start items-center gap-3">
-        <div className="h-8 p-2.5 bg-gray-600 rounded-lg inline-flex justify-center items-center gap-2">
-          <div className="justify-start text-White text-lg font-semibold font-['Urbanist'] leading-9">
-            Task
+    <div className="w-80 md:w-[600px] h-[370px] md:h-[671px] relative overflow-hidden">
+      <div className="w-80 md:w-[600px] h-[370px] md:h-[671px] left-0 top-0 absolute bg-gradient-to-b from-black/80 to-black rounded-3xl md:rounded-[40px] border-[0.58px] md:border border-white/30" />
+      {/* Orbit content — scaled down on mobile */}
+      <div className="absolute top-0 left-[10px] w-[600px] h-[671px] origin-top-left scale-[0.53] md:left-0 md:w-full md:h-full md:scale-100">
+        <div className="w-[467.27px] h-[455.33px] left-[49.47px] top-[32.39px] absolute rounded-full shadow-[0px_6.177914619445801px_6.177914619445801px_0px_rgba(0,0,0,0.25)] border-[2.85px] border-white/5" />
+        <img
+          className="w-16 h-16 left-[102.39px] top-[310.89px] absolute rounded-full"
+          src="images/figma/features/man-memoji.svg"
+        />
+        <img
+          className="w-16 h-16 left-[456.03px] top-[235.97px] absolute rounded-full"
+          src="images/figma/features/girl-memoji.svg"
+        />
+        <img
+          className="w-16 h-16 left-[198.48px] top-[36.92px] absolute rounded-full"
+          src="images/figma/features/boy-memoji.svg"
+        />
+        <div className="w-96 h-96 left-[102px] top-[78.41px] absolute rounded-full shadow-[0px_6.177914619445801px_6.177914619445801px_0px_rgba(0,0,0,0.25)] border-[2.85px] border-white/10" />
+        <div className="w-96 h-96 left-[100.40px] top-[416.34px] absolute origin-top-left rotate-[-83.96deg] bg-neutral-800/20 rounded-full shadow-[0px_6.177914142608643px_6.177914142608643px_0px_rgba(0,0,0,0.25)]" />
+        <div className="w-72 h-72 left-[144.53px] top-[113.50px] absolute rounded-full shadow-[0px_6.177914619445801px_6.177914619445801px_0px_rgba(0,0,0,0.25)] border-[2.85px] border-white/10" />
+        <div className="w-40 h-36 left-[214.04px] top-[178.68px] absolute">
+          <img src="images/figma/features/bot-with-bg.svg" />
+        </div>
+        <div className="w-2.5 h-2.5 left-[275.90px] top-[246.18px] absolute bg-White rounded-full" />
+        <div className="w-2.5 h-2.5 left-[303.92px] top-[246.18px] absolute bg-White rounded-full" />
+        <div className="w-10 h-10 left-[9rem] top-[11.5rem] absolute origin-top-left rotate-[154.79deg] overflow-hidden">
+          <img src="images/figma/features/boy-cursor.svg" />
+        </div>
+        <div className="w-16 h-8 left-[44.03px] top-[140.73px] absolute inline-flex flex-col justify-start items-center gap-3">
+          <div className="h-8 p-2.5 bg-gray-600 rounded-lg inline-flex justify-center items-center gap-2">
+            <div className="justify-start text-White text-lg font-semibold font-['Urbanist'] leading-9">
+              Task
+            </div>
           </div>
         </div>
-      </div>
-      <div className="w-11 h-11 left-[326.70px] top-[378.96px] absolute origin-top-left overflow-hidden">
-        <img src="images/figma/features/man-cursor.svg" />
-      </div>
-      <div className="w-16 h-8 left-[351.20px] top-[415.93px] absolute inline-flex flex-col justify-start items-center gap-3">
-        <div className="h-8 p-2.5 bg-gray-600 rounded-lg inline-flex justify-center items-center gap-2">
-          <div className="justify-start text-White text-lg font-semibold font-['Urbanist'] leading-9">
-            Goals
+        <div className="w-11 h-11 left-[326.70px] top-[378.96px] absolute origin-top-left overflow-hidden">
+          <img src="images/figma/features/man-cursor.svg" />
+        </div>
+        <div className="w-16 h-8 left-[351.20px] top-[415.93px] absolute inline-flex flex-col justify-start items-center gap-3">
+          <div className="h-8 p-2.5 bg-gray-600 rounded-lg inline-flex justify-center items-center gap-2">
+            <div className="justify-start text-White text-lg font-semibold font-['Urbanist'] leading-9">
+              Goals
+            </div>
           </div>
         </div>
-      </div>
-      <div className="w-10 h-10 left-[26rem] top-[8rem] absolute origin-top-left overflow-hidden">
-        <img src="images/figma/features/girl-cursor.svg" />
-      </div>
-      <div className="w-16 h-8 left-[442.39px] top-[107.61px] absolute inline-flex flex-col justify-start items-center gap-3">
-        <div className="h-8 p-2.5 bg-gray-600 rounded-lg inline-flex justify-center items-center gap-2">
-          <div className="justify-start text-White text-lg font-semibold font-['Urbanist'] leading-9">
-            Chat
+        <div className="w-10 h-10 left-[26rem] top-[8rem] absolute origin-top-left overflow-hidden">
+          <img src="images/figma/features/girl-cursor.svg" />
+        </div>
+        <div className="w-16 h-8 left-[442.39px] top-[107.61px] absolute inline-flex flex-col justify-start items-center gap-3">
+          <div className="h-8 p-2.5 bg-gray-600 rounded-lg inline-flex justify-center items-center gap-2">
+            <div className="justify-start text-White text-lg font-semibold font-['Urbanist'] leading-9">
+              Chat
+            </div>
           </div>
         </div>
       </div>
       
-      <div className="w-72 md:w-[506.63px] h-16 md:h-28 left-[24px] md:left-[30.87px] top-[460px] md:top-[513px] absolute inline-flex flex-col justify-start items-center gap-4 md:gap-2">
+      <div className="w-72 md:w-[506.63px] h-16 md:h-28 left-1/2 -translate-x-1/2 md:left-[30.87px] md:translate-x-0 top-[280px] md:top-[513px] absolute inline-flex flex-col justify-start items-center gap-2 md:gap-2">
         <div className="justify-center text-white text-base md:text-2xl font-bold font-['Urbanist'] leading-9 md:leading-[65.07px]">
           They collaborate with each other
         </div>
