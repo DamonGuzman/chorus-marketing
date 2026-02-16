@@ -31,7 +31,7 @@ export function TestimonialsSection() {
   return (
     <>
       {/* Header Section */}
-      <Section className="py-[75px] px-[100px]">
+      <Section className="py-[75px] px-8">
         <SectionHeader
           badge="Control"
           title="What The Audience Is Saying"
@@ -40,7 +40,7 @@ export function TestimonialsSection() {
       </Section>
 
       {/* Testimonials Grid */}
-      <Section className="py-[75px] px-[100px] overflow-hidden">
+      <Section className="py-[75px] px-8 overflow-hidden">
         <div className="flex flex-col gap-[82px] max-w-[1240px] mx-auto">
           {/* Row 1 */}
           <div className="flex flex-col lg:flex-row gap-[58px]">

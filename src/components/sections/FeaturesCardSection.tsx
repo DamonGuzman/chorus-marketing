@@ -244,7 +244,7 @@ function OrbitalAnimation() {
    ═══════════════════════════════════════════════════════════ */
 export function FeaturesCardSection() {
   return (
-    <section className="w-full bg-black px-4 md:px-[100px] py-[50px] md:py-[75px]">
+    <section className="w-full bg-black px-4 md:px-8 py-[50px] md:py-[75px]">
       <div className="max-w-[1240px] mx-auto flex flex-col items-center gap-[10px]">
 
         {/* ── Section Header ── */}

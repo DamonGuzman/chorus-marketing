@@ -20,7 +20,7 @@ export default function AboutUsPage() {
                         </div>
 
                         {/* Content - stacked: badge + title on top, then subtitle overlapping the image */}
-                        <div className="relative w-full lg:max-w-[50%] px-4 md:px-24 pt-[80px] md:pt-20 flex flex-col justify-start items-center lg:items-start gap-6 md:gap-8 z-10 text-center lg:text-left">
+                        <div className="relative w-full lg:max-w-[50%] px-4 md:px-8 pt-[80px] md:pt-20 flex flex-col justify-start items-center lg:items-start gap-6 md:gap-8 z-10 text-center lg:text-left">
                             <Badge className="px-3 py-1">
                                 About us
                             </Badge>
@@ -39,7 +39,7 @@ export default function AboutUsPage() {
                         </div>
 
                         {/* Subtitle - positioned to overlap the torch image on mobile */}
-                        <div className="absolute bottom-[180px] md:bottom-auto md:top-[420px] lg:top-[380px] left-0 w-full lg:w-[50%] px-4 md:px-24 z-10 text-center lg:text-left">
+                        <div className="absolute bottom-[180px] md:bottom-auto md:top-[420px] lg:top-[380px] left-0 w-full lg:w-[50%] px-4 md:px-8 z-10 text-center lg:text-left">
                             <p className="text-[#CACACC] text-[14px] md:text-3xl font-medium font-['Urbanist'] leading-[22px] md:leading-9 whitespace-nowrap">
                                 We don&apos;t promise the impossible. We deliver it.
                             </p>
@@ -47,7 +47,7 @@ export default function AboutUsPage() {
                     </div>
 
                     {/* testimonials */}
-                    <div className="self-stretch px-6 md:px-24 py-20 bg-black flex flex-col justify-start items-center">
+                    <div className="self-stretch px-6 md:px-8 py-20 bg-black flex flex-col justify-start items-center">
                         <div className="w-full">
                             <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8 lg:gap-12 md:divide-x divide-white/20">
                                 {/* Card 1 */}
@@ -99,7 +99,7 @@ export default function AboutUsPage() {
                     </div>
 
                     {/* Origin Story */}
-                    <div className="self-stretch px-4 md:px-24 py-[50px] md:py-20 bg-black flex flex-col justify-start items-start">
+                    <div className="self-stretch px-4 md:px-8 py-[50px] md:py-20 bg-black flex flex-col justify-start items-start">
                         <div className="w-full flex flex-col lg:flex-row justify-start items-center gap-8 lg:gap-4">
                             {/* Left Content */}
                             <div className="flex flex-col justify-start items-center lg:items-start gap-8 md:gap-12 flex-1 text-center lg:text-left">
@@ -159,7 +159,7 @@ export default function AboutUsPage() {
                     </div>
 
                     {/* Press Section */}
-                    <div className="self-stretch px-4 md:px-24 py-[50px] md:py-20 bg-black flex flex-col justify-start items-center">
+                    <div className="self-stretch px-4 md:px-8 py-[50px] md:py-20 bg-black flex flex-col justify-start items-center">
                         <div className="w-full flex flex-col justify-start items-center gap-6">
                             <Badge className="px-3 py-1">
                                 Features
@@ -230,7 +230,7 @@ export default function AboutUsPage() {
                     </div>
 
                     {/* Our Team */}
-                    <div className="self-stretch px-4 md:px-24 pt-[50px] md:pt-20 pb-[60px] md:pb-24 bg-black flex flex-col justify-start items-center">
+                    <div className="self-stretch px-4 md:px-8 pt-[50px] md:pt-20 pb-[60px] md:pb-24 bg-black flex flex-col justify-start items-center">
                         <div className="flex flex-col justify-start items-center gap-[40px] md:gap-20">
                             {/* Header */}
                             <div className="flex flex-col justify-start items-center gap-5 md:gap-6">
@@ -278,7 +278,7 @@ export default function AboutUsPage() {
                     {/* Final CTA Section */}
                     <div>
                         <div className="w-full h-1 bg-gradient-to-r from-white/0 via-neutral-400 to-white/0 rounded-full" />
-                        <div className="relative w-full min-h-[500px] md:h-[632px] px-4 md:px-24 py-[50px] md:py-20 bg-gradient-to-b from-white/20 via-white/0 to-black/0 flex flex-col justify-center items-center overflow-hidden">
+                        <div className="relative w-full min-h-[500px] md:h-[632px] px-4 md:px-8 py-[50px] md:py-20 bg-gradient-to-b from-white/20 via-white/0 to-black/0 flex flex-col justify-center items-center overflow-hidden">
                             {/* Background Image */}
                             <div
                                 className="absolute inset-0 z-0"

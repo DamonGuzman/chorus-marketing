@@ -87,7 +87,7 @@ function FAQItem({ question, answer }: { question: string; answer: string }) {
 export function FAQSection() {
   return (
     <Section className="pt-[15px] pb-[100px] md:py-[100px]" id="faq">
-      <div className="max-w-[1280px] mx-auto px-6 lg:px-[100px]">
+      <div className="max-w-[1280px] mx-auto px-6 lg:px-8">
         {/* Header */}
         <div className="flex flex-col items-center gap-[16px] mb-[50px] text-center">
           <h2 className="text-[40px] md:text-[50px] font-bold leading-[1.1] text-white">

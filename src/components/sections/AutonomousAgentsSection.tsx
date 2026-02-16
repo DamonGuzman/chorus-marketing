@@ -2,7 +2,7 @@ import { Badge } from "@/components/ui";
 
 export function AutonomousAgentsSection() {
   return (
-    <section className="relative bg-black py-[75px] px-6 lg:px-[100px] overflow-hidden">
+    <section className="relative bg-black py-[75px] px-6 lg:px-8 overflow-hidden">
       {/* Section Header */}
       <div className="max-w-[1240px] mx-auto">
         <div className="flex flex-col items-center gap-[15px] mb-[60px]">

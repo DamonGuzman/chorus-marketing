@@ -12,7 +12,7 @@ const teamMembers = [
 
 export function TeamSection() {
   return (
-    <Section className="py-[75px] px-[100px]">
+    <Section className="py-[75px] px-8">
       <div className="flex flex-col gap-[75px] items-center max-w-[1240px] mx-auto">
         <SectionHeader
           badge="Control"
