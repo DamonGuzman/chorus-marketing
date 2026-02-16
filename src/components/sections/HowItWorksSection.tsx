@@ -326,11 +326,11 @@ function StepItem({
   isLast: boolean;
 }) {
   return (
-    <div className="self-stretch inline-flex justify-start items-center gap-4 md:gap-6 lg:gap-20">
-      {/* Vertical line */}
+    <div className="self-stretch inline-flex justify-center md:justify-start items-center gap-4 md:gap-6 lg:gap-20">
+      {/* Vertical line — desktop only */}
       <div
         className={cn(
-          "w-[3px] h-44 shrink-0",
+          "hidden md:block w-[3px] h-44 shrink-0",
           active ? "bg-zinc-300" : "bg-transparent"
         )}
       />
@@ -338,8 +338,8 @@ function StepItem({
       {/* Content card */}
       <div
         className={cn(
-          "w-full md:w-full lg:w-96 px-5 pt-7 pb-5 rounded-3xl inline-flex flex-col justify-start items-start gap-2.5",
-          active ? "bg-white/5" : ""
+          "w-80 md:w-full lg:w-96 px-5 pt-7 pb-5 rounded-3xl inline-flex flex-col justify-start items-start gap-2.5",
+          active ? "bg-white/10 md:bg-white/5" : ""
         )}
       >
         <div className="self-stretch flex flex-col justify-start items-start gap-5">
@@ -349,7 +349,7 @@ function StepItem({
               className={cn(
                 "w-8 h-8 px-3 py-1 bg-white/5 rounded-[100px] flex justify-center items-center gap-2 overflow-hidden",
                 "text-center font-['Urbanist'] text-base font-semibold leading-6",
-                active ? "text-white" : "text-gray-300"
+                active ? "text-white" : "text-white md:text-gray-300"
               )}
             >
               {number}
@@ -631,7 +631,7 @@ export function HowItWorksSection() {
           </div>
 
           {/* Mobile: interleaved — step 1, then cards, then steps 2 & 3 */}
-          <div className="md:hidden w-full overflow-hidden rounded-[30px] bg-white/5 px-3 py-[30px]">
+          <div className="md:hidden w-full overflow-hidden px-3 py-[30px]">
             <div className="flex flex-col gap-[20px]">
               {/* Step 1 (active) */}
               <StepItem
@@ -643,11 +643,11 @@ export function HowItWorksSection() {
               />
 
               {/* Visual card after step 1 */}
-              <div className="w-full px-1">
+              <div className="flex justify-center">
                 <img
                   src="/images/figma/Group 1707484029.svg"
                   alt="Agent profile card"
-                  className="w-full"
+                  className="w-72 h-auto"
                   style={{ imageRendering: "auto", WebkitFontSmoothing: "antialiased" }}
                 />
               </div>

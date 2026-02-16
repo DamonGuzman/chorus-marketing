@@ -52,11 +52,11 @@ export function OldWaySection() {
             key={index}
             className="max-md:w-full max-md:p-4 max-md:inline-flex max-md:flex-row max-md:items-center max-md:gap-5 md:w-full md:h-auto md:px-4 lg:px-7 md:pt-5 lg:pt-7 md:pb-2.5 md:inline-flex md:flex-col md:justify-start md:items-start md:gap-3 lg:gap-6 bg-gradient-to-r from-white/5 via-white/10 to-white/5 rounded-[20px] outline outline-1 outline-offset-[-1px] outline-white/30 backdrop-blur-[30px] overflow-hidden"
           >
-            <item.Icon className="text-gray-200/50 shrink-0 max-md:w-16 max-md:h-16" />
+            <item.Icon className="text-gray-200/50 shrink-0 max-md:w-10 max-md:h-10" />
 
             <div className="max-md:flex-1 max-md:min-w-0 flex flex-col justify-start items-start gap-10">
-              <div className="flex flex-col justify-start items-start max-md:gap-4 md:gap-7">
-                <h3 className="lg:w-56 max-md:text-base max-md:leading-7 md:text-sm md:leading-5 lg:text-xl lg:leading-7 font-bold font-['Urbanist'] text-gray-100">
+              <div className="flex flex-col justify-start items-start max-md:gap-2 md:gap-7">
+                <h3 className="lg:w-56 max-md:text-sm max-md:leading-5 md:text-sm md:leading-5 lg:text-xl lg:leading-7 font-bold font-['Urbanist'] text-gray-100">
                   {item.title}
                 </h3>
                 <p className="lg:w-56 max-md:text-xs max-md:leading-4 md:text-xs md:leading-4 lg:text-sm lg:leading-6 font-medium font-['Urbanist'] text-gray-300">

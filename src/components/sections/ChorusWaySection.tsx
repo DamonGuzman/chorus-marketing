@@ -24,28 +24,32 @@ export function ChorusWaySection() {
           <Badge>The Solution</Badge>
 
           <div className="flex flex-col justify-start items-center gap-4">
-            <h2 className="w-full text-center text-2xl leading-8 sm:text-[50px] sm:leading-[64px] font-bold text-white">
+            <h2 className="w-96 max-w-full text-center text-2xl leading-8 font-bold font-['Urbanist'] text-white">
               The Chorus Way<br />Manifest Your Team Instantly
             </h2>
 
-            <p className="w-80 text-center text-sm leading-6 font-normal text-gray-300">
+            <p className="w-80 text-center text-sm leading-6 font-normal font-['Urbanist'] text-gray-300">
               The best way to reach humans instead of spam folders. Deliver transactional and marketing emails at scale.
             </p>
           </div>
 
           {/* Mobile Lottie animation */}
-          <div className="w-full h-[260px] pointer-events-none overflow-hidden mx-auto flex items-center justify-center">
+          <div className="w-full h-[420px] pointer-events-none overflow-hidden mx-auto flex items-center justify-center">
             {animationData && (
               <Lottie
                 animationData={animationData}
                 loop
                 autoplay
-                className="w-full h-auto"
+                className="w-[140%] h-auto scale-110"
               />
             )}
           </div>
 
-          <p className="w-80 text-center text-sm leading-6 font-medium text-gray-300">
+          <p className="w-80 text-left text-sm leading-6 font-medium font-['Urbanist'] text-gray-300">
+            VocAI CRM empowers a global network of over 250,000 businesses in 180 countries to convert more leads, engage with customers, and grow their revenue.
+          </p>
+
+          <p className="w-80 h-16 text-left text-sm leading-6 font-medium font-['Urbanist'] text-gray-300">
             VocAI CRM empowers a global network of over 250,000 businesses in 180 countries to convert more leads,
           </p>
         </div>

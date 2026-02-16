@@ -114,7 +114,7 @@ export function IntegrationsSection() {
       </div>
 
 
-        <div className="w-full h-[340px] md:h-[480px] lg:h-[602px] max-w-[1209px] relative overflow-hidden flex flex-col justify-center items-center gap-1.5 md:gap-2.5 lg:gap-5">
+        <div className="w-[525px] md:w-full h-64 md:h-[480px] lg:h-[602px] max-w-[1209px] relative overflow-hidden flex flex-col justify-center items-center gap-1.5 md:gap-2.5 lg:gap-5">
           {/* Layer 2: Gradient Overlay (fades icons) */}
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_50.00%_50.00%_at_50.00%_50.00%,_rgba(0,_0,_0,_0)_0%,_black_100%)] z-20 pointer-events-none" />
 
