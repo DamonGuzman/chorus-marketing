@@ -4,7 +4,7 @@
    Card #3 — Full Business Context with orbital integration visual
    ───────────────────────────────────────────────────────── */
 
-import { ScrollTextReveal } from "@/components/ui";
+import { AnimateOnScroll, ScrollTextReveal } from "@/components/ui";
 
 /* ── Checkmark icon ── */
 function CheckMark() {
@@ -320,7 +320,10 @@ export function FeaturesCardSection() {
 
               {/* Text content */}
               <div className="flex flex-col gap-[20px]">
-                <h3 className="text-white text-[22px] md:text-[26px] font-bold leading-[32px] md:leading-[36px]">Full Business Context</h3>
+                <ScrollTextReveal
+                  text="Full Business Context"
+                  className="text-white text-[22px] md:text-[26px] font-bold leading-[32px] md:leading-[36px]"
+                />
 
                 <div className="flex flex-col gap-[24px] md:gap-[28px]">
                   <div className="flex flex-col gap-[20px] md:gap-[27px]">
@@ -333,24 +336,30 @@ export function FeaturesCardSection() {
 
                     {/* Checklist items */}
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-y-[14px] md:gap-y-[17px] gap-x-[32px]">
-                      <div className="flex items-center gap-[12px] md:gap-[16px]">
-                        <CheckMark />
-                        <span className="text-gray-300 text-[15px] md:text-[16px] font-medium md:whitespace-nowrap">
-                          Your customers and pipeline
-                        </span>
-                      </div>
-                      <div className="flex items-center gap-[12px] md:gap-[16px]">
-                        <CheckMark />
-                        <span className="text-gray-300 text-[15px] md:text-[16px] font-medium md:whitespace-nowrap">
-                          Your processes and SOPs
-                        </span>
-                      </div>
-                      <div className="flex items-center gap-[12px] md:gap-[16px]">
-                        <CheckMark />
-                        <span className="text-gray-300 text-[15px] md:text-[16px] font-medium md:whitespace-nowrap">
-                          Your messaging and brand voice
-                        </span>
-                      </div>
+                      <AnimateOnScroll animation="fade-up" duration={0.6} delay={0} threshold={0.2}>
+                        <div className="flex items-center gap-[12px] md:gap-[16px]">
+                          <CheckMark />
+                          <span className="text-gray-300 text-[15px] md:text-[16px] font-medium md:whitespace-nowrap">
+                            Your customers and pipeline
+                          </span>
+                        </div>
+                      </AnimateOnScroll>
+                      <AnimateOnScroll animation="fade-up" duration={0.6} delay={0.15} threshold={0.2}>
+                        <div className="flex items-center gap-[12px] md:gap-[16px]">
+                          <CheckMark />
+                          <span className="text-gray-300 text-[15px] md:text-[16px] font-medium md:whitespace-nowrap">
+                            Your processes and SOPs
+                          </span>
+                        </div>
+                      </AnimateOnScroll>
+                      <AnimateOnScroll animation="fade-up" duration={0.6} delay={0.3} threshold={0.2}>
+                        <div className="flex items-center gap-[12px] md:gap-[16px]">
+                          <CheckMark />
+                          <span className="text-gray-300 text-[15px] md:text-[16px] font-medium md:whitespace-nowrap">
+                            Your messaging and brand voice
+                          </span>
+                        </div>
+                      </AnimateOnScroll>
                     </div>
                   </div>
                 </div>

@@ -2,7 +2,7 @@
    Human-AI Collaboration Section
    ───────────────────────────────────────────────────────── */
 
-import { ScrollTextReveal } from "@/components/ui";
+import { AnimateOnScroll, ScrollTextReveal } from "@/components/ui";
 
 /* ── Checkmark circle bullet ── */
 function CheckBullet({ text }: { text: string }) {
@@ -20,12 +20,15 @@ function CheckBullet({ text }: { text: string }) {
 function ListCard({ title, items }: { title: string; items: string[] }) {
   return (
     <div className="w-full md:w-[440px] max-w-full flex flex-col gap-[18px] md:gap-[23px] p-[20px] md:p-[24px] rounded-[20px] md:rounded-[24px] border border-white/30">
-      <h3 className="self-stretch text-white text-[20px] font-bold leading-[24px]">
-        {title}
-      </h3>
+      <ScrollTextReveal
+        text={title}
+        className="self-stretch text-white text-[20px] font-bold leading-[24px]"
+      />
       <div className="self-stretch flex flex-col gap-[15px]">
-        {items.map((item) => (
-          <CheckBullet key={item} text={item} />
+        {items.map((item, idx) => (
+          <AnimateOnScroll key={item} animation="fade-up" duration={0.6} delay={idx * 0.15} threshold={0.2}>
+            <CheckBullet text={item} />
+          </AnimateOnScroll>
         ))}
       </div>
     </div>
@@ -316,7 +319,7 @@ function ComposedIllustration() {
 /* ── Main Section ── */
 export function CollaborationHubSection() {
   return (
-    <section className="w-full bg-black flex flex-col items-center gap-[10px] px-4 py-[50px] md:px-8 md:py-[75px] md:pb-[150px]">
+    <section className="w-full bg-black flex flex-col items-center gap-[10px] px-4 py-[50px] md:px-8 md:py-[75px] md:pb-[150px] overflow-hidden">
       <div className="self-stretch flex flex-col items-center gap-[30px] md:gap-[36px]">
         {/* Header */}
         <div className="self-stretch flex flex-col items-center gap-[20px] md:gap-[32px]">
@@ -338,22 +341,24 @@ export function CollaborationHubSection() {
         {/* Mobile: illustration + list cards stacked */}
         <div className="w-full flex flex-col items-center gap-[30px] lg:hidden">
           {/* Scaled illustration */}
-          <div
-            className="relative w-full"
-            style={{ height: "calc(530px * 0.55)" }}
-          >
+          <AnimateOnScroll animation="slide-right" duration={0.9} threshold={0.2}>
             <div
-              className="absolute top-0 left-1/2"
-              style={{
-                width: 520,
-                height: 530,
-                transformOrigin: "top center",
-                transform: "translateX(-50%) scale(0.55)",
-              }}
+              className="relative w-full"
+              style={{ height: "calc(530px * 0.55)" }}
             >
-              <ComposedIllustration />
+              <div
+                className="absolute top-0 left-1/2"
+                style={{
+                  width: 520,
+                  height: 530,
+                  transformOrigin: "top center",
+                  transform: "translateX(-50%) scale(0.55)",
+                }}
+              >
+                <ComposedIllustration />
+              </div>
             </div>
-          </div>
+          </AnimateOnScroll>
 
           {/* List cards */}
           <div className="flex flex-col items-stretch gap-[20px] w-full">
@@ -400,7 +405,9 @@ export function CollaborationHubSection() {
               ]}
             />
           </div>
-          <ComposedIllustration />
+          <AnimateOnScroll animation="slide-right" duration={0.9} threshold={0.2}>
+            <ComposedIllustration />
+          </AnimateOnScroll>
         </div>
       </div>
     </section>

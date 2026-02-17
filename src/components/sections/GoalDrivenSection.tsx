@@ -6,7 +6,7 @@
    Step 02→03 with animated illustration on the right
    ───────────────────────────────────────────────────────── */
 
-import { ScrollTextReveal } from "@/components/ui";
+import { AnimateOnScroll, ScrollTextReveal } from "@/components/ui";
 import dynamic from "next/dynamic";
 import { useEffect, useState } from "react";
 
@@ -44,20 +44,24 @@ export function GoalDrivenSection() {
             text={`From "update this spreadsheet" to "optimize our budget"`}
             className="text-[24px] md:text-[30px] font-bold leading-[34px] md:leading-[44px]"
           />
-          <p className="text-gray-300 text-[15px] md:text-[18px] font-medium leading-[26px] md:leading-[32px]">
-            VocAI CRM empowers a global network of over 250,000 businesses in
-            180 countries to convert more leads, engage with customers, and grow
-            their revenue. VocAI CRM empowers a global network of over 250,000
-            businesses in 180 countries to convert more leads, engage with
-            customers, and grow their revenue.
-          </p>
+          <AnimateOnScroll animation="fade-up" duration={0.8} threshold={0.3}>
+            <p className="text-gray-300 text-[15px] md:text-[18px] font-medium leading-[26px] md:leading-[32px]">
+              VocAI CRM empowers a global network of over 250,000 businesses in
+              180 countries to convert more leads, engage with customers, and grow
+              their revenue. VocAI CRM empowers a global network of over 250,000
+              businesses in 180 countries to convert more leads, engage with
+              customers, and grow their revenue.
+            </p>
+          </AnimateOnScroll>
         </div>
 
         {/* Right – Animated illustration */}
-        <div className="w-full h-full flex justify-end">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="images/figma/features/settings-image.png" className="w-auto h-auto" alt="" />
-        </div>
+        <AnimateOnScroll animation="slide-right" duration={0.9} threshold={0.2}>
+          <div className="w-full h-full flex justify-end">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src="images/figma/features/settings-image.png" className="w-auto h-auto" alt="" />
+          </div>
+        </AnimateOnScroll>
       </div>
     </section>
   );

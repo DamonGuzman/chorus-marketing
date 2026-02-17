@@ -4,7 +4,7 @@
    Step 01→03 with task card + person icon illustration
    ───────────────────────────────────────────────────────── */
 
-import { ScrollTextReveal } from "@/components/ui";
+import { AnimateOnScroll, ScrollTextReveal } from "@/components/ui";
 
 /* ── Skeleton bubble ── */
 function SkeletonBubble() {
@@ -134,7 +134,7 @@ function Illustration() {
 
 export function PipelineSection() {
   return (
-    <section className="w-full bg-black px-6 md:px-8 py-[75px]">
+    <section className="w-full bg-black px-6 md:px-8 py-[75px] overflow-hidden">
       <div className="max-w-[1240px] mx-auto flex items-center justify-between gap-10">
         {/* Left – Step indicator */}
         <div className="flex flex-col items-center gap-[26px] shrink-0">
@@ -157,17 +157,21 @@ export function PipelineSection() {
             text={`From "schedule this meeting" to "build this pipeline"`}
             className="text-[24px] md:text-[30px] font-bold leading-[44px]"
           />
-          <p className="text-gray-300 text-[16px] md:text-[18px] font-medium leading-[32px]">
-            VocAI CRM empowers a global network of over 250,000 businesses in
-            180 countries to convert more leads, engage with customers, and grow
-            their revenue. VocAI CRM empowers a global network of over 250,000
-            businesses in 180 countries to convert more leads, engage with
-            customers, and grow their revenue.
-          </p>
+          <AnimateOnScroll animation="fade-up" duration={0.8} threshold={0.3}>
+            <p className="text-gray-300 text-[16px] md:text-[18px] font-medium leading-[32px]">
+              VocAI CRM empowers a global network of over 250,000 businesses in
+              180 countries to convert more leads, engage with customers, and grow
+              their revenue. VocAI CRM empowers a global network of over 250,000
+              businesses in 180 countries to convert more leads, engage with
+              customers, and grow their revenue.
+            </p>
+          </AnimateOnScroll>
         </div>
 
         {/* Right – Decorative illustration */}
-        <Illustration />
+        <AnimateOnScroll animation="slide-right" duration={0.9} threshold={0.2}>
+          <Illustration />
+        </AnimateOnScroll>
       </div>
     </section>
   );
