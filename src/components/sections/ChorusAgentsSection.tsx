@@ -268,10 +268,12 @@ function CollaborateCard() {
   const arrowRadius = 160;
 
   return (
-    <div className="w-80 md:w-[600px] h-[370px] md:h-[671px] relative overflow-hidden">
-      <div className="w-80 md:w-[600px] h-[370px] md:h-[671px] left-0 top-0 absolute bg-gradient-to-b from-black/80 to-black rounded-3xl md:rounded-[40px] border-[0.58px] md:border border-white/30" />
+    <div className="w-80 md:w-[600px] h-96 md:h-[671px] relative overflow-hidden">
+      <div className="w-80 md:w-[600px] h-96 md:h-[671px] left-0 top-0 absolute bg-gradient-to-b from-black/80 to-black rounded-3xl md:rounded-[40px]" />
+      {/* Border */}
+      <div className="absolute inset-0 rounded-3xl md:rounded-[40px] border border-white/35 pointer-events-none z-40" />
       {/* Orbit content — scaled down on mobile */}
-      <div className="absolute top-0 left-[10px] w-[600px] h-[671px] origin-top-left scale-[0.53] md:left-0 md:w-full md:h-full md:scale-100">
+      <div className="absolute top-0 left-0 w-[600px] h-[671px] origin-top-left scale-[0.53] md:left-0 md:w-full md:h-full md:scale-100">
         <div className="w-[467.27px] h-[455.33px] left-[49.47px] top-[32.39px] absolute rounded-full shadow-[0px_6.177914619445801px_6.177914619445801px_0px_rgba(0,0,0,0.25)] border-[2.85px] border-white/5" />
         <img
           className="w-16 h-16 left-[102.39px] top-[310.89px] absolute rounded-full"
@@ -325,11 +327,11 @@ function CollaborateCard() {
         </div>
       </div>
 
-      <div className="w-72 md:w-[506.63px] h-16 md:h-28 left-1/2 -translate-x-1/2 md:left-[30.87px] md:translate-x-0 top-[280px] md:top-[513px] absolute inline-flex flex-col justify-start items-center gap-2 md:gap-2">
+      <div className="w-72 md:w-[506.63px] h-16 md:h-28 left-1/2 -translate-x-1/2 md:left-[30.87px] md:translate-x-0 top-[299px] md:top-[513px] absolute inline-flex flex-col justify-start items-center gap-2">
         <div className="justify-center text-white text-base md:text-2xl font-bold font-['Urbanist'] leading-9 md:leading-[65.07px]">
           They collaborate with each other
         </div>
-        <div className="w-80 md:w-[526px] text-center justify-start text-white/40 text-[9px] md:text-base font-bold font-['Urbanist'] leading-4 md:leading-8">
+        <div className="md:w-[526px] text-center justify-start text-gray-300 text-[9px] md:text-base font-bold font-['Urbanist'] leading-4 md:leading-8">
           The best way to reach humans instead of spam folders. Deliver
           transactional and marketing emails at scale.
         </div>
