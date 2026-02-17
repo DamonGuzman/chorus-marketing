@@ -1,4 +1,4 @@
-import { Badge } from "@/components/ui";
+import { Badge, ScrollTextReveal } from "@/components/ui";
 
 export function AutonomousAgentsSection() {
   return (
@@ -7,9 +7,10 @@ export function AutonomousAgentsSection() {
       <div className="max-w-[1240px] mx-auto">
         <div className="flex flex-col items-center gap-[15px] mb-[60px]">
           <Badge>INTELLIGENT</Badge>
-          <h2 className="text-[35px] leading-[1.2] font-bold text-white text-center">
-            Autonomous Agents, Not Chatbots.
-          </h2>
+          <ScrollTextReveal
+            text="Autonomous Agents, Not Chatbots."
+            className="text-[35px] leading-[1.2] font-bold text-center"
+          />
           <p className="text-[18px] leading-[36px] font-medium text-gray-300 text-center">
             Set goals. Chorus plans, executes, and reports—end to end.
           </p>

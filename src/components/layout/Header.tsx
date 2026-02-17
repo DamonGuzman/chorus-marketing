@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import { Logo, ChevronIcon } from "@/components/icons";
 import { Badge, ButtonLink } from "@/components/ui";
@@ -36,9 +36,22 @@ function CloseIcon({ className }: { className?: string }) {
 
 export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 50);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   return (
-    <header className="absolute top-6 md:top-[30px] left-6 right-6 md:left-[30px] md:right-[30px] z-50 h-[35px]">
+    <header
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+        scrolled
+          ? "py-3 md:py-4 px-6 md:px-[30px] header-scrolled"
+          : "py-6 md:py-[30px] px-6 md:px-[30px]"
+      }`}
+    >
       <nav className="flex justify-between items-center w-full max-w-[1380px] h-full mx-auto">
         {/* Logo */}
         <Link href="/" aria-label="Chorus home" className="text-white hover:opacity-80 transition-opacity">

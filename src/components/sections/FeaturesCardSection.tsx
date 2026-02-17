@@ -4,6 +4,8 @@
    Card #3 — Full Business Context with orbital integration visual
    ───────────────────────────────────────────────────────── */
 
+import { ScrollTextReveal } from "@/components/ui";
+
 /* ── Checkmark icon ── */
 function CheckMark() {
   return (
@@ -254,9 +256,10 @@ export function FeaturesCardSection() {
             <span className="text-white text-[16px] font-bold leading-[24px] text-center">Features</span>
           </div>
           <div className="flex flex-col items-center gap-[4px] md:gap-[8px] w-full self-stretch">
-            <h2 className="text-white text-[32px] md:text-[50px] font-bold leading-[1.2] md:leading-[78px] text-center">
-              The Difference That Changes Everything
-            </h2>
+            <ScrollTextReveal
+              text="The Difference That Changes Everything"
+              className="text-[32px] md:text-[50px] font-bold leading-[1.2] md:leading-[78px] text-center"
+            />
             <p className="text-gray-300 text-[16px] md:text-[26px] font-medium leading-[26px] md:leading-[36px] text-center">
               The Difference That Changes Everything
             </p>

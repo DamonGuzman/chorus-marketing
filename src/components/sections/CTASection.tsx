@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { ButtonLink } from "@/components/ui";
+import { AnimateOnScroll, ButtonLink, ScrollTextReveal } from "@/components/ui";
 import { CheckIcon } from "@/components/icons";
 import { PRIMARY_CTA_HREF, PRIMARY_CTA_LABEL } from "@/content/site";
 
@@ -33,16 +33,17 @@ export function CTASection() {
           {/* Headlines */}
           <div className="flex flex-col gap-[40px] items-center">
             {/* Section Title: 50px, bold, 78px line-height, -0.5px letter-spacing */}
-            <h2 className="text-[50px] leading-[78px] font-bold text-white tracking-[-0.5px]">
-              The Best Companies Don&apos;t Have More People.
-              <br />
-              They Have Better Coordination.
-            </h2>
+            <ScrollTextReveal
+              text="The Best Companies Don't Have More People. They Have Better Coordination."
+              className="text-[50px] leading-[78px] font-bold tracking-[-0.5px]"
+            />
             {/* Body: 22px, regular, 36px line-height */}
-            <p className="text-[22px] leading-[36px] font-normal text-gray-100 max-w-[800px]">
-              While competitors spend months hiring and aligning teams, you could
-              have a complete, synchronized workforce executing tomorrow.
-            </p>
+            <AnimateOnScroll animation="fade-up" duration={0.8} threshold={0.3}>
+              <p className="text-[22px] leading-[36px] font-normal text-gray-100 max-w-[800px]">
+                While competitors spend months hiring and aligning teams, you could
+                have a complete, synchronized workforce executing tomorrow.
+              </p>
+            </AnimateOnScroll>
           </div>
 
           {/* Benefits Pills */}

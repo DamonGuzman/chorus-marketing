@@ -1,5 +1,5 @@
 
-import { Badge } from "@/components/ui";
+import { AnimateOnScroll, Badge, ScrollTextReveal } from "@/components/ui";
 
 const integrationIcons = [
   "Calendly.svg",
@@ -107,8 +107,13 @@ export function IntegrationsSection() {
             Integration
           </Badge>
           <div className="self-stretch flex flex-col justify-start items-center gap-4 md:gap-7">
-            <div className="w-80 md:w-auto text-center text-white text-2xl leading-8 md:text-3xl md:leading-[42px] lg:text-5xl lg:leading-[78px] font-bold font-['Urbanist']">Works In Harmony With Your Current Stack</div>
-            <div className="w-80 md:w-full md:max-w-[668px] text-center text-gray-300 text-sm leading-6 md:text-base md:leading-7 lg:text-xl lg:leading-9 font-normal font-['Urbanist']">More than just integrations, 10,000+ tools that can adapt — turning automation into intuition.</div>
+            <ScrollTextReveal
+              text="Works In Harmony With Your Current Stack"
+              className="w-80 md:w-auto text-center text-2xl leading-8 md:text-3xl md:leading-[42px] lg:text-5xl lg:leading-[78px] font-bold font-['Urbanist']"
+            />
+            <AnimateOnScroll animation="fade-up" duration={0.8} threshold={0.3}>
+              <div className="w-80 md:w-full md:max-w-[668px] text-center text-gray-300 text-sm leading-6 md:text-base md:leading-7 lg:text-xl lg:leading-9 font-normal font-['Urbanist']">More than just integrations, 10,000+ tools that can adapt — turning automation into intuition.</div>
+            </AnimateOnScroll>
           </div>
         </div>
       </div>

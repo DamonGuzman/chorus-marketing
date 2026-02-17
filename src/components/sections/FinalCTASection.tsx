@@ -1,4 +1,4 @@
-import { ButtonLink } from "@/components/ui";
+import { AnimateOnScroll, ButtonLink, ScrollTextReveal, StaggerChildren } from "@/components/ui";
 import { PRIMARY_CTA_HREF } from "@/content/site";
 
 /* eslint-disable @next/next/no-img-element */
@@ -23,15 +23,18 @@ export function FinalCTASection() {
         {/* Title + subtitle + pills */}
         <div className="self-stretch flex flex-col items-center gap-[20px] md:gap-6">
           <div className="self-stretch flex flex-col items-center md:items-end gap-4 md:gap-10">
-            <h2 className="w-[340px] md:w-auto md:self-stretch text-center text-white text-2xl leading-8 md:text-3xl md:leading-[42px] lg:text-5xl lg:leading-[68px] font-bold font-['Urbanist']">
-              The Best Companies Don&apos;t Have More People. They Have Better Coordination.
-            </h2>
-            <p className="w-80 md:w-auto md:self-stretch text-center text-gray-100 text-xs leading-5 md:text-xl md:leading-9 font-normal font-['Urbanist']">
-              While competitors spend months hiring and aligning teams, you could have a complete, synchronized workforce executing tomorrow.
-            </p>
+            <ScrollTextReveal
+              text="The Best Companies Don't Have More People. They Have Better Coordination."
+              className="w-[340px] md:w-auto md:self-stretch text-center text-2xl leading-8 md:text-3xl md:leading-[42px] lg:text-5xl lg:leading-[68px] font-bold font-['Urbanist']"
+            />
+            <AnimateOnScroll animation="fade-up" duration={0.8} threshold={0.3}>
+              <p className="w-80 md:w-auto md:self-stretch text-center text-gray-100 text-xs leading-5 md:text-xl md:leading-9 font-normal font-['Urbanist']">
+                While competitors spend months hiring and aligning teams, you could have a complete, synchronized workforce executing tomorrow.
+              </p>
+            </AnimateOnScroll>
           </div>
           {/* Feature pills */}
-          <div className="flex flex-wrap justify-center items-center gap-3 md:gap-6">
+          <StaggerChildren staggerDelay={120} className="flex flex-wrap justify-center items-center gap-3 md:gap-6">
             {["Build without hiring", "Scale without friction", "Grow with Chorus"].map((point) => (
               <div
                 key={point}
@@ -47,7 +50,7 @@ export function FinalCTASection() {
                 </div>
               </div>
             ))}
-          </div>
+          </StaggerChildren>
         </div>
 
         {/* CTA Button */}

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { SmoothScroll } from "@/components/ui";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -15,7 +16,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className="font-urbanist antialiased" suppressHydrationWarning>
-        {children}
+        <SmoothScroll>{children}</SmoothScroll>
       </body>
     </html>
   );

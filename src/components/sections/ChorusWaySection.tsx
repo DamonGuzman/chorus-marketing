@@ -1,6 +1,6 @@
 "use client";
 
-import { Badge, Container, Section } from "@/components/ui";
+import { AnimateOnScroll, Badge, Container, ScrollTextReveal, Section } from "@/components/ui";
 import dynamic from "next/dynamic";
 import { useEffect, useState } from "react";
 
@@ -24,13 +24,16 @@ export function ChorusWaySection() {
           <Badge>The Solution</Badge>
 
           <div className="flex flex-col justify-start items-center gap-4">
-            <h2 className="w-96 max-w-full text-center text-2xl leading-8 font-bold font-['Urbanist'] text-white">
-              The Chorus Way<br />Manifest Your Team Instantly
-            </h2>
+            <ScrollTextReveal
+              text={["The Chorus Way", "Manifest Your Team Instantly"]}
+              className="w-96 max-w-full text-center text-2xl leading-8 font-bold font-['Urbanist']"
+            />
 
-            <p className="w-80 text-center text-sm leading-6 font-normal font-['Urbanist'] text-gray-300">
-              The best way to reach humans instead of spam folders. Deliver transactional and marketing emails at scale.
-            </p>
+            <AnimateOnScroll animation="fade-up" duration={0.8} threshold={0.3}>
+              <p className="w-80 text-center text-sm leading-6 font-normal font-['Urbanist'] text-gray-300">
+                The best way to reach humans instead of spam folders. Deliver transactional and marketing emails at scale.
+              </p>
+            </AnimateOnScroll>
           </div>
 
           {/* Mobile Lottie animation */}
@@ -45,36 +48,45 @@ export function ChorusWaySection() {
             )}
           </div>
 
-          <p className="w-80 text-left text-sm leading-6 font-medium font-['Urbanist'] text-gray-300">
-            VocAI CRM empowers a global network of over 250,000 businesses in 180 countries to convert more leads, engage with customers, and grow their revenue.
-          </p>
+          <AnimateOnScroll animation="fade-up" duration={0.8} threshold={0.3}>
+            <p className="w-80 text-left text-sm leading-6 font-medium font-['Urbanist'] text-gray-300">
+              VocAI CRM empowers a global network of over 250,000 businesses in 180 countries to convert more leads, engage with customers, and grow their revenue.
+            </p>
+          </AnimateOnScroll>
 
-          <p className="w-80 h-16 text-left text-sm leading-6 font-medium font-['Urbanist'] text-gray-300">
-            VocAI CRM empowers a global network of over 250,000 businesses in 180 countries to convert more leads,
-          </p>
+          <AnimateOnScroll animation="fade-up" duration={0.8} delay={0.15} threshold={0.3}>
+            <p className="w-80 h-16 text-left text-sm leading-6 font-medium font-['Urbanist'] text-gray-300">
+              VocAI CRM empowers a global network of over 250,000 businesses in 180 countries to convert more leads,
+            </p>
+          </AnimateOnScroll>
         </div>
 
         {/* Desktop layout: side-by-side */}
         <div className="hidden md:flex w-full max-w-[1240px] mx-auto justify-start items-center gap-6 lg:gap-12">
-          <div className="md:w-[42%] md:shrink-0 lg:w-auto lg:shrink inline-flex flex-col justify-start items-start gap-6 lg:gap-11">
+          <AnimateOnScroll animation="slide-left" duration={0.9} className="md:w-[42%] md:shrink-0 lg:w-auto lg:shrink inline-flex flex-col justify-start items-start gap-6 lg:gap-11">
             <Badge>The Solution</Badge>
 
-            <div className="w-full lg:w-96 text-white md:text-3xl md:leading-[42px] lg:text-5xl font-bold font-['Urbanist'] lg:leading-[64px]">
-              The Chorus Way{" "}<br />Manifest Your Team Instantly
-            </div>
+            <ScrollTextReveal
+              text={["The Chorus Way", "Manifest Your Team Instantly"]}
+              className="w-full lg:w-96 md:text-3xl md:leading-[42px] lg:text-5xl font-bold font-['Urbanist'] lg:leading-[64px]"
+            />
 
-            <div className="w-full lg:max-w-[464px] md:text-sm md:leading-7 lg:text-lg text-gray-300 font-medium font-['Urbanist'] lg:leading-9">
-              VocAI CRM empowers a global network of over 250,000 businesses in 180 countries to convert more leads, engage
-              with customers, and grow their revenue.<br />
-            </div>
+            <AnimateOnScroll animation="fade-up" duration={0.8} threshold={0.3}>
+              <div className="w-full lg:max-w-[464px] md:text-sm md:leading-7 lg:text-lg text-gray-300 font-medium font-['Urbanist'] lg:leading-9">
+                VocAI CRM empowers a global network of over 250,000 businesses in 180 countries to convert more leads, engage
+                with customers, and grow their revenue.<br />
+              </div>
+            </AnimateOnScroll>
 
-            <div className="w-full lg:max-w-[464px] md:text-sm md:leading-7 lg:text-lg text-gray-300 font-medium font-['Urbanist'] lg:leading-9">
-              VocAI CRM empowers a global network of over 250,000 businesses in 180 countries to convert more leads,
-            </div>
-          </div>
+            <AnimateOnScroll animation="fade-up" duration={0.8} delay={0.15} threshold={0.3}>
+              <div className="w-full lg:max-w-[464px] md:text-sm md:leading-7 lg:text-lg text-gray-300 font-medium font-['Urbanist'] lg:leading-9">
+                VocAI CRM empowers a global network of over 250,000 businesses in 180 countries to convert more leads,
+              </div>
+            </AnimateOnScroll>
+          </AnimateOnScroll>
 
           {/* Desktop Lottie animation */}
-          <div className="flex-1 min-w-0 pointer-events-none overflow-visible lg:-mr-[60px] lg:-mt-[40px]">
+          <AnimateOnScroll animation="slide-right" duration={0.9} delay={0.2} className="flex-1 min-w-0 pointer-events-none overflow-visible lg:-mr-[60px] lg:-mt-[40px]">
             {animationData && (
               <Lottie
                 animationData={animationData}
@@ -83,7 +95,7 @@ export function ChorusWaySection() {
                 className="w-full h-auto md:scale-[0.85] md:origin-left lg:scale-100 lg:origin-center"
               />
             )}
-          </div>
+          </AnimateOnScroll>
         </div>
       </div>
     </Section>

@@ -1,4 +1,4 @@
-import { Badge } from "@/components/ui";
+import { Badge, ScrollTextReveal } from "@/components/ui";
 
 export function DifferenceSection() {
   return (
@@ -7,9 +7,10 @@ export function DifferenceSection() {
         {/* Section Header */}
         <div className="flex flex-col items-center gap-[15px] mb-[80px]">
           <Badge>CAPABLE</Badge>
-          <h2 className="text-[35px] leading-[1.2] font-bold text-white text-center">
-            The Difference That Changes Everything
-          </h2>
+          <ScrollTextReveal
+            text="The Difference That Changes Everything"
+            className="text-[35px] leading-[1.2] font-bold text-center"
+          />
           <p className="text-[18px] leading-[36px] font-medium text-gray-300 text-center">
             One direction cascades automatically—no meetings required.
           </p>

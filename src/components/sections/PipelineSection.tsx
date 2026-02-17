@@ -4,6 +4,8 @@
    Step 01→03 with task card + person icon illustration
    ───────────────────────────────────────────────────────── */
 
+import { ScrollTextReveal } from "@/components/ui";
+
 /* ── Skeleton bubble ── */
 function SkeletonBubble() {
   return (
@@ -151,10 +153,10 @@ export function PipelineSection() {
 
         {/* Center – Text content */}
         <div className="flex flex-col gap-[40px] max-w-[470px]">
-          <h2 className="text-white text-[24px] md:text-[30px] font-bold leading-[44px]">
-            From &quot;schedule this meeting&quot; to &quot;build this
-            pipeline&quot;
-          </h2>
+          <ScrollTextReveal
+            text={`From "schedule this meeting" to "build this pipeline"`}
+            className="text-[24px] md:text-[30px] font-bold leading-[44px]"
+          />
           <p className="text-gray-300 text-[16px] md:text-[18px] font-medium leading-[32px]">
             VocAI CRM empowers a global network of over 250,000 businesses in
             180 countries to convert more leads, engage with customers, and grow

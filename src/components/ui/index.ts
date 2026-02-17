@@ -7,3 +7,8 @@ export { IntegrationLogo } from "./IntegrationLogo";
 export { PrismaticOrb } from "./PrismaticOrb";
 export { Section } from "./Section";
 export { SectionHeader } from "./SectionHeader";
+export { AnimateOnScroll, StaggerChildren } from "./AnimateOnScroll";
+export { SmoothScroll } from "./SmoothScroll";
+export { MouseParallax } from "./MouseParallax";
+export { ScrollParallax } from "./ScrollParallax";
+export { ScrollTextReveal } from "./ScrollTextReveal";

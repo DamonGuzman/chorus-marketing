@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-import { Badge, Container, Section } from "@/components/ui";
+import { AnimateOnScroll, Badge, Container, Section, ScrollTextReveal, StaggerChildren, ScrollParallax } from "@/components/ui";
 import { cn } from "@/lib/utils";
 
 /* ============================================================
@@ -590,13 +590,16 @@ export function HowItWorksSection() {
             <Badge>Our Process</Badge>
 
             <div className="flex flex-col justify-start items-center gap-4">
-              <h2 className="text-center text-white text-2xl leading-8 md:text-3xl md:leading-[42px] lg:text-5xl lg:leading-[78px] font-bold font-['Urbanist']">
-                How It Works
-              </h2>
-              <p className="w-full text-center text-gray-300 text-sm leading-6 md:text-xl md:leading-9 font-normal font-['Urbanist']">
-                The best way to reach humans instead of spam folders. Deliver
-                transactional and marketing emails at scale.
-              </p>
+              <ScrollTextReveal
+                text="How It Works"
+                className="text-center text-2xl leading-8 md:text-3xl md:leading-[42px] lg:text-5xl lg:leading-[78px] font-bold font-['Urbanist']"
+              />
+              <AnimateOnScroll animation="fade-up" duration={0.8} threshold={0.3}>
+                <p className="w-full text-center text-gray-300 text-sm leading-6 md:text-xl md:leading-9 font-normal font-['Urbanist']">
+                  The best way to reach humans instead of spam folders. Deliver
+                  transactional and marketing emails at scale.
+                </p>
+              </AnimateOnScroll>
             </div>
           </div>
 
@@ -604,64 +607,75 @@ export function HowItWorksSection() {
           {/* Desktop: side-by-side steps + cards */}
           <div className="hidden md:flex md:pr-4 md:pt-8 md:pb-4 lg:pr-7 lg:pt-12 lg:pb-7 bg-white/5 rounded-[30px] flex-col justify-center items-start gap-2.5">
             <div className="self-stretch inline-flex justify-start items-center md:gap-6 lg:gap-16">
-              {/* Left: Steps */}
-              <div className="md:w-[38%] lg:w-full lg:max-w-[510px] inline-flex flex-col justify-start items-start gap-5">
-                {steps.map((step, idx) => (
+              {/* Left: Steps — appear one by one after the image */}
+              <ScrollParallax offset={30} delay={0} className="md:w-[38%] lg:w-full lg:max-w-[510px]">
+                <div className="inline-flex flex-col justify-start items-start gap-5 w-full">
+                  {steps.map((step, idx) => (
+                    <AnimateOnScroll
+                      key={step.number}
+                      animation="fade-up"
+                      duration={0.7}
+                      delay={0.4 + idx * 0.2}
+                      threshold={0.1}
+                    >
+                      <StepItem
+                        number={step.number}
+                        title={step.title}
+                        description={step.description}
+                        active={step.active}
+                        isLast={idx === steps.length - 1}
+                      />
+                    </AnimateOnScroll>
+                  ))}
+                </div>
+              </ScrollParallax>
+
+              {/* Right: Agent card visual — appears first */}
+              <ScrollParallax offset={30} delay={0.5} className="relative min-w-0 md:w-[62%] lg:flex-1">
+                <AnimateOnScroll animation="fade-up" duration={0.8} delay={0} threshold={0.1}>
+                  <img
+                    src="/images/figma/Group 1707484029.svg"
+                    alt="Agent profile card"
+                    className="w-full h-full object-contain"
+                    style={{ imageRendering: "auto", WebkitFontSmoothing: "antialiased" }}
+                  />
+                </AnimateOnScroll>
+              </ScrollParallax>
+            </div>
+          </div>
+
+          {/* Mobile: interleaved — image first, then steps one by one */}
+          <div className="md:hidden w-full overflow-hidden px-3 py-[30px]">
+            <div className="flex flex-col gap-[20px]">
+              {/* Visual card — appears first */}
+              <AnimateOnScroll animation="fade-up" duration={0.8} delay={0} threshold={0.1}>
+                <div className="flex justify-center">
+                  <img
+                    src="/images/figma/Group 1707484029.svg"
+                    alt="Agent profile card"
+                    className="w-72 h-auto"
+                    style={{ imageRendering: "auto", WebkitFontSmoothing: "antialiased" }}
+                  />
+                </div>
+              </AnimateOnScroll>
+
+              {/* Steps — appear one by one after image */}
+              {steps.map((step, idx) => (
+                <AnimateOnScroll
+                  key={step.number}
+                  animation="fade-up"
+                  duration={0.7}
+                  delay={0.3 + idx * 0.2}
+                  threshold={0.1}
+                >
                   <StepItem
-                    key={step.number}
                     number={step.number}
                     title={step.title}
                     description={step.description}
                     active={step.active}
                     isLast={idx === steps.length - 1}
                   />
-                ))}
-              </div>
-
-              {/* Right: Agent card visual */}
-              <div className="relative min-w-0 md:w-[62%] lg:flex-1">
-                <img
-                  src="/images/figma/Group 1707484029.svg"
-                  alt="Agent profile card"
-                  className="w-full h-full object-contain"
-                  style={{ imageRendering: "auto", WebkitFontSmoothing: "antialiased" }}
-                />
-              </div>
-            </div>
-          </div>
-
-          {/* Mobile: interleaved — step 1, then cards, then steps 2 & 3 */}
-          <div className="md:hidden w-full overflow-hidden px-3 py-[30px]">
-            <div className="flex flex-col gap-[20px]">
-              {/* Step 1 (active) */}
-              <StepItem
-                number={steps[0].number}
-                title={steps[0].title}
-                description={steps[0].description}
-                active={steps[0].active}
-                isLast={false}
-              />
-
-              {/* Visual card after step 1 */}
-              <div className="flex justify-center">
-                <img
-                  src="/images/figma/Group 1707484029.svg"
-                  alt="Agent profile card"
-                  className="w-72 h-auto"
-                  style={{ imageRendering: "auto", WebkitFontSmoothing: "antialiased" }}
-                />
-              </div>
-
-              {/* Steps 2 and 3 */}
-              {steps.slice(1).map((step, idx) => (
-                <StepItem
-                  key={step.number}
-                  number={step.number}
-                  title={step.title}
-                  description={step.description}
-                  active={step.active}
-                  isLast={idx === steps.length - 2}
-                />
+                </AnimateOnScroll>
               ))}
             </div>
           </div>

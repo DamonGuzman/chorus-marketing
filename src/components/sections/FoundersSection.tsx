@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { Badge, Section } from "@/components/ui";
+import { AnimateOnScroll, Badge, Section, ScrollTextReveal, StaggerChildren, ScrollParallax } from "@/components/ui";
 
 /* eslint-disable @next/next/no-img-element */
 
@@ -229,51 +229,69 @@ export function FoundersSection() {
         <div className="self-stretch flex flex-col justify-start items-center gap-6">
           <Badge>Testimonials</Badge>
           <div className="flex flex-col justify-start items-center gap-4">
-            <h2 className="w-80 md:w-auto text-center text-white text-2xl leading-8 md:text-3xl md:leading-[42px] lg:text-5xl lg:leading-[78px] font-bold font-['Urbanist']">
-              <span className="md:hidden">The Best Companies Don&apos;t Have More People. They Have Better Coordination.</span>
-              <span className="hidden md:inline">Founders Are Already Building With Chorus</span>
-            </h2>
-            <p className="w-full text-center text-gray-300 text-sm leading-6 md:text-xl md:leading-9 font-normal font-['Urbanist']">
-              The best way to reach humans instead of spam folders. Deliver
-              transactional and marketing emails at scale.
-            </p>
+            <div className="w-80 md:w-auto">
+              <div className="md:hidden">
+                <ScrollTextReveal
+                  text="The Best Companies Don't Have More People. They Have Better Coordination."
+                  className="text-center text-2xl leading-8 font-bold font-['Urbanist']"
+                />
+              </div>
+              <div className="hidden md:block">
+                <ScrollTextReveal
+                  text="Founders Are Already Building With Chorus"
+                  className="text-center md:text-3xl md:leading-[42px] lg:text-5xl lg:leading-[78px] font-bold font-['Urbanist']"
+                />
+              </div>
+            </div>
+            <AnimateOnScroll animation="fade-up" duration={0.8} threshold={0.3}>
+              <p className="w-full text-center text-gray-300 text-sm leading-6 md:text-xl md:leading-9 font-normal font-['Urbanist']">
+                The best way to reach humans instead of spam folders. Deliver
+                transactional and marketing emails at scale.
+              </p>
+            </AnimateOnScroll>
           </div>
         </div>
 
         {/* 3-column masonry grid — desktop */}
-        <div className="hidden md:inline-flex justify-start items-start gap-5 xl:gap-10 w-full max-w-[1240px]">
+        <StaggerChildren staggerDelay={150} className="hidden md:inline-flex justify-start items-start gap-5 xl:gap-10 w-full max-w-[1240px]">
           {/* Column 1 */}
-          <div className="flex-1 min-w-0 inline-flex flex-col justify-start items-start gap-11">
-            <LightCard
-              logo="/images/figma/image 23.svg"
-              alt="Perplexity"
-              logoWidth={158}
-              logoHeight={38}
-            />
-            <DarkCard logo="/images/figma/bbdo-logo.svg" alt="BBDO" />
-          </div>
+          <ScrollParallax offset={30} delay={0} className="flex-1 min-w-0">
+            <div className="inline-flex flex-col justify-start items-start gap-11 w-full">
+              <LightCard
+                logo="/images/figma/image 23.svg"
+                alt="Perplexity"
+                logoWidth={158}
+                logoHeight={38}
+              />
+              <DarkCard logo="/images/figma/bbdo-logo.svg" alt="BBDO" />
+            </div>
+          </ScrollParallax>
 
           {/* Column 2 */}
-          <div className="flex-1 min-w-0 inline-flex flex-col justify-start items-start gap-7">
-            <GlassCard />
-            <DarkCard logo="/images/figma/image 23 (2).svg" alt="Raycas" />
-            <GlassWhiteCard />
-          </div>
+          <ScrollParallax offset={30} delay={0.5} className="flex-1 min-w-0">
+            <div className="inline-flex flex-col justify-start items-start gap-7 w-full">
+              <GlassCard />
+              <DarkCard logo="/images/figma/image 23 (2).svg" alt="Raycas" />
+              <GlassWhiteCard />
+            </div>
+          </ScrollParallax>
 
           {/* Column 3 */}
-          <div className="flex-1 min-w-0 inline-flex flex-col justify-start items-start gap-9">
-            <DarkCard
-              logo="/images/figma/image 23 (1).svg"
-              alt="Clerk"
-            />
-            <LightCard
-              logo="/images/figma/image 23.svg"
-              alt="Perplexity"
-              logoWidth={158}
-              logoHeight={38}
-            />
-          </div>
-        </div>
+          <ScrollParallax offset={30} delay={1} className="flex-1 min-w-0">
+            <div className="inline-flex flex-col justify-start items-start gap-9 w-full">
+              <DarkCard
+                logo="/images/figma/image 23 (1).svg"
+                alt="Clerk"
+              />
+              <LightCard
+                logo="/images/figma/image 23.svg"
+                alt="Perplexity"
+                logoWidth={158}
+                logoHeight={38}
+              />
+            </div>
+          </ScrollParallax>
+        </StaggerChildren>
 
         {/* Mobile: horizontal scroll */}
         <div className="w-full md:hidden -mx-4 px-4 overflow-x-auto [scrollbar-width:none] [-webkit-overflow-scrolling:touch] [&::-webkit-scrollbar]:hidden">
