@@ -8,14 +8,13 @@ export default function AboutUsPage() {
     <div className="min-h-screen bg-black overflow-x-hidden">
       <Header />
       <main className="width-full mx-auto">
-        <div className="max-w-[1440px] mx-auto">
-          <section
-            id="about-us"
-            className="bg-black py-[50px] md:py-section-y overflow-hidden"
-          >
-            {/* first parent section */}
-            {/* desktop */}
-            <div className="hidden md:block self-stretch h-[659px] relative bg-black overflow-hidden">
+        <section
+          id="about-us"
+          className="bg-black py-[50px] md:py-section-y overflow-hidden"
+        >
+          {/* first parent section */}
+          {/* desktop */}
+          <div className="hidden md:block self-stretch h-[659px] relative bg-black overflow-hidden max-w-[1440px] mx-auto">
               <img
                 className="w-[736px] h-[571px] right-0 top-[88px] absolute"
                 src="/images/figma/about-us/torch.svg"
@@ -78,9 +77,9 @@ export default function AboutUsPage() {
               </div>
             </div>
 
-            {/* testimonials */}
-            <div className="self-stretch px-6 md:px-8 py-20 bg-black flex flex-col justify-start items-center">
-              <div className="w-full">
+          {/* testimonials */}
+          <div className="self-stretch px-6 md:px-8 py-20 bg-black flex flex-col justify-start items-center">
+            <div className="w-full max-w-[1440px] mx-auto">
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8 lg:gap-12 md:divide-x divide-white/20">
                   {/* Card 1 */}
                   <div className="flex flex-col gap-9">
@@ -145,9 +144,9 @@ export default function AboutUsPage() {
               </div>
             </div>
 
-            {/* Origin Story */}
-            <div className="self-stretch px-4 md:px-8 py-[50px] md:py-20 bg-black flex flex-col justify-start items-start">
-              <div className="w-full flex flex-col lg:flex-row justify-start items-center gap-8 lg:gap-4">
+          {/* Origin Story */}
+          <div className="self-stretch px-4 md:px-8 py-[50px] md:py-20 bg-black flex flex-col justify-start items-start">
+            <div className="w-full max-w-[1440px] mx-auto flex flex-col lg:flex-row justify-start items-center gap-8 lg:gap-4">
                 {/* Left Content */}
                 <div className="flex flex-col justify-start items-center lg:items-start gap-8 md:gap-12 flex-1 text-center lg:text-left">
                   <Badge className="px-3 py-1">Origin Story</Badge>
@@ -207,9 +206,9 @@ export default function AboutUsPage() {
               </div>
             </div>
 
-            {/* Press Section */}
-            <div className="self-stretch px-4 md:px-8 py-[50px] md:py-20 bg-black flex flex-col justify-start items-center">
-              <div className="w-full flex flex-col justify-start items-center gap-6">
+          {/* Press Section */}
+          <div className="self-stretch px-4 md:px-8 py-[50px] md:py-20 bg-black flex flex-col justify-start items-center">
+            <div className="w-full max-w-[1440px] mx-auto flex flex-col justify-start items-center gap-6">
                 <Badge className="px-3 py-1">Features</Badge>
                 <div className="flex flex-col justify-start items-center gap-6 md:gap-8">
                   <h2 className="text-center text-white text-[28px] md:text-5xl font-bold font-['Urbanist'] leading-[38px] md:leading-[78px]">
@@ -226,75 +225,77 @@ export default function AboutUsPage() {
             <PressCarousel />
 
             {/* Desktop grid */}
-            <div className="hidden lg:flex self-stretch pl-52 pr-24 py-20 bg-black flex-col justify-start items-center gap-14 overflow-hidden">
-              <div className="w-full max-w-[1328px] flex flex-col justify-start items-center gap-20">
-                <div className="w-full grid grid-cols-2 gap-14">
-                  <div className="flex flex-row justify-start items-end gap-9">
+            <div className="hidden lg:flex self-stretch px-6 lg:px-12 xl:px-20 2xl:pl-52 2xl:pr-24 py-20 bg-black flex-col justify-start items-center gap-14 overflow-hidden">
+              <div className="w-full max-w-[95%] lg:max-w-[1100px] xl:max-w-[1200px] 2xl:max-w-[1328px] flex flex-col justify-start items-center gap-12 lg:gap-16 xl:gap-20">
+                <div className="self-stretch inline-flex justify-start items-end gap-8 lg:gap-10 xl:gap-12 2xl:gap-14">
+                  <div className="inline-flex justify-start items-end gap-4 lg:gap-6 xl:gap-8 2xl:gap-9">
                     <img
-                      className="w-64 h-56 rounded-[35px] border border-white/40 object-[inherit]"
+                      className="w-40 h-44 lg:w-44 lg:h-48 xl:w-48 xl:h-52 2xl:w-52 2xl:h-56 rounded-[25px] lg:rounded-[30px] 2xl:rounded-[35px] border border-white/40"
                       src="images/figma/about-us/person-1.jpg"
                       alt="TechCrunch"
                     />
-                    <div className="flex flex-col justify-start items-start gap-5">
-                      <p className="text-gray-400 text-lg font-bold font-['Urbanist'] leading-8 max-w-[288px]">
+                    <div className="inline-flex flex-col justify-start items-start gap-3 lg:gap-4 2xl:gap-5">
+                      <div className="w-56 lg:w-60 xl:w-64 2xl:w-72 justify-start text-gray-400 text-base lg:text-base xl:text-lg font-bold font-['Urbanist'] leading-6 lg:leading-7 xl:leading-8">
                         Chorus didn&apos;t just launch a product—they performed
                         it live. 15,000 people directing, AI executing, $25K in
                         30 days. That&apos;s not a demo. That&apos;s a debut.
-                      </p>
-                      <p className="text-white text-lg font-semibold font-['Urbanist'] leading-8">
+                      </div>
+                      <div className="self-stretch justify-start text-white text-base lg:text-base xl:text-lg font-semibold font-['Urbanist'] leading-6 lg:leading-7 xl:leading-8">
                         — TechCrunch
-                      </p>
+                      </div>
                     </div>
                   </div>
-                  <div className="flex flex-row justify-start items-end gap-9">
+                  <div className="inline-flex justify-start items-end gap-4 lg:gap-6 xl:gap-8 2xl:gap-9">
                     <img
-                      className="w-64 h-56 rounded-[35px] border border-white/40 object-[inherit]"
+                      className="w-40 h-44 lg:w-44 lg:h-48 xl:w-48 xl:h-52 2xl:w-52 2xl:h-56 rounded-[25px] lg:rounded-[30px] 2xl:rounded-[35px] border border-white/40"
                       src="images/figma/about-us/person-2.jpg"
                       alt="The Information"
                     />
-                    <div className="flex flex-col justify-start items-start gap-5">
-                      <p className="text-gray-400 text-lg font-bold font-['Urbanist'] leading-8 max-w-[288px]">
+                    <div className="inline-flex flex-col justify-start items-start gap-3 lg:gap-4 2xl:gap-5">
+                      <div className="w-56 lg:w-60 xl:w-64 2xl:w-72 justify-start text-gray-400 text-base lg:text-base xl:text-lg font-bold font-['Urbanist'] leading-6 lg:leading-7 xl:leading-8">
                         The most coordinated AI launch we&apos;ve seen.
-                      </p>
-                      <p className="text-white text-lg font-semibold font-['Urbanist'] leading-8">
+                      </div>
+                      <div className="self-stretch justify-start text-white text-base lg:text-base xl:text-lg font-semibold font-['Urbanist'] leading-6 lg:leading-7 xl:leading-8">
                         — The Information
-                      </p>
+                      </div>
                     </div>
                   </div>
                 </div>
-                <div className="w-full grid grid-cols-2 gap-14 pl-64">
-                  <div className="flex flex-row justify-start items-end gap-9">
-                    <img
-                      className="w-64 h-56 rounded-[35px] border border-white/40 object-cover"
-                      src="images/figma/about-us/person-3.jpg"
-                      alt="VentureBeat"
-                    />
-                    <div className="flex flex-col justify-start items-start gap-5">
-                      <p className="text-gray-400 text-lg font-bold font-['Urbanist'] leading-8 max-w-[288px]">
-                        If this is what agentic AI actually looks like when it
-                        works in harmony, every startup&apos;s playbook just got
-                        rewritten.
-                      </p>
-                      <p className="text-white text-lg font-semibold font-['Urbanist'] leading-8">
-                        — VentureBeat
-                      </p>
+              </div>
+
+              {/* Second row - outside the max-width container */}
+              <div className="w-full pl-8 lg:pl-32 xl:pl-48 2xl:pl-64 inline-flex justify-center items-end gap-10 lg:gap-14 xl:gap-16 2xl:gap-20">
+                <div className="inline-flex justify-start items-end gap-4 lg:gap-6 xl:gap-8 2xl:gap-9">
+                  <img
+                    className="w-40 h-44 lg:w-44 lg:h-48 xl:w-48 xl:h-52 2xl:w-52 2xl:h-56 rounded-[25px] lg:rounded-[30px] 2xl:rounded-[35px] border border-white/40"
+                    src="images/figma/about-us/person-3.jpg"
+                    alt="VentureBeat"
+                  />
+                  <div className="inline-flex flex-col justify-start items-start gap-3 lg:gap-4 2xl:gap-5">
+                    <div className="w-56 lg:w-60 xl:w-64 2xl:w-72 justify-start text-gray-400 text-base lg:text-base xl:text-lg font-bold font-['Urbanist'] leading-6 lg:leading-7 xl:leading-8">
+                      If this is what agentic AI actually looks like when it
+                      works in harmony, every startup&apos;s playbook just got
+                      rewritten.
+                    </div>
+                    <div className="self-stretch justify-start text-white text-base lg:text-base xl:text-lg font-semibold font-['Urbanist'] leading-6 lg:leading-7 xl:leading-8">
+                      — VentureBeat
                     </div>
                   </div>
-                  <div className="flex flex-row justify-start items-end gap-9">
-                    <img
-                      className="w-60 h-56 rounded-[35px] border border-white/40 object-cover"
-                      src="images/figma/about-us/person-4.jpg"
-                      alt="TechCrunch"
-                    />
-                    <div className="flex flex-col justify-start items-start gap-5">
-                      <p className="text-gray-400 text-lg font-bold font-['Urbanist'] leading-8 max-w-[288px]">
-                        Chorus didn&apos;t just launch a product—they performed
-                        it live. 15,000 people directing, AI executing, $25K in
-                        30 days. That&apos;s not a demo. That&apos;s a debut.
-                      </p>
-                      <p className="text-white text-lg font-semibold font-['Urbanist'] leading-8">
-                        — TechCrunch
-                      </p>
+                </div>
+                <div className="inline-flex justify-start items-end gap-4 lg:gap-6 xl:gap-8 2xl:gap-9">
+                  <img
+                    className="w-40 h-44 lg:w-44 lg:h-48 xl:w-48 xl:h-52 2xl:w-52 2xl:h-56 rounded-[25px] lg:rounded-[30px] 2xl:rounded-[35px] border border-white/40"
+                    src="images/figma/about-us/person-4.jpg"
+                    alt="TechCrunch"
+                  />
+                  <div className="inline-flex flex-col justify-start items-start gap-3 lg:gap-4 2xl:gap-5">
+                    <div className="w-56 lg:w-60 xl:w-64 2xl:w-72 justify-start text-gray-400 text-base lg:text-base xl:text-lg font-bold font-['Urbanist'] leading-6 lg:leading-7 xl:leading-8">
+                      Chorus didn&apos;t just launch a product—they performed
+                      it live. 15,000 people directing, AI executing, $25K in
+                      30 days. That&apos;s not a demo. That&apos;s a debut.
+                    </div>
+                    <div className="self-stretch justify-start text-white text-base lg:text-base xl:text-lg font-semibold font-['Urbanist'] leading-6 lg:leading-7 xl:leading-8">
+                      — TechCrunch
                     </div>
                   </div>
                 </div>
@@ -360,10 +361,9 @@ export default function AboutUsPage() {
               </div>
             </div>
 
-            {/* Final CTA Section */}
-            <FinalCTASection />
-          </section>
-        </div>
+          {/* Final CTA Section */}
+          <FinalCTASection />
+        </section>
       </main>
       <Footer />
     </div>
