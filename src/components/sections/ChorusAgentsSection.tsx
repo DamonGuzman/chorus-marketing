@@ -274,7 +274,7 @@ function CollaborateCard() {
       <div className="absolute inset-0 rounded-3xl md:rounded-[40px] border border-white/35 pointer-events-none z-40" />
       {/* Orbit content — scaled down on mobile */}
       <div className="absolute top-0 left-0 w-[600px] h-[671px] origin-top-left scale-[0.53] md:left-0 md:w-full md:h-full md:scale-100">
-        <div className="w-[467.27px] h-[455.33px] left-[49.47px] top-[32.39px] absolute rounded-full shadow-[0px_6.177914619445801px_6.177914619445801px_0px_rgba(0,0,0,0.25)] border-[2.85px] border-white/5" />
+        <div className="w-[467.27px] h-[455.33px] left-[60.47px] top-[40.39px] absolute rounded-full shadow-[0px_6.177914619445801px_6.177914619445801px_0px_rgba(0,0,0,0.25)] border-[2.85px] border-white/5" />
         <img
           className="w-16 h-16 left-[102.39px] top-[310.89px] absolute rounded-full"
           src="images/figma/features/man-memoji.svg"
@@ -289,8 +289,8 @@ function CollaborateCard() {
         />
         <div className="w-96 h-96 left-[102px] top-[78.41px] absolute rounded-full shadow-[0px_6.177914619445801px_6.177914619445801px_0px_rgba(0,0,0,0.25)] border-[2.85px] border-white/10" />
         <div className="w-96 h-96 left-[100.40px] top-[416.34px] absolute origin-top-left rotate-[-83.96deg] bg-neutral-800/20 rounded-full shadow-[0px_6.177914142608643px_6.177914142608643px_0px_rgba(0,0,0,0.25)]" />
-        <div className="w-72 h-72 left-[144.53px] top-[113.50px] absolute rounded-full shadow-[0px_6.177914619445801px_6.177914619445801px_0px_rgba(0,0,0,0.25)] border-[2.85px] border-white/10" />
-        <div className="w-40 h-36 left-[214.04px] top-[178.68px] absolute">
+        <div className="w-72 h-72 left-[152.53px] md:left-[152.53px] top-[124.50px] md:top-[126.50px] absolute rounded-full shadow-[0px_6.177914619445801px_6.177914619445801px_0px_rgba(0,0,0,0.25)] border-[2.85px] border-white/10" />
+        <div className="w-40 h-36 left-[219.04px] md:left-[217.04px] top-[190.68px] md:top-[196.68px] absolute">
           <img src="images/figma/features/bot-with-bg.svg" />
         </div>
         <div className="w-2.5 h-2.5 left-[275.90px] top-[246.18px] absolute bg-White rounded-full" />
