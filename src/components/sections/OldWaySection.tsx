@@ -1,5 +1,5 @@
 import { SearchPersonIcon, MountainIcon, CoinsIcon, CursorIcon } from "@/components/icons";
-import { Badge, Section } from "@/components/ui";
+import { AnimateOnScroll, Badge, Section, ScrollTextReveal, StaggerChildren, ScrollParallax } from "@/components/ui";
 
 const oldWayItems = [
   {
@@ -36,20 +36,23 @@ export function OldWaySection() {
       <div className="flex flex-col justify-start items-center gap-6">
         <Badge>The Problem</Badge>
         <div className="flex flex-col justify-start items-center gap-4">
-          <h2 className="text-center max-md:text-2xl max-md:leading-8 md:text-3xl md:leading-[42px] lg:text-5xl lg:leading-[78px] font-bold font-['Urbanist'] text-white">
-            The Old Way : Managing Individual Players
-          </h2>
-          <p className="text-center max-md:w-80 max-md:text-sm max-md:leading-6 md:text-base md:leading-7 lg:text-xl lg:leading-9 font-normal font-['Urbanist'] text-gray-300">
-            The best way to reach humans instead of spam folders. Deliver transactional and marketing emails at scale.
-          </p>
+          <ScrollTextReveal
+            text="The Old Way : Managing Individual Players"
+            className="text-center max-md:text-2xl max-md:leading-8 md:text-3xl md:leading-[42px] lg:text-5xl lg:leading-[78px] font-bold font-['Urbanist']"
+          />
+          <AnimateOnScroll animation="fade-up" duration={0.8} threshold={0.3}>
+            <p className="text-center max-md:w-80 max-md:text-sm max-md:leading-6 md:text-base md:leading-7 lg:text-xl lg:leading-9 font-normal font-['Urbanist'] text-gray-300">
+              The best way to reach humans instead of spam folders. Deliver transactional and marketing emails at scale.
+            </p>
+          </AnimateOnScroll>
         </div>
       </div>
 
       {/* Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-4 md:gap-4 lg:gap-7 justify-items-center w-full">
+      <StaggerChildren staggerDelay={120} className="grid grid-cols-1 md:grid-cols-4 gap-4 md:gap-4 lg:gap-7 justify-items-center w-full">
         {oldWayItems.map((item, index) => (
+          <ScrollParallax key={index} offset={30} delay={index / 3}>
           <div
-            key={index}
             className="max-md:w-full max-md:p-4 max-md:inline-flex max-md:flex-row max-md:items-center max-md:gap-5 md:w-full md:h-auto md:px-4 lg:px-7 md:pt-5 lg:pt-7 md:pb-2.5 md:inline-flex md:flex-col md:justify-start md:items-start md:gap-3 lg:gap-6 bg-gradient-to-r from-white/5 via-white/10 to-white/5 rounded-[20px] outline outline-1 outline-offset-[-1px] outline-white/30 backdrop-blur-[30px] overflow-hidden"
           >
             <item.Icon className="text-gray-200/50 shrink-0 max-md:w-10 max-md:h-10" />
@@ -65,8 +68,9 @@ export function OldWaySection() {
               </div>
             </div>
           </div>
+          </ScrollParallax>
         ))}
-        </div>
+        </StaggerChildren>
 
       {/* Pagination Arrows */}
       <div className="hidden md:inline-flex justify-center items-center gap-5">

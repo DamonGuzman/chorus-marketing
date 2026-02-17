@@ -1,7 +1,7 @@
 "use client";
 
 import { useCallback } from "react";
-import { Section } from "@/components/ui";
+import { AnimateOnScroll, Section, ScrollTextReveal, StaggerChildren, ScrollParallax } from "@/components/ui";
 import { CheckIcon } from "@/components/icons";
 import { cn } from "@/lib/utils";
 import { Badge } from "@/components/ui";
@@ -120,12 +120,15 @@ export function PricingSection() {
           </Badge>
 
           <div className="flex flex-col justify-start items-center gap-5 md:gap-4">
-            <h2 className="w-80 md:w-auto text-center text-2xl leading-8 md:text-3xl md:leading-[42px] lg:text-5xl lg:leading-[78px] font-bold font-['Urbanist'] text-white">
-              Stop Paying Six Figures Per Employee
-            </h2>
-            <p className="w-80 md:w-auto text-center text-sm leading-6 md:text-xl md:leading-9 font-normal font-['Urbanist'] text-gray-300">
-              More than just integrations, 10,000+ tools that can adapt — turning automation into intuition.
-            </p>
+            <ScrollTextReveal
+              text="Stop Paying Six Figures Per Employee"
+              className="w-80 md:w-auto text-center text-2xl leading-8 md:text-3xl md:leading-[42px] lg:text-5xl lg:leading-[78px] font-bold font-['Urbanist']"
+            />
+            <AnimateOnScroll animation="fade-up" duration={0.8} threshold={0.3}>
+              <p className="w-80 md:w-auto text-center text-sm leading-6 md:text-xl md:leading-9 font-normal font-['Urbanist'] text-gray-300">
+                More than just integrations, 10,000+ tools that can adapt — turning automation into intuition.
+              </p>
+            </AnimateOnScroll>
           </div>
         </div>
 
@@ -142,13 +145,12 @@ export function PricingSection() {
             </div>
 
             {/* Desktop: grid layout */}
-            <div className="hidden md:grid md:grid-cols-3 md:gap-5 lg:gap-10 w-full">
+            <StaggerChildren staggerDelay={150} className="hidden md:grid md:grid-cols-3 md:gap-5 lg:gap-10 w-full">
               {plans.map((plan) => {
                 const theme = cardThemes[plan.theme];
-
                 return (
+                  <ScrollParallax key={plan.name} offset={30} delay={plans.indexOf(plan) / 2}>
                   <div
-                    key={plan.name}
                     className={cn(
                       "relative overflow-hidden rounded-[20px] px-[16px] pt-[24px] pb-[20px] lg:px-[33px] lg:pt-[56px] lg:pb-[40px] min-h-[380px] lg:min-h-[629px] flex flex-col",
                       theme.card
@@ -217,9 +219,10 @@ export function PricingSection() {
                       </div>
                     </div>
                   </div>
+                  </ScrollParallax>
                 );
               })}
-            </div>
+            </StaggerChildren>
 
             {/* Mobile: horizontal scroll, Professional card centered initially */}
             <div ref={scrollRef} className="md:hidden w-full -mx-4 px-4 overflow-x-auto snap-x snap-mandatory [scrollbar-width:none] [-webkit-overflow-scrolling:touch] [&::-webkit-scrollbar]:hidden">

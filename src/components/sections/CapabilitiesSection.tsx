@@ -1,4 +1,4 @@
-import { Badge, Section } from "@/components/ui";
+import { AnimateOnScroll, Badge, Section, ScrollTextReveal, StaggerChildren, ScrollParallax } from "@/components/ui";
 import Image from "next/image";
 
 const capabilityCards = [
@@ -31,21 +31,24 @@ export function CapabilitiesSection() {
       {/* Section Header */}
       <Badge>Capabilities</Badge>
       <div className="flex flex-col justify-start items-center gap-4">
-        <h2 className="text-center text-white text-2xl leading-8 md:text-3xl md:leading-[42px] lg:text-5xl font-bold font-['Urbanist'] lg:leading-[78px]">
-          What Your AI Workforce Can Do
-        </h2>
-        <p className="w-full text-center text-gray-300 text-sm leading-6 md:text-base md:leading-7 lg:text-xl lg:leading-9 font-normal font-['Urbanist']">
-          The best way to reach humans instead of spam folders. Deliver transactional and marketing emails at scale.
-        </p>
+        <ScrollTextReveal
+          text="What Your AI Workforce Can Do"
+          className="text-center text-2xl leading-8 md:text-3xl md:leading-[42px] lg:text-5xl font-bold font-['Urbanist'] lg:leading-[78px]"
+        />
+        <AnimateOnScroll animation="fade-up" duration={0.8} threshold={0.3}>
+          <p className="w-full text-center text-gray-300 text-sm leading-6 md:text-base md:leading-7 lg:text-xl lg:leading-9 font-normal font-['Urbanist']">
+            The best way to reach humans instead of spam folders. Deliver transactional and marketing emails at scale.
+          </p>
+        </AnimateOnScroll>
       </div>
 
       <div className="flex flex-col md:flex-row items-center justify-center gap-6 md:gap-10 w-full max-w-[1240px] mx-auto">
         {/* Left: capability cards */}
         <div className="w-full md:flex-1 md:min-w-0">
-          <div className="flex flex-col items-center md:items-start gap-4 md:gap-3 lg:gap-[24px]">
+          <StaggerChildren staggerDelay={120} className="flex flex-col items-center md:items-start gap-4 md:gap-3 lg:gap-[24px]">
             {capabilityCards.map(({ name, iconSrc }, index) => (
+              <ScrollParallax key={name} offset={30} delay={index / 3}>
               <div
-                key={name}
                 className={[
                   "max-md:w-72 md:w-full md:max-w-[500px] max-md:h-20 md:h-24 lg:h-36",
                   "max-md:pl-5 max-md:pr-4 max-md:py-4 md:pl-5 md:pr-4 md:py-3 lg:pl-8 lg:pr-6 lg:py-6",
@@ -76,8 +79,9 @@ export function CapabilitiesSection() {
                   </p>
                 </div>
               </div>
+              </ScrollParallax>
             ))}
-          </div>
+          </StaggerChildren>
         </div>
 
         {/* Right: team preview */}

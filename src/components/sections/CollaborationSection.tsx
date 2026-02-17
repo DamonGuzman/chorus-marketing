@@ -1,4 +1,4 @@
-import { Badge } from "@/components/ui";
+import { Badge, ScrollTextReveal } from "@/components/ui";
 
 export function CollaborationSection() {
   return (
@@ -12,9 +12,10 @@ export function CollaborationSection() {
         {/* Section Header */}
         <div className="flex flex-col items-center gap-4 mb-[80px]">
           <Badge>COLLABORATION</Badge>
-          <h2 className="text-[50px] leading-[68px] font-bold text-white text-center">
-            Human-AI Collaboration
-          </h2>
+          <ScrollTextReveal
+            text="Human-AI Collaboration"
+            className="text-[50px] leading-[68px] font-bold text-center"
+          />
           <p className="text-lg font-medium text-gray-300 text-center max-w-[700px]">
             &quot;It&apos;s AI that handling everything from sales to support, finance and on, working
             together. That&apos;s been our Competing Idea.&quot;

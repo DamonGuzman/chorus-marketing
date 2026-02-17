@@ -230,7 +230,7 @@ export default function AboutUsPage() {
                 <div className="self-stretch inline-flex justify-start items-end gap-8 lg:gap-10 xl:gap-12 2xl:gap-14">
                   <div className="inline-flex justify-start items-end gap-4 lg:gap-6 xl:gap-8 2xl:gap-9">
                     <img
-                      className="w-40 h-44 lg:w-44 lg:h-48 xl:w-48 xl:h-52 2xl:w-52 2xl:h-56 rounded-[25px] lg:rounded-[30px] 2xl:rounded-[35px] border border-white/40"
+                      className="w-40 h-44 lg:w-44 lg:h-48 xl:w-48 xl:h-52 2xl:w-52 2xl:h-56 rounded-[25px] lg:rounded-[30px] 2xl:rounded-[35px] border border-white/40 object-cover object-center"
                       src="images/figma/about-us/person-1.jpg"
                       alt="TechCrunch"
                     />
@@ -247,7 +247,7 @@ export default function AboutUsPage() {
                   </div>
                   <div className="inline-flex justify-start items-end gap-4 lg:gap-6 xl:gap-8 2xl:gap-9">
                     <img
-                      className="w-40 h-44 lg:w-44 lg:h-48 xl:w-48 xl:h-52 2xl:w-52 2xl:h-56 rounded-[25px] lg:rounded-[30px] 2xl:rounded-[35px] border border-white/40"
+                      className="w-40 h-44 lg:w-44 lg:h-48 xl:w-48 xl:h-52 2xl:w-52 2xl:h-56 rounded-[25px] lg:rounded-[30px] 2xl:rounded-[35px] border border-white/40 object-cover object-center"
                       src="images/figma/about-us/person-2.jpg"
                       alt="The Information"
                     />
@@ -267,7 +267,7 @@ export default function AboutUsPage() {
               <div className="w-full pl-8 lg:pl-32 xl:pl-48 2xl:pl-64 inline-flex justify-center items-end gap-10 lg:gap-14 xl:gap-16 2xl:gap-20">
                 <div className="inline-flex justify-start items-end gap-4 lg:gap-6 xl:gap-8 2xl:gap-9">
                   <img
-                    className="w-40 h-44 lg:w-44 lg:h-48 xl:w-48 xl:h-52 2xl:w-52 2xl:h-56 rounded-[25px] lg:rounded-[30px] 2xl:rounded-[35px] border border-white/40"
+                    className="w-40 h-44 lg:w-44 lg:h-48 xl:w-48 xl:h-52 2xl:w-52 2xl:h-56 rounded-[25px] lg:rounded-[30px] 2xl:rounded-[35px] border border-white/40 object-cover object-center"
                     src="images/figma/about-us/person-3.jpg"
                     alt="VentureBeat"
                   />
@@ -284,7 +284,7 @@ export default function AboutUsPage() {
                 </div>
                 <div className="inline-flex justify-start items-end gap-4 lg:gap-6 xl:gap-8 2xl:gap-9">
                   <img
-                    className="w-40 h-44 lg:w-44 lg:h-48 xl:w-48 xl:h-52 2xl:w-52 2xl:h-56 rounded-[25px] lg:rounded-[30px] 2xl:rounded-[35px] border border-white/40"
+                    className="w-40 h-44 lg:w-44 lg:h-48 xl:w-48 xl:h-52 2xl:w-52 2xl:h-56 rounded-[25px] lg:rounded-[30px] 2xl:rounded-[35px] border border-white/40 object-cover object-center"
                     src="images/figma/about-us/person-4.jpg"
                     alt="TechCrunch"
                   />
@@ -343,7 +343,7 @@ export default function AboutUsPage() {
                     >
                       {/* eslint-disable-next-line @next/next/no-img-element */}
                       <img
-                        className="w-[140px] h-[140px] md:w-72 md:h-72 object-cover rounded-full bg-[#ADADAD]"
+                        className="w-[140px] h-[140px] md:w-[200px] md:h-[200px] lg:w-64 lg:h-64 object-cover rounded-full bg-[#ADADAD]"
                         src={member.src}
                         alt="Team member"
                       />

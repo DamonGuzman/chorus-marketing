@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { Section, Badge } from "@/components/ui";
+import { Section, Badge, ScrollTextReveal } from "@/components/ui";
 
 export function VisionSection() {
   return (
@@ -10,9 +10,10 @@ export function VisionSection() {
           <Badge>Control</Badge>
 
           {/* Section Title: 50px, bold, 78px line-height, -0.5px letter-spacing */}
-          <h2 className="text-[50px] leading-[78px] font-bold text-white tracking-[-0.5px]">
-            Built By People Who Understand Both Vision And Execution
-          </h2>
+          <ScrollTextReveal
+            text="Built By People Who Understand Both Vision And Execution"
+            className="text-[50px] leading-[78px] font-bold tracking-[-0.5px]"
+          />
 
           {/* Founder image placeholder */}
           <div className="w-[100px] h-[100px] rounded-[8px] overflow-hidden relative bg-gray-800">

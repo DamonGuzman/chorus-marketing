@@ -4,6 +4,8 @@
    Step 01→03 with circular hub + satellite icon nodes
    ───────────────────────────────────────────────────────── */
 
+import { ScrollTextReveal } from "@/components/ui";
+
 /* ── Dark filled satellite node ── */
 function Node({ children }: { children?: React.ReactNode }) {
   return (
@@ -288,9 +290,10 @@ export function CampaignSection() {
 
         {/* Center – Text content */}
         <div className="flex flex-col gap-[40px] max-w-[510px]">
-          <h2 className="text-white text-[24px] md:text-[30px] font-bold leading-[44px]">
-            From &quot;send this email&quot; to &quot;run this campaign&quot;
-          </h2>
+          <ScrollTextReveal
+            text={`From "send this email" to "run this campaign"`}
+            className="text-[24px] md:text-[30px] font-bold leading-[44px]"
+          />
           <p className="text-gray-300 text-[16px] md:text-[18px] font-medium leading-[32px]">
             VocAI CRM empowers a global network of over 250,000 businesses in
             180 countries to convert more leads, engage with customers, and grow

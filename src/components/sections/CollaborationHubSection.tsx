@@ -2,6 +2,8 @@
    Human-AI Collaboration Section
    ───────────────────────────────────────────────────────── */
 
+import { ScrollTextReveal } from "@/components/ui";
+
 /* ── Checkmark circle bullet ── */
 function CheckBullet({ text }: { text: string }) {
   return (
@@ -338,9 +340,10 @@ export function CollaborationHubSection() {
               Your Team + AI Team = Unstoppable
             </span>
           </div>
-          <h2 className="text-white text-[28px] md:text-[50px] font-bold leading-[36px] md:leading-[78px] text-center">
-            Human-AI Collaboration
-          </h2>
+          <ScrollTextReveal
+            text="Human-AI Collaboration"
+            className="text-[28px] md:text-[50px] font-bold leading-[36px] md:leading-[78px] text-center"
+          />
           <p className="text-gray-300 text-[16px] md:text-[26px] font-medium leading-[26px] md:leading-[36px] text-center">
             Chorus isn&apos;t about replacing your people. It&apos;s about
             multiplying them.

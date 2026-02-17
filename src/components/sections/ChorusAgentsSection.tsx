@@ -8,7 +8,7 @@ import {
   SearchIcon,
   ClipboardIcon,
 } from "@/components/icons/FeatureCardIcons";
-import { IntegrationLogo } from "@/components/ui";
+import { AnimateOnScroll, IntegrationLogo, ScrollTextReveal } from "@/components/ui";
 
 /* ── Shared helpers ── */
 
@@ -237,10 +237,12 @@ function GoalsCard() {
         <h3 className="text-white text-base md:text-[26px] font-bold leading-9 md:leading-[40px] text-center">
           You set goals, not tasks
         </h3>
-        <p className="text-gray-300 text-[9px] md:text-[16px] font-semibold leading-4 md:leading-[26px] text-center max-w-[288px] md:max-w-[440px]">
-          The best way to reach humans instead of spam folders. Deliver
-          transactional and marketing emails at scale.
-        </p>
+        <AnimateOnScroll animation="fade-up" duration={0.8} threshold={0.3}>
+          <p className="text-gray-300 text-[9px] md:text-[16px] font-semibold leading-4 md:leading-[26px] text-center max-w-[288px] md:max-w-[440px]">
+            The best way to reach humans instead of spam folders. Deliver
+            transactional and marketing emails at scale.
+          </p>
+        </AnimateOnScroll>
       </div>
     </div>
   );
@@ -331,10 +333,12 @@ function CollaborateCard() {
         <div className="justify-center text-white text-base md:text-2xl font-bold font-['Urbanist'] leading-9 md:leading-[65.07px]">
           They collaborate with each other
         </div>
-        <div className="md:w-[526px] text-center justify-start text-gray-300 text-[9px] md:text-base font-bold font-['Urbanist'] leading-4 md:leading-8">
-          The best way to reach humans instead of spam folders. Deliver
-          transactional and marketing emails at scale.
-        </div>
+        <AnimateOnScroll animation="fade-up" duration={0.8} threshold={0.3}>
+          <div className="md:w-[526px] text-center justify-start text-gray-300 text-[9px] md:text-base font-bold font-['Urbanist'] leading-4 md:leading-8">
+            The best way to reach humans instead of spam folders. Deliver
+            transactional and marketing emails at scale.
+          </div>
+        </AnimateOnScroll>
       </div>
     </div>
   );
@@ -635,9 +639,10 @@ export function ChorusAgentsSection() {
             </span>
           </div>
           <div className="flex flex-col items-center gap-4 md:gap-2 w-full">
-            <h2 className="text-white text-2xl md:text-[50px] font-bold leading-8 md:leading-[78px] text-center max-w-[384px] md:max-w-none">
-              Autonomous Agents, Not Chatbots.
-            </h2>
+            <ScrollTextReveal
+              text="Autonomous Agents, Not Chatbots."
+              className="text-2xl md:text-[50px] font-bold leading-8 md:leading-[78px] text-center max-w-[384px] md:max-w-none"
+            />
             <p className="text-gray-300 text-sm md:text-[26px] font-normal md:font-medium leading-6 md:leading-[36px] text-center max-w-80 md:max-w-none">
               The Difference That Changes Everything
             </p>
