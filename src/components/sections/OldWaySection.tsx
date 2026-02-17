@@ -1,5 +1,5 @@
 import { SearchPersonIcon, MountainIcon, CoinsIcon, CursorIcon } from "@/components/icons";
-import { AnimateOnScroll, Badge, Section, ScrollTextReveal, StaggerChildren, ScrollParallax } from "@/components/ui";
+import { AnimateOnScroll, Badge, Section, ScrollTextReveal, StaggerChildren } from "@/components/ui";
 
 const oldWayItems = [
   {
@@ -49,11 +49,11 @@ export function OldWaySection() {
       </div>
 
       {/* Cards */}
-      <StaggerChildren staggerDelay={120} className="grid grid-cols-1 md:grid-cols-4 gap-4 md:gap-4 lg:gap-7 justify-items-center w-full">
+      <StaggerChildren staggerDelay={120} className="grid grid-cols-1 md:grid-cols-4 gap-4 md:gap-4 lg:gap-7 justify-items-center items-stretch w-full">
         {oldWayItems.map((item, index) => (
-          <ScrollParallax key={index} offset={30} delay={index / 3}>
           <div
-            className="max-md:w-full max-md:p-4 max-md:inline-flex max-md:flex-row max-md:items-center max-md:gap-5 md:w-full md:h-auto md:px-4 lg:px-7 md:pt-5 lg:pt-7 md:pb-2.5 md:inline-flex md:flex-col md:justify-start md:items-start md:gap-3 lg:gap-6 bg-gradient-to-r from-white/5 via-white/10 to-white/5 rounded-[20px] outline outline-1 outline-offset-[-1px] outline-white/30 backdrop-blur-[30px] overflow-hidden"
+            key={index}
+            className="max-md:w-full max-md:p-4 max-md:inline-flex max-md:flex-row max-md:items-center max-md:gap-5 md:w-full md:h-full md:px-4 lg:px-7 md:pt-5 lg:pt-7 md:pb-2.5 md:inline-flex md:flex-col md:justify-start md:items-start md:gap-3 lg:gap-6 bg-gradient-to-r from-white/5 via-white/10 to-white/5 rounded-[20px] outline outline-1 outline-offset-[-1px] outline-white/30 backdrop-blur-[30px] overflow-hidden"
           >
             <item.Icon className="text-gray-200/50 shrink-0 max-md:w-10 max-md:h-10" />
 
@@ -68,7 +68,6 @@ export function OldWaySection() {
               </div>
             </div>
           </div>
-          </ScrollParallax>
         ))}
         </StaggerChildren>
 

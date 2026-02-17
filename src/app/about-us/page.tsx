@@ -1,5 +1,5 @@
 import { Header, Footer } from "@/components/layout";
-import { Badge } from "@/components/ui";
+import { AnimateOnScroll, Badge, ScrollTextReveal } from "@/components/ui";
 import { PressCarousel } from "@/components/sections/PressCarousel";
 import { FinalCTASection } from "@/components/sections";
 
@@ -33,9 +33,11 @@ export default function AboutUsPage() {
                     that proves real magic exists
                   </span>
                 </div>
-                <div className="self-stretch justify-start text-gray-300 text-3xl font-medium font-['Urbanist'] leading-9">
-                  We don&apos;t promise the impossible. We deliver it.
-                </div>
+                <AnimateOnScroll animation="fade-up" duration={0.8} threshold={0.3}>
+                  <div className="self-stretch justify-start text-gray-300 text-3xl font-medium font-['Urbanist'] leading-9">
+                    We don&apos;t promise the impossible. We deliver it.
+                  </div>
+                </AnimateOnScroll>
               </div>
             </div>
 
@@ -69,9 +71,11 @@ export default function AboutUsPage() {
                         that proves real magic exists
                       </span>
                     </div>
-                    <div className="self-stretch text-center justify-start text-[#CACACC] text-base font-normal font-['Urbanist'] leading-6">
-                      We don&apos;t promise the impossible. We deliver it.
-                    </div>
+                    <AnimateOnScroll animation="fade-up" duration={0.8} threshold={0.3}>
+                      <div className="self-stretch text-center justify-start text-[#CACACC] text-base font-normal font-['Urbanist'] leading-6">
+                        We don&apos;t promise the impossible. We deliver it.
+                      </div>
+                    </AnimateOnScroll>
                   </div>
                 </div>
               </div>
@@ -82,64 +86,79 @@ export default function AboutUsPage() {
             <div className="w-full max-w-[1440px] mx-auto">
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8 lg:gap-12 md:divide-x divide-white/20">
                   {/* Card 1 */}
-                  <div className="flex flex-col gap-9">
-                    <div className="w-12 h-12">
-                      <img
-                        src="/images/figma/about-us/atom-02.svg"
-                        alt="Atom illustration"
-                      />
+                  <AnimateOnScroll animation="fade-up" duration={0.7} delay={0} threshold={0.2}>
+                    <div className="flex flex-col gap-9">
+                      <div className="w-12 h-12">
+                        <img
+                          src="/images/figma/about-us/atom-02.svg"
+                          alt="Atom illustration"
+                        />
+                      </div>
+                      <div className="flex flex-col gap-5">
+                        <ScrollTextReveal
+                          text="Built in Public. Proven in Public"
+                          className="text-white text-2xl font-bold font-['Urbanist'] leading-10"
+                        />
+                        <AnimateOnScroll animation="fade-up" duration={0.8} threshold={0.3}>
+                          <p className="text-gray-400 text-lg font-medium font-['Urbanist'] leading-8">
+                            We launched not with promises, but with a 30-day public
+                            experiment where every business decision was voted on by
+                            thousands—live, transparent, and real.
+                          </p>
+                        </AnimateOnScroll>
+                      </div>
                     </div>
-                    <div className="flex flex-col gap-5">
-                      <h3 className="text-white text-2xl font-bold font-['Urbanist'] leading-10">
-                        Built in Public. Proven in Public
-                      </h3>
-                      <p className="text-gray-400 text-lg font-medium font-['Urbanist'] leading-8">
-                        We launched not with promises, but with a 30-day public
-                        experiment where every business decision was voted on by
-                        thousands—live, transparent, and real.
-                      </p>
-                    </div>
-                  </div>
+                  </AnimateOnScroll>
 
                   {/* Card 2 */}
-                  <div className="flex flex-col gap-9 md:pl-8 lg:pl-12">
-                    <div className="w-12 h-12">
-                      <img
-                        src="/images/figma/about-us/bot.svg"
-                        alt="AI Agents"
-                      />
+                  <AnimateOnScroll animation="fade-up" duration={0.7} delay={0.15} threshold={0.2}>
+                    <div className="flex flex-col gap-9 md:pl-8 lg:pl-12">
+                      <div className="w-12 h-12">
+                        <img
+                          src="/images/figma/about-us/bot.svg"
+                          alt="AI Agents"
+                        />
+                      </div>
+                      <div className="flex flex-col gap-5">
+                        <ScrollTextReveal
+                          text="AI Agents in Perfect Harmony"
+                          className="text-white text-2xl font-bold font-['Urbanist'] leading-10"
+                        />
+                        <AnimateOnScroll animation="fade-up" duration={0.8} threshold={0.3}>
+                          <p className="text-gray-400 text-lg font-medium font-['Urbanist'] leading-8">
+                            Chorus coordinated and executed every task in real-time,
+                            balancing thousands of voices while building a
+                            profitable business from scratch.
+                          </p>
+                        </AnimateOnScroll>
+                      </div>
                     </div>
-                    <div className="flex flex-col gap-5">
-                      <h3 className="text-white text-2xl font-bold font-['Urbanist'] leading-10">
-                        AI Agents in Perfect Harmony
-                      </h3>
-                      <p className="text-gray-400 text-lg font-medium font-['Urbanist'] leading-8">
-                        Chorus coordinated and executed every task in real-time,
-                        balancing thousands of voices while building a
-                        profitable business from scratch.
-                      </p>
-                    </div>
-                  </div>
+                  </AnimateOnScroll>
 
                   {/* Card 3 */}
-                  <div className="flex flex-col gap-9 md:pl-8 lg:pl-12">
-                    <div className="w-12 h-12">
-                      <img
-                        src="/images/figma/about-us/blend.svg"
-                        alt="Proof Before Belief"
-                      />
+                  <AnimateOnScroll animation="fade-up" duration={0.7} delay={0.3} threshold={0.2}>
+                    <div className="flex flex-col gap-9 md:pl-8 lg:pl-12">
+                      <div className="w-12 h-12">
+                        <img
+                          src="/images/figma/about-us/blend.svg"
+                          alt="Proof Before Belief"
+                        />
+                      </div>
+                      <div className="flex flex-col gap-5">
+                        <ScrollTextReveal
+                          text="Proof Before Belief"
+                          className="text-white text-2xl font-bold font-['Urbanist'] leading-10"
+                        />
+                        <AnimateOnScroll animation="fade-up" duration={0.8} threshold={0.3}>
+                          <p className="text-gray-400 text-lg font-medium font-['Urbanist'] leading-8">
+                            You didn&apos;t have to take our word for it you watched
+                            it happen. A real company, real decisions, real results.
+                            That&apos;s the power of Chorus.
+                          </p>
+                        </AnimateOnScroll>
+                      </div>
                     </div>
-                    <div className="flex flex-col gap-5">
-                      <h3 className="text-white text-2xl font-bold font-['Urbanist'] leading-10">
-                        Proof Before Belief
-                      </h3>
-                      <p className="text-gray-400 text-lg font-medium font-['Urbanist'] leading-8">
-                        You didn&apos;t have to take our word for it you watched
-                        it happen. A real company, real decisions, real results.
-                        That&apos;s the power of Chorus.
-                      </p>
-                    </div>
-                  </div>
+                  </AnimateOnScroll>
                 </div>
               </div>
             </div>
@@ -151,58 +170,69 @@ export default function AboutUsPage() {
                 <div className="flex flex-col justify-start items-center lg:items-start gap-8 md:gap-12 flex-1 text-center lg:text-left">
                   <Badge className="px-3 py-1">Origin Story</Badge>
 
-                  <h2 className="text-[28px] md:text-5xl font-bold font-['Urbanist'] leading-[38px] md:leading-tight text-white max-w-[583px]">
-                    Built By People Who Understand Both Vision And Execution
-                  </h2>
+                  <ScrollTextReveal
+                    text="Built By People Who Understand Both Vision And Execution"
+                    className="text-[28px] md:text-5xl font-bold font-['Urbanist'] leading-[38px] md:leading-tight text-white max-w-[583px]"
+                  />
 
                   {/* Images — visible on mobile, stacked above text */}
-                  <div className="relative w-full lg:hidden">
-                    <img
-                      className="w-full h-auto max-h-[400px] object-contain"
-                      src="images/figma/about-us/tilted-image.png"
-                      alt="Origin story illustration"
-                    />
-                    <div className="absolute inset-0 bg-[radial-gradient(ellipse_50%_50%_at_50%_50%,_rgba(0,_0,_0,_0)_0%,_black_100%)]" />
-                    <img
-                      className="absolute inset-0 w-full h-full object-contain"
-                      src="images/figma/about-us/test.svg"
-                      alt="Origin story illustration overlay"
-                    />
-                  </div>
+                  <AnimateOnScroll animation="slide-right" duration={0.9} threshold={0.2}>
+                    <div className="relative w-full lg:hidden">
+                      <img
+                        className="w-full h-auto max-h-[400px] object-contain"
+                        src="images/figma/about-us/tilted-image.png"
+                        alt="Origin story illustration"
+                      />
+                      <div className="absolute inset-0 bg-[radial-gradient(ellipse_50%_50%_at_50%_50%,_rgba(0,_0,_0,_0)_0%,_black_100%)]" />
+                      <img
+                        className="absolute inset-0 w-full h-full object-contain"
+                        src="images/figma/about-us/test.svg"
+                        alt="Origin story illustration overlay"
+                      />
+                    </div>
+                  </AnimateOnScroll>
 
                   <div className="max-w-[529px]">
-                    <p className="text-gray-400 text-[15px] md:text-lg font-medium font-['Urbanist'] leading-[26px] md:leading-9">
-                      We&apos;ve been on both sides: building with limited
-                      resources and watching others scale impossibly fast. We
-                      built Chorus because we were tired of AI companies
-                      overpromising and underdelivering. We wanted real magic.
-                    </p>
+                    <AnimateOnScroll animation="fade-up" duration={0.8} threshold={0.3}>
+                      <p className="text-gray-400 text-[15px] md:text-lg font-medium font-['Urbanist'] leading-[26px] md:leading-9">
+                        We&apos;ve been on both sides: building with limited
+                        resources and watching others scale impossibly fast. We
+                        built Chorus because we were tired of AI companies
+                        overpromising and underdelivering. We wanted real magic.
+                      </p>
+                    </AnimateOnScroll>
                     <br />
-                    <p className="text-white text-[17px] md:text-xl font-semibold italic font-['Urbanist'] leading-[28px] md:leading-9">
-                      Not smoke and mirrors. So we built it.
-                    </p>
+                    <AnimateOnScroll animation="fade-up" duration={0.8} delay={0.15} threshold={0.3}>
+                      <p className="text-white text-[17px] md:text-xl font-semibold italic font-['Urbanist'] leading-[28px] md:leading-9">
+                        Not smoke and mirrors. So we built it.
+                      </p>
+                    </AnimateOnScroll>
                     <br />
-                    <p className="text-gray-400 text-[15px] md:text-lg font-medium font-['Urbanist'] leading-[26px] md:leading-9">
-                      Tested it internally. And now we&apos;re sharing it with
-                      founders who are ready to build without limits.
-                    </p>
+                    <AnimateOnScroll animation="fade-up" duration={0.8} delay={0.3} threshold={0.3}>
+                      <p className="text-gray-400 text-[15px] md:text-lg font-medium font-['Urbanist'] leading-[26px] md:leading-9">
+                        Tested it internally. And now we&apos;re sharing it with
+                        founders who are ready to build without limits.
+                      </p>
+                    </AnimateOnScroll>
                   </div>
                 </div>
 
                 {/* Right Images — desktop only */}
-                <div className="relative flex-1 hidden lg:flex items-center justify-end">
-                  <img
-                    className="w-full max-w-[524px] h-auto"
-                    src="images/figma/about-us/tilted-image.png"
-                    alt="Origin story illustration 1"
-                  />
-                  <div className="absolute inset-0 bg-[radial-gradient(ellipse_39.15%_39.16%_at_50.00%_50.00%,_rgba(0,_0,_0,_0)_0%,_black_100%)]" />
-                  <img
-                    className="absolute right-0 w-full max-w-[705px] h-auto"
-                    src="images/figma/about-us/test.svg"
-                    alt="Origin story illustration 2"
-                  />
-                </div>
+                <AnimateOnScroll animation="slide-right" duration={0.9} threshold={0.2}>
+                  <div className="relative flex-1 hidden lg:flex items-center justify-end">
+                    <img
+                      className="w-full max-w-[524px] h-auto"
+                      src="images/figma/about-us/tilted-image.png"
+                      alt="Origin story illustration 1"
+                    />
+                    <div className="absolute inset-0 bg-[radial-gradient(ellipse_39.15%_39.16%_at_50.00%_50.00%,_rgba(0,_0,_0,_0)_0%,_black_100%)]" />
+                    <img
+                      className="absolute right-0 w-full max-w-[705px] h-auto"
+                      src="images/figma/about-us/test.svg"
+                      alt="Origin story illustration 2"
+                    />
+                  </div>
+                </AnimateOnScroll>
               </div>
             </div>
 
@@ -211,12 +241,15 @@ export default function AboutUsPage() {
             <div className="w-full max-w-[1440px] mx-auto flex flex-col justify-start items-center gap-6">
                 <Badge className="px-3 py-1">Features</Badge>
                 <div className="flex flex-col justify-start items-center gap-6 md:gap-8">
-                  <h2 className="text-center text-white text-[28px] md:text-5xl font-bold font-['Urbanist'] leading-[38px] md:leading-[78px]">
-                    What The Audience Is Saying
-                  </h2>
-                  <p className="text-center text-gray-400 text-[16px] md:text-2xl font-medium font-['Urbanist'] leading-[26px] md:leading-9">
-                    The Difference That Changes Everything
-                  </p>
+                  <ScrollTextReveal
+                    text="What The Audience Is Saying"
+                    className="text-center text-[28px] md:text-5xl font-bold font-['Urbanist'] leading-[38px] md:leading-[78px]"
+                  />
+                  <AnimateOnScroll animation="fade-up" duration={0.8} threshold={0.3}>
+                    <p className="text-center text-gray-400 text-[16px] md:text-2xl font-medium font-['Urbanist'] leading-[26px] md:leading-9">
+                      The Difference That Changes Everything
+                    </p>
+                  </AnimateOnScroll>
                 </div>
               </div>
             </div>
@@ -316,13 +349,16 @@ export default function AboutUsPage() {
                 <div className="flex flex-col justify-start items-center gap-5 md:gap-6">
                   <Badge className="px-3 py-1">Our team members</Badge>
                   <div className="flex flex-col justify-start items-center gap-3 md:gap-4">
-                    <h2 className="text-white text-[28px] md:text-5xl font-bold font-['Urbanist'] leading-[38px] md:leading-[78px]">
-                      Our Team
-                    </h2>
-                    <p className="text-center text-gray-400 text-[15px] md:text-xl font-normal font-['Urbanist'] leading-[24px] md:leading-9 max-w-3xl">
-                      The best way to reach humans instead of spam folders.
-                      Deliver transactional and marketing emails at scale.
-                    </p>
+                    <ScrollTextReveal
+                      text="Our Team"
+                      className="text-[28px] md:text-5xl font-bold font-['Urbanist'] leading-[38px] md:leading-[78px]"
+                    />
+                    <AnimateOnScroll animation="fade-up" duration={0.8} threshold={0.3}>
+                      <p className="text-center text-gray-400 text-[15px] md:text-xl font-normal font-['Urbanist'] leading-[24px] md:leading-9 max-w-3xl">
+                        The best way to reach humans instead of spam folders.
+                        Deliver transactional and marketing emails at scale.
+                      </p>
+                    </AnimateOnScroll>
                   </div>
                 </div>
 
@@ -337,25 +373,24 @@ export default function AboutUsPage() {
                     { src: "images/figma/about-us/team-person-5.png" },
                     { src: "images/figma/about-us/team-person-6.png" },
                   ].map((member, i) => (
-                    <div
-                      key={i}
-                      className="flex flex-col justify-start items-center gap-3 md:gap-6"
-                    >
-                      {/* eslint-disable-next-line @next/next/no-img-element */}
-                      <img
-                        className="w-[140px] h-[140px] md:w-[200px] md:h-[200px] lg:w-64 lg:h-64 object-cover rounded-full bg-[#ADADAD]"
-                        src={member.src}
-                        alt="Team member"
-                      />
-                      <div className="flex flex-col justify-start items-center gap-1 md:gap-2.5">
-                        <h3 className="text-center text-white text-[16px] md:text-4xl font-bold font-['Urbanist'] leading-tight">
-                          David Henricks
-                        </h3>
-                        <p className="text-center text-gray-500 text-[12px] md:text-base font-medium font-['Urbanist'] uppercase leading-[18px] md:leading-6">
-                          Founder &amp; CEO
-                        </p>
+                    <AnimateOnScroll key={i} animation="fade-up" duration={0.7} delay={i * 0.1} threshold={0.15}>
+                      <div className="flex flex-col justify-start items-center gap-3 md:gap-6">
+                        {/* eslint-disable-next-line @next/next/no-img-element */}
+                        <img
+                          className="w-[140px] h-[140px] md:w-[200px] md:h-[200px] lg:w-64 lg:h-64 object-cover rounded-full bg-[#ADADAD]"
+                          src={member.src}
+                          alt="Team member"
+                        />
+                        <div className="flex flex-col justify-start items-center gap-1 md:gap-2.5">
+                          <h3 className="text-center text-white text-[16px] md:text-4xl font-bold font-['Urbanist'] leading-tight">
+                            David Henricks
+                          </h3>
+                          <p className="text-center text-gray-500 text-[12px] md:text-base font-medium font-['Urbanist'] uppercase leading-[18px] md:leading-6">
+                            Founder &amp; CEO
+                          </p>
+                        </div>
                       </div>
-                    </div>
+                    </AnimateOnScroll>
                   ))}
                 </div>
               </div>

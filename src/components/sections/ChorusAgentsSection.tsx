@@ -8,7 +8,7 @@ import {
   SearchIcon,
   ClipboardIcon,
 } from "@/components/icons/FeatureCardIcons";
-import { AnimateOnScroll, IntegrationLogo, ScrollTextReveal } from "@/components/ui";
+import { AnimateOnScroll, IntegrationLogo, ScrollParallax, ScrollTextReveal } from "@/components/ui";
 
 /* ── Shared helpers ── */
 
@@ -66,7 +66,7 @@ function AvatarStack() {
    ═══════════════════════════════════════════════════════════ */
 function GoalsCard() {
   return (
-    <div className="relative w-80 md:w-auto md:flex-1 md:min-w-[300px] h-96 md:h-[671px] rounded-3xl md:rounded-[40px] overflow-hidden">
+    <div className="relative w-80 md:w-auto h-96 md:h-[671px] rounded-3xl md:rounded-[40px] overflow-hidden">
       {/* Border */}
       <div className="absolute inset-0 rounded-3xl md:rounded-[40px] border border-white/35 pointer-events-none z-40" />
 
@@ -234,9 +234,10 @@ function GoalsCard() {
 
       {/* ── Title + desc ── */}
       <div className="absolute bottom-0 inset-x-0 z-30 flex flex-col items-center gap-1 pb-3 md:pb-6 px-4 md:px-6">
-        <h3 className="text-white text-base md:text-[26px] font-bold leading-9 md:leading-[40px] text-center">
-          You set goals, not tasks
-        </h3>
+        <ScrollTextReveal
+          text="You set goals, not tasks"
+          className="text-white text-base md:text-[26px] font-bold leading-9 md:leading-[40px] text-center"
+        />
         <AnimateOnScroll animation="fade-up" duration={0.8} threshold={0.3}>
           <p className="text-gray-300 text-[9px] md:text-[16px] font-semibold leading-4 md:leading-[26px] text-center max-w-[288px] md:max-w-[440px]">
             The best way to reach humans instead of spam folders. Deliver
@@ -330,9 +331,10 @@ function CollaborateCard() {
       </div>
 
       <div className="w-72 md:w-[506.63px] h-16 md:h-28 left-1/2 -translate-x-1/2 md:left-[30.87px] md:translate-x-0 top-[299px] md:top-[513px] absolute inline-flex flex-col justify-start items-center gap-2">
-        <div className="justify-center text-white text-base md:text-2xl font-bold font-['Urbanist'] leading-9 md:leading-[65.07px]">
-          They collaborate with each other
-        </div>
+        <ScrollTextReveal
+          text="They collaborate with each other"
+          className="justify-center text-white text-base md:text-2xl font-bold font-['Urbanist'] leading-9 md:leading-[65.07px]"
+        />
         <AnimateOnScroll animation="fade-up" duration={0.8} threshold={0.3}>
           <div className="md:w-[526px] text-center justify-start text-gray-300 text-[9px] md:text-base font-bold font-['Urbanist'] leading-4 md:leading-8">
             The best way to reach humans instead of spam folders. Deliver
@@ -351,7 +353,7 @@ function CollaborateCard() {
 function DecisionsCard() {
   return (
     <div
-      className="relative w-80 md:w-[393px] shrink-0 h-[477px] md:h-[535px] rounded-[36px] md:rounded-[40px] overflow-hidden border border-white/30"
+      className="relative w-80 md:w-[393px] h-[477px] md:h-[535px] rounded-[36px] md:rounded-[40px] overflow-hidden border border-white/30"
       style={{
         background:
           "linear-gradient(101deg, rgba(255,255,255,0.06) 0%, rgba(255,255,255,0.10) 55%, rgba(255,255,255,0.05) 100%)",
@@ -459,7 +461,7 @@ function DecisionsCard() {
    ═══════════════════════════════════════════════════════════ */
 function FeedbackCard() {
   return (
-    <div className="relative w-80 md:w-auto md:flex-1 md:min-w-[300px] h-56 md:h-[537px] rounded-2xl md:rounded-[37px] overflow-hidden">
+    <div className="relative w-80 md:w-auto h-56 md:h-[537px] rounded-2xl md:rounded-[37px] overflow-hidden">
       {/* Subtle dark blue/purple bg */}
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
@@ -474,9 +476,10 @@ function FeedbackCard() {
 
       {/* Title top-left */}
       <div className="absolute top-[21px] left-[18px] md:top-[35px] md:left-[30px] z-30 max-w-[176px] md:max-w-[394px]">
-        <h3 className="text-white text-xs md:text-[26px] font-bold leading-7 md:leading-[40px]">
-          They learn from your feedback
-        </h3>
+        <ScrollTextReveal
+          text="They learn from your feedback"
+          className="text-white text-xs md:text-[26px] font-bold leading-7 md:leading-[40px]"
+        />
       </div>
 
       {/* ── macOS Chat Window ── */}
@@ -511,10 +514,10 @@ function FeedbackCard() {
                 </span>
               </div>
               <div className="p-1.5 md:p-[10px] bg-white/6 rounded-lg md:rounded-[14px]">
-                <p className="text-gray-100 text-[6px] md:text-[13px] font-medium leading-[10px] md:leading-[20px] line-clamp-1">
-                  Hello Danny! I want to manage company&apos;s finances and team
-                  performance every month.
-                </p>
+                <ScrollTextReveal
+                  text="Hello Danny! I want to manage company's finances and team performance every month."
+                  className="text-[6px] md:text-[13px] font-medium leading-[10px] md:leading-[20px]"
+                />
               </div>
             </div>
 
@@ -535,10 +538,10 @@ function FeedbackCard() {
                 </span>
               </div>
               <div className="px-1.5 md:px-[10px] py-2 md:py-[14px] rounded-lg md:rounded-[14px] border md:border-2 border-white/10">
-                <p className="text-white text-[6px] md:text-[13px] font-medium leading-[10px] md:leading-[20px] line-clamp-1">
-                  Hey John. From your request, I can see that you&apos;re aiming
-                  to accomplish two main goals
-                </p>
+                <ScrollTextReveal
+                  text="Hey John. From your request, I can see that you're aiming to accomplish two main goals"
+                  className="text-[6px] md:text-[13px] font-medium leading-[10px] md:leading-[20px]"
+                />
               </div>
             </div>
 
@@ -565,11 +568,10 @@ function FeedbackCard() {
                 </span>
               </div>
               <div className="p-1.5 md:p-[10px] bg-white/6 rounded-lg md:rounded-[14px]">
-                <p className="text-gray-100 text-[6px] md:text-[13px] font-medium leading-3 md:leading-[24px]">
-                  From your request, you&apos;re aiming to accomplish two main
-                  goals. I&apos;ll connect with your CRM and task management
-                  tool to fetch automatically. Shall I connect?
-                </p>
+                <ScrollTextReveal
+                  text="From your request, you're aiming to accomplish two main goals. I'll connect with your CRM and task management tool to fetch automatically. Shall I connect?"
+                  className="text-[6px] md:text-[13px] font-medium leading-3 md:leading-[24px]"
+                />
                 <div className="flex items-center gap-[3px] mt-1 md:mt-2">
                   <div className="h-2.5 md:h-[20px] pl-[2px] md:pl-[4px] pr-1 md:pr-[8px] bg-white/4 rounded-full border border-white/10 flex items-center gap-[3px] md:gap-[5px]">
                     <img
@@ -643,9 +645,11 @@ export function ChorusAgentsSection() {
               text="Autonomous Agents, Not Chatbots."
               className="text-2xl md:text-[50px] font-bold leading-8 md:leading-[78px] text-center max-w-[384px] md:max-w-none"
             />
-            <p className="text-gray-300 text-sm md:text-[26px] font-normal md:font-medium leading-6 md:leading-[36px] text-center max-w-80 md:max-w-none">
-              The Difference That Changes Everything
-            </p>
+            <AnimateOnScroll animation="fade-up" duration={0.8} threshold={0.3}>
+              <p className="text-gray-300 text-sm md:text-[26px] font-normal md:font-medium leading-6 md:leading-[36px] text-center max-w-80 md:max-w-none">
+                The Difference That Changes Everything
+              </p>
+            </AnimateOnScroll>
           </div>
         </div>
 
@@ -653,13 +657,21 @@ export function ChorusAgentsSection() {
         <div className="flex flex-col gap-4 md:gap-[40px] w-full items-center md:items-stretch">
           {/* Top Row */}
           <div className="flex flex-col md:flex-row items-center md:items-start gap-4 md:gap-[40px] w-full">
-            <GoalsCard />
-            <CollaborateCard />
+            <ScrollParallax offset={30} delay={0} className="md:flex-1 md:min-w-[300px]">
+              <GoalsCard />
+            </ScrollParallax>
+            <ScrollParallax offset={30} delay={0.3}>
+              <CollaborateCard />
+            </ScrollParallax>
           </div>
           {/* Bottom Row */}
           <div className="flex flex-col md:flex-row items-center gap-4 md:gap-[44px] w-full">
-            <DecisionsCard />
-            <FeedbackCard />
+            <ScrollParallax offset={30} delay={0} className="shrink-0">
+              <DecisionsCard />
+            </ScrollParallax>
+            <ScrollParallax offset={30} delay={0.3} className="md:flex-1 md:min-w-[300px]">
+              <FeedbackCard />
+            </ScrollParallax>
           </div>
         </div>
       </div>

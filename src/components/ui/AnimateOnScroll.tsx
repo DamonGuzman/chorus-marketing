@@ -35,8 +35,8 @@ const variants: Record<AnimationType, Variants> = {
     visible: { opacity: 1, x: 0 },
   },
   "slide-right": {
-    hidden: { opacity: 0, x: 60 },
-    visible: { opacity: 1, x: 0 },
+    hidden: { opacity: 0, x: 120, scale: 0.95 },
+    visible: { opacity: 1, x: 0, scale: 1 },
   },
   "scale-up": {
     hidden: { opacity: 0, scale: 0.92 },

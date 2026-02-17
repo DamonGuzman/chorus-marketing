@@ -48,7 +48,7 @@ export function ScrollParallax({
 
   return (
     <div ref={ref} className={className} style={style}>
-      <motion.div className="h-full [&>*]:h-full" style={{ y }}>{children}</motion.div>
+      <motion.div style={{ y }}>{children}</motion.div>
     </div>
   );
 }

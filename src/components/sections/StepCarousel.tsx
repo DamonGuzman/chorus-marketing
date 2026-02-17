@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useRef, type ReactNode } from "react";
+import { AnimateOnScroll } from "@/components/ui";
 
 /* ── Reusable small components for illustrations ── */
 
@@ -134,9 +135,11 @@ export function StepCarousel() {
                 <h2 className="text-white text-[24px] font-bold leading-[36px]">
                   {slide.title}
                 </h2>
-                <p className="text-gray-300 text-[16px] font-medium leading-[28px]">
-                  {slide.description}
-                </p>
+                <AnimateOnScroll animation="fade-up" duration={0.8} threshold={0.3}>
+                  <p className="text-gray-300 text-[16px] font-medium leading-[28px]">
+                    {slide.description}
+                  </p>
+                </AnimateOnScroll>
               </div>
             </div>
           ))}

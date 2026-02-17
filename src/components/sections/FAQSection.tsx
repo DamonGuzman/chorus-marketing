@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { Section } from "@/components/ui";
 
 const faqs = [
@@ -45,51 +46,89 @@ function PlusIcon({ open }: { open: boolean }) {
   );
 }
 
-function FAQItem({ question, answer }: { question: string; answer: string }) {
-  const [open, setOpen] = useState(false);
-
+function FAQItem({
+  question,
+  answer,
+  isOpen,
+  onToggle,
+  index,
+}: {
+  question: string;
+  answer: string;
+  isOpen: boolean;
+  onToggle: () => void;
+  index: number;
+}) {
   return (
-    <div
+    <motion.div
       className="rounded-[16px] border border-white/10 transition-all duration-300"
       style={{
-        background: open
+        background: isOpen
           ? "linear-gradient(135deg, rgba(255,255,255,0.06) 0%, rgba(255,255,255,0.03) 100%)"
           : "rgba(255,255,255,0.03)",
       }}
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "0px 0px -60px 0px" }}
+      transition={{
+        duration: 0.6,
+        delay: index * 0.08,
+        ease: [0.16, 1, 0.3, 1],
+      }}
     >
       <button
-        onClick={() => setOpen(!open)}
+        onClick={onToggle}
         className="w-full flex items-center justify-between gap-[16px] px-[24px] py-[20px] text-left cursor-pointer"
       >
         <span className="text-white text-[16px] font-semibold leading-[26px]">
           {question}
         </span>
-        <PlusIcon open={open} />
+        <PlusIcon open={isOpen} />
       </button>
 
-      <div
-        className="overflow-hidden transition-all duration-300"
-        style={{
-          maxHeight: open ? "200px" : "0",
-          opacity: open ? 1 : 0,
-        }}
-      >
-        <div className="px-[24px] pb-[20px]">
-          <p className="text-gray-300 text-[14px] font-medium leading-[24px]">
-            {answer}
-          </p>
-        </div>
-      </div>
-    </div>
+      <AnimatePresence initial={false}>
+        {isOpen && (
+          <motion.div
+            key="content"
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: "auto", opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{
+              height: { duration: 0.4, ease: [0.25, 0.46, 0.45, 0.94] },
+              opacity: { duration: 0.3, delay: 0.05 },
+            }}
+            className="overflow-hidden"
+          >
+            <div className="px-[24px] pb-[20px]">
+              <p className="text-gray-300 text-[14px] font-medium leading-[24px]">
+                {answer}
+              </p>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </motion.div>
   );
 }
 
 export function FAQSection() {
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
+
+  const handleToggle = (index: number) => {
+    setOpenIndex((prev) => (prev === index ? null : index));
+  };
+
   return (
     <Section className="pt-[15px] pb-[100px] md:py-[100px]" id="faq">
       <div className="max-w-[1280px] mx-auto px-6 lg:px-8">
         {/* Header */}
-        <div className="flex flex-col items-center gap-[16px] mb-[50px] text-center">
+        <motion.div
+          className="flex flex-col items-center gap-[16px] mb-[50px] text-center"
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "0px 0px -80px 0px" }}
+          transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+        >
           <h2 className="text-[40px] md:text-[50px] font-bold leading-[1.1] text-white">
             <span className="bg-gradient-to-r from-[#CACACC] to-[#7C7B82] bg-clip-text text-transparent">
               Frequently
@@ -102,12 +141,19 @@ export function FAQSection() {
           <p className="text-[16px] font-semibold leading-[28px] text-gray-300">
             Our commitment to transparency
           </p>
-        </div>
+        </motion.div>
 
         {/* FAQ items */}
         <div className="max-w-[700px] mx-auto flex flex-col gap-[12px]">
-          {faqs.map((item) => (
-            <FAQItem key={item.q} question={item.q} answer={item.a} />
+          {faqs.map((item, index) => (
+            <FAQItem
+              key={item.q}
+              question={item.q}
+              answer={item.a}
+              isOpen={openIndex === index}
+              onToggle={() => handleToggle(index)}
+              index={index}
+            />
           ))}
         </div>
       </div>
