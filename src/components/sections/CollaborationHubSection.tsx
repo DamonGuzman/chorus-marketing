@@ -32,7 +32,7 @@ function CheckBullet({ text }: { text: string }) {
 /* ── List card ── */
 function ListCard({ title, items }: { title: string; items: string[] }) {
   return (
-    <div className="w-full md:w-[440px] max-w-full flex flex-col gap-[18px] md:gap-[23px] p-[20px] md:p-[24px] rounded-[20px] md:rounded-[24px] border border-gray-300">
+    <div className="w-full md:w-[440px] max-w-full flex flex-col gap-[18px] md:gap-[23px] p-[20px] md:p-[24px] rounded-[20px] md:rounded-[24px] border border-white/30">
       <h3 className="self-stretch text-white text-[20px] font-bold leading-[24px]">
         {title}
       </h3>
