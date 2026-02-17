@@ -343,7 +343,7 @@ export default function AboutUsPage() {
                     >
                       {/* eslint-disable-next-line @next/next/no-img-element */}
                       <img
-                        className="w-[140px] h-[140px] md:w-[200px] md:h-[200px] lg:w-72 lg:h-72 object-cover rounded-full bg-[#ADADAD]"
+                        className="w-[140px] h-[140px] md:w-[200px] md:h-[200px] lg:w-64 lg:h-64 object-cover rounded-full bg-[#ADADAD]"
                         src={member.src}
                         alt="Team member"
                       />
