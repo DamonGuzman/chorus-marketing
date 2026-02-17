@@ -347,7 +347,7 @@ function CollaborateCard() {
 function DecisionsCard() {
   return (
     <div
-      className="relative w-80 md:w-[393px] shrink-0 h-[515px] md:h-[535px] rounded-[36px] md:rounded-[40px] overflow-hidden border border-white/30"
+      className="relative w-80 md:w-[393px] shrink-0 h-[477px] md:h-[535px] rounded-[36px] md:rounded-[40px] overflow-hidden border border-white/30"
       style={{
         background:
           "linear-gradient(101deg, rgba(255,255,255,0.06) 0%, rgba(255,255,255,0.10) 55%, rgba(255,255,255,0.05) 100%)",
@@ -364,11 +364,11 @@ function DecisionsCard() {
               alt=""
               className="w-[30px] h-[30px] rounded-full shrink-0"
             />
-            <span className="text-white text-[14px] font-bold leading-[24px]">
+            <span className="text-white text-xs md:text-[14px] font-bold leading-[20px] md:leading-[24px]">
               Frank
             </span>
             <AgentBadge />
-            <span className="text-gray-300 text-[14px] font-medium leading-[22px]">
+            <span className="text-gray-300 text-[10px] md:text-[14px] font-medium leading-[18px] md:leading-[22px]">
               1.50 AM
             </span>
           </div>
@@ -384,7 +384,7 @@ function DecisionsCard() {
             }}
           >
             <ClipboardIcon className="w-[14px] h-[14px] text-gray-300 shrink-0" />
-            <span className="text-gray-100 text-[13px] font-medium leading-[22px]">
+            <span className="text-gray-100 text-[11px] md:text-[13px] font-medium leading-[18px] md:leading-[22px]">
               Goal Created :{" "}
               <span className="text-white font-semibold">
                 Track Monthly Revenue
@@ -411,11 +411,11 @@ function DecisionsCard() {
               alt=""
               className="w-[26px] h-[26px] rounded-full shrink-0"
             />
-            <span className="text-white text-[14px] font-bold leading-[24px]">
+            <span className="text-white text-xs md:text-[14px] font-bold leading-[20px] md:leading-[24px]">
               Danny
             </span>
             <AgentBadge />
-            <span className="text-gray-300 text-[14px] font-medium leading-[22px]">
+            <span className="text-gray-300 text-[10px] md:text-[14px] font-medium leading-[18px] md:leading-[22px]">
               1.50 AM
             </span>
           </div>
@@ -426,13 +426,13 @@ function DecisionsCard() {
           <div className="flex items-center gap-[6px]">
             <div className="h-[30px] px-3 py-1 bg-gray-800 rounded-full border border-green shadow-[0_0_8px_rgba(18,130,95,0.32)] flex items-center gap-2">
               <CheckIcon className="w-[10px] h-[8px] text-white" />
-              <span className="text-white text-[13px] font-bold leading-[22px]">
+              <span className="text-white text-[11px] md:text-[13px] font-bold leading-[18px] md:leading-[22px]">
                 Connect
               </span>
             </div>
             <div className="h-[30px] px-3 py-1 bg-gray-800 rounded-full border border-[#C92929] flex items-center gap-2">
               <img src={"images/figma/features/minus-sign-circle.svg"} />
-              <span className="text-gray-100 text-[13px] font-bold leading-[22px]">
+              <span className="text-gray-100 text-[11px] md:text-[13px] font-bold leading-[18px] md:leading-[22px]">
                 Reject
               </span>
             </div>
@@ -440,7 +440,7 @@ function DecisionsCard() {
         </div>
 
         <div className="mt-auto pb-2">
-          <h3 className="text-white text:xs md:text-[26px] font-bold leading-[36px] text-center max-w-[291px] mx-auto">
+          <h3 className="text-white text-base md:text-[26px] font-bold leading-[28px] md:leading-[36px] text-center max-w-[291px] mx-auto">
             They make decisions within your guidelines
           </h3>
         </div>
