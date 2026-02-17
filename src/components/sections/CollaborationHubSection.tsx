@@ -8,22 +8,7 @@ import { ScrollTextReveal } from "@/components/ui";
 function CheckBullet({ text }: { text: string }) {
   return (
     <div className="self-stretch flex items-center gap-[12px]">
-      <svg
-        width="20"
-        height="20"
-        viewBox="0 0 20 20"
-        fill="none"
-        className="shrink-0"
-      >
-        <circle cx="10" cy="10" r="10" fill="#7D7C83" />
-        <path
-          d="M6 10.5L8.5 13L14 7.5"
-          stroke="white"
-          strokeWidth="2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-      </svg>
+      <img src="/images/figma/features/circled-checkmark.svg" alt="Check" />
       <span className="text-gray-300 text-[16px] font-medium leading-[36px]">
         {text}
       </span>
@@ -34,7 +19,7 @@ function CheckBullet({ text }: { text: string }) {
 /* ── List card ── */
 function ListCard({ title, items }: { title: string; items: string[] }) {
   return (
-    <div className="w-full md:w-[440px] max-w-full flex flex-col gap-[18px] md:gap-[23px] p-[20px] md:p-[24px] rounded-[20px] md:rounded-[24px] border border-gray-300">
+    <div className="w-full md:w-[440px] max-w-full flex flex-col gap-[18px] md:gap-[23px] p-[20px] md:p-[24px] rounded-[20px] md:rounded-[24px] border border-white/30">
       <h3 className="self-stretch text-white text-[20px] font-bold leading-[24px]">
         {title}
       </h3>
@@ -351,7 +336,7 @@ export function CollaborationHubSection() {
         </div>
 
         {/* Mobile: illustration + list cards stacked */}
-        <div className="flex flex-col items-center gap-[30px] lg:hidden">
+        <div className="w-full flex flex-col items-center gap-[30px] lg:hidden">
           {/* Scaled illustration */}
           <div
             className="relative w-full"
