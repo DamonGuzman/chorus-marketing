@@ -45,7 +45,7 @@ export function CapabilitiesSection() {
       <div className="w-[1150px] max-w-full flex flex-col md:inline-flex md:flex-row items-center justify-between mx-auto mt-10 md:mt-14 gap-12 md:gap-16">
         {/* Left: capability cards */}
         <div className="w-full md:flex-1 md:min-w-0">
-          <StaggerChildren staggerDelay={120} className="flex flex-col items-center md:items-start gap-3 md:gap-2 lg:gap-[5px]">
+          <StaggerChildren staggerDelay={120} className="flex flex-col items-center md:items-start gap-4 md:gap-3 lg:gap-[20px]">
             {capabilityCards.map(({ name, iconSrc }, index) => (
               <div
                 key={name}
