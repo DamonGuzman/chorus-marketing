@@ -18,26 +18,12 @@ function CheckMark() {
 
 /* (Integration icons loaded from Figma SVG/PNG assets) */
 
-/* ═══════════════════════════════════════════════════════════
-   Orbit icon container (dark circle with subtle glass edge)
-   ═══════════════════════════════════════════════════════════ */
-function OrbitIcon({
-  children,
-  size = 62,
-}: {
-  children: React.ReactNode;
-  size?: number;
-}) {
+function OrbitIcon({ children }: { children: React.ReactNode }) {
   return (
     <div
-      className="rounded-full flex items-center justify-center shrink-0"
+      className="w-20 h-20 bg-neutral-800 rounded-full flex items-center justify-center shrink-0"
       style={{
-        width: size,
-        height: size,
-        background: "radial-gradient(circle at 35% 35%, #2a2a2a 0%, #151515 60%, #0d0d0d 100%)",
-        boxShadow:
-          "0 0 5px rgba(255,255,255,0.45) inset, 0 4px 20px rgba(0,0,0,0.5)",
-        border: "1px solid rgba(255,255,255,0.08)",
+        boxShadow: "0px 3.98px 24.85px 0px rgba(0,0,0,0.25), inset 0px 0px 5.16px 0px rgba(255,255,255,0.55)",
       }}
     >
       {children}
@@ -45,197 +31,98 @@ function OrbitIcon({
   );
 }
 
-/* ═══════════════════════════════════════════════════════════
-   Orbital Integration Animation
-   – 3 tilted elliptical rings
-   – 5 branded icons distributed on orbits
-   – Central glowing Chorus logo
-   – Animated glowing dots travelling the paths
-   ═══════════════════════════════════════════════════════════ */
 function OrbitalAnimation() {
   return (
-    <div className="relative w-[500px] h-[420px]">
-      {/* ── SVG orbit paths + travelling dots ── */}
+    <div className="relative w-[636px] h-[480px]">
+      {/* SVG orbit rings + animated dots */}
       <svg
         className="absolute inset-0 w-full h-full"
-        viewBox="0 0 500 420"
+        viewBox="0 0 636 480"
         fill="none"
-        style={{ zIndex: 2 }}
+        style={{ zIndex: 2, overflow: "visible" }}
       >
         <defs>
-          <linearGradient id="ring1Grad" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stopColor="#FFFFFF" stopOpacity="0.85" />
-            <stop offset="50%" stopColor="#FFFFFF" stopOpacity="0.40" />
-            <stop offset="100%" stopColor="#FFFFFF" stopOpacity="0.85" />
-          </linearGradient>
-          <linearGradient id="ring2Grad" x1="100%" y1="0%" x2="0%" y2="100%">
-            <stop offset="0%" stopColor="#FFFFFF" stopOpacity="0.80" />
-            <stop offset="50%" stopColor="#FFFFFF" stopOpacity="0.35" />
-            <stop offset="100%" stopColor="#FFFFFF" stopOpacity="0.80" />
-          </linearGradient>
-          <linearGradient id="ring3Grad" x1="50%" y1="0%" x2="50%" y2="100%">
-            <stop offset="0%" stopColor="#FFFFFF" stopOpacity="0.80" />
-            <stop offset="50%" stopColor="#FFFFFF" stopOpacity="0.35" />
-            <stop offset="100%" stopColor="#FFFFFF" stopOpacity="0.80" />
-          </linearGradient>
-
-          {/* Glow filter for travelling dots */}
           <filter id="dotGlow1" x="-300%" y="-300%" width="700%" height="700%">
             <feGaussianBlur stdDeviation="4" result="blur" />
-            <feMerge>
-              <feMergeNode in="blur" />
-              <feMergeNode in="SourceGraphic" />
-            </feMerge>
+            <feMerge><feMergeNode in="blur" /><feMergeNode in="SourceGraphic" /></feMerge>
           </filter>
           <filter id="dotGlow2" x="-300%" y="-300%" width="700%" height="700%">
             <feGaussianBlur stdDeviation="3" result="blur" />
-            <feMerge>
-              <feMergeNode in="blur" />
-              <feMergeNode in="SourceGraphic" />
-            </feMerge>
+            <feMerge><feMergeNode in="blur" /><feMergeNode in="SourceGraphic" /></feMerge>
           </filter>
         </defs>
 
-        {/* ── Orbit ring 1 — wide, tilted up-right ── */}
-        <ellipse
-          cx="250" cy="210" rx="225" ry="75"
-          stroke="#FFFFFF" strokeOpacity="0.55" strokeWidth="1.6" fill="none"
-          transform="rotate(-15, 250, 210)"
-        />
+        {/* Ring 1 — wide, tilted ~20deg */}
+        <ellipse cx="318" cy="240" rx="290" ry="100" stroke="white" strokeOpacity="0.50" strokeWidth="1.4" fill="none" transform="rotate(20.6, 318, 240)" />
+        {/* Ring 2 — counter-tilted */}
+        <ellipse cx="318" cy="240" rx="270" ry="115" stroke="white" strokeOpacity="0.40" strokeWidth="1.2" fill="none" transform="rotate(-26, 318, 240)" />
+        {/* Ring 3 — near-flat */}
+        <ellipse cx="318" cy="240" rx="250" ry="130" stroke="white" strokeOpacity="0.45" strokeWidth="1.0" fill="none" transform="rotate(5, 318, 240)" />
 
-        {/* ── Orbit ring 2 — medium, tilted opposite ── */}
-        <ellipse
-          cx="250" cy="210" rx="210" ry="90"
-          stroke="#FFFFFF" strokeOpacity="0.45" strokeWidth="1.4" fill="none"
-          transform="rotate(18, 250, 210)"
-        />
+        {/* Motion paths */}
+        <path id="fcOrbit1" d="M 28,240 A 290 100 0 1 1 608,240 A 290 100 0 1 1 28,240 Z" fill="none" stroke="none" transform="rotate(20.6, 318, 240)" />
+        <path id="fcOrbit2" d="M 48,240 A 270 115 0 1 1 588,240 A 270 115 0 1 1 48,240 Z" fill="none" stroke="none" transform="rotate(-26, 318, 240)" />
 
-        {/* ── Orbit ring 3 — narrower, steeper tilt ── */}
-        <ellipse
-          cx="250" cy="210" rx="190" ry="105"
-          stroke="#FFFFFF" strokeOpacity="0.5" strokeWidth="1.2" fill="none"
-          transform="rotate(-5, 250, 210)"
-        />
-
-        {/*
-          Motion paths — invisible <path> equivalents of each ellipse.
-          An ellipse (cx,cy,rx,ry) becomes:
-            M cx-rx, cy
-            A rx ry 0 1 1 cx+rx, cy
-            A rx ry 0 1 1 cx-rx, cy  Z
-          Then the whole path is wrapped in the same rotate() transform.
-        */}
-        {/* Path for orbit 1: cx=250 cy=210 rx=225 ry=75, rotate(-15) */}
-        <path
-          id="orbitPath1"
-          d="M 25,210 A 225 75 0 1 1 475,210 A 225 75 0 1 1 25,210 Z"
-          fill="none" stroke="none"
-          transform="rotate(-15, 250, 210)"
-        />
-        {/* Path for orbit 2: cx=250 cy=210 rx=210 ry=90, rotate(18) */}
-        <path
-          id="orbitPath2"
-          d="M 40,210 A 210 90 0 1 1 460,210 A 210 90 0 1 1 40,210 Z"
-          fill="none" stroke="none"
-          transform="rotate(18, 250, 210)"
-        />
-
-        {/* ── Dot 1 — glides along orbit ring 1 ── */}
+        {/* Animated glowing dots */}
         <circle r="5" fill="white" filter="url(#dotGlow1)">
-          <animateMotion dur="18s" repeatCount="indefinite">
-            <mpath href="#orbitPath1" />
-          </animateMotion>
+          <animateMotion dur="18s" repeatCount="indefinite"><mpath href="#fcOrbit1" /></animateMotion>
         </circle>
-
-        {/* ── Dot 2 — glides along orbit ring 2, opposite direction ── */}
         <circle r="4" fill="white" filter="url(#dotGlow2)">
-          <animateMotion
-            dur="24s"
-            repeatCount="indefinite"
-            keyPoints="1;0"
-            keyTimes="0;1"
-            calcMode="linear"
-          >
-            <mpath href="#orbitPath2" />
-          </animateMotion>
+          <animateMotion dur="24s" repeatCount="indefinite" keyPoints="1;0" keyTimes="0;1" calcMode="linear"><mpath href="#fcOrbit2" /></animateMotion>
         </circle>
       </svg>
 
-      {/* ── Central glowing Chorus logo ── */}
+      {/* Central Chorus logo */}
       <div
-        className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full flex items-center justify-center overflow-hidden"
+        className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-24 h-24 rounded-[99px] flex items-center justify-center overflow-hidden"
         style={{
-          width: 90,
-          height: 90,
-          boxShadow: "0 0 40px 8px rgba(255,107,107,0.30), 0 0 80px 20px rgba(255,107,107,0.12)",
-          animation: "center-pulse 4s ease-in-out infinite",
+          boxShadow: "0px 0px 10px 0px rgba(255,107,107,0.43), inset 0px 0px 4px 0px rgba(0,0,0,0.96)",
           zIndex: 15,
         }}
       >
-        {/* Coral orb background */}
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img src="/images/figma/Rectangle 36.svg" alt="" className="absolute inset-0 w-full h-full scale-[1.22]" />
-        {/* Chorus bird logo */}
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src="/images/figma/bubble.svg" alt="Chorus" className="relative w-[40px] h-[40px]" />
+        <img src="/images/figma/bubble.svg" alt="Chorus" className="relative w-14 h-14 brightness-0 invert" />
       </div>
 
-      {/* ── Orbiting integration icons ── */}
-
-      {/* Google Sheets — upper-left, sitting on ring 1 */}
-      <div
-        className="absolute"
-        style={{ top: "15%", left: "22%", zIndex: 10 }}
-      >
-        <OrbitIcon size={64}>
+      {/* Google Sheets — upper left */}
+      <div className="absolute" style={{ top: "14%", left: "24%", zIndex: 10 }}>
+        <OrbitIcon>
           {/* eslint-disable-next-line @next/next/no-img-element */}
-
-          <img src="/images/figma/image 34.svg" alt="Google Calendar" className="w-[24px] h-[32px]" />
+          <img src="/images/figma/image 34.svg" alt="Google Sheets" className="w-10 h-10" />
         </OrbitIcon>
       </div>
 
-      {/* HubSpot — upper-right */}
-      <div
-        className="absolute"
-        style={{ top: "22%", right: "8%", zIndex: 10 }}
-      >
-        <OrbitIcon size={64}>
+      {/* HubSpot — upper right */}
+      <div className="absolute" style={{ top: "12%", right: "10%", zIndex: 10 }}>
+        <OrbitIcon>
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/images/figma/image 33.svg" alt="HubSpot" className="w-[30px] h-[30px] rounded-full" />
+          <img src="/images/figma/image 33.svg" alt="HubSpot" className="w-14 h-14 rounded-full" />
         </OrbitIcon>
       </div>
 
-      {/* Google Calendar — mid-left */}
-      <div
-        className="absolute"
-        style={{ top: "55%", left: "4%", zIndex: 10 }}
-      >
-        <OrbitIcon size={68}>
+      {/* Google Calendar — mid left */}
+      <div className="absolute" style={{ top: "45%", left: "6%", zIndex: 10 }}>
+        <OrbitIcon>
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/images/figma/image 35.svg" alt="Gmail" className="w-[30px] h-[30px]" />
-          
+          <img src="/images/figma/image 32.svg" alt="Google Calendar" className="w-10 h-10" />
         </OrbitIcon>
       </div>
 
-      {/* Gmail — mid-right */}
-      <div
-        className="absolute"
-        style={{ top: "50%", right: "8%", zIndex: 10 }}
-      >
-        <OrbitIcon size={64}>
+      {/* Gmail — mid right */}
+      <div className="absolute" style={{ top: "45%", right: "6%", zIndex: 10 }}>
+        <OrbitIcon>
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/images/figma/image 32.svg" alt="Google Calendar" className="w-[24px] h-[32px]" />
+          <img src="/images/figma/image 35.svg" alt="Gmail" className="w-10 h-10" />
         </OrbitIcon>
       </div>
 
-      {/* Slack — bottom-center */}
-      <div
-        className="absolute"
-        style={{ bottom: "20%", left: "42%", zIndex: 10 }}
-      >
-        <OrbitIcon size={64}>
+      {/* Slack — bottom center-left */}
+      <div className="absolute" style={{ bottom: "12%", left: "35%", zIndex: 10 }}>
+        <OrbitIcon>
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/images/figma/image 12.svg" alt="Slack" className="w-[26px] h-[26px]" />
+          <img src="/images/figma/image 12.svg" alt="Slack" className="w-10 h-10" />
         </OrbitIcon>
       </div>
     </div>
@@ -269,17 +156,17 @@ export function FeaturesCardSection() {
         {/* ── Stacked Cards (same width as main, offset below) ── */}
         {/* Back card */}
         <div
-          className="w-64 md:w-[85%] h-18 max-w-[1188px] rounded-3xl bg-black border border-white/15"
+          className="w-64 md:w-[1013px] h-18 rounded-[37px] bg-black border-[0.79px] border-white/30 backdrop-blur-xl"
         />
 
         {/* Middle card */}
         <div
-          className="w-72 md:w-[90%] h-20 max-w-[1188px] -mt-[18%] md:-mt-10 rounded-3xl bg-black border border-white/20"
+          className="w-72 md:w-[1115px] h-20 -mt-[18%] md:-mt-10 rounded-[37px] bg-black border-[0.79px] border-white/30 backdrop-blur-xl"
         />
 
         {/* ── Front card — Main Content ── */}
         <div
-          className="w-full max-w-[1240px] -mt-[18%] md:-mt-10 rounded-3xl py-[36px] px-[24px] md:py-[60px] md:px-[56px] overflow-hidden"
+          className="w-full max-w-[1220px] -mt-[18%] md:-mt-10 rounded-[60px] py-[36px] px-[24px] md:py-[60px] md:px-[56px] overflow-hidden"
           style={{
             background: "#000000",
             outline: "1px solid #434343",
