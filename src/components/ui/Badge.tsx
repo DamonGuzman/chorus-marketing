@@ -9,8 +9,7 @@ export function Badge({ children, className }: BadgeProps) {
   return (
     <div
       className={cn(
-        "relative inline-flex items-center justify-center",
-        "h-9 rounded-[100px] overflow-hidden",
+        "relative px-3 py-1 bg-white/5 h-9 rounded-[100px] inline-flex justify-center items-center gap-2 overflow-hidden",
         className
       )}
     >
@@ -25,7 +24,7 @@ export function Badge({ children, className }: BadgeProps) {
         className="absolute inset-[1px] rounded-[100px] bg-[#131313]"
       />
       {/* Text */}
-      <span className="relative z-10 px-3 py-1 text-base leading-6 font-semibold text-white text-center font-feature-stylistic">
+      <span className="relative z-10 text-center justify-center text-white text-base font-semibold font-['Urbanist'] leading-6">
         {children}
       </span>
     </div>

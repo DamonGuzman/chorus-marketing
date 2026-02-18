@@ -1,4 +1,4 @@
-import { AnimateOnScroll, Badge, Section, ScrollTextReveal, StaggerChildren, ScrollParallax } from "@/components/ui";
+import { AnimateOnScroll, Badge, Section, ScrollTextReveal, StaggerChildren } from "@/components/ui";
 import Image from "next/image";
 
 const capabilityCards = [
@@ -27,9 +27,9 @@ const teamMembers = [
 
 export function CapabilitiesSection() {
   return (
-    <Section className="self-stretch px-4 py-10 md:py-20 md:px-8 inline-flex md:flex flex-col justify-start items-center gap-6 md:gap-14 relative overflow-hidden" id="use-cases">
+    <Section className="self-stretch px-4 py-10 md:py-20 md:px-8 inline-flex md:flex flex-col justify-start items-center gap-2 md:gap-3 relative overflow-hidden" id="use-cases">
       {/* Section Header */}
-      <Badge>Capabilities</Badge>
+      <Badge className="w-32 h-9 px-3 py-1 bg-white/5 rounded-[100px] inline-flex justify-center items-center gap-2 overflow-hidden">Capabilities</Badge>
       <div className="flex flex-col justify-start items-center gap-4">
         <ScrollTextReveal
           text="What Your AI Workforce Can Do"
@@ -42,13 +42,13 @@ export function CapabilitiesSection() {
         </AnimateOnScroll>
       </div>
 
-      <div className="flex flex-col md:flex-row items-center justify-center gap-6 md:gap-10 w-full max-w-[1240px] mx-auto">
+      <div className="w-[1150px] max-w-full flex flex-col md:inline-flex md:flex-row items-center justify-between mx-auto mt-10 md:mt-14 gap-12 md:gap-16">
         {/* Left: capability cards */}
         <div className="w-full md:flex-1 md:min-w-0">
           <StaggerChildren staggerDelay={120} className="flex flex-col items-center md:items-start gap-4 md:gap-3 lg:gap-[24px]">
             {capabilityCards.map(({ name, iconSrc }, index) => (
-              <ScrollParallax key={name} offset={30} delay={index / 3}>
               <div
+                key={name}
                 className={[
                   "max-md:w-72 md:w-full md:max-w-[500px] max-md:h-20 md:h-24 lg:h-36",
                   "max-md:pl-5 max-md:pr-4 max-md:py-4 md:pl-5 md:pr-4 md:py-3 lg:pl-8 lg:pr-6 lg:py-6",
@@ -79,7 +79,6 @@ export function CapabilitiesSection() {
                   </p>
                 </div>
               </div>
-              </ScrollParallax>
             ))}
           </StaggerChildren>
         </div>

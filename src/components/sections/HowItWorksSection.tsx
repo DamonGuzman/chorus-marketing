@@ -586,16 +586,16 @@ export function HowItWorksSection() {
       <div className="self-stretch px-4 md:px-0">
         <div className="flex flex-col justify-start items-center gap-6 md:gap-14">
           {/* ---- Header ---- */}
-          <div className="flex flex-col justify-start items-center gap-6">
-            <Badge>Our Process</Badge>
+          <div className="flex flex-col justify-start items-center gap-2">
+            <Badge className="w-32 h-9 px-3 py-1 bg-white/5 rounded-[100px] inline-flex justify-center items-center gap-2 overflow-hidden">Our Process</Badge>
 
             <div className="flex flex-col justify-start items-center gap-4">
               <ScrollTextReveal
                 text="How It Works"
-                className="text-center text-2xl leading-8 md:text-3xl md:leading-[42px] lg:text-5xl lg:leading-[78px] font-bold font-['Urbanist']"
+                className="justify-start text-white text-5xl font-bold font-['Urbanist'] leading-[78px]"
               />
               <AnimateOnScroll animation="fade-up" duration={0.8} threshold={0.3}>
-                <p className="w-full text-center text-gray-300 text-sm leading-6 md:text-xl md:leading-9 font-normal font-['Urbanist']">
+                <p className="text-center justify-start text-gray-300 text-xl font-normal font-['Urbanist'] leading-9">
                   The best way to reach humans instead of spam folders. Deliver
                   transactional and marketing emails at scale.
                 </p>
@@ -636,8 +636,7 @@ export function HowItWorksSection() {
                   <img
                     src="/images/figma/Group 1707484029.svg"
                     alt="Agent profile card"
-                    className="w-full h-full object-contain"
-                    style={{ imageRendering: "auto", WebkitFontSmoothing: "antialiased" }}
+                    className="w-[880px] h-[780px] object-contain z-10 ro"
                   />
                 </AnimateOnScroll>
               </ScrollParallax>

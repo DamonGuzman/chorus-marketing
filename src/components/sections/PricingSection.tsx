@@ -1,7 +1,7 @@
 "use client";
 
 import { useCallback } from "react";
-import { AnimateOnScroll, Section, ScrollTextReveal, StaggerChildren, ScrollParallax } from "@/components/ui";
+import { Section } from "@/components/ui";
 import { CheckIcon } from "@/components/icons";
 import { cn } from "@/lib/utils";
 import { Badge } from "@/components/ui";
@@ -24,7 +24,7 @@ const cardThemes = {
   },
   light: {
     card:
-      "bg-[linear-gradient(180deg,#E8E8E8_0%,#F0F0F0_40%,#F7F7F7_100%)] border border-black/10 shadow-[0px_24px_70px_rgba(0,0,0,0.45)]",
+      "bg-[linear-gradient(180deg,#E8E8E8_0%,#F0F0F0_40%,#F7F7F7_100%)] border border-white/30 backdrop-blur-[30px] shadow-[0px_24px_70px_rgba(0,0,0,0.45)]",
     glow: "bg-[radial-gradient(ellipse_at_top,rgba(255,255,255,0.85)_0%,rgba(255,255,255,0)_70%)]",
     gridLines:
       "bg-[linear-gradient(to_right,rgba(0,0,0,0.05)_1px,transparent_1px),linear-gradient(to_bottom,rgba(0,0,0,0.05)_1px,transparent_1px)] [background-size:56px_56px] opacity-30",
@@ -57,7 +57,7 @@ const plans: PricingPlan[] = [
     name: "Personal",
     subtitle: "Perfect plan for starters",
     price: "Free",
-    priceClass: "text-[36px] leading-[48px] md:text-[24px] md:leading-[32px] lg:text-[36px] lg:leading-[48px]",
+    priceClass: "text-[36px] leading-[48px]",
     description: "Right for new businesses",
     features: [
       "300 emails/day",
@@ -72,7 +72,7 @@ const plans: PricingPlan[] = [
     name: "Professional",
     subtitle: "Perfect plan for starters",
     price: "$89",
-    priceClass: "text-[48px] leading-[48px] md:text-[28px] md:leading-[36px] lg:text-[48px] lg:leading-[48px]",
+    priceClass: "text-[48px] leading-[48px]",
     period: "/ Month",
     description: "Right for new businesses",
     features: [
@@ -89,7 +89,7 @@ const plans: PricingPlan[] = [
     name: "Enterprise",
     subtitle: "Perfect plan for starters",
     price: "Customize Price",
-    priceClass: "text-[36px] leading-[48px] md:text-[24px] md:leading-[32px] lg:text-[36px] lg:leading-[48px]",
+    priceClass: "text-[36px] leading-[48px]",
     description: "Right for new businesses",
     features: [
       "300 emails/day",
@@ -113,22 +113,19 @@ export function PricingSection() {
 
   return (
     <Section className="px-4 pt-10 pb-10 md:px-8 md:pt-20 md:pb-36 md:flex md:flex-col md:items-center" id="pricing">
-      <div className="w-full max-w-[1240px] mx-auto flex flex-col justify-start items-center gap-6 md:gap-14">
+      <div className="self-stretch flex flex-col justify-start items-center gap-6 md:gap-14">
         <div className="self-stretch flex flex-col justify-start items-center gap-6">
           <Badge className="w-32">
             Pricing
           </Badge>
 
-          <div className="flex flex-col justify-start items-center gap-5 md:gap-4">
-            <ScrollTextReveal
-              text="Stop Paying Six Figures Per Employee"
-              className="w-80 md:w-auto text-center text-2xl leading-8 md:text-3xl md:leading-[42px] lg:text-5xl lg:leading-[78px] font-bold font-['Urbanist']"
-            />
-            <AnimateOnScroll animation="fade-up" duration={0.8} threshold={0.3}>
-              <p className="w-80 md:w-auto text-center text-sm leading-6 md:text-xl md:leading-9 font-normal font-['Urbanist'] text-gray-300">
-                More than just integrations, 10,000+ tools that can adapt — turning automation into intuition.
-              </p>
-            </AnimateOnScroll>
+          <div className="flex flex-col justify-start items-center gap-2">
+            <h2 className="justify-start text-white text-2xl leading-8 md:text-5xl font-bold font-['Urbanist'] md:leading-[78px]">
+              Stop Paying Six Figures Per Employee
+            </h2>
+            <p className="text-center justify-start text-gray-300 text-xl font-normal font-['Urbanist'] leading-9">
+            The best way to reach humans instead of spam folders. Deliver transactional and marketing emails at scale.
+            </p>
           </div>
         </div>
 
@@ -144,15 +141,16 @@ export function PricingSection() {
               </div>
             </div>
 
-            {/* Desktop: grid layout */}
-            <StaggerChildren staggerDelay={150} className="hidden md:grid md:grid-cols-3 md:gap-5 lg:gap-10 w-full">
+            {/* Desktop: flex layout */}
+            <div className="hidden lg:inline-flex justify-start items-start gap-10">
               {plans.map((plan) => {
                 const theme = cardThemes[plan.theme];
+
                 return (
-                  <ScrollParallax key={plan.name} offset={30} delay={plans.indexOf(plan) / 2}>
                   <div
+                    key={plan.name}
                     className={cn(
-                      "relative overflow-hidden rounded-[20px] px-[16px] pt-[24px] pb-[20px] lg:px-[33px] lg:pt-[56px] lg:pb-[40px] min-h-[380px] lg:min-h-[629px] flex flex-col",
+                      "relative overflow-hidden rounded-[20px] px-[33px] pt-[57px] pb-[40px] w-96 h-[629px] flex flex-col",
                       theme.card
                     )}
                   >
@@ -170,27 +168,28 @@ export function PricingSection() {
                       <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(255,255,255,0.06)_0%,rgba(255,255,255,0)_40%)]" />
                     </div>
 
-                    <div className="relative z-10 flex flex-col gap-[14px] lg:gap-[32px] h-full">
-                      <div className="flex flex-col gap-[14px] lg:gap-[24px]">
-                        <div className="flex flex-col gap-[6px] lg:gap-[12px]">
-                          <h3 className={cn("text-[16px] lg:text-[20px] leading-[24px] lg:leading-[32px] font-semibold", theme.title)}>
-                            {plan.name}
-                          </h3>
-                          <p className={cn("text-[12px] lg:text-[14px] leading-[20px] lg:leading-[28px] font-medium", theme.subtitle)}>
-                            {plan.subtitle}
-                          </p>
+                    <div className="relative z-10 inline-flex flex-col justify-start items-start gap-8">
+                      <div className="flex flex-col justify-start items-start gap-9">
+                        <div className="flex flex-col justify-start items-start gap-5">
+                          <div className="flex flex-col justify-start items-start gap-3">
+                            <h3 className={cn("text-xl font-semibold font-['Urbanist'] leading-8", theme.title)}>
+                              {plan.name}
+                            </h3>
+                            <p className={cn("text-sm font-medium font-['Urbanist'] leading-7", theme.subtitle)}>
+                              {plan.subtitle}
+                            </p>
+                          </div>
                         </div>
-
-                        <div className="flex flex-col gap-[8px] lg:gap-[12px]">
-                          <div className="flex items-end gap-[6px]">
-                            <span className={cn("font-bold", plan.priceClass, theme.price)}>{plan.price}</span>
+                        <div className="flex flex-col justify-start items-start gap-3">
+                          <div className="inline-flex justify-start items-center gap-0.5">
+                            <span className={cn("font-bold font-['Urbanist']", plan.priceClass, theme.price)}>{plan.price}</span>
                             {plan.period ? (
-                              <span className={cn("text-[13px] lg:text-[16px] leading-[22px] lg:leading-[28px] font-medium", theme.period)}>
+                              <span className={cn("text-base font-medium font-['Urbanist'] leading-7", theme.period)}>
                                 {plan.period}
                               </span>
                             ) : null}
                           </div>
-                          <p className={cn("text-[13px] lg:text-[16px] leading-[22px] lg:leading-[28px] font-medium", theme.description)}>
+                          <p className={cn("text-base font-medium font-['Urbanist'] leading-7", theme.description)}>
                             {plan.description}
                           </p>
                         </div>
@@ -198,20 +197,20 @@ export function PricingSection() {
 
                       <div
                         className={cn(
-                          "h-[38px] lg:h-[48px] w-full rounded-[50px] flex items-center justify-center text-[12px] lg:text-[14px] leading-[24px] font-bold",
+                          "w-80 h-12 px-8 py-3 rounded-[50px] inline-flex justify-center items-center gap-2 overflow-hidden text-sm font-bold font-['Urbanist'] leading-6",
                           theme.button
                         )}
                       >
                         Current Plan
                       </div>
 
-                      <div className="flex flex-col gap-[12px] lg:gap-[20px]">
+                      <div className="flex flex-col justify-start items-start gap-5">
                         {plan.features.map((feature, index) => (
-                          <div key={`${plan.name}-${index}`} className="flex items-center gap-[8px] lg:gap-[12px]">
-                            <span className="flex size-[20px] lg:size-[24px] items-center justify-center">
-                              <CheckIcon className={cn("w-[13px] lg:w-[16px] h-[9px] lg:h-[11px]", theme.icon)} />
+                          <div key={`${plan.name}-${index}`} className="inline-flex justify-start items-center gap-3">
+                            <span className="flex size-6 items-center justify-center">
+                              <CheckIcon className={cn("w-4 h-[11px]", theme.icon)} />
                             </span>
-                            <span className={cn("text-[13px] lg:text-[16px] leading-[20px] lg:leading-[24px] font-medium", theme.feature)}>
+                            <span className={cn("text-base font-medium font-['Urbanist'] leading-6", theme.feature)}>
                               {feature}
                             </span>
                           </div>
@@ -219,13 +218,12 @@ export function PricingSection() {
                       </div>
                     </div>
                   </div>
-                  </ScrollParallax>
                 );
               })}
-            </StaggerChildren>
+            </div>
 
             {/* Mobile: horizontal scroll, Professional card centered initially */}
-            <div ref={scrollRef} className="md:hidden w-full -mx-4 px-4 overflow-x-auto snap-x snap-mandatory [scrollbar-width:none] [-webkit-overflow-scrolling:touch] [&::-webkit-scrollbar]:hidden">
+            <div ref={scrollRef} className="lg:hidden w-full -mx-4 px-4 overflow-x-auto snap-x snap-mandatory [scrollbar-width:none] [-webkit-overflow-scrolling:touch] [&::-webkit-scrollbar]:hidden">
               <div className="flex gap-[16px] w-max">
                 {/* Original order — scroll auto-centers on Professional card */}
                 {[plans[0], plans[1], plans[2]].map((plan) => {
@@ -236,10 +234,10 @@ export function PricingSection() {
                       key={plan.name}
                       data-plan={plan.name}
                       className={cn(
-                        "relative overflow-hidden rounded-xl px-[20px] pt-[32px] pb-[24px] flex flex-col snap-center border-[0.55px] border-white/30 backdrop-blur-lg",
+                        "relative overflow-hidden rounded-[20px] px-[28px] pt-[44px] pb-[32px] flex flex-col snap-center",
                         plan.theme === "light"
-                          ? "w-52 h-[357px]"
-                          : "w-52 h-[357px] opacity-80",
+                          ? "w-[min(300px,78vw)] min-h-[580px]"
+                          : "w-[min(260px,68vw)] min-h-[520px] opacity-80",
                         theme.card
                       )}
                     >
@@ -257,27 +255,27 @@ export function PricingSection() {
                         <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(255,255,255,0.06)_0%,rgba(255,255,255,0)_40%)]" />
                       </div>
 
-                      <div className="relative z-10 flex flex-col gap-[14px] h-full">
-                        <div className="flex flex-col gap-[12px]">
-                          <div className="flex flex-col gap-[4px]">
-                            <h3 className={cn("text-[14px] leading-[20px] font-semibold", theme.title)}>
+                      <div className="relative z-10 flex flex-col gap-[24px] h-full">
+                        <div className="flex flex-col gap-[20px]">
+                          <div className="flex flex-col gap-[10px]">
+                            <h3 className={cn("text-[18px] leading-[28px] font-semibold", theme.title)}>
                               {plan.name}
                             </h3>
-                            <p className={cn("text-[10px] leading-[16px] font-medium", theme.subtitle)}>
+                            <p className={cn("text-[13px] leading-[24px] font-medium", theme.subtitle)}>
                               {plan.subtitle}
                             </p>
                           </div>
 
-                          <div className="flex flex-col gap-[4px]">
-                            <div className="flex items-end gap-[4px]">
-                              <span className={cn("font-bold text-[24px] leading-[32px]", theme.price)}>{plan.price}</span>
+                          <div className="flex flex-col gap-[10px]">
+                            <div className="flex items-end gap-[6px]">
+                              <span className={cn("font-bold", plan.priceClass, theme.price)}>{plan.price}</span>
                               {plan.period ? (
-                                <span className={cn("text-[10px] leading-[16px] font-medium", theme.period)}>
+                                <span className={cn("text-[14px] leading-[24px] font-medium", theme.period)}>
                                   {plan.period}
                                 </span>
                               ) : null}
                             </div>
-                            <p className={cn("text-[10px] leading-[16px] font-medium", theme.description)}>
+                            <p className={cn("text-[14px] leading-[24px] font-medium", theme.description)}>
                               {plan.description}
                             </p>
                           </div>
@@ -285,20 +283,20 @@ export function PricingSection() {
 
                         <div
                           className={cn(
-                            "h-[32px] w-full rounded-[50px] flex items-center justify-center text-[10px] leading-[16px] font-bold",
+                            "h-[44px] w-full rounded-[50px] flex items-center justify-center text-[13px] leading-[24px] font-bold",
                             theme.button
                           )}
                         >
                           Current Plan
                         </div>
 
-                        <div className="flex flex-col gap-[10px]">
+                        <div className="flex flex-col gap-[16px]">
                           {plan.features.map((feature, index) => (
-                            <div key={`${plan.name}-m-${index}`} className="flex items-center gap-[6px]">
-                              <span className="flex size-[14px] items-center justify-center shrink-0">
-                                <CheckIcon className={cn("w-[10px] h-[7px]", theme.icon)} />
+                            <div key={`${plan.name}-m-${index}`} className="flex items-center gap-[10px]">
+                              <span className="flex size-[20px] items-center justify-center">
+                                <CheckIcon className={cn("w-[14px] h-[10px]", theme.icon)} />
                               </span>
-                              <span className={cn("text-[10px] leading-[14px] font-medium", theme.feature)}>
+                              <span className={cn("text-[14px] leading-[22px] font-medium", theme.feature)}>
                                 {feature}
                               </span>
                             </div>

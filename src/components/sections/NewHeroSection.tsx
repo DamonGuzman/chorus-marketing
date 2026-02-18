@@ -1,6 +1,5 @@
 "use client";
 
-import { ButtonLink } from "@/components/ui";
 import { PRIMARY_CTA_HREF } from "@/content/site";
 import { AnimatePresence, motion } from "framer-motion";
 import dynamic from "next/dynamic";
@@ -74,10 +73,10 @@ export function NewHeroSection() {
       {/* Content */}
       <div className="relative z-10 pt-[60px] md:pt-[110px] px-4 sm:px-6 md:px-8 max-w-[1440px] mx-auto pb-12 md:pb-0">
         {/* Hero Header */}
-        <div className="w-full max-w-[1183px] mx-auto flex flex-col justify-start items-center">
+        <div className="w-full max-w-[1440px] mx-auto flex flex-col justify-start items-center mt-[50px]">
           <div className="self-stretch flex flex-col justify-start items-center gap-[20px] md:gap-7">
             <div className="self-stretch flex flex-col justify-start items-center gap-[14px] md:gap-5">
-              <h1 className="self-stretch text-center text-[36px] leading-[40px] md:text-5xl md:leading-[56px] lg:text-7xl lg:leading-[78px] font-extrabold font-['Urbanist'] text-white">
+              <h1 className="self-stretch h-16 text-center justify-center text-white text-7xl font-extrabold font-['Urbanist'] leading-[78px]">
                 <span className="inline-flex flex-wrap justify-center gap-x-[0.3em]">
                   {heroWords.map((word, i) => (
                     <span key={i} className="inline-block overflow-hidden pb-[0.3em]">
@@ -95,7 +94,7 @@ export function NewHeroSection() {
                 </span>
               </h1>
               <motion.p
-                className="w-72 md:w-auto text-center text-base leading-6 md:text-xl md:leading-9 font-normal font-['Urbanist'] text-gray-100"
+                className="text-center justify-start text-Secondary-tint2 text-2xl font-normal font-['Urbanist'] leading-15"
                 variants={fadeUpVariants}
                 initial="hidden"
                 animate="visible"
@@ -111,9 +110,12 @@ export function NewHeroSection() {
               animate="visible"
               custom={0.9}
             >
-              <ButtonLink href={PRIMARY_CTA_HREF} variant="light" size="md">
-                Build Your Team Now
-              </ButtonLink>
+              <a
+                href={PRIMARY_CTA_HREF}
+                className="h-12 px-8 py-3 bg-white rounded-[50px] shadow-[0px_0px_8px_0px_rgba(175,130,249,0.63)] inline-flex justify-start items-center gap-2 overflow-hidden"
+              >
+                <span className="text-center justify-center text-black text-sm font-bold font-['Urbanist'] leading-6">Build Your Team Now</span>
+              </a>
             </motion.div>
           </div>
         </div>
@@ -155,7 +157,7 @@ export function NewHeroSection() {
                   loop
                   autoplay
                   style={{ width: 1500, height: 967 }}
-                  className="origin-top-left scale-[0.95] -translate-y-[60px]"
+                  className="origin-top-left scale-100 -translate-y-[60px] -translate-x-[50px]"
                 />
               </div>
             </motion.div>

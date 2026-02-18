@@ -80,6 +80,13 @@ export function Header() {
             href={PRIMARY_CTA_HREF}
             className="relative w-28 h-9 rounded-[100px] overflow-hidden inline-flex justify-center items-center transition-all duration-200 hover:brightness-125"
           >
+            {/* <div className="hidden md:block">
+          <div className="rounded-[100px] p-[1px] bg-gradient-to-b from-white/[0.28] to-white/[0.08]">
+            <div className="w-28 h-9 px-3 py-1 bg-[#1c1c1e] rounded-[100px] inline-flex justify-center items-center gap-2 overflow-hidden">
+              <div className="text-center justify-center text-white text-sm font-bold font-['Urbanist'] leading-6">{PRIMARY_CTA_LABEL}</div>
+            </div>
+          </div>
+        </div> */}
             {/* Gradient border — bright top-left to bottom-right, dark at top-right and bottom-left bends */}
             <span
               aria-hidden="true"

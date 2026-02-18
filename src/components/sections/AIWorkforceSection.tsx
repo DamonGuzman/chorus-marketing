@@ -27,23 +27,23 @@ function InlinePill({
 export function AIWorkforceSection() {
   return (
     <Section
-      className="self-stretch bg-black px-4 py-10 md:px-8 md:py-20 inline-flex md:flex flex-col justify-start items-center gap-6 md:gap-16 overflow-hidden"
+       className="self-stretch bg-black px-4 py-10 md:px-8 md:py-20 inline-flex md:flex flex-col justify-start items-center gap-16 overflow-hidden"
       id="ai-workforce"
     >
       {/* Header */}
-      <Badge>What Chorus Actually Is</Badge>
-
-      <div className="flex flex-col justify-start items-center gap-4">
-        <ScrollTextReveal
-          text="Your AI Workforce. Always in Sync."
-          className="w-full md:w-auto text-center text-2xl leading-8 font-bold font-['Urbanist'] md:text-3xl md:leading-[42px] lg:text-5xl lg:leading-[78px]"
-        />
+      <div className="flex flex-col justify-start items-center gap-10">
+        <div className="flex flex-col justify-start items-center gap-2">
+          <Badge className="w-56 h-9 px-3 py-1 bg-white/5 rounded-[100px] inline-flex justify-center items-center gap-2 overflow-hidden">What Chorus Actually Is</Badge>
+          <ScrollTextReveal
+            text="Your AI Workforce. Always in Sync."
+            className="justify-start text-white text-5xl font-bold font-['Urbanist'] leading-[78px]"
+          />
+        </div>
 
         {/* Description */}
         <AnimateOnScroll animation="fade-up" duration={0.8} threshold={0.3}>
           <div className="w-full md:max-w-[1108px] text-center font-['Urbanist'] text-sm leading-6 font-normal text-gray-300 md:text-base md:leading-7 lg:text-xl lg:leading-9">
-            <span className="text-gray-300 md:text-xl font-normal font-['Urbanist'] md:leading-9">Forget chatbots that &quot;help&quot; you draft emails. Chorus gives you
-            autonomous agents that coordinate with each other and run your </span>
+            <span className="text-gray-300 md:text-xl font-normal font-['Urbanist'] md:leading-9">Forget chatbots that &quot;help&quot; you draft emails. Chorus gives you autonomous agents that coordinate with each other<br />and run your </span>
             <span className="text-white text-sm md:text-base lg:text-xl font-medium font-['Urbanist'] leading-6 md:leading-9">Sales, Marketing, Finance, Operations, Customer Success</span>
             <span className="text-gray-300 md:text-xl font-normal font-['Urbanist'] md:leading-9"> - any department you need.</span>
           </div>
@@ -64,7 +64,7 @@ export function AIWorkforceSection() {
             className="w-80 h-[260px] rotate-[-4deg]"
           />
 
-          <p className="text-center font-['Urbanist'] text-sm font-normal leading-6 text-gray-400">
+          <p className="text-center font-['Urbanist'] text-sm font-normal leading-6 text-gray-400 translate-y-[10px]">
             They <span className="text-gray-100">execute.</span>{" "}
             They <span className="text-gray-100">deliver.</span>
           </p>
@@ -87,37 +87,33 @@ export function AIWorkforceSection() {
 
           {/* Desktop: overlapping 3-card layout */}
           <StaggerChildren staggerDelay={150} className="hidden md:block md:max-w-[600px] lg:max-w-none mx-auto">
-            {/* Labels row */}
-            <div className="flex items-start justify-between mb-2">
-            <p className="font-['Urbanist'] md:text-[16px] lg:text-[22px] font-normal leading-10 text-gray-300 text-right md:translate-x-[20px] lg:translate-x-[40px] rotate-[-3deg] translate-y-[10px] -mt-[20px]">
-                You don&apos;t coordinate.You{" "}
-                <InlinePill>orchestrate</InlinePill>
-              </p>
-              <p className="font-['Urbanist'] md:text-[16px] lg:text-[22px] font-normal leading-10 text-gray-300 text-right md:translate-x-[20px] lg:translate-x-[40px] rotate-[-3deg] translate-y-[10px] -mt-[20px]">
-                They{" "}
-                <InlinePill>execute.</InlinePill>{" "}
-                They{" "}
-                <InlinePill>deliver.</InlinePill>
-              </p>
-            </div>
-
-            {/* Cards row — overlapping */}
+            {/* Cards row — overlapping, with labels inside each ScrollParallax */}
             <div className="flex items-start justify-center">
               <ScrollParallax offset={30} delay={0} className="w-[36%] -mr-[3.5%] relative z-0">
+                <p className="absolute -top-10 left-0 w-max font-['Urbanist'] md:text-[16px] lg:text-[22px] font-normal leading-10 text-gray-300 md:translate-x-[15px] lg:translate-x-[20px] rotate-[-3deg]">
+                  You don&apos;t coordinate. You{" "}
+                  <InlinePill>orchestrate</InlinePill>
+                </p>
                 <img
                   src="/images/figma/Frame 1707484612.svg"
                   alt="Radar card"
                   className="w-full"
                 />
               </ScrollParallax>
-              <ScrollParallax offset={30} delay={0.5} className="w-[37%] relative z-10 mt-[10px]">
+              <ScrollParallax offset={30} delay={0.5} className="w-[37%] relative z-10 -mt-[20px]">
                 <img
                   src="/images/figma/Frame 1707484612-1.svg"
                   alt="AI Agent chat card"
                   className="w-full"
                 />
               </ScrollParallax>
-              <ScrollParallax offset={30} delay={1} className="w-[36%] -ml-[3.5%] relative z-11 translate-y-[20px]">
+              <ScrollParallax offset={30} delay={1} className="w-[36%] -ml-[2.5%] relative z-11 -mt-[25px] rotate-[-2deg]">
+                <p className="absolute -top-10 left-8 w-max font-['Urbanist'] md:text-[16px] lg:text-[22px] font-normal leading-10 text-gray-300 rotate-[-3deg] text-left">
+                  They{" "}
+                  <InlinePill className="w-28 h-10 pl-3 py-1 bg-black/0 rounded-2xl shadow-[0px_4.43361234664917px_4.43361234664917px_0px_rgba(0,0,0,0.25)]">execute.</InlinePill>{" "}
+                  They{" "}
+                  <InlinePill className="w-28 h-10 pl-3 py-1 bg-black/0 rounded-2xl shadow-[0px_4.43361234664917px_4.43361234664917px_0px_rgba(0,0,0,0.25)]">deliver.</InlinePill>
+                </p>
                 <img
                   src="/images/figma/Frame 1707484613.svg"
                   alt="Tasks card"
