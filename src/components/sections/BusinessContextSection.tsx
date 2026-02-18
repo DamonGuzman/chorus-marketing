@@ -3,7 +3,7 @@ import { Badge, ScrollTextReveal } from "@/components/ui";
 export function BusinessContextSection() {
   return (
     <section className="relative bg-black overflow-hidden">
-      {/* Section Header: Your AI Team Knows Your Business */}
+      {/* Section Header */}
       <div className="py-[75px] px-6 lg:px-8">
         <div className="max-w-[1240px] mx-auto">
           <div className="flex flex-col items-center gap-[15px]">
@@ -19,91 +19,216 @@ export function BusinessContextSection() {
         </div>
       </div>
 
-      {/* From "schedule this meeting" to "build this pipeline" */}
-      <BusinessContextItem
-        stepNumber="01"
-        nextStepNumber="02"
-        fromText="schedule this meeting"
-        toText="build this pipeline"
-        description="Agents coordinate calendars, CRM, and internal docs to assemble a pipeline plan and move deals forward—without manual handoffs."
-      >
-        <MeetingToPipelineVisual />
-      </BusinessContextItem>
+      {/* Stacked cards */}
+      <div className="relative px-4 lg:px-8 pb-16">
+        {/* Card 1 */}
+        <div className="sticky top-[20px] z-[10]">
+          <BusinessContextItem
+            stepNumber="1"
+            title="Instant Context, Zero Briefing"
+            description="Because Chorus integrates with your entire stack (CRM, email, docs, calendar, Slack), your AI agents have complete context about:"
+            checkmarks={[
+              "Your customers and pipeline",
+              "Your processes and SOPs",
+              "Your messaging and brand voice",
+              "Your tools and workflows",
+            ]}
+          >
+            <OrbitVisual />
+          </BusinessContextItem>
+        </div>
 
-      {/* From "update this spreadsheet" to "optimize our budget" */}
-      <BusinessContextItem
-        stepNumber="02"
-        nextStepNumber="03"
-        fromText="update this spreadsheet"
-        toText="optimize our budget"
-        description="Agents reconcile spend, forecast impact, and recommend optimizations with clear rationale and source links to your data."
-      >
-        <SpreadsheetToBudgetVisual />
-      </BusinessContextItem>
+        {/* Card 2 */}
+        <div className="sticky top-[30px] z-[20] -mt-4">
+          <BusinessContextItem
+            stepNumber="2"
+            title="Always In Sync"
+            description="Chorus continuously syncs with your connected apps so agents always act on the latest data—no stale snapshots, no outdated context:"
+            checkmarks={[
+              "Live CRM and pipeline data",
+              "Real-time calendar access",
+              "Up-to-date docs and SOPs",
+              "Latest email threads",
+            ]}
+          >
+            <OrbitVisual />
+          </BusinessContextItem>
+        </div>
 
-      {/* From "send this email" to "run this campaign" */}
-      <BusinessContextItem
-        stepNumber="03"
-        fromText="send this email"
-        toText="run this campaign"
-        description="Agents generate assets, segment audiences, launch across channels, and report results—so you focus on strategy."
-      >
-        <EmailToCampaignVisual />
-      </BusinessContextItem>
+        {/* Card 3 */}
+        <div className="sticky top-[40px] z-[30] -mt-4">
+          <BusinessContextItem
+            stepNumber="3"
+            title="Full Business Context"
+            description="Because Chorus integrates with your entire stack (CRM, email, docs, calendar, Slack), your AI agents have complete context about:"
+            checkmarks={[
+              "Your customers and pipeline",
+              "Your processes and SOPs",
+              "Your messaging and brand voice",
+            ]}
+          >
+            <OrbitVisual />
+          </BusinessContextItem>
+        </div>
+      </div>
     </section>
   );
 }
 
 function BusinessContextItem({
   stepNumber,
-  nextStepNumber,
-  fromText,
-  toText,
+  title,
   description,
+  checkmarks,
   children,
 }: {
   stepNumber: string;
-  nextStepNumber?: string;
-  fromText: string;
-  toText: string;
+  title: string;
   description: string;
+  checkmarks: string[];
   children: React.ReactNode;
 }) {
   return (
-    <div className="py-[75px] px-6 lg:px-8">
-      <div className="max-w-[1240px] mx-auto">
-        <div className="flex flex-col lg:flex-row gap-[60px] items-start">
-          {/* Left Side - Step Numbers and Text */}
-          <div className="lg:w-[510px] shrink-0">
-            {/* Step Numbers */}
-            <div className="flex items-start gap-[16px] mb-[40px]">
-              <div className="flex flex-col items-center">
-                <span className="text-[36px] font-bold text-white/20">{stepNumber}</span>
-                {nextStepNumber && (
-                  <>
-                    <div className="w-px h-[200px] bg-gradient-to-b from-purple-500/50 to-transparent my-4" />
-                    <span className="text-[36px] font-bold text-white/20">{nextStepNumber}</span>
-                  </>
-                )}
+    <div
+      className="w-full max-w-[1240px] mx-auto rounded-[40px] outline outline-1 outline-offset-[-1px] outline-neutral-700 backdrop-blur-xl overflow-hidden bg-black"
+    >
+      <div className="flex flex-col lg:flex-row gap-[40px] items-center pl-14 pr-12 py-14">
+        {/* Left Side */}
+        <div className="lg:w-[420px] shrink-0 flex flex-col gap-5">
+          {/* Step circle */}
+          <div
+            className="w-20 h-20 rounded-full border border-white/10 flex items-center justify-center"
+            style={{
+              background: "linear-gradient(135deg, rgba(255,255,255,0.08) 0%, rgba(255,241,242,0) 100%)",
+              boxShadow: "0px 3.98px 24.85px 0px rgba(0,0,0,0.25)",
+            }}
+          />
+          {/* Step number */}
+          <span className="text-white text-[30px] font-normal font-['Urbanist'] leading-none">{stepNumber}</span>
+          {/* Title */}
+          <h3 className="text-white text-2xl font-bold font-['Urbanist']">{title}</h3>
+          {/* Description + divider + checkmarks */}
+          <div className="flex flex-col gap-7">
+            <p className="text-gray-300 text-sm font-medium font-['Urbanist'] leading-5">{description}</p>
+            <div className="w-full h-px bg-white/20" />
+            {/* Checkmarks grid */}
+            <div className="flex flex-col gap-4">
+              <div className="grid grid-cols-2 gap-x-7 gap-y-4">
+                {checkmarks.map((item, i) => (
+                  <div key={i} className="flex items-center gap-2">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img src="/images/figma/features/circled-checkmark.svg" alt="" className="w-5 h-5 shrink-0" />
+                    <span className="text-gray-300 text-sm font-medium font-['Urbanist']">{item}</span>
+                  </div>
+                ))}
               </div>
             </div>
           </div>
-
-          {/* Center - Title and Description */}
-          <div className="lg:w-[510px]">
-            <h3 className="text-[32px] leading-[1.3] font-bold text-white mb-[40px]">
-              From &quot;{fromText}&quot; to &quot;{toText}&quot;
-            </h3>
-            <p className="text-[14px] leading-[1.8] font-medium text-gray-400">
-              {description}
-            </p>
-          </div>
-
-          {/* Right Side - Visual */}
-          <div className="flex-1 relative">
-            {children}
-          </div>
         </div>
+
+        {/* Right Side - Visual */}
+        <div className="flex-1 relative min-h-[420px]">
+          {children}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function OrbitVisual() {
+  return (
+    <div className="relative w-full h-[420px]">
+      {/* SVG orbital rings + animated dots */}
+      <svg
+        viewBox="0 0 500 420"
+        className="absolute inset-0 w-full h-full"
+        style={{ overflow: "visible" }}
+      >
+        <defs>
+          <filter id="bcDotGlow1" x="-300%" y="-300%" width="700%" height="700%">
+            <feGaussianBlur stdDeviation="4" result="blur" />
+            <feMerge><feMergeNode in="blur" /><feMergeNode in="SourceGraphic" /></feMerge>
+          </filter>
+          <filter id="bcDotGlow2" x="-300%" y="-300%" width="700%" height="700%">
+            <feGaussianBlur stdDeviation="3" result="blur" />
+            <feMerge><feMergeNode in="blur" /><feMergeNode in="SourceGraphic" /></feMerge>
+          </filter>
+        </defs>
+
+        {/* Ring 1 — wide, tilted up-right */}
+        <ellipse cx="250" cy="210" rx="225" ry="80" stroke="white" strokeOpacity="0.45" strokeWidth="1.4" fill="none" transform="rotate(-18, 250, 210)" />
+        {/* Ring 2 — medium, tilted opposite */}
+        <ellipse cx="250" cy="210" rx="210" ry="95" stroke="white" strokeOpacity="0.35" strokeWidth="1.2" fill="none" transform="rotate(20, 250, 210)" />
+        {/* Ring 3 — steeper tilt */}
+        <ellipse cx="250" cy="210" rx="195" ry="110" stroke="white" strokeOpacity="0.40" strokeWidth="1.0" fill="none" transform="rotate(-26, 250, 210)" />
+
+        {/* Motion paths */}
+        <path id="bcOrbit1" d="M 25,210 A 225 80 0 1 1 475,210 A 225 80 0 1 1 25,210 Z" fill="none" stroke="none" transform="rotate(-18, 250, 210)" />
+        <path id="bcOrbit2" d="M 40,210 A 210 95 0 1 1 460,210 A 210 95 0 1 1 40,210 Z" fill="none" stroke="none" transform="rotate(20, 250, 210)" />
+
+        {/* Animated dots */}
+        <circle r="5" fill="white" filter="url(#bcDotGlow1)">
+          <animateMotion dur="18s" repeatCount="indefinite"><mpath href="#bcOrbit1" /></animateMotion>
+        </circle>
+        <circle r="4" fill="white" filter="url(#bcDotGlow2)">
+          <animateMotion dur="24s" repeatCount="indefinite" keyPoints="1;0" keyTimes="0;1" calcMode="linear"><mpath href="#bcOrbit2" /></animateMotion>
+        </circle>
+      </svg>
+
+      {/* Central Chorus logo */}
+      <div
+        className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full flex items-center justify-center overflow-hidden z-[15]"
+        style={{
+          width: 96, height: 96,
+          boxShadow: "0 0 40px 8px rgba(255,107,107,0.30), inset 0 0 4px 0 rgba(0,0,0,0.96)",
+        }}
+      >
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img src="/images/figma/Rectangle 36.svg" alt="" className="absolute inset-0 w-full h-full scale-[1.22]" />
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img src="/images/figma/bubble.svg" alt="Chorus" className="relative w-[42px] h-[42px]" />
+      </div>
+
+      {/* Integration icons — positioned to match Figma */}
+      {/* Google Sheets — upper left */}
+      <OrbitIcon style={{ top: "6%", left: "28%" }}>
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img src="/images/figma/image 34.svg" alt="Google Sheets" className="w-10 h-10" />
+      </OrbitIcon>
+      {/* HubSpot — upper right */}
+      <OrbitIcon style={{ top: "6%", right: "8%" }}>
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img src="/images/figma/image 33.svg" alt="HubSpot" className="w-10 h-10 rounded-full" />
+      </OrbitIcon>
+      {/* Google Calendar — mid left */}
+      <OrbitIcon style={{ top: "40%", left: "2%" }}>
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img src="/images/figma/image 32.svg" alt="Google Calendar" className="w-10 h-10" />
+      </OrbitIcon>
+      {/* Gmail — mid right */}
+      <OrbitIcon style={{ top: "40%", right: "2%" }}>
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img src="/images/figma/image 35.svg" alt="Gmail" className="w-10 h-10" />
+      </OrbitIcon>
+      {/* Slack — bottom center */}
+      <OrbitIcon style={{ bottom: "6%", left: "32%" }}>
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img src="/images/figma/image 12.svg" alt="Slack" className="w-10 h-10" />
+      </OrbitIcon>
+    </div>
+  );
+}
+
+function OrbitIcon({ style, children }: { style: React.CSSProperties; children: React.ReactNode }) {
+  return (
+    <div className="absolute z-[10]" style={style}>
+      <div
+        className="w-20 h-20 bg-neutral-800 rounded-full flex items-center justify-center"
+        style={{
+          boxShadow: "0px 3.9766557216644287px 24.854097366333008px 0px rgba(0,0,0,0.25), inset 0px 0px 5.159178733825684px 0px rgba(255,255,255,0.55)",
+        }}
+      >
+        {children}
       </div>
     </div>
   );

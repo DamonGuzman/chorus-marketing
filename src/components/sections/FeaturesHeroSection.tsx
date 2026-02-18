@@ -121,8 +121,8 @@ export function FeaturesHeroSection() {
           <img
             src="/images/figma/features/features-ai-workforce.png"
             alt="Chorus AI Workforce Dashboard"
-            className="absolute left-1/2 top-0 w-full max-w-[1028px] h-auto z-[3] rotate-[5deg]"
-            style={{ translate: "-50% 0" }}
+            className="absolute left-1/2 top-[-50px] w-full max-w-[1028px] h-auto z-[4] rotate-[-3deg]"
+            style={{ translate: "-45% 0" }}
           />
         </motion.div>
         {/* Desktop Bottom Fade */}

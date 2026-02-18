@@ -19,15 +19,15 @@ function CheckBullet({ text }: { text: string }) {
 /* ── List card ── */
 function ListCard({ title, items }: { title: string; items: string[] }) {
   return (
-    <div className="w-full md:w-[440px] max-w-full flex flex-col gap-[18px] md:gap-[23px] p-[20px] md:p-[24px] rounded-[20px] md:rounded-[24px] border border-white/30">
-      <ScrollTextReveal
-        text={title}
-        className="self-stretch text-white text-[20px] font-bold leading-[24px]"
-      />
-      <div className="self-stretch flex flex-col gap-[15px]">
+    <div className="w-full md:w-[520px] max-w-full px-7 pt-7 pb-5 rounded-3xl outline outline-[0.85px] outline-offset-[-0.85px] outline-white/30 backdrop-blur-xl inline-flex flex-col justify-start items-start gap-6">
+      <div className="self-stretch text-white text-xl font-bold font-['Urbanist'] leading-6">{title}</div>
+      <div className="self-stretch flex flex-col justify-start items-start gap-3.5">
         {items.map((item, idx) => (
           <AnimateOnScroll key={item} animation="fade-up" duration={0.6} delay={idx * 0.15} threshold={0.2}>
-            <CheckBullet text={item} />
+            <div className="self-stretch inline-flex justify-start items-center gap-3">
+              <div className="w-3.5 h-3.5 bg-gray-300 rounded-full shrink-0" />
+              <span className="text-gray-300 text-base font-medium font-['Urbanist'] leading-9">{item}</span>
+            </div>
           </AnimateOnScroll>
         ))}
       </div>
@@ -176,7 +176,7 @@ function ProfileCard({
 }) {
   return (
     <div
-      className="w-[380px] flex items-center gap-[17px]"
+      className="w-[440px] flex items-center gap-[17px]"
       style={{
         paddingTop: 18,
         paddingBottom: 18,
@@ -217,12 +217,12 @@ function ProfileCard({
 /* ── Right side composed illustration ── */
 function ComposedIllustration() {
   return (
-    <div className="relative w-[520px] h-[530px] shrink-0">
+    <div className="relative w-[600px] h-[530px] shrink-0">
       {/* Workspace background card — tall, behind everything */}
       <div
         className="absolute"
         style={{
-          left: 50,
+          left: 120,
           top: 55,
           width: 450,
           height: 420,
@@ -252,17 +252,17 @@ function ComposedIllustration() {
       </div>
 
       {/* Sales Agent badge — top center */}
-      <div className="absolute" style={{ left: 170, top: 12 }}>
+      <div className="absolute" style={{ left: 240, top: 12 }}>
         <SalesAgentTag />
       </div>
 
       {/* Finance Agent badge — left, arrow points right */}
-      <div className="absolute" style={{ left: -20, top: 128 }}>
+      <div className="absolute" style={{ left: 50, top: 128 }}>
         <FinanceAgentTag />
       </div>
 
       {/* Steve Jan profile card — right, overlapping workspace */}
-      <div className="absolute" style={{ right: 0, top: 185 }}>
+      <div className="absolute" style={{ right: -30, top: 185 }}>
         <ProfileCard
           name="Steve Jan"
           role="UX Designer"
@@ -271,7 +271,7 @@ function ComposedIllustration() {
       </div>
 
       {/* David Fincher profile card — lower, slightly left */}
-      <div className="absolute" style={{ left: 30, top: 310 }}>
+      <div className="absolute" style={{ left: 100, top: 310 }}>
         <ProfileCard
           name="David Fincher"
           role="Project Manager"
@@ -319,10 +319,10 @@ function ComposedIllustration() {
 /* ── Main Section ── */
 export function CollaborationHubSection() {
   return (
-    <section className="w-full bg-black flex flex-col items-center gap-[10px] px-4 py-[50px] md:px-8 md:py-[75px] md:pb-[150px] overflow-hidden">
-      <div className="self-stretch flex flex-col items-center gap-[30px] md:gap-[36px]">
+    <section className="w-full bg-black flex flex-col items-center gap-[10px] px-4 py-[50px] md:px-8 md:pt-[120px] md:pb-[150px] overflow-hidden">
+      <div className="self-stretch flex flex-col items-center gap-[40px] md:gap-[80px]">
         {/* Header */}
-        <div className="self-stretch flex flex-col items-center gap-[20px] md:gap-[32px]">
+        <div className="self-stretch flex flex-col items-center gap-[12px] md:gap-[16px]">
           <div className="h-[36px] px-3 py-1 bg-white/7 rounded-full overflow-hidden inline-flex items-center justify-center gap-[8px]">
             <span className="text-white text-[14px] md:text-[16px] font-bold leading-[24px] text-center">
               Your Team + AI Team = Unstoppable
@@ -384,8 +384,8 @@ export function CollaborationHubSection() {
         </div>
 
         {/* Desktop: side by side */}
-        <div className="hidden lg:flex items-center gap-[78px] justify-center">
-          <div className="flex flex-col items-start gap-[20px]">
+        <div className="hidden lg:flex items-stretch gap-[100px] justify-center max-w-[1240px] w-full">
+          <div className="flex flex-col items-start gap-[20px] shrink-0">
             <ListCard
               title="Your humans focus on"
               items={[
@@ -405,8 +405,10 @@ export function CollaborationHubSection() {
               ]}
             />
           </div>
-          <AnimateOnScroll animation="slide-right" duration={0.9} threshold={0.2}>
-            <ComposedIllustration />
+          <AnimateOnScroll animation="slide-right" duration={0.9} threshold={0.2} className="flex-1 flex items-center justify-center">
+            <div className="scale-[1.35] origin-center">
+              <ComposedIllustration />
+            </div>
           </AnimateOnScroll>
         </div>
       </div>
