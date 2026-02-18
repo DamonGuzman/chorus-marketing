@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { AnimateOnScroll, Badge, Section, ScrollTextReveal, StaggerChildren, ScrollParallax } from "@/components/ui";
+import { AnimateOnScroll, Badge, Section, ScrollTextReveal, StaggerChildren } from "@/components/ui";
 
 /* eslint-disable @next/next/no-img-element */
 
@@ -227,7 +227,7 @@ export function FoundersSection() {
       <div className="self-stretch flex flex-col justify-start items-center gap-6 md:gap-14">
         {/* Header */}
         <div className="self-stretch flex flex-col justify-start items-center gap-6">
-          <Badge>Testimonials</Badge>
+          <Badge className="w-32 h-9 px-3 py-1 bg-white/5 rounded-[100px] inline-flex justify-center items-center gap-2 overflow-hidden">Testimonials</Badge>
           <div className="flex flex-col justify-start items-center gap-4">
             <div className="w-80 md:w-auto">
               <div className="md:hidden">
@@ -255,7 +255,7 @@ export function FoundersSection() {
         {/* 3-column masonry grid — desktop */}
         <StaggerChildren staggerDelay={150} className="hidden md:inline-flex justify-start items-start gap-5 xl:gap-10 w-full max-w-[1240px]">
           {/* Column 1 */}
-          <ScrollParallax offset={30} delay={0} className="flex-1 min-w-0">
+          <div className="flex-1 min-w-0">
             <div className="inline-flex flex-col justify-start items-start gap-11 w-full">
               <LightCard
                 logo="/images/figma/image 23.svg"
@@ -265,19 +265,19 @@ export function FoundersSection() {
               />
               <DarkCard logo="/images/figma/bbdo-logo.svg" alt="BBDO" />
             </div>
-          </ScrollParallax>
+          </div>
 
           {/* Column 2 */}
-          <ScrollParallax offset={30} delay={0.5} className="flex-1 min-w-0">
+          <div className="flex-1 min-w-0">
             <div className="inline-flex flex-col justify-start items-start gap-7 w-full">
               <GlassCard />
               <DarkCard logo="/images/figma/image 23 (2).svg" alt="Raycas" />
               <GlassWhiteCard />
             </div>
-          </ScrollParallax>
+          </div>
 
           {/* Column 3 */}
-          <ScrollParallax offset={30} delay={1} className="flex-1 min-w-0">
+          <div className="flex-1 min-w-0">
             <div className="inline-flex flex-col justify-start items-start gap-9 w-full">
               <DarkCard
                 logo="/images/figma/image 23 (1).svg"
@@ -290,7 +290,7 @@ export function FoundersSection() {
                 logoHeight={38}
               />
             </div>
-          </ScrollParallax>
+          </div>
         </StaggerChildren>
 
         {/* Mobile: horizontal scroll */}

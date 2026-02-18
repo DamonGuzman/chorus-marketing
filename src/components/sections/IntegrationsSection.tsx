@@ -102,14 +102,14 @@ export function IntegrationsSection() {
   return (
     <section id="integrations" className="w-full px-4 py-10 md:px-8 md:py-20 bg-black flex flex-col items-center gap-2.5 overflow-hidden">
       <div className="self-stretch flex flex-col justify-start items-center gap-6 md:gap-14">
-        <div className="self-stretch flex flex-col justify-start items-center gap-6">
-          <Badge>
+        <div className="self-stretch flex flex-col justify-start items-center gap-3">
+          <Badge className="w-32 h-9 px-3 py-1 bg-white/5 rounded-[100px] inline-flex justify-center items-center gap-2 overflow-hidden">
             Integration
           </Badge>
           <div className="self-stretch flex flex-col justify-start items-center gap-4 md:gap-7">
             <ScrollTextReveal
               text="Works In Harmony With Your Current Stack"
-              className="w-80 md:w-auto text-center text-2xl leading-8 md:text-3xl md:leading-[42px] lg:text-5xl lg:leading-[78px] font-bold font-['Urbanist']"
+              className="justify-start text-white text-5xl font-bold font-['Urbanist'] leading-[78px]"
             />
             <AnimateOnScroll animation="fade-up" duration={0.8} threshold={0.3}>
               <div className="w-80 md:w-full md:max-w-[668px] text-center text-gray-300 text-sm leading-6 md:text-base md:leading-7 lg:text-xl lg:leading-9 font-normal font-['Urbanist']">More than just integrations, 10,000+ tools that can adapt — turning automation into intuition.</div>

@@ -31,11 +31,11 @@ const oldWayItems = [
 export function OldWaySection() {
   return (
     <Section className="self-stretch max-md:px-4 max-md:py-3 md:px-8 md:py-20 max-md:inline-flex md:flex flex-col justify-start items-center max-md:gap-4 md:gap-10" id="old-way">
-      <div className="w-full max-w-[1240px] mx-auto flex flex-col items-center gap-10">
+      <div className="w-full max-w-[1440px] mx-auto flex flex-col items-center gap-10">
       {/* Header */}
-      <div className="flex flex-col justify-start items-center gap-6">
-        <Badge>The Problem</Badge>
-        <div className="flex flex-col justify-start items-center gap-4">
+      <div className="flex flex-col justify-start items-center gap-1">
+        <Badge className="w-32 h-9 px-3 py-1 bg-white/5 rounded-[100px] inline-flex justify-center items-center gap-2 overflow-hidden">The Problem</Badge>
+        <div className="text-center justify-center text-White text-base font-semibold font-['Urbanist'] leading-6">
           <ScrollTextReveal
             text="The Old Way : Managing Individual Players"
             className="text-center max-md:text-2xl max-md:leading-8 md:text-3xl md:leading-[42px] lg:text-5xl lg:leading-[78px] font-bold font-['Urbanist']"

@@ -62,13 +62,13 @@ export function ChorusWaySection() {
         </div>
 
         {/* Desktop layout: side-by-side */}
-        <div className="hidden md:flex w-full max-w-[1240px] mx-auto justify-start items-center gap-6 lg:gap-12">
+        <div className="hidden md:flex w-full max-w-[1440px] mx-auto justify-start items-center gap-3 lg:gap-10">
           <AnimateOnScroll animation="slide-left" duration={0.9} className="md:w-[42%] md:shrink-0 lg:w-auto lg:shrink inline-flex flex-col justify-start items-start gap-6 lg:gap-11">
-            <Badge>The Solution</Badge>
+            <Badge className="w-38 h-11 px-3 py-1">The Solution</Badge>
 
             <ScrollTextReveal
               text={["The Chorus Way", "Manifest Your Team Instantly"]}
-              className="w-full lg:w-96 md:text-3xl md:leading-[42px] lg:text-5xl font-bold font-['Urbanist'] lg:leading-[64px]"
+              className="w-96 justify-start text-white text-5xl font-bold font-['Urbanist'] leading-[64px]"
             />
 
             <AnimateOnScroll animation="fade-up" duration={0.8} threshold={0.3}>
@@ -92,7 +92,7 @@ export function ChorusWaySection() {
                 animationData={animationData}
                 loop
                 autoplay
-                className="w-full h-auto md:scale-[0.85] md:origin-left lg:scale-100 lg:origin-center"
+                className="w-full h-auto md:scale-[0.85] md:origin-left lg:scale-110 lg:origin-center"
               />
             )}
           </AnimateOnScroll>
