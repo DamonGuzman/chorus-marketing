@@ -461,7 +461,7 @@ function DecisionsCard() {
    ═══════════════════════════════════════════════════════════ */
 function FeedbackCard() {
   return (
-    <div className="relative w-80 md:w-auto h-56 md:h-[537px] rounded-2xl md:rounded-[37px] overflow-hidden">
+    <div className="relative w-80 md:w-auto h-56 md:h-[537px] rounded-2xl md:rounded-[37px] overflow-hidden border border-white/30">
       {/* Subtle dark blue/purple bg */}
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
@@ -473,6 +473,9 @@ function FeedbackCard() {
 
       {/* Overlay for mobile readability */}
       <div className="md:hidden absolute inset-0 bg-linear-to-b from-black/0 to-black/30 z-1" />
+
+      {/* Top border line to match card border */}
+      <div className="absolute top-0 left-0 right-0 h-[0.005px] bg-white/10 z-20 pointer-events-none" />
 
       {/* Title top-left */}
       <div className="absolute top-[21px] left-[18px] md:top-[35px] md:left-[30px] z-30 max-w-[176px] md:max-w-[394px]">
