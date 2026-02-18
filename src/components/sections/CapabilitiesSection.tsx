@@ -45,30 +45,25 @@ export function CapabilitiesSection() {
       <div className="w-[1150px] max-w-full flex flex-col md:inline-flex md:flex-row items-center justify-between mx-auto mt-10 md:mt-14 gap-12 md:gap-16">
         {/* Left: capability cards */}
         <div className="w-full md:flex-1 md:min-w-0">
-          <StaggerChildren staggerDelay={120} className="flex flex-col items-center md:items-start gap-4 md:gap-3 lg:gap-[24px]">
+          <StaggerChildren staggerDelay={120} className="flex flex-col items-center md:items-start gap-3 md:gap-2 lg:gap-[5px]">
             {capabilityCards.map(({ name, iconSrc }, index) => (
               <div
                 key={name}
                 className={[
                   "max-md:w-72 md:w-full md:max-w-[500px] max-md:h-20 md:h-24 lg:h-36",
-                  "max-md:pl-5 max-md:pr-4 max-md:py-4 md:pl-5 md:pr-4 md:py-3 lg:pl-8 lg:pr-6 lg:py-6",
+                  "max-md:pl-0 max-md:pr-0 max-md:py-4 md:pl-0 md:pr-0 md:py-3 lg:pl-0 lg:pr-0 lg:py-6",
                   "bg-gradient-to-r from-white/5 via-white/10 to-white/5",
                   "max-md:rounded-2xl md:rounded-3xl",
                   "outline max-md:outline-[0.52px] md:outline-[0.85px] max-md:outline-offset-[-0.52px] md:outline-offset-[-0.85px] outline-white/30",
                   "max-md:backdrop-blur-lg md:backdrop-blur-xl",
-                  "inline-flex items-center max-md:gap-5 md:gap-7",
-                  [
-                    "max-md:self-end",
-                    "max-md:self-end max-md:mr-10",
-                    "max-md:self-start max-md:ml-10",
-                    "max-md:self-start",
-                  ][index] || "",
+                  "inline-flex items-center max-md:gap-1 md:gap-1 max-md:-translate-x-3 md:-translate-x-3",
+                  [0, 2].includes(index) ? "max-md:translate-x-5 md:translate-x-5" : "",
                   index % 2 === 0 ? "md:ml-[25px] lg:ml-[50px]" : "",
                 ].join(" ")}
               >
-                <div className="relative shrink-0 max-md:w-9 max-md:h-9 md:w-14 md:h-14 lg:w-25 lg:h-25">
-                  <div className="max-md:w-8 max-md:h-8 md:w-14 md:h-14 lg:w-25 lg:h-25 opacity-60 bg-white/50 rounded-full max-md:blur-lg md:blur-xl absolute max-md:left-0.5 max-md:top-0.5 md:left-1 md:top-1" />
-                  <Image src={iconSrc} alt="" width={100} height={100} className="max-md:w-9 max-md:h-9 md:w-14 md:h-14 lg:w-25 lg:h-25 object-contain relative" />
+                <div className="relative shrink-0 -translate-y-1 md:-translate-y-2 max-md:w-16 max-md:h-16 md:w-24 md:h-24 lg:w-36 lg:h-36">
+                  <div className="max-md:w-14 max-md:h-14 md:w-18 md:h-18 lg:w-28 lg:h-28 opacity-1 bg-white/20 rounded-full max-md:blur-md md:blur-lg absolute max-md:left-0.5 max-md:top-0.5 md:left-1 md:top-1" />
+                  <Image src={iconSrc} alt="" width={100} height={100} className="max-md:w-16 max-md:h-16 md:w-24 md:h-24 lg:w-36 lg:h-36 object-contain relative" />
                 </div>
                 <div className="flex flex-col max-md:gap-2.5 md:gap-4">
                   <h3 className="text-white max-md:text-base md:text-lg lg:text-2xl font-bold font-['Urbanist']">
