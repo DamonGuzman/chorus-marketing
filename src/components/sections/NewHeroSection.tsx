@@ -94,7 +94,7 @@ export function NewHeroSection() {
                 </span>
               </h1>
               <motion.p
-                className="text-center justify-start text-Secondary-tint2 text-2xl font-normal font-['Urbanist'] leading-15"
+                className="text-center justify-start text-gray-300 text-2xl font-normal font-['Urbanist'] leading-15"
                 variants={fadeUpVariants}
                 initial="hidden"
                 animate="visible"
