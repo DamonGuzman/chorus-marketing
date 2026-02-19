@@ -17,10 +17,10 @@ export function ChorusWaySection() {
   }, []);
 
   return (
-    <Section className="relative py-10 md:py-20 md:px-8 overflow-hidden" id="chorus-way">
+    <Section className="relative py-10 px-4 md:py-20 md:px-8 overflow-hidden" id="chorus-way">
       <div className="px-4 md:px-0">
         {/* Mobile layout: centered, single column */}
-        <div className="flex flex-col md:hidden items-center text-center gap-5">
+        <div className="flex flex-col md:hidden items-center text-center gap-1">
           <Badge>The Solution</Badge>
 
           <div className="flex flex-col justify-start items-center gap-4">
@@ -63,7 +63,7 @@ export function ChorusWaySection() {
 
         {/* Desktop layout: side-by-side */}
         <div className="hidden md:flex w-full max-w-[1440px] mx-auto justify-start items-center gap-3 lg:gap-10">
-          <AnimateOnScroll animation="slide-left" duration={0.9} className="md:w-[42%] md:shrink-0 lg:w-auto lg:shrink inline-flex flex-col justify-start items-start gap-6 lg:gap-11">
+          <AnimateOnScroll animation="slide-left" duration={0.9} className="md:w-[42%] md:shrink-0 lg:w-auto lg:shrink inline-flex flex-col justify-start items-start gap-1">
             <Badge className="w-38 h-11 px-3 py-1">The Solution</Badge>
 
             <ScrollTextReveal

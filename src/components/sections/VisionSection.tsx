@@ -6,7 +6,7 @@ export function VisionSection() {
     <Section className="py-[75px] px-8">
       <div className="flex flex-col lg:flex-row items-start gap-[127px] max-w-[1240px] mx-auto">
         {/* Content */}
-        <div className="flex flex-col gap-[47px] max-w-[583px]">
+        <div className="flex flex-col gap-1 max-w-[583px]">
           <Badge>Control</Badge>
 
           {/* Section Title: 50px, bold, 78px line-height, -0.5px letter-spacing */}

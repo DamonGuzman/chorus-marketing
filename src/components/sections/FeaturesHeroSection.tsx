@@ -80,7 +80,7 @@ export function FeaturesHeroSection() {
       />
 
       {/* ── Hero Text ── */}
-      <div className="relative z-10 flex flex-col items-center pt-[80px] md:pt-section-x px-6">
+      <div className="relative z-10 flex flex-col items-center pt-[80px] md:pt-section-x px-4 md:px-8">
         <div className="hero-entrance flex flex-col items-center gap-[20px] md:gap-[27px] max-w-[960px]">
           <h1 className="text-center text-white text-[38px] md:text-[64px] font-bold leading-[1.1] md:leading-[58px] md:not-italic tracking-tight">
             <span className="text-white">Your AI </span>

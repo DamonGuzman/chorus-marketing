@@ -12,7 +12,7 @@ export function PlaceholderPage({
   return (
     <div className="min-h-screen bg-black">
       <Header />
-      <main className="pt-[120px] pb-[80px]">
+      <main className="pt-[120px] pb-[80px] px-4 md:px-6 lg:px-10">
         <Container size="narrow">
           <div className="hero-entrance">
             <h1 className="text-[40px] leading-[1.2] font-bold text-white mb-6">{title}</h1>

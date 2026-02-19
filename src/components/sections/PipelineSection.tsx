@@ -123,7 +123,7 @@ function Illustration() {
       </div>
 
       {/* ── Task card — positioned to the right, vertically centered-ish ── */}
-      <div className="absolute -right-[7.3rem] top-[3.3rem]">
+      <div className="absolute -right-[7rem] top-[3.3rem]">
         <TaskCard />
       </div>
     </div>
@@ -134,8 +134,8 @@ function Illustration() {
 
 export function PipelineSection() {
   return (
-    <section className="w-full bg-black px-6 md:px-8 py-[75px] overflow-hidden">
-      <div className="max-w-[1240px] mx-auto flex items-center justify-between gap-10">
+    <section className="w-full bg-black px-4 md:px-8 py-[75px] overflow-hidden">
+      <div className="max-w-[1200px] mx-auto flex items-center justify-between gap-0">
         {/* Left – Step indicator */}
         <div className="flex flex-col items-center gap-[26px] shrink-0">
           <span className="text-gray-300 text-[26px] font-medium leading-[36px] text-center">
