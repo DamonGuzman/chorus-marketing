@@ -575,7 +575,7 @@ export function ChorusAgentsSection() {
     <section className="w-full bg-black px-4 md:px-8 py-[50px] md:py-[75px]">
       <div className="max-w-[1240px] mx-auto flex flex-col items-center gap-[10px]">
         {/* Section Header */}
-        <div className="inline-flex flex-col justify-start items-center gap-6">
+        <div className="inline-flex flex-col justify-start items-center gap-1">
           <Badge className="w-40 h-9 px-3 py-1 bg-white/5 rounded-[100px] inline-flex justify-center items-center gap-2 overflow-hidden">Chorus Agents</Badge>
           <div className="self-stretch flex flex-col justify-start items-center gap-8">
             <ScrollTextReveal

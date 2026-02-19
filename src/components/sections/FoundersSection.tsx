@@ -226,7 +226,7 @@ export function FoundersSection() {
     >
       <div className="self-stretch flex flex-col justify-start items-center gap-6 md:gap-14">
         {/* Header */}
-        <div className="self-stretch flex flex-col justify-start items-center gap-6">
+        <div className="self-stretch flex flex-col justify-start items-center gap-1">
           <Badge className="w-32 h-9 px-3 py-1 bg-white/5 rounded-[100px] inline-flex justify-center items-center gap-2 overflow-hidden">Testimonials</Badge>
           <div className="flex flex-col justify-start items-center gap-4">
             <div className="w-80 md:w-auto">

@@ -6,7 +6,7 @@ export function BusinessContextSection() {
       {/* Section Header */}
       <div className="py-[75px] px-6 lg:px-8">
         <div className="max-w-[1240px] mx-auto">
-          <div className="flex flex-col items-center gap-[15px]">
+          <div className="flex flex-col items-center gap-1">
             <Badge>CONTEXT</Badge>
             <ScrollTextReveal
               text="Your AI Team Knows Your Business"

@@ -134,20 +134,20 @@ function OrbitalAnimation() {
    ═══════════════════════════════════════════════════════════ */
 export function FeaturesCardSection() {
   return (
-    <section className="w-full bg-black px-4 md:px-section-x py-[50px] md:py-section-y">
+    <section className="w-full bg-black px-4 md:px-8 py-[50px] md:py-section-y">
       <div className="max-w-[1240px] mx-auto flex flex-col items-center gap-[20px]">
 
         {/* ── Section Header ── */}
-        <div className="flex flex-col items-center gap-[20px] md:gap-[30px] w-full self-stretch">
-          <div className="h-[36px] px-3 py-1 bg-white/7 rounded-full overflow-hidden inline-flex items-center justify-center gap-2">
-            <span className="text-white text-[16px] font-bold leading-[24px] text-center">Features</span>
+        <div className="flex flex-col items-center gap-1 w-full self-stretch">
+          <div className="w-28 h-9 px-3 py-1 bg-white/5 rounded-[100px] inline-flex justify-center items-center gap-2 overflow-hidden">
+            <span className="text-center text-white text-base font-bold font-['Urbanist'] leading-6">Features</span>
           </div>
           <div className="flex flex-col items-center gap-[4px] md:gap-[8px] w-full self-stretch">
             <ScrollTextReveal
               text="The Difference That Changes Everything"
-              className="text-[32px] md:text-[50px] font-bold leading-[1.2] md:leading-[78px] text-center"
+              className="text-5xl font-bold font-['Urbanist'] leading-[78px] text-center"
             />
-            <p className="text-gray-300 text-[16px] md:text-[26px] font-medium leading-[26px] md:leading-[36px] text-center">
+            <p className="text-center text-gray-300 text-2xl font-medium font-['Urbanist'] leading-9">
               The Difference That Changes Everything
             </p>
           </div>
@@ -209,12 +209,12 @@ export function FeaturesCardSection() {
               <div className="flex flex-col gap-[20px]">
                 <ScrollTextReveal
                   text="Full Business Context"
-                  className="text-white text-[22px] md:text-[26px] font-bold leading-[32px] md:leading-[36px]"
+                  className="text-white text-2xl font-bold font-['Urbanist']"
                 />
 
                 <div className="flex flex-col gap-[24px] md:gap-[28px]">
                   <div className="flex flex-col gap-[20px] md:gap-[27px]">
-                    <p className="text-gray-100 text-[14px] font-medium leading-[22px] max-w-[433px]">
+                    <p className="text-gray-300 text-sm font-medium font-['Urbanist'] leading-5 max-w-[384px]">
                       Because Chorus integrates with your entire stack (CRM, email, docs, calendar, Slack), your AI agents have complete context about:
                     </p>
 

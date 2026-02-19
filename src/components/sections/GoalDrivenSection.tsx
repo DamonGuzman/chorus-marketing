@@ -24,7 +24,7 @@ export function GoalDrivenSection() {
 
   return (
     <section className="w-full bg-black px-4 md:px-8 py-[50px] md:py-section-y overflow-hidden">
-      <div className="flex flex-col md:flex-row max-w-[1240px] mx-auto items-center justify-between gap-10">
+        <div className="flex flex-col md:flex-row max-w-[1200px] mx-auto items-center justify-between gap-6">
         {/* Left – Step indicator */}
         <div className="hidden md:flex flex-col items-center gap-[26px] shrink-0">
           <span className="text-gray-300 text-[26px] font-medium leading-[36px] text-center">

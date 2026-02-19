@@ -32,7 +32,7 @@ export function AIWorkforceSection() {
     >
       {/* Header */}
       <div className="flex flex-col justify-start items-center gap-10">
-        <div className="flex flex-col justify-start items-center gap-2">
+        <div className="flex flex-col justify-start items-center gap-1">
           <Badge className="w-56 h-9 px-3 py-1 bg-white/5 rounded-[100px] inline-flex justify-center items-center gap-2 overflow-hidden">What Chorus Actually Is</Badge>
           <ScrollTextReveal
             text="Your AI Workforce. Always in Sync."

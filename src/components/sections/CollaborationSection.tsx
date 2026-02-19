@@ -10,7 +10,7 @@ export function CollaborationSection() {
 
       <div className="max-w-[1200px] mx-auto">
         {/* Section Header */}
-        <div className="flex flex-col items-center gap-4 mb-[80px]">
+        <div className="flex flex-col items-center gap-1 mb-[80px]">
           <Badge>COLLABORATION</Badge>
           <ScrollTextReveal
             text="Human-AI Collaboration"

@@ -29,8 +29,9 @@ export function CapabilitiesSection() {
   return (
     <Section className="self-stretch px-4 py-10 md:py-20 md:px-8 inline-flex md:flex flex-col justify-start items-center gap-2 md:gap-3 relative overflow-hidden" id="use-cases">
       {/* Section Header */}
-      <Badge className="w-32 h-9 px-3 py-1 bg-white/5 rounded-[100px] inline-flex justify-center items-center gap-2 overflow-hidden">Capabilities</Badge>
-      <div className="flex flex-col justify-start items-center gap-4">
+      <div className="flex flex-col justify-start items-center gap-1">
+        <Badge className="w-32 h-9 px-3 py-1 bg-white/5 rounded-[100px] inline-flex justify-center items-center gap-2 overflow-hidden">Capabilities</Badge>
+        <div className="flex flex-col justify-start items-center gap-4">
         <ScrollTextReveal
           text="What Your AI Workforce Can Do"
           className="text-center text-2xl leading-8 md:text-3xl md:leading-[42px] lg:text-5xl font-bold font-['Urbanist'] lg:leading-[78px]"
@@ -40,6 +41,7 @@ export function CapabilitiesSection() {
             The best way to reach humans instead of spam folders. Deliver transactional and marketing emails at scale.
           </p>
         </AnimateOnScroll>
+        </div>
       </div>
 
       <div className="w-[1150px] max-w-full flex flex-col md:inline-flex md:flex-row items-center justify-between mx-auto mt-10 md:mt-14 gap-12 md:gap-16">

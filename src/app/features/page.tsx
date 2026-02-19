@@ -2,19 +2,20 @@ import { Header, Footer } from "@/components/layout";
 import { AnimateOnScroll } from "@/components/ui";
 import { FeaturesHeroSection } from "@/components/sections/FeaturesHeroSection";
 import { ChorusAgentsSection } from "@/components/sections/ChorusAgentsSection";
+import { TheShiftSection } from "@/components/sections/TheShiftSection";
 import { GoalDrivenSection } from "@/components/sections/GoalDrivenSection";
 import { PipelineSection } from "@/components/sections/PipelineSection";
 import { CampaignSection } from "@/components/sections/CampaignSection";
+import { StepCarousel } from "@/components/sections/StepCarousel";
 import { FeaturesCardSection } from "@/components/sections/FeaturesCardSection";
 import { CollaborationHubSection } from "@/components/sections/CollaborationHubSection";
 import { FinalCTASection } from "@/components/sections/FinalCTASection";
-import { StepCarousel } from "@/components/sections/StepCarousel";
 
 export default function FeaturesPage() {
   return (
     <div className="min-h-screen bg-black overflow-x-hidden">
       <Header />
-      <main>
+      <main className="px-4 md:px-6 lg:px-10">
         <FeaturesHeroSection />
 
         <AnimateOnScroll animation="fade-up" duration={0.8}>
@@ -28,6 +29,9 @@ export default function FeaturesPage() {
           </AnimateOnScroll>
           <AnimateOnScroll animation="fade-up" duration={0.8}>
             <PipelineSection />
+          </AnimateOnScroll>
+          <AnimateOnScroll animation="fade-up" duration={0.8}>
+            <TheShiftSection />
           </AnimateOnScroll>
           <AnimateOnScroll animation="fade-up" duration={0.8}>
             <CampaignSection />

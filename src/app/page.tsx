@@ -17,7 +17,7 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-black overflow-x-hidden">
       <Header />
-      <main className="width-full mx-auto">
+      <main className="width-full mx-auto px-4 md:px-6 lg:px-10">
         <NewHeroSection />
 
         <AnimateOnScroll animation="fade-up" duration={0.8}>

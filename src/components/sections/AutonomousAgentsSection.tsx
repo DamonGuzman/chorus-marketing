@@ -5,7 +5,7 @@ export function AutonomousAgentsSection() {
     <section className="relative bg-black py-[75px] px-6 lg:px-8 overflow-hidden">
       {/* Section Header */}
       <div className="max-w-[1240px] mx-auto">
-        <div className="flex flex-col items-center gap-[15px] mb-[60px]">
+        <div className="flex flex-col items-center gap-1 mb-[60px]">
           <Badge>INTELLIGENT</Badge>
           <ScrollTextReveal
             text="Autonomous Agents, Not Chatbots."

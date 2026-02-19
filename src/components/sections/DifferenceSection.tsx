@@ -5,7 +5,7 @@ export function DifferenceSection() {
     <section className="relative bg-black py-[75px] px-6 lg:px-8 overflow-hidden">
       <div className="max-w-[1240px] mx-auto">
         {/* Section Header */}
-        <div className="flex flex-col items-center gap-[15px] mb-[80px]">
+        <div className="flex flex-col items-center gap-1 mb-[80px]">
           <Badge>CAPABLE</Badge>
           <ScrollTextReveal
             text="The Difference That Changes Everything"

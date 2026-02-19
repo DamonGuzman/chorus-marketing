@@ -19,14 +19,15 @@ function CheckBullet({ text }: { text: string }) {
 /* ── List card ── */
 function ListCard({ title, items }: { title: string; items: string[] }) {
   return (
-    <div className="w-full md:w-[520px] max-w-full px-7 pt-7 pb-5 rounded-3xl outline outline-[0.85px] outline-offset-[-0.85px] outline-white/30 backdrop-blur-xl inline-flex flex-col justify-start items-start gap-6">
+    <div className="w-full max-w-[520px] px-5 sm:px-7 pt-5 sm:pt-7 pb-4 sm:pb-5 rounded-2xl sm:rounded-3xl outline outline-[0.85px] outline-offset-[-0.85px] outline-white/30 backdrop-blur-xl inline-flex flex-col justify-start items-start gap-4 sm:gap-6">
       <div className="self-stretch text-white text-xl font-bold font-['Urbanist'] leading-6">{title}</div>
-      <div className="self-stretch flex flex-col justify-start items-start gap-3.5">
+      <div className="self-stretch flex flex-col justify-start items-start gap-2.5 sm:gap-3.5">
         {items.map((item, idx) => (
           <AnimateOnScroll key={item} animation="fade-up" duration={0.6} delay={idx * 0.15} threshold={0.2}>
-            <div className="self-stretch inline-flex justify-start items-center gap-3">
-              <div className="w-3.5 h-3.5 bg-gray-300 rounded-full shrink-0" />
-              <span className="text-gray-300 text-base font-medium font-['Urbanist'] leading-9">{item}</span>
+            <div className="self-stretch inline-flex justify-start items-center gap-2 sm:gap-3">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/images/figma/features/circled-checkmark.svg" alt="" className="w-5 h-5 sm:w-6 sm:h-6 shrink-0" />
+              <span className="text-gray-300 text-sm sm:text-base font-medium font-['Urbanist'] leading-7 sm:leading-9">{item}</span>
             </div>
           </AnimateOnScroll>
         ))}
@@ -322,38 +323,30 @@ export function CollaborationHubSection() {
     <section className="w-full bg-black flex flex-col items-center gap-[10px] px-4 py-[50px] md:px-8 md:pt-[120px] md:pb-[150px] overflow-hidden">
       <div className="self-stretch flex flex-col items-center gap-[40px] md:gap-[80px]">
         {/* Header */}
-        <div className="self-stretch flex flex-col items-center gap-[12px] md:gap-[16px]">
-          <div className="h-[36px] px-3 py-1 bg-white/7 rounded-full overflow-hidden inline-flex items-center justify-center gap-[8px]">
-            <span className="text-white text-[14px] md:text-[16px] font-bold leading-[24px] text-center">
+        <div className="self-stretch flex flex-col items-center gap-1">
+          <div className="h-9 px-3 py-1 bg-white/5 rounded-[100px] overflow-hidden inline-flex items-center justify-center gap-2">
+            <span className="text-center text-white text-base font-bold font-['Urbanist'] leading-6">
               Your Team + AI Team = Unstoppable
             </span>
           </div>
           <ScrollTextReveal
             text="Human-AI Collaboration"
-            className="text-[28px] md:text-[50px] font-bold leading-[36px] md:leading-[78px] text-center"
+            className="text-5xl font-bold font-['Urbanist'] leading-[78px] text-center"
           />
-          <p className="text-gray-300 text-[16px] md:text-[26px] font-medium leading-[26px] md:leading-[36px] text-center">
+          <p className="text-center text-gray-300 text-2xl font-medium font-['Urbanist'] leading-9">
             Chorus isn&apos;t about replacing your people. It&apos;s about
             multiplying them.
           </p>
         </div>
 
         {/* Mobile: illustration + list cards stacked */}
-        <div className="w-full flex flex-col items-center gap-[30px] lg:hidden">
-          {/* Scaled illustration */}
+        <div className="w-full flex flex-col items-center gap-6 sm:gap-[30px] lg:hidden">
+          {/* Scaled illustration — responsive scale per breakpoint */}
           <AnimateOnScroll animation="slide-right" duration={0.9} threshold={0.2}>
-            <div
-              className="relative w-full"
-              style={{ height: "calc(530px * 0.55)" }}
-            >
+            <div className="relative w-full h-[238px] sm:h-[291px] md:h-[370px]">
               <div
-                className="absolute top-0 left-1/2"
-                style={{
-                  width: 520,
-                  height: 530,
-                  transformOrigin: "top center",
-                  transform: "translateX(-50%) scale(0.55)",
-                }}
+                className="absolute top-0 left-1/2 -translate-x-1/2 scale-[0.45] sm:scale-[0.55] md:scale-[0.7] origin-top"
+                style={{ width: 600, height: 530 }}
               >
                 <ComposedIllustration />
               </div>
@@ -361,7 +354,7 @@ export function CollaborationHubSection() {
           </AnimateOnScroll>
 
           {/* List cards */}
-          <div className="flex flex-col items-stretch gap-[20px] w-full">
+          <div className="flex flex-col items-stretch gap-4 sm:gap-[20px] w-full max-w-[520px]">
             <ListCard
               title="Your humans focus on"
               items={[
@@ -383,9 +376,9 @@ export function CollaborationHubSection() {
           </div>
         </div>
 
-        {/* Desktop: side by side */}
-        <div className="hidden lg:flex items-stretch gap-[100px] justify-center max-w-[1240px] w-full">
-          <div className="flex flex-col items-start gap-[20px] shrink-0">
+        {/* Desktop: side by side — centered with responsive scaling */}
+        <div className="hidden lg:flex items-center lg:gap-10 xl:gap-16 2xl:gap-[100px] justify-center max-w-[1300px] w-full mx-auto">
+          <div className="flex flex-col items-start gap-[20px] w-[40%] min-w-[320px]">
             <ListCard
               title="Your humans focus on"
               items={[
@@ -405,8 +398,8 @@ export function CollaborationHubSection() {
               ]}
             />
           </div>
-          <AnimateOnScroll animation="slide-right" duration={0.9} threshold={0.2} className="flex-1 flex items-center justify-center">
-            <div className="scale-[1.35] origin-center">
+          <AnimateOnScroll animation="slide-right" duration={0.9} threshold={0.2} className="flex-1 min-w-0 flex items-center justify-center">
+            <div className="lg:scale-[0.85] xl:scale-[1.1] 2xl:scale-[1.35] origin-center">
               <ComposedIllustration />
             </div>
           </AnimateOnScroll>

@@ -1,7 +1,7 @@
 "use client";
 
 import { useCallback } from "react";
-import { Section } from "@/components/ui";
+import { Section, ScrollTextReveal, AnimateOnScroll } from "@/components/ui";
 import { CheckIcon } from "@/components/icons";
 import { cn } from "@/lib/utils";
 import { Badge } from "@/components/ui";
@@ -114,18 +114,21 @@ export function PricingSection() {
   return (
     <Section className="px-4 pt-10 pb-10 md:px-8 md:pt-20 md:pb-36 md:flex md:flex-col md:items-center" id="pricing">
       <div className="self-stretch flex flex-col justify-start items-center gap-6 md:gap-14">
-        <div className="self-stretch flex flex-col justify-start items-center gap-6">
+        <div className="self-stretch flex flex-col justify-start items-center gap-1">
           <Badge className="w-32">
             Pricing
           </Badge>
 
           <div className="flex flex-col justify-start items-center gap-2">
-            <h2 className="justify-start text-white text-2xl leading-8 md:text-5xl font-bold font-['Urbanist'] md:leading-[78px]">
-              Stop Paying Six Figures Per Employee
-            </h2>
-            <p className="text-center justify-start text-gray-300 text-xl font-normal font-['Urbanist'] leading-9">
-            The best way to reach humans instead of spam folders. Deliver transactional and marketing emails at scale.
-            </p>
+            <ScrollTextReveal
+              text="Stop Paying Six Figures Per Employee"
+              className="text-5xl font-bold font-['Urbanist'] leading-[78px] text-center"
+            />
+            <AnimateOnScroll animation="fade-up" duration={0.8} threshold={0.3}>
+              <p className="text-center text-gray-300 text-2xl font-medium font-['Urbanist'] leading-9">
+                The best way to reach humans instead of spam folders. Deliver transactional and marketing emails at scale.
+              </p>
+            </AnimateOnScroll>
           </div>
         </div>
 
