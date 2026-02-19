@@ -54,7 +54,7 @@ export function PressCarousel() {
         <div className="flex w-max">
           {testimonials.map((item, i) => (
             <div key={i} className="w-screen flex-shrink-0 snap-center px-6">
-              <div className="flex flex-col items-center gap-[24px] max-w-[360px] mx-auto text-center">
+              <div className="flex flex-col items-center max-w-[360px] mx-auto text-center">
                 {/* Card container with fixed size */}
                 <div className="w-[160px] h-[180px] rounded-[30px] border border-white/40 overflow-hidden flex items-center justify-center bg-black">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -64,12 +64,14 @@ export function PressCarousel() {
                     alt={item.source}
                   />
                 </div>
-                <p className="text-gray-400 text-[15px] italic font-bold font-['Urbanist'] leading-[26px]">
-                  {item.quote}
-                </p>
-                <p className="text-white text-[16px] font-semibold font-['Urbanist']">
-                  — {item.source}
-                </p>
+                <div className="flex flex-col items-center flex-1 mt-6">
+                  <p className="text-gray-400 text-[15px] italic font-bold font-['Urbanist'] leading-[26px] min-h-[104px] flex items-center">
+                    {item.quote}
+                  </p>
+                  <p className="text-white text-[16px] font-semibold font-['Urbanist'] mt-4">
+                    — {item.source}
+                  </p>
+                </div>
               </div>
             </div>
           ))}

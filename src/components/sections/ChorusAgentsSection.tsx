@@ -92,9 +92,9 @@ function GoalsCard() {
       />
 
       {/* ── UI Elements ── */}
-      <div className="absolute inset-x-0 top-0 h-[300px] md:h-[460px] z-10 flex flex-col items-center px-4 md:px-6 pt-5 md:pt-8 overflow-hidden">
+      <div className="absolute inset-x-0 top-0 h-[230px] md:h-[460px] z-10 flex flex-col items-center px-3 md:px-6 pt-4 md:pt-8 overflow-hidden">
         {/* Search bar */}
-        <div className="w-full max-w-[320px] md:max-w-[514px] h-[44px] md:h-16 pl-4 md:pl-6 pr-2 md:pr-2.5 py-2 md:py-2.5 bg-gradient-to-r from-zinc-800/50 to-black rounded-[20px] md:rounded-3xl inline-flex flex-col justify-center items-start gap-2.5 mb-3 md:mb-4">
+        <div className="w-full max-w-[280px] md:max-w-[514px] h-[36px] md:h-16 pl-3 md:pl-6 pr-2 md:pr-2.5 py-1.5 md:py-2.5 bg-gradient-to-r from-zinc-800/50 to-black rounded-[14px] md:rounded-3xl inline-flex flex-col justify-center items-start gap-2.5 mb-2 md:mb-4">
           <div className="self-stretch inline-flex justify-start items-center gap-2 md:gap-4">
             <SearchIcon className="w-4 h-4 md:w-6 md:h-6 text-white/50 shrink-0" />
             <span className="text-gray-300 text-xs md:text-xl font-semibold font-['Urbanist'] leading-5 md:leading-8 line-clamp-1">
@@ -103,10 +103,10 @@ function GoalsCard() {
           </div>
         </div>
 
-        <div className="w-full max-w-[320px] md:max-w-[514px] flex flex-col items-start">
+        <div className="w-full max-w-[280px] md:max-w-[514px] flex flex-col items-start">
           {/* Track Monthly Revenue card */}
           <div
-            className="w-full md:w-[514px] md:h-28 pl-3 md:pl-5 pr-2 md:pr-3 py-2 md:py-1 bg-white/5 rounded-[16px] md:rounded-3xl inline-flex flex-col justify-center items-center"
+            className="w-full md:w-[514px] md:h-28 pl-2.5 md:pl-5 pr-2 md:pr-3 py-1.5 md:py-1 bg-white/5 rounded-[12px] md:rounded-3xl inline-flex flex-col justify-center items-center"
             style={{
               boxShadow: "inset 0px 0px 6.4px 0px rgba(255,255,255,0.27)",
             }}
@@ -138,57 +138,62 @@ function GoalsCard() {
 
           {/* Green checkmark connector */}
           <div className="flex flex-col items-start -my-0.5 md:-my-1 self-start">
-            <div className="h-[20px] md:h-[36px] border-l border-dotted border-gray-200/50 ml-[9px] md:ml-[11px]" />
+            <div className="h-[12px] md:h-[36px] border-l border-dotted border-gray-200/50 ml-[7px] md:ml-[11px]" />
             <div className="flex items-center">
-              <div className="w-[28px] h-[28px] md:w-[22px] md:h-[22px] rounded-full bg-green flex items-center justify-center">
-                <CheckIcon className="w-[18px] h-[18px] md:w-[10px] md:h-[8px] text-white" />
+              <div className="w-[16px] h-[16px] md:w-[22px] md:h-[22px] rounded-full bg-green flex items-center justify-center">
+                <CheckIcon className="w-[8px] h-[8px] md:w-[10px] md:h-[8px] text-white" />
               </div>
-              <div className="h-0 w-4 md:w-[20px] border-t border-dotted border-gray-200/50" />
+              <div className="h-0 w-3 md:w-[20px] border-t border-dotted border-gray-200/50" />
             </div>
           </div>
 
           {/* Franks Lampard subtask card */}
           <div
-            className="ml-[34px] md:ml-[40px] -mt-5 md:-mt-[20px] px-3 md:pl-5 md:pr-3 py-2.5 md:py-1 md:h-40 w-[calc(100%-34px)] md:w-[calc(100%-40px)] bg-white/5 rounded-2xl md:rounded-3xl flex flex-col justify-center gap-2"
+            className="ml-[22px] md:ml-[40px] -mt-3 md:-mt-[20px] h-24 md:h-40 pl-3 md:pl-5 pr-1.5 md:pr-3 py-0.5 md:py-1 w-[calc(100%-22px)] md:w-[calc(100%-40px)] bg-white/5 rounded-xl md:rounded-3xl inline-flex flex-col justify-center items-start gap-1"
             style={{
-              boxShadow: "0px 4.42px 60.78px 0px rgba(0,0,0,1)",
+              boxShadow: "0px 2.53px 34.78px 0px rgba(0,0,0,1)",
             }}
           >
-            <div className="flex justify-between items-center w-full">
-              <div className="h-7 md:h-8 px-2 md:px-2.5 bg-white/4 rounded-lg md:rounded-[10px] border border-white/10 inline-flex items-center gap-1.5 md:gap-2">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src="/images/figma/Ellipse 53.svg"
-                  alt=""
-                  className="w-[18px] h-[18px] md:w-[22px] md:h-[22px] rounded-full shrink-0"
-                />
-                <span className="text-gray-100 text-[9px] md:text-[14px] font-semibold font-['Urbanist'] leading-3 md:leading-[22px]">
-                  Franks Lampard
-                </span>
-              </div>
-              <div className="flex items-center gap-1.5 md:gap-2">
-                <div className="w-[14px] h-[14px] md:w-[18px] md:h-[18px] rounded-full bg-success flex items-center justify-center">
-                  <CheckIcon className="w-[6px] h-[5px] md:w-[8px] md:h-[7px] text-white" />
+            {/* Top row: name badge + completed */}
+            <div className="flex flex-col justify-start items-start gap-2.5 w-full">
+              <div className="inline-flex justify-between items-center w-full">
+                <div className="h-5 md:h-8 p-2 md:px-2.5 bg-white/5 rounded-md md:rounded-[10px] border border-white/10 inline-flex items-center gap-1 md:gap-2">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src="/images/figma/Ellipse 53.svg"
+                    alt=""
+                    className="w-4 h-4 md:w-[22px] md:h-[22px] rounded-full shrink-0"
+                  />
+                  <span className="text-gray-400 md:text-gray-100 text-[9.13px] md:text-[14px] font-semibold font-['Urbanist'] leading-3 md:leading-[22px]">
+                    Franks Lampard
+                  </span>
                 </div>
-                <span className="text-white text-[9px] md:text-[14px] font-bold font-['Urbanist']">
-                  Completed
+                <div className="flex items-center gap-1 md:gap-2">
+                  <div className="w-2.5 h-2.5 md:w-[18px] md:h-[18px] rounded-full bg-success flex items-center justify-center">
+                    <CheckIcon className="w-[5px] h-[4px] md:w-[8px] md:h-[7px] text-white" />
+                  </div>
+                  <span className="text-white text-[9.13px] md:text-[14px] font-bold font-['Urbanist']">
+                    Completed
+                  </span>
+                </div>
+              </div>
+              {/* Task line */}
+              <div className="flex items-center gap-1.5 md:gap-2">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src="/images/figma/task-done-01.svg" alt="" className="w-2.5 h-2.5 md:w-4 md:h-4 shrink-0" />
+                <span className="text-gray-400 md:text-gray-100 text-xs md:text-[15px] font-bold font-['Urbanist'] leading-5 md:leading-7 line-clamp-1">
+                  Collect revenue data from bank APIs
                 </span>
               </div>
             </div>
-            <div className="flex items-center gap-1.5 md:gap-2">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/images/figma/task-done-01.svg" alt="" className="w-3 h-3 md:w-4 md:h-4 shrink-0" />
-              <span className="text-gray-100 text-xs md:text-[15px] font-bold font-['Urbanist'] leading-5 md:leading-7 line-clamp-1">
-                Collect revenue data from bank APIs
-              </span>
-            </div>
-            <div className="flex items-center gap-3 md:gap-8 w-full">
-              <div className="flex items-center gap-1.5">
-                <span className="text-gray-100 text-[9px] md:text-[13px] font-semibold font-['Urbanist'] h-[18px] md:h-[22px] inline-flex items-center">
+            {/* Apps row */}
+            <div className="w-60 md:w-full inline-flex justify-start items-start gap-5 md:gap-8">
+              <div className="flex items-center gap-1 md:gap-1.5">
+                <span className="text-gray-400 md:text-gray-100 text-[9.13px] md:text-[13px] font-semibold font-['Urbanist'] leading-3">
                   Apps :
                 </span>
                 <div className="flex items-center -space-x-[2px]">
-                  <span className="inline-grid place-items-center w-[18px] h-[18px] md:w-[22px] md:h-[22px] rounded-full bg-[#4A154B] border-[1.41px] border-white/15">
+                  <span className="inline-grid place-items-center w-4 h-4 md:w-[22px] md:h-[22px] rounded-full bg-[#4A154B] border-[0.81px] border-white/15">
                     <svg viewBox="0 0 24 24" className="size-full p-[3px] md:p-[4px]">
                       <circle cx="8" cy="8" r="2.6" fill="#36C5F0" />
                       <circle cx="16" cy="8" r="2.6" fill="#2EB67D" />
@@ -196,11 +201,11 @@ function GoalsCard() {
                       <circle cx="16" cy="16" r="2.6" fill="#ECB22E" />
                     </svg>
                   </span>
-                  <span className="inline-grid place-items-center w-[18px] h-[18px] md:w-[22px] md:h-[22px] rounded-full bg-[#FF7A59] border-[1.41px] border-white/15">
-                    <span className="text-white text-[8px] md:text-[10px] font-extrabold leading-none">H</span>
+                  <span className="inline-grid place-items-center w-3.5 h-3.5 md:w-[22px] md:h-[22px] rounded-full bg-[#FF7A59] border-[0.81px] border-white/15">
+                    <span className="text-white text-[7px] md:text-[10px] font-extrabold leading-none">H</span>
                   </span>
-                  <span className="inline-grid place-items-center w-[18px] h-[18px] md:w-[22px] md:h-[22px] rounded-full bg-[#635BFF] border-[1.41px] border-white/15">
-                    <span className="text-white text-[8px] md:text-[10px] font-extrabold leading-none">S</span>
+                  <span className="inline-grid place-items-center w-4 h-4 md:w-[22px] md:h-[22px] rounded-full bg-[#635BFF] border-[0.81px] border-white/15">
+                    <span className="text-white text-[7px] md:text-[10px] font-extrabold leading-none">S</span>
                   </span>
                 </div>
               </div>
@@ -209,9 +214,9 @@ function GoalsCard() {
                 <img
                   src="/images/figma/excel-icon.png"
                   alt="Excel file"
-                  className="w-4 h-4 md:w-[18px] md:h-[18px] rounded-[3px] object-cover"
+                  className="w-3.5 h-3 md:w-[18px] md:h-[18px] rounded-[3px] object-cover"
                 />
-                <span className="text-gray-100 text-[9px] md:text-[13px] font-semibold font-['Urbanist'] leading-3 md:leading-[22px]">
+                <span className="text-gray-400 md:text-gray-100 text-[9.13px] md:text-[13px] font-semibold font-['Urbanist'] leading-3 md:leading-[22px]">
                   Stripe_revenue_report.csv
                 </span>
               </div>
@@ -221,17 +226,23 @@ function GoalsCard() {
       </div>
 
       {/* ── Title + desc ── */}
-      <div className="absolute bottom-0 inset-x-0 z-30 flex flex-col items-center gap-1 pb-3 md:pb-6 px-4 md:px-6">
+      <div className="absolute bottom-0 inset-x-0 z-30 flex flex-col items-center gap-0.5 md:gap-1 pb-2 md:pb-6 px-3 md:px-6">
         <ScrollTextReveal
           text="You set goals, not tasks"
           className="text-white text-base md:text-2xl font-bold font-['Urbanist'] leading-9 md:leading-[65.07px] text-center"
         />
-        <AnimateOnScroll animation="fade-up" duration={0.8} threshold={0.3}>
-          <p className="w-280px mb-[15px] md:w-[526px] text-center justify-start text-gray-300 text-base font-semibold font-['Urbanist'] leading-8">
-            The best way to reach humans instead of spam folders. Deliver
-            transactional and marketing emails at scale.
-          </p>
-        </AnimateOnScroll>
+        <p className="w-72 md:hidden text-center text-gray-400 text-[9.06px] font-semibold font-['Urbanist'] leading-4 mb-1">
+          The best way to reach humans instead of spam folders. Deliver
+          transactional and marketing emails at scale.
+        </p>
+        <div className="hidden md:block">
+          <AnimateOnScroll animation="fade-up" duration={0.8} threshold={0.3}>
+            <p className="w-[526px] text-center text-gray-300 text-base font-semibold font-['Urbanist'] leading-8 mb-[15px]">
+              The best way to reach humans instead of spam folders. Deliver
+              transactional and marketing emails at scale.
+            </p>
+          </AnimateOnScroll>
+        </div>
       </div>
     </div>
   );
@@ -259,33 +270,39 @@ function CollaborateCard() {
   const arrowRadius = 160;
 
   return (
-    <div className="w-80 md:w-[600px] h-96 md:h-[671px] relative overflow-hidden rounded-3xl md:rounded-[40px] border border-white/30">
+    <div className="w-80 md:w-[600px] h-96 md:h-[671px] relative overflow-hidden rounded-3xl md:rounded-[40px] border-[0.58px] md:border border-white/30 bg-gradient-to-b from-black/80 to-black">
       {/* Background image */}
       <div
-        className="absolute inset-0 bg-cover bg-no-repeat"
+        className="absolute inset-0 bg-cover bg-no-repeat opacity-60 md:opacity-100"
         style={{ backgroundImage: "url('/images/figma/features/features-light-on-stone.svg')", backgroundPosition: "center 500%" }}
       />
       {/* Dark gradient overlay */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/90 to-black/90" />
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/80 md:from-black/30 md:via-black/90 md:to-black/90" />
       {/* Orbit illustration */}
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
         src="/images/figma/Group 1707484055.svg"
         alt=""
-        className="absolute top-5 left-1/2 -translate-x-1/2 w-full max-w-[460px] h-auto z-10 pointer-events-none"
+        className="absolute top-1 md:top-5 left-1/2 -translate-x-1/2 w-[72%] max-w-[230px] md:max-w-[460px] h-auto z-10 pointer-events-none"
       />
 
-      <div className="absolute bottom-0 inset-x-0 z-30 flex flex-col items-center gap-4 pb-5 md:pb-14 px-4 md:px-6">
+      <div className="absolute bottom-0 inset-x-0 z-30 flex flex-col items-center gap-0.5 md:gap-4 pb-5 md:pb-14 px-3 md:px-6">
         <ScrollTextReveal
           text="They collaborate with each other"
-          className="justify-center text-white text-base md:text-2xl font-bold font-['Urbanist'] leading-9 md:leading-tight text-center"
+          className="text-white text-base md:text-2xl font-bold font-['Urbanist'] leading-9 md:leading-tight text-center"
         />
-        <AnimateOnScroll animation="fade-up" duration={0.8} threshold={0.3}>
-          <div className="md:w-[526px] text-center text-gray-300 text-[9px] md:text-base font-bold font-['Urbanist'] leading-4 md:leading-8 mt-[-5px] mb-[-12px]">
-            The best way to reach humans instead of spam folders. Deliver
-            transactional and marketing emails at scale.
-          </div>
-        </AnimateOnScroll>
+        <p className="w-80 md:hidden text-center text-gray-400 text-[9.22px] font-bold font-['Urbanist'] leading-4">
+          The best way to reach humans instead of spam folders. Deliver
+          transactional and marketing emails at scale.
+        </p>
+        <div className="hidden md:block">
+          <AnimateOnScroll animation="fade-up" duration={0.8} threshold={0.3}>
+            <p className="w-[526px] text-center text-gray-300 text-sm font-normal font-['Urbanist'] leading-6">
+              The best way to reach humans instead of spam folders. Deliver
+              transactional and marketing emails at scale.
+            </p>
+          </AnimateOnScroll>
+        </div>
       </div>
     </div>
   );
@@ -392,7 +409,7 @@ function DecisionsCard() {
         </div>
 
         <div className="mt-4">
-          <h3 className="text-white text-base md:text-[26px] font-bold leading-[28px] md:leading-[36px] text-center max-w-[291px] mx-auto">
+          <h3 className="w-64 md:w-auto text-center text-white text-2xl md:text-[26px] font-bold font-['Urbanist'] leading-8 md:leading-[36px] max-w-[291px] mx-auto">
             They make decisions within your guidelines
           </h3>
         </div>
@@ -576,14 +593,14 @@ export function ChorusAgentsSection() {
       <div className="max-w-[1240px] mx-auto flex flex-col items-center gap-[10px]">
         {/* Section Header */}
         <div className="inline-flex flex-col justify-start items-center gap-1">
-          <Badge className="w-40 h-9 px-3 py-1 bg-white/5 rounded-[100px] inline-flex justify-center items-center gap-2 overflow-hidden">Chorus Agents</Badge>
+          <Badge className="h-8 px-3 py-1 text-sm font-semibold font-['Urbanist']">Chorus Agents</Badge>
           <div className="self-stretch flex flex-col justify-start items-center gap-8">
             <ScrollTextReveal
               text="Autonomous Agents, Not Chatbots."
               className="text-2xl md:text-5xl font-bold font-['Urbanist'] leading-8 md:leading-[78px] text-center max-w-[384px] md:max-w-none"
             />
             <AnimateOnScroll animation="fade-up" duration={0.8} threshold={0.3}>
-              <p className="text-center text-gray-300 text-sm md:text-2xl font-medium font-['Urbanist'] leading-6 md:leading-9 max-w-80 md:max-w-none">
+              <p className="w-80 md:w-auto text-center text-gray-400 md:text-gray-300 text-sm md:text-2xl font-normal md:font-medium font-['Urbanist'] leading-6 md:leading-9">
                 The Difference That Changes Everything
               </p>
             </AnimateOnScroll>

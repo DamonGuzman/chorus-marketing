@@ -27,7 +27,7 @@ function InlinePill({
 export function AIWorkforceSection() {
   return (
     <Section
-       className="self-stretch bg-black px-4 py-10 md:px-8 md:py-20 inline-flex md:flex flex-col justify-start items-center gap-16 overflow-hidden"
+       className="self-stretch bg-black px-4 py-10 md:px-8 md:py-20 flex flex-col justify-start items-center gap-16 overflow-hidden"
       id="ai-workforce"
     >
       {/* Header */}
@@ -36,7 +36,7 @@ export function AIWorkforceSection() {
           <Badge className="w-56 h-9 px-3 py-1 bg-white/5 rounded-[100px] inline-flex justify-center items-center gap-2 overflow-hidden">What Chorus Actually Is</Badge>
           <ScrollTextReveal
             text="Your AI Workforce. Always in Sync."
-            className="justify-start text-white text-5xl font-bold font-['Urbanist'] leading-[78px]"
+            className="justify-start text-white text-2xl leading-8 md:text-3xl md:leading-[42px] lg:text-5xl font-bold font-['Urbanist'] lg:leading-[78px] text-center"
           />
         </div>
 
@@ -61,7 +61,7 @@ export function AIWorkforceSection() {
           <img
             src="/images/figma/Frame 1707484612-1.svg"
             alt="AI Agent chat card"
-            className="w-80 h-[260px] rotate-[-4deg]"
+            className="w-full max-w-[320px] h-auto rotate-[-4deg]"
           />
 
           <p className="text-center font-['Urbanist'] text-sm font-normal leading-6 text-gray-400 translate-y-[10px]">
@@ -71,7 +71,7 @@ export function AIWorkforceSection() {
           <img
             src="/images/figma/Frame 1707484613.svg"
             alt="Tasks card"
-            className="w-80 h-[260px] rotate-[3.5deg]"
+            className="w-full max-w-[320px] h-auto rotate-[3.5deg]"
           />
 
           <p className="text-center font-['Urbanist'] text-sm font-normal leading-6 text-gray-400">
@@ -81,7 +81,7 @@ export function AIWorkforceSection() {
           <img
             src="/images/figma/Frame 1707484612.svg"
             alt="Radar card"
-            className="w-80 h-[260px] rotate-[3deg]"
+            className="w-full max-w-[320px] h-auto rotate-[3deg]"
           />
         </div>
 

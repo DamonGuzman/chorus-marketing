@@ -90,30 +90,30 @@ function BusinessContextItem({
 }) {
   return (
     <div
-      className="w-full max-w-[1240px] mx-auto rounded-[40px] outline outline-1 outline-offset-[-1px] outline-neutral-700 backdrop-blur-xl overflow-hidden bg-black"
+      className="w-full max-w-[1240px] mx-auto rounded-[24px] md:rounded-[32px] lg:rounded-[40px] outline outline-1 outline-offset-[-1px] outline-neutral-700 backdrop-blur-xl overflow-hidden bg-black"
     >
-      <div className="flex flex-col lg:flex-row gap-[40px] items-center pl-14 pr-12 py-14">
+      <div className="flex flex-col lg:flex-row gap-[24px] lg:gap-[40px] items-center px-5 py-8 md:px-8 md:py-10 lg:pl-14 lg:pr-12 lg:py-14">
         {/* Left Side */}
-        <div className="lg:w-[420px] shrink-0 flex flex-col gap-5">
+        <div className="w-full lg:w-[420px] shrink-0 flex flex-col gap-4 lg:gap-5">
           {/* Step circle */}
           <div
-            className="w-20 h-20 rounded-full border border-white/10 flex items-center justify-center"
+            className="w-14 h-14 md:w-16 md:h-16 lg:w-20 lg:h-20 rounded-full border border-white/10 flex items-center justify-center"
             style={{
               background: "linear-gradient(135deg, rgba(255,255,255,0.08) 0%, rgba(255,241,242,0) 100%)",
               boxShadow: "0px 3.98px 24.85px 0px rgba(0,0,0,0.25)",
             }}
           />
           {/* Step number */}
-          <span className="text-white text-[30px] font-normal font-['Urbanist'] leading-none">{stepNumber}</span>
+          <span className="text-white text-[22px] md:text-[26px] lg:text-[30px] font-normal font-['Urbanist'] leading-none">{stepNumber}</span>
           {/* Title */}
-          <h3 className="text-white text-2xl font-bold font-['Urbanist']">{title}</h3>
+          <h3 className="text-white text-xl md:text-2xl font-bold font-['Urbanist']">{title}</h3>
           {/* Description + divider + checkmarks */}
           <div className="flex flex-col gap-7">
             <p className="text-gray-300 text-sm font-medium font-['Urbanist'] leading-5">{description}</p>
             <div className="w-full h-px bg-white/20" />
             {/* Checkmarks grid */}
             <div className="flex flex-col gap-4">
-              <div className="grid grid-cols-2 gap-x-7 gap-y-4">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-x-7 gap-y-3 md:gap-y-4">
                 {checkmarks.map((item, i) => (
                   <div key={i} className="flex items-center gap-2">
                     {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -127,7 +127,7 @@ function BusinessContextItem({
         </div>
 
         {/* Right Side - Visual */}
-        <div className="flex-1 relative min-h-[420px]">
+        <div className="hidden lg:block flex-1 relative min-h-[420px]">
           {children}
         </div>
       </div>

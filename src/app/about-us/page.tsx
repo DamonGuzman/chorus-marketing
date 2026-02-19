@@ -5,12 +5,12 @@ import { FinalCTASection } from "@/components/sections";
 
 export default function AboutUsPage() {
   return (
-    <div className="min-h-screen bg-black overflow-x-hidden">
+    <div className="min-h-screen bg-black overflow-x-hidden max-w-[100vw]">
       <Header />
-      <main className="width-full mx-auto px-4 md:px-6 lg:px-10">
+      <main className="w-full mx-auto px-4 md:px-6 lg:px-10 overflow-x-hidden">
         <section
           id="about-us"
-          className="bg-black pt-0 pb-[50px] md:pb-section-y overflow-hidden"
+          className="bg-black pt-0 pb-[50px] md:pb-section-y overflow-x-hidden"
         >
           {/* first parent section */}
           {/* desktop */}
@@ -59,9 +59,7 @@ export default function AboutUsPage() {
               </div>
               <div className="w-52 h-80 left-[18px] top-[28.99px] absolute inline-flex flex-col justify-start items-start">
                 <div className="flex flex-col justify-start items-center gap-7">
-                  <div className="text-center justify-center text-White text-base font-bold font-['Urbanist'] leading-6">
-                    <Badge className="px-3 py-1">About us</Badge>
-                  </div>
+                  <Badge className="w-28 h-9 px-3 py-1 text-base font-bold font-['Urbanist']">About us</Badge>
                   <div className="self-stretch flex flex-col justify-start items-start gap-6">
                     <div className="w-80 text-center justify-center text-white text-4xl font-bold font-['Urbanist'] leading-10">
                       <span className="text-white">Chorus is the </span>
@@ -172,13 +170,18 @@ export default function AboutUsPage() {
           <div className="self-stretch px-4 md:px-8 pt-2 pb-0 bg-black flex flex-col justify-start items-center">
             <div className="w-full max-w-[1440px] mx-auto flex flex-col lg:flex-row justify-start items-center gap-2 lg:gap-0">
                 {/* Left Content */}
-                <div className="flex flex-col justify-start items-center lg:items-start gap-8 md:gap-12 flex-1 text-center lg:text-left">
+                <div className="flex flex-col justify-start items-center lg:items-start gap-8 md:gap-12 flex-1 text-left lg:text-left">
                   <Badge className="w-32 h-9 px-3 py-1 text-base font-semibold">Origin Story</Badge>
 
-                  <ScrollTextReveal
-                    text="Built By People Who Understand Both Vision And Execution"
-                    className="text-[28px] md:text-5xl font-bold font-['Urbanist'] leading-[38px] md:leading-tight text-white max-w-[583px]"
-                  />
+                  <h2 className="md:hidden w-96 max-w-full text-center text-white text-2xl font-bold font-['Urbanist'] leading-8">
+                    Built By People Who Understand Both Vision And Execution
+                  </h2>
+                  <div className="hidden md:block">
+                    <ScrollTextReveal
+                      text="Built By People Who Understand Both Vision And Execution"
+                      className="text-5xl font-bold font-['Urbanist'] leading-tight text-white max-w-[583px]"
+                    />
+                  </div>
 
                   {/* Images — visible on mobile, stacked above text */}
                   <AnimateOnScroll animation="slide-right" duration={0.9} threshold={0.2}>
@@ -197,9 +200,9 @@ export default function AboutUsPage() {
                     </div>
                   </AnimateOnScroll>
 
-                  <div className="max-w-[529px]">
+                  <div className="max-w-[320px] md:max-w-[529px]">
                     <AnimateOnScroll animation="fade-up" duration={0.8} threshold={0.3}>
-                      <p className="text-gray-300 text-lg font-medium font-['Urbanist'] leading-9">
+                      <p className="text-gray-300 text-sm md:text-lg font-medium font-['Urbanist'] leading-6 md:leading-9">
                         We&apos;ve been on both sides: building with limited
                         resources and watching others scale impossibly fast. We
                         built Chorus because we were tired of AI companies
@@ -208,13 +211,13 @@ export default function AboutUsPage() {
                     </AnimateOnScroll>
                     <br />
                     <AnimateOnScroll animation="fade-up" duration={0.8} delay={0.15} threshold={0.3}>
-                      <p className="text-white text-xl font-semibold font-['Urbanist'] leading-9">
+                      <p className="text-white text-sm md:text-xl font-semibold font-['Urbanist'] leading-6 md:leading-9">
                         Not smoke and mirrors. So we built it.
                       </p>
                     </AnimateOnScroll>
                     <br />
                     <AnimateOnScroll animation="fade-up" duration={0.8} delay={0.3} threshold={0.3}>
-                      <p className="text-gray-300 text-lg font-medium font-['Urbanist'] leading-9">
+                      <p className="text-gray-300 text-sm md:text-lg font-medium italic font-['Urbanist'] leading-6 md:leading-9">
                         Tested it internally. And now we&apos;re sharing it with
                         founders who are ready to build without limits.
                       </p>
@@ -242,16 +245,21 @@ export default function AboutUsPage() {
             </div>
 
           {/* Press Section */}
-          <div className="self-stretch px-4 md:px-8 pt-0 pb-[50px] md:pb-20 bg-black flex flex-col justify-start items-center">
-            <div className="w-full max-w-[1440px] mx-auto flex flex-col justify-start items-center gap-1">
-                <Badge className="w-24 h-9 px-3 py-1 text-base font-bold">Press</Badge>
-                <div className="flex flex-col justify-start items-center gap-1">
-                  <ScrollTextReveal
-                    text="What The Audience Is Saying"
-                    className="text-center text-5xl font-bold font-['Urbanist'] leading-[78px]"
-                  />
+          <div className="self-stretch px-4 md:px-8 pt-16 md:pt-20 pb-[50px] md:pb-20 bg-black flex flex-col justify-start items-center">
+            <div className="w-full max-w-[1440px] mx-auto flex flex-col justify-start items-center gap-4 md:gap-6">
+                <Badge className="w-28 h-8 px-3 py-1 text-sm font-semibold font-['Urbanist']">Features</Badge>
+                <div className="flex flex-col justify-start items-center gap-3 md:gap-4">
+                  <h2 className="md:hidden w-80 text-center text-white text-2xl font-bold font-['Urbanist'] leading-8">
+                    What The Audience Is Saying
+                  </h2>
+                  <div className="hidden md:block">
+                    <ScrollTextReveal
+                      text="What The Audience Is Saying"
+                      className="text-center text-5xl font-bold font-['Urbanist'] leading-[78px]"
+                    />
+                  </div>
                   <AnimateOnScroll animation="fade-up" duration={0.8} threshold={0.3}>
-                    <p className="text-center text-gray-300 text-2xl font-medium font-['Urbanist'] leading-9">
+                    <p className="w-96 max-w-full text-center text-gray-300 text-sm md:text-2xl font-normal md:font-medium font-['Urbanist'] leading-6 md:leading-9">
                       The Difference That Changes Everything
                     </p>
                   </AnimateOnScroll>
@@ -351,15 +359,18 @@ export default function AboutUsPage() {
             <div className="self-stretch px-4 md:px-8 pt-[50px] md:pt-20 pb-[60px] md:pb-24 bg-black flex flex-col justify-start items-center">
               <div className="flex flex-col justify-start items-center gap-[40px] md:gap-20">
                 {/* Header */}
-                <div className="flex flex-col justify-start items-center gap-1">
-                  <Badge className="h-9 px-3 py-1 text-base font-semibold">Our team members</Badge>
+                <div className="flex flex-col justify-start items-center gap-4 md:gap-6">
+                  <Badge className="h-8 px-3 py-1 text-sm font-semibold font-['Urbanist']">Our team members</Badge>
                   <div className="flex flex-col justify-start items-center gap-3 md:gap-4">
-                    <ScrollTextReveal
-                      text="Our Team"
-                      className="text-5xl font-bold font-['Urbanist'] leading-[78px]"
-                    />
+                    <h2 className="md:hidden w-80 text-center text-white text-2xl font-bold font-['Urbanist'] leading-8">Our Team</h2>
+                    <div className="hidden md:block">
+                      <ScrollTextReveal
+                        text="Our Team"
+                        className="text-5xl font-bold font-['Urbanist'] leading-[78px]"
+                      />
+                    </div>
                     <AnimateOnScroll animation="fade-up" duration={0.8} threshold={0.3}>
-                      <p className="text-center text-gray-300 text-xl font-normal font-['Urbanist'] leading-9 whitespace-nowrap">
+                      <p className="w-96 max-w-full text-center text-gray-300 text-sm md:text-xl font-normal font-['Urbanist'] leading-6 md:leading-9">
                         The best way to reach humans instead of spam folders. Deliver transactional and marketing emails at scale.
                       </p>
                     </AnimateOnScroll>
@@ -400,9 +411,10 @@ export default function AboutUsPage() {
               </div>
             </div>
 
-          {/* Final CTA Section */}
-          <FinalCTASection />
         </section>
+
+        {/* Final CTA Section */}
+        <FinalCTASection />
       </main>
       <Footer />
     </div>

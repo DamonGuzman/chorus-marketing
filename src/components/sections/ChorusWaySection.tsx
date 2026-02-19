@@ -17,7 +17,7 @@ export function ChorusWaySection() {
   }, []);
 
   return (
-    <Section className="relative py-10 px-4 md:py-20 md:px-8 overflow-hidden" id="chorus-way">
+    <Section className="relative py-10 px-0 md:py-20 md:px-8 overflow-hidden" id="chorus-way">
       <div className="px-4 md:px-0">
         {/* Mobile layout: centered, single column */}
         <div className="flex flex-col md:hidden items-center text-center gap-1">
@@ -26,18 +26,18 @@ export function ChorusWaySection() {
           <div className="flex flex-col justify-start items-center gap-4">
             <ScrollTextReveal
               text={["The Chorus Way", "Manifest Your Team Instantly"]}
-              className="w-96 max-w-full text-center text-2xl leading-8 font-bold font-['Urbanist']"
+              className="w-full max-w-[384px] text-center text-2xl leading-8 font-bold font-['Urbanist']"
             />
 
             <AnimateOnScroll animation="fade-up" duration={0.8} threshold={0.3}>
-              <p className="w-80 text-center text-sm leading-6 font-normal font-['Urbanist'] text-gray-300">
+              <p className="w-full max-w-[320px] text-center text-sm leading-6 font-normal font-['Urbanist'] text-gray-300">
                 The best way to reach humans instead of spam folders. Deliver transactional and marketing emails at scale.
               </p>
             </AnimateOnScroll>
           </div>
 
           {/* Mobile Lottie animation */}
-          <div className="w-full h-[420px] pointer-events-none overflow-hidden mx-auto flex items-center justify-center">
+          <div className="w-full h-[320px] pointer-events-none overflow-hidden mx-auto flex items-center justify-center">
             {animationData && (
               <Lottie
                 animationData={animationData}
@@ -49,20 +49,20 @@ export function ChorusWaySection() {
           </div>
 
           <AnimateOnScroll animation="fade-up" duration={0.8} threshold={0.3}>
-            <p className="w-80 text-left text-sm leading-6 font-medium font-['Urbanist'] text-gray-300">
+            <p className="w-full max-w-[320px] mx-auto text-left text-sm leading-6 font-medium font-['Urbanist'] text-gray-300">
               VocAI CRM empowers a global network of over 250,000 businesses in 180 countries to convert more leads, engage with customers, and grow their revenue.
             </p>
           </AnimateOnScroll>
 
           <AnimateOnScroll animation="fade-up" duration={0.8} delay={0.15} threshold={0.3}>
-            <p className="w-80 h-16 text-left text-sm leading-6 font-medium font-['Urbanist'] text-gray-300">
+            <p className="w-full max-w-[320px] mx-auto text-left text-sm leading-6 font-medium font-['Urbanist'] text-gray-300">
               VocAI CRM empowers a global network of over 250,000 businesses in 180 countries to convert more leads,
             </p>
           </AnimateOnScroll>
         </div>
 
         {/* Desktop layout: side-by-side */}
-        <div className="hidden md:flex w-full max-w-[1440px] mx-auto justify-start items-center gap-3 lg:gap-10">
+        <div className="hidden md:flex w-full max-w-[1440px] mx-auto justify-start items-center gap-3 lg:gap-10 px-4">
           <AnimateOnScroll animation="slide-left" duration={0.9} className="md:w-[42%] md:shrink-0 lg:w-auto lg:shrink inline-flex flex-col justify-start items-start gap-1">
             <Badge className="w-38 h-11 px-3 py-1">The Solution</Badge>
 
