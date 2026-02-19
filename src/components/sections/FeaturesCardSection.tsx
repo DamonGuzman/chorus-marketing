@@ -145,28 +145,26 @@ export function FeaturesCardSection() {
           <div className="flex flex-col items-center gap-[4px] md:gap-[8px] w-full self-stretch">
             <ScrollTextReveal
               text="The Difference That Changes Everything"
-              className="text-5xl font-bold font-['Urbanist'] leading-[78px] text-center"
+              className="text-2xl leading-8 md:text-3xl md:leading-[42px] lg:text-5xl font-bold font-['Urbanist'] lg:leading-[78px] text-center"
             />
-            <p className="text-center text-gray-300 text-2xl font-medium font-['Urbanist'] leading-9">
+            <p className="text-center text-gray-300 text-base md:text-xl lg:text-2xl font-medium font-['Urbanist'] leading-7 md:leading-9">
               The Difference That Changes Everything
             </p>
           </div>
         </div>
 
-        {/* ── Stacked Cards (same width as main, offset below) ── */}
-        {/* Back card */}
-        <div
-          className="w-64 md:w-[1013px] h-18 rounded-[37px] bg-black border-[0.79px] border-white/30 backdrop-blur-xl"
-        />
+        {/* ── Stacked Cards + Main Card ── */}
+        <div className="w-full max-w-[1220px] flex flex-col items-center">
+          <div
+            className="w-[75%] md:w-[82%] h-4 md:h-5 rounded-t-xl md:rounded-t-[37px] bg-black border-[0.79px] border-b-0 border-white/30"
+          />
+          <div
+            className="w-[87%] md:w-[91%] h-4 md:h-5 rounded-t-xl md:rounded-t-[37px] bg-black border-[0.79px] border-b-0 border-white/30"
+          />
 
-        {/* Middle card */}
-        <div
-          className="w-72 md:w-[1115px] h-20 -mt-[18%] md:-mt-10 rounded-[37px] bg-black border-[0.79px] border-white/30 backdrop-blur-xl"
-        />
-
-        {/* ── Front card — Main Content ── */}
-        <div
-          className="w-full max-w-[1220px] -mt-[18%] md:-mt-10 rounded-[60px] py-[36px] px-[24px] md:py-[60px] md:px-[56px] overflow-hidden"
+          {/* ── Front card — Main Content ── */}
+          <div
+            className="w-full rounded-3xl md:rounded-[60px] py-5 px-4 md:py-[60px] md:px-[56px] overflow-hidden"
           style={{
             background: "#000000",
             outline: "1px solid #434343",
@@ -177,28 +175,28 @@ export function FeaturesCardSection() {
         >
           <div className="flex flex-col md:flex-row items-center gap-[30px] md:gap-[22px]">
             {/* ── Left side content ── */}
-            <div className="flex flex-col gap-[24px] md:gap-[32px] shrink-0 md:max-w-[460px] w-full">
+            <div className="flex flex-col gap-4 md:gap-[32px] shrink-0 md:max-w-[460px] w-full">
               {/* Gradient circle with number inside */}
               <div
-                className="w-[65px] h-[65px] md:w-[85px] md:h-[85px] rounded-full flex items-center justify-center"
+                className="w-[45px] h-[45px] md:w-[85px] md:h-[85px] rounded-full flex items-center justify-center"
                 style={{
                   background: "linear-gradient(138deg, rgba(61,61,61,0.29) 0%, rgba(255,229,229,0) 100%)",
                   boxShadow: "0px 3.98px 24.85px rgba(0,0,0,0.25)",
                   border: "1.3px solid rgba(255,255,255,0.10)",
                 }}
               >
-                <span className="text-white text-[24px] md:text-[30px] font-normal">3</span>
+                <span className="text-white text-[18px] md:text-[30px] font-normal">3</span>
               </div>
 
               {/* Orbital animation — mobile only, between number and text */}
-              <div className="md:hidden relative w-full overflow-visible" style={{ height: 'calc(420px * 0.6)' }}>
+              <div className="md:hidden relative w-full overflow-visible" style={{ height: 'calc(420px * 0.38)' }}>
                 <div
                   className="absolute top-0 left-1/2"
                   style={{
                     width: 500,
                     height: 420,
                     transformOrigin: 'top center',
-                    transform: 'translateX(-50%) scale(0.6)',
+                    transform: 'translateX(-50%) scale(0.38)',
                   }}
                 >
                   <OrbitalAnimation />
@@ -206,47 +204,43 @@ export function FeaturesCardSection() {
               </div>
 
               {/* Text content */}
-              <div className="flex flex-col gap-[20px]">
+              <div className="flex flex-col gap-3 md:gap-[20px]">
                 <ScrollTextReveal
                   text="Full Business Context"
-                  className="text-white text-2xl font-bold font-['Urbanist']"
+                  className="text-white text-lg md:text-2xl font-bold font-['Urbanist']"
                 />
 
-                <div className="flex flex-col gap-[24px] md:gap-[28px]">
-                  <div className="flex flex-col gap-[20px] md:gap-[27px]">
-                    <p className="text-gray-300 text-sm font-medium font-['Urbanist'] leading-5 max-w-[384px]">
+                <div className="flex flex-col gap-4 md:gap-[28px]">
+                  <div className="flex flex-col gap-3 md:gap-[27px]">
+                    <p className="w-72 md:w-auto text-gray-400 md:text-gray-300 text-sm md:text-sm font-medium font-['Urbanist'] leading-5 max-w-[384px]">
                       Because Chorus integrates with your entire stack (CRM, email, docs, calendar, Slack), your AI agents have complete context about:
                     </p>
 
                     {/* Divider */}
                     <div className="w-full max-w-[433px] h-0 border-t border-white/19" />
 
-                    {/* Checklist items */}
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-y-[14px] md:gap-y-[17px] gap-x-[32px]">
-                      <AnimateOnScroll animation="fade-up" duration={0.6} delay={0} threshold={0.2}>
-                        <div className="flex items-center gap-[12px] md:gap-[16px]">
-                          <CheckMark />
-                          <span className="text-gray-300 text-[15px] md:text-[16px] font-medium md:whitespace-nowrap">
-                            Your customers and pipeline
-                          </span>
+                    {/* Checklist items — mobile: no animation, desktop: animated */}
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-y-3 md:gap-y-[17px] gap-x-[32px]">
+                      {[
+                        "Your customers and pipeline",
+                        "Your processes and SOPs",
+                        "Your messaging and brand voice",
+                      ].map((item, i) => (
+                        <div key={item}>
+                          <div className="md:hidden flex items-center gap-2">
+                            <CheckMark />
+                            <span className="text-gray-300 text-[13px] font-medium">{item}</span>
+                          </div>
+                          <div className="hidden md:block">
+                            <AnimateOnScroll animation="fade-up" duration={0.6} delay={i * 0.15} threshold={0.2}>
+                              <div className="flex items-center gap-[16px]">
+                                <CheckMark />
+                                <span className="text-gray-300 text-[16px] font-medium whitespace-nowrap">{item}</span>
+                              </div>
+                            </AnimateOnScroll>
+                          </div>
                         </div>
-                      </AnimateOnScroll>
-                      <AnimateOnScroll animation="fade-up" duration={0.6} delay={0.15} threshold={0.2}>
-                        <div className="flex items-center gap-[12px] md:gap-[16px]">
-                          <CheckMark />
-                          <span className="text-gray-300 text-[15px] md:text-[16px] font-medium md:whitespace-nowrap">
-                            Your processes and SOPs
-                          </span>
-                        </div>
-                      </AnimateOnScroll>
-                      <AnimateOnScroll animation="fade-up" duration={0.6} delay={0.3} threshold={0.2}>
-                        <div className="flex items-center gap-[12px] md:gap-[16px]">
-                          <CheckMark />
-                          <span className="text-gray-300 text-[15px] md:text-[16px] font-medium md:whitespace-nowrap">
-                            Your messaging and brand voice
-                          </span>
-                        </div>
-                      </AnimateOnScroll>
+                      ))}
                     </div>
                   </div>
                 </div>
@@ -258,6 +252,7 @@ export function FeaturesCardSection() {
               <OrbitalAnimation />
             </div>
           </div>
+        </div>
         </div>
       </div>
     </section>

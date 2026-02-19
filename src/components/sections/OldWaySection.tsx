@@ -30,7 +30,7 @@ const oldWayItems = [
 
 export function OldWaySection() {
   return (
-    <Section className="self-stretch max-md:px-4 max-md:py-3 md:px-8 md:py-20 max-md:inline-flex md:flex flex-col justify-start items-center max-md:gap-4 md:gap-10" id="old-way">
+    <Section className="self-stretch px-4 py-3 md:px-8 md:py-20 flex flex-col justify-start items-center gap-4 md:gap-10" id="old-way">
       <div className="w-full max-w-[1440px] mx-auto flex flex-col items-center gap-10">
       {/* Header */}
       <div className="flex flex-col justify-start items-center gap-1">
@@ -41,7 +41,7 @@ export function OldWaySection() {
             className="text-center max-md:text-2xl max-md:leading-8 md:text-3xl md:leading-[42px] lg:text-5xl lg:leading-[78px] font-bold font-['Urbanist']"
           />
           <AnimateOnScroll animation="fade-up" duration={0.8} threshold={0.3}>
-            <p className="text-center max-md:w-80 max-md:text-sm max-md:leading-6 md:text-base md:leading-7 lg:text-xl lg:leading-9 font-normal font-['Urbanist'] text-gray-300">
+            <p className="text-center w-full max-w-[320px] md:max-w-none text-sm leading-6 md:text-base md:leading-7 lg:text-xl lg:leading-9 font-normal font-['Urbanist'] text-gray-300 mx-auto">
               The best way to reach humans instead of spam folders. Deliver transactional and marketing emails at scale.
             </p>
           </AnimateOnScroll>

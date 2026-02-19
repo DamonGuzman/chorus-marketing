@@ -92,7 +92,7 @@ export function FeaturesHeroSection() {
               , Unpacked
             </span>
           </h1>
-          <p className="text-center text-gray-300 text-[16px] md:text-[28px] font-medium leading-[26px] md:leading-[36px] max-w-[940px]">
+          <p className="self-stretch text-center text-gray-400 md:text-gray-300 text-base md:text-[28px] font-normal md:font-medium font-['Urbanist'] leading-6 md:leading-[36px] max-w-[940px]">
             The capabilities that let you direct instead of micromanage
           </p>
         </div>

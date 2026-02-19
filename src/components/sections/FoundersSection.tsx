@@ -44,23 +44,23 @@ function LightCard({
 }) {
   return (
     <div
-      className="relative w-72 h-96 shrink-0 md:w-full md:h-auto overflow-hidden rounded-xl md:rounded-[20px] outline outline-1 outline-offset-[-1px] outline-white/30 backdrop-blur-[30px]"
+      className="relative w-[min(288px,80vw)] h-96 shrink-0 md:w-full md:h-auto overflow-hidden rounded-xl md:rounded-[20px] outline outline-1 outline-offset-[-1px] outline-white/30 backdrop-blur-[30px]"
       style={{
         background: "linear-gradient(37deg, #F6F6F6 0%, #CCCBCB 100%)",
       }}
     >
       <GridBg dark />
-      <div className="relative z-10 flex flex-col gap-16 md:gap-8 lg:gap-20 px-[18px] pb-[18px] pt-[24px] md:px-5 md:pb-5 md:pt-6 lg:px-[30px] lg:pb-[30px] lg:pt-[35px]">
+      <div className="relative z-10 flex flex-col gap-10 md:gap-8 lg:gap-20 px-[18px] pb-[18px] pt-[24px] md:px-5 md:pb-5 md:pt-6 lg:px-[30px] lg:pb-[30px] lg:pt-[35px]">
         {/* Logo */}
         <img src={logo} alt={alt} width={logoWidth} height={logoHeight} className="w-28 h-7 md:h-6 lg:h-10 md:w-auto object-contain self-start" />
 
         {/* Quote */}
-        <p className="w-60 md:w-auto text-sm leading-5 md:text-sm md:leading-5 lg:text-lg font-bold font-['Urbanist'] lg:leading-7 text-gray-800">
+        <p className="w-full md:w-auto text-sm leading-5 md:text-sm md:leading-5 lg:text-lg font-bold font-['Urbanist'] lg:leading-7 text-gray-800">
           {QUOTE_TEXT}
         </p>
 
         {/* Author */}
-        <div className="w-60 md:w-full inline-flex justify-between items-start">
+        <div className="w-full md:w-full inline-flex justify-between items-start">
           <div className="inline-flex flex-col justify-start items-start gap-1">
             <span className="text-xs md:text-base font-bold font-['Urbanist'] leading-4 md:leading-6 text-[#222222]">
               Theo Browne
@@ -98,23 +98,23 @@ function DarkCard({
 }) {
   return (
     <div
-      className="relative w-72 h-96 shrink-0 md:w-full md:h-auto overflow-hidden rounded-xl md:rounded-[20px] outline outline-1 outline-offset-[-1px] outline-white/30 backdrop-blur-[30px]"
+      className="relative w-[min(288px,80vw)] h-96 shrink-0 md:w-full md:h-auto overflow-hidden rounded-xl md:rounded-[20px] outline outline-1 outline-offset-[-1px] outline-white/30 backdrop-blur-[30px]"
       style={{
         background: "linear-gradient(45deg, #101010 0%, #242324 100%)",
       }}
     >
       <GridBg />
-      <div className="relative z-10 flex flex-col gap-16 md:gap-8 lg:gap-20 px-[18px] pb-[18px] pt-[24px] md:px-5 md:pb-5 md:pt-6 lg:px-[30px] lg:pb-[30px] lg:pt-[35px]">
+      <div className="relative z-10 flex flex-col gap-10 md:gap-8 lg:gap-20 px-[18px] pb-[18px] pt-[24px] md:px-5 md:pb-5 md:pt-6 lg:px-[30px] lg:pb-[30px] lg:pt-[35px]">
         {/* Logo */}
         <img src={logo} alt={alt} width={logoWidth} height={logoHeight} className="w-28 h-7 md:h-6 lg:h-10 md:w-auto object-contain self-start" />
 
         {/* Quote */}
-        <p className="w-60 md:w-auto text-sm leading-5 md:text-sm md:leading-5 lg:text-lg font-bold font-['Urbanist'] lg:leading-7 text-gray-100">
+        <p className="w-full md:w-auto text-sm leading-5 md:text-sm md:leading-5 lg:text-lg font-bold font-['Urbanist'] lg:leading-7 text-gray-100">
           {QUOTE_TEXT}
         </p>
 
         {/* Author */}
-        <div className="w-60 md:w-full inline-flex justify-between items-start">
+        <div className="w-full md:w-full inline-flex justify-between items-start">
           <div className="inline-flex flex-col justify-start items-start gap-1">
             <span className="text-xs md:text-base font-bold font-['Urbanist'] leading-4 md:leading-6 text-white">
               Theo Browne
@@ -142,17 +142,17 @@ function DarkCard({
 function GlassCard() {
   return (
     <div
-      className="relative w-72 h-96 shrink-0 md:w-full md:h-auto rounded-xl md:rounded-[20px] outline outline-1 outline-offset-[-1px] outline-white/30 backdrop-blur-[30px] px-[18px] pt-[24px] pb-[18px] md:pl-5 md:pr-4 md:pt-6 md:pb-2 lg:pl-9 lg:pr-7 lg:pt-10 lg:pb-2.5"
+      className="relative w-[min(288px,80vw)] h-96 shrink-0 md:w-full md:h-auto rounded-xl md:rounded-[20px] outline outline-1 outline-offset-[-1px] outline-white/30 backdrop-blur-[30px] px-[18px] pt-[24px] pb-[18px] md:pl-5 md:pr-4 md:pt-6 md:pb-2 lg:pl-9 lg:pr-7 lg:pt-10 lg:pb-2.5"
       style={{
         background:
           "linear-gradient(180deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.10) 50%, rgba(255,255,255,0.05) 100%)",
       }}
     >
-      <div className="relative z-10 flex flex-col justify-start items-start gap-16 md:gap-6 lg:gap-11 h-full">
-        <p className="w-60 md:w-auto text-sm leading-5 md:text-sm md:leading-5 lg:text-lg font-bold font-['Urbanist'] lg:leading-7 text-gray-100 flex-1">
+      <div className="relative z-10 flex flex-col justify-start items-start gap-10 md:gap-6 lg:gap-11 h-full">
+        <p className="w-full md:w-auto text-sm leading-5 md:text-sm md:leading-5 lg:text-lg font-bold font-['Urbanist'] lg:leading-7 text-gray-100 flex-1">
           {QUOTE_TEXT}
         </p>
-        <div className="w-60 md:w-full inline-flex justify-between items-start">
+        <div className="w-full md:w-full inline-flex justify-between items-start">
           <div className="inline-flex flex-col justify-start items-start gap-1">
             <span className="text-xs md:text-base font-bold font-['Urbanist'] leading-4 md:leading-6 text-white">
               Theo Browne
@@ -180,17 +180,17 @@ function GlassCard() {
 function GlassWhiteCard() {
   return (
     <div
-      className="relative w-72 h-96 shrink-0 md:w-full md:h-auto rounded-xl md:rounded-[20px] outline outline-1 outline-offset-[-1px] outline-white/30 backdrop-blur-[30px] px-[18px] pt-[24px] pb-[18px] md:pl-5 md:pr-4 md:pt-6 md:pb-2 lg:pl-9 lg:pr-7 lg:pt-10 lg:pb-2.5"
+      className="relative w-[min(288px,80vw)] h-96 shrink-0 md:w-full md:h-auto rounded-xl md:rounded-[20px] outline outline-1 outline-offset-[-1px] outline-white/30 backdrop-blur-[30px] px-[18px] pt-[24px] pb-[18px] md:pl-5 md:pr-4 md:pt-6 md:pb-2 lg:pl-9 lg:pr-7 lg:pt-10 lg:pb-2.5"
       style={{
         background:
           "linear-gradient(180deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.10) 50%, rgba(255,255,255,0.05) 100%)",
       }}
     >
-      <div className="relative z-10 flex flex-col justify-start items-start gap-16 md:gap-6 lg:gap-11 h-full">
-        <p className="w-60 md:w-auto text-sm leading-5 md:text-sm md:leading-5 lg:text-lg font-bold font-['Urbanist'] lg:leading-7 text-white flex-1">
+      <div className="relative z-10 flex flex-col justify-start items-start gap-10 md:gap-6 lg:gap-11 h-full">
+        <p className="w-full md:w-auto text-sm leading-5 md:text-sm md:leading-5 lg:text-lg font-bold font-['Urbanist'] lg:leading-7 text-white flex-1">
           {QUOTE_TEXT}
         </p>
-        <div className="w-60 md:w-full inline-flex justify-between items-start">
+        <div className="w-full md:w-full inline-flex justify-between items-start">
           <div className="inline-flex flex-col justify-start items-start gap-1">
             <span className="text-xs md:text-base font-bold font-['Urbanist'] leading-4 md:leading-6 text-white">
               Theo Browne
@@ -221,7 +221,7 @@ function GlassWhiteCard() {
 export function FoundersSection() {
   return (
     <Section
-      className="bg-black px-4 py-10 md:px-8 md:py-20 md:flex md:flex-col md:items-center"
+      className="bg-black px-4 py-10 md:px-8 md:py-20 flex flex-col items-center"
       id="testimonials"
     >
       <div className="self-stretch flex flex-col justify-start items-center gap-6 md:gap-14">
@@ -229,7 +229,7 @@ export function FoundersSection() {
         <div className="self-stretch flex flex-col justify-start items-center gap-1">
           <Badge className="w-32 h-9 px-3 py-1 bg-white/5 rounded-[100px] inline-flex justify-center items-center gap-2 overflow-hidden">Testimonials</Badge>
           <div className="flex flex-col justify-start items-center gap-4">
-            <div className="w-80 md:w-auto">
+            <div className="w-full max-w-[320px] md:max-w-none md:w-auto">
               <div className="md:hidden">
                 <ScrollTextReveal
                   text="The Best Companies Don't Have More People. They Have Better Coordination."

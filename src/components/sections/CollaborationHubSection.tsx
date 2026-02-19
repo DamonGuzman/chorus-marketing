@@ -324,16 +324,16 @@ export function CollaborationHubSection() {
       <div className="self-stretch flex flex-col items-center gap-[40px] md:gap-[80px]">
         {/* Header */}
         <div className="self-stretch flex flex-col items-center gap-1">
-          <div className="h-9 px-3 py-1 bg-white/5 rounded-[100px] overflow-hidden inline-flex items-center justify-center gap-2">
-            <span className="text-center text-white text-base font-bold font-['Urbanist'] leading-6">
+          <div className="h-8 px-3 py-1 bg-white/5 rounded-[100px] overflow-hidden inline-flex items-center justify-center gap-2">
+            <span className="text-center text-white text-sm font-semibold font-['Urbanist'] leading-6">
               Your Team + AI Team = Unstoppable
             </span>
           </div>
           <ScrollTextReveal
             text="Human-AI Collaboration"
-            className="text-5xl font-bold font-['Urbanist'] leading-[78px] text-center"
+            className="w-80 md:w-auto text-center text-white text-2xl md:text-5xl font-bold font-['Urbanist'] leading-8 md:leading-[78px]"
           />
-          <p className="text-center text-gray-300 text-2xl font-medium font-['Urbanist'] leading-9">
+          <p className="w-96 max-w-full md:w-auto text-center text-gray-400 md:text-gray-300 text-sm md:text-2xl font-normal md:font-medium font-['Urbanist'] leading-6 md:leading-9">
             Chorus isn&apos;t about replacing your people. It&apos;s about
             multiplying them.
           </p>
@@ -342,10 +342,10 @@ export function CollaborationHubSection() {
         {/* Mobile: illustration + list cards stacked */}
         <div className="w-full flex flex-col items-center gap-6 sm:gap-[30px] lg:hidden">
           {/* Scaled illustration — responsive scale per breakpoint */}
-          <AnimateOnScroll animation="slide-right" duration={0.9} threshold={0.2}>
-            <div className="relative w-full h-[238px] sm:h-[291px] md:h-[370px]">
+          <AnimateOnScroll animation="fade-up" duration={0.9} threshold={0.2}>
+            <div className="relative w-full h-[290px] sm:h-[330px] md:h-[370px]">
               <div
-                className="absolute top-0 left-1/2 -translate-x-1/2 scale-[0.45] sm:scale-[0.55] md:scale-[0.7] origin-top"
+                className="absolute top-0 left-1/2 -translate-x-[53%] scale-[0.55] sm:-translate-x-1/2 sm:scale-[0.62] md:scale-[0.7] origin-top"
                 style={{ width: 600, height: 530 }}
               >
                 <ComposedIllustration />

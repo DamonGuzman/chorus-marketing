@@ -42,10 +42,10 @@ export function GoalDrivenSection() {
         <div className="flex flex-col gap-[20px] md:gap-[40px] max-w-[510px]">
           <ScrollTextReveal
             text={`From "update this spreadsheet" to "optimize our budget"`}
-            className="text-[24px] md:text-[30px] font-bold leading-[34px] md:leading-[44px]"
+            className="text-[22px] md:text-[30px] font-bold leading-[32px] md:leading-[44px]"
           />
           <AnimateOnScroll animation="fade-up" duration={0.8} threshold={0.3}>
-            <p className="text-gray-300 text-[15px] md:text-[18px] font-medium leading-[26px] md:leading-[32px]">
+            <p className="text-gray-300 text-[14px] md:text-[18px] font-medium leading-[24px] md:leading-[32px]">
               VocAI CRM empowers a global network of over 250,000 businesses in
               180 countries to convert more leads, engage with customers, and grow
               their revenue. VocAI CRM empowers a global network of over 250,000
@@ -57,9 +57,9 @@ export function GoalDrivenSection() {
 
         {/* Right – Animated illustration */}
         <AnimateOnScroll animation="slide-right" duration={0.9} threshold={0.2}>
-          <div className="w-full h-full flex justify-end">
+          <div className="hidden md:flex w-full h-full justify-end">
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="images/figma/features/settings-image.png" className="w-auto h-auto" alt="" />
+            <img src="images/figma/features/settings-image.png" className="w-auto h-auto max-w-full" alt="" />
           </div>
         </AnimateOnScroll>
       </div>

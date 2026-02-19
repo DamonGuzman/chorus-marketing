@@ -134,14 +134,13 @@ function Illustration() {
 
 export function PipelineSection() {
   return (
-    <section className="w-full bg-black px-4 md:px-8 py-[75px] overflow-hidden">
-      <div className="max-w-[1200px] mx-auto flex items-center justify-between gap-0">
-        {/* Left – Step indicator */}
-        <div className="flex flex-col items-center gap-[26px] shrink-0">
+    <section className="w-full bg-black px-4 md:px-8 py-[50px] md:py-[75px] overflow-hidden">
+      <div className="max-w-[1200px] mx-auto flex flex-col md:flex-row items-center md:justify-between gap-8 md:gap-0">
+        {/* Left – Step indicator (desktop only) */}
+        <div className="hidden md:flex flex-col items-center gap-[26px] shrink-0">
           <span className="text-gray-300 text-[26px] font-medium leading-[36px] text-center">
             01
           </span>
-          {/* Two vertical lines: faded 341px then solid 341px (from Figma) */}
           <div className="flex flex-col items-center">
             <div className="w-[2px] h-[341px] bg-white/16" />
             <div className="w-[2px] h-[341px] bg-white" />
@@ -152,13 +151,13 @@ export function PipelineSection() {
         </div>
 
         {/* Center – Text content */}
-        <div className="flex flex-col gap-[40px] max-w-[470px]">
+        <div className="flex flex-col gap-[20px] md:gap-[40px] max-w-[470px]">
           <ScrollTextReveal
             text={`From "schedule this meeting" to "build this pipeline"`}
-            className="text-[24px] md:text-[30px] font-bold leading-[44px]"
+            className="text-[22px] md:text-[30px] font-bold leading-[32px] md:leading-[44px]"
           />
           <AnimateOnScroll animation="fade-up" duration={0.8} threshold={0.3}>
-            <p className="text-gray-300 text-[16px] md:text-[18px] font-medium leading-[32px]">
+            <p className="text-gray-300 text-[14px] md:text-[18px] font-medium leading-[24px] md:leading-[32px]">
               VocAI CRM empowers a global network of over 250,000 businesses in
               180 countries to convert more leads, engage with customers, and grow
               their revenue. VocAI CRM empowers a global network of over 250,000

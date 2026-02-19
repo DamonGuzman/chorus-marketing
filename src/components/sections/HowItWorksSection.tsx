@@ -326,7 +326,7 @@ function StepItem({
   isLast: boolean;
 }) {
   return (
-    <div className="self-stretch inline-flex justify-center md:justify-start items-center gap-4 md:gap-6 lg:gap-20">
+    <div className="w-full flex justify-center md:justify-start items-center gap-4 md:gap-6 lg:gap-20">
       {/* Vertical line — desktop only */}
       <div
         className={cn(
@@ -338,7 +338,7 @@ function StepItem({
       {/* Content card */}
       <div
         className={cn(
-          "w-80 md:w-full lg:w-96 px-5 pt-7 pb-5 rounded-3xl inline-flex flex-col justify-start items-start gap-2.5",
+          "w-80 max-w-full md:w-full lg:w-96 px-5 pt-7 pb-5 rounded-3xl inline-flex flex-col justify-start items-start gap-2.5",
           active ? "bg-white/10 md:bg-white/5" : ""
         )}
       >
@@ -365,7 +365,7 @@ function StepItem({
           </div>
 
           {/* Description */}
-          <p className="self-stretch font-['Urbanist'] text-sm font-normal leading-6 text-gray-300 md:text-sm md:leading-6 lg:text-base lg:leading-8">
+          <p className="w-80 max-w-full font-['Urbanist'] text-sm font-normal leading-6 text-gray-300 md:text-sm md:leading-6 lg:text-base lg:leading-8">
             {description}
           </p>
         </div>
@@ -580,10 +580,10 @@ function ConnectedAppsCard() {
 export function HowItWorksSection() {
   return (
     <Section
-      className="relative overflow-hidden py-10 px-4 md:py-20 md:px-8 md:flex md:flex-col md:items-center"
+      className="relative overflow-hidden py-10 px-4 md:py-20 md:px-8 flex flex-col items-center"
       id="how-it-works"
     >
-      <div className="self-stretch px-4 md:px-0">
+      <div className="w-full">
         <div className="flex flex-col justify-start items-center gap-6 md:gap-14">
           {/* ---- Header ---- */}
           <div className="flex flex-col justify-start items-center gap-1">
@@ -592,10 +592,10 @@ export function HowItWorksSection() {
             <div className="flex flex-col justify-start items-center gap-4">
               <ScrollTextReveal
                 text="How It Works"
-                className="justify-start text-white text-5xl font-bold font-['Urbanist'] leading-[78px]"
+                className="justify-start text-white text-2xl leading-8 md:text-3xl md:leading-[42px] lg:text-5xl font-bold font-['Urbanist'] lg:leading-[78px]"
               />
               <AnimateOnScroll animation="fade-up" duration={0.8} threshold={0.3}>
-                <p className="text-center justify-start text-gray-300 text-xl font-normal font-['Urbanist'] leading-9">
+                <p className="text-center justify-start text-gray-300 text-sm leading-6 md:text-xl font-normal font-['Urbanist'] md:leading-9">
                   The best way to reach humans instead of spam folders. Deliver
                   transactional and marketing emails at scale.
                 </p>
@@ -643,28 +643,39 @@ export function HowItWorksSection() {
             </div>
           </div>
 
-          {/* Mobile: interleaved — image first, then steps one by one */}
-          <div className="md:hidden w-full overflow-hidden px-3 py-[30px]">
-            <div className="flex flex-col gap-[20px]">
-              {/* Visual card — appears first */}
-              <AnimateOnScroll animation="fade-up" duration={0.8} delay={0} threshold={0.1}>
+          {/* Mobile: Step 1 → visual card → Steps 2 & 3 (matches Figma) */}
+          <div className="md:hidden w-full overflow-hidden py-[30px]">
+            <div className="flex flex-col items-center gap-[20px]">
+              {/* Step 1 (active) */}
+              <AnimateOnScroll animation="fade-up" duration={0.7} delay={0} threshold={0.1}>
+                <StepItem
+                  number={steps[0].number}
+                  title={steps[0].title}
+                  description={steps[0].description}
+                  active={steps[0].active}
+                  isLast={false}
+                />
+              </AnimateOnScroll>
+
+              {/* Visual card — between step 1 and steps 2-3 */}
+              <AnimateOnScroll animation="fade-up" duration={0.8} delay={0.2} threshold={0.1}>
                 <div className="flex justify-center">
                   <img
                     src="/images/figma/Group 1707484029.svg"
                     alt="Agent profile card"
-                    className="w-72 h-auto"
+                    className="w-full h-auto"
                     style={{ imageRendering: "auto", WebkitFontSmoothing: "antialiased" }}
                   />
                 </div>
               </AnimateOnScroll>
 
-              {/* Steps — appear one by one after image */}
-              {steps.map((step, idx) => (
+              {/* Steps 2 & 3 */}
+              {steps.slice(1).map((step, idx) => (
                 <AnimateOnScroll
                   key={step.number}
                   animation="fade-up"
                   duration={0.7}
-                  delay={0.3 + idx * 0.2}
+                  delay={0.4 + idx * 0.2}
                   threshold={0.1}
                 >
                   <StepItem
@@ -672,7 +683,7 @@ export function HowItWorksSection() {
                     title={step.title}
                     description={step.description}
                     active={step.active}
-                    isLast={idx === steps.length - 1}
+                    isLast={idx === steps.length - 2}
                   />
                 </AnimateOnScroll>
               ))}
