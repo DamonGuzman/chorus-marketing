@@ -2,7 +2,7 @@
    Human-AI Collaboration Section
    ───────────────────────────────────────────────────────── */
 
-import { AnimateOnScroll, ScrollTextReveal } from "@/components/ui";
+import { AnimateOnScroll, Badge, ScrollTextReveal } from "@/components/ui";
 
 /* ── Checkmark circle bullet ── */
 function CheckBullet({ text }: { text: string }) {
@@ -324,11 +324,7 @@ export function CollaborationHubSection() {
       <div className="self-stretch flex flex-col items-center gap-[40px] md:gap-[80px]">
         {/* Header */}
         <div className="self-stretch flex flex-col items-center gap-1">
-          <div className="h-8 px-3 py-1 bg-white/5 rounded-[100px] overflow-hidden inline-flex items-center justify-center gap-2">
-            <span className="text-center text-white text-sm font-semibold font-['Urbanist'] leading-6">
-              Your Team + AI Team = Unstoppable
-            </span>
-          </div>
+          <Badge className="h-8 text-sm">Your Team + AI Team = Unstoppable</Badge>
           <ScrollTextReveal
             text="Human-AI Collaboration"
             className="w-80 md:w-auto text-center text-white text-2xl md:text-5xl font-bold font-['Urbanist'] leading-8 md:leading-[78px]"
