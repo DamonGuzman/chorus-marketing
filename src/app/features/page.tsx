@@ -3,8 +3,7 @@ import { AnimateOnScroll } from "@/components/ui";
 import { FeaturesHeroSection } from "@/components/sections/FeaturesHeroSection";
 import { ChorusAgentsSection } from "@/components/sections/ChorusAgentsSection";
 import { TheShiftSection } from "@/components/sections/TheShiftSection";
-import { GoalDrivenSection } from "@/components/sections/GoalDrivenSection";
-import { PipelineSection } from "@/components/sections/PipelineSection";
+import { FeaturesStickySteps } from "@/components/sections/FeaturesStickySteps";
 import { CampaignSection } from "@/components/sections/CampaignSection";
 import { StepCarousel } from "@/components/sections/StepCarousel";
 import { FeaturesCardSection } from "@/components/sections/FeaturesCardSection";
@@ -13,7 +12,7 @@ import { FinalCTASection } from "@/components/sections/FinalCTASection";
 
 export default function FeaturesPage() {
   return (
-    <div className="min-h-screen bg-black overflow-x-hidden">
+    <div className="min-h-screen bg-black" style={{ overflowX: "clip" }}>
       <Header />
       <main className="px-4 md:px-6 lg:px-10">
         <FeaturesHeroSection />
@@ -22,14 +21,9 @@ export default function FeaturesPage() {
           <ChorusAgentsSection />
         </AnimateOnScroll>
 
-        {/* Desktop: show all three sections stacked */}
+        {/* Desktop: sticky scroll for steps 01 & 02 */}
+        <FeaturesStickySteps />
         <div className="hidden lg:block">
-          <AnimateOnScroll animation="fade-up" duration={0.8}>
-            <GoalDrivenSection />
-          </AnimateOnScroll>
-          <AnimateOnScroll animation="fade-up" duration={0.8}>
-            <PipelineSection />
-          </AnimateOnScroll>
           <AnimateOnScroll animation="fade-up" duration={0.8}>
             <TheShiftSection />
           </AnimateOnScroll>
