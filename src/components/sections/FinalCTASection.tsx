@@ -12,6 +12,12 @@ export function FinalCTASection() {
         alt=""
         className="pointer-events-none absolute left-1/2 top-[40%] -translate-x-1/2 -translate-y-1/2 w-full max-w-[1400px] h-auto opacity-30"
       />
+      {/* Bright stars — wave highlight sweep */}
+      <img
+        src="/images/figma/stars.svg"
+        alt=""
+        className="stars-wave-bright pointer-events-none absolute left-1/2 top-[40%] -translate-x-1/2 -translate-y-1/2 w-full max-w-[1400px] h-auto opacity-90"
+      />
       {/* Top gradient glow */}
       <div className="absolute top-0 left-0 right-0 w-full h-[300px] md:h-[515px] bg-gradient-to-b from-white/20 via-white/0 to-black/0 pointer-events-none" />
       {/* Horizontal glowing line at top */}
