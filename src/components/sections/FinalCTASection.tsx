@@ -12,6 +12,12 @@ export function FinalCTASection() {
         alt=""
         className="pointer-events-none absolute left-1/2 top-[40%] -translate-x-1/2 -translate-y-1/2 w-full max-w-[1400px] h-auto opacity-30"
       />
+      {/* Bright stars — wave highlight sweep */}
+      <img
+        src="/images/figma/stars.svg"
+        alt=""
+        className="stars-wave-bright pointer-events-none absolute left-1/2 top-[40%] -translate-x-1/2 -translate-y-1/2 w-full max-w-[1400px] h-auto opacity-90"
+      />
       {/* Top gradient glow */}
       <div className="absolute top-0 left-0 right-0 w-full h-[300px] md:h-[515px] bg-gradient-to-b from-white/20 via-white/0 to-black/0 pointer-events-none" />
       {/* Horizontal glowing line at top */}
@@ -32,12 +38,17 @@ export function FinalCTASection() {
           </div>
           {/* Feature pills */}
           <div className="flex flex-wrap justify-center items-center gap-3 md:gap-6">
-            {["Build without hiring", "Scale without friction", "Grow with Chorus"].map((point) => (
+            {["Build without hiring", "Scale without friction", "Grow with Chorus"].map((point, i) => (
               <div
                 key={point}
                 className="relative h-10 md:h-12 rounded-[50px] overflow-hidden backdrop-blur-[30px] inline-flex justify-center items-center"
               >
                 <span aria-hidden="true" className="absolute inset-0 rounded-[50px] bg-gradient-to-b from-white/30 to-white/[0.04]" />
+                <span
+                  aria-hidden="true"
+                  className="cta-orbit-ring cta-orbit-ring--pill"
+                  style={{ '--orbit-delay': `${-i * 1.3}s` } as React.CSSProperties}
+                />
                 <span aria-hidden="true" className="absolute inset-[1px] rounded-[50px] bg-[#131313]" />
                 <div className="relative z-10 inline-flex justify-start items-center gap-3 md:gap-5 pl-5 pr-4 md:pl-9 md:pr-7 py-7">
                   <svg width="14" height="10" viewBox="0 0 18 12" fill="none" className="shrink-0">

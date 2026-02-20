@@ -100,6 +100,10 @@ export function Header() {
               aria-hidden="true"
               className="absolute inset-[1px] rounded-[100px] bg-[#131313]"
             />
+            <span
+              aria-hidden="true"
+              className="glass-shine absolute inset-px rounded-badge pointer-events-none z-5"
+            />
             <span className="relative z-10 text-center text-white text-sm font-bold font-['Urbanist'] leading-6">
               {PRIMARY_CTA_LABEL}
             </span>

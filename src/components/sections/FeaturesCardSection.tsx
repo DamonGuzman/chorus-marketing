@@ -4,7 +4,7 @@
    Card #3 — Full Business Context with orbital integration visual
    ───────────────────────────────────────────────────────── */
 
-import { AnimateOnScroll, ScrollTextReveal } from "@/components/ui";
+import { AnimateOnScroll, Badge, ScrollTextReveal } from "@/components/ui";
 
 /* ── Checkmark icon ── */
 function CheckMark() {
@@ -139,9 +139,7 @@ export function FeaturesCardSection() {
 
         {/* ── Section Header ── */}
         <div className="flex flex-col items-center gap-1 w-full self-stretch">
-          <div className="w-28 h-9 px-3 py-1 bg-white/5 rounded-[100px] inline-flex justify-center items-center gap-2 overflow-hidden">
-            <span className="text-center text-white text-base font-bold font-['Urbanist'] leading-6">Features</span>
-          </div>
+          <Badge className="w-28">Features</Badge>
           <div className="flex flex-col items-center gap-[4px] md:gap-[8px] w-full self-stretch">
             <ScrollTextReveal
               text="The Difference That Changes Everything"

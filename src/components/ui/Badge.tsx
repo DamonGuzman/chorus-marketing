@@ -23,6 +23,11 @@ export function Badge({ children, className }: BadgeProps) {
         aria-hidden="true"
         className="absolute inset-[1px] rounded-[100px] bg-[#131313]"
       />
+      {/* Glass shine sweep */}
+      <span
+        aria-hidden="true"
+        className="glass-shine absolute inset-px rounded-badge pointer-events-none z-5"
+      />
       {/* Text */}
       <span className="relative z-10 text-center justify-center text-white text-base font-semibold font-['Urbanist'] leading-6">
         {children}
