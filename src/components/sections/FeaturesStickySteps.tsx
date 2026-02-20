@@ -100,9 +100,9 @@ function SkeletonBubble() {
 
 function GoalIllustration() {
   return (
-    <div className="w-full h-full flex items-center justify-center">
+    <div className="w-full h-full flex items-center justify-center pt-16">
       {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img src="images/figma/features/settings-image.png" className="w-auto h-auto max-w-full max-h-[420px] object-contain" alt="" />
+      <img src="images/figma/features/settings-image.png" className="w-auto h-auto max-w-[480px] max-h-[400px] object-contain" alt="" />
     </div>
   );
 }
