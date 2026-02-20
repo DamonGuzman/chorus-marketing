@@ -100,6 +100,10 @@ export function Header() {
               aria-hidden="true"
               className="absolute inset-[1px] rounded-[100px] bg-[#131313]"
             />
+            <span
+              aria-hidden="true"
+              className="header-cta-shine absolute inset-px rounded-badge pointer-events-none z-5"
+            />
             <span className="relative z-10 text-center text-white text-sm font-bold font-['Urbanist'] leading-6">
               {PRIMARY_CTA_LABEL}
             </span>
@@ -181,6 +185,27 @@ export function Header() {
           </div>
         </div>
       </div>
+      <style jsx>{`
+        .header-cta-shine {
+          background: linear-gradient(
+            110deg,
+            rgba(255, 255, 255, 0) 18%,
+            rgba(229, 231, 235, 0.1) 40%,
+            rgba(243, 244, 246, 0.48) 50%,
+            rgba(229, 231, 235, 0.1) 60%,
+            rgba(255, 255, 255, 0) 82%
+          );
+          mix-blend-mode: screen;
+          transform: translateX(-130%);
+          animation: headerCtaShine 2.8s linear infinite;
+        }
+
+        @keyframes headerCtaShine {
+          100% {
+            transform: translateX(130%);
+          }
+        }
+      `}</style>
     </header>
   );
 }
