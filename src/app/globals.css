@@ -116,6 +116,29 @@
   50%      { box-shadow: 0 0 55px 14px rgba(255, 130, 120, 0.35), 0 0 100px 30px rgba(255, 130, 120, 0.15); }
 }
 
+@keyframes orbit-spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+@keyframes hourglass-flip {
+  0%   { transform: rotate(0deg); }
+  20%  { transform: rotate(180deg); }
+  50%  { transform: rotate(180deg); }
+  70%  { transform: rotate(360deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes bar-shimmer-svg {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(500px); }
+}
+
+@keyframes bar-shimmer {
+  0%   { transform: translateX(-100%); }
+  100% { transform: translateX(350%); }
+}
+
 /* ============================================
    CUSTOM UTILITIES
    ============================================ */
