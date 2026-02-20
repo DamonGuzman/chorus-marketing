@@ -248,27 +248,60 @@ function GoalsCard() {
   );
 }
 
+/* ── Rotating orbit light wedge — exact replica of the original SVG wedge ── */
+function OrbitLightWedge() {
+  const cx = 249.973;
+  const cy = 238.089;
+
+  return (
+    <div
+      className="absolute inset-0 pointer-events-none"
+      style={{
+        transformOrigin: `${(cx / 494) * 100}% ${(cy / 479) * 100}%`,
+        animation: "orbit-spin 20s linear infinite",
+      }}
+    >
+      <svg viewBox="0 0 494 479" fill="none" className="w-full h-full">
+        <defs>
+          <filter id="wedgeShadow" x="243.795" y="59.0566" width="191.559" height="191.389" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
+            <feFlood floodOpacity="0" result="BackgroundImageFix"/>
+            <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+            <feOffset dy="6.17791"/>
+            <feGaussianBlur stdDeviation="3.08896"/>
+            <feComposite in2="hardAlpha" operator="out"/>
+            <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>
+            <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow"/>
+            <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape"/>
+          </filter>
+          <linearGradient id="wedgeGrad" x1="352.663" y1="101.887" x2="302.702" y2="191.289" gradientUnits="userSpaceOnUse">
+            <stop stopColor="#FBFBFB"/>
+            <stop offset="1" stopColor="#959595" stopOpacity="0.4"/>
+          </linearGradient>
+        </defs>
+        <g filter="url(#wedgeShadow)">
+          <path
+            d="M260.262 59.0565C300.191 61.2453 338.295 76.1071 368.784 101.383C399.273 126.658 420.478 160.965 429.176 199.088L249.973 238.089L260.262 59.0565Z"
+            fill="url(#wedgeGrad)"
+            fillOpacity="0.45"
+            shapeRendering="crispEdges"
+          />
+          <path
+            d="M260.262 59.0565C300.191 61.2453 338.295 76.1071 368.784 101.383C399.273 126.658 420.478 160.965 429.176 199.088L249.973 238.089L260.262 59.0565Z"
+            fill="#252525"
+            fillOpacity="0.35"
+            shapeRendering="crispEdges"
+          />
+        </g>
+      </svg>
+    </div>
+  );
+}
+
 /* ═══════════════════════════════════════════════════════════
    CARD 2 — "They collaborate with each other"
    Robot center, avatar orbit, cursor+label pills
    ═══════════════════════════════════════════════════════════ */
 function CollaborateCard() {
-  const avatarOrbit = [
-    { src: "/images/figma/Ellipse 53.svg", angle: -90 },
-    { src: "/images/figma/Ellipse 54.svg", angle: 30 },
-    { src: "/images/figma/Ellipse 53 (1).svg", angle: 150 },
-  ];
-
-  const labelOrbit = [
-    { label: "Task", angle: 210 },
-    { label: "Chat", angle: -30 },
-    { label: "Goals", angle: 90 },
-  ];
-
-  const avatarRadius = 160;
-  const labelRadius = 210;
-  const arrowRadius = 160;
-
   return (
     <div className="w-80 md:w-[600px] h-96 md:h-[671px] relative overflow-hidden rounded-3xl md:rounded-[40px] border-[0.58px] md:border border-white/30 bg-gradient-to-b from-black/80 to-black">
       {/* Background image */}
@@ -278,13 +311,19 @@ function CollaborateCard() {
       />
       {/* Dark gradient overlay */}
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/80 md:from-black/30 md:via-black/90 md:to-black/90" />
-      {/* Orbit illustration */}
+
+      {/* Orbit illustration (static) */}
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
         src="/images/figma/Group 1707484055.svg"
         alt=""
         className="absolute top-1 md:top-5 left-1/2 -translate-x-1/2 w-[72%] max-w-[230px] md:max-w-[460px] h-auto z-10 pointer-events-none"
       />
+
+      {/* Animated rotating light wedge — exact overlay matching the orbit image position */}
+      <div className="absolute top-1 md:top-5 left-1/2 -translate-x-1/2 w-[72%] max-w-[230px] md:max-w-[460px] z-[12] pointer-events-none" style={{ aspectRatio: "494 / 479" }}>
+        <OrbitLightWedge />
+      </div>
 
       <div className="absolute bottom-0 inset-x-0 z-30 flex flex-col items-center gap-0.5 md:gap-4 pb-5 md:pb-14 px-3 md:px-6">
         <ScrollTextReveal
