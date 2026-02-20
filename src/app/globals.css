@@ -355,6 +355,33 @@
   }
 }
 
+/* ── Glass shine sweep (shared by Badge + Header CTA) ── */
+@keyframes glass-shine-sweep {
+  100% { transform: translateX(130%); }
+}
+
+.glass-shine {
+  background: linear-gradient(
+    110deg,
+    rgba(255,255,255,0) 18%,
+    rgba(229,231,235,0.1) 40%,
+    rgba(243,244,246,0.48) 50%,
+    rgba(229,231,235,0.1) 60%,
+    rgba(255,255,255,0) 82%
+  );
+  mix-blend-mode: screen;
+  transform: translateX(-130%);
+  animation: glass-shine-sweep 2.8s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .glass-shine {
+    animation: none;
+    transform: none;
+    background: none;
+  }
+}
+
 /* ── Header scroll state ── */
 .header-scrolled {
   background: rgba(0, 0, 0, 0.7) !important;
