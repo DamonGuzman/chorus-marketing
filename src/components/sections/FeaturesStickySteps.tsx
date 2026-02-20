@@ -7,18 +7,18 @@ import { motion, useScroll, useTransform, type MotionValue } from "framer-motion
 
 const featureSteps = [
   {
-    number: "01",
-    title: 'From "schedule this meeting" to "build this pipeline"',
-    description:
-      "VocAI CRM empowers a global network of over 250,000 businesses in 180 countries to convert more leads, engage with customers, and grow their revenue. VocAI CRM empowers a global network of over 250,000 businesses in 180 countries to convert more leads, engage with customers, and grow their revenue.",
-    illustration: "pipeline" as const,
-  },
-  {
     number: "02",
     title: 'From "update this spreadsheet" to "optimize our budget"',
     description:
       "VocAI CRM empowers a global network of over 250,000 businesses in 180 countries to convert more leads, engage with customers, and grow their revenue. VocAI CRM empowers a global network of over 250,000 businesses in 180 countries to convert more leads, engage with customers, and grow their revenue.",
     illustration: "goal" as const,
+  },
+  {
+    number: "01",
+    title: 'From "schedule this meeting" to "build this pipeline"',
+    description:
+      "VocAI CRM empowers a global network of over 250,000 businesses in 180 countries to convert more leads, engage with customers, and grow their revenue. VocAI CRM empowers a global network of over 250,000 businesses in 180 countries to convert more leads, engage with customers, and grow their revenue.",
+    illustration: "pipeline" as const,
   },
 ];
 
@@ -26,32 +26,32 @@ const featureSteps = [
 
 function PipelineIllustration() {
   return (
-    <div className="w-full h-full flex items-center justify-center">
-      <div className="relative w-[480px] h-[460px] shrink-0">
+    <div className="w-full h-full flex items-center justify-center pt-16">
+      <div className="relative w-[420px] h-[400px] shrink-0">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           src="/images/figma/image 29.svg"
           alt=""
           className="absolute"
-          style={{ width: 629, height: 493, left: 30, top: 0 }}
+          style={{ width: 520, height: 408, left: 10, top: -10 }}
         />
         <div
-          className="absolute rounded-[45px]"
-          style={{ left: 10, top: 172, width: 175, height: 124, background: "white", filter: "blur(7.84px)", boxShadow: "16px 16px 16px rgba(0,0,0,0.15)" }}
+          className="absolute rounded-[35px]"
+          style={{ left: 8, top: 148, width: 140, height: 100, background: "white", filter: "blur(6px)", boxShadow: "12px 12px 12px rgba(0,0,0,0.15)" }}
         />
         <div
-          className="absolute rounded-[45px]"
-          style={{ left: 10, top: 152, width: 172, height: 172, background: "#101010", backdropFilter: "blur(130px)" }}
+          className="absolute rounded-[35px]"
+          style={{ left: 8, top: 132, width: 138, height: 138, background: "#101010", backdropFilter: "blur(130px)" }}
         />
         <div
-          className="absolute rounded-[45px]"
-          style={{ left: 30, top: 172, width: 133, height: 133, background: "linear-gradient(166deg, rgba(207,207,207,0.03) 0%, rgba(92,92,92,0.26) 100%)", border: "3.57px solid rgba(255,255,255,0.03)", backdropFilter: "blur(130px)" }}
+          className="absolute rounded-[35px]"
+          style={{ left: 24, top: 148, width: 108, height: 108, background: "linear-gradient(166deg, rgba(207,207,207,0.03) 0%, rgba(92,92,92,0.26) 100%)", border: "2.5px solid rgba(255,255,255,0.03)", backdropFilter: "blur(130px)" }}
         />
-        <div className="absolute" style={{ left: 60, top: 200 }}>
+        <div className="absolute" style={{ left: 46, top: 168 }}>
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/images/figma/calendar-03.svg" alt="" className="w-[74px] h-[74px]" />
+          <img src="/images/figma/calendar-03.svg" alt="" className="w-[60px] h-[60px]" />
         </div>
-        <div className="absolute right-0 top-[3rem]">
+        <div className="absolute -right-10 top-[2rem]">
           <TaskCard />
         </div>
       </div>
@@ -71,7 +71,7 @@ function TaskCard() {
       <div className="flex items-center gap-[6px]">
         <span className="text-gray-300 text-[13px] font-semibold">Tasks : 7</span>
       </div>
-      <div className="flex items-center -space-x-[6px]">
+      <div className="flex items-center -space-x-[8px]">
         {avatars.map((src, i) => (
           // eslint-disable-next-line @next/next/no-img-element
           <img key={i} src={src} alt="" className="w-[28px] h-[28px] rounded-full border-[1.5px] border-gray-600 shrink-0 object-cover" />
