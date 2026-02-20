@@ -1,19 +1,32 @@
 "use client";
 
-import { AnimateOnScroll, Badge, Container, ScrollTextReveal, Section } from "@/components/ui";
+import { AnimateOnScroll, Badge, ScrollTextReveal, Section } from "@/components/ui";
+import type { LottieRefCurrentProps } from "lottie-react";
 import dynamic from "next/dynamic";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 
 const Lottie = dynamic(() => import("lottie-react"), { ssr: false });
 
+const ORBIT_START_FRAME = 241;
+const ORBIT_END_FRAME = 1441;
+
 export function ChorusWaySection() {
   const [animationData, setAnimationData] = useState<object | null>(null);
+  const mobileLottieRef = useRef<LottieRefCurrentProps>(null);
+  const desktopLottieRef = useRef<LottieRefCurrentProps>(null);
 
   useEffect(() => {
     fetch("/images/6 Points Animation/6 Points Animation.json")
       .then((res) => res.json())
       .then((data) => setAnimationData(data))
       .catch(() => {});
+  }, []);
+
+  const startOrbitLoop = useCallback((lottieRef: React.RefObject<LottieRefCurrentProps | null>) => {
+    const anim = lottieRef.current;
+    if (!anim?.animationItem) return;
+    anim.animationItem.loop = true;
+    anim.playSegments([ORBIT_START_FRAME, ORBIT_END_FRAME], true);
   }, []);
 
   return (
@@ -40,9 +53,12 @@ export function ChorusWaySection() {
           <div className="w-full h-[320px] pointer-events-none overflow-hidden mx-auto flex items-center justify-center">
             {animationData && (
               <Lottie
+                lottieRef={mobileLottieRef}
                 animationData={animationData}
-                loop
+                initialSegment={[0, ORBIT_START_FRAME]}
+                loop={false}
                 autoplay
+                onComplete={() => startOrbitLoop(mobileLottieRef)}
                 className="w-[140%] h-auto scale-110"
               />
             )}
@@ -89,9 +105,12 @@ export function ChorusWaySection() {
           <AnimateOnScroll animation="slide-right" duration={0.9} delay={0.2} className="flex-1 min-w-0 pointer-events-none overflow-visible lg:-mr-[60px] lg:-mt-[40px]">
             {animationData && (
               <Lottie
+                lottieRef={desktopLottieRef}
                 animationData={animationData}
-                loop
+                initialSegment={[0, ORBIT_START_FRAME]}
+                loop={false}
                 autoplay
+                onComplete={() => startOrbitLoop(desktopLottieRef)}
                 className="w-full h-auto md:scale-[0.85] md:origin-left lg:scale-110 lg:origin-center"
               />
             )}
