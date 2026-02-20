@@ -1,6 +1,55 @@
 import { AnimateOnScroll, Badge, Section, ScrollTextReveal, StaggerChildren } from "@/components/ui";
 import Image from "next/image";
 
+function AnimatedBorder({
+  radiusMobile,
+  radiusDesktop,
+  radiusLg,
+  strokeMobile = 0.52,
+  strokeDesktop = 0.85,
+  strokeLg,
+  delay = 0,
+}: {
+  radiusMobile: number;
+  radiusDesktop: number;
+  radiusLg?: number;
+  strokeMobile?: number;
+  strokeDesktop?: number;
+  strokeLg?: number;
+  delay?: number;
+}) {
+  const rLg = radiusLg ?? radiusDesktop;
+  const sLg = strokeLg ?? strokeDesktop;
+  return (
+    <>
+      {/* Mobile */}
+      <svg className="md:hidden absolute inset-0 w-full h-full pointer-events-none z-[1]" preserveAspectRatio="none">
+        <rect x="0.5" y="0.5" width="calc(100% - 1px)" height="calc(100% - 1px)"
+          rx={radiusMobile} ry={radiusMobile} fill="none"
+          stroke="rgba(255,255,255,0.3)" strokeWidth={strokeMobile}
+          className="animated-border" style={{ animationDelay: `${delay}s` }}
+        />
+      </svg>
+      {/* Tablet */}
+      <svg className="hidden md:block lg:hidden absolute inset-0 w-full h-full pointer-events-none z-[1]" preserveAspectRatio="none">
+        <rect x="0.5" y="0.5" width="calc(100% - 1px)" height="calc(100% - 1px)"
+          rx={radiusDesktop} ry={radiusDesktop} fill="none"
+          stroke="rgba(255,255,255,0.3)" strokeWidth={strokeDesktop}
+          className="animated-border" style={{ animationDelay: `${delay}s` }}
+        />
+      </svg>
+      {/* Desktop */}
+      <svg className="hidden lg:block absolute inset-0 w-full h-full pointer-events-none z-[1]" preserveAspectRatio="none">
+        <rect x="0.5" y="0.5" width="calc(100% - 1px)" height="calc(100% - 1px)"
+          rx={rLg} ry={rLg} fill="none"
+          stroke="rgba(255,255,255,0.3)" strokeWidth={sLg}
+          className="animated-border" style={{ animationDelay: `${delay}s` }}
+        />
+      </svg>
+    </>
+  );
+}
+
 const capabilityCards = [
   { name: "Sales", iconSrc: "/images/figma/Sales.svg" },
   { name: "Finance", iconSrc: "/images/figma/Finance.svg" },
@@ -52,11 +101,11 @@ export function CapabilitiesSection() {
               <div
                 key={name}
                 className={[
+                  "relative overflow-hidden",
                   /* — mobile: Figma exact spec — */
                   "max-md:w-[280px] max-md:h-[72px]",
                   "max-md:pl-4 max-md:pr-3 max-md:py-3",
                   "max-md:rounded-xl",
-                  "max-md:outline max-md:outline-[0.52px] max-md:outline-offset-[-0.52px] max-md:outline-white/30",
                   "max-md:backdrop-blur-lg",
                   "max-md:inline-flex max-md:flex-col max-md:justify-center max-md:items-start",
                   /* alternating left/right offset on mobile */
@@ -65,7 +114,6 @@ export function CapabilitiesSection() {
                   "md:w-full md:max-w-[500px] md:h-24 lg:h-36",
                   "md:pl-0 md:pr-0 md:py-3 lg:py-6",
                   "md:rounded-3xl",
-                  "md:outline md:outline-[0.85px] md:outline-offset-[-0.85px] md:outline-white/30",
                   "md:backdrop-blur-xl",
                   "md:inline-flex md:items-center md:gap-1",
                   index % 2 === 0 ? "md:ml-[25px] lg:ml-[50px]" : "",
@@ -73,10 +121,14 @@ export function CapabilitiesSection() {
                   "bg-gradient-to-r from-white/5 via-white/10 to-white/5",
                 ].join(" ")}
               >
+                <AnimatedBorder radiusMobile={12} radiusDesktop={24} delay={index * 0.4} />
                 {/* Mobile inner row: glow · icon · text */}
                 <div className="md:hidden w-full inline-flex justify-start items-center gap-3">
                   <div className="relative shrink-0 w-10 h-10 flex items-center justify-center">
-                    <div className="absolute w-6 h-6 opacity-30 bg-white/30 rounded-full blur-md inset-0 m-auto" />
+                    <div
+                      className="absolute w-6 h-6 bg-white/30 rounded-full blur-md inset-0 m-auto"
+                      style={{ animation: 'icon-glow 3s ease-in-out infinite' }}
+                    />
                     <Image src={iconSrc} alt="" width={40} height={40} className="w-10 h-10 object-contain relative" />
                   </div>
                   <div className="flex-1 min-w-0 flex flex-col gap-1">
@@ -89,7 +141,10 @@ export function CapabilitiesSection() {
 
                 {/* Desktop: large icon with glow overflow + text */}
                 <div className="hidden md:block relative shrink-0 -translate-y-2 md:w-24 md:h-24 lg:w-36 lg:h-36">
-                  <div className="md:w-10 md:h-10 lg:w-14 lg:h-14 bg-white/5 rounded-full blur-md absolute inset-0 m-auto" />
+                  <div
+                    className="md:w-10 md:h-10 lg:w-14 lg:h-14 bg-white/30 rounded-full blur-md absolute inset-0 m-auto"
+                    style={{ animation: 'icon-glow 3s ease-in-out infinite' }}
+                  />
                   <Image src={iconSrc} alt="" width={100} height={100} className="md:w-24 md:h-24 lg:w-36 lg:h-36 object-contain relative" />
                 </div>
                 <div className="hidden md:flex flex-col md:gap-4">
@@ -106,7 +161,12 @@ export function CapabilitiesSection() {
         {/* Right: team preview */}
         <div className="w-full md:flex-1 md:min-w-0">
           <div className="flex justify-center">
-            <div className="relative w-64 h-80 md:w-[280px] md:h-[360px] lg:w-[497px] lg:h-[595px] bg-black rounded-[35px] md:rounded-[50px] lg:rounded-[65px] border-[3.24px] md:border-[4px] lg:border-[6px] border-white/10 px-4 pt-5 pb-6 md:px-4 md:pt-4 md:pb-5 lg:px-[28px] lg:pt-[32px] lg:pb-[36px] flex flex-col">
+            <div className="relative w-64 h-80 md:w-[280px] md:h-[360px] lg:w-[497px] lg:h-[595px] bg-black rounded-[35px] md:rounded-[50px] lg:rounded-[65px] px-4 pt-5 pb-6 md:px-4 md:pt-4 md:pb-5 lg:px-[28px] lg:pt-[32px] lg:pb-[36px] flex flex-col">
+              <AnimatedBorder
+                radiusMobile={35} radiusDesktop={50} radiusLg={65}
+                strokeMobile={0.8} strokeDesktop={1} strokeLg={1.2}
+                delay={0}
+              />
               {/* Floating emoji orbs — positioned relative to phone frame */}
               <div aria-hidden className="pointer-events-none">
                 {/* 📈 Top center */}

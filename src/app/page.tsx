@@ -15,7 +15,7 @@ import {
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-black overflow-x-hidden">
+    <div className="min-h-screen bg-black" style={{ overflowX: "clip" }}>
       <Header />
       <main className="w-full mx-auto px-4 md:px-6 lg:px-10">
         <NewHeroSection />
@@ -32,9 +32,7 @@ export default function Home() {
           <AIWorkforceSection />
         </AnimateOnScroll>
 
-        <AnimateOnScroll animation="fade-up" duration={0.9}>
-          <HowItWorksSection />
-        </AnimateOnScroll>
+        <HowItWorksSection />
 
         <AnimateOnScroll animation="fade-up" duration={0.8}>
           <CapabilitiesSection />
