@@ -63,12 +63,15 @@ export function FinalCTASection() {
         </div>
 
         {/* CTA Button */}
-        <a
-          href={PRIMARY_CTA_HREF}
-          className="h-12 px-8 py-3 bg-white rounded-[50px] shadow-[0px_0px_8px_0px_rgba(175,130,249,0.63)] inline-flex justify-start items-center gap-2 overflow-hidden hover:bg-gray-50 transition-colors"
-        >
-          <span className="text-center text-black text-sm font-bold font-['Urbanist'] leading-6">Build Your Team Now</span>
-        </a>
+        <div className="relative rounded-[50px] overflow-hidden inline-flex">
+          <span aria-hidden="true" className="cta-orbit-ring cta-orbit-ring--cta" />
+          <a
+            href={PRIMARY_CTA_HREF}
+            className="relative z-10 h-12 px-8 py-3 bg-white rounded-[50px] shadow-[0px_0px_8px_0px_rgba(175,130,249,0.63)] inline-flex justify-start items-center gap-2 overflow-hidden hover:bg-gray-50 transition-colors"
+          >
+            <span className="text-center text-black text-sm font-bold font-['Urbanist'] leading-6">Build Your Team Now</span>
+          </a>
+        </div>
       </div>
     </section>
   );

@@ -120,9 +120,12 @@ export function NewHeroSection() {
               </p>
             </div>
 
-            <ButtonLink href={PRIMARY_CTA_HREF} variant="light" size="md">
-              Build Your Team Now
-            </ButtonLink>
+            <div className="relative rounded-[50px] overflow-hidden inline-flex">
+              <span aria-hidden="true" className="cta-orbit-ring cta-orbit-ring--cta" />
+              <ButtonLink href={PRIMARY_CTA_HREF} variant="light" size="md" className="relative z-10">
+                Build Your Team Now
+              </ButtonLink>
+            </div>
           </div>
         </div>
 
