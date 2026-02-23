@@ -10,12 +10,13 @@ export function FinalCTASection() {
       <img
         src="/images/figma/stars.svg"
         alt=""
+        loading="lazy"
         className="pointer-events-none absolute left-1/2 top-[40%] -translate-x-1/2 -translate-y-1/2 w-full max-w-[1400px] h-auto opacity-30"
       />
-      {/* Bright stars — wave highlight sweep */}
       <img
         src="/images/figma/stars.svg"
         alt=""
+        loading="lazy"
         className="stars-wave-bright pointer-events-none absolute left-1/2 top-[40%] -translate-x-1/2 -translate-y-1/2 w-full max-w-[1400px] h-auto opacity-90"
       />
       {/* Top gradient glow */}
@@ -41,7 +42,7 @@ export function FinalCTASection() {
             {["Build without hiring", "Scale without friction", "Grow with Chorus"].map((point, i) => (
               <div
                 key={point}
-                className="relative h-10 md:h-12 rounded-[50px] overflow-hidden backdrop-blur-[30px] inline-flex justify-center items-center"
+                className="relative h-10 md:h-12 rounded-[50px] overflow-hidden inline-flex justify-center items-center"
               >
                 <span aria-hidden="true" className="absolute inset-0 rounded-[50px] bg-gradient-to-b from-white/30 to-white/[0.04]" />
                 <span

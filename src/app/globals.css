@@ -421,6 +421,32 @@
 }
 
 /* ============================================
+   PERFORMANCE: GPU-accelerate continuous animations
+   ============================================ */
+
+.cta-orbit-ring::before,
+.stars-wave-bright,
+.glass-shine,
+.animated-border {
+  will-change: transform;
+}
+
+/* Isolate Lottie containers into their own compositing layer */
+.lottie-container {
+  contain: layout style;
+  isolation: isolate;
+}
+
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ============================================
    BASE STYLES
    ============================================ */
 

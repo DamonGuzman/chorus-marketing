@@ -9,7 +9,7 @@ import { Badge } from "@/components/ui";
 const cardThemes = {
   dark: {
     card:
-      "bg-gradient-to-l from-stone-950 to-neutral-800 border border-white/30 backdrop-blur-[30px] shadow-[inset_0px_0px_40px_rgba(255,255,255,0.08)]",
+      "bg-gradient-to-l from-stone-950 to-neutral-800 border border-white/30 shadow-[inset_0px_0px_40px_rgba(255,255,255,0.08)]",
     glow: "bg-[radial-gradient(ellipse_at_top,rgba(255,255,255,0.14)_0%,rgba(255,255,255,0)_65%)]",
     gridLines:
       "bg-[linear-gradient(to_right,rgba(255,255,255,0.08)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.08)_1px,transparent_1px)] [background-size:56px_56px] opacity-45",
@@ -24,7 +24,7 @@ const cardThemes = {
   },
   light: {
     card:
-      "bg-[linear-gradient(180deg,#E8E8E8_0%,#F0F0F0_40%,#F7F7F7_100%)] border border-white/30 backdrop-blur-[30px] shadow-[0px_24px_70px_rgba(0,0,0,0.45)]",
+      "bg-[linear-gradient(180deg,#E8E8E8_0%,#F0F0F0_40%,#F7F7F7_100%)] border border-white/30 shadow-[0px_24px_70px_rgba(0,0,0,0.45)]",
     glow: "bg-[radial-gradient(ellipse_at_top,rgba(255,255,255,0.85)_0%,rgba(255,255,255,0)_70%)]",
     gridLines:
       "bg-[linear-gradient(to_right,rgba(0,0,0,0.05)_1px,transparent_1px),linear-gradient(to_bottom,rgba(0,0,0,0.05)_1px,transparent_1px)] [background-size:56px_56px] opacity-30",
@@ -162,6 +162,7 @@ export function PricingSection() {
                       <img
                         src="/images/figma/design.svg"
                         alt=""
+                        loading="lazy"
                         className="absolute inset-0 w-full h-full object-cover"
                         style={{
                           opacity: plan.theme === "light" ? 0.8 : 0.7,
@@ -237,7 +238,7 @@ export function PricingSection() {
                       key={plan.name}
                       data-plan={plan.name}
                       className={cn(
-                        "relative overflow-hidden rounded-xl border-[0.55px] border-white/30 backdrop-blur-lg flex flex-col snap-center",
+                        "relative overflow-hidden rounded-xl border-[0.55px] border-white/30 flex flex-col snap-center",
                         "w-52 h-96 px-5 pt-8 pb-6",
                         plan.theme === "light" ? "" : "opacity-80",
                         theme.card
@@ -248,6 +249,7 @@ export function PricingSection() {
                         <img
                           src="/images/figma/design.svg"
                           alt=""
+                          loading="lazy"
                           className="absolute inset-0 w-full h-full object-cover"
                           style={{
                             opacity: plan.theme === "light" ? 0.8 : 0.7,

@@ -1,9 +1,7 @@
 "use client";
 
-import { useRef, type ReactNode } from "react";
-import { motion, useScroll, useTransform, type MotionValue } from "framer-motion";
-
-/* ─── Step data ─── */
+import Image from "next/image";
+import { useRef, useState, useEffect, type ReactNode } from "react";
 
 const featureSteps = [
   {
@@ -22,36 +20,33 @@ const featureSteps = [
   },
 ];
 
-/* ─── Illustrations (inline from original sections) ─── */
-
 function PipelineIllustration() {
   return (
-    <div className="w-full h-full flex items-center justify-center pt-16">
-      <div className="relative w-[420px] h-[400px] shrink-0">
-        {/* eslint-disable-next-line @next/next/no-img-element */}
+    <div className="w-full h-full flex items-center justify-center pt-24">
+      <div className="relative w-[420px] h-[400px] shrink-0 scale-[1.2] origin-center">
         <img
           src="/images/figma/image 29.svg"
           alt=""
+          loading="lazy"
           className="absolute"
-          style={{ width: 520, height: 408, left: 10, top: -10 }}
+          style={{ width: 520, height: 408, left: 5, top: -10 }}
         />
         <div
           className="absolute rounded-[35px]"
-          style={{ left: 8, top: 148, width: 140, height: 100, background: "white", filter: "blur(6px)", boxShadow: "12px 12px 12px rgba(0,0,0,0.15)" }}
+          style={{ left: 8, top: 148, width: 140, height: 100, background: "white", opacity: 0.5, boxShadow: "12px 12px 12px rgba(0,0,0,0.15)" }}
         />
         <div
           className="absolute rounded-[35px]"
-          style={{ left: 8, top: 132, width: 138, height: 138, background: "#101010", backdropFilter: "blur(130px)" }}
+          style={{ left: 8, top: 132, width: 138, height: 138, background: "#101010" }}
         />
         <div
           className="absolute rounded-[35px]"
-          style={{ left: 24, top: 148, width: 108, height: 108, background: "linear-gradient(166deg, rgba(207,207,207,0.03) 0%, rgba(92,92,92,0.26) 100%)", border: "2.5px solid rgba(255,255,255,0.03)", backdropFilter: "blur(130px)" }}
+          style={{ left: 24, top: 148, width: 108, height: 108, background: "linear-gradient(166deg, rgba(207,207,207,0.03) 0%, rgba(92,92,92,0.26) 100%)", border: "2.5px solid rgba(255,255,255,0.03)" }}
         />
         <div className="absolute" style={{ left: 46, top: 168 }}>
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/images/figma/calendar-03.svg" alt="" className="w-[60px] h-[60px]" />
+          <img src="/images/figma/calendar-03.svg" alt="" loading="lazy" className="w-[60px] h-[60px]" />
         </div>
-        <div className="absolute -right-10 top-[2rem]">
+        <div className="absolute -right-18 top-[2rem]">
           <TaskCard />
         </div>
       </div>
@@ -73,8 +68,7 @@ function TaskCard() {
       </div>
       <div className="flex items-center -space-x-[8px]">
         {avatars.map((src, i) => (
-          // eslint-disable-next-line @next/next/no-img-element
-          <img key={i} src={src} alt="" className="w-[28px] h-[28px] rounded-full border-[1.5px] border-gray-600 shrink-0 object-cover" />
+          <Image key={i} src={src} alt="" width={28} height={28} className="w-[28px] h-[28px] rounded-full border-[1.5px] border-gray-600 shrink-0 object-cover" />
         ))}
         <span className="text-gray-300 text-[15px] font-medium ml-2">+3</span>
       </div>
@@ -100,9 +94,8 @@ function SkeletonBubble() {
 
 function GoalIllustration() {
   return (
-    <div className="w-full h-full flex items-center justify-center pt-16">
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img src="images/figma/features/settings-image.png" className="w-auto h-auto max-w-[480px] max-h-[400px] object-contain" alt="" />
+    <div className="w-full h-full flex items-center justify-center pt-20">
+      <Image src="/images/figma/features/settings-image.png" width={480} height={480} className="w-full h-full object-contain scale-[0.9] origin-center" alt="" />
     </div>
   );
 }
@@ -112,27 +105,24 @@ const ILLUSTRATIONS: Record<string, () => ReactNode> = {
   goal: () => <GoalIllustration />,
 };
 
-/* ─── Step number indicator with animated white bar ─── */
-
-function StepNumberIndicator({ normalised }: { normalised: MotionValue<number> }) {
+function StepNumberIndicator({ normalised }: { normalised: number }) {
   const total = featureSteps.length;
-  const barProgress = useTransform(normalised, [0, total - 1], [0, 1]);
+  const barProgress = normalised / (total - 1);
+  const currentStep = featureSteps[Math.min(Math.round(normalised), total - 1)];
 
   return (
     <div className="flex flex-col items-center gap-[20px] shrink-0 h-[340px]">
-      <motion.span
-        className="text-[26px] font-medium leading-[36px] text-center font-['Urbanist'] w-[36px]"
-        style={{
-          color: useTransform(normalised, (v) => v < 0.5 ? "rgba(255,255,255,0.9)" : "rgba(209,213,219,1)"),
-        }}
+      <span
+        className="text-[26px] font-medium leading-[36px] text-center font-['Urbanist'] w-[36px] transition-colors duration-300"
+        style={{ color: normalised < 0.5 ? "rgba(255,255,255,0.9)" : "rgba(209,213,219,1)" }}
       >
-        {useTransform(normalised, (v) => featureSteps[Math.min(Math.round(v), total - 1)].number)}
-      </motion.span>
+        {currentStep.number}
+      </span>
 
       <div className="relative w-[2px] flex-1 bg-white/16 rounded-full overflow-hidden">
-        <motion.div
-          className="absolute top-0 left-0 w-full bg-white rounded-full"
-          style={{ height: useTransform(barProgress, (v) => `${Math.max(0, Math.min(1, v)) * 100}%`) }}
+        <div
+          className="absolute top-0 left-0 w-full bg-white rounded-full transition-[height] duration-300 ease-out"
+          style={{ height: `${Math.max(0, Math.min(1, barProgress)) * 100}%` }}
         />
       </div>
 
@@ -143,8 +133,6 @@ function StepNumberIndicator({ normalised }: { normalised: MotionValue<number> }
   );
 }
 
-/* ─── Animated content layer (text) ─── */
-
 function StepContent({
   title,
   description,
@@ -154,45 +142,39 @@ function StepContent({
   title: string;
   description: string;
   index: number;
-  normalised: MotionValue<number>;
+  normalised: number;
 }) {
   const total = featureSteps.length;
   const isFirst = index === 0;
   const isLast = index === total - 1;
 
-  const opacity = useTransform(normalised, (v) => {
-    const dist = v - index;
-    if (isFirst && dist <= 0) return 1;
-    if (isLast && dist >= 0) return 1;
-    const absDist = Math.abs(dist);
-    if (absDist <= 0.4) return 1;
-    if (absDist < 0.6) return 1 - (absDist - 0.4) / 0.2;
-    return 0;
-  });
+  const dist = normalised - index;
+  let opacity: number;
+  let yOffset: number;
 
-  const y = useTransform(normalised, (v) => {
-    const dist = v - index;
-    if (isFirst && dist <= 0) return 0;
-    if (isLast && dist >= 0) return 0;
+  if (isFirst && dist <= 0) { opacity = 1; yOffset = 0; }
+  else if (isLast && dist >= 0) { opacity = 1; yOffset = 0; }
+  else {
     const absDist = Math.abs(dist);
-    if (absDist <= 0.4) return 0;
-    const sign = dist > 0 ? -1 : 1;
-    return sign * Math.min((absDist - 0.4) * 100, 30);
-  });
+    if (absDist <= 0.4) { opacity = 1; yOffset = 0; }
+    else if (absDist < 0.6) { opacity = 1 - (absDist - 0.4) / 0.2; yOffset = (dist > 0 ? -1 : 1) * Math.min((absDist - 0.4) * 100, 30); }
+    else { opacity = 0; yOffset = (dist > 0 ? -1 : 1) * 30; }
+  }
 
   return (
-    <motion.div className="absolute inset-0 flex flex-col gap-[30px]" style={{ opacity, y }}>
+    <div
+      className="absolute inset-0 flex flex-col gap-[30px] transition-[opacity,transform] duration-300 ease-out"
+      style={{ opacity, transform: `translateY(${yOffset}px)` }}
+    >
       <h2 className="text-white text-[22px] md:text-[30px] font-bold leading-[32px] md:leading-[44px] font-['Urbanist']">
         {title}
       </h2>
       <p className="text-gray-300 text-[14px] md:text-[18px] font-medium leading-[24px] md:leading-[32px] font-['Urbanist']">
         {description}
       </p>
-    </motion.div>
+    </div>
   );
 }
-
-/* ─── Animated illustration layer ─── */
 
 function StepIllustration({
   illustrationKey,
@@ -201,51 +183,69 @@ function StepIllustration({
 }: {
   illustrationKey: string;
   index: number;
-  normalised: MotionValue<number>;
+  normalised: number;
 }) {
   const total = featureSteps.length;
   const isFirst = index === 0;
   const isLast = index === total - 1;
 
-  const opacity = useTransform(normalised, (v) => {
-    const dist = v - index;
-    if (isFirst && dist <= 0) return 1;
-    if (isLast && dist >= 0) return 1;
+  const dist = normalised - index;
+  let opacity: number;
+
+  if (isFirst && dist <= 0) opacity = 1;
+  else if (isLast && dist >= 0) opacity = 1;
+  else {
     const absDist = Math.abs(dist);
-    if (absDist <= 0.4) return 1;
-    if (absDist < 0.6) return 1 - (absDist - 0.4) / 0.2;
-    return 0;
-  });
+    if (absDist <= 0.4) opacity = 1;
+    else if (absDist < 0.6) opacity = 1 - (absDist - 0.4) / 0.2;
+    else opacity = 0;
+  }
 
   return (
-    <motion.div className="absolute inset-0" style={{ opacity }}>
+    <div
+      className="absolute inset-0 transition-opacity duration-300 ease-out"
+      style={{ opacity }}
+    >
       {ILLUSTRATIONS[illustrationKey]?.()}
-    </motion.div>
+    </div>
   );
 }
 
-/* ─── Main exported component ─── */
-
 export function FeaturesStickySteps() {
   const containerRef = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start start", "end end"],
-  });
+  const [normalised, setNormalised] = useState(0);
 
-  const normalised = useTransform(scrollYProgress, (v) => {
-    const clamped = Math.max(0, Math.min(1, v));
-    return clamped * (featureSteps.length - 1);
-  });
+  useEffect(() => {
+    const el = containerRef.current;
+    if (!el) return;
+
+    let rafId: number;
+    const onScroll = () => {
+      cancelAnimationFrame(rafId);
+      rafId = requestAnimationFrame(() => {
+        const rect = el.getBoundingClientRect();
+        const scrollableHeight = el.offsetHeight - window.innerHeight;
+        if (scrollableHeight <= 0) return;
+        const rawProgress = Math.max(0, Math.min(1, -rect.top / scrollableHeight));
+        setNormalised(rawProgress * (featureSteps.length - 1));
+      });
+    };
+
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
+
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      cancelAnimationFrame(rafId);
+    };
+  }, []);
 
   return (
     <div ref={containerRef} className="hidden lg:block relative w-full" style={{ height: "250vh" }}>
       <div className="sticky top-0 h-screen flex items-center justify-center">
         <div className="w-full max-w-[1200px] mx-auto flex items-center gap-8 xl:gap-12 px-4 md:px-8">
-          {/* Left: Step number indicator */}
           <StepNumberIndicator normalised={normalised} />
 
-          {/* Center: Text content — stacked, animated */}
           <div className="relative flex-1 max-w-[470px]" style={{ minHeight: "240px" }}>
             {featureSteps.map((step, idx) => (
               <StepContent
@@ -258,8 +258,7 @@ export function FeaturesStickySteps() {
             ))}
           </div>
 
-          {/* Right: Illustration — stacked, animated */}
-          <div className="relative flex-1 min-w-0" style={{ minHeight: "420px" }}>
+          <div className="relative flex-1 min-w-0" style={{ minHeight: "600px" }}>
             {featureSteps.map((step, idx) => (
               <StepIllustration
                 key={step.number}

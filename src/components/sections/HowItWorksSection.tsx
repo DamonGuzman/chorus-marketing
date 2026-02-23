@@ -1,8 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useRef } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { useEffect, useRef, useState } from "react";
 
 import { AnimateOnScroll, Badge, Section, ScrollTextReveal } from "@/components/ui";
 import { cn } from "@/lib/utils";
@@ -321,55 +320,52 @@ function StepItem({
   title,
   description,
   active,
-  isLast,
 }: {
   number: string;
   title: string;
   description: string;
   active: boolean;
-  isLast: boolean;
 }) {
   return (
-    <div className="w-full flex justify-center md:justify-start items-center gap-4 md:gap-6 lg:gap-20">
-      {/* Vertical line — desktop only */}
+    <div className="w-full flex justify-center items-center gap-4">
       <div
         className={cn(
-          "hidden md:block w-[3px] h-44 shrink-0",
-          active ? "bg-zinc-300" : "bg-transparent"
+          "w-[3px] self-stretch shrink-0 transition-colors duration-400",
+          active ? "bg-zinc-300" : "bg-zinc-300/15"
         )}
       />
-
-      {/* Content card */}
       <div
         className={cn(
-          "w-80 max-w-full md:w-full lg:w-96 px-5 pt-7 pb-5 rounded-3xl inline-flex flex-col justify-start items-start gap-2.5",
-          active ? "bg-white/10 md:bg-white/5" : ""
+          "w-80 max-w-full px-5 pt-6 pb-5 rounded-3xl inline-flex flex-col justify-start items-start gap-2.5 transition-all duration-400",
+          active ? "bg-white/10" : "bg-transparent"
         )}
       >
-        <div className="self-stretch flex flex-col justify-start items-start gap-5">
-          {/* Number badge + Title */}
+        <div className="self-stretch flex flex-col justify-start items-start gap-4">
           <div className="inline-flex justify-start items-center gap-5">
             <div
               className={cn(
                 "w-8 h-8 px-3 py-1 bg-white/5 rounded-[100px] flex justify-center items-center gap-2 overflow-hidden",
-                "text-center font-['Urbanist'] text-base font-semibold leading-6",
-                active ? "text-white" : "text-white md:text-gray-300"
+                "text-center font-['Urbanist'] text-base font-semibold leading-6 transition-colors duration-400",
+                active ? "text-white" : "text-white/30"
               )}
             >
               {number}
             </div>
             <h3
               className={cn(
-                "font-['Urbanist'] text-base font-bold leading-8 md:text-base md:leading-7 lg:text-xl lg:leading-8",
-                active ? "text-white" : "text-gray-300"
+                "font-['Urbanist'] text-base font-bold leading-8 transition-colors duration-400",
+                active ? "text-white" : "text-white/30"
               )}
             >
               {title}
             </h3>
           </div>
-
-          {/* Description */}
-          <p className="w-80 max-w-full font-['Urbanist'] text-sm font-normal leading-6 text-gray-300 md:text-sm md:leading-6 lg:text-base lg:leading-8">
+          <p
+            className={cn(
+              "w-80 max-w-full font-['Urbanist'] text-sm font-normal leading-6 transition-colors duration-400",
+              active ? "text-gray-300" : "text-gray-300/25"
+            )}
+          >
             {description}
           </p>
         </div>
@@ -585,109 +581,171 @@ function StickyStepItem({
   number,
   title,
   description,
-  index,
-  totalSteps,
-  scrollYProgress,
+  active,
 }: {
   number: string;
   title: string;
   description: string;
-  index: number;
-  totalSteps: number;
-  scrollYProgress: ReturnType<typeof useScroll>["scrollYProgress"];
+  active: boolean;
 }) {
-  const isFirst = index === 0;
-  const isLast = index === totalSteps - 1;
-
-  const opacity = useTransform(scrollYProgress, (v) => {
-    const dist = v - index;
-    if (isFirst && dist <= 0) return 1;
-    if (isLast && dist >= 0) return 1;
-    const absDist = Math.abs(dist);
-    if (absDist <= 0.4) return 1;
-    if (absDist < 0.6) return 1 - (absDist - 0.4) / 0.2;
-    return 0;
-  });
-
-  const y = useTransform(scrollYProgress, (v) => {
-    const dist = v - index;
-    if (isFirst && dist <= 0) return 0;
-    if (isLast && dist >= 0) return 0;
-    const absDist = Math.abs(dist);
-    if (absDist <= 0.4) return 0;
-    const sign = dist > 0 ? -1 : 1;
-    return sign * Math.min((absDist - 0.4) * 100, 30);
-  });
-
   return (
-    <motion.div
-      className="absolute inset-0 w-full flex items-center"
-      style={{ opacity, y }}
-    >
-      <div className="w-full flex justify-center md:justify-start items-center gap-4 md:gap-6 lg:gap-14">
-        <div className="w-[3px] h-36 shrink-0 hidden md:block bg-zinc-300" />
-        <div className="w-80 max-w-full md:w-full lg:w-[420px] px-5 pt-7 pb-5 rounded-3xl inline-flex flex-col justify-start items-start gap-2.5 bg-white/10 md:bg-white/5">
-          <div className="self-stretch flex flex-col justify-start items-start gap-5">
-            <div className="inline-flex justify-start items-center gap-5">
-              <div className="w-8 h-8 px-3 py-1 bg-white/5 rounded-[100px] flex justify-center items-center gap-2 overflow-hidden text-center font-['Urbanist'] text-base font-semibold leading-6 text-white">
-                {number}
-              </div>
-              <h3 className="font-['Urbanist'] text-base font-bold leading-8 md:text-base md:leading-7 lg:text-xl lg:leading-8 text-white">
-                {title}
-              </h3>
+    <div className="w-full flex justify-center md:justify-start items-center gap-4 md:gap-6 lg:gap-14">
+      <div
+        className={cn(
+          "w-[3px] h-full self-stretch shrink-0 hidden md:block transition-colors duration-400",
+          active ? "bg-zinc-300" : "bg-zinc-300/15"
+        )}
+      />
+      <div
+        className={cn(
+          "w-80 max-w-full md:w-full lg:w-[420px] px-5 pt-6 pb-5 rounded-3xl inline-flex flex-col justify-start items-start gap-2.5 transition-all duration-400",
+          active ? "bg-white/10 md:bg-white/5" : "bg-transparent"
+        )}
+      >
+        <div className="self-stretch flex flex-col justify-start items-start gap-4">
+          <div className="inline-flex justify-start items-center gap-5">
+            <div
+              className={cn(
+                "w-8 h-8 px-3 py-1 bg-white/5 rounded-[100px] flex justify-center items-center gap-2 overflow-hidden text-center font-['Urbanist'] text-base font-semibold leading-6 transition-colors duration-400",
+                active ? "text-white" : "text-white/30"
+              )}
+            >
+              {number}
             </div>
-            <p className="w-80 max-w-full font-['Urbanist'] text-sm font-normal leading-6 text-gray-300 md:text-sm md:leading-6 lg:text-base lg:leading-8">
-              {description}
-            </p>
+            <h3
+              className={cn(
+                "font-['Urbanist'] text-base font-bold leading-8 md:text-base md:leading-7 lg:text-xl lg:leading-8 transition-colors duration-400",
+                active ? "text-white" : "text-white/30"
+              )}
+            >
+              {title}
+            </h3>
           </div>
+          <p
+            className={cn(
+              "w-80 max-w-full font-['Urbanist'] text-sm font-normal leading-6 md:text-sm md:leading-6 lg:text-base lg:leading-8 transition-colors duration-400",
+              active ? "text-gray-300" : "text-gray-300/25"
+            )}
+          >
+            {description}
+          </p>
         </div>
       </div>
-    </motion.div>
+    </div>
   );
 }
 
 function DesktopStickySection() {
   const containerRef = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start start", "end end"],
-  });
+  const [activeStep, setActiveStep] = useState(0);
+  const rafRef = useRef(0);
 
-  const normalised = useTransform(scrollYProgress, (v) => {
-    const clamped = Math.max(0, Math.min(1, v));
-    return clamped * (steps.length - 1);
-  });
+  useEffect(() => {
+    const container = containerRef.current;
+    if (!container) return;
+
+    const onScroll = () => {
+      cancelAnimationFrame(rafRef.current);
+      rafRef.current = requestAnimationFrame(() => {
+        const rect = container.getBoundingClientRect();
+        const totalScroll = container.scrollHeight - window.innerHeight;
+        const scrolled = -rect.top;
+        const progress = Math.max(0, Math.min(1, scrolled / totalScroll));
+        const step = Math.min(
+          steps.length - 1,
+          Math.floor(progress * steps.length)
+        );
+        setActiveStep(step);
+      });
+    };
+
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      cancelAnimationFrame(rafRef.current);
+    };
+  }, []);
 
   return (
-    <div ref={containerRef} className="hidden md:block relative w-full" style={{ height: "350vh" }}>
+    <div ref={containerRef} className="hidden md:block relative w-full" style={{ height: "300vh" }}>
       <div className="sticky top-0 h-screen flex items-center justify-center px-4">
-        <div className="w-full max-w-[1200px] mx-auto bg-white/5 rounded-[30px] md:py-8 md:px-6 lg:py-12 lg:px-10 h-[80vh] flex items-center">
+        <div className="w-full max-w-[1200px] mx-auto bg-white/5 rounded-[30px] md:py-8 md:px-6 lg:py-12 lg:px-10 flex items-center">
           <div className="flex items-center w-full md:gap-6 lg:gap-12">
-            {/* Left: Steps — stacked, animated by scroll */}
-            <div className="relative md:w-[42%] lg:w-[45%]" style={{ height: "280px" }}>
+            <div className="md:w-[42%] lg:w-[45%] flex flex-col gap-2">
               {steps.map((step, idx) => (
                 <StickyStepItem
                   key={step.number}
                   number={step.number}
                   title={step.title}
                   description={step.description}
-                  index={idx}
-                  totalSteps={steps.length}
-                  scrollYProgress={normalised}
+                  active={idx === activeStep}
                 />
               ))}
             </div>
 
-            {/* Right: Static image — stays the same throughout */}
-            <div className="relative min-w-0 md:w-[58%] lg:w-[55%] flex items-center justify-center h-full">
+            <div className="relative min-w-0 md:w-[58%] lg:w-[55%] flex items-center justify-center">
               <img
                 src="/images/figma/Group 1707484029.svg"
                 alt="Agent profile card"
-                className="w-full h-full object-contain"
+                loading="lazy"
+                className="w-full h-auto object-contain"
               />
             </div>
           </div>
         </div>
+      </div>
+    </div>
+  );
+}
+
+function MobileStepsSection() {
+  const stepRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const [activeStep, setActiveStep] = useState(0);
+
+  useEffect(() => {
+    const observers: IntersectionObserver[] = [];
+
+    stepRefs.current.forEach((el, idx) => {
+      if (!el) return;
+      const observer = new IntersectionObserver(
+        ([entry]) => {
+          if (entry.isIntersecting) setActiveStep(idx);
+        },
+        { threshold: 0.6 }
+      );
+      observer.observe(el);
+      observers.push(observer);
+    });
+
+    return () => observers.forEach((o) => o.disconnect());
+  }, []);
+
+  return (
+    <div className="md:hidden w-full overflow-hidden py-[30px]">
+      <div className="flex flex-col items-center gap-[14px]">
+        {steps.map((step, idx) => (
+          <div key={step.number} ref={(el) => { stepRefs.current[idx] = el; }}>
+            <StepItem
+              number={step.number}
+              title={step.title}
+              description={step.description}
+              active={idx === activeStep}
+            />
+          </div>
+        ))}
+
+        <AnimateOnScroll animation="fade-up" duration={0.8} delay={0.1} threshold={0.1}>
+          <div className="flex justify-center mt-4">
+            <img
+              src="/images/figma/Group 1707484029.svg"
+              alt="Agent profile card"
+              loading="lazy"
+              className="w-full h-auto"
+              style={{ imageRendering: "auto", WebkitFontSmoothing: "antialiased" }}
+            />
+          </div>
+        </AnimateOnScroll>
       </div>
     </div>
   );
@@ -722,49 +780,8 @@ export function HowItWorksSection() {
           {/* ---- Desktop: Sticky scroll section ---- */}
           <DesktopStickySection />
 
-          {/* ---- Mobile: Step 1 → visual card → Steps 2 & 3 ---- */}
-          <div className="md:hidden w-full overflow-hidden py-[30px]">
-            <div className="flex flex-col items-center gap-[20px]">
-              <AnimateOnScroll animation="fade-up" duration={0.7} delay={0} threshold={0.1}>
-                <StepItem
-                  number={steps[0].number}
-                  title={steps[0].title}
-                  description={steps[0].description}
-                  active={steps[0].active}
-                  isLast={false}
-                />
-              </AnimateOnScroll>
-
-              <AnimateOnScroll animation="fade-up" duration={0.8} delay={0.2} threshold={0.1}>
-                <div className="flex justify-center">
-                  <img
-                    src="/images/figma/Group 1707484029.svg"
-                    alt="Agent profile card"
-                    className="w-full h-auto"
-                    style={{ imageRendering: "auto", WebkitFontSmoothing: "antialiased" }}
-                  />
-                </div>
-              </AnimateOnScroll>
-
-              {steps.slice(1).map((step, idx) => (
-                <AnimateOnScroll
-                  key={step.number}
-                  animation="fade-up"
-                  duration={0.7}
-                  delay={0.4 + idx * 0.2}
-                  threshold={0.1}
-                >
-                  <StepItem
-                    number={step.number}
-                    title={step.title}
-                    description={step.description}
-                    active={step.active}
-                    isLast={idx === steps.length - 2}
-                  />
-                </AnimateOnScroll>
-              ))}
-            </div>
-          </div>
+          {/* ---- Mobile: scroll-highlight steps ---- */}
+          <MobileStepsSection />
         </div>
       </div>
     </Section>
