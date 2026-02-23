@@ -329,10 +329,16 @@ function CollaborateCard() {
         <ScrollTextReveal
           text="They collaborate with each other"
           className="text-white text-base md:text-2xl font-bold font-['Urbanist'] leading-9 md:leading-tight text-center"
+          dimColor="#ffffff"
+          brightColor="#ffffff"
         />
         <p className="w-80 md:hidden text-center text-gray-400 text-[9.22px] font-bold font-['Urbanist'] leading-4">
-          The best way to reach humans instead of spam folders. Deliver
-          transactional and marketing emails at scale.
+          <span className="block">
+            The best way to reach humans instead of spam folders. Deliver
+          </span>
+          <span className="block">
+            transactional and marketing emails at scale.
+          </span>
         </p>
         <div className="hidden md:block">
           <AnimateOnScroll animation="fade-up" duration={0.8} threshold={0.3}>
@@ -447,7 +453,7 @@ function DecisionsCard() {
           </div>
         </div>
 
-        <div className="mt-4">
+        <div className="mt-0 md:mt-4">
           <h3 className="w-64 md:w-auto text-center text-white text-2xl md:text-[26px] font-bold font-['Urbanist'] leading-8 md:leading-[36px] max-w-[291px] mx-auto">
             They make decisions within your guidelines
           </h3>
@@ -480,10 +486,18 @@ function FeedbackCard() {
       <div className="absolute top-0 left-0 right-0 h-[0.005px] bg-white/10 z-20 pointer-events-none" />
 
       {/* Title top-left */}
-      <div className="absolute top-[21px] left-[18px] md:top-[35px] md:left-[30px] z-30 max-w-[176px] md:max-w-[394px]">
+      <div className="absolute top-[10px] left-[18px] z-30 max-w-[176px] md:hidden">
         <ScrollTextReveal
           text="They learn from your feedback"
-          className="text-white text-xs md:text-[26px] font-bold leading-7 md:leading-[40px]"
+          className="text-white text-xs font-bold leading-7"
+          dimColor="#ffffff"
+          brightColor="#ffffff"
+        />
+      </div>
+      <div className="absolute top-[35px] left-[30px] z-30 max-w-[394px] hidden md:block">
+        <ScrollTextReveal
+          text="They learn from your feedback"
+          className="text-white text-[26px] font-bold leading-[40px]"
         />
       </div>
 

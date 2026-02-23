@@ -205,12 +205,18 @@ export function FeaturesCardSection() {
               <div className="flex flex-col gap-3 md:gap-[20px]">
                 <ScrollTextReveal
                   text="Full Business Context"
-                  className="text-white text-lg md:text-2xl font-bold font-['Urbanist']"
+                  className="text-white text-lg font-bold font-['Urbanist'] md:hidden"
+                  dimColor="#ffffff"
+                  brightColor="#ffffff"
+                />
+                <ScrollTextReveal
+                  text="Full Business Context"
+                  className="hidden md:block text-white md:text-2xl font-bold font-['Urbanist']"
                 />
 
                 <div className="flex flex-col gap-4 md:gap-[28px]">
                   <div className="flex flex-col gap-3 md:gap-[27px]">
-                    <p className="w-72 md:w-auto text-gray-400 md:text-gray-300 text-sm md:text-sm font-medium font-['Urbanist'] leading-5 max-w-[384px]">
+                    <p className="w-72 md:w-auto text-gray-100 md:text-gray-300 text-sm md:text-sm font-medium font-['Urbanist'] leading-5 max-w-[384px]">
                       Because Chorus integrates with your entire stack (CRM, email, docs, calendar, Slack), your AI agents have complete context about:
                     </p>
 
