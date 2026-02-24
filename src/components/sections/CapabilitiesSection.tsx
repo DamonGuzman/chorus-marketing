@@ -1,5 +1,6 @@
 import { AnimateOnScroll, Badge, Section, ScrollTextReveal, StaggerChildren } from "@/components/ui";
 import Image from "next/image";
+import { cn } from "@/lib/utils";
 
 function AnimatedBorder({
   radiusMobile,
@@ -64,15 +65,90 @@ const teamMembers = [
     name: "David Fincher",
     status: "Active",
     role: "Project Manager",
-    avatarSrc: "/images/team/member-1.png",
+    avatarSrc: "/images/figma/Ellipse 54.svg",
   },
   {
     name: "Steve Jan",
     status: "Active",
     role: "UX Designer",
-    avatarSrc: "/images/team/member-2.png",
+    avatarSrc: "/images/figma/Ellipse 810.svg",
   },
 ];
+
+export function TeamPreviewCard({ className, animated = true }: { className?: string; animated?: boolean } = {}) {
+  return (
+    <div className={cn(
+      "relative w-64 h-80 md:w-[280px] md:h-[360px] lg:w-[497px] lg:h-[595px] rounded-[35px] md:rounded-[50px] lg:rounded-[65px] px-4 pt-5 pb-6 md:px-4 md:pt-4 md:pb-5 lg:px-[28px] lg:pt-[32px] lg:pb-[36px] flex flex-col",
+      animated ? "bg-black" : "bg-neutral-900 border-[6px] border-white/10",
+      className
+    )}>
+      {animated && (
+        <AnimatedBorder
+          radiusMobile={35} radiusDesktop={50} radiusLg={65}
+          strokeMobile={0.8} strokeDesktop={1} strokeLg={1.2}
+          delay={0}
+        />
+      )}
+      <div aria-hidden className="pointer-events-none">
+        <div className="absolute left-[35%] -top-5 md:-top-6 lg:-top-10 -translate-x-1/2 z-10 grid place-items-center max-md:size-9 md:size-10 lg:size-[64px] rounded-full bg-[#1a1a1a] border border-white/10 shadow-[0px_4px_25px_rgba(0,0,0,0.4)]">
+          <span className="max-md:text-sm md:text-base lg:text-[28px] leading-none">📈</span>
+        </div>
+        <div className="absolute -left-7 md:-left-7 lg:-left-10 top-[65%] md:top-[60%] -translate-y-1/2 z-10 grid place-items-center max-md:size-9 md:size-10 lg:size-[64px] rounded-full bg-[#1a1a1a] border border-white/10 shadow-[0px_4px_25px_rgba(0,0,0,0.4)]">
+          <span className="max-md:text-sm md:text-base lg:text-[28px] leading-none">🧠</span>
+        </div>
+        <div className="absolute -right-7 md:-right-7 lg:-right-10 top-[70%] md:top-[65%] -translate-y-1/2 z-10 grid place-items-center max-md:size-9 md:size-10 lg:size-[64px] rounded-full bg-[#1a1a1a] border border-white/10 shadow-[0px_4px_25px_rgba(0,0,0,0.4)]">
+          <span className="max-md:text-sm md:text-base lg:text-[28px] leading-none">🥳</span>
+        </div>
+        <div className="absolute left-[65%] md:left-[70%] bottom-0 -translate-x-1/2 translate-y-1/2 z-10 grid place-items-center max-md:size-9 md:size-10 lg:size-[64px] rounded-full bg-[#1a1a1a] border border-white/10 shadow-[0px_4px_25px_rgba(0,0,0,0.4)]">
+          <span className="max-md:text-sm md:text-base lg:text-[26px] leading-none">🚀</span>
+        </div>
+      </div>
+      <div className="space-y-2.5 md:space-y-2 lg:space-y-[16px]">
+        {teamMembers.map((member) => (
+          <div
+            key={member.name}
+            className="px-4 py-4 md:px-4 md:py-3 lg:px-8 lg:py-6 bg-neutral-900 rounded-2xl md:rounded-2xl lg:rounded-3xl shadow-[0px_2.75px_17.2px_0px_rgba(0,0,0,0.25)] shadow-[inset_0px_0px_3.57px_0px_rgba(255,255,255,0.27)] lg:shadow-[0px_5px_32px_0px_rgba(0,0,0,0.25)] lg:shadow-[inset_0px_0px_6.6px_0px_rgba(255,255,255,0.27)] inline-flex justify-between items-center w-full"
+          >
+            <div className="flex items-center gap-2.5 md:gap-4">
+              <Image
+                alt=""
+                src={member.avatarSrc}
+                width={64}
+                height={64}
+                className="w-10 h-10 md:size-10 lg:size-16 rounded-full object-cover"
+              />
+              <div className="inline-flex flex-col gap-2.5 md:gap-2 lg:gap-4">
+                <div className="inline-flex items-center gap-2 md:gap-2 lg:gap-3.5">
+                  <span className="text-white text-xs md:text-xs lg:text-xl font-bold font-['Urbanist'] leading-5 md:leading-5 lg:leading-10">
+                    {member.name}
+                  </span>
+                  <span className="w-1 h-1 md:size-1.5 lg:size-2 bg-green-500 rounded-full" />
+                  <span className="text-[#CBCACC] text-[9.1px] md:text-[9px] lg:text-base font-bold font-['Urbanist'] leading-4 md:leading-4 lg:leading-7">
+                    {member.status}
+                  </span>
+                </div>
+                <div className="relative h-6 md:h-6 lg:h-11 px-2.5 md:px-2.5 lg:px-5 py-1.5 md:py-1.5 lg:py-3 bg-white/5 rounded-2xl md:rounded-2xl lg:rounded-3xl flex items-center gap-2 md:gap-2 lg:gap-3.5 overflow-hidden">
+                  <div className="w-20 h-20 absolute left-[46px] -top-[18px] opacity-50 bg-[radial-gradient(ellipse_50%_50%_at_50%_50%,rgba(151,71,255,0),rgba(185,156,252,0))] blur-xl" />
+                  <span className="text-white text-[9.1px] md:text-[9px] lg:text-base font-medium font-['Urbanist'] leading-3 md:leading-3 lg:leading-6 relative">
+                    {member.role}
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+      <div className="mt-auto">
+        <h3 className="text-sm md:text-sm lg:text-[24px] font-bold font-['Urbanist'] leading-4 md:leading-4 lg:leading-[30px] text-[#CBCACC]">
+          AI That Works for Every Role
+        </h3>
+        <p className="mt-2 md:mt-2 lg:mt-[14px] text-[10px] md:text-[10px] lg:text-[16px] font-normal font-['Urbanist'] leading-4 md:leading-4 lg:leading-[28px] text-[#7D7C83]">
+          Automate strategy, execution, and insights across teams—marketing, sales, finance, and beyond—so your people focus on goals, not busywork.
+        </p>
+      </div>
+    </div>
+  );
+}
 
 export function CapabilitiesSection() {
   return (
@@ -161,78 +237,7 @@ export function CapabilitiesSection() {
         {/* Right: team preview */}
         <div className="w-full md:flex-1 md:min-w-0">
           <div className="flex justify-center">
-            <div className="relative w-64 h-80 md:w-[280px] md:h-[360px] lg:w-[497px] lg:h-[595px] bg-black rounded-[35px] md:rounded-[50px] lg:rounded-[65px] px-4 pt-5 pb-6 md:px-4 md:pt-4 md:pb-5 lg:px-[28px] lg:pt-[32px] lg:pb-[36px] flex flex-col">
-              <AnimatedBorder
-                radiusMobile={35} radiusDesktop={50} radiusLg={65}
-                strokeMobile={0.8} strokeDesktop={1} strokeLg={1.2}
-                delay={0}
-              />
-              {/* Floating emoji orbs — positioned relative to phone frame */}
-              <div aria-hidden className="pointer-events-none">
-                {/* 📈 Top center */}
-                <div className="absolute left-[35%] -top-5 md:-top-6 lg:-top-10 -translate-x-1/2 z-10 grid place-items-center max-md:size-9 md:size-10 lg:size-[64px] rounded-full bg-[#1a1a1a] border border-white/10 shadow-[0px_4px_25px_rgba(0,0,0,0.4)]">
-                  <span className="max-md:text-sm md:text-base lg:text-[28px] leading-none">📈</span>
-                </div>
-                {/* 🧠 Left */}
-                <div className="absolute -left-7 md:-left-7 lg:-left-10 top-[65%] md:top-[60%] -translate-y-1/2 z-10 grid place-items-center max-md:size-9 md:size-10 lg:size-[64px] rounded-full bg-[#1a1a1a] border border-white/10 shadow-[0px_4px_25px_rgba(0,0,0,0.4)]">
-                  <span className="max-md:text-sm md:text-base lg:text-[28px] leading-none">🧠</span>
-                </div>
-                {/* 🥳 Right */}
-                <div className="absolute -right-7 md:-right-7 lg:-right-10 top-[70%] md:top-[65%] -translate-y-1/2 z-10 grid place-items-center max-md:size-9 md:size-10 lg:size-[64px] rounded-full bg-[#1a1a1a] border border-white/10 shadow-[0px_4px_25px_rgba(0,0,0,0.4)]">
-                  <span className="max-md:text-sm md:text-base lg:text-[28px] leading-none">🥳</span>
-                </div>
-                {/* 🚀 Bottom */}
-                <div className="absolute left-[65%] md:left-[70%] bottom-0 -translate-x-1/2 translate-y-1/2 z-10 grid place-items-center max-md:size-9 md:size-10 lg:size-[64px] rounded-full bg-[#1a1a1a] border border-white/10 shadow-[0px_4px_25px_rgba(0,0,0,0.4)]">
-                  <span className="max-md:text-sm md:text-base lg:text-[26px] leading-none">🚀</span>
-                </div>
-              </div>
-              {/* Top member cards */}
-              <div className="space-y-2.5 md:space-y-2 lg:space-y-[16px]">
-                {teamMembers.map((member) => (
-                  <div
-                    key={member.name}
-                    className="px-4 py-4 md:px-4 md:py-3 lg:px-8 lg:py-6 bg-neutral-900 rounded-2xl md:rounded-2xl lg:rounded-3xl shadow-[0px_2.75px_17.2px_0px_rgba(0,0,0,0.25)] shadow-[inset_0px_0px_3.57px_0px_rgba(255,255,255,0.27)] md:shadow-[0px_2.75px_17.2px_0px_rgba(0,0,0,0.25)] md:shadow-[inset_0px_0px_3.57px_0px_rgba(255,255,255,0.27)] lg:shadow-[0px_5px_32px_0px_rgba(0,0,0,0.25)] lg:shadow-[inset_0px_0px_6.6px_0px_rgba(255,255,255,0.27)] inline-flex justify-between items-center w-full"
-                  >
-                    <div className="flex items-center gap-2.5 md:gap-4">
-                      <Image
-                        alt=""
-                        src={member.avatarSrc}
-                        width={64}
-                        height={64}
-                        className="w-10 h-10 md:size-10 lg:size-16 rounded-full object-cover"
-                      />
-                      <div className="inline-flex flex-col gap-2.5 md:gap-2 lg:gap-4">
-                        <div className="inline-flex items-center gap-2 md:gap-2 lg:gap-3.5">
-                          <span className="text-white text-xs md:text-xs lg:text-xl font-bold font-['Urbanist'] leading-5 md:leading-5 lg:leading-10">
-                            {member.name}
-                          </span>
-                          <span className="w-1 h-1 md:size-1.5 lg:size-2 bg-green-500 rounded-full" />
-                          <span className="text-[#CBCACC] text-[9.1px] md:text-[9px] lg:text-base font-bold font-['Urbanist'] leading-4 md:leading-4 lg:leading-7">
-                            {member.status}
-                          </span>
-                        </div>
-                        <div className="relative h-6 md:h-6 lg:h-11 px-2.5 md:px-2.5 lg:px-5 py-1.5 md:py-1.5 lg:py-3 bg-white/5 rounded-2xl md:rounded-2xl lg:rounded-3xl flex items-center gap-2 md:gap-2 lg:gap-3.5 overflow-hidden">
-                          <div className="w-20 h-20 absolute left-[46px] -top-[18px] opacity-50 bg-[radial-gradient(ellipse_50%_50%_at_50%_50%,rgba(151,71,255,0),rgba(185,156,252,0))] blur-xl" />
-                          <span className="text-white text-[9.1px] md:text-[9px] lg:text-base font-medium font-['Urbanist'] leading-3 md:leading-3 lg:leading-6 relative">
-                            {member.role}
-                          </span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-
-              {/* Copy */}
-              <div className="mt-auto">
-                <h3 className="text-sm md:text-sm lg:text-[24px] font-bold font-['Urbanist'] leading-4 md:leading-4 lg:leading-[30px] text-[#CBCACC]">
-                  AI That Works for Every Role
-                </h3>
-                <p className="mt-2 md:mt-2 lg:mt-[14px] text-[10px] md:text-[10px] lg:text-[16px] font-normal font-['Urbanist'] leading-4 md:leading-4 lg:leading-[28px] text-[#7D7C83]">
-                  Automate strategy, execution, and insights across teams—marketing, sales, finance, and beyond—so your people focus on goals, not busywork.
-                </p>
-              </div>
-            </div>
+            <TeamPreviewCard />
           </div>
         </div>
       </div>

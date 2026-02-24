@@ -1,9 +1,10 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useRef, useState } from "react";
+import { useState } from "react";
 
 import { AnimateOnScroll, Badge, Section, ScrollTextReveal } from "@/components/ui";
+import { TeamPreviewCard } from "@/components/sections/CapabilitiesSection";
 import { cn } from "@/lib/utils";
 
 /* ============================================================
@@ -16,21 +17,21 @@ const steps = [
     title: "AI That Works for Every Role",
     description:
       "Create AI agents for any role: SDR, Content Writer, Financial Analyst, Project Manager. Name them. Give them your data. Set their rules.",
-    active: true,
+    image: "/images/figma/Group 1707484029.svg",
   },
   {
     number: "2",
     title: "Set the Direction",
     description:
       '"Launch our Q4 campaign." "Research 100 prospects and schedule 20 meetings." "Analyze spending and identify $50K in savings." Your AI workforce coordinates automatically—each agent knows its part and how it fits with the others. Just like humans, but faster and without the drama.',
-    active: false,
+    image: "",
   },
   {
     number: "3",
     title: "Watch The Performance",
     description:
       "Real-time visibility into what\u2019s happening: emails sent, content created, analysis completed, deals closed. Full transparency. Every agent in sync. Zero micromanagement.",
-    active: false,
+    image: "/images/figma/Group 1707484004.svg",
   },
 ];
 
@@ -320,14 +321,16 @@ function StepItem({
   title,
   description,
   active,
+  onClick,
 }: {
   number: string;
   title: string;
   description: string;
   active: boolean;
+  onClick?: () => void;
 }) {
   return (
-    <div className="w-full flex justify-center items-center gap-4">
+    <div className="w-full flex justify-center items-center gap-4 cursor-pointer" onClick={onClick}>
       <div
         className={cn(
           "w-[3px] self-stretch shrink-0 transition-colors duration-400",
@@ -582,14 +585,16 @@ function StickyStepItem({
   title,
   description,
   active,
+  onClick,
 }: {
   number: string;
   title: string;
   description: string;
   active: boolean;
+  onClick?: () => void;
 }) {
   return (
-    <div className="w-full flex justify-center md:justify-start items-center gap-4 md:gap-6 lg:gap-14">
+    <div className="w-full flex justify-center md:justify-start items-center gap-4 md:gap-6 lg:gap-14 cursor-pointer" onClick={onClick}>
       <div
         className={cn(
           "w-[3px] h-full self-stretch shrink-0 hidden md:block transition-colors duration-400",
@@ -636,40 +641,11 @@ function StickyStepItem({
 }
 
 function DesktopStickySection() {
-  const containerRef = useRef<HTMLDivElement>(null);
   const [activeStep, setActiveStep] = useState(0);
-  const rafRef = useRef(0);
-
-  useEffect(() => {
-    const container = containerRef.current;
-    if (!container) return;
-
-    const onScroll = () => {
-      cancelAnimationFrame(rafRef.current);
-      rafRef.current = requestAnimationFrame(() => {
-        const rect = container.getBoundingClientRect();
-        const totalScroll = container.scrollHeight - window.innerHeight;
-        const scrolled = -rect.top;
-        const progress = Math.max(0, Math.min(1, scrolled / totalScroll));
-        const step = Math.min(
-          steps.length - 1,
-          Math.floor(progress * steps.length)
-        );
-        setActiveStep(step);
-      });
-    };
-
-    window.addEventListener("scroll", onScroll, { passive: true });
-    onScroll();
-    return () => {
-      window.removeEventListener("scroll", onScroll);
-      cancelAnimationFrame(rafRef.current);
-    };
-  }, []);
 
   return (
-    <div ref={containerRef} className="hidden md:block relative w-full" style={{ height: "300vh" }}>
-      <div className="sticky top-0 h-screen flex items-center justify-center px-4">
+    <div className="hidden md:block relative w-full">
+      <div className="flex items-center justify-center px-4">
         <div className="w-full max-w-[1200px] mx-auto bg-white/5 rounded-[30px] md:py-8 md:px-6 lg:py-12 lg:px-10 flex items-center">
           <div className="flex items-center w-full md:gap-6 lg:gap-12">
             <div className="md:w-[42%] lg:w-[45%] flex flex-col gap-2">
@@ -680,17 +656,37 @@ function DesktopStickySection() {
                   title={step.title}
                   description={step.description}
                   active={idx === activeStep}
+                  onClick={() => setActiveStep(idx)}
                 />
               ))}
             </div>
 
-            <div className="relative min-w-0 md:w-[58%] lg:w-[55%] flex items-center justify-center">
-              <img
-                src="/images/figma/Group 1707484029.svg"
-                alt="Agent profile card"
-                loading="lazy"
-                className="w-full h-auto object-contain"
-              />
+            <div className="relative min-w-0 md:w-[58%] lg:w-[55%] md:h-[450px] lg:h-[600px]">
+              {steps.map((step, idx) =>
+                step.image ? (
+                  <img
+                    key={step.number}
+                    src={step.image}
+                    alt={step.title}
+                    loading={idx === 0 ? undefined : "lazy"}
+                    className={cn(
+                      "absolute inset-0 w-full h-full object-contain transition-opacity duration-500",
+                      idx === activeStep ? "opacity-100" : "opacity-0",
+                      idx === 2 && "scale-[1.15] -translate-y-[4%]"
+                    )}
+                  />
+                ) : (
+                  <div
+                    key={step.number}
+                    className={cn(
+                      "absolute inset-0 w-full h-full flex items-center justify-center transition-opacity duration-500",
+                      idx === activeStep ? "opacity-100" : "opacity-0"
+                    )}
+                  >
+                    <TeamPreviewCard animated={false} />
+                  </div>
+                )
+              )}
             </div>
           </div>
         </div>
@@ -700,56 +696,54 @@ function DesktopStickySection() {
 }
 
 function MobileStepsSection() {
-  const stepRefs = useRef<(HTMLDivElement | null)[]>([]);
   const [activeStep, setActiveStep] = useState(0);
-
-  useEffect(() => {
-    const observers: IntersectionObserver[] = [];
-
-    stepRefs.current.forEach((el, idx) => {
-      if (!el) return;
-      const observer = new IntersectionObserver(
-        ([entry]) => {
-          if (entry.isIntersecting) setActiveStep(idx);
-        },
-        { threshold: 0.6 }
-      );
-      observer.observe(el);
-      observers.push(observer);
-    });
-
-    return () => observers.forEach((o) => o.disconnect());
-  }, []);
 
   return (
     <div className="md:hidden w-full overflow-hidden py-[30px]">
       <div className="flex flex-col items-center gap-[14px]">
         {steps.map((step, idx) => (
-          <div key={step.number} ref={(el) => { stepRefs.current[idx] = el; }}>
+          <div key={step.number}>
             <StepItem
               number={step.number}
               title={step.title}
               description={step.description}
               active={idx === activeStep}
+              onClick={() => setActiveStep(idx)}
             />
           </div>
         ))}
 
-        <AnimateOnScroll animation="fade-up" duration={0.8} delay={0.1} threshold={0.1}>
-          <div className="flex justify-center mt-4">
-            <div className="glow-border-card w-full rounded-[24px] bg-[#0a0a0f]/60">
-              <div className="relative w-full overflow-hidden rounded-[24px]">
-                <img
-                  src="/images/figma/Group 1707484029.svg"
-                  alt="Agent profile card"
-                  loading="lazy"
-                  className="w-full h-auto"
-                  style={{ imageRendering: "auto", WebkitFontSmoothing: "antialiased" }}
-                />
-              </div>
+        <div className="flex justify-center mt-4">
+          <div className="w-full rounded-[24px]">
+            <div className="relative w-full overflow-hidden rounded-[24px]">
+              {steps.map((step, idx) =>
+                step.image ? (
+                  <img
+                    key={step.number}
+                    src={step.image}
+                    alt={step.title}
+                    loading={idx === 0 ? undefined : "lazy"}
+                    className={cn(
+                      "w-full h-auto transition-opacity duration-500",
+                      idx === activeStep ? "opacity-100" : "opacity-0 absolute inset-0"
+                    )}
+                    style={{ imageRendering: "auto", WebkitFontSmoothing: "antialiased" }}
+                  />
+                ) : (
+                  <div
+                    key={step.number}
+                    className={cn(
+                      "w-full flex items-center justify-center py-6 transition-opacity duration-500",
+                      idx === activeStep ? "opacity-100" : "opacity-0 absolute inset-0"
+                    )}
+                  >
+                    <TeamPreviewCard animated={false} />
+                  </div>
+                )
+              )}
             </div>
           </div>
-        </AnimateOnScroll>
+        </div>
       </div>
     </div>
   );

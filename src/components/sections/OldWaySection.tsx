@@ -1,11 +1,50 @@
 "use client";
 
+import { useCallback, useRef, type ReactNode } from "react";
+
 import {
   AnimateOnScroll,
   Badge,
   Section,
   ScrollTextReveal,
 } from "@/components/ui";
+
+function GlowCard({ children, className }: { children: ReactNode; className?: string }) {
+  const cardRef = useRef<HTMLDivElement>(null);
+  const glowRef = useRef<HTMLDivElement>(null);
+
+  const handleMouseMove = useCallback((e: React.MouseEvent<HTMLDivElement>) => {
+    const card = cardRef.current;
+    const glow = glowRef.current;
+    if (!card || !glow) return;
+    const rect = card.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    glow.style.opacity = "1";
+    glow.style.background = `radial-gradient(600px circle at ${x}px ${y}px, rgba(255,255,255,0.06), transparent 40%)`;
+  }, []);
+
+  const handleMouseLeave = useCallback(() => {
+    const glow = glowRef.current;
+    if (glow) glow.style.opacity = "0";
+  }, []);
+
+  return (
+    <div
+      ref={cardRef}
+      className={`relative overflow-hidden ${className ?? ""}`}
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
+    >
+      <div
+        ref={glowRef}
+        className="pointer-events-none absolute inset-0 z-10 transition-opacity duration-300"
+        style={{ opacity: 0 }}
+      />
+      {children}
+    </div>
+  );
+}
 
 export function OldWaySection() {
   return (
@@ -35,54 +74,103 @@ export function OldWaySection() {
 
         {/* Cards */}
         <div className="w-full mt-4 md:mt-6 grid grid-cols-1 md:grid-cols-3 gap-2 md:gap-2 lg:gap-2 justify-items-stretch items-stretch">
-          <div className="flex flex-col items-start gap-6">
-            <img
-              src="/images/figma/Group3.svg"
-              alt="Hiring workflow card"
-              className="w-full h-auto"
-            />
-            <div className="flex flex-col items-start gap-4 pl-5">
-              <h3 className="text-white text-lg leading-7 md:text-xl md:leading-7 lg:text-2xl lg:leading-8 font-bold font-['Urbanist']">
-                Take months to fill a position
-              </h3>
-              <p className="text-gray-300 text-sm leading-5 md:text-sm md:leading-5 lg:text-base lg:leading-6 font-medium font-['Urbanist']">
-                "Stripe for payments. Vercel for deployments,
-                <span className="block">Dub.co for links.</span>
-              </p>
-            </div>
-          </div>
-          <div className="flex flex-col items-start gap-6">
-            <img
-              src="/images/figma/Group2.svg"
-              alt="Process overview card"
-              className="w-full h-auto"
-            />
-            <div className="flex flex-col items-start gap-4 pl-5">
-              <h3 className="text-white text-lg leading-7 md:text-xl md:leading-7 lg:text-2xl lg:leading-8 font-bold font-['Urbanist']">
-                Coordinate between siloed teams
-              </h3>
-              <p className="text-gray-300 text-sm leading-5 md:text-sm md:leading-5 lg:text-base lg:leading-6 font-medium font-['Urbanist']">
-                "Stripe for payments. Vercel for deployments,
-                <span className="block">Dub.co for links.</span>
-              </p>
-            </div>
-          </div>
-          <div className="flex flex-col items-start gap-6">
-            <img
-              src="/images/figma/Group%201.svg"
-              alt="Cost breakdown card"
-              className="w-full h-auto"
-            />
-            <div className="flex flex-col items-start gap-4 pl-5">
-              <h3 className="text-white text-lg leading-7 md:text-xl md:leading-7 lg:text-2xl lg:leading-8 font-bold font-['Urbanist']">
-                Costs $4,000+ per hire
-              </h3>
-              <p className="text-gray-300 text-sm leading-5 md:text-sm md:leading-5 lg:text-base lg:leading-6 font-medium font-['Urbanist']">
-                "Stripe for payments. Vercel for deployments,
-                <span className="block">Dub.co for links.</span>
-              </p>
-            </div>
-          </div>
+          <AnimateOnScroll animation="fade-up" delay={0} duration={0.7} threshold={0.15}>
+            <GlowCard className="flex flex-col items-start gap-6 rounded-2xl p-2 pb-6 transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_8px_40px_rgba(255,255,255,0.05)]">
+              <div className="relative w-full">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src="/images/figma/Group3.svg?v=3"
+                  alt="Hiring workflow card"
+                  className="w-full h-auto"
+                />
+                <svg
+                  className="absolute inset-0 w-full h-full pointer-events-none"
+                  viewBox="0 0 411 306"
+                  preserveAspectRatio="xMidYMid meet"
+                >
+                  <defs>
+                    <filter id="snk-glow" x="-50%" y="-50%" width="200%" height="200%" filterUnits="objectBoundingBox" colorInterpolationFilters="sRGB">
+                      <feGaussianBlur stdDeviation="1.25" />
+                    </filter>
+                    <filter id="snk-shadow" x="-200%" y="-200%" width="500%" height="500%" filterUnits="objectBoundingBox" colorInterpolationFilters="sRGB">
+                      <feGaussianBlur stdDeviation="6" />
+                    </filter>
+                    <path id="snk-path" d="M 118 86.75 V 102.303 C 118 107.826 122.477 112.303 128 112.303 H 156 C 161.523 112.303 166 116.781 166 122.303 V 133.75 L 166 135.75 L 171 188.75 L 171 192.75 V 204.498 C 171 210.02 175.477 214.498 181 214.498 H 209 C 214.523 214.498 219 218.975 219 224.498 V 232.75" />
+                  </defs>
+                  <rect x="43" y="34.75" width="158" height="44" rx="10"
+                    fill="none" stroke="white" strokeWidth="1">
+                    <animate attributeName="stroke-opacity" values="0.08;0.35;0.08" dur="3s" repeatCount="indefinite" />
+                  </rect>
+                  <rect x="83" y="140.75" width="223" height="44" rx="10"
+                    fill="none" stroke="white" strokeWidth="1">
+                    <animate attributeName="stroke-opacity" values="0.08;0.35;0.08" dur="3s" begin="1s" repeatCount="indefinite" />
+                  </rect>
+                  <rect x="146" y="239.75" width="190" height="44" rx="10"
+                    fill="none" stroke="white" strokeWidth="1">
+                    <animate attributeName="stroke-opacity" values="0.08;0.35;0.08" dur="3s" begin="2s" repeatCount="indefinite" />
+                  </rect>
+
+                  <circle r="10" fill="white" opacity="0.25" filter="url(#snk-shadow)">
+                    <animateMotion dur="4s" repeatCount="indefinite"
+                      keyPoints="0;0.35;0.65;1" keyTimes="0;0.45;0.55;1" calcMode="linear">
+                      <mpath href="#snk-path" />
+                    </animateMotion>
+                  </circle>
+                  <circle r="2.5" fill="white" filter="url(#snk-glow)">
+                    <animateMotion dur="4s" repeatCount="indefinite"
+                      keyPoints="0;0.35;0.65;1" keyTimes="0;0.45;0.55;1" calcMode="linear">
+                      <mpath href="#snk-path" />
+                    </animateMotion>
+                  </circle>
+                </svg>
+              </div>
+              <div className="flex flex-col items-start gap-4 pl-5">
+                <h3 className="text-white text-lg leading-7 md:text-xl md:leading-7 lg:text-2xl lg:leading-8 font-bold font-['Urbanist']">
+                  Take months to fill a position
+                </h3>
+                <p className="text-gray-300 text-sm leading-5 md:text-sm md:leading-5 lg:text-base lg:leading-6 font-medium font-['Urbanist']">
+                  "Stripe for payments. Vercel for deployments,
+                  <span className="block">Dub.co for links.</span>
+                </p>
+              </div>
+            </GlowCard>
+          </AnimateOnScroll>
+          <AnimateOnScroll animation="fade-up" delay={0.15} duration={0.7} threshold={0.15}>
+            <GlowCard className="flex flex-col items-start gap-6 rounded-2xl p-2 pb-6 transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_8px_40px_rgba(255,255,255,0.05)]">
+              <img
+                src="/images/figma/Group2.svg"
+                alt="Process overview card"
+                className="w-full h-auto"
+              />
+              <div className="flex flex-col items-start gap-4 pl-5">
+                <h3 className="text-white text-lg leading-7 md:text-xl md:leading-7 lg:text-2xl lg:leading-8 font-bold font-['Urbanist']">
+                  Coordinate between siloed teams
+                </h3>
+                <p className="text-gray-300 text-sm leading-5 md:text-sm md:leading-5 lg:text-base lg:leading-6 font-medium font-['Urbanist']">
+                  "Stripe for payments. Vercel for deployments,
+                  <span className="block">Dub.co for links.</span>
+                </p>
+              </div>
+            </GlowCard>
+          </AnimateOnScroll>
+          <AnimateOnScroll animation="fade-up" delay={0.3} duration={0.7} threshold={0.15}>
+            <GlowCard className="flex flex-col items-start gap-6 rounded-2xl p-2 pb-6 transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_8px_40px_rgba(255,255,255,0.05)]">
+              <img
+                src="/images/figma/Group%201.svg?v=4"
+                alt="Cost breakdown card"
+                className="w-full h-auto"
+              />
+              <div className="flex flex-col items-start gap-4 pl-5">
+                <h3 className="text-white text-lg leading-7 md:text-xl md:leading-7 lg:text-2xl lg:leading-8 font-bold font-['Urbanist']">
+                  Costs $4,000+ per hire
+                </h3>
+                <p className="text-gray-300 text-sm leading-5 md:text-sm md:leading-5 lg:text-base lg:leading-6 font-medium font-['Urbanist']">
+                  "Stripe for payments. Vercel for deployments,
+                  <span className="block">Dub.co for links.</span>
+                </p>
+              </div>
+            </GlowCard>
+          </AnimateOnScroll>
         </div>
       </div>
     </Section>
