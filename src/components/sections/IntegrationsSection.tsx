@@ -96,8 +96,15 @@ function seededShuffle(array: string[], seed: number) {
 
 const randomIcons = seededShuffle(integrationIcons, 42);
 
-const IntegrationIcon = ({ src }: { src: string }) => (
-  <div className="w-9 h-9 md:w-12 md:h-12 lg:w-20 lg:h-20 bg-neutral-800 rounded-full shadow-[0px_1.73px_10.79px_0px_rgba(0,0,0,0.25)] shadow-[inset_0px_0px_2.24px_0px_rgba(255,255,255,0.55)] lg:shadow-[0px_3.98px_24.85px_0px_rgba(0,0,0,0.25)] lg:shadow-[inset_0px_0px_5.16px_0px_rgba(255,255,255,0.55)] flex justify-center items-center">
+const IntegrationIcon = ({ src, delay, revealed }: { src: string; delay: number; revealed: boolean }) => (
+  <div
+    className="w-9 h-9 md:w-12 md:h-12 lg:w-20 lg:h-20 bg-neutral-800 rounded-full shadow-[0px_1.73px_10.79px_0px_rgba(0,0,0,0.25)] shadow-[inset_0px_0px_2.24px_0px_rgba(255,255,255,0.55)] lg:shadow-[0px_3.98px_24.85px_0px_rgba(0,0,0,0.25)] lg:shadow-[inset_0px_0px_5.16px_0px_rgba(255,255,255,0.55)] flex justify-center items-center transition-all duration-700 ease-out"
+    style={{
+      transitionDelay: `${delay}ms`,
+      opacity: revealed ? 1 : 0,
+      transform: revealed ? "scale(1) translateY(0)" : "scale(0.5) translateY(12px)",
+    }}
+  >
     <img src={`/images/figma/landing-page/${src}`} alt="Integration" loading="lazy" className="w-5 h-5 md:w-7 md:h-7 lg:w-12 lg:h-12 object-contain" />
   </div>
 );
@@ -105,7 +112,9 @@ const IntegrationIcon = ({ src }: { src: string }) => (
 export function IntegrationsSection() {
   const videoContainerRef = useRef<HTMLDivElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
+  const gridRef = useRef<HTMLDivElement>(null);
   const [videoInView, setVideoInView] = useState(false);
+  const [iconsRevealed, setIconsRevealed] = useState(false);
 
   useEffect(() => {
     const el = videoContainerRef.current;
@@ -113,6 +122,17 @@ export function IntegrationsSection() {
     const observer = new IntersectionObserver(
       ([entry]) => setVideoInView(entry.isIntersecting),
       { rootMargin: "200px" },
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    const el = gridRef.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => { if (entry.isIntersecting) { setIconsRevealed(true); observer.disconnect(); } },
+      { threshold: 0.2 },
     );
     observer.observe(el);
     return () => observer.disconnect();
@@ -181,36 +201,32 @@ export function IntegrationsSection() {
           />
 
 
-          <div className="flex flex-nowrap justify-center items-center gap-2 md:gap-3 lg:gap-5 relative z-10">
-            {randomIcons.slice(0, 9).map((icon, i) => (
-              <IntegrationIcon key={i} src={icon} />
-            ))}
-          </div>
-          <div className="flex flex-nowrap justify-center items-center gap-2 md:gap-3 lg:gap-5 relative z-10">
-            {randomIcons.slice(9, 19).map((icon, i) => (
-              <IntegrationIcon key={i} src={icon} />
-            ))}
-          </div>
-          <div className="flex flex-nowrap justify-center items-center gap-2 md:gap-3 lg:gap-5 relative z-10">
-            {randomIcons.slice(19, 28).map((icon, i) => (
-              <IntegrationIcon key={i} src={icon} />
-            ))}
-          </div>
-          <div className="flex flex-nowrap justify-center items-center gap-2 md:gap-3 lg:gap-5 relative z-10">
-            {randomIcons.slice(28, 38).map((icon, i) => (
-              <IntegrationIcon key={i} src={icon} />
-            ))}
-          </div>
-          <div className="flex flex-nowrap justify-center items-center gap-2 md:gap-3 lg:gap-5 relative z-10">
-            {randomIcons.slice(38, 47).map((icon, i) => (
-              <IntegrationIcon key={i} src={icon} />
-            ))}
-          </div>
-          <div className="flex flex-nowrap justify-center items-center gap-2 md:gap-3 lg:gap-5 relative z-10">
-            {randomIcons.slice(47, 57).map((icon, i) => (
-              <IntegrationIcon key={i} src={icon} />
-            ))}
-          </div>
+          {(() => {
+            const rows = [
+              randomIcons.slice(0, 9),
+              randomIcons.slice(9, 19),
+              randomIcons.slice(19, 28),
+              randomIcons.slice(28, 38),
+              randomIcons.slice(38, 47),
+              randomIcons.slice(47, 57),
+            ];
+            const centerRow = (rows.length - 1) / 2;
+            return (
+              <div ref={gridRef}>
+                {rows.map((row, rowIdx) => (
+                  <div key={rowIdx} className="flex flex-nowrap justify-center items-center gap-2 md:gap-3 lg:gap-5 relative z-10">
+                    {row.map((icon, colIdx) => {
+                      const centerCol = (row.length - 1) / 2;
+                      const dist = Math.sqrt((rowIdx - centerRow) ** 2 + (colIdx - centerCol) ** 2);
+                      return (
+                        <IntegrationIcon key={colIdx} src={icon} revealed={iconsRevealed} delay={dist * 80} />
+                      );
+                    })}
+                  </div>
+                ))}
+              </div>
+            );
+          })()}
         </div>
     </section>
   );

@@ -5,12 +5,12 @@ import { PRIMARY_CTA_HREF } from "@/content/site";
 
 export function FinalCTASection() {
   return (
-    <section className="relative bg-black overflow-hidden w-[100vw] left-1/2 -translate-x-1/2 px-4 py-16 md:px-8 md:py-60" id="cta">
+    <section className="relative bg-black overflow-hidden w-full px-4 py-16 md:px-8 md:pt-60 md:pb-20 mb-4 md:mb-8" id="cta">
       {/* Background image */}
       <img
         src="/images/figma/image1234.svg"
         alt=""
-        className="pointer-events-none absolute left-1 right-0 -top-12 md:-top-16 bottom-10 w-full object-cover"
+        className="pointer-events-none absolute left-0 right-0 -top-12 md:-top-16 bottom-0 w-full h-[calc(100%+3rem)] md:h-[calc(100%+4rem)] 2xl:scale-x-[1.23] origin-center"
       />
       {/* Top gradient glow */}
       <div className="absolute top-0 left-0 right-0 w-full h-[300px] md:h-[515px] bg-gradient-to-b from-white/20 via-white/0 to-black/0 pointer-events-none" />

@@ -50,10 +50,10 @@ export default function Home() {
           <PricingSection />
         </AnimateOnScroll>
 
-        <AnimateOnScroll animation="fade-up" duration={0.9}>
-          <FinalCTASection />
-        </AnimateOnScroll>
       </main>
+      <AnimateOnScroll animation="fade-up" duration={0.9}>
+        <FinalCTASection />
+      </AnimateOnScroll>
       <AnimateOnScroll animation="fade-in" duration={0.8} threshold={0.05}>
         <Footer />
       </AnimateOnScroll>

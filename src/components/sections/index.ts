@@ -15,7 +15,7 @@ export { OldWaySection } from "./OldWaySection";
 export { ChorusWaySection } from "./ChorusWaySection";
 export { AIWorkforceSection } from "./AIWorkforceSection";
 export { HowItWorksSection } from "./HowItWorksSection";
-export { CapabilitiesSection } from "./CapabilitiesSection";
+export { CapabilitiesSection, TeamPreviewCard } from "./CapabilitiesSection";
 export { FoundersSection } from "./FoundersSection";
 export { IntegrationsSection } from "./IntegrationsSection";
 export { PricingSection } from "./PricingSection";
