@@ -6,6 +6,12 @@
   inherits: false;
 }
 
+@property --border-angle {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}
+
 /* Self-hosted Urbanist (avoids build-time Google Fonts fetch). */
 @font-face {
   font-family: Urbanist;
@@ -420,6 +426,202 @@
   -webkit-backdrop-filter: blur(20px);
 }
 
+/* ── Dot grid pattern overlay ── */
+.hero-dot-grid {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background-image: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.35) 1.5px,
+    transparent 1.5px
+  );
+  background-size: 8px 8px;
+  pointer-events: none;
+  -webkit-mask-image: radial-gradient(
+    ellipse 60% 50% at 50% 48%,
+    black 0%,
+    rgba(0,0,0,0.5) 45%,
+    rgba(0,0,0,0.15) 70%,
+    transparent 90%
+  );
+  mask-image: radial-gradient(
+    ellipse 60% 50% at 50% 48%,
+    black 0%,
+    rgba(0,0,0,0.5) 45%,
+    rgba(0,0,0,0.15) 70%,
+    transparent 90%
+  );
+  filter: blur(0.4px);
+}
+
+/* ── Animated gradient border with shadow spill (Example 3 style) ── */
+@keyframes border-glow-shift {
+  0%   { background-position: 0 0; }
+  50%  { background-position: 100% 0; }
+  100% { background-position: 0 0; }
+}
+
+@keyframes glow-pulse {
+  0%, 100% { opacity: 0.85; }
+  50%      { opacity: 1; }
+}
+
+.glow-border-card {
+  position: relative;
+  padding: 2px;
+  border-radius: 20px;
+}
+
+.glow-border-card > * {
+  position: relative;
+  z-index: 2;
+}
+
+.glow-border-card::before,
+.glow-border-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    45deg,
+    #9155ED,
+    #B48AFB,
+    #C832B4,
+    #FF3264,
+    #FF7850,
+    #FFB199,
+    #FF7850,
+    #FF3264,
+    #C832B4,
+    #9155ED
+  );
+  background-size: 400%;
+  z-index: 0;
+  border-radius: inherit;
+  animation: border-glow-shift 16s linear infinite;
+}
+
+.glow-border-card::after {
+  top: -20px;
+  left: -20px;
+  right: -20px;
+  bottom: -20px;
+  filter: blur(40px);
+  opacity: 0.75;
+  border-radius: 40px;
+  transform: translate3d(0, 0, 0);
+}
+
+/* White backlight glow behind the card */
+.hero-white-backlight {
+  position: absolute;
+  top: -35px;
+  left: -35px;
+  right: -35px;
+  bottom: -35px;
+  z-index: -1;
+  border-radius: 40px;
+  background:
+    radial-gradient(
+      ellipse 85% 70% at 50% 50%,
+      rgba(255, 255, 255, 0.18) 0%,
+      rgba(255, 255, 255, 0.10) 25%,
+      rgba(255, 255, 255, 0.04) 50%,
+      rgba(255, 255, 255, 0.01) 70%,
+      transparent 85%
+    );
+  filter: blur(30px);
+  transform: translate3d(0, 0, 0);
+  animation: glow-pulse 8s ease-in-out infinite;
+  pointer-events: none;
+}
+
+/* Diffused background glow behind the card */
+.hero-glow-bg {
+  position: absolute;
+  left: -15%;
+  right: -15%;
+  bottom: -40%;
+  height: 80%;
+  z-index: 0;
+  border-radius: 50%;
+  background:
+    radial-gradient(
+      ellipse 25% 20% at 50% 78%,
+      rgba(255, 255, 255, 0.45) 0%,
+      rgba(255, 240, 230, 0.25) 20%,
+      rgba(255, 200, 180, 0.1) 45%,
+      transparent 65%
+    ),
+    radial-gradient(
+      ellipse 70% 50% at 50% 80%,
+      rgba(255, 60, 40, 0.35) 0%,
+      rgba(255, 40, 80, 0.22) 25%,
+      rgba(200, 30, 120, 0.14) 45%,
+      transparent 70%
+    ),
+    radial-gradient(
+      ellipse 50% 45% at 30% 75%,
+      rgba(255, 90, 30, 0.28) 0%,
+      rgba(255, 50, 50, 0.15) 35%,
+      transparent 65%
+    ),
+    radial-gradient(
+      ellipse 50% 45% at 70% 75%,
+      rgba(255, 90, 30, 0.28) 0%,
+      rgba(255, 50, 50, 0.15) 35%,
+      transparent 65%
+    ),
+    radial-gradient(
+      ellipse 40% 35% at 50% 85%,
+      rgba(255, 30, 80, 0.3) 0%,
+      rgba(180, 20, 140, 0.18) 40%,
+      transparent 70%
+    );
+  filter: blur(60px);
+  animation: glow-pulse 10s ease-in-out infinite;
+}
+
+.hero-glow-edge {
+  position: absolute;
+  left: -20%;
+  right: -20%;
+  bottom: -25%;
+  height: 50%;
+  z-index: 0;
+  border-radius: 50%;
+  background:
+    radial-gradient(
+      ellipse 18% 15% at 50% 85%,
+      rgba(255, 255, 255, 0.3) 0%,
+      rgba(255, 230, 220, 0.12) 35%,
+      transparent 60%
+    ),
+    radial-gradient(
+      ellipse 80% 40% at 50% 90%,
+      rgba(255, 50, 30, 0.22) 0%,
+      rgba(255, 80, 60, 0.12) 30%,
+      transparent 60%
+    ),
+    radial-gradient(
+      ellipse 35% 30% at 25% 85%,
+      rgba(255, 120, 40, 0.18) 0%,
+      transparent 55%
+    ),
+    radial-gradient(
+      ellipse 35% 30% at 75% 85%,
+      rgba(255, 120, 40, 0.18) 0%,
+      transparent 55%
+    );
+  filter: blur(45px);
+  animation: glow-pulse 10s ease-in-out infinite;
+  animation-delay: -5s;
+}
+
 /* ============================================
    PERFORMANCE: GPU-accelerate continuous animations
    ============================================ */
@@ -427,7 +629,12 @@
 .cta-orbit-ring::before,
 .stars-wave-bright,
 .glass-shine,
-.animated-border {
+.animated-border,
+.glow-border-card::before,
+.glow-border-card::after,
+.hero-white-backlight,
+.hero-glow-bg,
+.hero-glow-edge {
   will-change: transform;
 }
 
@@ -443,6 +650,13 @@
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
+  }
+  .glow-border-card::before,
+  .glow-border-card::after,
+  .hero-white-backlight,
+  .hero-glow-bg,
+  .hero-glow-edge {
+    animation: none;
   }
 }
 

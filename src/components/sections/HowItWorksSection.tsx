@@ -737,13 +737,17 @@ function MobileStepsSection() {
 
         <AnimateOnScroll animation="fade-up" duration={0.8} delay={0.1} threshold={0.1}>
           <div className="flex justify-center mt-4">
-            <img
-              src="/images/figma/Group 1707484029.svg"
-              alt="Agent profile card"
-              loading="lazy"
-              className="w-full h-auto"
-              style={{ imageRendering: "auto", WebkitFontSmoothing: "antialiased" }}
-            />
+            <div className="glow-border-card w-full rounded-[24px] bg-[#0a0a0f]/60">
+              <div className="relative w-full overflow-hidden rounded-[24px]">
+                <img
+                  src="/images/figma/Group 1707484029.svg"
+                  alt="Agent profile card"
+                  loading="lazy"
+                  className="w-full h-auto"
+                  style={{ imageRendering: "auto", WebkitFontSmoothing: "antialiased" }}
+                />
+              </div>
+            </div>
           </div>
         </AnimateOnScroll>
       </div>

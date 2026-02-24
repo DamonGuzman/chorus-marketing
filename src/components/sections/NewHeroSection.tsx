@@ -1,114 +1,11 @@
-"use client";
-
 import { ButtonLink } from "@/components/ui";
 import { PRIMARY_CTA_HREF } from "@/content/site";
-import type { LottieRefCurrentProps } from "lottie-react";
-import dynamic from "next/dynamic";
-import { useEffect, useRef, useState } from "react";
-
-const Lottie = dynamic(() => import("lottie-react"), { ssr: false });
-
-function parseJsonOffThread(text: string): Promise<object> {
-  return new Promise((resolve, reject) => {
-    if (typeof Worker === "undefined") {
-      resolve(JSON.parse(text));
-      return;
-    }
-    const blob = new Blob(
-      [`self.onmessage=function(e){postMessage(JSON.parse(e.data))}`],
-      { type: "application/javascript" },
-    );
-    const w = new Worker(URL.createObjectURL(blob));
-    w.onmessage = (e) => { resolve(e.data); w.terminate(); };
-    w.onerror = () => { resolve(JSON.parse(text)); w.terminate(); };
-    w.postMessage(text);
-  });
-}
 
 export function NewHeroSection() {
-  const [animationData, setAnimationData] = useState<object | null>(null);
-  const sectionRef = useRef<HTMLElement>(null);
-  const mobileLottieRef = useRef<LottieRefCurrentProps>(null);
-  const desktopLottieRef = useRef<LottieRefCurrentProps>(null);
-
-  useEffect(() => {
-    const load = () => {
-      fetch("/images/banner/Hero Banner Animation.json")
-        .then((res) => res.text())
-        .then((text) => parseJsonOffThread(text))
-        .then((data) => setAnimationData(data))
-        .catch(() => {});
-    };
-
-    if ("requestIdleCallback" in window) {
-      const id = requestIdleCallback(load, { timeout: 1500 });
-      return () => cancelIdleCallback(id);
-    }
-    const t = setTimeout(load, 100);
-    return () => clearTimeout(t);
-  }, []);
-
-  useEffect(() => {
-    const el = sectionRef.current;
-    if (!el) return;
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        const refs = [mobileLottieRef, desktopLottieRef];
-        refs.forEach((ref) => {
-          const anim = ref.current?.animationItem;
-          if (!anim) return;
-          if (entry.isIntersecting) {
-            anim.setSubframe(false);
-            ref.current!.play();
-          } else {
-            ref.current!.pause();
-          }
-        });
-      },
-      { threshold: 0 },
-    );
-
-    observer.observe(el);
-
-    let scrollTimer: ReturnType<typeof setTimeout>;
-    const refs = [mobileLottieRef, desktopLottieRef];
-    const throttleOnScroll = () => {
-      refs.forEach((r) => {
-        const a = r.current?.animationItem;
-        if (a && !a.isPaused) a.setSpeed(0.3);
-      });
-      clearTimeout(scrollTimer);
-      scrollTimer = setTimeout(() => {
-        refs.forEach((r) => {
-          const a = r.current?.animationItem;
-          if (a && !a.isPaused) a.setSpeed(0.8);
-        });
-      }, 150);
-    };
-    window.addEventListener("scroll", throttleOnScroll, { passive: true });
-
-    return () => {
-      observer.disconnect();
-      window.removeEventListener("scroll", throttleOnScroll);
-      clearTimeout(scrollTimer);
-    };
-  }, [animationData]);
-
   return (
-    <section ref={sectionRef} className="relative bg-black overflow-hidden" id="about">
-      {/* Stars SVG behind the animation cards */}
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img
-        src="/images/figma/stars.svg"
-        alt=""
-        aria-hidden="true"
-        loading="lazy"
-        className="hidden md:block absolute pointer-events-none"
-        style={{ right: '250px', top: '100px', width: 'auto', height: '1000px' }}
-      />
-
-      <div className="relative z-10 pt-[60px] md:pt-[110px] px-4 sm:px-6 md:px-8 max-w-[1440px] mx-auto pb-12 md:pb-0">
+    <section className="relative bg-black" id="about">
+      <div aria-hidden="true" className="hero-dot-grid" />
+      <div className="relative z-10 pt-[60px] md:pt-[110px] px-4 sm:px-6 md:px-8 max-w-[1440px] mx-auto pb-12 md:pb-16">
         <div className="w-full max-w-[1183px] mx-auto flex flex-col justify-start items-center">
           <div className="self-stretch flex flex-col justify-start items-center gap-[20px] md:gap-7">
             <div className="self-stretch flex flex-col justify-start items-center gap-[14px] md:gap-5">
@@ -129,32 +26,20 @@ export function NewHeroSection() {
           </div>
         </div>
 
-        {/* Mobile: Lottie animated hero banner */}
-        <div className="lottie-container md:hidden mt-[20px] pointer-events-none overflow-hidden">
-          {animationData && (
-            <Lottie
-              lottieRef={mobileLottieRef}
-              animationData={animationData}
-              loop
-              autoplay
-              style={{ width: 1577, height: 1157 }}
-              className="origin-top-center scale-[0.38] -translate-x-[37%] -mt-[350px] -mb-[380px]"
-            />
-          )}
-        </div>
-
-        {/* Desktop: Lottie animated hero banner */}
-        <div className="lottie-container hidden md:block mt-[-110px] -mb-[150px] pointer-events-none">
-          {animationData && (
-            <Lottie
-              lottieRef={desktopLottieRef}
-              animationData={animationData}
-              loop
-              autoplay
-              style={{ width: 1500, height: 967 }}
-              className="origin-top-left scale-[0.95] -translate-y-[60px]"
-            />
-          )}
+        <div className="mt-10 md:mt-14 flex justify-center px-2 md:px-8">
+          <div className="relative w-full max-w-[1100px]">
+            <div aria-hidden="true" className="hero-white-backlight" />
+            <div className="glow-border-card rounded-[16px] md:rounded-[24px]">
+              <div className="relative w-full overflow-hidden rounded-[14px] md:rounded-[22px] bg-[#08080c]">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src="/images/figma/CleanShot 2024-10-20 at 22.27.03.svg"
+                  alt="Chorus platform interface"
+                  className="w-full h-auto block"
+                />
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
