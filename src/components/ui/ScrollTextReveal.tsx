@@ -1,47 +1,13 @@
 "use client";
 
-import { useRef, type CSSProperties } from "react";
-import { motion, useScroll, useTransform, type MotionValue } from "framer-motion";
+import { useEffect, useRef, useState, type CSSProperties } from "react";
 
 interface ScrollTextRevealProps {
-  /** Plain string or array of lines */
   text: string | string[];
-  /** CSS class for the outer wrapper */
   className?: string;
-  /** Inline styles for the outer wrapper */
   style?: CSSProperties;
-  /** Dim colour for unread words. Default: rgba(255,255,255,0.25) */
   dimColor?: string;
-  /** Bright colour for revealed words. Default: #ffffff */
   brightColor?: string;
-}
-
-function Word({
-  word,
-  scrollYProgress,
-  start,
-  end,
-  dimColor,
-  brightColor,
-}: {
-  word: string;
-  scrollYProgress: MotionValue<number>;
-  start: number;
-  end: number;
-  dimColor: string;
-  brightColor: string;
-}) {
-  const progress = useTransform(scrollYProgress, [start, end], [0, 1]);
-  const color = useTransform(progress, [0, 1], [dimColor, brightColor]);
-
-  return (
-    <motion.span
-      style={{ color }}
-      className="inline-block mr-[0.3em] will-change-[color] transition-none"
-    >
-      {word}
-    </motion.span>
-  );
 }
 
 export function ScrollTextReveal({
@@ -52,50 +18,50 @@ export function ScrollTextReveal({
   brightColor = "#ffffff",
 }: ScrollTextRevealProps) {
   const containerRef = useRef<HTMLDivElement>(null);
+  const [revealed, setRevealed] = useState(false);
 
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start 0.9", "start 0.25"],
-  });
+  useEffect(() => {
+    const el = containerRef.current;
+    if (!el) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setRevealed(true);
+          observer.unobserve(el);
+        }
+      },
+      { threshold: 0.3, rootMargin: "0px 0px -60px 0px" },
+    );
+
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
 
   const lines = Array.isArray(text) ? text : [text];
 
-  const allWords: { word: string; lineIdx: number }[] = [];
-  lines.forEach((line, lineIdx) => {
-    line
-      .split(/\s+/)
-      .filter(Boolean)
-      .forEach((word) => {
-        allWords.push({ word, lineIdx });
-      });
-  });
-
-  const totalWords = allWords.length;
-
-  let globalCounter = 0;
+  let globalIdx = 0;
 
   return (
     <div ref={containerRef} className={className} style={style}>
-      {lines.map((_, lineIdx) => {
-        const lineWords = allWords.filter((w) => w.lineIdx === lineIdx);
-
+      {lines.map((line, lineIdx) => {
+        const words = line.split(/\s+/).filter(Boolean);
         return (
           <div key={lineIdx} className="block">
-            {lineWords.map((w, wordIdxInLine) => {
-              const idx = globalCounter++;
-              const wordStart = idx / totalWords;
-              const wordEnd = (idx + 1) / totalWords;
-
+            {words.map((word, wordIdx) => {
+              const delay = globalIdx * 40;
+              globalIdx++;
               return (
-                <Word
-                  key={`${lineIdx}-${wordIdxInLine}`}
-                  word={w.word}
-                  scrollYProgress={scrollYProgress}
-                  start={wordStart}
-                  end={wordEnd}
-                  dimColor={dimColor}
-                  brightColor={brightColor}
-                />
+                <span
+                  key={`${lineIdx}-${wordIdx}`}
+                  className="inline-block mr-[0.3em]"
+                  style={{
+                    color: revealed ? brightColor : dimColor,
+                    transition: `color 0.3s ease ${delay}ms`,
+                  }}
+                >
+                  {word}
+                </span>
               );
             })}
           </div>
