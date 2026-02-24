@@ -1,17 +1,17 @@
 import { Header, Footer } from "@/components/layout";
 import { AnimateOnScroll } from "@/components/ui";
-import {
-  NewHeroSection,
-  OldWaySection,
-  ChorusWaySection,
-  AIWorkforceSection,
-  HowItWorksSection,
-  CapabilitiesSection,
-  FoundersSection,
-  IntegrationsSection,
-  PricingSection,
-  FinalCTASection,
-} from "@/components/sections";
+import { NewHeroSection } from "@/components/sections";
+import dynamic from "next/dynamic";
+
+const OldWaySection = dynamic(() => import("@/components/sections/OldWaySection").then(m => ({ default: m.OldWaySection })));
+const ChorusWaySection = dynamic(() => import("@/components/sections/ChorusWaySection").then(m => ({ default: m.ChorusWaySection })));
+const AIWorkforceSection = dynamic(() => import("@/components/sections/AIWorkforceSection").then(m => ({ default: m.AIWorkforceSection })));
+const HowItWorksSection = dynamic(() => import("@/components/sections/HowItWorksSection").then(m => ({ default: m.HowItWorksSection })));
+const CapabilitiesSection = dynamic(() => import("@/components/sections/CapabilitiesSection").then(m => ({ default: m.CapabilitiesSection })));
+const FoundersSection = dynamic(() => import("@/components/sections/FoundersSection").then(m => ({ default: m.FoundersSection })));
+const IntegrationsSection = dynamic(() => import("@/components/sections/IntegrationsSection").then(m => ({ default: m.IntegrationsSection })));
+const PricingSection = dynamic(() => import("@/components/sections/PricingSection").then(m => ({ default: m.PricingSection })));
+const FinalCTASection = dynamic(() => import("@/components/sections/FinalCTASection").then(m => ({ default: m.FinalCTASection })));
 
 export default function Home() {
   return (

@@ -64,9 +64,12 @@ export function CTASection() {
         </div>
 
         {/* CTA Button */}
-        <ButtonLink href={PRIMARY_CTA_HREF} variant="primary" size="lg">
-          {PRIMARY_CTA_LABEL}
-        </ButtonLink>
+        <div className="relative rounded-[50px] overflow-hidden inline-flex">
+          <span aria-hidden="true" className="cta-orbit-ring cta-orbit-ring--cta" />
+          <ButtonLink href={PRIMARY_CTA_HREF} variant="primary" size="lg" className="relative z-10">
+            {PRIMARY_CTA_LABEL}
+          </ButtonLink>
+        </div>
       </div>
     </section>
   );

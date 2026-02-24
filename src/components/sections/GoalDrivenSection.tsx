@@ -6,6 +6,7 @@
    Step 02→03 with animated illustration on the right
    ───────────────────────────────────────────────────────── */
 
+import Image from "next/image";
 import { AnimateOnScroll, ScrollTextReveal } from "@/components/ui";
 import dynamic from "next/dynamic";
 import { useEffect, useState } from "react";
@@ -58,8 +59,7 @@ export function GoalDrivenSection() {
         {/* Right – Animated illustration */}
         <AnimateOnScroll animation="slide-right" duration={0.9} threshold={0.2}>
           <div className="hidden md:flex w-full h-full justify-end">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="images/figma/features/settings-image.png" className="w-auto h-auto max-w-full" alt="" />
+            <Image src="/images/figma/features/settings-image.png" width={480} height={400} className="w-auto h-auto max-w-full" alt="" />
           </div>
         </AnimateOnScroll>
       </div>

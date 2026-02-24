@@ -16,6 +16,7 @@ function GridBg({ dark = false }: { dark?: boolean }) {
       <img
         src="/images/figma/design.svg"
         alt=""
+        loading="lazy"
         className="absolute inset-0 w-full h-full object-cover"
         style={{
           opacity: dark ? 0.8 : 0.7,
@@ -44,7 +45,7 @@ function LightCard({
 }) {
   return (
     <div
-      className="relative w-[min(288px,80vw)] h-96 shrink-0 md:w-full md:h-auto overflow-hidden rounded-xl md:rounded-[20px] outline outline-1 outline-offset-[-1px] outline-white/30 backdrop-blur-[30px]"
+      className="relative w-[min(288px,80vw)] h-96 shrink-0 md:w-full md:h-auto overflow-hidden rounded-xl md:rounded-[20px] outline outline-1 outline-offset-[-1px] outline-white/30"
       style={{
         background: "linear-gradient(37deg, #F6F6F6 0%, #CCCBCB 100%)",
       }}
@@ -52,7 +53,7 @@ function LightCard({
       <GridBg dark />
       <div className="relative z-10 flex flex-col gap-10 md:gap-8 lg:gap-20 px-[18px] pb-[18px] pt-[24px] md:px-5 md:pb-5 md:pt-6 lg:px-[30px] lg:pb-[30px] lg:pt-[35px]">
         {/* Logo */}
-        <img src={logo} alt={alt} width={logoWidth} height={logoHeight} className="w-28 h-7 md:h-6 lg:h-10 md:w-auto object-contain self-start" />
+        <img src={logo} alt={alt} width={logoWidth} height={logoHeight} loading="lazy" className="w-28 h-7 md:h-6 lg:h-10 md:w-auto object-contain self-start" />
 
         {/* Quote */}
         <p className="w-full md:w-auto text-sm leading-5 md:text-sm md:leading-5 lg:text-lg font-bold font-['Urbanist'] lg:leading-7 text-gray-800">
@@ -98,7 +99,7 @@ function DarkCard({
 }) {
   return (
     <div
-      className="relative w-[min(288px,80vw)] h-96 shrink-0 md:w-full md:h-auto overflow-hidden rounded-xl md:rounded-[20px] outline outline-1 outline-offset-[-1px] outline-white/30 backdrop-blur-[30px]"
+      className="relative w-[min(288px,80vw)] h-96 shrink-0 md:w-full md:h-auto overflow-hidden rounded-xl md:rounded-[20px] outline outline-1 outline-offset-[-1px] outline-white/30"
       style={{
         background: "linear-gradient(45deg, #101010 0%, #242324 100%)",
       }}
@@ -106,7 +107,7 @@ function DarkCard({
       <GridBg />
       <div className="relative z-10 flex flex-col gap-10 md:gap-8 lg:gap-20 px-[18px] pb-[18px] pt-[24px] md:px-5 md:pb-5 md:pt-6 lg:px-[30px] lg:pb-[30px] lg:pt-[35px]">
         {/* Logo */}
-        <img src={logo} alt={alt} width={logoWidth} height={logoHeight} className="w-28 h-7 md:h-6 lg:h-10 md:w-auto object-contain self-start" />
+        <img src={logo} alt={alt} width={logoWidth} height={logoHeight} loading="lazy" className="w-28 h-7 md:h-6 lg:h-10 md:w-auto object-contain self-start" />
 
         {/* Quote */}
         <p className="w-full md:w-auto text-sm leading-5 md:text-sm md:leading-5 lg:text-lg font-bold font-['Urbanist'] lg:leading-7 text-gray-100">
@@ -142,7 +143,7 @@ function DarkCard({
 function GlassCard() {
   return (
     <div
-      className="relative w-[min(288px,80vw)] h-96 shrink-0 md:w-full md:h-auto rounded-xl md:rounded-[20px] outline outline-1 outline-offset-[-1px] outline-white/30 backdrop-blur-[30px] px-[18px] pt-[24px] pb-[18px] md:pl-5 md:pr-4 md:pt-6 md:pb-2 lg:pl-9 lg:pr-7 lg:pt-10 lg:pb-2.5"
+      className="relative w-[min(288px,80vw)] h-96 shrink-0 md:w-full md:h-auto rounded-xl md:rounded-[20px] outline outline-1 outline-offset-[-1px] outline-white/30 px-[18px] pt-[24px] pb-[18px] md:pl-5 md:pr-4 md:pt-6 md:pb-2 lg:pl-9 lg:pr-7 lg:pt-10 lg:pb-2.5"
       style={{
         background:
           "linear-gradient(180deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.10) 50%, rgba(255,255,255,0.05) 100%)",
@@ -180,7 +181,7 @@ function GlassCard() {
 function GlassWhiteCard() {
   return (
     <div
-      className="relative w-[min(288px,80vw)] h-96 shrink-0 md:w-full md:h-auto rounded-xl md:rounded-[20px] outline outline-1 outline-offset-[-1px] outline-white/30 backdrop-blur-[30px] px-[18px] pt-[24px] pb-[18px] md:pl-5 md:pr-4 md:pt-6 md:pb-2 lg:pl-9 lg:pr-7 lg:pt-10 lg:pb-2.5"
+      className="relative w-[min(288px,80vw)] h-96 shrink-0 md:w-full md:h-auto rounded-xl md:rounded-[20px] outline outline-1 outline-offset-[-1px] outline-white/30 px-[18px] pt-[24px] pb-[18px] md:pl-5 md:pr-4 md:pt-6 md:pb-2 lg:pl-9 lg:pr-7 lg:pt-10 lg:pb-2.5"
       style={{
         background:
           "linear-gradient(180deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.10) 50%, rgba(255,255,255,0.05) 100%)",

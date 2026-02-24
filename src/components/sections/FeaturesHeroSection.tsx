@@ -72,10 +72,9 @@ export function FeaturesHeroSection() {
 
       {/* ── Soft Glow (desktop only) ── */}
       <div
-        className="hidden md:block absolute left-1/2 top-[464px] -translate-x-1/2 w-[407px] h-[407px] rounded-full pointer-events-none"
+        className="hidden md:block absolute left-1/2 top-[264px] -translate-x-1/2 w-[960px] h-[960px] rounded-full pointer-events-none"
         style={{
-          background: "rgba(217, 217, 217, 0.80)",
-          filter: "blur(277.5px)",
+          background: "radial-gradient(circle, rgba(217,217,217,0.25) 0%, transparent 60%)",
         }}
       />
 
@@ -107,6 +106,7 @@ export function FeaturesHeroSection() {
         <img
           src="/images/figma/features/first-card-mobile.png"
           alt="Chorus AI Workforce Dashboard"
+          loading="lazy"
           className="absolute right-0 z-3"
         />
       </motion.div>
@@ -121,6 +121,7 @@ export function FeaturesHeroSection() {
           <img
             src="/images/figma/features/features-ai-workforce.png"
             alt="Chorus AI Workforce Dashboard"
+            loading="lazy"
             className="absolute left-1/2 top-[-50px] w-full max-w-[1028px] h-auto z-[4] rotate-[-3deg]"
             style={{ translate: "-45% 0" }}
           />

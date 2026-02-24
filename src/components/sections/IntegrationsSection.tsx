@@ -1,4 +1,6 @@
+"use client";
 
+import { useEffect, useRef, useState } from "react";
 import { AnimateOnScroll, Badge, ScrollTextReveal } from "@/components/ui";
 
 const integrationIcons = [
@@ -80,25 +82,52 @@ const integrationIcons = [
   "Restream.svg",
 ];
 
-// Shuffle function to randomize the icons
-const shuffleArray = (array: string[]) => {
+// Deterministic shuffle using a seeded PRNG to avoid hydration mismatches
+function seededShuffle(array: string[], seed: number) {
   const shuffled = [...array];
+  let s = seed;
   for (let i = shuffled.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
+    s = (s * 16807 + 0) % 2147483647;
+    const j = s % (i + 1);
     [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
   }
   return shuffled;
-};
+}
 
-const randomIcons = shuffleArray(integrationIcons);
+const randomIcons = seededShuffle(integrationIcons, 42);
 
 const IntegrationIcon = ({ src }: { src: string }) => (
   <div className="w-9 h-9 md:w-12 md:h-12 lg:w-20 lg:h-20 bg-neutral-800 rounded-full shadow-[0px_1.73px_10.79px_0px_rgba(0,0,0,0.25)] shadow-[inset_0px_0px_2.24px_0px_rgba(255,255,255,0.55)] lg:shadow-[0px_3.98px_24.85px_0px_rgba(0,0,0,0.25)] lg:shadow-[inset_0px_0px_5.16px_0px_rgba(255,255,255,0.55)] flex justify-center items-center">
-    <img src={`/images/figma/landing-page/${src}`} alt="Integration" className="w-5 h-5 md:w-7 md:h-7 lg:w-12 lg:h-12 object-contain" />
+    <img src={`/images/figma/landing-page/${src}`} alt="Integration" loading="lazy" className="w-5 h-5 md:w-7 md:h-7 lg:w-12 lg:h-12 object-contain" />
   </div>
 );
 
 export function IntegrationsSection() {
+  const videoContainerRef = useRef<HTMLDivElement>(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [videoInView, setVideoInView] = useState(false);
+
+  useEffect(() => {
+    const el = videoContainerRef.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => setVideoInView(entry.isIntersecting),
+      { rootMargin: "200px" },
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+    if (videoInView) {
+      video.play().catch(() => {});
+    } else {
+      video.pause();
+    }
+  }, [videoInView]);
+
   return (
     <section id="integrations" className="w-[100vw] left-1/2 -translate-x-1/2 relative px-4 py-10 md:px-8 md:py-20 bg-black flex flex-col items-center gap-2.5 overflow-hidden">
       <div className="self-stretch flex flex-col justify-start items-center gap-6 md:gap-14">
@@ -124,19 +153,22 @@ export function IntegrationsSection() {
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_50.00%_50.00%_at_50.00%_50.00%,_rgba(0,_0,_0,_0)_0%,_black_100%)] z-20 pointer-events-none" />
 
           {/* Layer 3: Blue glowing circle video + blur mask */}
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-[25] w-[240px] h-[240px] md:w-[380px] md:h-[380px] lg:w-[520px] lg:h-[520px] pointer-events-none"
+          <div
+            ref={videoContainerRef}
+            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-[25] w-[240px] h-[240px] md:w-[380px] md:h-[380px] lg:w-[520px] lg:h-[520px] pointer-events-none"
             style={{
               mask: "radial-gradient(circle, white 30%, transparent 60%)",
               WebkitMask: "radial-gradient(circle, white 30%, transparent 60%)",
             }}
           >
             <video
+              ref={videoRef}
               className="w-full h-full object-cover"
-              src="/images/integration/round loop.mp4"
-              autoPlay
               loop
               muted
               playsInline
+              preload="none"
+              src={videoInView ? "/images/integration/round loop.mp4" : undefined}
             />
           </div>
 
@@ -145,6 +177,7 @@ export function IntegrationsSection() {
             className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full z-30 w-[60px] h-[60px] md:w-[100px] md:h-[100px] lg:w-[140px] lg:h-[140px]"
             src="/images/figma/landing-page/landing-page-animated-logo-icon.svg"
             alt="Chorus logo"
+            loading="lazy"
           />
 
 

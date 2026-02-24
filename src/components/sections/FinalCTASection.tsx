@@ -26,7 +26,7 @@ export function FinalCTASection() {
             {["Build without hiring", "Scale without friction", "Grow with Chorus"].map((point, i) => (
               <div
                 key={point}
-                className="relative h-10 md:h-12 rounded-[50px] overflow-hidden backdrop-blur-[30px] inline-flex justify-center items-center"
+                className="relative h-10 md:h-12 rounded-[50px] overflow-hidden inline-flex justify-center items-center"
               >
                 <span aria-hidden="true" className="absolute inset-0 rounded-[50px] bg-gradient-to-b from-white/30 to-white/[0.04]" />
                 <span

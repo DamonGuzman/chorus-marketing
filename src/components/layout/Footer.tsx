@@ -116,7 +116,7 @@ export function Footer() {
                 <XIcon className="w-4 h-4 text-gray-300" />
               </Link>
               <Link href="/instagram" className="hover:text-white transition-colors" aria-label="Instagram">
-                <img src="/images/icons/instagram.svg" alt="" className="w-5 h-4" />
+                <img src="/images/icons/instagram.svg" alt="" loading="lazy" className="w-5 h-4" />
               </Link>
             </div>
           </div>

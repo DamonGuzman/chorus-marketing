@@ -106,7 +106,7 @@ export function CapabilitiesSection() {
                   "max-md:w-[280px] max-md:h-[72px]",
                   "max-md:pl-4 max-md:pr-3 max-md:py-3",
                   "max-md:rounded-xl",
-                  "max-md:backdrop-blur-lg",
+                  "",
                   "max-md:inline-flex max-md:flex-col max-md:justify-center max-md:items-start",
                   /* alternating left/right offset on mobile */
                   index % 2 === 0 ? "max-md:self-end" : "max-md:self-start",
@@ -114,7 +114,7 @@ export function CapabilitiesSection() {
                   "md:w-full md:max-w-[500px] md:h-24 lg:h-36",
                   "md:pl-0 md:pr-0 md:py-3 lg:py-6",
                   "md:rounded-3xl",
-                  "md:backdrop-blur-xl",
+                  "",
                   "md:inline-flex md:items-center md:gap-1",
                   index % 2 === 0 ? "md:ml-[25px] lg:ml-[50px]" : "",
                   /* shared gradient */

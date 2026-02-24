@@ -32,8 +32,7 @@ function RadarCardOrbitLight() {
 function RadarCard({ className }: { className?: string }) {
   return (
     <div className={cn("relative overflow-visible", className)}>
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img src="/images/figma/Frame 1707484612.svg" alt="Radar card" className="w-full" />
+      <img src="/images/figma/Frame 1707484612.svg" alt="Radar card" loading="lazy" className="w-full" />
       <RadarCardOrbitLight />
     </div>
   );
@@ -46,8 +45,7 @@ function ChatCard({ className }: { className?: string }) {
 
   return (
     <div className={cn("relative", className)}>
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img src="/images/figma/Frame 1707484612-1.svg?v=4" alt="AI Agent chat card" className="w-full" />
+      <img src="/images/figma/Frame 1707484612-1.svg?v=4" alt="AI Agent chat card" loading="lazy" className="w-full" />
       <svg
         className="absolute inset-0 w-full h-full pointer-events-none"
         viewBox="0 0 415 324"
@@ -186,8 +184,7 @@ const SPINNER_BOTTOM_DOTS = [
 function TasksCard({ className }: { className?: string }) {
   return (
     <div className={cn("relative", className)}>
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img src="/images/figma/Frame 1707484613.svg?v=3" alt="Tasks card" className="w-full" />
+      <img src="/images/figma/Frame 1707484613.svg?v=3" alt="Tasks card" loading="lazy" className="w-full" />
       <svg
         className="absolute inset-0 w-full h-full pointer-events-none"
         viewBox="0 0 410 316"

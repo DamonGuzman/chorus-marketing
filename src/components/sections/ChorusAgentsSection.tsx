@@ -3,6 +3,7 @@
    Faithful to the Figma comp: 4 feature cards in 2 rows
    ───────────────────────────────────────────────────────── */
 
+import Image from "next/image";
 import {
   CheckIcon,
   SearchIcon,
@@ -49,11 +50,12 @@ function AvatarStack() {
   return (
     <div className="flex items-center -space-x-[6px]">
       {avatars.map((src, i) => (
-        // eslint-disable-next-line @next/next/no-img-element
-        <img
+        <Image
           key={i}
           src={src}
           alt=""
+          width={32}
+          height={32}
           className="w-[22px] h-[22px] md:w-8 md:h-8 rounded-full border-[1.41px] border-gray-600 shrink-0 object-cover"
         />
       ))}
@@ -117,8 +119,7 @@ function GoalsCard() {
               </p>
               <div className="self-stretch flex flex-row justify-between items-center">
                 <div className="flex items-center gap-1 md:gap-1.5">
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src="/images/figma/task-done-01.svg" alt="" className="w-3 h-3 md:w-5 md:h-5 shrink-0" />
+                  <img src="/images/figma/task-done-01.svg" alt="" loading="lazy" className="w-3 h-3 md:w-5 md:h-5 shrink-0" />
                   <span className="text-gray-300 text-[9px] md:text-sm font-semibold font-['Urbanist'] leading-3 md:leading-7">
                     Tasks :
                   </span>
@@ -158,10 +159,10 @@ function GoalsCard() {
             <div className="flex flex-col justify-start items-start gap-2.5 w-full">
               <div className="inline-flex justify-between items-center w-full">
                 <div className="h-5 md:h-8 p-2 md:px-2.5 bg-white/5 rounded-md md:rounded-[10px] border border-white/10 inline-flex items-center gap-1 md:gap-2">
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
                     src="/images/figma/Ellipse 53.svg"
                     alt=""
+                    loading="lazy"
                     className="w-4 h-4 md:w-[22px] md:h-[22px] rounded-full shrink-0"
                   />
                   <span className="text-gray-400 md:text-gray-100 text-[9.13px] md:text-[14px] font-semibold font-['Urbanist'] leading-3 md:leading-[22px]">
@@ -179,8 +180,7 @@ function GoalsCard() {
               </div>
               {/* Task line */}
               <div className="flex items-center gap-1.5 md:gap-2">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src="/images/figma/task-done-01.svg" alt="" className="w-2.5 h-2.5 md:w-4 md:h-4 shrink-0" />
+                <img src="/images/figma/task-done-01.svg" alt="" loading="lazy" className="w-2.5 h-2.5 md:w-4 md:h-4 shrink-0" />
                 <span className="text-gray-400 md:text-gray-100 text-xs md:text-[15px] font-bold font-['Urbanist'] leading-5 md:leading-7 line-clamp-1">
                   Collect revenue data from bank APIs
                 </span>
@@ -210,10 +210,11 @@ function GoalsCard() {
                 </div>
               </div>
               <div className="flex items-center gap-1.5 md:gap-2">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
+                <Image
                   src="/images/figma/excel-icon.png"
                   alt="Excel file"
+                  width={18}
+                  height={18}
                   className="w-3.5 h-3 md:w-[18px] md:h-[18px] rounded-[3px] object-cover"
                 />
                 <span className="text-gray-400 md:text-gray-100 text-[9.13px] md:text-[13px] font-semibold font-['Urbanist'] leading-3 md:leading-[22px]">
@@ -313,10 +314,10 @@ function CollaborateCard() {
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/80 md:from-black/30 md:via-black/90 md:to-black/90" />
 
       {/* Orbit illustration (static) */}
-      {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
         src="/images/figma/Group 1707484055.svg"
         alt=""
+        loading="lazy"
         className="absolute top-1 md:top-5 left-1/2 -translate-x-1/2 w-[72%] max-w-[230px] md:max-w-[460px] h-auto z-10 pointer-events-none"
       />
 
@@ -365,10 +366,10 @@ function DecisionsCard() {
         {/* Frank message */}
         <div className="flex flex-col gap-[10px]">
           <div className="flex items-center gap-[10px]">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src="/images/figma/features/boy-memoji.svg"
               alt=""
+              loading="lazy"
               className="w-[30px] h-[30px] rounded-full shrink-0"
             />
             <span className="text-white text-xs md:text-[14px] font-bold leading-[20px] md:leading-[24px]">
@@ -390,8 +391,7 @@ function DecisionsCard() {
                 "linear-gradient(90deg, rgba(242,171,83,0) 0%, rgba(192,136,66,0.27) 31%, rgba(140,99,48,0) 100%)",
             }}
           >
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/images/figma/flag.svg" alt="" className="w-[14px] h-[14px] shrink-0" />
+            <img src="/images/figma/flag.svg" alt="" loading="lazy" className="w-[14px] h-[14px] shrink-0" />
             <span className="text-gray-100 text-[11px] md:text-[13px] font-medium leading-[18px] md:leading-[22px]">
               Goal Created :{" "}
               <span className="text-white font-semibold">
@@ -413,10 +413,10 @@ function DecisionsCard() {
         {/* Danny message */}
         <div className="flex flex-col gap-[10px]">
           <div className="flex items-center gap-[10px]">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src="/images/figma/features/man-memoji.svg"
               alt=""
+              loading="lazy"
               className="w-[26px] h-[26px] rounded-full shrink-0"
             />
             <span className="text-white text-xs md:text-[14px] font-bold leading-[20px] md:leading-[24px]">
@@ -439,7 +439,7 @@ function DecisionsCard() {
               </span>
             </div>
             <div className="h-[30px] px-3 py-1 bg-gray-800 rounded-full border border-[#C92929] flex items-center gap-2">
-              <img src={"images/figma/features/minus-sign-circle.svg"} />
+              <img src="/images/figma/features/minus-sign-circle.svg" alt="" loading="lazy" />
               <span className="text-gray-100 text-[11px] md:text-[13px] font-bold leading-[18px] md:leading-[22px]">
                 Reject
               </span>
@@ -504,10 +504,10 @@ function FeedbackCard() {
             {/* John Doe */}
             <div className="flex flex-col gap-1 md:gap-[8px]">
               <div className="flex items-center gap-1 md:gap-[8px]">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
+                  <img
                   src="/images/figma/image 19.svg"
                   alt=""
+                  loading="lazy"
                   className="w-3 md:w-[26px] h-3 md:h-[26px] rounded-full shrink-0"
                 />
                 <div className="w-1 md:w-[8px] h-1 md:h-[8px] rounded-full bg-green border border-white" />
@@ -529,10 +529,10 @@ function FeedbackCard() {
             {/* Danny */}
             <div className="flex flex-col gap-1 md:gap-[8px]">
               <div className="flex items-center gap-1 md:gap-[8px]">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src="/images/figma/features/man-memoji.svg"
                   alt=""
+                  loading="lazy"
                   className="w-3 md:w-[26px] h-3 md:h-[26px] rounded-full shrink-0"
                 />
                 <span className="text-white text-[6px] md:text-[13px] font-bold leading-3 md:leading-[22px]">
@@ -553,10 +553,10 @@ function FeedbackCard() {
             {/* Frank AI Agent */}
             <div className="flex flex-col gap-1 md:gap-[8px]">
               <div className="flex items-center gap-1 md:gap-[8px]">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src="/images/figma/features/boy-memoji.svg"
                   alt=""
+                  loading="lazy"
                   className="w-3 md:w-[26px] h-3 md:h-[26px] rounded-full shrink-0"
                 />
                 <span className="text-white text-[6px] md:text-[13px] font-bold leading-3 md:leading-[22px]">
@@ -578,14 +578,12 @@ function FeedbackCard() {
                     From your request, you&apos;re aiming to accomplish two main goals. I&apos;ll connect with your CRM and task management tool{" "}
                     <span className="inline-flex items-center gap-[3px] md:gap-[4px] align-middle">
                       <span className="inline-flex h-2.5 md:h-[20px] pl-[2px] md:pl-[4px] pr-1 md:pr-[8px] bg-white/4 rounded-full border border-white/10 items-center gap-[3px] md:gap-[5px]">
-                        {/* eslint-disable-next-line @next/next/no-img-element */}
-                        <img src="images/figma/features/s.svg" className="w-2 h-2 md:w-auto md:h-auto" alt="" />
+                        <img src="/images/figma/features/s.svg" loading="lazy" className="w-2 h-2 md:w-auto md:h-auto" alt="" />
                         <span className="text-gray-100 text-[5px] md:text-[11px] font-semibold leading-none">Stripe</span>
                       </span>
                       <span className="text-white text-[6px] md:text-[13px] font-medium">+</span>
                       <span className="inline-flex h-2.5 md:h-[20px] pl-[2px] md:pl-[4px] pr-1 md:pr-[8px] bg-white/4 rounded-full border border-white/10 items-center gap-[3px] md:gap-[5px]">
-                        {/* eslint-disable-next-line @next/next/no-img-element */}
-                        <img src="images/figma/features/nodes.svg" className="w-2 h-2 md:w-auto md:h-auto" alt="" />
+                        <img src="/images/figma/features/nodes.svg" loading="lazy" className="w-2 h-2 md:w-auto md:h-auto" alt="" />
                         <span className="text-gray-100 text-[5px] md:text-[11px] font-semibold leading-none">HubSpot</span>
                       </span>
                     </span>{" "}
@@ -597,10 +595,10 @@ function FeedbackCard() {
 
             {/* Partial trailing Frank */}
             <div className="flex items-center gap-1 md:gap-[8px]">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src="/images/figma/features/boy-memoji.svg"
                 alt=""
+                loading="lazy"
                 className="w-3 md:w-[26px] h-3 md:h-[26px] rounded-full shrink-0"
               />
               <span className="text-white text-[6px] md:text-[13px] font-bold leading-3 md:leading-[22px]">
