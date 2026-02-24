@@ -60,9 +60,9 @@ export function Footer() {
             </div>
             <Link
               href="#"
-              className="h-10 px-8 py-3 bg-gradient-to-l from-violet-400 to-violet-500 rounded-[50px] shadow-[0px_0px_8px_0px_rgba(175,130,249,0.63)] inline-flex justify-start items-center gap-2 overflow-hidden"
+              className="h-10 px-8 py-3 bg-white rounded-[50px] shadow-[0px_0px_8px_0px_rgba(175,130,249,0.63)] inline-flex justify-start items-center gap-2 overflow-hidden"
             >
-              <span className="text-center text-white text-sm font-bold font-['Urbanist'] leading-6">Get started</span>
+              <span className="text-center text-black text-sm font-bold font-['Urbanist'] leading-6">Get started</span>
             </Link>
           </div>
 
