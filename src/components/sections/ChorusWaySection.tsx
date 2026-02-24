@@ -70,7 +70,7 @@ export function ChorusWaySection() {
           const anim = ref.current?.animationItem;
           if (!anim) return;
           if (entry.isIntersecting) {
-            anim.setSubframe(false);
+            anim.setSubframe(true);
             ref.current!.play();
           } else {
             ref.current!.pause();
@@ -82,27 +82,8 @@ export function ChorusWaySection() {
 
     observer.observe(el);
 
-    let scrollTimer: ReturnType<typeof setTimeout>;
-    const refs = [mobileLottieRef, desktopLottieRef];
-    const throttleOnScroll = () => {
-      refs.forEach((r) => {
-        const a = r.current?.animationItem;
-        if (a && !a.isPaused) a.setSpeed(0.3);
-      });
-      clearTimeout(scrollTimer);
-      scrollTimer = setTimeout(() => {
-        refs.forEach((r) => {
-          const a = r.current?.animationItem;
-          if (a && !a.isPaused) a.setSpeed(1.0);
-        });
-      }, 150);
-    };
-    window.addEventListener("scroll", throttleOnScroll, { passive: true });
-
     return () => {
       observer.disconnect();
-      window.removeEventListener("scroll", throttleOnScroll);
-      clearTimeout(scrollTimer);
     };
   }, [animationData]);
 
@@ -115,7 +96,7 @@ export function ChorusWaySection() {
   }, []);
 
   return (
-    <Section className="relative py-16 px-0 md:py-0 md:px-8 overflow-hidden md:min-h-screen md:flex md:items-center" id="chorus-way">
+    <Section className="relative py-16 px-0 md:py-0 md:px-8 overflow-hidden md:flex md:items-center" id="chorus-way">
       <div ref={sectionRef} className="w-full px-4 md:px-0 md:py-20">
         {/* Mobile layout: centered, single column */}
         <div className="flex flex-col md:hidden items-center text-center gap-4">

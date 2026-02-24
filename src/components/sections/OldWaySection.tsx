@@ -12,19 +12,24 @@ import {
 function GlowCard({ children, className }: { children: ReactNode; className?: string }) {
   const cardRef = useRef<HTMLDivElement>(null);
   const glowRef = useRef<HTMLDivElement>(null);
+  const rafRef = useRef<number>(0);
 
   const handleMouseMove = useCallback((e: React.MouseEvent<HTMLDivElement>) => {
     const card = cardRef.current;
     const glow = glowRef.current;
     if (!card || !glow) return;
-    const rect = card.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
-    glow.style.opacity = "1";
-    glow.style.background = `radial-gradient(600px circle at ${x}px ${y}px, rgba(255,255,255,0.06), transparent 40%)`;
+    cancelAnimationFrame(rafRef.current);
+    const clientX = e.clientX;
+    const clientY = e.clientY;
+    rafRef.current = requestAnimationFrame(() => {
+      const rect = card.getBoundingClientRect();
+      glow.style.opacity = "1";
+      glow.style.background = `radial-gradient(600px circle at ${clientX - rect.left}px ${clientY - rect.top}px, rgba(255,255,255,0.06), transparent 40%)`;
+    });
   }, []);
 
   const handleMouseLeave = useCallback(() => {
+    cancelAnimationFrame(rafRef.current);
     const glow = glowRef.current;
     if (glow) glow.style.opacity = "0";
   }, []);
@@ -35,6 +40,7 @@ function GlowCard({ children, className }: { children: ReactNode; className?: st
       className={`relative overflow-hidden ${className ?? ""}`}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
+      style={{ contain: "layout style paint", willChange: "transform" }}
     >
       <div
         ref={glowRef}
@@ -73,9 +79,9 @@ export function OldWaySection() {
         </div>
 
         {/* Cards */}
-        <div className="w-full mt-4 md:mt-6 grid grid-cols-1 md:grid-cols-3 gap-2 md:gap-2 lg:gap-2 justify-items-stretch items-stretch">
-          <AnimateOnScroll animation="fade-up" delay={0} duration={0.7} threshold={0.15}>
-            <GlowCard className="flex flex-col items-start gap-6 rounded-2xl p-2 pb-6 transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_8px_40px_rgba(255,255,255,0.05)]">
+        <div className="w-full mt-4 md:mt-6 grid grid-cols-1 md:grid-cols-3 gap-2 md:gap-2 lg:gap-2 justify-items-stretch items-stretch transform-gpu">
+          <AnimateOnScroll animation="fade-up" delay={0.1} duration={1} threshold={0.1}>
+            <GlowCard className="flex flex-col items-start gap-6 rounded-2xl p-2 pb-6 transition-[transform,box-shadow] duration-500 ease-out hover:-translate-y-2 hover:shadow-[0_8px_40px_rgba(255,255,255,0.05)]">
               <div className="relative w-full">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
@@ -92,8 +98,8 @@ export function OldWaySection() {
                     <filter id="snk-glow" x="-50%" y="-50%" width="200%" height="200%" filterUnits="objectBoundingBox" colorInterpolationFilters="sRGB">
                       <feGaussianBlur stdDeviation="1.25" />
                     </filter>
-                    <filter id="snk-shadow" x="-200%" y="-200%" width="500%" height="500%" filterUnits="objectBoundingBox" colorInterpolationFilters="sRGB">
-                      <feGaussianBlur stdDeviation="6" />
+                    <filter id="snk-shadow" x="-100%" y="-100%" width="300%" height="300%" filterUnits="objectBoundingBox" colorInterpolationFilters="sRGB">
+                      <feGaussianBlur stdDeviation="3" />
                     </filter>
                     <path id="snk-path" d="M 118 86.75 V 102.303 C 118 107.826 122.477 112.303 128 112.303 H 156 C 161.523 112.303 166 116.781 166 122.303 V 133.75 L 166 135.75 L 171 188.75 L 171 192.75 V 204.498 C 171 210.02 175.477 214.498 181 214.498 H 209 C 214.523 214.498 219 218.975 219 224.498 V 232.75" />
                   </defs>
@@ -135,8 +141,8 @@ export function OldWaySection() {
               </div>
             </GlowCard>
           </AnimateOnScroll>
-          <AnimateOnScroll animation="fade-up" delay={0.15} duration={0.7} threshold={0.15}>
-            <GlowCard className="flex flex-col items-start gap-6 rounded-2xl p-2 pb-6 transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_8px_40px_rgba(255,255,255,0.05)]">
+          <AnimateOnScroll animation="fade-up" delay={0.25} duration={1} threshold={0.1}>
+            <GlowCard className="flex flex-col items-start gap-6 rounded-2xl p-2 pb-6 transition-[transform,box-shadow] duration-500 ease-out hover:-translate-y-2 hover:shadow-[0_8px_40px_rgba(255,255,255,0.05)]">
               <img
                 src="/images/figma/Group2.svg"
                 alt="Process overview card"
@@ -153,8 +159,8 @@ export function OldWaySection() {
               </div>
             </GlowCard>
           </AnimateOnScroll>
-          <AnimateOnScroll animation="fade-up" delay={0.3} duration={0.7} threshold={0.15}>
-            <GlowCard className="flex flex-col items-start gap-6 rounded-2xl p-2 pb-6 transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_8px_40px_rgba(255,255,255,0.05)]">
+          <AnimateOnScroll animation="fade-up" delay={0.4} duration={1} threshold={0.1}>
+            <GlowCard className="flex flex-col items-start gap-6 rounded-2xl p-2 pb-6 transition-[transform,box-shadow] duration-500 ease-out hover:-translate-y-2 hover:shadow-[0_8px_40px_rgba(255,255,255,0.05)]">
               <img
                 src="/images/figma/Group%201.svg?v=4"
                 alt="Cost breakdown card"
