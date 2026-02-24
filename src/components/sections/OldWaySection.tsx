@@ -35,51 +35,69 @@ export function OldWaySection() {
 
         {/* Cards */}
         <div className="w-full mt-4 md:mt-6 grid grid-cols-1 md:grid-cols-3 gap-2 md:gap-2 lg:gap-2 justify-items-stretch items-stretch">
-          <div className="flex flex-col items-start gap-6">
+          <div className="flex flex-col items-start gap-2 md:gap-6">
             <img
               src="/images/figma/Group3.svg"
               alt="Hiring workflow card"
               className="w-full h-auto"
             />
-            <div className="flex flex-col items-start gap-4 pl-5">
+            <div className="flex flex-col items-start gap-2 md:gap-4 pl-1 md:pl-5">
               <h3 className="text-white text-lg leading-7 md:text-xl md:leading-7 lg:text-2xl lg:leading-8 font-bold font-['Urbanist']">
                 Take months to fill a position
               </h3>
-              <p className="text-gray-300 text-sm leading-5 md:text-sm md:leading-5 lg:text-base lg:leading-6 font-medium font-['Urbanist']">
-                "Stripe for payments. Vercel for deployments,
-                <span className="block">Dub.co for links.</span>
+              <p className="text-gray-300 text-sm leading-5 md:text-sm md:leading-5 lg:text-base lg:leading-6 font-medium font-['Urbanist'] -mt-1 md:mt-0 -ml-3 md:ml-0 mb-5 md:mb-0">
+                <span className="md:hidden">
+                  <span className="block whitespace-nowrap">"Stripe for payments. Vercel for deployments,</span>
+                  <span className="block whitespace-nowrap">Dub.co for links.</span>
+                </span>
+                <span className="hidden md:inline">
+                  "Stripe for payments. Vercel for deployments,
+                  <span className="block">Dub.co for links.</span>
+                </span>
               </p>
             </div>
           </div>
-          <div className="flex flex-col items-start gap-6">
+          <div className="flex flex-col items-start gap-2 md:gap-6">
             <img
               src="/images/figma/Group2.svg"
               alt="Process overview card"
               className="w-full h-auto"
             />
-            <div className="flex flex-col items-start gap-4 pl-5">
+            <div className="flex flex-col items-start gap-2 md:gap-4 pl-1 md:pl-5">
               <h3 className="text-white text-lg leading-7 md:text-xl md:leading-7 lg:text-2xl lg:leading-8 font-bold font-['Urbanist']">
                 Coordinate between siloed teams
               </h3>
-              <p className="text-gray-300 text-sm leading-5 md:text-sm md:leading-5 lg:text-base lg:leading-6 font-medium font-['Urbanist']">
-                "Stripe for payments. Vercel for deployments,
-                <span className="block">Dub.co for links.</span>
+              <p className="text-gray-300 text-sm leading-5 md:text-sm md:leading-5 lg:text-base lg:leading-6 font-medium font-['Urbanist'] -mt-1 md:mt-0 -ml-3 md:ml-0 mb-5 md:mb-0">
+                <span className="md:hidden">
+                  <span className="block whitespace-nowrap">"Stripe for payments. Vercel for deployments,</span>
+                  <span className="block whitespace-nowrap">Dub.co for links.</span>
+                </span>
+                <span className="hidden md:inline">
+                  "Stripe for payments. Vercel for deployments,
+                  <span className="block">Dub.co for links.</span>
+                </span>
               </p>
             </div>
           </div>
-          <div className="flex flex-col items-start gap-6">
+          <div className="flex flex-col items-start gap-2 md:gap-6">
             <img
               src="/images/figma/Group%201.svg"
               alt="Cost breakdown card"
               className="w-full h-auto"
             />
-            <div className="flex flex-col items-start gap-4 pl-5">
+            <div className="flex flex-col items-start gap-2 md:gap-4 pl-1 md:pl-5">
               <h3 className="text-white text-lg leading-7 md:text-xl md:leading-7 lg:text-2xl lg:leading-8 font-bold font-['Urbanist']">
                 Costs $4,000+ per hire
               </h3>
-              <p className="text-gray-300 text-sm leading-5 md:text-sm md:leading-5 lg:text-base lg:leading-6 font-medium font-['Urbanist']">
-                "Stripe for payments. Vercel for deployments,
-                <span className="block">Dub.co for links.</span>
+              <p className="text-gray-300 text-sm leading-5 md:text-sm md:leading-5 lg:text-base lg:leading-6 font-medium font-['Urbanist'] -mt-1 md:mt-0 -ml-3 md:ml-0 mb-5 md:mb-0">
+                <span className="md:hidden">
+                  <span className="block whitespace-nowrap">"Stripe for payments. Vercel for deployments,</span>
+                  <span className="block whitespace-nowrap">Dub.co for links.</span>
+                </span>
+                <span className="hidden md:inline">
+                  "Stripe for payments. Vercel for deployments,
+                  <span className="block">Dub.co for links.</span>
+                </span>
               </p>
             </div>
           </div>
