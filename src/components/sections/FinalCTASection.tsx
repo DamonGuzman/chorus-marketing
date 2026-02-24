@@ -5,12 +5,12 @@ import { PRIMARY_CTA_HREF } from "@/content/site";
 
 export function FinalCTASection() {
   return (
-    <section className="relative bg-black overflow-hidden w-full px-4 py-16 md:px-8 md:pt-60 md:pb-20 mb-4 md:mb-8" id="cta">
+    <section className="relative bg-black overflow-hidden rounded-b-[20px] md:rounded-b-[28px] w-full px-4 py-16 md:px-8 md:pt-32 lg:pt-40 xl:pt-52 2xl:pt-60 md:pb-14 lg:pb-16 xl:pb-20 mb-4 md:mb-8" id="cta">
       {/* Background image */}
       <img
         src="/images/figma/image1234.svg"
         alt=""
-        className="pointer-events-none absolute left-0 right-0 -top-12 md:-top-16 bottom-0 w-full h-[calc(100%+3rem)] md:h-[calc(100%+4rem)] 2xl:scale-x-[1.23] origin-center"
+        className="pointer-events-none absolute left-0 right-0 -top-12 md:-top-16 bottom-0 w-full h-[calc(100%+3rem)] md:h-[calc(100%+4rem)] lg:scale-x-[1.06] xl:scale-x-[1.14] 2xl:scale-x-[1.23] origin-center"
       />
       {/* Top gradient glow */}
       <div className="absolute top-0 left-0 right-0 w-full h-[300px] md:h-[515px] bg-gradient-to-b from-white/20 via-white/0 to-black/0 pointer-events-none" />
@@ -22,7 +22,7 @@ export function FinalCTASection() {
         {/* Title + subtitle + pills */}
         <div className="self-stretch flex flex-col items-center gap-[20px] md:gap-6">
           {/* Feature pills */}
-          <div className="flex flex-wrap justify-center items-center gap-3 md:gap-6 -mt-2 md:-mt-12 mb-4 md:mb-6">
+          <div className="flex flex-wrap justify-center items-center gap-3 md:gap-6 -mt-2 md:-mt-6 lg:-mt-8 xl:-mt-10 2xl:-mt-12 mb-4 md:mb-6">
             {["Build without hiring", "Scale without friction", "Grow with Chorus"].map((point, i) => (
               <div
                 key={point}
@@ -61,7 +61,7 @@ export function FinalCTASection() {
         {/* CTA Button */}
         <a
           href={PRIMARY_CTA_HREF}
-          className="mt- md:mt-7 h-12 px-8 py-3 bg-white rounded-[50px] shadow-[0px_0px_8px_0px_rgba(175,130,249,0.63)] inline-flex justify-start items-center gap-2 overflow-hidden hover:bg-gray-50 transition-colors"
+          className="md:mt-4 lg:mt-5 xl:mt-7 h-12 px-8 py-3 bg-white rounded-[50px] shadow-[0px_0px_8px_0px_rgba(175,130,249,0.63)] inline-flex justify-start items-center gap-2 overflow-hidden hover:bg-gray-50 transition-colors"
         >
           <span className="text-center text-black text-sm font-bold font-['Urbanist'] leading-6">Build Your Team Now</span>
         </a>
