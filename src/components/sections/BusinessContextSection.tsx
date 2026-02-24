@@ -116,8 +116,7 @@ function BusinessContextItem({
               <div className="grid grid-cols-1 md:grid-cols-2 gap-x-7 gap-y-3 md:gap-y-4">
                 {checkmarks.map((item, i) => (
                   <div key={i} className="flex items-center gap-2">
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img src="/images/figma/features/circled-checkmark.svg" alt="" className="w-5 h-5 shrink-0" />
+                    <img src="/images/figma/features/circled-checkmark.svg" alt="" loading="lazy" className="w-5 h-5 shrink-0" />
                     <span className="text-gray-300 text-sm font-medium font-['Urbanist']">{item}</span>
                   </div>
                 ))}
@@ -183,37 +182,30 @@ function OrbitVisual() {
           boxShadow: "0 0 40px 8px rgba(255,107,107,0.30), inset 0 0 4px 0 rgba(0,0,0,0.96)",
         }}
       >
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src="/images/figma/Rectangle 36.svg" alt="" className="absolute inset-0 w-full h-full scale-[1.22]" />
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src="/images/figma/bubble.svg" alt="Chorus" className="relative w-[42px] h-[42px]" />
+        <img src="/images/figma/Rectangle 36.svg" alt="" loading="lazy" className="absolute inset-0 w-full h-full scale-[1.22]" />
+        <img src="/images/figma/bubble.svg" alt="Chorus" loading="lazy" className="relative w-[42px] h-[42px]" />
       </div>
 
       {/* Integration icons — positioned to match Figma */}
       {/* Google Sheets — upper left */}
       <OrbitIcon style={{ top: "6%", left: "28%" }}>
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src="/images/figma/image 34.svg" alt="Google Sheets" className="w-10 h-10" />
+        <img src="/images/figma/image 34.svg" alt="Google Sheets" loading="lazy" className="w-10 h-10" />
       </OrbitIcon>
       {/* HubSpot — upper right */}
       <OrbitIcon style={{ top: "6%", right: "8%" }}>
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src="/images/figma/image 33.svg" alt="HubSpot" className="w-10 h-10 rounded-full" />
+        <img src="/images/figma/image 33.svg" alt="HubSpot" loading="lazy" className="w-10 h-10 rounded-full" />
       </OrbitIcon>
       {/* Google Calendar — mid left */}
       <OrbitIcon style={{ top: "40%", left: "2%" }}>
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src="/images/figma/image 32.svg" alt="Google Calendar" className="w-10 h-10" />
+        <img src="/images/figma/image 32.svg" alt="Google Calendar" loading="lazy" className="w-10 h-10" />
       </OrbitIcon>
       {/* Gmail — mid right */}
       <OrbitIcon style={{ top: "40%", right: "2%" }}>
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src="/images/figma/image 35.svg" alt="Gmail" className="w-10 h-10" />
+        <img src="/images/figma/image 35.svg" alt="Gmail" loading="lazy" className="w-10 h-10" />
       </OrbitIcon>
       {/* Slack — bottom center */}
       <OrbitIcon style={{ bottom: "6%", left: "32%" }}>
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src="/images/figma/image 12.svg" alt="Slack" className="w-10 h-10" />
+        <img src="/images/figma/image 12.svg" alt="Slack" loading="lazy" className="w-10 h-10" />
       </OrbitIcon>
     </div>
   );

@@ -1,11 +1,10 @@
 "use client";
 
 import { useEffect, useRef, useState, type CSSProperties, type ReactNode } from "react";
-import { motion, type Variants } from "framer-motion";
 import { cn } from "@/lib/utils";
 
 /* ============================================================
-   Animation variant presets (framer-motion)
+   Animation presets — CSS transform strings (GPU-composited)
    ============================================================ */
 
 type AnimationType =
@@ -17,39 +16,28 @@ type AnimationType =
   | "scale-up"
   | "blur-in";
 
-const variants: Record<AnimationType, Variants> = {
-  "fade-up": {
-    hidden: { opacity: 0, y: 50 },
-    visible: { opacity: 1, y: 0 },
-  },
-  "fade-in": {
-    hidden: { opacity: 0 },
-    visible: { opacity: 1 },
-  },
-  "fade-down": {
-    hidden: { opacity: 0, y: -30 },
-    visible: { opacity: 1, y: 0 },
-  },
-  "slide-left": {
-    hidden: { opacity: 0, x: -60 },
-    visible: { opacity: 1, x: 0 },
-  },
-  "slide-right": {
-    hidden: { opacity: 0, x: 120, scale: 0.95 },
-    visible: { opacity: 1, x: 0, scale: 1 },
-  },
-  "scale-up": {
-    hidden: { opacity: 0, scale: 0.92 },
-    visible: { opacity: 1, scale: 1 },
-  },
-  "blur-in": {
-    hidden: { opacity: 0, filter: "blur(12px)" },
-    visible: { opacity: 1, filter: "blur(0px)" },
-  },
+const hiddenStyles: Record<AnimationType, CSSProperties> = {
+  "fade-up":      { opacity: 0, transform: "translateY(50px)" },
+  "fade-in":      { opacity: 0 },
+  "fade-down":    { opacity: 0, transform: "translateY(-30px)" },
+  "slide-left":   { opacity: 0, transform: "translateX(-60px)" },
+  "slide-right":  { opacity: 0, transform: "translateX(120px) scale(0.95)" },
+  "scale-up":     { opacity: 0, transform: "scale(0.92)" },
+  "blur-in":      { opacity: 0, transform: "scale(0.98)" },
+};
+
+const visibleStyles: Record<AnimationType, CSSProperties> = {
+  "fade-up":      { opacity: 1, transform: "translateY(0)" },
+  "fade-in":      { opacity: 1 },
+  "fade-down":    { opacity: 1, transform: "translateY(0)" },
+  "slide-left":   { opacity: 1, transform: "translateX(0)" },
+  "slide-right":  { opacity: 1, transform: "translateX(0) scale(1)" },
+  "scale-up":     { opacity: 1, transform: "scale(1)" },
+  "blur-in":      { opacity: 1, transform: "scale(1)" },
 };
 
 /* ============================================================
-   AnimateOnScroll  —  powered by framer-motion
+   AnimateOnScroll  —  CSS transitions + IntersectionObserver
    ============================================================ */
 
 interface AnimateOnScrollProps {
@@ -71,21 +59,43 @@ export function AnimateOnScroll({
   once = true,
   className,
 }: AnimateOnScrollProps) {
+  const ref = useRef<HTMLDivElement>(null);
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          if (once) observer.unobserve(el);
+        } else if (!once) {
+          setIsVisible(false);
+        }
+      },
+      { threshold, rootMargin: "0px 0px -60px 0px" },
+    );
+
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, [threshold, once]);
+
+  const baseStyles = isVisible ? visibleStyles[animation] : hiddenStyles[animation];
+
   return (
-    <motion.div
-      variants={variants[animation]}
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once, amount: threshold, margin: "0px 0px -60px 0px" }}
-      transition={{
-        duration,
-        delay,
-        ease: [0.16, 1, 0.3, 1],
-      }}
+    <div
+      ref={ref}
       className={className}
+      style={{
+        ...baseStyles,
+        transition: `opacity ${duration}s cubic-bezier(0.16,1,0.3,1) ${delay}s, transform ${duration}s cubic-bezier(0.16,1,0.3,1) ${delay}s`,
+        willChange: isVisible ? "auto" : "opacity, transform",
+      }}
     >
       {children}
-    </motion.div>
+    </div>
   );
 }
 

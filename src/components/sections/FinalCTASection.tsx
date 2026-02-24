@@ -10,12 +10,13 @@ export function FinalCTASection() {
       <img
         src="/images/figma/stars.svg"
         alt=""
+        loading="lazy"
         className="pointer-events-none absolute left-1/2 top-[40%] -translate-x-1/2 -translate-y-1/2 w-full max-w-[1400px] h-auto opacity-30"
       />
-      {/* Bright stars — wave highlight sweep */}
       <img
         src="/images/figma/stars.svg"
         alt=""
+        loading="lazy"
         className="stars-wave-bright pointer-events-none absolute left-1/2 top-[40%] -translate-x-1/2 -translate-y-1/2 w-full max-w-[1400px] h-auto opacity-90"
       />
       {/* Top gradient glow */}
@@ -41,7 +42,7 @@ export function FinalCTASection() {
             {["Build without hiring", "Scale without friction", "Grow with Chorus"].map((point, i) => (
               <div
                 key={point}
-                className="relative h-10 md:h-12 rounded-[50px] overflow-hidden backdrop-blur-[30px] inline-flex justify-center items-center"
+                className="relative h-10 md:h-12 rounded-[50px] overflow-hidden inline-flex justify-center items-center"
               >
                 <span aria-hidden="true" className="absolute inset-0 rounded-[50px] bg-gradient-to-b from-white/30 to-white/[0.04]" />
                 <span
@@ -62,12 +63,15 @@ export function FinalCTASection() {
         </div>
 
         {/* CTA Button */}
-        <a
-          href={PRIMARY_CTA_HREF}
-          className="h-12 px-8 py-3 bg-white rounded-[50px] shadow-[0px_0px_8px_0px_rgba(175,130,249,0.63)] inline-flex justify-start items-center gap-2 overflow-hidden hover:bg-gray-50 transition-colors"
-        >
-          <span className="text-center text-black text-sm font-bold font-['Urbanist'] leading-6">Build Your Team Now</span>
-        </a>
+        <div className="relative rounded-[50px] overflow-hidden inline-flex">
+          <span aria-hidden="true" className="cta-orbit-ring cta-orbit-ring--cta" />
+          <a
+            href={PRIMARY_CTA_HREF}
+            className="relative z-10 h-12 px-8 py-3 bg-white rounded-[50px] shadow-[0px_0px_8px_0px_rgba(175,130,249,0.63)] inline-flex justify-start items-center gap-2 overflow-hidden hover:bg-gray-50 transition-colors"
+          >
+            <span className="text-center text-black text-sm font-bold font-['Urbanist'] leading-6">Build Your Team Now</span>
+          </a>
+        </div>
       </div>
     </section>
   );

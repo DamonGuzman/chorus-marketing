@@ -1,14 +1,16 @@
 import { Header, Footer } from "@/components/layout";
 import { AnimateOnScroll } from "@/components/ui";
 import { FeaturesHeroSection } from "@/components/sections/FeaturesHeroSection";
-import { ChorusAgentsSection } from "@/components/sections/ChorusAgentsSection";
-import { TheShiftSection } from "@/components/sections/TheShiftSection";
-import { FeaturesStickySteps } from "@/components/sections/FeaturesStickySteps";
-import { CampaignSection } from "@/components/sections/CampaignSection";
-import { StepCarousel } from "@/components/sections/StepCarousel";
-import { FeaturesCardSection } from "@/components/sections/FeaturesCardSection";
-import { CollaborationHubSection } from "@/components/sections/CollaborationHubSection";
-import { FinalCTASection } from "@/components/sections/FinalCTASection";
+import dynamic from "next/dynamic";
+
+const ChorusAgentsSection = dynamic(() => import("@/components/sections/ChorusAgentsSection").then(m => ({ default: m.ChorusAgentsSection })));
+const TheShiftSection = dynamic(() => import("@/components/sections/TheShiftSection").then(m => ({ default: m.TheShiftSection })));
+const FeaturesStickySteps = dynamic(() => import("@/components/sections/FeaturesStickySteps").then(m => ({ default: m.FeaturesStickySteps })));
+const CampaignSection = dynamic(() => import("@/components/sections/CampaignSection").then(m => ({ default: m.CampaignSection })));
+const StepCarousel = dynamic(() => import("@/components/sections/StepCarousel").then(m => ({ default: m.StepCarousel })));
+const FeaturesCardSection = dynamic(() => import("@/components/sections/FeaturesCardSection").then(m => ({ default: m.FeaturesCardSection })));
+const CollaborationHubSection = dynamic(() => import("@/components/sections/CollaborationHubSection").then(m => ({ default: m.CollaborationHubSection })));
+const FinalCTASection = dynamic(() => import("@/components/sections/FinalCTASection").then(m => ({ default: m.FinalCTASection })));
 
 export default function FeaturesPage() {
   return (

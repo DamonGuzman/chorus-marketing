@@ -8,20 +8,15 @@ export function SmoothScroll({ children }: { children: React.ReactNode }) {
 
   useEffect(() => {
     const lenis = new Lenis({
-      duration: 1.2,
-      easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-      touchMultiplier: 2,
+      duration: 0.8,
+      easing: (t: number) => 1 - Math.pow(1 - t, 4),
+      touchMultiplier: 1.8,
+      wheelMultiplier: 1.4,
       infinite: false,
+      autoRaf: true,
     });
 
     lenisRef.current = lenis;
-
-    function raf(time: number) {
-      lenis.raf(time);
-      requestAnimationFrame(raf);
-    }
-
-    requestAnimationFrame(raf);
 
     return () => {
       lenis.destroy();

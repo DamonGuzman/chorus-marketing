@@ -15,6 +15,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        <link
+          rel="preload"
+          href="/fonts/urbanist-latin.woff2"
+          as="font"
+          type="font/woff2"
+          crossOrigin="anonymous"
+        />
+      </head>
       <body className="font-urbanist antialiased" suppressHydrationWarning>
         <SmoothScroll>{children}</SmoothScroll>
       </body>

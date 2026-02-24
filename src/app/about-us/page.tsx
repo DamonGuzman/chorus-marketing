@@ -18,6 +18,8 @@ export default function AboutUsPage() {
               <img
                 className="w-[900px] h-[660px] -right-[60px] top-[100px] absolute"
                 src="/images/figma/about-us/torch.svg"
+                alt=""
+                loading="lazy"
               />
               <div className="w-[750px] max-w-[55%] left-4 md:left-8 top-[120px] absolute inline-flex flex-col justify-start items-start gap-8">
                 <Badge className="w-28">About us</Badge>
@@ -48,6 +50,8 @@ export default function AboutUsPage() {
               <img
                 className="w-72 h-56 right-0 top-[259px] absolute"
                 src="/images/figma/about-us/torch.svg"
+                alt=""
+                loading="lazy"
               />
               <div
                 data-size="lg"
@@ -92,6 +96,7 @@ export default function AboutUsPage() {
                         <img
                           src="/images/figma/about-us/atom-02.svg"
                           alt="Atom illustration"
+                          loading="lazy"
                         />
                       </div>
                       <div className="flex flex-col gap-5">
@@ -118,6 +123,7 @@ export default function AboutUsPage() {
                         <img
                           src="/images/figma/about-us/bot.svg"
                           alt="AI Agents"
+                          loading="lazy"
                         />
                       </div>
                       <div className="flex flex-col gap-5">
@@ -144,6 +150,7 @@ export default function AboutUsPage() {
                         <img
                           src="/images/figma/about-us/blend.svg"
                           alt="Proof Before Belief"
+                          loading="lazy"
                         />
                       </div>
                       <div className="flex flex-col gap-5">
@@ -190,12 +197,14 @@ export default function AboutUsPage() {
                         className="w-full h-auto max-h-[400px] object-contain"
                         src="images/figma/about-us/tilted-image.png"
                         alt="Origin story illustration"
+                        loading="lazy"
                       />
                       <div className="absolute inset-0 bg-[radial-gradient(ellipse_50%_50%_at_50%_50%,_rgba(0,_0,_0,_0)_0%,_black_100%)]" />
                       <img
                         className="absolute inset-0 w-full h-full object-contain"
                         src="images/figma/about-us/test.svg"
                         alt="Origin story illustration overlay"
+                        loading="lazy"
                       />
                     </div>
                   </AnimateOnScroll>
@@ -232,12 +241,14 @@ export default function AboutUsPage() {
                       className="w-full max-w-[524px] h-auto"
                       src="images/figma/about-us/tilted-image.png"
                       alt="Origin story illustration 1"
+                      loading="lazy"
                     />
                     <div className="absolute inset-0 bg-[radial-gradient(ellipse_39.15%_39.16%_at_50.00%_50.00%,_rgba(0,_0,_0,_0)_0%,_black_100%)]" />
                     <img
                       className="absolute left-0 w-full max-w-[705px] h-auto"
                       src="images/figma/about-us/test.svg"
                       alt="Origin story illustration 2"
+                      loading="lazy"
                     />
                   </div>
                 </AnimateOnScroll>
@@ -279,6 +290,7 @@ export default function AboutUsPage() {
                       className="w-40 h-44 lg:w-44 lg:h-48 xl:w-48 xl:h-52 2xl:w-52 2xl:h-56 rounded-[25px] lg:rounded-[30px] 2xl:rounded-[35px] border border-white/40 object-cover object-center"
                       src="images/figma/about-us/person-1.jpg"
                       alt="TechCrunch"
+                      loading="lazy"
                     />
                     <div className="inline-flex flex-col justify-start items-start gap-3 lg:gap-4 2xl:gap-5">
                       <div className="w-56 lg:w-60 xl:w-64 2xl:w-72 justify-start text-gray-400 text-base lg:text-base xl:text-lg font-bold font-['Urbanist'] leading-6 lg:leading-7 xl:leading-8">
@@ -296,6 +308,7 @@ export default function AboutUsPage() {
                       className="w-40 h-44 lg:w-44 lg:h-48 xl:w-48 xl:h-52 2xl:w-52 2xl:h-56 rounded-[25px] lg:rounded-[30px] 2xl:rounded-[35px] border border-white/40 object-cover object-center"
                       src="images/figma/about-us/person-2.jpg"
                       alt="The Information"
+                      loading="lazy"
                     />
                     <div className="inline-flex flex-col justify-start items-start gap-3 lg:gap-4 2xl:gap-5">
                       <div className="w-56 lg:w-60 xl:w-64 2xl:w-72 justify-start text-gray-400 text-base lg:text-base xl:text-lg font-bold font-['Urbanist'] leading-6 lg:leading-7 xl:leading-8">
@@ -316,6 +329,7 @@ export default function AboutUsPage() {
                     className="w-40 h-44 lg:w-44 lg:h-48 xl:w-48 xl:h-52 2xl:w-52 2xl:h-56 rounded-[25px] lg:rounded-[30px] 2xl:rounded-[35px] border border-white/40 object-cover object-center"
                     src="images/figma/about-us/person-3.jpg"
                     alt="VentureBeat"
+                    loading="lazy"
                   />
                   <div className="inline-flex flex-col justify-start items-start gap-3 lg:gap-4 2xl:gap-5">
                     <div className="w-56 lg:w-60 xl:w-64 2xl:w-72 justify-start text-gray-400 text-base lg:text-base xl:text-lg font-bold font-['Urbanist'] leading-6 lg:leading-7 xl:leading-8">
@@ -333,6 +347,7 @@ export default function AboutUsPage() {
                     className="w-40 h-44 lg:w-44 lg:h-48 xl:w-48 xl:h-52 2xl:w-52 2xl:h-56 rounded-[25px] lg:rounded-[30px] 2xl:rounded-[35px] border border-white/40 object-cover object-center"
                     src="images/figma/about-us/person-4.jpg"
                     alt="TechCrunch"
+                    loading="lazy"
                   />
                   <div className="inline-flex flex-col justify-start items-start gap-3 lg:gap-4 2xl:gap-5">
                     <div className="w-56 lg:w-60 xl:w-64 2xl:w-72 justify-start text-gray-400 text-base lg:text-base xl:text-lg font-bold font-['Urbanist'] leading-6 lg:leading-7 xl:leading-8">
@@ -395,6 +410,7 @@ export default function AboutUsPage() {
                           className="w-[140px] h-[140px] md:w-[200px] md:h-[200px] lg:w-64 lg:h-64 object-cover rounded-full bg-[#ADADAD]"
                           src={member.src}
                           alt="Team member"
+                          loading="lazy"
                         />
                         <div className="flex flex-col justify-start items-center gap-1 md:gap-2.5">
                           <h3 className="text-center text-white text-[16px] md:text-4xl font-bold font-['Urbanist'] leading-tight">

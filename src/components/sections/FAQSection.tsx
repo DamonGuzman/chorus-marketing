@@ -1,8 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { useState, useRef, useEffect, useCallback } from "react";
 import { Section } from "@/components/ui";
 
 const faqs = [
@@ -51,29 +50,37 @@ function FAQItem({
   answer,
   isOpen,
   onToggle,
-  index,
+  visible,
+  delay,
 }: {
   question: string;
   answer: string;
   isOpen: boolean;
   onToggle: () => void;
-  index: number;
+  visible: boolean;
+  delay: number;
 }) {
+  const contentRef = useRef<HTMLDivElement>(null);
+  const [height, setHeight] = useState(0);
+
+  useEffect(() => {
+    if (isOpen && contentRef.current) {
+      setHeight(contentRef.current.scrollHeight);
+    } else {
+      setHeight(0);
+    }
+  }, [isOpen]);
+
   return (
-    <motion.div
-      className="rounded-[16px] border border-white/10 transition-all duration-300"
+    <div
+      className="rounded-[16px] border border-white/10 transition-all duration-500 ease-out"
       style={{
         background: isOpen
           ? "linear-gradient(135deg, rgba(255,255,255,0.06) 0%, rgba(255,255,255,0.03) 100%)"
           : "rgba(255,255,255,0.03)",
-      }}
-      initial={{ opacity: 0, y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "0px 0px -60px 0px" }}
-      transition={{
-        duration: 0.6,
-        delay: index * 0.08,
-        ease: [0.16, 1, 0.3, 1],
+        opacity: visible ? 1 : 0,
+        transform: visible ? "translateY(0)" : "translateY(30px)",
+        transitionDelay: `${delay}ms`,
       }}
     >
       <button
@@ -86,48 +93,66 @@ function FAQItem({
         <PlusIcon open={isOpen} />
       </button>
 
-      <AnimatePresence initial={false}>
-        {isOpen && (
-          <motion.div
-            key="content"
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: "auto", opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            transition={{
-              height: { duration: 0.4, ease: [0.25, 0.46, 0.45, 0.94] },
-              opacity: { duration: 0.3, delay: 0.05 },
-            }}
-            className="overflow-hidden"
-          >
-            <div className="px-[24px] pb-[20px]">
-              <p className="text-gray-300 text-[14px] font-medium leading-[24px]">
-                {answer}
-              </p>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </motion.div>
+      <div
+        ref={contentRef}
+        className="overflow-hidden transition-[height,opacity] duration-400 ease-[cubic-bezier(0.25,0.46,0.45,0.94)]"
+        style={{ height, opacity: isOpen ? 1 : 0 }}
+      >
+        <div className="px-[24px] pb-[20px]">
+          <p className="text-gray-300 text-[14px] font-medium leading-[24px]">
+            {answer}
+          </p>
+        </div>
+      </div>
+    </div>
   );
 }
 
 export function FAQSection() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
+  const [headerVisible, setHeaderVisible] = useState(false);
+  const [itemsVisible, setItemsVisible] = useState(false);
+  const headerRef = useRef<HTMLDivElement>(null);
+  const listRef = useRef<HTMLDivElement>(null);
 
-  const handleToggle = (index: number) => {
+  const handleToggle = useCallback((index: number) => {
     setOpenIndex((prev) => (prev === index ? null : index));
-  };
+  }, []);
+
+  useEffect(() => {
+    const headerEl = headerRef.current;
+    const listEl = listRef.current;
+    if (!headerEl || !listEl) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.target === headerEl && entry.isIntersecting) {
+            setHeaderVisible(true);
+          }
+          if (entry.target === listEl && entry.isIntersecting) {
+            setItemsVisible(true);
+          }
+        });
+      },
+      { threshold: 0.1 },
+    );
+
+    observer.observe(headerEl);
+    observer.observe(listEl);
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <Section className="pt-[15px] pb-[100px] md:py-[100px]" id="faq">
       <div className="max-w-[1280px] mx-auto px-4 md:px-8">
-        {/* Header */}
-        <motion.div
-          className="flex flex-col items-center gap-[16px] mb-[50px] text-center"
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "0px 0px -80px 0px" }}
-          transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+        <div
+          ref={headerRef}
+          className="flex flex-col items-center gap-[16px] mb-[50px] text-center transition-all duration-700 ease-out"
+          style={{
+            opacity: headerVisible ? 1 : 0,
+            transform: headerVisible ? "translateY(0)" : "translateY(40px)",
+          }}
         >
           <h2 className="text-[40px] md:text-[50px] font-bold leading-[1.1] text-white">
             <span className="bg-gradient-to-r from-[#CACACC] to-[#7C7B82] bg-clip-text text-transparent">
@@ -141,10 +166,9 @@ export function FAQSection() {
           <p className="text-[16px] font-semibold leading-[28px] text-gray-300">
             Our commitment to transparency
           </p>
-        </motion.div>
+        </div>
 
-        {/* FAQ items */}
-        <div className="max-w-[700px] mx-auto flex flex-col gap-[12px]">
+        <div ref={listRef} className="max-w-[700px] mx-auto flex flex-col gap-[12px]">
           {faqs.map((item, index) => (
             <FAQItem
               key={item.q}
@@ -152,7 +176,8 @@ export function FAQSection() {
               answer={item.a}
               isOpen={openIndex === index}
               onToggle={() => handleToggle(index)}
-              index={index}
+              visible={itemsVisible}
+              delay={index * 80}
             />
           ))}
         </div>

@@ -1,6 +1,6 @@
 "use client";
 
-import { useReducedMotion } from "framer-motion";
+import { useEffect, useState } from "react";
 import {
   SearchPersonIcon,
   MountainIcon,
@@ -48,8 +48,10 @@ const oldWayItems: Array<{
 ];
 
 export function OldWaySection() {
-  const shouldReduceMotion = useReducedMotion();
-  const animated = !shouldReduceMotion;
+  const [animated, setAnimated] = useState(true);
+  useEffect(() => {
+    setAnimated(!window.matchMedia("(prefers-reduced-motion: reduce)").matches);
+  }, []);
 
   return (
     <Section
@@ -84,7 +86,7 @@ export function OldWaySection() {
           {oldWayItems.map((item, index) => (
             <div
               key={index}
-              className="max-md:w-full max-md:p-4 max-md:inline-flex max-md:flex-row max-md:items-center max-md:gap-5 md:w-full md:h-full md:px-4 lg:px-7 md:pt-5 lg:pt-7 md:pb-2.5 md:inline-flex md:flex-col md:justify-start md:items-start md:gap-3 lg:gap-6 bg-gradient-to-r from-white/5 via-white/10 to-white/5 rounded-[20px] outline outline-1 outline-offset-[-1px] outline-white/30 backdrop-blur-[30px] overflow-hidden"
+              className="max-md:w-full max-md:p-4 max-md:inline-flex max-md:flex-row max-md:items-center max-md:gap-5 md:w-full md:h-full md:px-4 lg:px-7 md:pt-5 lg:pt-7 md:pb-2.5 md:inline-flex md:flex-col md:justify-start md:items-start md:gap-3 lg:gap-6 bg-gradient-to-r from-white/5 via-white/10 to-white/5 rounded-[20px] outline outline-1 outline-offset-[-1px] outline-white/30 overflow-hidden"
             >
               <item.Icon
                 className="text-gray-200/50 shrink-0 max-md:w-10 max-md:h-10"
