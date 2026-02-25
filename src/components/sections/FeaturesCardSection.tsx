@@ -146,25 +146,218 @@ export function FeaturesCardSection() {
         </div>
 
         {/* ── Stacked Cards + Main Card ── */}
-        <div className="w-full max-w-[1220px] flex flex-col items-center">
-          <div
-            className="w-[75%] md:w-[82%] h-4 md:h-5 rounded-t-xl md:rounded-t-[37px] bg-black border-[0.79px] border-b-0 border-white/30"
-          />
-          <div
-            className="w-[87%] md:w-[91%] h-4 md:h-5 rounded-t-xl md:rounded-t-[37px] bg-black border-[0.79px] border-b-0 border-white/30"
-          />
+        <div className="w-full max-w-[1220px] flex flex-col items-center gap-14">
+          {/* ── Card — Adaptive Intelligence ── */}
+          <div className="w-full flex flex-col items-center">
+            <div
+              className="w-full rounded-3xl md:rounded-[60px] py-5 px-4 md:py-[88px] md:px-[56px] md:min-h-[600px] overflow-hidden"
+              style={{
+                background: "#000000",
+                outline: "1px solid #434343",
+                outlineOffset: "-1px",
+                backdropFilter: "blur(25.53px)",
+                boxShadow: "0px 30px 100px rgba(0,0,0,0.7), 0px 0px 1px rgba(255,255,255,0.1)",
+              }}
+            >
+              <div className="flex flex-col md:flex-row items-center gap-[30px] md:gap-[22px] pt-4 md:pt-8">
+                {/* ── Left side content ── */}
+                <div className="flex flex-col gap-4 md:gap-[32px] shrink-0 md:max-w-[460px] w-full">
+                  {/* Gradient circle with number inside */}
+                  <div
+                    className="w-[45px] h-[45px] md:w-[85px] md:h-[85px] rounded-full flex items-center justify-center"
+                    style={{
+                      background: "linear-gradient(138deg, rgba(61,61,61,0.29) 0%, rgba(255,229,229,0) 100%)",
+                      boxShadow: "0px 3.98px 24.85px rgba(0,0,0,0.25)",
+                      border: "1.3px solid rgba(255,255,255,0.10)",
+                    }}
+                  >
+                    <span className="text-white text-[18px] md:text-[30px] font-normal">1</span>
+                  </div>
 
-          {/* ── Front card — Main Content ── */}
-          <div
-            className="w-full rounded-3xl md:rounded-[60px] py-5 px-4 md:py-[60px] md:px-[56px] overflow-hidden"
-          style={{
-            background: "#000000",
-            outline: "1px solid #434343",
-            outlineOffset: "-1px",
-            backdropFilter: "blur(25.53px)",
-            boxShadow: "0px 30px 100px rgba(0,0,0,0.7), 0px 0px 1px rgba(255,255,255,0.1)",
-          }}
-        >
+                  {/* Text content */}
+                  <div className="flex flex-col gap-3 md:gap-[20px]">
+                    <ScrollTextReveal
+                      text="Adaptive Intelligence"
+                      className="text-white text-lg md:text-2xl font-bold font-['Urbanist']"
+                    />
+
+                    <div className="flex flex-col gap-4 md:gap-[28px]">
+                      <div className="flex flex-col gap-3 md:gap-[27px]">
+                        <div className="flex flex-col gap-0">
+                          <p className="w-72 md:w-auto text-white text-sm md:text-sm font-medium font-['Urbanist'] leading-5 max-w-[384px]">
+                            They Learn Your Style And Improve Over Time
+                          </p>
+                          <p className="w-72 md:w-auto text-white text-sm md:text-sm font-medium font-['Urbanist'] leading-5 max-w-[384px]">
+                            The more you work with Chorus, the better it understands your preferences:
+                          </p>
+                        </div>
+
+                        {/* Divider */}
+                        <div className="w-full max-w-[433px] h-0 border-t border-white/19" />
+
+                        {/* Checklist items — mobile: no animation, desktop: animated */}
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-y-3 md:gap-y-[17px] gap-x-[32px]">
+                          {[
+                            "Your communication voice",
+                            "Your decision patterns",
+                            "Your quality standards",
+                            "Your strategic priorities",
+                          ].map((item, i) => (
+                            <div key={item}>
+                              <div className="md:hidden flex items-center gap-2">
+                                <CheckMark />
+                                <span
+                                  className={`text-gray-300 ${item === "What each agent is working on" ? "text-[12px]" : "text-[13px]"} font-medium`}
+                                >
+                                  {item}
+                                </span>
+                              </div>
+                              <div className="hidden md:block">
+                                <AnimateOnScroll animation="fade-up" duration={0.6} delay={i * 0.15} threshold={0.2}>
+                                  <div className="flex items-center gap-[16px]">
+                                    <CheckMark />
+                                    <span
+                                      className={`text-gray-300 ${item === "What each agent is working on" ? "text-[14px]" : "text-[16px]"} font-medium whitespace-nowrap`}
+                                    >
+                                      {item}
+                                    </span>
+                                  </div>
+                                </AnimateOnScroll>
+                              </div>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* ── Right side — Visual ── */}
+                <div className="relative flex-1 w-full max-w-[520px] flex items-center justify-center md:justify-end md:min-h-[440px]">
+                  <img
+                    src="/images/figma/difference1.svg"
+                    alt="Adaptive Intelligence preview"
+                    loading="lazy"
+                    className="w-full h-auto max-w-[473px] md:translate-x-16"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+          {/* ── Card — Transparent Operation ── */}
+          <div className="w-full flex flex-col items-center">
+            <div
+              className="w-full rounded-3xl md:rounded-[60px] py-5 px-4 md:py-[60px] md:px-[56px] md:min-h-[600px] overflow-hidden flex flex-col justify-center"
+              style={{
+                background: "#000000",
+                outline: "1px solid #434343",
+                outlineOffset: "-1px",
+                backdropFilter: "blur(25.53px)",
+                boxShadow: "0px 30px 100px rgba(0,0,0,0.7), 0px 0px 1px rgba(255,255,255,0.1)",
+              }}
+            >
+              <div className="flex flex-col md:flex-row items-center gap-[30px] md:gap-[22px]">
+                {/* ── Left side content ── */}
+                <div className="flex flex-col gap-4 md:gap-[32px] shrink-0 md:max-w-[460px] w-full">
+                  {/* Gradient circle with number inside */}
+                  <div
+                    className="w-[45px] h-[45px] md:w-[85px] md:h-[85px] rounded-full flex items-center justify-center"
+                    style={{
+                      background: "linear-gradient(138deg, rgba(61,61,61,0.29) 0%, rgba(255,229,229,0) 100%)",
+                      boxShadow: "0px 3.98px 24.85px rgba(0,0,0,0.25)",
+                      border: "1.3px solid rgba(255,255,255,0.10)",
+                    }}
+                  >
+                    <span className="text-white text-[18px] md:text-[30px] font-normal">2</span>
+                  </div>
+
+                  {/* Text content */}
+                  <div className="flex flex-col gap-3 md:gap-[20px]">
+                    <ScrollTextReveal
+                      text="Transparent Operation"
+                      className="text-white text-lg md:text-2xl font-bold font-['Urbanist']"
+                    />
+
+                    <div className="flex flex-col gap-4 md:gap-[28px]">
+                      <div className="flex flex-col gap-0">
+                        <p className="w-72 md:w-auto text-white text-sm md:text-sm font-medium font-['Urbanist'] leading-5 max-w-[384px]">
+                          See Everything Your AI Workforce Does
+                        </p>
+                        <p className="w-72 md:w-auto text-white text-sm md:text-sm font-medium font-['Urbanist'] leading-5 max-w-[384px]">
+                          Real-time activity dashboard shows:
+                        </p>
+
+                        {/* Divider */}
+                        <div className="w-full max-w-[433px] h-0 border-t border-white/19 md:mt-6" />
+
+                        {/* Checklist items — mobile: no animation, desktop: animated */}
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-y-3 md:gap-y-[17px] gap-x-[32px] md:mt-5">
+                          {[
+                            "What each agent is working on",
+                            "Decisions they're making",
+                            "Output they're creating",
+                            "Output they're creating",
+                          ].map((item, i) => (
+                            <div key={`${item}-${i}`}>
+                              <div className="md:hidden flex items-center gap-2">
+                                <CheckMark />
+                                <span
+                                  className={`text-gray-300 ${item === "What each agent is working on" ? "text-[12px]" : "text-[13px]"} font-medium`}
+                                >
+                                  {item}
+                                </span>
+                              </div>
+                              <div className="hidden md:block">
+                                <AnimateOnScroll animation="fade-up" duration={0.6} delay={i * 0.15} threshold={0.2}>
+                                  <div className="flex items-center gap-[16px]">
+                                    <CheckMark />
+                                    <span
+                                      className={`text-gray-300 ${item === "What each agent is working on" ? "text-[14.5px]" : "text-[16px]"} font-medium whitespace-nowrap`}
+                                    >
+                                      {item}
+                                    </span>
+                                  </div>
+                                </AnimateOnScroll>
+                              </div>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* ── Right side — Visual ── */}
+                <div className="relative flex-1 w-full max-w-[520px] flex items-center justify-center md:justify-end">
+                  <img
+                    src="/images/figma/difference2.svg"
+                    alt="Transparent Operation preview"
+                    loading="lazy"
+                    className="w-full h-auto max-w-[473px] md:translate-x-16"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="w-full flex flex-col items-center">
+            <div
+              className="w-[75%] md:w-[82%] h-4 md:h-5 rounded-t-xl md:rounded-t-[37px] bg-black border-[0.79px] border-b-0 border-white/30"
+            />
+            <div
+              className="w-[87%] md:w-[91%] h-4 md:h-5 rounded-t-xl md:rounded-t-[37px] bg-black border-[0.79px] border-b-0 border-white/30 mt-2 md:mt-1.5"
+            />
+
+            {/* ── Front card — Main Content ── */}
+            <div
+              className="w-full rounded-3xl md:rounded-[60px] py-5 px-4 md:py-[60px] md:px-[56px] overflow-hidden"
+              style={{
+                background: "#000000",
+                outline: "1px solid #434343",
+                outlineOffset: "-1px",
+                backdropFilter: "blur(25.53px)",
+                boxShadow: "0px 30px 100px rgba(0,0,0,0.7), 0px 0px 1px rgba(255,255,255,0.1)",
+              }}
+            >
           <div className="flex flex-col md:flex-row items-center gap-[30px] md:gap-[22px]">
             {/* ── Left side content ── */}
             <div className="flex flex-col gap-4 md:gap-[32px] shrink-0 md:max-w-[460px] w-full">
@@ -204,7 +397,7 @@ export function FeaturesCardSection() {
 
                 <div className="flex flex-col gap-4 md:gap-[28px]">
                   <div className="flex flex-col gap-3 md:gap-[27px]">
-                    <p className="w-72 md:w-auto text-gray-400 md:text-gray-300 text-sm md:text-sm font-medium font-['Urbanist'] leading-5 max-w-[384px]">
+                    <p className="w-72 md:w-auto text-white text-sm md:text-sm font-medium font-['Urbanist'] leading-5 max-w-[384px]">
                       Because Chorus integrates with your entire stack (CRM, email, docs, calendar, Slack), your AI agents have complete context about:
                     </p>
 
@@ -242,6 +435,7 @@ export function FeaturesCardSection() {
             {/* ── Right side — Orbital integration visual (desktop only) ── */}
             <div className="relative flex-1 min-h-[420px] hidden md:flex items-center justify-center">
               <OrbitalAnimation />
+            </div>
             </div>
           </div>
         </div>
