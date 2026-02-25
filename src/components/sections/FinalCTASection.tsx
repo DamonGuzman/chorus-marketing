@@ -5,12 +5,12 @@ import { PRIMARY_CTA_HREF } from "@/content/site";
 
 export function FinalCTASection() {
   return (
-    <section className="relative bg-black overflow-hidden rounded-b-[20px] md:rounded-b-[28px] w-full px-4 py-16 md:px-8 md:pt-32 lg:pt-40 xl:pt-52 2xl:pt-60 md:pb-14 lg:pb-16 xl:pb-20 mb-4 md:mb-8" id="cta">
+    <section className="relative bg-black overflow-hidden rounded-b-[20px] md:rounded-b-[28px] w-full px-4 py-16 md:px-8 md:pt-32 lg:pt-40 xl:pt-52 2xl:pt-60 md:pb-14 lg:pb-16 xl:pb-20 mt-4 md:mt-0 mb-4 md:mb-8" id="cta">
       {/* Background image */}
       <img
         src="/images/figma/image1234.svg"
         alt=""
-        className="pointer-events-none absolute left-0 right-0 -top-12 md:-top-16 bottom-0 w-full h-[calc(100%+3rem)] md:h-[calc(100%+4rem)] lg:scale-x-[1.06] xl:scale-x-[1.14] 2xl:scale-x-[1.23] origin-center"
+        className="pointer-events-none absolute left-0 right-0 -top-8 md:-top-26 bottom-0 w-full h-full scale-y-[1.42] md:scale-y-100 md:h-[calc(100%+7rem)] lg:scale-x-[1.06] xl:scale-x-[1.14] 2xl:scale-x-[1.23] origin-top md:origin-center"
       />
       {/* Top gradient glow */}
       <div className="absolute top-0 left-0 right-0 w-full h-[300px] md:h-[515px] bg-gradient-to-b from-white/20 via-white/0 to-black/0 pointer-events-none" />
@@ -18,7 +18,7 @@ export function FinalCTASection() {
       <div className="absolute top-0 left-0 right-0 w-full h-1 bg-gradient-to-r from-white/0 via-neutral-400 to-white/0 rounded-full" />
 
       {/* Content */}
-      <div className="relative z-10 max-w-[1039px] mx-auto flex flex-col items-center gap-[30px] md:gap-12">
+      <div className="relative z-10 max-w-[1039px] mx-auto fnex flex-col items-center gap-[30px] md:gap-12">
         {/* Title + subtitle + pills */}
         <div className="self-stretch flex flex-col items-center gap-[20px] md:gap-6">
           {/* Feature pills */}
@@ -45,7 +45,7 @@ export function FinalCTASection() {
             ))}
           </div>
           <div className="self-stretch flex flex-col items-center gap-[24px] md:gap-10">
-            <h2 className="w-full md:max-w-none text-center text-white text-2xl leading-8 md:text-5xl md:leading-[68px] font-bold font-['Urbanist']">
+            <h2 className="w-full md:max-w-none text-center text-white text-base leading-6 md:text-5xl md:leading-[68px] tracking-[-0.01em] md:tracking-normal font-bold font-['Urbanist']">
               <span className="md:hidden">
                 <span className="block whitespace-nowrap">The Best Companies Don&apos;t Have More People. They</span>
                 <span className="block">Have Better Coordination.</span>
@@ -61,7 +61,7 @@ export function FinalCTASection() {
         {/* CTA Button */}
         <a
           href={PRIMARY_CTA_HREF}
-          className="md:mt-4 lg:mt-5 xl:mt-7 h-12 px-8 py-3 bg-white rounded-[50px] shadow-[0px_0px_8px_0px_rgba(175,130,249,0.63)] inline-flex justify-start items-center gap-2 overflow-hidden hover:bg-gray-50 transition-colors"
+          className="mt-4 md:mt-4 lg:mt-5 xl:mt-7 h-12 px-8 py-3 bg-white rounded-[50px] shadow-[0px_0px_8px_0px_rgba(175,130,249,0.63)] flex w-fit mx-auto justify-start items-center gap-2 overflow-hidden hover:bg-gray-50 transition-colors"
         >
           <span className="text-center text-black text-sm font-bold font-['Urbanist'] leading-6">Build Your Team Now</span>
         </a>
