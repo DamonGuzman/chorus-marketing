@@ -1,13 +1,9 @@
-/* ─────────────────────────────────────────────────────────
-   Features Card Section
-   "The Difference That Changes Everything"
-   Card #3 — Full Business Context with orbital integration visual
-   ───────────────────────────────────────────────────────── */
+"use client";
 
-import Image from "next/image";
+import { useState, useCallback, useEffect } from "react";
+import { motion } from "framer-motion";
 import { AnimateOnScroll, Badge, ScrollTextReveal } from "@/components/ui";
 
-/* ── Checkmark icon ── */
 function CheckMark() {
   return (
     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" className="shrink-0">
@@ -16,8 +12,6 @@ function CheckMark() {
     </svg>
   );
 }
-
-/* (Integration icons loaded from Figma SVG/PNG assets) */
 
 function OrbitIcon({ children }: { children: React.ReactNode }) {
   return (
@@ -35,7 +29,6 @@ function OrbitIcon({ children }: { children: React.ReactNode }) {
 function OrbitalAnimation() {
   return (
     <div className="relative w-[636px] h-[480px]">
-      {/* SVG orbit rings + animated dots */}
       <svg
         className="absolute inset-0 w-full h-full"
         viewBox="0 0 636 480"
@@ -53,18 +46,13 @@ function OrbitalAnimation() {
           </filter>
         </defs>
 
-        {/* Ring 1 — wide, tilted ~20deg */}
         <ellipse cx="318" cy="240" rx="290" ry="100" stroke="white" strokeOpacity="0.50" strokeWidth="1.4" fill="none" transform="rotate(20.6, 318, 240)" />
-        {/* Ring 2 — counter-tilted */}
         <ellipse cx="318" cy="240" rx="270" ry="115" stroke="white" strokeOpacity="0.40" strokeWidth="1.2" fill="none" transform="rotate(-26, 318, 240)" />
-        {/* Ring 3 — near-flat */}
         <ellipse cx="318" cy="240" rx="250" ry="130" stroke="white" strokeOpacity="0.45" strokeWidth="1.0" fill="none" transform="rotate(5, 318, 240)" />
 
-        {/* Motion paths */}
         <path id="fcOrbit1" d="M 28,240 A 290 100 0 1 1 608,240 A 290 100 0 1 1 28,240 Z" fill="none" stroke="none" transform="rotate(20.6, 318, 240)" />
         <path id="fcOrbit2" d="M 48,240 A 270 115 0 1 1 588,240 A 270 115 0 1 1 48,240 Z" fill="none" stroke="none" transform="rotate(-26, 318, 240)" />
 
-        {/* Animated glowing dots */}
         <circle r="5" fill="white" filter="url(#dotGlow1)">
           <animateMotion dur="18s" repeatCount="indefinite"><mpath href="#fcOrbit1" /></animateMotion>
         </circle>
@@ -73,7 +61,6 @@ function OrbitalAnimation() {
         </circle>
       </svg>
 
-      {/* Central Chorus logo */}
       <div
         className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-24 h-24 rounded-[99px] flex items-center justify-center overflow-hidden"
         style={{
@@ -85,48 +72,206 @@ function OrbitalAnimation() {
         <img src="/images/figma/bubble.svg" alt="Chorus" loading="lazy" className="relative w-14 h-14 brightness-0 invert" />
       </div>
 
-      {/* Google Sheets — upper left */}
       <div className="absolute" style={{ top: "14%", left: "24%", zIndex: 10 }}>
-        <OrbitIcon>
-          <img src="/images/figma/image 34.svg" alt="Google Sheets" loading="lazy" className="w-10 h-10" />
-        </OrbitIcon>
+        <OrbitIcon><img src="/images/figma/image 34.svg" alt="Google Sheets" loading="lazy" className="w-10 h-10" /></OrbitIcon>
       </div>
-
-      {/* HubSpot — upper right */}
       <div className="absolute" style={{ top: "12%", right: "10%", zIndex: 10 }}>
-        <OrbitIcon>
-          <img src="/images/figma/image 33.svg" alt="HubSpot" loading="lazy" className="w-14 h-14 rounded-full" />
-        </OrbitIcon>
+        <OrbitIcon><img src="/images/figma/image 33.svg" alt="HubSpot" loading="lazy" className="w-14 h-14 rounded-full" /></OrbitIcon>
       </div>
-
-      {/* Google Calendar — mid left */}
       <div className="absolute" style={{ top: "45%", left: "6%", zIndex: 10 }}>
-        <OrbitIcon>
-          <img src="/images/figma/image 32.svg" alt="Google Calendar" loading="lazy" className="w-10 h-10" />
-        </OrbitIcon>
+        <OrbitIcon><img src="/images/figma/image 32.svg" alt="Google Calendar" loading="lazy" className="w-10 h-10" /></OrbitIcon>
       </div>
-
-      {/* Gmail — mid right */}
       <div className="absolute" style={{ top: "45%", right: "6%", zIndex: 10 }}>
-        <OrbitIcon>
-          <img src="/images/figma/image 35.svg" alt="Gmail" loading="lazy" className="w-10 h-10" />
-        </OrbitIcon>
+        <OrbitIcon><img src="/images/figma/image 35.svg" alt="Gmail" loading="lazy" className="w-10 h-10" /></OrbitIcon>
       </div>
-
-      {/* Slack — bottom center-left */}
       <div className="absolute" style={{ bottom: "12%", left: "35%", zIndex: 10 }}>
-        <OrbitIcon>
-          <img src="/images/figma/image 12.svg" alt="Slack" loading="lazy" className="w-10 h-10" />
-        </OrbitIcon>
+        <OrbitIcon><img src="/images/figma/image 12.svg" alt="Slack" loading="lazy" className="w-10 h-10" /></OrbitIcon>
       </div>
     </div>
   );
 }
 
-/* ═══════════════════════════════════════════════════════════
-   MAIN SECTION EXPORT
-   ═══════════════════════════════════════════════════════════ */
+/* ── Card data ── */
+
+interface CardData {
+  number: number;
+  title: string;
+  descriptions: string[];
+  checkItems: string[];
+  visualType: "image" | "orbital";
+  imageSrc?: string;
+  imageAlt?: string;
+}
+
+const CARDS: CardData[] = [
+  {
+    number: 1,
+    title: "Adaptive Intelligence",
+    descriptions: [
+      "They Learn Your Style And Improve Over Time",
+      "The more you work with Chorus, the better it understands your preferences:",
+    ],
+    checkItems: [
+      "Your communication voice",
+      "Your decision patterns",
+      "Your quality standards",
+      "Your strategic priorities",
+    ],
+    visualType: "image",
+    imageSrc: "/images/figma/difference1.svg",
+    imageAlt: "Adaptive Intelligence preview",
+  },
+  {
+    number: 2,
+    title: "Transparent Operation",
+    descriptions: [
+      "See Everything Your AI Workforce Does",
+      "Real-time activity dashboard shows:",
+    ],
+    checkItems: [
+      "What each agent is working on",
+      "Decisions they're making",
+      "Output they're creating",
+      "Output they're creating",
+    ],
+    visualType: "image",
+    imageSrc: "/images/figma/difference2.svg",
+    imageAlt: "Transparent Operation preview",
+  },
+  {
+    number: 3,
+    title: "Full Business Context",
+    descriptions: [
+      "Because Chorus integrates with your entire stack (CRM, email, docs, calendar, Slack), your AI agents have complete context about:",
+    ],
+    checkItems: [
+      "Your customers and pipeline",
+      "Your processes and SOPs",
+      "Your messaging and brand voice",
+    ],
+    visualType: "orbital",
+  },
+];
+
+/* ── Shared card content renderer ── */
+
+function CardContent({ card }: { card: CardData }) {
+  return (
+    <div className="py-5 px-4 md:py-[60px] md:px-[56px] min-h-[480px] md:min-h-0">
+      <div className="flex flex-col md:flex-row items-center gap-[30px] md:gap-[22px]">
+        {/* ── Left side content ── */}
+        <div className="flex flex-col gap-4 md:gap-[32px] shrink-0 md:max-w-[460px] w-full">
+          <div
+            className="w-[45px] h-[45px] md:w-[85px] md:h-[85px] rounded-full flex items-center justify-center"
+            style={{
+              background: "linear-gradient(138deg, rgba(61,61,61,0.29) 0%, rgba(255,229,229,0) 100%)",
+              boxShadow: "0px 3.98px 24.85px rgba(0,0,0,0.25)",
+              border: "1.3px solid rgba(255,255,255,0.10)",
+            }}
+          >
+            <span className="text-white text-[18px] md:text-[30px] font-normal">{card.number}</span>
+          </div>
+
+          {card.visualType === "orbital" && (
+            <div className="md:hidden relative w-full overflow-visible" style={{ height: "calc(420px * 0.38)" }}>
+              <div
+                className="absolute top-0 left-1/2"
+                style={{ width: 500, height: 420, transformOrigin: "top center", transform: "translateX(-50%) scale(0.38)" }}
+              >
+                <OrbitalAnimation />
+              </div>
+            </div>
+          )}
+
+          <div className="flex flex-col gap-3 md:gap-[20px]">
+            <ScrollTextReveal
+              text={card.title}
+              className="text-white text-lg md:text-2xl font-bold font-['Urbanist']"
+            />
+            <div className="flex flex-col gap-4 md:gap-[28px]">
+              <div className="flex flex-col gap-3 md:gap-[27px]">
+                <div className="flex flex-col gap-0">
+                  {card.descriptions.map((desc, j) => (
+                    <p key={j} className="w-72 md:w-auto text-white text-sm font-medium font-['Urbanist'] leading-5 max-w-[384px]">
+                      {desc}
+                    </p>
+                  ))}
+                </div>
+                <div className="w-full max-w-[433px] h-0 border-t border-white/19" />
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-y-3 md:gap-y-[17px] gap-x-[32px]">
+                  {card.checkItems.map((item, j) => (
+                    <div key={`${item}-${j}`}>
+                      <div className="md:hidden flex items-center gap-2">
+                        <CheckMark />
+                        <span className={`text-gray-300 ${item === "What each agent is working on" ? "text-[12px]" : "text-[13px]"} font-medium`}>
+                          {item}
+                        </span>
+                      </div>
+                      <div className="hidden md:block">
+                        <AnimateOnScroll animation="fade-up" duration={0.6} delay={j * 0.15} threshold={0.2}>
+                          <div className="flex items-center gap-[16px]">
+                            <CheckMark />
+                            <span className={`text-gray-300 ${item === "What each agent is working on" ? "text-[14px]" : "text-[16px]"} font-medium whitespace-nowrap`}>
+                              {item}
+                            </span>
+                          </div>
+                        </AnimateOnScroll>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* ── Right side visual ── */}
+        {card.visualType === "orbital" ? (
+          <div className="relative flex-1 min-h-[420px] hidden md:flex items-center justify-center">
+            <OrbitalAnimation />
+          </div>
+        ) : (
+          <div className={`relative flex-1 w-full flex items-center justify-center md:justify-end md:min-h-[440px] ${card.number === 2 ? "max-w-[570px]" : "max-w-[520px]"}`}>
+            <img src={card.imageSrc} alt={card.imageAlt || ""} loading="lazy" className={`w-full h-auto md:translate-x-16 ${card.number === 2 ? "max-w-[530px]" : "max-w-[473px]"}`} />
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}
+
+/* ── Transition config ── */
+
+const DECK_EASE = [0.4, 0, 0.2, 1] as const;
+const DECK_TRANSITION = {
+  layout: { duration: 0.6, ease: DECK_EASE },
+  height: { duration: 0.55, ease: DECK_EASE },
+  width: { duration: 0.55, ease: DECK_EASE },
+  marginTop: { duration: 0.45, ease: DECK_EASE },
+};
+
+/* ── Main export ── */
+
+function useIsMd() {
+  const [isMd, setIsMd] = useState(false);
+  useEffect(() => {
+    const mq = window.matchMedia("(min-width: 768px)");
+    setIsMd(mq.matches);
+    const handler = (e: MediaQueryListEvent) => setIsMd(e.matches);
+    mq.addEventListener("change", handler);
+    return () => mq.removeEventListener("change", handler);
+  }, []);
+  return isMd;
+}
+
 export function FeaturesCardSection() {
+  const [order, setOrder] = useState([2, 1, 0]);
+  const isMd = useIsMd();
+
+  const handleNext = useCallback(() => {
+    setOrder((prev) => [prev[1], prev[2], prev[0]]);
+  }, []);
+
   return (
     <section className="w-full bg-black px-4 md:px-8 py-[50px] md:py-section-y">
       <div className="max-w-[1240px] mx-auto flex flex-col items-center gap-[20px]">
@@ -145,300 +290,79 @@ export function FeaturesCardSection() {
           </div>
         </div>
 
-        {/* ── Stacked Cards + Main Card ── */}
-        <div className="w-full max-w-[1220px] flex flex-col items-center gap-14">
-          {/* ── Card — Adaptive Intelligence ── */}
-          <div className="w-full flex flex-col items-center">
-            <div
-              className="w-full rounded-3xl md:rounded-[60px] py-5 px-4 md:py-[88px] md:px-[56px] md:min-h-[600px] overflow-hidden"
-              style={{
-                background: "#000000",
-                outline: "1px solid #434343",
-                outlineOffset: "-1px",
-                backdropFilter: "blur(25.53px)",
-                boxShadow: "0px 30px 100px rgba(0,0,0,0.7), 0px 0px 1px rgba(255,255,255,0.1)",
-              }}
-            >
-              <div className="flex flex-col md:flex-row items-center gap-[30px] md:gap-[22px] pt-4 md:pt-8">
-                {/* ── Left side content ── */}
-                <div className="flex flex-col gap-4 md:gap-[32px] shrink-0 md:max-w-[460px] w-full">
-                  {/* Gradient circle with number inside */}
-                  <div
-                    className="w-[45px] h-[45px] md:w-[85px] md:h-[85px] rounded-full flex items-center justify-center"
-                    style={{
-                      background: "linear-gradient(138deg, rgba(61,61,61,0.29) 0%, rgba(255,229,229,0) 100%)",
-                      boxShadow: "0px 3.98px 24.85px rgba(0,0,0,0.25)",
-                      border: "1.3px solid rgba(255,255,255,0.10)",
+        {/* ── Card Deck — each card is an independent element that swaps position ── */}
+        <div className="w-full max-w-[1220px]">
+          <div className="flex flex-col items-center w-full gap-0 min-h-[500px] md:min-h-[650px]">
+            {CARDS.map((card, i) => {
+              const pos = order.indexOf(i);
+              const isFront = pos === 0;
+              const isMiddle = pos === 1;
+              const visualOrder = pos === 0 ? 2 : pos === 1 ? 1 : 0;
+
+              return (
+                <motion.div
+                  key={i}
+                  layout="position"
+                  initial={false}
+                  className={`overflow-hidden cursor-pointer ${
+                    isFront
+                      ? "rounded-3xl md:rounded-[60px]"
+                      : "rounded-t-xl md:rounded-t-[37px]"
+                  }`}
+                  animate={{
+                      height: isFront ? "auto" : isMd ? 35 : 18,
+                      width: isFront ? "100%" : isMiddle ? "91%" : "82%",
+                      marginTop: visualOrder === 1 ? (isMd ? 3 : 2) : 0,
                     }}
-                  >
-                    <span className="text-white text-[18px] md:text-[30px] font-normal">1</span>
-                  </div>
-
-                  {/* Text content */}
-                  <div className="flex flex-col gap-3 md:gap-[20px]">
-                    <ScrollTextReveal
-                      text="Adaptive Intelligence"
-                      className="text-white text-lg md:text-2xl font-bold font-['Urbanist']"
-                    />
-
-                    <div className="flex flex-col gap-4 md:gap-[28px]">
-                      <div className="flex flex-col gap-3 md:gap-[27px]">
-                        <div className="flex flex-col gap-0">
-                          <p className="w-72 md:w-auto text-white text-sm md:text-sm font-medium font-['Urbanist'] leading-5 max-w-[384px]">
-                            They Learn Your Style And Improve Over Time
-                          </p>
-                          <p className="w-72 md:w-auto text-white text-sm md:text-sm font-medium font-['Urbanist'] leading-5 max-w-[384px]">
-                            The more you work with Chorus, the better it understands your preferences:
-                          </p>
-                        </div>
-
-                        {/* Divider */}
-                        <div className="w-full max-w-[433px] h-0 border-t border-white/19" />
-
-                        {/* Checklist items — mobile: no animation, desktop: animated */}
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-y-3 md:gap-y-[17px] gap-x-[32px]">
-                          {[
-                            "Your communication voice",
-                            "Your decision patterns",
-                            "Your quality standards",
-                            "Your strategic priorities",
-                          ].map((item, i) => (
-                            <div key={item}>
-                              <div className="md:hidden flex items-center gap-2">
-                                <CheckMark />
-                                <span
-                                  className={`text-gray-300 ${item === "What each agent is working on" ? "text-[12px]" : "text-[13px]"} font-medium`}
-                                >
-                                  {item}
-                                </span>
-                              </div>
-                              <div className="hidden md:block">
-                                <AnimateOnScroll animation="fade-up" duration={0.6} delay={i * 0.15} threshold={0.2}>
-                                  <div className="flex items-center gap-[16px]">
-                                    <CheckMark />
-                                    <span
-                                      className={`text-gray-300 ${item === "What each agent is working on" ? "text-[14px]" : "text-[16px]"} font-medium whitespace-nowrap`}
-                                    >
-                                      {item}
-                                    </span>
-                                  </div>
-                                </AnimateOnScroll>
-                              </div>
-                            </div>
-                          ))}
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                {/* ── Right side — Visual ── */}
-                <div className="relative flex-1 w-full max-w-[520px] flex items-center justify-center md:justify-end md:min-h-[440px]">
-                  <img
-                    src="/images/figma/difference1.svg"
-                    alt="Adaptive Intelligence preview"
-                    loading="lazy"
-                    className="w-full h-auto max-w-[473px] md:translate-x-16"
-                  />
-                </div>
-              </div>
-            </div>
-          </div>
-          {/* ── Card — Transparent Operation ── */}
-          <div className="w-full flex flex-col items-center">
-            <div
-              className="w-full rounded-3xl md:rounded-[60px] py-5 px-4 md:py-[60px] md:px-[56px] md:min-h-[600px] overflow-hidden flex flex-col justify-center"
-              style={{
-                background: "#000000",
-                outline: "1px solid #434343",
-                outlineOffset: "-1px",
-                backdropFilter: "blur(25.53px)",
-                boxShadow: "0px 30px 100px rgba(0,0,0,0.7), 0px 0px 1px rgba(255,255,255,0.1)",
-              }}
-            >
-              <div className="flex flex-col md:flex-row items-center gap-[30px] md:gap-[22px]">
-                {/* ── Left side content ── */}
-                <div className="flex flex-col gap-4 md:gap-[32px] shrink-0 md:max-w-[460px] w-full">
-                  {/* Gradient circle with number inside */}
-                  <div
-                    className="w-[45px] h-[45px] md:w-[85px] md:h-[85px] rounded-full flex items-center justify-center"
-                    style={{
-                      background: "linear-gradient(138deg, rgba(61,61,61,0.29) 0%, rgba(255,229,229,0) 100%)",
-                      boxShadow: "0px 3.98px 24.85px rgba(0,0,0,0.25)",
-                      border: "1.3px solid rgba(255,255,255,0.10)",
-                    }}
-                  >
-                    <span className="text-white text-[18px] md:text-[30px] font-normal">2</span>
-                  </div>
-
-                  {/* Text content */}
-                  <div className="flex flex-col gap-3 md:gap-[20px]">
-                    <ScrollTextReveal
-                      text="Transparent Operation"
-                      className="text-white text-lg md:text-2xl font-bold font-['Urbanist']"
-                    />
-
-                    <div className="flex flex-col gap-4 md:gap-[28px]">
-                      <div className="flex flex-col gap-0">
-                        <p className="w-72 md:w-auto text-white text-sm md:text-sm font-medium font-['Urbanist'] leading-5 max-w-[384px]">
-                          See Everything Your AI Workforce Does
-                        </p>
-                        <p className="w-72 md:w-auto text-white text-sm md:text-sm font-medium font-['Urbanist'] leading-5 max-w-[384px]">
-                          Real-time activity dashboard shows:
-                        </p>
-
-                        {/* Divider */}
-                        <div className="w-full max-w-[433px] h-0 border-t border-white/19 md:mt-6" />
-
-                        {/* Checklist items — mobile: no animation, desktop: animated */}
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-y-3 md:gap-y-[17px] gap-x-[32px] md:mt-5">
-                          {[
-                            "What each agent is working on",
-                            "Decisions they're making",
-                            "Output they're creating",
-                            "Output they're creating",
-                          ].map((item, i) => (
-                            <div key={`${item}-${i}`}>
-                              <div className="md:hidden flex items-center gap-2">
-                                <CheckMark />
-                                <span
-                                  className={`text-gray-300 ${item === "What each agent is working on" ? "text-[12px]" : "text-[13px]"} font-medium`}
-                                >
-                                  {item}
-                                </span>
-                              </div>
-                              <div className="hidden md:block">
-                                <AnimateOnScroll animation="fade-up" duration={0.6} delay={i * 0.15} threshold={0.2}>
-                                  <div className="flex items-center gap-[16px]">
-                                    <CheckMark />
-                                    <span
-                                      className={`text-gray-300 ${item === "What each agent is working on" ? "text-[14.5px]" : "text-[16px]"} font-medium whitespace-nowrap`}
-                                    >
-                                      {item}
-                                    </span>
-                                  </div>
-                                </AnimateOnScroll>
-                              </div>
-                            </div>
-                          ))}
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                {/* ── Right side — Visual ── */}
-                <div className="relative flex-1 w-full max-w-[520px] flex items-center justify-center md:justify-end">
-                  <img
-                    src="/images/figma/difference2.svg"
-                    alt="Transparent Operation preview"
-                    loading="lazy"
-                    className="w-full h-auto max-w-[473px] md:translate-x-16"
-                  />
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="w-full flex flex-col items-center">
-            <div
-              className="w-[75%] md:w-[82%] h-4 md:h-5 rounded-t-xl md:rounded-t-[37px] bg-black border-[0.79px] border-b-0 border-white/30"
-            />
-            <div
-              className="w-[87%] md:w-[91%] h-4 md:h-5 rounded-t-xl md:rounded-t-[37px] bg-black border-[0.79px] border-b-0 border-white/30 mt-2 md:mt-1.5"
-            />
-
-            {/* ── Front card — Main Content ── */}
-            <div
-              className="w-full rounded-3xl md:rounded-[60px] py-5 px-4 md:py-[60px] md:px-[56px] overflow-hidden"
-              style={{
-                background: "#000000",
-                outline: "1px solid #434343",
-                outlineOffset: "-1px",
-                backdropFilter: "blur(25.53px)",
-                boxShadow: "0px 30px 100px rgba(0,0,0,0.7), 0px 0px 1px rgba(255,255,255,0.1)",
-              }}
-            >
-          <div className="flex flex-col md:flex-row items-center gap-[30px] md:gap-[22px]">
-            {/* ── Left side content ── */}
-            <div className="flex flex-col gap-4 md:gap-[32px] shrink-0 md:max-w-[460px] w-full">
-              {/* Gradient circle with number inside */}
-              <div
-                className="w-[45px] h-[45px] md:w-[85px] md:h-[85px] rounded-full flex items-center justify-center"
-                style={{
-                  background: "linear-gradient(138deg, rgba(61,61,61,0.29) 0%, rgba(255,229,229,0) 100%)",
-                  boxShadow: "0px 3.98px 24.85px rgba(0,0,0,0.25)",
-                  border: "1.3px solid rgba(255,255,255,0.10)",
-                }}
-              >
-                <span className="text-white text-[18px] md:text-[30px] font-normal">3</span>
-              </div>
-
-              {/* Orbital animation — mobile only, between number and text */}
-              <div className="md:hidden relative w-full overflow-visible" style={{ height: 'calc(420px * 0.38)' }}>
-                <div
-                  className="absolute top-0 left-1/2"
+                  transition={DECK_TRANSITION}
                   style={{
-                    width: 500,
-                    height: 420,
-                    transformOrigin: 'top center',
-                    transform: 'translateX(-50%) scale(0.38)',
+                    order: visualOrder,
+                    background: "#000000",
+                    borderTop: isFront ? undefined : "0.79px solid rgba(255,255,255,0.3)",
+                    borderLeft: isFront ? undefined : "0.79px solid rgba(255,255,255,0.3)",
+                    borderRight: isFront ? undefined : "0.79px solid rgba(255,255,255,0.3)",
+                    borderBottom: "none",
+                    outline: isFront ? "1px solid #434343" : "none",
+                    outlineOffset: isFront ? "-1px" : undefined,
+                    boxShadow: isFront
+                      ? "0px 30px 100px rgba(0,0,0,0.7), 0px 0px 1px rgba(255,255,255,0.1)"
+                      : "none",
+                    backdropFilter: isFront ? "blur(25.53px)" : undefined,
+                    zIndex: 30 - pos * 10,
                   }}
+                  onClick={handleNext}
+                  role={isFront ? "button" : undefined}
+                  tabIndex={isFront ? 0 : -1}
+                  onKeyDown={
+                    isFront
+                      ? (e) => {
+                          if (e.key === "Enter" || e.key === " ") {
+                            e.preventDefault();
+                            handleNext();
+                          }
+                        }
+                      : undefined
+                  }
                 >
-                  <OrbitalAnimation />
-                </div>
-              </div>
-
-              {/* Text content */}
-              <div className="flex flex-col gap-3 md:gap-[20px]">
-                <ScrollTextReveal
-                  text="Full Business Context"
-                  className="text-white text-lg md:text-2xl font-bold font-['Urbanist']"
-                />
-
-                <div className="flex flex-col gap-4 md:gap-[28px]">
-                  <div className="flex flex-col gap-3 md:gap-[27px]">
-                    <p className="w-72 md:w-auto text-white text-sm md:text-sm font-medium font-['Urbanist'] leading-5 max-w-[384px]">
-                      Because Chorus integrates with your entire stack (CRM, email, docs, calendar, Slack), your AI agents have complete context about:
-                    </p>
-
-                    {/* Divider */}
-                    <div className="w-full max-w-[433px] h-0 border-t border-white/19" />
-
-                    {/* Checklist items — mobile: no animation, desktop: animated */}
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-y-3 md:gap-y-[17px] gap-x-[32px]">
-                      {[
-                        "Your customers and pipeline",
-                        "Your processes and SOPs",
-                        "Your messaging and brand voice",
-                      ].map((item, i) => (
-                        <div key={item}>
-                          <div className="md:hidden flex items-center gap-2">
-                            <CheckMark />
-                            <span className="text-gray-300 text-[13px] font-medium">{item}</span>
-                          </div>
-                          <div className="hidden md:block">
-                            <AnimateOnScroll animation="fade-up" duration={0.6} delay={i * 0.15} threshold={0.2}>
-                              <div className="flex items-center gap-[16px]">
-                                <CheckMark />
-                                <span className="text-gray-300 text-[16px] font-medium whitespace-nowrap">{item}</span>
-                              </div>
-                            </AnimateOnScroll>
-                          </div>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* ── Right side — Orbital integration visual (desktop only) ── */}
-            <div className="relative flex-1 min-h-[420px] hidden md:flex items-center justify-center">
-              <OrbitalAnimation />
-            </div>
-            </div>
+                  <CardContent card={card} />
+                </motion.div>
+              );
+            })}
           </div>
-        </div>
+
+          {/* ── Card position dots ── */}
+          <div className="flex items-center justify-center gap-2 mt-6">
+            {CARDS.map((_, i) => (
+              <button
+                key={i}
+                onClick={() => setOrder([i, (i + 1) % 3, (i + 2) % 3])}
+                className={`h-2 rounded-full transition-all duration-300 ${
+                  order[0] === i ? "bg-white w-6" : "bg-white/30 hover:bg-white/50 w-2"
+                }`}
+                aria-label={`Go to card ${i + 1}`}
+              />
+            ))}
+          </div>
         </div>
       </div>
     </section>
