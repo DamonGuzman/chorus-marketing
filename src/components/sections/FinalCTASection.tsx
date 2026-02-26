@@ -1,4 +1,3 @@
-import { ButtonLink } from "@/components/ui";
 import { PRIMARY_CTA_HREF } from "@/content/site";
 
 /* eslint-disable @next/next/no-img-element */
@@ -6,14 +5,19 @@ import { PRIMARY_CTA_HREF } from "@/content/site";
 export function FinalCTASection() {
   return (
     <section className="relative bg-black overflow-hidden rounded-b-[20px] md:rounded-b-[28px] w-full px-4 py-16 md:px-8 md:pt-32 lg:pt-40 xl:pt-52 2xl:pt-60 md:pb-14 lg:pb-16 xl:pb-20 mt-4 md:mt-0 mb-4 md:mb-8" id="cta">
-      {/* Background image */}
+      {/* Background image — mobile version hides the horizontal SVG line */}
+      <img
+        src="/images/figma/image1234-mobile.svg"
+        alt=""
+        className="md:hidden pointer-events-none absolute left-0 right-0 -top-8 bottom-0 w-full h-full scale-y-[1.42] origin-top brightness-[5.5]"
+      />
       <img
         src="/images/figma/image1234.svg"
         alt=""
-        className="pointer-events-none absolute left-0 right-0 -top-8 md:-top-26 bottom-0 w-full h-full scale-y-[1.42] md:scale-y-100 md:h-[calc(100%+7rem)] lg:scale-x-[1.06] xl:scale-x-[1.14] 2xl:scale-x-[1.23] origin-top md:origin-center"
+        className="hidden md:block pointer-events-none absolute left-0 right-0 md:-top-26 bottom-0 w-full md:h-[calc(100%+7rem)] lg:scale-x-[1.06] xl:scale-x-[1.14] 2xl:scale-x-[1.23] md:origin-center"
       />
       {/* Top gradient glow */}
-      <div className="absolute top-0 left-0 right-0 w-full h-[300px] md:h-[515px] bg-gradient-to-b from-white/20 via-white/0 to-black/0 pointer-events-none" />
+      <div className="absolute top-0 left-0 right-0 w-full h-[300px] md:h-[515px] bg-gradient-to-b from-white/5 md:from-white/20 via-white/0 to-black/0 pointer-events-none" />
       {/* Horizontal glowing line at top */}
       <div className="absolute top-0 left-0 right-0 w-full h-1 bg-gradient-to-r from-white/0 via-neutral-400 to-white/0 rounded-full" />
 
