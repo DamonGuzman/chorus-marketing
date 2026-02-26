@@ -134,7 +134,7 @@ export function OldWaySection() {
                 <h3 className="text-white text-lg leading-7 md:text-xl md:leading-7 lg:text-2xl lg:leading-8 font-bold font-['Urbanist']">
                   Take months to fill a position
                 </h3>
-                <p className="text-gray-300 text-sm leading-5 md:text-sm md:leading-5 lg:text-base lg:leading-6 font-medium font-['Urbanist']">
+                <p className="text-gray-300 text-sm leading-5 md:text-sm md:leading-5 lg:text-base lg:leading-6 font-medium font-['Urbanist'] -mt-3 md:mt-0">
                   "Stripe for payments. Vercel for deployments,
                   <span className="block">Dub.co for links.</span>
                 </p>
@@ -152,7 +152,7 @@ export function OldWaySection() {
                 <h3 className="text-white text-lg leading-7 md:text-xl md:leading-7 lg:text-2xl lg:leading-8 font-bold font-['Urbanist']">
                   Coordinate between siloed teams
                 </h3>
-                <p className="text-gray-300 text-sm leading-5 md:text-sm md:leading-5 lg:text-base lg:leading-6 font-medium font-['Urbanist']">
+                <p className="text-gray-300 text-sm leading-5 md:text-sm md:leading-5 lg:text-base lg:leading-6 font-medium font-['Urbanist'] -mt-3 md:mt-0">
                   "Stripe for payments. Vercel for deployments,
                   <span className="block">Dub.co for links.</span>
                 </p>
@@ -170,7 +170,7 @@ export function OldWaySection() {
                 <h3 className="text-white text-lg leading-7 md:text-xl md:leading-7 lg:text-2xl lg:leading-8 font-bold font-['Urbanist']">
                   Costs $4,000+ per hire
                 </h3>
-                <p className="text-gray-300 text-sm leading-5 md:text-sm md:leading-5 lg:text-base lg:leading-6 font-medium font-['Urbanist']">
+                <p className="text-gray-300 text-sm leading-5 md:text-sm md:leading-5 lg:text-base lg:leading-6 font-medium font-['Urbanist'] -mt-3 md:mt-0">
                   "Stripe for payments. Vercel for deployments,
                   <span className="block">Dub.co for links.</span>
                 </p>
