@@ -21,6 +21,7 @@ export { IntegrationsSection } from "./IntegrationsSection";
 export { PricingSection } from "./PricingSection";
 export { FAQSection } from "./FAQSection";
 export { FinalCTASection } from "./FinalCTASection";
+export { AlternateCTASection } from "./oldctaSection";
 export { FeaturesHeroSection } from "./FeaturesHeroSection";
 export { ChorusAgentsSection } from "./ChorusAgentsSection";
 export { GoalDrivenSection } from "./GoalDrivenSection";

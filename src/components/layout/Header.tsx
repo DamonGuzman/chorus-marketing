@@ -9,7 +9,6 @@ import { PRIMARY_CTA_HREF, PRIMARY_CTA_LABEL } from "@/content/site";
 
 const navLinks = [
   { label: "About", href: "/about-us" },
-  { label: "Use Cases", href: "/#use-cases", hasDropdown: true },
   { label: "Pricing", href: "/#pricing" },
   { label: "Features", href: "/features" },
   { label: "FAQ", href: "/faq" },

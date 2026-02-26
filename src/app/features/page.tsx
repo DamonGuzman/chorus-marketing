@@ -10,7 +10,7 @@ const CampaignSection = dynamic(() => import("@/components/sections/CampaignSect
 const StepCarousel = dynamic(() => import("@/components/sections/StepCarousel").then(m => ({ default: m.StepCarousel })));
 const FeaturesCardSection = dynamic(() => import("@/components/sections/FeaturesCardSection").then(m => ({ default: m.FeaturesCardSection })));
 const CollaborationHubSection = dynamic(() => import("@/components/sections/CollaborationHubSection").then(m => ({ default: m.CollaborationHubSection })));
-const FinalCTASection = dynamic(() => import("@/components/sections/FinalCTASection").then(m => ({ default: m.FinalCTASection })));
+const AlternateCTASection = dynamic(() => import("@/components/sections/oldctaSection").then(m => ({ default: m.AlternateCTASection })));
 
 export default function FeaturesPage() {
   return (
@@ -48,7 +48,7 @@ export default function FeaturesPage() {
         </AnimateOnScroll>
 
         <AnimateOnScroll animation="fade-up" duration={0.9}>
-          <FinalCTASection />
+          <AlternateCTASection />
         </AnimateOnScroll>
       </main>
       <AnimateOnScroll animation="fade-in" duration={0.8} threshold={0.05}>

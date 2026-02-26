@@ -1,7 +1,7 @@
 import { Header, Footer } from "@/components/layout";
 import { AnimateOnScroll, Badge, ScrollTextReveal } from "@/components/ui";
 import { PressCarousel } from "@/components/sections/PressCarousel";
-import { FinalCTASection } from "@/components/sections";
+import { AlternateCTASection } from "@/components/sections";
 
 export default function AboutUsPage() {
   return (
@@ -430,7 +430,7 @@ export default function AboutUsPage() {
         </section>
 
         {/* Final CTA Section */}
-        <FinalCTASection />
+        <AlternateCTASection />
       </main>
       <Footer />
     </div>
