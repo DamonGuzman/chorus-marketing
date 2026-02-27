@@ -301,59 +301,13 @@ function SetupChecklistCard() {
 }
 
 function OutreachCard() {
-  const checklist = [
-    { done: true, text: "LinkedIn organic posts (3x/week) - behind-the-scenes, problem-solving content" },
-    { done: true, text: "Email nurture sequence to 5K list - build anticipation" },
-    { done: true, text: "LinkedIn organic posts (3x/week) - behind-the-scenes, problem-solving content" },
-  ];
-  const pendingItems = [
-    "LinkedIn organic posts (3x/week) - behind-the-scenes, problem-solving content",
-  ];
-
   return (
-    <div className="w-full max-w-[500px] p-5 md:p-6 bg-zinc-900 rounded-[20px] shadow-[0px_0px_43px_0px_rgba(0,0,0,1)] border border-white/10 flex flex-col gap-5 overflow-hidden">
-      <div className="flex flex-col gap-5">
-        <div className="flex flex-col gap-1">
-          <div className="w-full h-48 md:h-60 bg-black rounded-[10px] flex items-center justify-center">
-            <div className="w-3/4 h-3/4 bg-gradient-to-br from-zinc-800/50 to-zinc-900/50 rounded-lg" />
-          </div>
-        </div>
-        <div className="flex flex-col gap-3">
-          <span className="text-white text-sm font-bold font-['Urbanist']">Sales Login page Q1</span>
-          <span className="text-gray-300 text-[10px] font-normal font-['Urbanist'] leading-5">
-            Launch complete product marketing campaign
-          </span>
-        </div>
-        {checklist.map((item, i) => (
-          <div key={i} className="flex items-start gap-1.5">
-            <CheckCircleGreenSmall />
-            <span className="text-gray-100 text-xs font-medium font-['Urbanist'] leading-5">
-              {item.text}
-            </span>
-          </div>
-        ))}
-        <div className="flex flex-col gap-2.5">
-          <div className="flex items-center gap-3.5">
-            <div className="w-1.5 h-1.5 bg-orange-400 rounded-full shadow-[0px_1px_3px_0px_rgba(242,171,83,1)]" />
-            <span className="text-gray-100 text-xs font-medium font-['Urbanist'] leading-5">
-              Initialize the work with appropriate scaffolding
-            </span>
-          </div>
-          <div className="pl-5">
-            <span className="text-gray-300 text-xs font-medium font-['Urbanist'] leading-4">
-              2:50 Initializing the work....
-            </span>
-          </div>
-        </div>
-        {pendingItems.map((item, i) => (
-          <div key={i} className="flex items-start gap-1.5">
-            <CheckCircleGray />
-            <span className="text-gray-300 text-xs font-medium font-['Urbanist'] leading-5">
-              {item}
-            </span>
-          </div>
-        ))}
-      </div>
+    <div className="w-full lg:w-[581px] lg:shrink-0">
+      <img
+        src="/images/figma/Group 1707484054.svg"
+        alt="Sales outreach dashboard"
+        className="w-full h-auto"
+      />
     </div>
   );
 }
@@ -374,7 +328,7 @@ function ApiConnectionCard() {
         <div className="flex items-start gap-5 justify-between flex-wrap">
           <div className="flex items-center gap-5">
             <div className="w-14 h-14 bg-[radial-gradient(ellipse_53%_86%_at_39%_48%,rgba(255,255,255,0)_0%,rgba(255,255,255,0.12)_100%)] rounded-xl border border-white/10 flex items-center justify-center">
-              <div className="w-9 h-9 bg-gradient-to-br from-amber-400 to-amber-600 rounded-lg" />
+              <img src="/images/figma/image 12 copy.svg" alt="Mailchimp" className="w-9 h-9" />
             </div>
             <div className="flex flex-col gap-2.5">
               <span className="text-white text-lg font-bold font-['Urbanist'] leading-7">Connect to Mailchimp API</span>
@@ -394,7 +348,7 @@ function ApiConnectionCard() {
         <div className="p-5 bg-white/5 rounded-2xl flex flex-col gap-5">
           <div className="flex flex-col gap-3">
             <span className="text-gray-100 text-xs font-bold font-['Urbanist'] uppercase leading-7">API Endpoint :</span>
-            <div className="h-8 pl-2 bg-white/5 rounded-[10px] flex items-center">
+            <div className="h-8 px-2.5 bg-white/5 rounded-[10px] inline-flex items-center w-fit">
               <span className="text-gray-100 text-xs font-semibold font-['Urbanist'] leading-6">
                 https://api.mailchimp.com/3.0/campaigns
               </span>
@@ -405,7 +359,7 @@ function ApiConnectionCard() {
             <div className="flex flex-col gap-3">
               {permissions.map((perm, i) => (
                 <div key={i} className="flex items-center gap-2.5">
-                  <CheckCircleGray />
+                  <img src="/images/figma/tick-circle.svg" alt="" className="w-4 h-4 shrink-0" />
                   <span className="text-white/75 text-sm font-medium font-['Urbanist'] leading-5">{perm}</span>
                 </div>
               ))}
@@ -430,43 +384,214 @@ export function SalesHowItWorksSection() {
     <section className="w-full px-6 md:px-24 py-12 md:py-20 bg-black">
       <div className="max-w-[1266px] mx-auto flex flex-col gap-10 md:gap-14">
         {/* Section header */}
-        <div className="flex flex-col items-center gap-6">
-          <div className="w-32 h-9 px-3 py-1 bg-white/5 rounded-[100px] flex justify-center items-center">
-            <span className="text-white text-base font-bold font-['Urbanist']">How it Works</span>
-          </div>
-          <div className="flex flex-col items-center gap-6 md:gap-8">
-            <h2 className="text-center text-white text-3xl md:text-5xl font-bold font-['Urbanist'] leading-tight md:leading-[78px]">
-              How Work Happens
-            </h2>
-            <p className="text-center text-gray-300 text-lg md:text-3xl font-medium font-['Urbanist'] leading-7 md:leading-10 max-w-[940px]">
-              Automate prospecting, enrichment, outreach, follow-ups, CRM updates, and reporting
-            </p>
-          </div>
+        <div className="flex flex-col items-center gap-8 text-center">
+          <h2 className="text-white text-3xl md:text-[50px] font-bold font-['Urbanist'] leading-tight md:leading-[78px] tracking-[-0.5px]">
+            How Work Happens
+          </h2>
+          <p className="text-gray-300 text-lg md:text-[28px] font-medium font-['Urbanist'] leading-7 md:leading-[44px]">
+            Automate prospecting, enrichment, outreach, follow-ups, CRM updates, and reporting
+          </p>
         </div>
 
         {/* Steps */}
         <div className="flex flex-col gap-16 md:gap-24">
           {/* Step 1: Sales Strategy Agent activates */}
           <div className="flex flex-col lg:flex-row justify-between items-center gap-10 md:gap-16">
-            <StepDescription title="Sales Strategy Agent activates" iconType="strategy" />
-            <TaskListCard />
+            <div className="flex flex-col gap-[50px] max-w-[615px]">
+              <div className="relative w-20 h-20">
+                <div className="absolute inset-[-40%] bg-purple-500/15 rounded-full blur-2xl pointer-events-none" />
+                <img
+                  src="/images/figma/graph.svg"
+                  alt=""
+                  className="relative w-full h-full"
+                />
+              </div>
+              <div className="flex flex-col gap-[49px] max-w-[573px]">
+                <h3 className="text-[#cbcacc] text-2xl md:text-[40px] font-bold font-['Urbanist'] leading-tight md:leading-[54px]">
+                  1. Sales Strategy Agent activates
+                </h3>
+                <div className="inline-flex items-start gap-5">
+                  <img src="/images/figma/Arrow.svg" alt="" className="w-7 h-7 shrink-0" />
+                  <p className="max-w-[529px] text-[#7d7c83] text-sm font-medium font-['Urbanist'] leading-6">
+                    Our simple drag-and-drop editor lets you dynamically change your email&apos;s content, images, and CTAs.
+                  </p>
+                </div>
+                <div className="inline-flex items-start gap-5">
+                  <img src="/images/figma/Arrow.svg" alt="" className="w-7 h-7 shrink-0" />
+                  <p className="max-w-[525px] text-[#7d7c83] text-sm font-medium font-['Urbanist'] leading-6">
+                    Connect with your recipients through every email by using interactive elements like polls, surveys, attachments, GIFs, images, videos, and reply tracking.
+                  </p>
+                </div>
+                <div className="inline-flex items-start gap-5">
+                  <img src="/images/figma/Arrow.svg" alt="" className="w-7 h-7 shrink-0" />
+                  <p className="max-w-[497px] text-[#7d7c83] text-sm font-medium font-['Urbanist'] leading-6">
+                    Take the guess work out of your campaign&apos;s content by testing in real time which version of your campaign performs best with your audience. A or B?
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div className="w-full lg:w-[581px] lg:shrink-0">
+              <img
+                src="/images/figma/sales_agent.svg"
+                alt="Track Monthly Revenue task list with agent assignments"
+                className="w-full h-auto"
+              />
+            </div>
           </div>
 
           {/* Step 2: Generate Lead List */}
           <div className="flex flex-col lg:flex-row-reverse justify-between items-center gap-10 md:gap-16">
-            <StepDescription title="Generate Lead List" iconType="list" />
-            <SetupChecklistCard />
+            {/* Right: Description */}
+            <div className="flex flex-col gap-[30px] max-w-[615px]">
+              <div className="relative w-20 h-20">
+                <div className="absolute inset-[-40%] bg-purple-500/15 rounded-full blur-2xl pointer-events-none" />
+                <img
+                  src="/images/figma/profile-2user.svg"
+                  alt=""
+                  className="relative w-full h-full"
+                />
+              </div>
+              <div className="flex flex-col gap-[49px] max-w-[573px]">
+                <h3 className="text-[#cbcacc] text-2xl md:text-[40px] font-bold font-['Urbanist'] leading-tight md:leading-[54px]">
+                  2. Generate Lead List
+                </h3>
+                <div className="inline-flex items-start gap-5">
+                  <img src="/images/figma/Arrow.svg" alt="" className="w-7 h-7 shrink-0" />
+                  <p className="max-w-[529px] text-[#7d7c83] text-sm font-medium font-['Urbanist'] leading-6">
+                    Our simple drag-and-drop editor lets you dynamically change your email&apos;s content, images, and CTAs.
+                  </p>
+                </div>
+                <div className="inline-flex items-start gap-5">
+                  <img src="/images/figma/Arrow.svg" alt="" className="w-7 h-7 shrink-0" />
+                  <p className="max-w-[525px] text-[#7d7c83] text-sm font-medium font-['Urbanist'] leading-6">
+                    Connect with your recipients through every email by using interactive elements like polls, surveys, attachments, GIFs, images, videos, and reply tracking.
+                  </p>
+                </div>
+                <div className="inline-flex items-start gap-5">
+                  <img src="/images/figma/Arrow.svg" alt="" className="w-7 h-7 shrink-0" />
+                  <p className="max-w-[497px] text-[#7d7c83] text-sm font-medium font-['Urbanist'] leading-6">
+                    Take the guess work out of your campaign&apos;s content by testing in real time which version of your campaign performs best with your audience. A or B?
+                  </p>
+                </div>
+              </div>
+            </div>
+            {/* Left: Setup checklist card */}
+            <div className="w-full max-w-[573px] h-[585px] px-7 pt-12 pb-2.5 bg-gradient-to-r from-white/5 via-white/10 to-white/5 rounded-[40px] outline outline-1 outline-offset-[-1px] outline-white/30 backdrop-blur-[30px] inline-flex flex-col items-center gap-9">
+              <div className="w-[499px] max-w-full flex flex-col gap-6">
+                <div className="inline-flex items-center gap-6">
+                  <img src="/images/figma/Group 20963 copy.svg" alt="" className="w-7 h-7 shrink-0" />
+                  <span className="text-white text-2xl font-bold font-['Urbanist'] leading-10">
+                    Setting up campaign infrastructure...
+                  </span>
+                </div>
+                <div className="flex flex-col gap-3.5">
+                  {[
+                    { done: true, text: "Creating 6 AI agents" },
+                    { done: true, text: "Configuring approval workflows" },
+                    { done: true, text: "Setting up integration connectors" },
+                    { done: true, text: "Initializing analytics dashboard" },
+                    { done: false, text: "Preparing campaign assets" },
+                    { done: false, text: "Designing promotional graphics" },
+                    { done: false, text: "Writing copy for social media posts" },
+                  ].map((item, i) => (
+                    <div
+                      key={i}
+                      className="self-stretch px-3.5 py-2.5 bg-white/5 rounded-2xl outline-[1.20px] outline-offset-[-1.20px] outline-white/10 inline-flex items-center gap-3"
+                    >
+                      {item.done ? (
+                        <div className="w-5 h-5 bg-green rounded-[43px] flex items-center justify-center shrink-0 overflow-hidden">
+                          <svg width="8" height="6" viewBox="0 0 8 6" fill="none">
+                            <path d="M1 3L3 5L7 1" stroke="white" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+                          </svg>
+                        </div>
+                      ) : (
+                        <div className="w-5 h-5 rounded-full border border-dashed border-warning/60 flex items-center justify-center shrink-0">
+                          <div className="w-1.5 h-1.5 rounded-full bg-warning/40" />
+                        </div>
+                      )}
+                      <span className={`text-[#cbcacc] text-base ${item.done ? "font-semibold" : "font-bold"} font-['Urbanist'] leading-7 line-clamp-3`}>
+                        {item.text}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
           </div>
 
           {/* Step 3: Launch Outreach */}
           <div className="flex flex-col lg:flex-row justify-between items-center gap-10 md:gap-16">
-            <StepDescription title="Launch Outreach" iconType="outreach" />
+            <div className="flex flex-col gap-[50px] max-w-[615px]">
+              <div className="relative w-20 h-20">
+                <div className="absolute inset-[-40%] bg-purple-500/15 rounded-full blur-2xl pointer-events-none" />
+                <img
+                  src="/images/figma/rocket copy.svg"
+                  alt=""
+                  className="relative w-full h-full"
+                />
+              </div>
+              <div className="flex flex-col gap-[49px] max-w-[573px]">
+                <h3 className="text-[#cbcacc] text-2xl md:text-[40px] font-bold font-['Urbanist'] leading-tight md:leading-[54px]">
+                  3. Launch Outreach
+                </h3>
+                <div className="inline-flex items-start gap-5">
+                  <img src="/images/figma/Arrow.svg" alt="" className="w-7 h-7 shrink-0" />
+                  <p className="max-w-[529px] text-[#7d7c83] text-sm font-medium font-['Urbanist'] leading-6">
+                    Our simple drag-and-drop editor lets you dynamically change your email&apos;s content, images, and CTAs.
+                  </p>
+                </div>
+                <div className="inline-flex items-start gap-5">
+                  <img src="/images/figma/Arrow.svg" alt="" className="w-7 h-7 shrink-0" />
+                  <p className="max-w-[525px] text-[#7d7c83] text-sm font-medium font-['Urbanist'] leading-6">
+                    Connect with your recipients through every email by using interactive elements like polls, surveys, attachments, GIFs, images, videos, and reply tracking.
+                  </p>
+                </div>
+                <div className="inline-flex items-start gap-5">
+                  <img src="/images/figma/Arrow.svg" alt="" className="w-7 h-7 shrink-0" />
+                  <p className="max-w-[497px] text-[#7d7c83] text-sm font-medium font-['Urbanist'] leading-6">
+                    Take the guess work out of your campaign&apos;s content by testing in real time which version of your campaign performs best with your audience. A or B?
+                  </p>
+                </div>
+              </div>
+            </div>
             <OutreachCard />
           </div>
 
           {/* Step 4: Update CRM & Report */}
           <div className="flex flex-col lg:flex-row-reverse justify-between items-center gap-10 md:gap-16">
-            <StepDescription title="Update CRM & Report" iconType="crm" />
+            <div className="flex flex-col gap-[30px] max-w-[615px]">
+              <div className="relative w-20 h-20">
+                <div className="absolute inset-[-40%] bg-purple-500/15 rounded-full blur-2xl pointer-events-none" />
+                <img
+                  src="/images/figma/inbox-upload.svg"
+                  alt=""
+                  className="relative w-full h-full"
+                />
+              </div>
+              <div className="flex flex-col gap-[49px] max-w-[573px]">
+                <h3 className="text-[#cbcacc] text-2xl md:text-[40px] font-bold font-['Urbanist'] leading-tight md:leading-[54px]">
+                  4. Update CRM &amp; Report
+                </h3>
+                <div className="inline-flex items-start gap-5">
+                  <img src="/images/figma/Arrow.svg" alt="" className="w-7 h-7 shrink-0" />
+                  <p className="max-w-[529px] text-[#7d7c83] text-sm font-medium font-['Urbanist'] leading-6">
+                    Our simple drag-and-drop editor lets you dynamically change your email&apos;s content, images, and CTAs.
+                  </p>
+                </div>
+                <div className="inline-flex items-start gap-5">
+                  <img src="/images/figma/Arrow.svg" alt="" className="w-7 h-7 shrink-0" />
+                  <p className="max-w-[525px] text-[#7d7c83] text-sm font-medium font-['Urbanist'] leading-6">
+                    Connect with your recipients through every email by using interactive elements like polls, surveys, attachments, GIFs, images, videos, and reply tracking.
+                  </p>
+                </div>
+                <div className="inline-flex items-start gap-5">
+                  <img src="/images/figma/Arrow.svg" alt="" className="w-7 h-7 shrink-0" />
+                  <p className="max-w-[497px] text-[#7d7c83] text-sm font-medium font-['Urbanist'] leading-6">
+                    Take the guess work out of your campaign&apos;s content by testing in real time which version of your campaign performs best with your audience. A or B?
+                  </p>
+                </div>
+              </div>
+            </div>
             <ApiConnectionCard />
           </div>
         </div>
