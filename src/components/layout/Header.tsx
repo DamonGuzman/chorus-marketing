@@ -8,10 +8,10 @@ import { PRIMARY_CTA_HREF, PRIMARY_CTA_LABEL } from "@/content/site";
 
 
 const navLinks = [
-  { label: "About", href: "/about-us" },
-  { label: "Pricing", href: "/#pricing" },
-  { label: "Features", href: "/features" },
-  { label: "FAQ", href: "/faq" },
+  { label: "About", href: "/about-us", hasDropdown: false },
+  { label: "Pricing", href: "/#pricing", hasDropdown: false },
+  { label: "Features", href: "/features", hasDropdown: false },
+  { label: "FAQ", href: "/faq", hasDropdown: false },
 ];
 
 function HamburgerIcon({ className }: { className?: string }) {

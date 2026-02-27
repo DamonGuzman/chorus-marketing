@@ -60,14 +60,14 @@ export function SalesProblemSection() {
             </div>
             <div className="flex-1 relative overflow-hidden">
               <img
-                src="/images/figma/Container.svg"
+                src="/images/figma/Container_prob.svg"
                 alt=""
                 className="absolute h-auto"
                 style={{ top: "14px", left: "3.88%", width: "92%" }}
                 aria-hidden="true"
               />
               <img
-                src="/images/figma/Container.svg"
+                src="/images/figma/Container_prob.svg"
                 alt="Analytics dashboard showing growth metrics"
                 className="relative h-auto"
                 style={{
