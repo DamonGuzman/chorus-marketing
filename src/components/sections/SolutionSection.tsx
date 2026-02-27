@@ -255,11 +255,9 @@ export function SolutionSection() {
               </div>
               <div className="flex justify-between items-center">
                 <div className="flex items-center -space-x-1">
-                  {[0, 1, 2, 3, 4, 5].map((i) => (
-                    <div key={i} className="w-5 h-5 rounded-full border border-neutral-600 bg-zinc-400 overflow-hidden">
-                      <img className="w-5 h-5 rounded-full" src="https://placehold.co/20x20" alt="" />
-                    </div>
-                  ))}
+                  <img className="w-5 h-5 rounded-full border border-neutral-600" src="/images/figma/image 24.svg" alt="" />
+                  <img className="w-5 h-5 rounded-full border border-neutral-600" src="/images/figma/image 24 (4).svg" alt="" />
+                  <img className="w-5 h-5 rounded-full border border-neutral-600" src="/images/figma/image 24 (5).svg" alt="" />
                 </div>
                 <div className="text-neutral-400 text-[10px] font-normal font-['Urbanist'] leading-5">1 hr 30 mins</div>
               </div>
@@ -269,7 +267,7 @@ export function SolutionSection() {
           {/* Agent: Email Marketing */}
           <div className="p-3 md:p-4 bg-neutral-900 rounded-xl outline outline-[0.70px] outline-offset-[-0.70px] outline-orange-400 backdrop-blur-xl flex flex-col gap-3">
             <div className="flex items-center gap-2.5">
-              <img className="w-9 h-9 rounded-[9.50px]" src="https://placehold.co/36x36" alt="" />
+              <img className="w-9 h-9 rounded-[9.50px]" src="/images/figma/image 41 (3).svg" alt="" />
               <div className="w-2 h-2 bg-green-700 rounded-full border-[0.86px] border-white" />
               <div className="flex flex-col">
                 <div className="text-white text-xs font-bold font-['Urbanist'] leading-5">Email Marketing Agent</div>
@@ -278,15 +276,13 @@ export function SolutionSection() {
             </div>
             <div className="flex justify-between items-center">
               <div className="flex items-center -space-x-1">
-                {[0, 1, 2, 3, 4, 5].map((i) => (
-                  <div key={i} className="w-5 h-5 rounded-full border border-neutral-600 bg-zinc-400 overflow-hidden">
-                    <img className="w-5 h-5 rounded-full" src="https://placehold.co/20x20" alt="" />
-                  </div>
-                ))}
+                <img className="w-5 h-5 rounded-full border border-neutral-600" src="/images/figma/image 24.svg" alt="" />
+                <img className="w-5 h-5 rounded-full border border-neutral-600" src="/images/figma/image 24 (4).svg" alt="" />
+                <img className="w-5 h-5 rounded-full border border-neutral-600" src="/images/figma/image 24 (5).svg" alt="" />
               </div>
               <div className="text-neutral-400 text-[10px] font-normal font-['Urbanist'] leading-5">1 hr 30 mins</div>
             </div>
-            <div className="pl-2 rounded-lg flex justify-between items-center">
+            <div className="pl-2 py-1 pr-2 rounded-lg border border-white/10 flex justify-between items-center">
               <div className="flex flex-col gap-1">
                 <div className="text-neutral-400 text-[9px] font-normal font-['Urbanist'] leading-5">Currently working on</div>
                 <div className="flex items-center gap-1.5">
@@ -294,9 +290,13 @@ export function SolutionSection() {
                   <div className="text-neutral-300 text-[10px] font-semibold font-['Urbanist'] leading-5">Building Linear Clone</div>
                 </div>
               </div>
-              <div className="w-14 h-5 p-[5px] bg-red-600/5 rounded-full outline outline-[0.50px] outline-offset-[-0.50px] outline-orange-400 flex justify-center items-center gap-[5px]">
-                <div className="w-1 h-1 bg-orange-400 rounded-full" />
-                <div className="text-neutral-300 text-[9px] font-bold font-['Urbanist'] leading-4">Pending</div>
+              <div className="flex items-center gap-1.5">
+                <div className="w-14 h-5 p-[5px] bg-red-600/5 rounded-full outline outline-[0.50px] outline-offset-[-0.50px] outline-orange-400 flex justify-center items-center gap-[5px]">
+                  <div className="w-1 h-1 bg-orange-400 rounded-full" />
+                  <div className="text-neutral-300 text-[9px] font-bold font-['Urbanist'] leading-4">Pending</div>
+                </div>
+                <img src="/images/figma/message-02 (1).svg" alt="" className="w-4 h-4 opacity-50" />
+                <svg width="6" height="10" viewBox="0 0 6 10" fill="none" className="opacity-50"><path d="M1 1L5 5L1 9" stroke="#7D7C83" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" /></svg>
               </div>
             </div>
           </div>
