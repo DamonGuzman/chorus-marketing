@@ -10,21 +10,23 @@ export function FinanceHeroSection() {
       <div className="absolute left-1/2 top-[60%] -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-zinc-300/80 rounded-full blur-[280px]" />
 
       {/* Concentric orbital circles */}
-      <div className="absolute left-1/2 top-[55%] -translate-x-1/2 -translate-y-1/2">
+      <div className="absolute left-1/2 top-[75%] -translate-x-1/2 -translate-y-1/2">
         <div className="w-[500px] h-[500px] md:w-[935px] md:h-[911px] -rotate-[2.62deg] rounded-full border-[2.85px] border-white/5 shadow-[0px_6px_6px_0px_rgba(0,0,0,0.25)]" />
       </div>
-      <div className="absolute left-1/2 top-[60%] -translate-x-1/2 -translate-y-1/2">
+      <div className="absolute left-1/2 top-[80%] -translate-x-1/2 -translate-y-1/2">
         <div className="w-[400px] h-[390px] md:w-[736px] md:h-[717px] -rotate-[2.62deg] rounded-full border-[2.85px] border-white/10 shadow-[0px_6px_6px_0px_rgba(0,0,0,0.25)]" />
       </div>
-      <div className="absolute left-1/2 top-[62%] -translate-x-1/2 -translate-y-1/2">
+      <div className="absolute left-1/2 top-[82%] -translate-x-1/2 -translate-y-1/2">
         <div className="w-[310px] h-[300px] md:w-[584px] md:h-[569px] -rotate-[2.62deg] rounded-full border-[2.85px] border-white/20 shadow-[0px_6px_6px_0px_rgba(0,0,0,0.25)]" />
       </div>
 
       {/* Title */}
-      <div className="relative z-10 pt-24 md:pt-[150px] flex flex-col items-center px-6">
+      <div className="relative z-10 pt-16 md:pt-[120px] flex flex-col items-center px-6">
         <div className="flex flex-col items-center gap-8 md:gap-12 max-w-[1229px]">
-          <h1 className="text-white text-3xl md:text-6xl font-bold font-['Urbanist'] leading-tight md:leading-[74px] text-center">
-            AI Finance Team That Handles Reporting, Forecasting &amp; Compliance
+          <h1 className="text-3xl md:text-6xl font-bold font-['Urbanist'] leading-tight md:leading-[74px] text-center">
+            <span className="text-white">AI Finance </span>
+            <span className="bg-gradient-to-r from-white to-white/50 bg-clip-text text-transparent">Team </span>
+            <span className="text-white/50">That Handles Reporting, Forecasting &amp; Compliance</span>
           </h1>
           <a
             href={PRIMARY_CTA_HREF}
@@ -35,51 +37,42 @@ export function FinanceHeroSection() {
         </div>
       </div>
 
-      {/* Dashboard visual */}
-      <div className="relative z-10 mt-8 md:mt-14 flex justify-center px-4">
-        <div className="relative w-full max-w-[690px]">
-          {/* Tilted background panels */}
-          <div className="absolute -left-2 top-4 w-full h-full bg-zinc-300/5 rounded-[54px]" />
-          <div className="absolute left-2 -top-2 w-full h-full bg-zinc-300/10 rounded-[54px]" />
+      {/* Dashboard visual – centered on the orbits */}
+      <div className="absolute left-[53%] top-[60%] -translate-x-1/2 -translate-y-1/2 z-10 w-[300px] md:w-[650px] lg:w-[850px]">
+        <img
+          src="/images/figma/Group 1707484149.svg"
+          alt="AI Finance dashboard"
+          className="w-full h-auto"
+        />
+      </div>
 
-          {/* Main dashboard card */}
-          <div className="relative w-full bg-zinc-900/90 rounded-[30px] border border-white/20 backdrop-blur-xl overflow-hidden shadow-2xl p-6 md:p-8">
-            {/* Window controls */}
-            <div className="flex items-center gap-2 mb-6">
-              <div className="w-2.5 h-2.5 bg-red-400 rounded-full" />
-              <div className="w-2.5 h-2.5 bg-amber-300 rounded-full" />
-              <div className="w-2.5 h-2.5 bg-green-400 rounded-full" />
-            </div>
-
-            {/* Chart area */}
-            <div className="w-full h-48 md:h-64 bg-gradient-to-br from-emerald-950/40 to-zinc-950/60 rounded-xl flex items-end justify-center gap-3 px-6 pb-6">
-              {[60, 45, 70, 35, 55, 40, 65, 50, 75, 30, 60, 45].map((h, i) => (
-                <div key={i} className="flex-1 flex flex-col items-stretch gap-0">
-                  <div className="w-full rounded-t-sm bg-emerald-500/70" style={{ height: `${h}%` }} />
-                  <div className="w-full rounded-b-sm bg-emerald-800/40" style={{ height: `${100 - h}%` }} />
-                </div>
-              ))}
-            </div>
-
-            {/* Stats row */}
-            <div className="grid grid-cols-3 gap-3 mt-4">
-              {[
-                { label: "Revenue", value: "$2.4M", color: "emerald" },
-                { label: "Expenses", value: "$1.1M", color: "red" },
-                { label: "Profit", value: "$1.3M", color: "emerald" },
-              ].map((stat) => (
-                <div key={stat.label} className="bg-white/5 rounded-xl border border-white/10 p-3 flex flex-col gap-1">
-                  <span className="text-white/50 text-xs font-medium font-['Urbanist']">{stat.label}</span>
-                  <span className="text-white text-lg font-bold font-['Urbanist']">{stat.value}</span>
-                </div>
-              ))}
-            </div>
-          </div>
+      {/* Left-side cards */}
+      <div className="absolute left-[5%] lg:left-[8%] top-[55%] -translate-y-1/2 z-10 hidden md:flex flex-col items-start gap-4">
+        <img
+          src="/images/figma/test (2).svg"
+          alt="Finance Agent card"
+          className="w-[160px] md:w-[280px] lg:w-[320px] h-auto"
+        />
+        <div className="w-[120px] md:w-[180px] lg:w-[210px] rounded-2xl border border-white/15 p-2 bg-white/5 backdrop-blur-sm flex items-center justify-center ml-12 md:ml-20 lg:ml-24">
+          <img
+            src="/images/figma/Group 238031.svg"
+            alt="Finance stats"
+            className="w-full h-auto object-contain"
+          />
         </div>
       </div>
 
+      {/* Right-side card */}
+      <div className="absolute right-15 top-[65%] -translate-y-1/2 z-10 w-[160px] md:w-[280px] lg:w-[320px] hidden md:block">
+        <img
+          src="/images/figma/test (1).svg"
+          alt="Finance Agent card"
+          className="w-full h-auto"
+        />
+      </div>
+
       {/* Bottom gradient fade */}
-      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-black to-transparent" />
+      <div className="absolute bottom-0 left-0 right-0 h-64 bg-gradient-to-t from-black via-black/90 to-transparent z-[5]" />
     </section>
   );
 }

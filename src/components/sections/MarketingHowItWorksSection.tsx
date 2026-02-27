@@ -126,7 +126,7 @@ function PhaseCard({ title, completed = false }: { title: string; completed?: bo
 function Step1Visual() {
   return (
     <div className="w-full max-w-[500px]">
-      <img src="/images/figma/Container.svg" alt="" className="w-full h-[649px] object-contain" />
+      <img src="/images/figma/Container_mark.svg" alt="" className="w-full h-[649px] object-contain" />
     </div>
   );
 }
