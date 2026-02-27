@@ -1,0 +1,307 @@
+/* eslint-disable @next/next/no-img-element */
+
+export function SolutionSection() {
+  return (
+    <div className="self-stretch px-4 md:px-8 lg:px-24 py-10 md:py-20 bg-black flex flex-col justify-start items-center gap-10">
+      {/* Header */}
+      <div className="w-full max-w-[1240px] flex flex-col justify-start items-start gap-6">
+        <div className="w-32 h-9 px-3 py-1 bg-white/5 rounded-[100px] inline-flex justify-center items-center gap-2 overflow-hidden">
+          <div className="text-center text-white text-base font-semibold font-['Urbanist'] leading-6">The Solution</div>
+        </div>
+        <div className="flex flex-col justify-start items-start gap-4">
+          <h2 className="max-w-[1034px] text-white text-2xl md:text-4xl lg:text-5xl font-bold font-['Urbanist'] leading-tight md:leading-[50px] lg:leading-[78px]">
+            The Chorus Way Manifest Your Team Instantly
+          </h2>
+          <p className="text-neutral-400 text-sm md:text-base lg:text-xl font-normal font-['Urbanist'] leading-6 md:leading-7 lg:leading-9">
+            The best way to reach humans instead of spam folders. Deliver transactional and marketing emails at scale.
+          </p>
+        </div>
+      </div>
+
+      {/* Bento cards grid */}
+      <div className="w-full max-w-[1240px] hidden md:flex gap-3">
+        {/* Column 1: Filter agents card */}
+        <div className="w-[38%] shrink-0 px-4 py-6 bg-neutral-900 rounded-3xl shadow-[0px_0px_0px_6px_rgba(0,0,0,1.00)] outline outline-1 outline-neutral-700 flex flex-col justify-start items-start gap-6 overflow-hidden">
+          <div className="self-stretch inline-flex justify-start items-start gap-2.5">
+            <div className="pt-[3px] flex justify-start items-start gap-2.5">
+              <img src="/images/figma/zap.svg" alt="" className="w-6 h-6" />
+            </div>
+            <div className="flex-1 flex flex-col justify-start items-start gap-1">
+              <div className="text-white text-lg font-bold font-['Urbanist'] leading-6">Filter the most engaging agents</div>
+            </div>
+          </div>
+          <div className="self-stretch flex flex-col justify-center items-center gap-1">
+            <div className="self-stretch inline-flex justify-start items-start gap-1">
+              {[
+                { name: "Dennis", img: "/images/figma/image.svg" },
+                { name: "PR Agent", img: "/images/figma/Group 20963.svg" },
+                { name: "Peter", img: "/images/figma/Avatar [1.0].svg" },
+                { name: "HR Agent", img: "/images/figma/Group 20963 (1).svg" },
+                { name: "David", img: "/images/figma/Avatar [1.0] (1).svg" },
+              ].map((item) => (
+                <div key={item.name} className="flex-1 h-16 inline-flex flex-col justify-center items-center gap-1">
+                  <div className="w-10 h-10 rounded-full outline outline-[3px] outline-zinc-800 overflow-hidden">
+                    <img className="w-full h-full object-cover" src={item.img || "https://placehold.co/40x40"} alt={item.name} />
+                  </div>
+                  <div className="text-neutral-500 text-sm font-medium font-['Urbanist'] leading-6">{item.name}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+          <div className="self-stretch h-12 pl-4 pr-6 pt-2 pb-3 bg-gradient-to-b from-stone-950 via-neutral-800 to-stone-950 rounded-[19.77px] shadow-[0px_7px_12px_0px_rgba(0,0,0,0.38)] outline outline-[1.24px] outline-offset-[-1.24px] outline-slate-500/20 flex justify-center items-center overflow-hidden">
+            <div className="text-center text-white text-lg font-normal font-['DM_Sans'] leading-5 [text-shadow:_0px_0px_1px_rgb(255_255_255_/_1.00)]">Invite</div>
+          </div>
+        </div>
+
+        {/* Column 2: Spin up + Pricing stacked */}
+        <div className="flex flex-col gap-3 flex-1 min-w-0">
+          {/* Spin up card */}
+          <div className="flex gap-3 flex-1">
+            <div className="flex-1 p-4 bg-neutral-900 rounded-3xl shadow-[0px_0px_0px_6px_rgba(0,0,0,1.00)] outline outline-1 outline-neutral-700 flex flex-col justify-center items-center gap-3.5 overflow-hidden">
+              <img src="/images/figma/Group 1707484005.svg" alt="" className="w-11 h-11" />
+              <div className="w-full flex flex-col justify-start items-center gap-1.5">
+                <div className="self-stretch h-[5px] relative overflow-hidden rounded-md">
+                  <div className="w-full h-[5px] absolute left-0 top-0 bg-neutral-700 rounded-md" />
+                  <div className="w-3/4 h-[5px] absolute left-0 top-0 bg-gradient-to-r from-green-500 via-sky-500 to-violet-600 rounded-md" />
+                </div>
+                <div className="text-center text-neutral-400 text-sm font-medium font-['Urbanist'] leading-6">Spin up any role in 60 seconds....</div>
+              </div>
+            </div>
+            {/* Dot grid card */}
+            <div className="w-16 shrink-0 px-4 py-2 bg-neutral-900 rounded-3xl shadow-[0px_0px_0px_6px_rgba(0,0,0,1.00)] outline outline-1 outline-neutral-700 flex flex-col justify-center items-center gap-1 overflow-hidden">
+              {[0, 1, 2].map((row) => (
+                <div key={row} className="self-stretch flex-1 inline-flex justify-between items-center">
+                  <div className={`w-3 h-3 rounded-full ${row === 2 ? "bg-orange-800 shadow-[inset_0px_1.5px_0px_0px_rgba(248,146,129,1.00)]" : "bg-neutral-700 shadow-[inset_0px_1.5px_0px_0px_rgba(241,241,241,0.27)]"}`} />
+                  <div className="w-3 h-3 bg-neutral-700 rounded-full shadow-[inset_0px_1.5px_0px_0px_rgba(241,241,241,0.27)]" />
+                </div>
+              ))}
+            </div>
+          </div>
+          {/* Pricing card */}
+          <div className="px-4 py-6 bg-neutral-900 rounded-3xl shadow-[0px_0px_0px_6px_rgba(0,0,0,1.00)] outline outline-1 outline-neutral-700 flex justify-start items-center gap-4 overflow-hidden">
+            <div className="text-neutral-200 text-3xl font-bold font-['Urbanist'] leading-9">$0.12</div>
+            <div className="text-neutral-500 text-sm lg:text-base font-normal font-['Urbanist'] leading-6">
+              $0.12/hour per AI agent.
+              <br />
+              Enterprise level AI performance
+            </div>
+          </div>
+        </div>
+
+        {/* Column 3: Harmony card */}
+        <div className="w-[30%] shrink-0 bg-neutral-900 rounded-3xl shadow-[0px_0px_0px_6px_rgba(0,0,0,1.00)] outline outline-1 outline-neutral-700 overflow-hidden relative flex items-center justify-center">
+          <img src="/images/figma/Image (1).svg" alt="" className="absolute inset-0 w-full h-full object-cover" />
+          <div className="relative z-10 p-6 lg:p-8">
+            <div className="text-white text-3xl lg:text-5xl font-bold font-['Urbanist'] leading-[42px] lg:leading-[58px] [text-shadow:_0px_4px_4px_rgb(0_0_0_/_0.09)]">
+              Every role
+              <br />
+              in perfect
+              <br />
+              Harmony.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Mobile bento cards - stacked */}
+      <div className="w-full flex flex-col gap-3 md:hidden">
+        {/* Filter agents */}
+        <div className="px-4 py-6 bg-neutral-900 rounded-3xl shadow-[0px_0px_0px_6px_rgba(0,0,0,1.00)] outline outline-1 outline-neutral-700 flex flex-col gap-6 overflow-hidden">
+          <div className="inline-flex justify-start items-start gap-2.5">
+            <div className="pt-[3px]">
+              <img src="/images/figma/zap.svg" alt="" className="w-6 h-6" />
+            </div>
+            <div className="text-white text-lg font-bold font-['Urbanist'] leading-6">Filter the most engaging agents</div>
+          </div>
+          <div className="flex justify-start items-start gap-1">
+            {["Dennis", "PR Agent", "Peter", "HR Agent", "David"].map((name) => (
+              <div key={name} className="flex-1 flex flex-col justify-center items-center gap-1">
+                <div className="w-10 h-10 relative rounded-full outline outline-[3px] outline-zinc-800 bg-neutral-700">
+                  <img className="w-10 h-10 absolute rounded-full" src="https://placehold.co/40x40" alt={name} />
+                </div>
+                <div className="text-neutral-500 text-xs font-medium font-['Urbanist'] leading-5">{name}</div>
+              </div>
+            ))}
+          </div>
+          <div className="h-12 bg-gradient-to-b from-stone-950 via-neutral-800 to-stone-950 rounded-[19.77px] shadow-[0px_7px_12px_0px_rgba(0,0,0,0.38)] outline outline-[1.24px] outline-offset-[-1.24px] outline-slate-500/20 flex justify-center items-center overflow-hidden">
+            <div className="text-white text-lg font-normal font-['DM_Sans'] leading-5">Invite</div>
+          </div>
+        </div>
+
+        {/* Spin up + Dots row */}
+        <div className="flex gap-3">
+          <div className="flex-1 p-4 bg-neutral-900 rounded-3xl shadow-[0px_0px_0px_6px_rgba(0,0,0,1.00)] outline outline-1 outline-neutral-700 flex flex-col justify-center items-center gap-3 overflow-hidden">
+            <div className="w-11 h-11 bg-white/5 rounded-2xl border border-white/20" />
+            <div className="w-full h-[5px] relative">
+              <div className="w-full h-[5px] absolute bg-neutral-700 rounded-md" />
+              <div className="w-3/4 h-[5px] absolute bg-gradient-to-r from-green-500 via-sky-500 to-violet-600 rounded-md" />
+            </div>
+            <div className="text-center text-neutral-400 text-xs font-medium font-['Urbanist'] leading-5">Spin up any role in 60 seconds....</div>
+          </div>
+          <div className="w-16 shrink-0 px-4 py-2 bg-neutral-900 rounded-3xl shadow-[0px_0px_0px_6px_rgba(0,0,0,1.00)] outline outline-1 outline-neutral-700 flex flex-col justify-center items-center gap-1 overflow-hidden">
+            {[0, 1, 2].map((row) => (
+              <div key={row} className="self-stretch flex-1 inline-flex justify-between items-center">
+                <div className={`w-3 h-3 rounded-full ${row === 2 ? "bg-orange-800 shadow-[inset_0px_1.5px_0px_0px_rgba(248,146,129,1.00)]" : "bg-neutral-700 shadow-[inset_0px_1.5px_0px_0px_rgba(241,241,241,0.27)]"}`} />
+                <div className="w-3 h-3 bg-neutral-700 rounded-full shadow-[inset_0px_1.5px_0px_0px_rgba(241,241,241,0.27)]" />
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Pricing */}
+        <div className="px-4 py-6 bg-neutral-900 rounded-3xl shadow-[0px_0px_0px_6px_rgba(0,0,0,1.00)] outline outline-1 outline-neutral-700 flex justify-start items-center gap-4 overflow-hidden">
+          <div className="text-neutral-200 text-3xl font-bold font-['Urbanist'] leading-9">$0.12</div>
+          <div className="text-neutral-500 text-sm font-normal font-['Urbanist'] leading-6">
+            $0.12/hour per AI agent.
+            <br />
+            Enterprise level AI performance
+          </div>
+        </div>
+
+        {/* Harmony */}
+        <div className="h-48 bg-neutral-900 rounded-3xl shadow-[0px_0px_0px_6px_rgba(0,0,0,1.00)] outline outline-1 outline-neutral-700 overflow-hidden relative flex items-end">
+          <div className="absolute inset-0 bg-gradient-to-br from-transparent via-transparent to-orange-600/20" />
+          <div className="absolute top-0 right-0 w-2/3 h-full bg-gradient-to-l from-orange-500/15 via-rose-500/10 to-transparent" />
+          <div className="relative z-10 p-6">
+            <div className="text-white text-3xl font-bold font-['Urbanist'] leading-[42px] [text-shadow:_0px_4px_4px_rgb(0_0_0_/_0.09)]">
+              Every role
+              <br />
+              in perfect
+              <br />
+              Harmony.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Bottom two feature cards */}
+      <div className="w-full max-w-[1240px] flex flex-col md:flex-row gap-4 md:gap-6">
+        {/* Feature card 1: Timeline */}
+        <div className="flex-1 bg-white/5 rounded-3xl p-5 md:p-6 flex flex-col gap-5">
+          <div className="flex flex-col gap-2">
+            <h3 className="text-white text-xl md:text-2xl font-bold font-['Urbanist'] leading-tight">One direction cascades automatically</h3>
+            <p className="text-neutral-400 text-sm md:text-base font-medium font-['Urbanist'] leading-6">The best way to reach humans instead of spam folders</p>
+          </div>
+          <div className="w-full px-3 md:px-4 pt-6 md:pt-8 pb-3 bg-gradient-to-b from-stone-950 via-neutral-800 to-stone-950 rounded-[19.77px] shadow-[0px_7px_12px_0px_rgba(0,0,0,0.38)] outline outline-[1.24px] outline-offset-[-1.24px] outline-slate-500/20 flex flex-col items-start overflow-hidden">
+            {[
+              { time: "2 hours ago", title: "Phase 1: Pre-Launch Strategy Complete", desc: "All research, competitive analysis, and strategy documents finalized", dotColor: "bg-green-500", icon: "/images/figma/Group 1707483906.svg" },
+              { time: "Feb 7, 2024 (In 8 days)", title: "🎯 Complete all Phase 2 content", desc: "All blog posts, social media content, and email campaigns must be finished", dotColor: "bg-amber-500", icon: "/images/figma/Group 1707483950.svg" },
+              { time: "Feb 16, 2024 (In 17 days)", title: "🚀 Phase 3: Launch Execution Begins", desc: "Start launch campaigns, activate ads, begin outreach", dotColor: "bg-neutral-500", icon: "/images/figma/3.svg" },
+            ].map((item, idx) => (
+              <div key={item.title} className="flex w-full">
+                {/* Timeline column */}
+                <div className="w-[22px] flex items-center justify-center shrink-0 relative">
+                  {/* Vertical line to next item */}
+                  {idx < 2 && <div className="absolute top-1/2 bottom-0 left-1/2 -translate-x-px border-l border-dashed border-white/25" />}
+                  {/* Vertical line from previous item */}
+                  {idx > 0 && <div className="absolute top-0 bottom-1/2 left-1/2 -translate-x-px border-l border-dashed border-white/25" />}
+                  {/* Icon */}
+                  <div className="w-[22px] h-[22px] shrink-0 flex items-center justify-center relative z-10 overflow-hidden -translate-y-3">
+                    {idx === 2 ? (
+                      <div className="w-[22px] h-[22px] rounded-full bg-neutral-600 shadow-[inset_0px_2px_4px_rgba(255,255,255,0.15)] border border-neutral-500 flex items-center justify-center">
+                        <img src={item.icon} alt="" className="w-2 h-2.5" />
+                      </div>
+                    ) : (
+                      <img src={item.icon} alt="" className="w-[22px] h-[22px] shrink-0 object-cover object-left" />
+                    )}
+                  </div>
+                </div>
+                {/* Connector + Content */}
+                <div className="flex items-center flex-1 min-w-0 pb-3">
+                  <div className="w-5 h-px shrink-0" style={{ backgroundImage: "repeating-linear-gradient(to right, rgba(255,255,255,0.25) 0px, rgba(255,255,255,0.25) 3px, transparent 3px, transparent 6px)" }} />
+                  <div className="flex-1 min-w-0">
+                    <div className="p-4 bg-white/5 rounded-2xl flex flex-col gap-3">
+                      <div className="text-neutral-400 text-xs font-medium font-['Urbanist'] leading-4">{item.time}</div>
+                      <div className="flex flex-col gap-1.5">
+                        <div className="text-white text-sm font-bold font-['Urbanist'] leading-6 line-clamp-1">{item.title}</div>
+                        <div className="text-neutral-400 text-xs font-medium font-['Urbanist'] leading-4">{item.desc}</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Feature card 2: Agents */}
+        <div className="flex-1 bg-white/5 rounded-3xl p-5 md:p-6 flex flex-col gap-5">
+          <div className="flex flex-col gap-2">
+            <h3 className="text-white text-xl md:text-2xl font-bold font-['Urbanist'] leading-tight">Full productivity from minute one</h3>
+            <p className="text-neutral-400 text-sm md:text-base font-normal font-['Urbanist'] leading-6">The best way to reach humans instead of spam folders. Deliver transactional and marketing emails at scale.</p>
+          </div>
+
+          {/* Phase header */}
+          <div className="flex justify-between items-center">
+            <div className="flex items-center gap-2.5">
+              <div className="w-9 h-9 rounded-3xl outline outline-1 outline-white/10 flex justify-center items-center">
+                <img src="/images/figma/diamond.svg" alt="" className="w-5 h-5" />
+              </div>
+              <div className="text-white text-sm font-semibold font-['Urbanist']">Phase 2: Launch (Steps 1-7)</div>
+            </div>
+          </div>
+
+          {/* Agent: Content Creation */}
+          <div className="pl-3 md:pl-4 pr-4 md:pr-6 pt-4 md:pt-5 pb-3 bg-gradient-to-b from-stone-950 via-neutral-800 to-stone-950 rounded-[19.77px] shadow-[0px_7px_12px_0px_rgba(0,0,0,0.38)] outline outline-[1.24px] outline-offset-[-1.24px] outline-slate-500/20 flex items-center">
+            <div className="w-full flex flex-col gap-3">
+              <div className="flex items-center gap-2.5">
+                <img className="w-9 h-9 rounded-[9.50px]" src="/images/figma/image 41.svg" alt="" />
+                <div className="w-2 h-2 bg-green-700 rounded-full border-[0.86px] border-white" />
+                <div className="flex flex-col">
+                  <div className="text-white text-xs font-bold font-['Urbanist'] leading-5">Content Creation Agent</div>
+                  <div className="text-neutral-400 text-[10px] font-normal font-['Urbanist'] leading-5">3 tasks working in parallel</div>
+                </div>
+                <div className="ml-auto text-neutral-500 text-lg">⋮</div>
+              </div>
+              <div className="flex justify-between items-center">
+                <div className="flex items-center -space-x-1">
+                  {[0, 1, 2, 3, 4, 5].map((i) => (
+                    <div key={i} className="w-5 h-5 rounded-full border border-neutral-600 bg-zinc-400 overflow-hidden">
+                      <img className="w-5 h-5 rounded-full" src="https://placehold.co/20x20" alt="" />
+                    </div>
+                  ))}
+                </div>
+                <div className="text-neutral-400 text-[10px] font-normal font-['Urbanist'] leading-5">1 hr 30 mins</div>
+              </div>
+            </div>
+          </div>
+
+          {/* Agent: Email Marketing */}
+          <div className="p-3 md:p-4 bg-neutral-900 rounded-xl outline outline-[0.70px] outline-offset-[-0.70px] outline-orange-400 backdrop-blur-xl flex flex-col gap-3">
+            <div className="flex items-center gap-2.5">
+              <img className="w-9 h-9 rounded-[9.50px]" src="https://placehold.co/36x36" alt="" />
+              <div className="w-2 h-2 bg-green-700 rounded-full border-[0.86px] border-white" />
+              <div className="flex flex-col">
+                <div className="text-white text-xs font-bold font-['Urbanist'] leading-5">Email Marketing Agent</div>
+                <div className="text-neutral-400 text-[10px] font-normal font-['Urbanist'] leading-5">3 tasks working in parallel</div>
+              </div>
+            </div>
+            <div className="flex justify-between items-center">
+              <div className="flex items-center -space-x-1">
+                {[0, 1, 2, 3, 4, 5].map((i) => (
+                  <div key={i} className="w-5 h-5 rounded-full border border-neutral-600 bg-zinc-400 overflow-hidden">
+                    <img className="w-5 h-5 rounded-full" src="https://placehold.co/20x20" alt="" />
+                  </div>
+                ))}
+              </div>
+              <div className="text-neutral-400 text-[10px] font-normal font-['Urbanist'] leading-5">1 hr 30 mins</div>
+            </div>
+            <div className="pl-2 rounded-lg flex justify-between items-center">
+              <div className="flex flex-col gap-1">
+                <div className="text-neutral-400 text-[9px] font-normal font-['Urbanist'] leading-5">Currently working on</div>
+                <div className="flex items-center gap-1.5">
+                  <div className="w-1 h-1 bg-purple-500 rounded-full" />
+                  <div className="text-neutral-300 text-[10px] font-semibold font-['Urbanist'] leading-5">Building Linear Clone</div>
+                </div>
+              </div>
+              <div className="w-14 h-5 p-[5px] bg-red-600/5 rounded-full outline outline-[0.50px] outline-offset-[-0.50px] outline-orange-400 flex justify-center items-center gap-[5px]">
+                <div className="w-1 h-1 bg-orange-400 rounded-full" />
+                <div className="text-neutral-300 text-[9px] font-bold font-['Urbanist'] leading-4">Pending</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
