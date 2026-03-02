@@ -30,7 +30,7 @@ export function NewHeroSection() {
           <div className="relative w-full max-w-[1100px]">
             <div aria-hidden="true" className="hero-white-backlight" />
             <div className="glow-border-card rounded-[16px] md:rounded-[24px]">
-              <div className="relative w-full overflow-hidden rounded-[14px] md:rounded-[22px] bg-[#08080c]">
+              <div className="relative w-full overflow-hidden rounded-[14px] md:rounded-[22px] bg-[#08080c] shadow-[1px_-4px_14px_1px_white]">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src="/images/figma/CleanShot 2024-10-20 at 22.27.03.svg"
