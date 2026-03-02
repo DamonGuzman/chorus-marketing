@@ -31,15 +31,15 @@ export default function Home() {
         </AnimateOnScroll>
 
         <AnimateOnScroll animation="fade-up" duration={0.8}>
-          <ChorusWaySection />
-        </AnimateOnScroll>
-
-        <AnimateOnScroll animation="fade-up" duration={0.8}>
           <AIWorkforceSection />
         </AnimateOnScroll>
 
         <AnimateOnScroll animation="fade-up" duration={0.8}>
           <WorkforceCardsSection />
+        </AnimateOnScroll>
+
+        <AnimateOnScroll animation="fade-up" duration={0.8}>
+          <ChorusWaySection badgeText="About Chorus" />
         </AnimateOnScroll>
 
         <HowItWorksSection />

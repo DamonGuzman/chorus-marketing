@@ -239,8 +239,8 @@ function PredictingRevenueCard() {
 
 export function FinanceHowItWorksSection() {
   return (
-    <section className="w-full px-6 md:px-24 py-12 md:py-20 bg-black">
-      <div className="max-w-[1250px] mx-auto flex flex-col gap-10">
+    <section className="w-full px-6 md:px-24 py-4 md:pt-6 md:pb-0 bg-black">
+      <div className="max-w-[1500px] mx-auto flex flex-col gap-6">
         {/* Section header */}
         <div className="flex flex-col items-center gap-6">
           <div className="w-32 h-9 px-3 py-1 bg-white/5 rounded-full flex justify-center items-center">
@@ -256,137 +256,13 @@ export function FinanceHowItWorksSection() {
           </div>
         </div>
 
-        {/* Bento grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
-          {/* Row 1: Connect Bank APIs (large) + description */}
-          <div className="lg:col-span-7">
-            <ConnectBankAPIsCard />
-          </div>
-          <div className="lg:col-span-5 flex flex-col justify-center gap-6">
-            <h3 className="text-white text-2xl md:text-3xl font-bold font-['Urbanist'] leading-tight">Connect Bank APIs</h3>
-            <p className="text-white text-base md:text-lg font-medium font-['Urbanist'] leading-8 max-w-[500px]">
-              The best way to reach humans instead of spam folders. Deliver transactional and marketing emails at scale.
-            </p>
-          </div>
-
-          {/* Row 2: Chat card + Pull Transactions */}
-          <div className="lg:col-span-6 bg-stone-950 rounded-[20px] p-4 flex flex-col gap-5">
-            {/* Message 1 */}
-            <div className="flex flex-col gap-2.5">
-              <div className="flex items-center gap-2.5">
-                <div className="w-7 h-7 bg-gradient-to-br from-zinc-400 to-zinc-600 rounded-full shrink-0" />
-                <span className="text-white text-sm font-bold font-['Urbanist']">Frank</span>
-                <div className="h-4 px-1.5 bg-zinc-800 rounded border border-white/10 flex items-center">
-                  <span className="text-[#CBCACC] text-[10px] font-semibold font-['Urbanist']">AI Agent</span>
-                </div>
-                <span className="text-[#7D7C83] text-sm font-medium font-['Urbanist']">1.50 AM</span>
-              </div>
-              <div className="p-3 bg-white/[0.04] rounded-2xl flex items-center gap-2.5 flex-wrap">
-                <span className="text-white text-sm font-medium font-['Urbanist'] leading-5 flex-1">
-                  Got it. I&apos;ll connect with your CRM and task management tool to fetch data automatically. Shall I proceed?
-                </span>
-                <div className="flex items-center gap-1">
-                  <div className="px-2 py-1 bg-white/[0.04] rounded-full border border-white/10 flex items-center gap-1.5">
-                    <div className="w-5 h-5 bg-zinc-300 rounded-full" />
-                    <span className="text-white text-xs font-semibold font-['Urbanist']">Stripe</span>
-                  </div>
-                  <span className="text-white text-sm font-bold">+</span>
-                  <div className="px-2 py-1 bg-white/[0.04] rounded-full border border-white/10 flex items-center gap-1.5">
-                    <div className="w-4 h-4 bg-zinc-300 rounded-full" />
-                    <span className="text-white text-xs font-semibold font-['Urbanist']">HubSpot</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Message 2 */}
-            <div className="flex items-center gap-2.5">
-              <div className="w-7 h-7 bg-gradient-to-br from-zinc-400 to-zinc-600 rounded-full shrink-0" />
-              <span className="text-white text-sm font-bold font-['Urbanist']">Frank</span>
-              <div className="h-4 px-1.5 bg-zinc-800 rounded border border-white/10 flex items-center">
-                <span className="text-[#CBCACC] text-[10px] font-semibold font-['Urbanist']">AI Agent</span>
-              </div>
-              <span className="text-[#7D7C83] text-sm font-medium font-['Urbanist']">1.50 AM</span>
-            </div>
-
-            {/* File attachment */}
-            <div className="p-2.5 bg-zinc-950 rounded-xl">
-              <div className="p-2 bg-zinc-950 rounded-xl border border-zinc-800 flex items-center gap-2.5">
-                <div className="w-10 h-10 bg-red-600 rounded-xl shrink-0" />
-                <div className="flex flex-col gap-0.5">
-                  <span className="text-[#CBCACC] text-xs font-semibold font-['Urbanist']">Revenue details_2026</span>
-                  <span className="text-[#7D7C83] text-xs font-normal font-['Inter']">PDF</span>
-                </div>
-              </div>
-              <div className="mt-2 flex items-center gap-1.5">
-                <div className="flex -space-x-1">
-                  <div className="w-5 h-5 bg-gradient-to-br from-zinc-400 to-zinc-600 rounded-full" />
-                  <div className="w-5 h-5 bg-sky-600 rounded-full flex items-center justify-center">
-                    <span className="text-white text-[8px] font-bold">N</span>
-                  </div>
-                </div>
-                <span className="text-[#7D7C83] text-xs font-semibold font-['Urbanist'] underline">2 replies</span>
-              </div>
-            </div>
-          </div>
-
-          <div className="lg:col-span-6 bg-gradient-to-br from-white/0 to-white/10 rounded-[20px] shadow-[0px_100px_126px_0px_rgba(0,0,0,0.15)] border border-white/25 p-8 md:pl-12 md:pr-7 md:pt-11 md:pb-20 flex flex-col gap-6">
-            <h3 className="text-white text-2xl md:text-3xl font-bold font-['Urbanist']">Pull Transactions</h3>
-            <p className="text-[#CBCACC] text-lg font-medium font-['Urbanist'] leading-8">
-              The best way to reach humans instead of spam
-            </p>
-            {/* Timeline */}
-            <div className="flex items-start gap-4">
-              <div className="flex flex-col items-center gap-0">
-                <div className="w-3.5 h-3.5 bg-white rounded-full" />
-                <div className="w-px h-20 bg-zinc-600" />
-                <div className="w-3.5 h-3.5 bg-amber-500 rounded-full" />
-                <div className="w-px h-14 bg-zinc-600" />
-                <div className="w-3.5 h-3.5 bg-amber-500 rounded-full" />
-                <div className="w-px h-14 bg-zinc-600" />
-                <div className="w-3.5 h-3.5 bg-neutral-500 rounded-full" />
-              </div>
-              <div className="flex flex-col gap-16 pt-1">
-                <span className="text-white text-xs font-semibold font-['Inter']">Start</span>
-                <span className="text-white text-xs font-semibold font-['Inter']">Processing</span>
-                <span className="text-white text-xs font-semibold font-['Inter']">Validating</span>
-                <span className="text-white text-xs font-semibold font-['Inter']">3 remaining</span>
-              </div>
-            </div>
-          </div>
-
-          {/* Row 3: Agent tasks + Reconciliation Agent */}
-          <div className="lg:col-span-5 flex flex-col gap-3">
-            <AgentTaskCard name="Franks Lampard" task="Collect revenue data from bank APIs" status="Completed" statusColor="green" />
-            <AgentTaskCard name="David Fincher" task="Collect revenue data from bank APIs" status="Approval pending" statusColor="red" />
-            <AgentTaskCard name="Doone Rosin" task="P&L Report Draft" status="Queued" statusColor="gray" />
-          </div>
-
-          <div className="lg:col-span-7 bg-gradient-to-br from-white/0 to-white/10 rounded-[20px] shadow-[0px_100px_126px_0px_rgba(0,0,0,0.15)] border border-white/25 p-8 md:pl-20 md:pr-7 md:pt-16 md:pb-20 flex flex-col gap-8">
-            <div className="flex flex-col gap-6">
-              <h3 className="text-white text-2xl md:text-3xl font-bold font-['Urbanist']">Reconciliation Agent</h3>
-              <p className="text-[#CBCACC] text-lg font-bold font-['Urbanist'] leading-8 max-w-[400px]">
-                The best way to reach humans instead of spam folders. Deliver transactional
-              </p>
-            </div>
-            <div className="flex flex-col gap-3">
-              <AgentRow name="Revenue agent" initials="" color="bg-gradient-to-br from-zinc-500 to-zinc-700" status="Preparing..." />
-              <AgentRow name="Research Agent" initials="RA" color="bg-green-600" status="Preparing..." />
-              <AgentRow name="Reconciliation Agent" initials="" color="bg-gradient-to-br from-zinc-500 to-zinc-700" status="Preparing..." />
-              <AgentRow name="Email Reminder Agent" initials="EM" color="bg-red-400" status="Queued" />
-            </div>
-          </div>
-
-          {/* Row 4: Predicting Q3 revenue */}
-          <div className="lg:col-span-7">
-            <PredictingRevenueCard />
-          </div>
-          <div className="lg:col-span-5 flex flex-col justify-center gap-4">
-            <h3 className="text-white text-2xl md:text-3xl font-bold font-['Urbanist']">Predicting Q3 revenue</h3>
-            <p className="text-white text-base md:text-lg font-normal font-['Urbanist'] leading-8">
-              The best way to reach humans instead of spam folders. Deliver transactional
-            </p>
-          </div>
+        {/* How it works visual */}
+        <div className="w-full flex justify-center">
+          <img
+            src="/images/figma/Frame 1707482390.svg"
+            alt="How it works - Finance workflow"
+            className="w-full h-auto"
+          />
         </div>
       </div>
     </section>
