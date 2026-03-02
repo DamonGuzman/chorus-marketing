@@ -1,6 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 "use client";
 
+import { motion } from "framer-motion";
 import { PRIMARY_CTA_HREF } from "@/content/site";
 import { ScrollTextReveal } from "@/components/ui";
 
@@ -19,16 +20,33 @@ export function SalesHeroSection() {
             className="absolute inset-0 w-full h-full"
             aria-label="Sales Performance Dashboard with AI agents"
           />
-          <img
-            src="/images/figma/person-laptop.png"
-            alt="Person using laptop"
-            className="absolute object-cover object-top"
-            style={{
-              left: "55.97%",
-              top: "65%",
-              width: "15.39%",
-            }}
-          />
+          <motion.div
+            className="absolute"
+            style={{ left: "55.97%", top: "65%", width: "15.39%" }}
+            animate={{ y: [0, -6, 0, 4, 0] }}
+            transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 1.5 }}
+          >
+            {/* Person – slides in from the right */}
+            <motion.img
+              src="/images/figma/person-laptop.png"
+              alt="Person using laptop"
+              className="w-full object-cover object-top"
+              style={{ clipPath: "inset(0 0 46% 0)" }}
+              initial={{ x: 200, opacity: 0 }}
+              animate={{ x: 0, opacity: 1 }}
+              transition={{ duration: 1, ease: [0.22, 1, 0.36, 1], delay: 0.3 }}
+            />
+            {/* Laptop – slides in from the left */}
+            <motion.img
+              src="/images/figma/person-laptop.png"
+              alt=""
+              className="absolute inset-0 w-full object-cover object-top"
+              style={{ clipPath: "inset(46% 0 0 0)" }}
+              initial={{ x: -200, opacity: 0 }}
+              animate={{ x: 0, opacity: 1 }}
+              transition={{ duration: 1, ease: [0.22, 1, 0.36, 1], delay: 0.3 }}
+            />
+          </motion.div>
         </div>
       </div>
 
@@ -68,16 +86,33 @@ export function SalesHeroSection() {
               className="absolute inset-0 w-full h-full"
               aria-label="Sales Performance Dashboard with AI agents"
             />
-            <img
-              src="/images/figma/person-laptop.png"
-              alt="Person using laptop"
-              className="absolute object-cover object-top"
-              style={{
-                left: "55.97%",
-                top: "65%",
-                width: "15.39%",
-              }}
-            />
+            <motion.div
+              className="absolute"
+              style={{ left: "55.97%", top: "65%", width: "15.39%" }}
+              animate={{ y: [0, -6, 0, 4, 0] }}
+              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 1.5 }}
+            >
+              {/* Person – slides in from the right (mobile) */}
+              <motion.img
+                src="/images/figma/person-laptop.png"
+                alt="Person using laptop"
+                className="w-full object-cover object-top"
+                style={{ clipPath: "inset(0 0 46% 0)" }}
+                initial={{ x: 200, opacity: 0 }}
+                animate={{ x: 0, opacity: 1 }}
+                transition={{ duration: 1, ease: [0.22, 1, 0.36, 1], delay: 0.3 }}
+              />
+              {/* Laptop – slides in from the left (mobile) */}
+              <motion.img
+                src="/images/figma/person-laptop.png"
+                alt=""
+                className="absolute inset-0 w-full object-cover object-top"
+                style={{ clipPath: "inset(46% 0 0 0)" }}
+                initial={{ x: -200, opacity: 0 }}
+                animate={{ x: 0, opacity: 1 }}
+                transition={{ duration: 1, ease: [0.22, 1, 0.36, 1], delay: 0.3 }}
+              />
+            </motion.div>
             <img
               src="/images/figma/salesstrategyagent.svg"
               alt="Sales Strategy Agent"
