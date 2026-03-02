@@ -4,9 +4,12 @@
 import { useState } from "react";
 import { ScrollTextReveal, Badge } from "@/components/ui";
 
-function AgentCard({ name, pending = false, icon = "/images/figma/image 41.svg" }: { name: string; pending?: boolean; icon?: string }) {
+function AgentCard({ name, active = false, icon = "/images/figma/image 41.svg", onClick }: { name: string; active?: boolean; icon?: string; onClick?: () => void }) {
   return (
-    <div className={`w-full p-2.5 ${pending ? "rounded-xl border border-orange-400" : "bg-white/[0.04] rounded-xl"} backdrop-blur-lg flex flex-col gap-2`}>
+    <div
+      onClick={onClick}
+      className={`w-full p-2.5 rounded-xl backdrop-blur-lg flex flex-col gap-2 transition-all duration-300 hover:scale-105 hover:-translate-y-1 cursor-pointer outline-none focus:outline-none select-none ${active ? "border border-orange-400 bg-white/[0.04]" : "bg-white/[0.04] border border-transparent"}`}
+    >
       <div className="flex items-center gap-2">
         <img src={icon} alt="" className="w-7 h-7 rounded-lg shrink-0" />
         <div className="w-1.5 h-1.5 bg-green-700 rounded-full border border-white shrink-0" />
@@ -37,7 +40,7 @@ function AgentCard({ name, pending = false, icon = "/images/figma/image 41.svg" 
             <span className="text-[#CBCACC] text-[8px] font-semibold font-['Urbanist']">Building Linear Clone</span>
           </div>
         </div>
-        {pending && (
+        {active && (
           <div className="px-2 py-0.5 bg-red-600/5 rounded-full border border-orange-400/40 flex items-center gap-1">
             <div className="w-[3px] h-[3px] bg-orange-400 rounded-full" />
             <span className="text-[#CBCACC] text-[6.67px] font-bold font-['Urbanist']">Pending</span>
@@ -50,6 +53,7 @@ function AgentCard({ name, pending = false, icon = "/images/figma/image 41.svg" 
 
 export function MarketingHeroSection() {
   const [openPhase, setOpenPhase] = useState<number | null>(2);
+  const [activeCard, setActiveCard] = useState<string>("Email Marketing Agent");
 
   return (
     <section className="relative w-full min-h-[700px] md:min-h-[940px] bg-black overflow-hidden">
@@ -96,16 +100,16 @@ export function MarketingHeroSection() {
                   <span className="text-[#CBCACC] text-xs font-semibold font-['Inter'] leading-6">Invite</span>
                 </div>
                 <div className="flex items-center -space-x-3">
-                  <div className="w-9 h-9 rounded-full bg-neutral-800 p-[1.5px] relative z-[1]">
+                  <div className="w-9 h-9 rounded-full bg-neutral-800 p-[1.5px] relative z-[1] transition-all duration-200 hover:scale-125 hover:z-10 hover:ring-2 hover:ring-violet-500/50 cursor-pointer">
                     <img src="/images/figma/image 19.svg" alt="" className="w-full h-full rounded-full object-cover" />
                   </div>
-                  <div className="w-9 h-9 rounded-full bg-neutral-800 p-[1.5px] relative z-[2]">
+                  <div className="w-9 h-9 rounded-full bg-neutral-800 p-[1.5px] relative z-[2] transition-all duration-200 hover:scale-125 hover:z-10 hover:ring-2 hover:ring-violet-500/50 cursor-pointer">
                     <img src="/images/figma/Group 1707483916.svg" alt="" className="w-full h-full rounded-full object-cover" />
                   </div>
-                  <div className="w-9 h-9 rounded-full bg-neutral-800 p-[1.5px] relative z-[3]">
+                  <div className="w-9 h-9 rounded-full bg-neutral-800 p-[1.5px] relative z-[3] transition-all duration-200 hover:scale-125 hover:z-10 hover:ring-2 hover:ring-violet-500/50 cursor-pointer">
                     <img src="/images/figma/image 19 (2).svg" alt="" className="w-full h-full rounded-full object-cover" />
                   </div>
-                  <div className="w-9 h-9 rounded-full bg-neutral-600 border-[1.5px] border-neutral-800 flex items-center justify-center relative z-[4]">
+                  <div className="w-9 h-9 rounded-full bg-neutral-600 border-[1.5px] border-neutral-800 flex items-center justify-center relative z-[4] transition-all duration-200 hover:scale-125 hover:z-10 hover:ring-2 hover:ring-violet-500/50 cursor-pointer">
                     <span className="text-white text-sm font-normal font-['Inter'] leading-6">+5</span>
                   </div>
                 </div>
@@ -152,10 +156,10 @@ export function MarketingHeroSection() {
 
                   {openPhase === 1 && (
                     <div className="grid grid-cols-2 gap-2.5">
-                      <AgentCard name="Content Creation Agent" />
-                      <AgentCard name="Social Media Agent" icon="/images/figma/image 41 (2).svg" />
-                      <AgentCard name="Email Marketing Agent" pending icon="/images/figma/image 41 (3).svg" />
-                      <AgentCard name="Ad Campaign Agent" icon="/images/figma/image 41 (4).svg" />
+                      <AgentCard name="Content Creation Agent" active={activeCard === "Content Creation Agent"} onClick={() => setActiveCard("Content Creation Agent")} />
+                      <AgentCard name="Social Media Agent" icon="/images/figma/image 41 (2).svg" active={activeCard === "Social Media Agent"} onClick={() => setActiveCard("Social Media Agent")} />
+                      <AgentCard name="Email Marketing Agent" icon="/images/figma/image 41 (3).svg" active={activeCard === "Email Marketing Agent"} onClick={() => setActiveCard("Email Marketing Agent")} />
+                      <AgentCard name="Ad Campaign Agent" icon="/images/figma/image 41 (4).svg" active={activeCard === "Ad Campaign Agent"} onClick={() => setActiveCard("Ad Campaign Agent")} />
                     </div>
                   )}
                 </div>
@@ -174,10 +178,10 @@ export function MarketingHeroSection() {
 
                   {openPhase === 2 && (
                     <div className="grid grid-cols-2 gap-2.5">
-                      <AgentCard name="Content Creation Agent" />
-                      <AgentCard name="Social Media Agent" icon="/images/figma/image 41 (2).svg" />
-                      <AgentCard name="Email Marketing Agent" pending icon="/images/figma/image 41 (3).svg" />
-                      <AgentCard name="Ad Campaign Agent" icon="/images/figma/image 41 (4).svg" />
+                      <AgentCard name="Content Creation Agent" active={activeCard === "Content Creation Agent"} onClick={() => setActiveCard("Content Creation Agent")} />
+                      <AgentCard name="Social Media Agent" icon="/images/figma/image 41 (2).svg" active={activeCard === "Social Media Agent"} onClick={() => setActiveCard("Social Media Agent")} />
+                      <AgentCard name="Email Marketing Agent" icon="/images/figma/image 41 (3).svg" active={activeCard === "Email Marketing Agent"} onClick={() => setActiveCard("Email Marketing Agent")} />
+                      <AgentCard name="Ad Campaign Agent" icon="/images/figma/image 41 (4).svg" active={activeCard === "Ad Campaign Agent"} onClick={() => setActiveCard("Ad Campaign Agent")} />
                     </div>
                   )}
                 </div>
