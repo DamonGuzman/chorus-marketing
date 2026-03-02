@@ -196,7 +196,7 @@ function OperationsCard() {
   return (
     <div className="w-80 md:w-96 shrink-0 snap-start bg-[radial-gradient(ellipse_94%_78%_at_50%_30%,rgba(39,61,180,0.70)_0%,rgba(15,9,38,0.40)_100%)] rounded-[20px] shadow-[0px_0px_40px_20px_rgba(85,0,98,0.10),inset_0px_0px_0px_1px_rgba(255,255,255,0.06),inset_0px_1px_0px_0px_rgba(255,255,255,0.10)] flex flex-col overflow-hidden">
       <div className="px-6 pt-6 flex flex-col gap-6">
-        <CardHeader emoji="🚀" title="Operations" titleSize="text-2xl" />
+        <CardHeader emoji="🚀" title="Operations" titleSize="text-2xl" href="/operations" />
         <p className="text-white text-base font-medium font-['Urbanist'] leading-6">
           Navigate your open tabs or search<br />through your browser history.
         </p>
