@@ -2,7 +2,7 @@
 "use client";
 
 import { useState } from "react";
-import { ScrollTextReveal } from "@/components/ui";
+import { ScrollTextReveal, Badge } from "@/components/ui";
 
 function AgentCard({ name, pending = false, icon = "/images/figma/image 41.svg" }: { name: string; pending?: boolean; icon?: string }) {
   return (
@@ -66,9 +66,7 @@ export function MarketingHeroSection() {
           <div className="flex flex-col lg:flex-row items-center lg:items-start gap-6 lg:gap-0 px-4 md:px-8 lg:px-12 py-6 lg:py-0 h-full">
             {/* Left: Text content */}
             <div className="flex-1 flex flex-col justify-center gap-6 md:gap-9 max-w-[400px] lg:max-w-[380px] shrink-0 h-full">
-              <div className="w-28 h-8 px-2.5 py-1 bg-white/5 rounded-full flex justify-center items-center">
-                <span className="text-white text-sm font-semibold font-['Urbanist']">Marketing</span>
-              </div>
+              <Badge className="w-28 h-8">Marketing</Badge>
               <ScrollTextReveal
                 text="AI Marketing, Executed Seamlessly."
                 stagger={150}

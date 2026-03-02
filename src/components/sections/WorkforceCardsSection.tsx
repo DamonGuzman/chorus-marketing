@@ -1,7 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 
 import Link from "next/link";
-import { Section, ScrollTextReveal } from "@/components/ui";
+import { Section, ScrollTextReveal, Badge } from "@/components/ui";
 
 function ChevronIcon() {
   return (
@@ -240,9 +240,7 @@ export function WorkforceCardsSection() {
       id="workforce-cards"
     >
       <div className="w-full max-w-[1240px] flex flex-col justify-start items-start gap-6">
-        <div className="w-32 h-9 px-3 py-1 bg-white/5 rounded-[100px] inline-flex justify-center items-center gap-2 overflow-hidden">
-          <span className="text-center text-white text-base font-semibold font-['Urbanist'] leading-6">Capabilities</span>
-        </div>
+        <Badge>Capabilities</Badge>
         <div className="flex flex-col justify-start items-start gap-4">
           <ScrollTextReveal
             text="What Your AI Workforce Can Do"

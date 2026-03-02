@@ -2,7 +2,7 @@
 "use client";
 
 import { useRef, useState, useEffect } from "react";
-import { ScrollTextReveal } from "@/components/ui";
+import { ScrollTextReveal, Badge } from "@/components/ui";
 
 const WORD_STAGGER_MS = 110;
 const WORD_DURATION_MS = 750;
@@ -628,9 +628,7 @@ export function MarketingHowItWorksSection() {
 
   const sectionHeader = (
     <div className="flex flex-col items-center gap-4 pb-14">
-      <div className="w-32 h-9 px-3 py-1 bg-white/5 rounded-full flex justify-center items-center">
-        <span className="text-white text-base font-bold font-['Urbanist']">How it Works</span>
-      </div>
+      <Badge>How it Works</Badge>
       <ScrollTextReveal
         text="How Work Happens"
         className="text-center text-3xl md:text-5xl font-bold font-['Urbanist'] leading-tight md:leading-[78px]"
