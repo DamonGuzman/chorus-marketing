@@ -2,6 +2,7 @@
 "use client";
 
 import { PRIMARY_CTA_HREF } from "@/content/site";
+import { ScrollTextReveal } from "@/components/ui";
 
 export function SalesHeroSection() {
   return (
@@ -34,9 +35,11 @@ export function SalesHeroSection() {
       {/* Title */}
       <div className="relative z-10 pt-20 md:pt-[150px] flex flex-col items-center px-6">
         <div className="flex flex-col items-center gap-4 md:gap-7 max-w-[960px]">
-          <h1 className="text-transparent bg-clip-text bg-[radial-gradient(ellipse_at_left,white_0%,#cbcbcb_25%,#979797_50%,#646464_75%,#303030_100%)] text-[28px] md:text-[64px] font-bold font-['Urbanist'] leading-tight md:leading-[58px] text-center">
-            AI Sales Team That Works 24/7
-          </h1>
+          <ScrollTextReveal
+            text="AI Sales Team That Works 24/7"
+            stagger={150}
+            className="text-[28px] md:text-[64px] font-bold font-['Urbanist'] leading-tight md:leading-[58px] text-center"
+          />
           <p className="text-center text-[#7d7c83] text-sm md:text-[28px] font-medium font-['Urbanist'] leading-6 md:leading-[44px] max-w-[940px]">
             <span className="md:hidden">The capabilities that let you direct instead of micromanage</span>
             <span className="hidden md:inline">Automate prospecting, enrichment, outreach, follow-ups, CRM
