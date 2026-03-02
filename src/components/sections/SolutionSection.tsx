@@ -62,9 +62,10 @@ export function SolutionSection() {
           <div className="text-center text-white text-base font-semibold font-['Urbanist'] leading-6">The Solution</div>
         </div>
         <div className="flex flex-col justify-start items-start gap-4">
-          <h2 className="max-w-[1034px] text-white text-2xl md:text-4xl lg:text-5xl font-bold font-['Urbanist'] leading-tight md:leading-[50px] lg:leading-[78px]">
-            The Chorus Way Manifest Your Team Instantly
-          </h2>
+          <ScrollTextReveal
+            text="The Chorus Way Manifest Your Team Instantly"
+            className="max-w-[1034px] text-2xl md:text-4xl lg:text-5xl font-bold font-['Urbanist'] leading-tight md:leading-[50px] lg:leading-[78px]"
+          />
           <p className="text-neutral-400 text-sm md:text-base lg:text-xl font-normal font-['Urbanist'] leading-6 md:leading-7 lg:leading-9">
             The best way to reach humans instead of spam folders. Deliver transactional and marketing emails at scale.
           </p>

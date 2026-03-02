@@ -1,4 +1,5 @@
 import { PRIMARY_CTA_HREF } from "@/content/site";
+import { ScrollTextReveal } from "@/components/ui";
 
 /* eslint-disable @next/next/no-img-element */
 
@@ -49,16 +50,10 @@ export function FinalCTASection() {
             ))}
           </div>
           <div className="self-stretch flex flex-col items-center gap-[24px] md:gap-10">
-            <h2 className="w-full md:max-w-none text-center text-white text-base leading-6 md:text-5xl md:leading-[68px] tracking-[-0.01em] md:tracking-normal font-bold font-['Urbanist']">
-              <span className="md:hidden">
-                <span className="block whitespace-nowrap">The Best Companies Don&apos;t Have More People. They</span>
-                <span className="block">Have Better Coordination.</span>
-              </span>
-              <span className="hidden md:inline">
-                <span className="block whitespace-nowrap">The Best Companies Don&apos;t Have More People. They</span>
-                <span className="block">Have Better Coordination.</span>
-              </span>
-            </h2>
+            <ScrollTextReveal
+              text={["The Best Companies Don't Have More People. They", "Have Better Coordination."]}
+              className="w-full text-center text-white text-base leading-6 md:text-5xl md:leading-[68px] tracking-[-0.01em] md:tracking-normal font-bold font-['Urbanist']"
+            />
           </div>
         </div>
 

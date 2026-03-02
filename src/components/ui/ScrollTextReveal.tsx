@@ -8,6 +8,8 @@ interface ScrollTextRevealProps {
   style?: CSSProperties;
   dimColor?: string;
   brightColor?: string;
+  /** When set, reveals words one-by-one on mount with this ms delay between each word (for hero/above-fold headings) */
+  stagger?: number;
 }
 
 export function ScrollTextReveal({
@@ -16,14 +18,18 @@ export function ScrollTextReveal({
   style,
   dimColor = "rgba(255,255,255,0.08)",
   brightColor = "#ffffff",
+  stagger,
 }: ScrollTextRevealProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const [progress, setProgress] = useState(0);
+  // For stagger mode: triggers the CSS transitionDelay chain after mount
+  const [staggerActive, setStaggerActive] = useState(false);
 
   const lines = Array.isArray(text) ? text : [text];
   const totalWords = lines.reduce((sum, line) => sum + line.split(/\s+/).filter(Boolean).length, 0);
 
   const updateProgress = useCallback(() => {
+    if (stagger !== undefined) return;
     const el = containerRef.current;
     if (!el) return;
 
@@ -33,16 +39,40 @@ export function ScrollTextReveal({
     const end = windowH * 0.35;
     const raw = (start - rect.top) / (start - end);
     setProgress(Math.max(0, Math.min(1, raw)));
-  }, []);
+  }, [stagger]);
 
   useEffect(() => {
+    if (stagger !== undefined) return;
     const el = containerRef.current;
     if (!el) return;
 
     window.addEventListener("scroll", updateProgress, { passive: true });
     updateProgress();
     return () => window.removeEventListener("scroll", updateProgress);
-  }, [updateProgress]);
+  }, [updateProgress, stagger]);
+
+  // Stagger mode: wait for the element to be visible (handles both above-fold
+  // and below-fold cases, including elements inside AnimateOnScroll wrappers)
+  useEffect(() => {
+    if (stagger === undefined) return;
+    const el = containerRef.current;
+    if (!el) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          // Two frames: let browser paint dim state, then kick off transitions
+          requestAnimationFrame(() => {
+            requestAnimationFrame(() => setStaggerActive(true));
+          });
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.2 },
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, [stagger]);
 
   let globalIdx = 0;
 
@@ -53,8 +83,9 @@ export function ScrollTextReveal({
         return (
           <div key={lineIdx} className="block">
             {words.map((word, wordIdx) => {
-              const wordProgress = totalWords > 1 ? globalIdx / (totalWords - 1) : 0;
-              const isRevealed = progress >= wordProgress;
+              const idx = globalIdx;
+              const wordProgress = totalWords > 1 ? idx / (totalWords - 1) : 0;
+              const isRevealed = stagger !== undefined ? staggerActive : progress >= wordProgress;
               globalIdx++;
               return (
                 <span
@@ -62,7 +93,14 @@ export function ScrollTextReveal({
                   className="inline-block mr-[0.3em]"
                   style={{
                     color: isRevealed ? brightColor : dimColor,
-                    transition: "color 0.15s ease",
+                    ...(stagger !== undefined && {
+                      opacity: isRevealed ? 1 : 0,
+                      transform: isRevealed ? "translateY(0px)" : "translateY(12px)",
+                    }),
+                    transition: stagger !== undefined
+                      ? "color 0.7s cubic-bezier(0.25, 0.1, 0.25, 1), opacity 0.7s cubic-bezier(0.25, 0.1, 0.25, 1), transform 0.7s cubic-bezier(0.25, 0.1, 0.25, 1)"
+                      : "color 0.15s ease",
+                    transitionDelay: stagger !== undefined ? `${idx * stagger}ms` : undefined,
                   }}
                 >
                   {word}
