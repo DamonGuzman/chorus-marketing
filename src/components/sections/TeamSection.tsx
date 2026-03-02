@@ -1,4 +1,7 @@
+"use client";
+
 import Image from "next/image";
+import { useState } from "react";
 import { Section, SectionHeader } from "@/components/ui";
 
 const teamMembers = [
@@ -38,25 +41,52 @@ interface TeamMemberCardProps {
 }
 
 function TeamMemberCard({ name, title, image }: TeamMemberCardProps) {
+  const [hovered, setHovered] = useState(false);
+
   return (
     <div className="flex flex-col gap-[26px] items-center">
-      {/* Avatar - circular with 1000px radius (full circle) */}
-      <div className="w-[270px] h-[270px] rounded-[1000px] bg-gray-600 overflow-hidden relative">
-        <Image
-          src={image}
-          alt={name}
-          fill
-          className="object-cover"
-        />
+      <div
+        className="w-[270px] h-[270px] relative cursor-pointer"
+        style={{ perspective: "800px" }}
+        onMouseEnter={() => setHovered(true)}
+        onMouseLeave={() => setHovered(false)}
+      >
+        {/* Front face */}
+        <div
+          className="absolute inset-0 rounded-full bg-gray-600 overflow-hidden transition-all duration-700"
+          style={{
+            backfaceVisibility: "hidden",
+            transform: hovered ? "rotateY(180deg)" : "rotateY(0deg)",
+          }}
+        >
+          <Image src={image} alt={name} fill className="object-cover" />
+        </div>
+
+        {/* Back face */}
+        <div
+          className="absolute inset-0 rounded-full bg-gray-800 overflow-hidden transition-all duration-700 flex items-center justify-center"
+          style={{
+            backfaceVisibility: "hidden",
+            transform: hovered ? "rotateY(0deg)" : "rotateY(-180deg)",
+          }}
+        >
+          <Image
+            src={image}
+            alt=""
+            fill
+            className="object-cover scale-110 blur-sm brightness-[0.3]"
+          />
+          <div className="relative z-10 flex flex-col items-center gap-2 px-6 text-center">
+            <span className="text-white text-xl font-bold font-['Urbanist']">{name}</span>
+            <span className="text-gray-300 text-sm font-semibold uppercase tracking-wide">{title}</span>
+          </div>
+        </div>
       </div>
 
-      {/* Info */}
       <div className="flex flex-col gap-[11px] items-center text-center">
-        {/* Card Title: 34px, bold, 48px line-height */}
         <h3 className="text-[34px] leading-[48px] font-bold text-white">
           {name}
         </h3>
-        {/* Section Label: 16px, semibold, 24px line-height, uppercase */}
         <p className="text-[16px] leading-[24px] font-semibold text-gray-100 uppercase font-feature-stylistic">
           {title}
         </p>
