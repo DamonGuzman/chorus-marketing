@@ -40,3 +40,6 @@ export { FinanceHeroSection } from "./FinanceHeroSection";
 export { FinanceProblemSection } from "./FinanceProblemSection";
 export { FinanceHowItWorksSection } from "./FinanceHowItWorksSection";
 export { FinanceSolutionSection } from "./FinanceSolutionSection";
+export { OperationsHeroSection } from "./OperationsHeroSection";
+export { OperationsProblemSection } from "./OperationsProblemSection";
+export { OperationsHowItWorksSection } from "./OperationsHowItWorksSection";
