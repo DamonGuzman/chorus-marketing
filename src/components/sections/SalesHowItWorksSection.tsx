@@ -384,12 +384,18 @@ export function SalesHowItWorksSection() {
     <section className="w-full px-6 md:px-24 py-12 md:py-20 bg-black">
       <div className="max-w-[1266px] mx-auto flex flex-col gap-10 md:gap-14">
         {/* Section header */}
-        <div className="flex flex-col items-center gap-8 text-center">
-          <h2 className="text-white text-3xl md:text-[50px] font-bold font-['Urbanist'] leading-tight md:leading-[78px] tracking-[-0.5px]">
+        <div className="flex flex-col items-center gap-3 md:gap-8 text-center">
+          <div className="md:hidden relative h-9 rounded-[100px] overflow-hidden inline-flex justify-center items-center px-5">
+            <span aria-hidden="true" className="absolute inset-0 rounded-[100px] bg-gradient-to-b from-white/30 to-white/[0.04]" />
+            <span aria-hidden="true" className="absolute inset-[1px] rounded-[100px] bg-[#131313]" />
+            <span className="relative z-10 text-white text-base font-semibold font-['Urbanist'] leading-6">How it Works</span>
+          </div>
+          <h2 className="text-white text-2xl md:text-[50px] font-bold font-['Urbanist'] leading-tight md:leading-[78px] tracking-[-0.5px]">
             How Work Happens
           </h2>
-          <p className="text-gray-300 text-lg md:text-[28px] font-medium font-['Urbanist'] leading-7 md:leading-[44px]">
-            Automate prospecting, enrichment, outreach, follow-ups, CRM updates, and reporting
+          <p className="text-gray-300 text-sm md:text-[28px] font-medium font-['Urbanist'] leading-5 md:leading-[44px]">
+            <span className="md:hidden">The Difference That Changes Everything</span>
+            <span className="hidden md:inline">Automate prospecting, enrichment, outreach, follow-ups, CRM updates, and reporting</span>
           </p>
         </div>
 
@@ -406,24 +412,24 @@ export function SalesHowItWorksSection() {
                   className="relative w-full h-full"
                 />
               </div>
-              <div className="flex flex-col gap-[49px] max-w-[573px]">
-                <h3 className="text-[#cbcacc] text-2xl md:text-[40px] font-bold font-['Urbanist'] leading-tight md:leading-[54px]">
+              <div className="flex flex-col gap-6 md:gap-[49px] max-w-[573px]">
+                <h3 className="text-[#cbcacc] text-2xl md:text-[40px] font-bold font-['Urbanist'] leading-tight md:leading-[54px] pl-3 md:pl-0">
                   1. Sales Strategy Agent activates
                 </h3>
                 <div className="inline-flex items-start gap-5">
-                  <img src="/images/figma/Arrow.svg" alt="" className="w-7 h-7 shrink-0" />
+                  <img src="/images/figma/Arrow.svg" alt="" className="w-8.5 h-8.5 md:w-7 md:h-7 shrink-0" />
                   <p className="max-w-[529px] text-[#7d7c83] text-sm font-medium font-['Urbanist'] leading-6">
                     Our simple drag-and-drop editor lets you dynamically change your email&apos;s content, images, and CTAs.
                   </p>
                 </div>
                 <div className="inline-flex items-start gap-5">
-                  <img src="/images/figma/Arrow.svg" alt="" className="w-7 h-7 shrink-0" />
+                  <img src="/images/figma/Arrow.svg" alt="" className="w-8.5 h-8.5 md:w-7 md:h-7 shrink-0" />
                   <p className="max-w-[525px] text-[#7d7c83] text-sm font-medium font-['Urbanist'] leading-6">
                     Connect with your recipients through every email by using interactive elements like polls, surveys, attachments, GIFs, images, videos, and reply tracking.
                   </p>
                 </div>
                 <div className="inline-flex items-start gap-5">
-                  <img src="/images/figma/Arrow.svg" alt="" className="w-7 h-7 shrink-0" />
+                  <img src="/images/figma/Arrow.svg" alt="" className="w-8.5 h-8.5 md:w-7 md:h-7 shrink-0" />
                   <p className="max-w-[497px] text-[#7d7c83] text-sm font-medium font-['Urbanist'] leading-6">
                     Take the guess work out of your campaign&apos;s content by testing in real time which version of your campaign performs best with your audience. A or B?
                   </p>
@@ -451,24 +457,24 @@ export function SalesHowItWorksSection() {
                   className="relative w-full h-full"
                 />
               </div>
-              <div className="flex flex-col gap-[49px] max-w-[573px]">
-                <h3 className="text-[#cbcacc] text-2xl md:text-[40px] font-bold font-['Urbanist'] leading-tight md:leading-[54px]">
+              <div className="flex flex-col gap-6 md:gap-[49px] max-w-[573px]">
+                <h3 className="text-[#cbcacc] text-2xl md:text-[40px] font-bold font-['Urbanist'] leading-tight md:leading-[54px] pl-3 md:pl-0">
                   2. Generate Lead List
                 </h3>
                 <div className="inline-flex items-start gap-5">
-                  <img src="/images/figma/Arrow.svg" alt="" className="w-7 h-7 shrink-0" />
+                  <img src="/images/figma/Arrow.svg" alt="" className="w-9 h-9 md:w-7 md:h-7 shrink-0" />
                   <p className="max-w-[529px] text-[#7d7c83] text-sm font-medium font-['Urbanist'] leading-6">
                     Our simple drag-and-drop editor lets you dynamically change your email&apos;s content, images, and CTAs.
                   </p>
                 </div>
                 <div className="inline-flex items-start gap-5">
-                  <img src="/images/figma/Arrow.svg" alt="" className="w-7 h-7 shrink-0" />
+                  <img src="/images/figma/Arrow.svg" alt="" className="w-9 h-9 md:w-7 md:h-7 shrink-0" />
                   <p className="max-w-[525px] text-[#7d7c83] text-sm font-medium font-['Urbanist'] leading-6">
                     Connect with your recipients through every email by using interactive elements like polls, surveys, attachments, GIFs, images, videos, and reply tracking.
                   </p>
                 </div>
                 <div className="inline-flex items-start gap-5">
-                  <img src="/images/figma/Arrow.svg" alt="" className="w-7 h-7 shrink-0" />
+                  <img src="/images/figma/Arrow.svg" alt="" className="w-9 h-9 md:w-7 md:h-7 shrink-0" />
                   <p className="max-w-[497px] text-[#7d7c83] text-sm font-medium font-['Urbanist'] leading-6">
                     Take the guess work out of your campaign&apos;s content by testing in real time which version of your campaign performs best with your audience. A or B?
                   </p>
@@ -476,15 +482,15 @@ export function SalesHowItWorksSection() {
               </div>
             </div>
             {/* Left: Setup checklist card */}
-            <div className="w-full max-w-[573px] h-[585px] px-7 pt-12 pb-2.5 bg-gradient-to-r from-white/5 via-white/10 to-white/5 rounded-[40px] outline outline-1 outline-offset-[-1px] outline-white/30 backdrop-blur-[30px] inline-flex flex-col items-center gap-9">
-              <div className="w-[499px] max-w-full flex flex-col gap-6">
-                <div className="inline-flex items-center gap-6">
-                  <img src="/images/figma/Group 20963 copy.svg" alt="" className="w-7 h-7 shrink-0" />
-                  <span className="text-white text-2xl font-bold font-['Urbanist'] leading-10">
+            <div className="w-full max-w-[573px] min-h-[585px] px-5 pt-8 pb-4 md:px-7 md:pt-12 md:pb-2.5 bg-gradient-to-r from-white/5 via-white/10 to-white/5 rounded-[28px] md:rounded-[40px] outline outline-1 outline-offset-[-1px] outline-white/30 backdrop-blur-[30px] inline-flex flex-col items-center gap-6 md:gap-9">
+              <div className="w-full md:w-[499px] md:max-w-full flex flex-col gap-5 md:gap-6">
+                <div className="inline-flex items-center gap-4 md:gap-6">
+                  <img src="/images/figma/Group 20963 copy.svg" alt="" className="w-12 h-12 md:w-7 md:h-7 shrink-0" />
+                  <span className="text-white text-xl md:text-2xl font-bold font-['Urbanist'] leading-7 md:leading-10">
                     Setting up campaign infrastructure...
                   </span>
                 </div>
-                <div className="flex flex-col gap-3.5">
+                <div className="flex flex-col gap-3 md:gap-3.5">
                   {[
                     { done: true, text: "Creating 6 AI agents" },
                     { done: true, text: "Configuring approval workflows" },
@@ -496,16 +502,16 @@ export function SalesHowItWorksSection() {
                   ].map((item, i) => (
                     <div
                       key={i}
-                      className="self-stretch px-3.5 py-2.5 bg-white/5 rounded-2xl outline-[1.20px] outline-offset-[-1.20px] outline-white/10 inline-flex items-center gap-3"
+                      className="self-stretch px-4 py-4 md:px-3.5 md:py-2.5 bg-white/5 rounded-2xl outline-[1.20px] outline-offset-[-1.20px] outline-white/10 inline-flex items-center gap-3"
                     >
                       {item.done ? (
-                        <div className="w-5 h-5 bg-green rounded-[43px] flex items-center justify-center shrink-0 overflow-hidden">
+                        <div className="w-6 h-6 md:w-5 md:h-5 bg-green rounded-[43px] flex items-center justify-center shrink-0 overflow-hidden">
                           <svg width="8" height="6" viewBox="0 0 8 6" fill="none">
                             <path d="M1 3L3 5L7 1" stroke="white" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
                           </svg>
                         </div>
                       ) : (
-                        <div className="w-5 h-5 rounded-full border border-dashed border-warning/60 flex items-center justify-center shrink-0">
+                        <div className="w-6 h-6 md:w-5 md:h-5 rounded-full border border-dashed border-warning/60 flex items-center justify-center shrink-0">
                           <div className="w-1.5 h-1.5 rounded-full bg-warning/40" />
                         </div>
                       )}
@@ -530,24 +536,24 @@ export function SalesHowItWorksSection() {
                   className="relative w-full h-full"
                 />
               </div>
-              <div className="flex flex-col gap-[49px] max-w-[573px]">
-                <h3 className="text-[#cbcacc] text-2xl md:text-[40px] font-bold font-['Urbanist'] leading-tight md:leading-[54px]">
+              <div className="flex flex-col gap-5 md:gap-[49px] max-w-[573px]">
+                <h3 className="text-[#cbcacc] text-2xl md:text-[40px] font-bold font-['Urbanist'] leading-tight md:leading-[54px] pl-3 md:pl-0">
                   3. Launch Outreach
                 </h3>
                 <div className="inline-flex items-start gap-5">
-                  <img src="/images/figma/Arrow.svg" alt="" className="w-7 h-7 shrink-0" />
+                  <img src="/images/figma/Arrow.svg" alt="" className="w-9 h-9 md:w-7 md:h-7 shrink-0" />
                   <p className="max-w-[529px] text-[#7d7c83] text-sm font-medium font-['Urbanist'] leading-6">
                     Our simple drag-and-drop editor lets you dynamically change your email&apos;s content, images, and CTAs.
                   </p>
                 </div>
                 <div className="inline-flex items-start gap-5">
-                  <img src="/images/figma/Arrow.svg" alt="" className="w-7 h-7 shrink-0" />
+                  <img src="/images/figma/Arrow.svg" alt="" className="w-9 h-9 md:w-7 md:h-7 shrink-0" />
                   <p className="max-w-[525px] text-[#7d7c83] text-sm font-medium font-['Urbanist'] leading-6">
                     Connect with your recipients through every email by using interactive elements like polls, surveys, attachments, GIFs, images, videos, and reply tracking.
                   </p>
                 </div>
                 <div className="inline-flex items-start gap-5">
-                  <img src="/images/figma/Arrow.svg" alt="" className="w-7 h-7 shrink-0" />
+                  <img src="/images/figma/Arrow.svg" alt="" className="w-9 h-9 md:w-7 md:h-7 shrink-0" />
                   <p className="max-w-[497px] text-[#7d7c83] text-sm font-medium font-['Urbanist'] leading-6">
                     Take the guess work out of your campaign&apos;s content by testing in real time which version of your campaign performs best with your audience. A or B?
                   </p>
@@ -568,24 +574,24 @@ export function SalesHowItWorksSection() {
                   className="relative w-full h-full"
                 />
               </div>
-              <div className="flex flex-col gap-[49px] max-w-[573px]">
-                <h3 className="text-[#cbcacc] text-2xl md:text-[40px] font-bold font-['Urbanist'] leading-tight md:leading-[54px]">
+              <div className="flex flex-col gap-5 md:gap-[49px] max-w-[573px]">
+                <h3 className="text-[#cbcacc] text-2xl md:text-[40px] font-bold font-['Urbanist'] leading-tight md:leading-[54px] pl-3 md:pl-0">
                   4. Update CRM &amp; Report
                 </h3>
                 <div className="inline-flex items-start gap-5">
-                  <img src="/images/figma/Arrow.svg" alt="" className="w-7 h-7 shrink-0" />
+                  <img src="/images/figma/Arrow.svg" alt="" className="w-9 h-9 md:w-7 md:h-7 shrink-0" />
                   <p className="max-w-[529px] text-[#7d7c83] text-sm font-medium font-['Urbanist'] leading-6">
                     Our simple drag-and-drop editor lets you dynamically change your email&apos;s content, images, and CTAs.
                   </p>
                 </div>
                 <div className="inline-flex items-start gap-5">
-                  <img src="/images/figma/Arrow.svg" alt="" className="w-7 h-7 shrink-0" />
+                  <img src="/images/figma/Arrow.svg" alt="" className="w-9 h-9 md:w-7 md:h-7 shrink-0" />
                   <p className="max-w-[525px] text-[#7d7c83] text-sm font-medium font-['Urbanist'] leading-6">
                     Connect with your recipients through every email by using interactive elements like polls, surveys, attachments, GIFs, images, videos, and reply tracking.
                   </p>
                 </div>
                 <div className="inline-flex items-start gap-5">
-                  <img src="/images/figma/Arrow.svg" alt="" className="w-7 h-7 shrink-0" />
+                  <img src="/images/figma/Arrow.svg" alt="" className="w-9 h-9 md:w-7 md:h-7 shrink-0" />
                   <p className="max-w-[497px] text-[#7d7c83] text-sm font-medium font-['Urbanist'] leading-6">
                     Take the guess work out of your campaign&apos;s content by testing in real time which version of your campaign performs best with your audience. A or B?
                   </p>
