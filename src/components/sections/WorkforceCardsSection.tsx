@@ -92,7 +92,7 @@ function MarketingCard() {
       </div>
 
       <div className="flex-1 relative overflow-hidden flex items-center justify-center">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_40%,rgba(43,94,180,0.12)_0%,transparent_70%)]" />
+        <img src="/images/figma/marketing-bg.svg" alt="" className="absolute inset-0 w-[85%] h-[85%] mx-auto mt-10 object-contain" />
 
         <div className="relative w-72 pl-5 pr-3 py-3 bg-gradient-to-b from-[#1a1a1a] via-[#2a2a2a] to-[#1a1a1a] rounded-[18.90px] shadow-[0px_7.09px_11.81px_0px_rgba(0,0,0,0.38)] outline outline-[1.18px] outline-offset-[-1.18px] outline-white/10 flex flex-col justify-center items-start">
           <div className="w-64 flex flex-col justify-start items-start gap-2.5">
@@ -102,17 +102,42 @@ function MarketingCard() {
             </div>
 
             <div className="self-stretch flex flex-col justify-start items-start gap-2">
-              {steps.filter(s => s.done).map(({ text }) => (
+              {steps.filter(s => s.done).map(({ text }, idx) => (
                 <div
                   key={text}
-                  className="w-64 p-2.5 bg-white/5 rounded-[10px] outline outline-[0.84px] outline-offset-[-0.84px] outline-white/10 inline-flex justify-start items-center gap-2"
+                  className="w-64 p-2.5 bg-white/5 rounded-[10px] outline outline-[0.84px] outline-offset-[-0.84px] outline-white/10 inline-flex justify-start items-center gap-2 animate-[stepReveal_7s_ease-in-out_infinite]"
+                  style={{ animationDelay: `${idx * 0.6}s` }}
                 >
-                  <CheckCircle />
+                  <div className="animate-[stepIconPop_7s_ease-in-out_infinite]" style={{ animationDelay: `${idx * 0.6 + 0.2}s` }}>
+                    <CheckCircle />
+                  </div>
                   <span className="text-[#CBCACC] text-xs font-semibold font-['Urbanist'] leading-5 line-clamp-3">{text}</span>
                 </div>
               ))}
-              <img src="/images/figma/Frame 1707484474.svg" alt="Preparing campaign assets" className="w-64" />
+              <img
+                src="/images/figma/Frame 1707484474.svg"
+                alt="Preparing campaign assets"
+                className="w-64 animate-[stepReveal_7s_ease-in-out_infinite]"
+                style={{ animationDelay: `${steps.filter(s => s.done).length * 0.6}s` }}
+              />
             </div>
+            <style>{`
+              @keyframes stepReveal {
+                0% { opacity: 0; transform: translateY(12px); }
+                12% { opacity: 1; transform: translateY(0); }
+                70% { opacity: 1; transform: translateY(0); }
+                85% { opacity: 0; transform: translateY(-8px); }
+                100% { opacity: 0; transform: translateY(12px); }
+              }
+              @keyframes stepIconPop {
+                0% { opacity: 0; transform: scale(0); }
+                8% { transform: scale(1.3); }
+                14% { opacity: 1; transform: scale(1); }
+                70% { opacity: 1; transform: scale(1); }
+                85% { opacity: 0; transform: scale(0); }
+                100% { opacity: 0; transform: scale(0); }
+              }
+            `}</style>
           </div>
         </div>
       </div>
@@ -131,15 +156,31 @@ function FinanceCard() {
         <div className="h-px bg-white/5" />
       </div>
 
-      <div className="flex-1 flex flex-col px-5 pt-5 pb-4 gap-3">
-        <img src="/images/figma/Task.svg" alt="Finance task overview" className="w-full" />
+      <div className="flex-1 relative flex flex-col px-5 pt-5 pb-4 gap-3">
+        <img src="/images/figma/image 46.svg" alt="" className="absolute inset-0 w-full h-full object-cover" />
+        <img
+          src="/images/figma/Task.svg"
+          alt="Finance task overview"
+          className="relative w-full animate-[stepReveal_7s_ease-in-out_infinite]"
+          style={{ animationDelay: "0s" }}
+        />
 
-        <div className="p-3 bg-white/5 rounded-xl border border-white/10 flex items-center gap-2.5">
-          <CheckCircle />
+        <div
+          className="p-3 bg-white/5 rounded-xl border border-white/10 flex items-center gap-2.5 animate-[stepReveal_7s_ease-in-out_infinite]"
+          style={{ animationDelay: "0.6s" }}
+        >
+          <div className="animate-[stepIconPop_7s_ease-in-out_infinite]" style={{ animationDelay: "0.8s" }}>
+            <CheckCircle />
+          </div>
           <span className="text-[#CBCACC] text-sm font-semibold font-['Urbanist'] leading-6">Initializing analytics dashboard</span>
         </div>
 
-        <img src="/images/figma/Frame 1707484474.svg" alt="Preparing campaign assets" className="w-full" />
+        <img
+          src="/images/figma/Frame 1707484474.svg"
+          alt="Preparing campaign assets"
+          className="w-full animate-[stepReveal_7s_ease-in-out_infinite]"
+          style={{ animationDelay: "1.2s" }}
+        />
       </div>
     </div>
   );

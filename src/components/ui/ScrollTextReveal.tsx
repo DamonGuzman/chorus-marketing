@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState, type CSSProperties } from "react";
+import { useEffect, useRef, useState, useCallback, type CSSProperties } from "react";
 
 interface ScrollTextRevealProps {
   text: string | string[];
@@ -14,31 +14,35 @@ export function ScrollTextReveal({
   text,
   className,
   style,
-  dimColor = "rgba(255,255,255,0.25)",
+  dimColor = "rgba(255,255,255,0.08)",
   brightColor = "#ffffff",
 }: ScrollTextRevealProps) {
   const containerRef = useRef<HTMLDivElement>(null);
-  const [revealed, setRevealed] = useState(false);
+  const [progress, setProgress] = useState(0);
+
+  const lines = Array.isArray(text) ? text : [text];
+  const totalWords = lines.reduce((sum, line) => sum + line.split(/\s+/).filter(Boolean).length, 0);
+
+  const updateProgress = useCallback(() => {
+    const el = containerRef.current;
+    if (!el) return;
+
+    const rect = el.getBoundingClientRect();
+    const windowH = window.innerHeight;
+    const start = windowH * 0.85;
+    const end = windowH * 0.35;
+    const raw = (start - rect.top) / (start - end);
+    setProgress(Math.max(0, Math.min(1, raw)));
+  }, []);
 
   useEffect(() => {
     const el = containerRef.current;
     if (!el) return;
 
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setRevealed(true);
-          observer.unobserve(el);
-        }
-      },
-      { threshold: 0.3, rootMargin: "0px 0px -60px 0px" },
-    );
-
-    observer.observe(el);
-    return () => observer.disconnect();
-  }, []);
-
-  const lines = Array.isArray(text) ? text : [text];
+    window.addEventListener("scroll", updateProgress, { passive: true });
+    updateProgress();
+    return () => window.removeEventListener("scroll", updateProgress);
+  }, [updateProgress]);
 
   let globalIdx = 0;
 
@@ -49,15 +53,16 @@ export function ScrollTextReveal({
         return (
           <div key={lineIdx} className="block">
             {words.map((word, wordIdx) => {
-              const delay = globalIdx * 40;
+              const wordProgress = totalWords > 1 ? globalIdx / (totalWords - 1) : 0;
+              const isRevealed = progress >= wordProgress;
               globalIdx++;
               return (
                 <span
                   key={`${lineIdx}-${wordIdx}`}
                   className="inline-block mr-[0.3em]"
                   style={{
-                    color: revealed ? brightColor : dimColor,
-                    transition: `color 0.3s ease ${delay}ms`,
+                    color: isRevealed ? brightColor : dimColor,
+                    transition: "color 0.15s ease",
                   }}
                 >
                   {word}
