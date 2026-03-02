@@ -21,12 +21,10 @@ export default function FinancePage() {
           <FinanceHowItWorksSection />
         </AnimateOnScroll>
 
-        <div className="-mt-26 md:-mt-32 px-6 md:px-24">
-          <div className="max-w-[1244px] mx-auto">
-            <AnimateOnScroll animation="fade-up" duration={0.8}>
-              <ChorusWaySection />
-            </AnimateOnScroll>
-          </div>
+        <div className="-mt-16 md:-mt-20">
+          <AnimateOnScroll animation="fade-up" duration={0.8}>
+            <ChorusWaySection maxWidth="1266px" />
+          </AnimateOnScroll>
         </div>
       </main>
 
