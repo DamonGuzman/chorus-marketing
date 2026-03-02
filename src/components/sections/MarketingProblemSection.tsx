@@ -1,7 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 "use client";
 
-import { ScrollTextReveal } from "@/components/ui";
+import { ScrollTextReveal, Badge } from "@/components/ui";
 
 function ReportingCard() {
   return (
@@ -121,9 +121,7 @@ export function MarketingProblemSection() {
     <section className="w-full px-6 md:px-24 py-12 md:py-20 bg-black">
       <div className="max-w-[1266px] mx-auto flex flex-col gap-6">
         <div className="flex flex-col items-center gap-6">
-          <div className="w-36 h-9 px-3 py-1 bg-white/5 rounded-full flex justify-center items-center">
-            <span className="text-white text-base font-bold font-['Urbanist']">The Problem</span>
-          </div>
+          <Badge>The Problem</Badge>
           <div className="flex flex-col items-center gap-8">
             <ScrollTextReveal
               text="The Problem - What's Broken Today"
