@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useCallback, useEffect } from "react";
+import { useState, useCallback, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import { AnimateOnScroll, Badge, ScrollTextReveal } from "@/components/ui";
 
@@ -22,6 +22,65 @@ function OrbitIcon({ children }: { children: React.ReactNode }) {
       }}
     >
       {children}
+    </div>
+  );
+}
+
+/* ── Animated SVG timeline for card 1 ── */
+
+const TIMELINE_ROWS = [
+  { clipTop: 0, clipBottom: 29.5 },
+  { clipTop: 28.5, clipBottom: 53 },
+  { clipTop: 52, clipBottom: 77 },
+  { clipTop: 76, clipBottom: 100 },
+];
+const TL_STAGGER = 0.55;
+const TL_LOOP_S = 4;
+
+function AnimatedTimelineSVG() {
+  const [cycle, setCycle] = useState(0);
+
+  useEffect(() => {
+    const timer = setTimeout(() => setCycle((c) => c + 1), TL_LOOP_S * 1000);
+    return () => clearTimeout(timer);
+  }, [cycle]);
+
+  return (
+    <div className="relative w-full max-w-[473px]">
+      {/* invisible layout image to set the container size */}
+      <img
+        src="/images/figma/difference1.svg"
+        alt="Adaptive Intelligence preview"
+        loading="lazy"
+        className="w-full h-auto invisible"
+      />
+
+      {TIMELINE_ROWS.map((row, idx) => {
+        const fromRight = idx % 2 === 0;
+        return (
+          <motion.div
+            key={`${cycle}-${idx}`}
+            className="absolute inset-0"
+            style={{
+              clipPath: `inset(${row.clipTop}% 0 ${100 - row.clipBottom}% 0)`,
+            }}
+            initial={{ opacity: 0, x: fromRight ? 40 : -40 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{
+              duration: 0.6,
+              delay: idx * TL_STAGGER,
+              ease: [0.25, 0.1, 0.25, 1],
+            }}
+          >
+            <img
+              src="/images/figma/difference1.svg"
+              alt=""
+              className="w-full h-auto"
+              aria-hidden
+            />
+          </motion.div>
+        );
+      })}
     </div>
   );
 }
@@ -91,6 +150,44 @@ function OrbitalAnimation() {
   );
 }
 
+/* ── Step-by-step scrolling image for card 2 ── */
+
+const STEP_COUNT = 5;
+const STEP_HEIGHT_PX = 72;
+const STEP_PAUSE_MS = 2000;
+
+function ScrollingImage({ src, alt, paused }: { src: string; alt: string; paused?: boolean }) {
+  const [step, setStep] = useState(0);
+  const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);
+
+  useEffect(() => {
+    if (paused) {
+      if (timerRef.current) { clearInterval(timerRef.current); timerRef.current = null; }
+      return;
+    }
+    timerRef.current = setInterval(() => {
+      setStep((prev) => (prev + 1) % STEP_COUNT);
+    }, STEP_PAUSE_MS);
+    return () => { if (timerRef.current) clearInterval(timerRef.current); };
+  }, [paused]);
+
+  const offset = step * STEP_HEIGHT_PX;
+
+  return (
+    <div className="relative w-full max-w-[530px] overflow-hidden md:translate-x-16" style={{ height: 340 }}>
+      <div className="absolute inset-x-0 top-0 h-16 z-10 pointer-events-none" style={{ background: "linear-gradient(to bottom, #000 0%, transparent 100%)" }} />
+      <div className="absolute inset-x-0 bottom-0 h-16 z-10 pointer-events-none" style={{ background: "linear-gradient(to top, #000 0%, transparent 100%)" }} />
+      <div
+        className="transition-transform duration-700 ease-[cubic-bezier(0.4,0,0.2,1)]"
+        style={{ transform: `translateY(-${offset}px)` }}
+      >
+        <img src={src} alt={alt} loading="lazy" className="w-full h-auto" />
+        <img src={src} alt="" loading="lazy" className="w-full h-auto" aria-hidden />
+      </div>
+    </div>
+  );
+}
+
 /* ── Card data ── */
 
 interface CardData {
@@ -98,7 +195,7 @@ interface CardData {
   title: string;
   descriptions: string[];
   checkItems: string[];
-  visualType: "image" | "orbital";
+  visualType: "image" | "orbital" | "scrollingImage" | "animatedTimeline";
   imageSrc?: string;
   imageAlt?: string;
 }
@@ -117,7 +214,7 @@ const CARDS: CardData[] = [
       "Your quality standards",
       "Your strategic priorities",
     ],
-    visualType: "image",
+    visualType: "animatedTimeline",
     imageSrc: "/images/figma/difference1.svg",
     imageAlt: "Adaptive Intelligence preview",
   },
@@ -134,7 +231,7 @@ const CARDS: CardData[] = [
       "Output they're creating",
       "Output they're creating",
     ],
-    visualType: "image",
+    visualType: "scrollingImage",
     imageSrc: "/images/figma/difference2.svg",
     imageAlt: "Transparent Operation preview",
   },
@@ -155,7 +252,7 @@ const CARDS: CardData[] = [
 
 /* ── Shared card content renderer ── */
 
-function CardContent({ card }: { card: CardData }) {
+function CardContent({ card, paused }: { card: CardData; paused?: boolean }) {
   return (
     <div className="py-5 px-4 md:py-[60px] md:px-[56px] min-h-[480px] md:min-h-0">
       <div className="flex flex-col md:flex-row items-center gap-[30px] md:gap-[22px]">
@@ -180,6 +277,18 @@ function CardContent({ card }: { card: CardData }) {
               >
                 <OrbitalAnimation />
               </div>
+            </div>
+          )}
+
+          {card.visualType === "animatedTimeline" && (
+            <div className="md:hidden w-full flex justify-center">
+              <AnimatedTimelineSVG />
+            </div>
+          )}
+
+          {card.visualType === "scrollingImage" && (
+            <div className="md:hidden w-full">
+              <ScrollingImage src={card.imageSrc!} alt={card.imageAlt || ""} paused={paused} />
             </div>
           )}
 
@@ -230,9 +339,17 @@ function CardContent({ card }: { card: CardData }) {
           <div className="relative flex-1 min-h-[420px] hidden md:flex items-center justify-center">
             <OrbitalAnimation />
           </div>
+        ) : card.visualType === "animatedTimeline" ? (
+          <div className="relative flex-1 w-full hidden md:flex items-center justify-center md:justify-end md:min-h-[440px] max-w-[520px] md:translate-x-16">
+            <AnimatedTimelineSVG />
+          </div>
+        ) : card.visualType === "scrollingImage" ? (
+          <div className="relative flex-1 w-full flex items-center justify-center md:justify-end md:min-h-[440px] max-w-[570px]">
+            <ScrollingImage src={card.imageSrc!} alt={card.imageAlt || ""} paused={paused} />
+          </div>
         ) : (
-          <div className={`relative flex-1 w-full flex items-center justify-center md:justify-end md:min-h-[440px] ${card.number === 2 ? "max-w-[570px]" : "max-w-[520px]"}`}>
-            <img src={card.imageSrc} alt={card.imageAlt || ""} loading="lazy" className={`w-full h-auto md:translate-x-16 ${card.number === 2 ? "max-w-[530px]" : "max-w-[473px]"}`} />
+          <div className={`relative flex-1 w-full flex items-center justify-center md:justify-end md:min-h-[440px] max-w-[520px]`}>
+            <img src={card.imageSrc} alt={card.imageAlt || ""} loading="lazy" className="w-full h-auto md:translate-x-16 max-w-[473px]" />
           </div>
         )}
       </div>
@@ -266,6 +383,7 @@ function useIsMd() {
 
 export function FeaturesCardSection() {
   const [order, setOrder] = useState([2, 1, 0]);
+  const [hovered, setHovered] = useState(false);
   const isMd = useIsMd();
 
   const handleNext = useCallback(() => {
@@ -292,7 +410,11 @@ export function FeaturesCardSection() {
 
         {/* ── Card Deck — each card is an independent element that swaps position ── */}
         <div className="w-full max-w-[1220px]">
-          <div className="flex flex-col items-center w-full gap-0 min-h-[500px] md:min-h-[650px]">
+          <div
+            className="group/deck flex flex-col items-center w-full gap-0 min-h-[500px] md:min-h-[650px]"
+            onMouseEnter={() => setHovered(true)}
+            onMouseLeave={() => setHovered(false)}
+          >
             {CARDS.map((card, i) => {
               const pos = order.indexOf(i);
               const isFront = pos === 0;
@@ -304,10 +426,10 @@ export function FeaturesCardSection() {
                   key={i}
                   layout="position"
                   initial={false}
-                  className={`overflow-hidden cursor-pointer ${
+                  className={`overflow-hidden cursor-pointer transition-[filter,opacity] duration-500 ${
                     isFront
-                      ? "rounded-3xl md:rounded-[60px]"
-                      : "rounded-t-xl md:rounded-t-[37px]"
+                      ? "rounded-3xl md:rounded-[60px] hover:!blur-none hover:!opacity-100"
+                      : "rounded-t-xl md:rounded-t-[37px] group-hover/deck:blur-[3px] group-hover/deck:opacity-40"
                   }`}
                   animate={{
                       height: isFront ? "auto" : isMd ? 35 : 18,
@@ -344,7 +466,7 @@ export function FeaturesCardSection() {
                       : undefined
                   }
                 >
-                  <CardContent card={card} />
+                  <CardContent card={card} paused={hovered} />
                 </motion.div>
               );
             })}
