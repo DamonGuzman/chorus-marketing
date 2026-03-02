@@ -1,6 +1,8 @@
 /* eslint-disable @next/next/no-img-element */
+"use client";
 
 import { PRIMARY_CTA_HREF } from "@/content/site";
+import { ScrollTextReveal, Badge, AnimateOnScroll } from "@/components/ui";
 
 export function SalesProblemSection() {
   return (
@@ -8,17 +10,15 @@ export function SalesProblemSection() {
       {/* Section header */}
       <div className="max-w-[1266px] mx-auto flex flex-col gap-6">
         <div className="flex flex-col gap-6">
-          <div className="relative w-36 h-9 rounded-[100px] overflow-hidden hidden md:inline-flex justify-center items-center">
-            <span aria-hidden="true" className="absolute inset-0 rounded-[100px] bg-gradient-to-b from-white/30 to-white/[0.04]" />
-            <span aria-hidden="true" className="cta-orbit-ring cta-orbit-ring--pill" />
-            <span aria-hidden="true" className="absolute inset-[1px] rounded-[100px] bg-[#131313]" />
-            <span className="relative z-10 text-white text-base font-bold font-['Urbanist'] leading-6">The Problem</span>
+          <div className="hidden md:block">
+            <Badge>The Problem</Badge>
           </div>
           <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end gap-6">
             <div className="flex flex-col gap-6 md:gap-8">
-              <h2 className="text-white text-2xl md:text-5xl font-bold font-['Urbanist'] leading-tight md:leading-[78px] text-center md:text-left">
-                The Problem - What&apos;s Broken<br className="md:hidden" /> Today
-              </h2>
+              <ScrollTextReveal
+                text="The Problem - What's Broken Today"
+                className="text-white text-2xl md:text-5xl font-bold font-['Urbanist'] leading-tight md:leading-[78px] text-center md:text-left"
+              />
               <p className="text-gray-300 text-sm md:text-2xl font-medium font-['Urbanist'] leading-5 md:leading-9 text-center md:text-left">
                 <span className="md:hidden">The Difference That Changes Everything</span>
                 <span className="hidden md:inline">Automate prospecting, enrichment, outreach, follow-ups, CRM updates</span>
@@ -48,16 +48,18 @@ export function SalesProblemSection() {
                   </span>
                 </div>
                 <div className="px-3.5 flex flex-col items-center">
-                  <h3 className="w-full max-w-[509px] text-center text-zinc-100 text-lg md:text-5xl font-bold font-['Urbanist'] leading-snug md:leading-[48px]">
-                    <span className="md:hidden">Important customer insights<br />never make it into the system.</span>
-                    <span className="hidden md:inline">Important customer insights never make it into the system.</span>
-                  </h3>
+                  <ScrollTextReveal
+                    text="Important customer insights never make it into the system."
+                    className="w-full max-w-[509px] text-center text-zinc-100 text-lg md:text-5xl font-bold font-['Urbanist'] leading-snug md:leading-[48px]"
+                  />
                 </div>
-                <div className="w-full max-w-[493px] px-5 flex flex-col items-center">
-                  <p className="text-center text-zinc-400 text-xs md:text-lg font-light font-['Urbanist'] leading-5 md:leading-7">
-                    Blocks are carefully crafted to help you distill powerful messages from your information and data - no matter how complex.
-                  </p>
-                </div>
+                <AnimateOnScroll animation="fade-up" duration={0.6} delay={0.2}>
+                  <div className="w-full max-w-[493px] px-5 flex flex-col items-center">
+                    <p className="text-center text-zinc-400 text-xs md:text-lg font-light font-['Urbanist'] leading-5 md:leading-7">
+                      Blocks are carefully crafted to help you distill powerful messages from your information and data - no matter how complex.
+                    </p>
+                  </div>
+                </AnimateOnScroll>
               </div>
             </div>
             <div className="flex-1 relative overflow-hidden -mt-8 md:mt-0 min-h-[300px] md:min-h-0">
@@ -103,12 +105,15 @@ export function SalesProblemSection() {
                     </span>
                   </div>
                   <div className="flex flex-col gap-3 md:gap-[29px]">
-                    <h3 className="max-w-[403px] text-zinc-100 text-xl md:text-4xl font-bold font-['Satoshi'] leading-snug md:leading-10 text-center md:text-left">
-                      Repetitive outreach and endless follow-ups drain motivation.
-                    </h3>
-                    <p className="max-w-[372px] text-zinc-400 text-sm md:text-lg font-light font-['Satoshi'] leading-5 md:leading-7 text-center md:text-left">
-                      Blocks are responsive and designed to be customised easily. No matter how you edit, they will always look stunning.
-                    </p>
+                    <ScrollTextReveal
+                      text="Repetitive outreach and endless follow-ups drain motivation."
+                      className="max-w-[403px] text-zinc-100 text-xl md:text-4xl font-bold font-['Urbanist'] leading-snug md:leading-10 text-center md:text-left"
+                    />
+                    <AnimateOnScroll animation="fade-up" duration={0.6} delay={0.2}>
+                      <p className="max-w-[372px] text-zinc-400 text-sm md:text-lg font-light font-['Satoshi'] leading-5 md:leading-7 text-center md:text-left">
+                        Blocks are responsive and designed to be customised easily. No matter how you edit, they will always look stunning.
+                      </p>
+                    </AnimateOnScroll>
                   </div>
                 </div>
               </div>
@@ -134,12 +139,15 @@ export function SalesProblemSection() {
                     </span>
                   </div>
                   <div className="flex flex-col gap-3 md:gap-[46px]">
-                    <h3 className="text-zinc-100 text-xl md:text-4xl font-bold font-['Urbanist'] leading-snug md:leading-10 text-center md:text-left">
-                      Prospecting requires jumping between LinkedIn, spreadsheets, and CRMs.
-                    </h3>
-                    <p className="max-w-[400px] text-zinc-400 text-sm md:text-lg font-light font-['Satoshi'] leading-5 md:leading-7 tracking-[-0.18px] text-center md:text-left">
-                      Simply paste a link to any of the hundreds of tools you use and Chronicle will seamlessly package your outputs.
-                    </p>
+                    <ScrollTextReveal
+                      text="Prospecting requires jumping between LinkedIn, spreadsheets, and CRMs."
+                      className="text-zinc-100 text-xl md:text-4xl font-bold font-['Urbanist'] leading-snug md:leading-10 text-center md:text-left"
+                    />
+                    <AnimateOnScroll animation="fade-up" duration={0.6} delay={0.2}>
+                      <p className="max-w-[400px] text-zinc-400 text-sm md:text-lg font-light font-['Satoshi'] leading-5 md:leading-7 tracking-[-0.18px] text-center md:text-left">
+                        Simply paste a link to any of the hundreds of tools you use and Chronicle will seamlessly package your outputs.
+                      </p>
+                    </AnimateOnScroll>
                   </div>
                 </div>
               </div>

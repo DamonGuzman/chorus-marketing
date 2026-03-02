@@ -1,4 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
+"use client";
+
+import { ScrollTextReveal, Badge, AnimateOnScroll } from "@/components/ui";
 
 function CheckCircleGreen() {
   return (
@@ -385,14 +388,11 @@ export function SalesHowItWorksSection() {
       <div className="max-w-[1266px] mx-auto flex flex-col gap-10 md:gap-14">
         {/* Section header */}
         <div className="flex flex-col items-center gap-3 md:gap-8 text-center">
-          <div className="md:hidden relative h-9 rounded-[100px] overflow-hidden inline-flex justify-center items-center px-5">
-            <span aria-hidden="true" className="absolute inset-0 rounded-[100px] bg-gradient-to-b from-white/30 to-white/[0.04]" />
-            <span aria-hidden="true" className="absolute inset-[1px] rounded-[100px] bg-[#131313]" />
-            <span className="relative z-10 text-white text-base font-semibold font-['Urbanist'] leading-6">How it Works</span>
-          </div>
-          <h2 className="text-white text-2xl md:text-[50px] font-bold font-['Urbanist'] leading-tight md:leading-[78px] tracking-[-0.5px]">
-            How Work Happens
-          </h2>
+          <Badge className="md:hidden">How it Works</Badge>
+          <ScrollTextReveal
+            text="How Work Happens"
+            className="text-white text-2xl md:text-[50px] font-bold font-['Urbanist'] leading-tight md:leading-[78px] tracking-[-0.5px]"
+          />
           <p className="text-gray-300 text-sm md:text-[28px] font-medium font-['Urbanist'] leading-5 md:leading-[44px]">
             <span className="md:hidden">The Difference That Changes Everything</span>
             <span className="hidden md:inline">Automate prospecting, enrichment, outreach, follow-ups, CRM updates, and reporting</span>
@@ -413,27 +413,34 @@ export function SalesHowItWorksSection() {
                 />
               </div>
               <div className="flex flex-col gap-6 md:gap-[49px] max-w-[573px]">
-                <h3 className="text-[#cbcacc] text-2xl md:text-[40px] font-bold font-['Urbanist'] leading-tight md:leading-[54px] pl-3 md:pl-0">
-                  1. Sales Strategy Agent activates
-                </h3>
-                <div className="inline-flex items-start gap-5">
-                  <img src="/images/figma/Arrow.svg" alt="" className="w-8.5 h-8.5 md:w-7 md:h-7 shrink-0" />
-                  <p className="max-w-[529px] text-[#7d7c83] text-sm font-medium font-['Urbanist'] leading-6">
-                    Our simple drag-and-drop editor lets you dynamically change your email&apos;s content, images, and CTAs.
-                  </p>
-                </div>
-                <div className="inline-flex items-start gap-5">
-                  <img src="/images/figma/Arrow.svg" alt="" className="w-8.5 h-8.5 md:w-7 md:h-7 shrink-0" />
-                  <p className="max-w-[525px] text-[#7d7c83] text-sm font-medium font-['Urbanist'] leading-6">
-                    Connect with your recipients through every email by using interactive elements like polls, surveys, attachments, GIFs, images, videos, and reply tracking.
-                  </p>
-                </div>
-                <div className="inline-flex items-start gap-5">
-                  <img src="/images/figma/Arrow.svg" alt="" className="w-8.5 h-8.5 md:w-7 md:h-7 shrink-0" />
-                  <p className="max-w-[497px] text-[#7d7c83] text-sm font-medium font-['Urbanist'] leading-6">
-                    Take the guess work out of your campaign&apos;s content by testing in real time which version of your campaign performs best with your audience. A or B?
-                  </p>
-                </div>
+                <ScrollTextReveal
+                  text="1. Sales Strategy Agent activates"
+                  className="text-[#cbcacc] text-2xl md:text-[40px] font-bold font-['Urbanist'] leading-tight md:leading-[54px] pl-3 md:pl-0"
+                />
+                <AnimateOnScroll animation="fade-up" duration={0.6} delay={0.15}>
+                  <div className="inline-flex items-start gap-5">
+                    <img src="/images/figma/Arrow.svg" alt="" className="w-8.5 h-8.5 md:w-7 md:h-7 shrink-0" />
+                    <p className="max-w-[529px] text-[#7d7c83] text-sm font-medium font-['Urbanist'] leading-6">
+                      Our simple drag-and-drop editor lets you dynamically change your email&apos;s content, images, and CTAs.
+                    </p>
+                  </div>
+                </AnimateOnScroll>
+                <AnimateOnScroll animation="fade-up" duration={0.6} delay={0.3}>
+                  <div className="inline-flex items-start gap-5">
+                    <img src="/images/figma/Arrow.svg" alt="" className="w-8.5 h-8.5 md:w-7 md:h-7 shrink-0" />
+                    <p className="max-w-[525px] text-[#7d7c83] text-sm font-medium font-['Urbanist'] leading-6">
+                      Connect with your recipients through every email by using interactive elements like polls, surveys, attachments, GIFs, images, videos, and reply tracking.
+                    </p>
+                  </div>
+                </AnimateOnScroll>
+                <AnimateOnScroll animation="fade-up" duration={0.6} delay={0.45}>
+                  <div className="inline-flex items-start gap-5">
+                    <img src="/images/figma/Arrow.svg" alt="" className="w-8.5 h-8.5 md:w-7 md:h-7 shrink-0" />
+                    <p className="max-w-[497px] text-[#7d7c83] text-sm font-medium font-['Urbanist'] leading-6">
+                      Take the guess work out of your campaign&apos;s content by testing in real time which version of your campaign performs best with your audience. A or B?
+                    </p>
+                  </div>
+                </AnimateOnScroll>
               </div>
             </div>
             <div className="w-full lg:w-[581px] lg:shrink-0">
@@ -458,27 +465,34 @@ export function SalesHowItWorksSection() {
                 />
               </div>
               <div className="flex flex-col gap-6 md:gap-[49px] max-w-[573px]">
-                <h3 className="text-[#cbcacc] text-2xl md:text-[40px] font-bold font-['Urbanist'] leading-tight md:leading-[54px] pl-3 md:pl-0">
-                  2. Generate Lead List
-                </h3>
-                <div className="inline-flex items-start gap-5">
-                  <img src="/images/figma/Arrow.svg" alt="" className="w-9 h-9 md:w-7 md:h-7 shrink-0" />
-                  <p className="max-w-[529px] text-[#7d7c83] text-sm font-medium font-['Urbanist'] leading-6">
-                    Our simple drag-and-drop editor lets you dynamically change your email&apos;s content, images, and CTAs.
-                  </p>
-                </div>
-                <div className="inline-flex items-start gap-5">
-                  <img src="/images/figma/Arrow.svg" alt="" className="w-9 h-9 md:w-7 md:h-7 shrink-0" />
-                  <p className="max-w-[525px] text-[#7d7c83] text-sm font-medium font-['Urbanist'] leading-6">
-                    Connect with your recipients through every email by using interactive elements like polls, surveys, attachments, GIFs, images, videos, and reply tracking.
-                  </p>
-                </div>
-                <div className="inline-flex items-start gap-5">
-                  <img src="/images/figma/Arrow.svg" alt="" className="w-9 h-9 md:w-7 md:h-7 shrink-0" />
-                  <p className="max-w-[497px] text-[#7d7c83] text-sm font-medium font-['Urbanist'] leading-6">
-                    Take the guess work out of your campaign&apos;s content by testing in real time which version of your campaign performs best with your audience. A or B?
-                  </p>
-                </div>
+                <ScrollTextReveal
+                  text="2. Generate Lead List"
+                  className="text-[#cbcacc] text-2xl md:text-[40px] font-bold font-['Urbanist'] leading-tight md:leading-[54px] pl-3 md:pl-0"
+                />
+                <AnimateOnScroll animation="fade-up" duration={0.6} delay={0.15}>
+                  <div className="inline-flex items-start gap-5">
+                    <img src="/images/figma/Arrow.svg" alt="" className="w-9 h-9 md:w-7 md:h-7 shrink-0" />
+                    <p className="max-w-[529px] text-[#7d7c83] text-sm font-medium font-['Urbanist'] leading-6">
+                      Our simple drag-and-drop editor lets you dynamically change your email&apos;s content, images, and CTAs.
+                    </p>
+                  </div>
+                </AnimateOnScroll>
+                <AnimateOnScroll animation="fade-up" duration={0.6} delay={0.3}>
+                  <div className="inline-flex items-start gap-5">
+                    <img src="/images/figma/Arrow.svg" alt="" className="w-9 h-9 md:w-7 md:h-7 shrink-0" />
+                    <p className="max-w-[525px] text-[#7d7c83] text-sm font-medium font-['Urbanist'] leading-6">
+                      Connect with your recipients through every email by using interactive elements like polls, surveys, attachments, GIFs, images, videos, and reply tracking.
+                    </p>
+                  </div>
+                </AnimateOnScroll>
+                <AnimateOnScroll animation="fade-up" duration={0.6} delay={0.45}>
+                  <div className="inline-flex items-start gap-5">
+                    <img src="/images/figma/Arrow.svg" alt="" className="w-9 h-9 md:w-7 md:h-7 shrink-0" />
+                    <p className="max-w-[497px] text-[#7d7c83] text-sm font-medium font-['Urbanist'] leading-6">
+                      Take the guess work out of your campaign&apos;s content by testing in real time which version of your campaign performs best with your audience. A or B?
+                    </p>
+                  </div>
+                </AnimateOnScroll>
               </div>
             </div>
             {/* Left: Setup checklist card */}
@@ -537,27 +551,34 @@ export function SalesHowItWorksSection() {
                 />
               </div>
               <div className="flex flex-col gap-5 md:gap-[49px] max-w-[573px]">
-                <h3 className="text-[#cbcacc] text-2xl md:text-[40px] font-bold font-['Urbanist'] leading-tight md:leading-[54px] pl-3 md:pl-0">
-                  3. Launch Outreach
-                </h3>
-                <div className="inline-flex items-start gap-5">
-                  <img src="/images/figma/Arrow.svg" alt="" className="w-9 h-9 md:w-7 md:h-7 shrink-0" />
-                  <p className="max-w-[529px] text-[#7d7c83] text-sm font-medium font-['Urbanist'] leading-6">
-                    Our simple drag-and-drop editor lets you dynamically change your email&apos;s content, images, and CTAs.
-                  </p>
-                </div>
-                <div className="inline-flex items-start gap-5">
-                  <img src="/images/figma/Arrow.svg" alt="" className="w-9 h-9 md:w-7 md:h-7 shrink-0" />
-                  <p className="max-w-[525px] text-[#7d7c83] text-sm font-medium font-['Urbanist'] leading-6">
-                    Connect with your recipients through every email by using interactive elements like polls, surveys, attachments, GIFs, images, videos, and reply tracking.
-                  </p>
-                </div>
-                <div className="inline-flex items-start gap-5">
-                  <img src="/images/figma/Arrow.svg" alt="" className="w-9 h-9 md:w-7 md:h-7 shrink-0" />
-                  <p className="max-w-[497px] text-[#7d7c83] text-sm font-medium font-['Urbanist'] leading-6">
-                    Take the guess work out of your campaign&apos;s content by testing in real time which version of your campaign performs best with your audience. A or B?
-                  </p>
-                </div>
+                <ScrollTextReveal
+                  text="3. Launch Outreach"
+                  className="text-[#cbcacc] text-2xl md:text-[40px] font-bold font-['Urbanist'] leading-tight md:leading-[54px] pl-3 md:pl-0"
+                />
+                <AnimateOnScroll animation="fade-up" duration={0.6} delay={0.15}>
+                  <div className="inline-flex items-start gap-5">
+                    <img src="/images/figma/Arrow.svg" alt="" className="w-9 h-9 md:w-7 md:h-7 shrink-0" />
+                    <p className="max-w-[529px] text-[#7d7c83] text-sm font-medium font-['Urbanist'] leading-6">
+                      Our simple drag-and-drop editor lets you dynamically change your email&apos;s content, images, and CTAs.
+                    </p>
+                  </div>
+                </AnimateOnScroll>
+                <AnimateOnScroll animation="fade-up" duration={0.6} delay={0.3}>
+                  <div className="inline-flex items-start gap-5">
+                    <img src="/images/figma/Arrow.svg" alt="" className="w-9 h-9 md:w-7 md:h-7 shrink-0" />
+                    <p className="max-w-[525px] text-[#7d7c83] text-sm font-medium font-['Urbanist'] leading-6">
+                      Connect with your recipients through every email by using interactive elements like polls, surveys, attachments, GIFs, images, videos, and reply tracking.
+                    </p>
+                  </div>
+                </AnimateOnScroll>
+                <AnimateOnScroll animation="fade-up" duration={0.6} delay={0.45}>
+                  <div className="inline-flex items-start gap-5">
+                    <img src="/images/figma/Arrow.svg" alt="" className="w-9 h-9 md:w-7 md:h-7 shrink-0" />
+                    <p className="max-w-[497px] text-[#7d7c83] text-sm font-medium font-['Urbanist'] leading-6">
+                      Take the guess work out of your campaign&apos;s content by testing in real time which version of your campaign performs best with your audience. A or B?
+                    </p>
+                  </div>
+                </AnimateOnScroll>
               </div>
             </div>
             <OutreachCard />
@@ -575,27 +596,34 @@ export function SalesHowItWorksSection() {
                 />
               </div>
               <div className="flex flex-col gap-5 md:gap-[49px] max-w-[573px]">
-                <h3 className="text-[#cbcacc] text-2xl md:text-[40px] font-bold font-['Urbanist'] leading-tight md:leading-[54px] pl-3 md:pl-0">
-                  4. Update CRM &amp; Report
-                </h3>
-                <div className="inline-flex items-start gap-5">
-                  <img src="/images/figma/Arrow.svg" alt="" className="w-9 h-9 md:w-7 md:h-7 shrink-0" />
-                  <p className="max-w-[529px] text-[#7d7c83] text-sm font-medium font-['Urbanist'] leading-6">
-                    Our simple drag-and-drop editor lets you dynamically change your email&apos;s content, images, and CTAs.
-                  </p>
-                </div>
-                <div className="inline-flex items-start gap-5">
-                  <img src="/images/figma/Arrow.svg" alt="" className="w-9 h-9 md:w-7 md:h-7 shrink-0" />
-                  <p className="max-w-[525px] text-[#7d7c83] text-sm font-medium font-['Urbanist'] leading-6">
-                    Connect with your recipients through every email by using interactive elements like polls, surveys, attachments, GIFs, images, videos, and reply tracking.
-                  </p>
-                </div>
-                <div className="inline-flex items-start gap-5">
-                  <img src="/images/figma/Arrow.svg" alt="" className="w-9 h-9 md:w-7 md:h-7 shrink-0" />
-                  <p className="max-w-[497px] text-[#7d7c83] text-sm font-medium font-['Urbanist'] leading-6">
-                    Take the guess work out of your campaign&apos;s content by testing in real time which version of your campaign performs best with your audience. A or B?
-                  </p>
-                </div>
+                <ScrollTextReveal
+                  text="4. Update CRM & Report"
+                  className="text-[#cbcacc] text-2xl md:text-[40px] font-bold font-['Urbanist'] leading-tight md:leading-[54px] pl-3 md:pl-0"
+                />
+                <AnimateOnScroll animation="fade-up" duration={0.6} delay={0.15}>
+                  <div className="inline-flex items-start gap-5">
+                    <img src="/images/figma/Arrow.svg" alt="" className="w-9 h-9 md:w-7 md:h-7 shrink-0" />
+                    <p className="max-w-[529px] text-[#7d7c83] text-sm font-medium font-['Urbanist'] leading-6">
+                      Our simple drag-and-drop editor lets you dynamically change your email&apos;s content, images, and CTAs.
+                    </p>
+                  </div>
+                </AnimateOnScroll>
+                <AnimateOnScroll animation="fade-up" duration={0.6} delay={0.3}>
+                  <div className="inline-flex items-start gap-5">
+                    <img src="/images/figma/Arrow.svg" alt="" className="w-9 h-9 md:w-7 md:h-7 shrink-0" />
+                    <p className="max-w-[525px] text-[#7d7c83] text-sm font-medium font-['Urbanist'] leading-6">
+                      Connect with your recipients through every email by using interactive elements like polls, surveys, attachments, GIFs, images, videos, and reply tracking.
+                    </p>
+                  </div>
+                </AnimateOnScroll>
+                <AnimateOnScroll animation="fade-up" duration={0.6} delay={0.45}>
+                  <div className="inline-flex items-start gap-5">
+                    <img src="/images/figma/Arrow.svg" alt="" className="w-9 h-9 md:w-7 md:h-7 shrink-0" />
+                    <p className="max-w-[497px] text-[#7d7c83] text-sm font-medium font-['Urbanist'] leading-6">
+                      Take the guess work out of your campaign&apos;s content by testing in real time which version of your campaign performs best with your audience. A or B?
+                    </p>
+                  </div>
+                </AnimateOnScroll>
               </div>
             </div>
             <ApiConnectionCard />
