@@ -1,21 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 "use client";
 
-function ProgressBar({ step, total = 4 }: { step: number; total?: number }) {
-  return (
-    <div className="hidden lg:flex flex-col items-center gap-2">
-      <span className="text-[#CBCACC] text-sm font-normal font-['Urbanist']">
-        {String(step).padStart(2, "0")}
-      </span>
-      <div className="w-1 h-96 bg-neutral-800 rounded-full overflow-hidden relative">
-        <div className="w-1 bg-violet-400 rounded-full absolute top-0 left-0" style={{ height: `${(step / total) * 100}%` }} />
-      </div>
-      <span className="text-zinc-400/40 text-sm font-normal font-['Urbanist']">
-        {String(total).padStart(2, "0")}
-      </span>
-    </div>
-  );
-}
+import { useRef, useState, useEffect } from "react";
 
 function StepLabel({ step }: { step: number }) {
   return (
@@ -269,46 +255,213 @@ function Step4Visual() {
   );
 }
 
-interface StepSectionProps {
+/* ------------------------------------------------------------------ */
+/*  Sticky Scroll Components (Desktop lg+)                           */
+/* ------------------------------------------------------------------ */
+
+interface StepData {
   step: number;
   title: string;
   description: string;
   visual: React.ReactNode;
 }
 
-function StepSection({ step, title, description, visual }: StepSectionProps) {
-  return (
-    <div className="w-full max-w-[1266px] mx-auto px-4 md:px-8 py-8 md:py-12">
-      <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-0">
-        {/* Left: Text */}
-        <div className="flex-1 flex items-center">
-          <div className="w-full max-w-[569px] flex flex-col gap-10">
-            <StepLabel step={step} />
-            <h3 className="text-zinc-100 text-4xl md:text-6xl lg:text-7xl xl:text-8xl font-bold font-['Urbanist'] leading-tight lg:leading-[88px]">
-              {title.split("\n").map((line, i) => (
-                <span key={i}>{i > 0 && <br />}{line}</span>
-              ))}
-            </h3>
-            <p className="text-zinc-400 text-base font-normal font-['Urbanist'] leading-6 pr-0 lg:pr-32">
-              {description}
-            </p>
-          </div>
-        </div>
+function StickyProgressBar({ normalised, total }: { normalised: number; total: number }) {
+  const barProgress = normalised / (total - 1);
+  const currentStep = Math.min(Math.round(normalised), total - 1) + 1;
 
-        {/* Right: Visual + Progress */}
-        <div className="flex items-center gap-4">
-          <div className="flex justify-center">
-            {visual}
+  return (
+    <div className="flex flex-col items-center gap-2 shrink-0">
+      <span className="text-[#CBCACC] text-sm font-normal font-['Urbanist'] transition-all duration-300">
+        {String(currentStep).padStart(2, "0")}
+      </span>
+      <div className="w-1 h-96 bg-neutral-800 rounded-full overflow-hidden relative">
+        <div
+          className="w-1 bg-violet-400 rounded-full absolute top-0 left-0 transition-[height] duration-300 ease-out"
+          style={{ height: `${Math.max(0, Math.min(1, barProgress)) * 100}%` }}
+        />
+      </div>
+      <span className="text-zinc-400/40 text-sm font-normal font-['Urbanist']">
+        {String(total).padStart(2, "0")}
+      </span>
+    </div>
+  );
+}
+
+function StickyTextContent({
+  step,
+  index,
+  normalised,
+  total,
+}: {
+  step: StepData;
+  index: number;
+  normalised: number;
+  total: number;
+}) {
+  const isFirst = index === 0;
+  const isLast = index === total - 1;
+  const dist = normalised - index;
+
+  let opacity: number;
+  let yOffset: number;
+
+  if (isFirst && dist <= 0) { opacity = 1; yOffset = 0; }
+  else if (isLast && dist >= 0) { opacity = 1; yOffset = 0; }
+  else {
+    const absDist = Math.abs(dist);
+    if (absDist <= 0.4) { opacity = 1; yOffset = 0; }
+    else if (absDist < 0.6) {
+      opacity = 1 - (absDist - 0.4) / 0.2;
+      yOffset = (dist > 0 ? -1 : 1) * Math.min((absDist - 0.4) * 100, 30);
+    }
+    else { opacity = 0; yOffset = (dist > 0 ? -1 : 1) * 30; }
+  }
+
+  return (
+    <div
+      className="absolute inset-0 flex flex-col gap-10 transition-[opacity,transform] duration-300 ease-out"
+      style={{ opacity, transform: `translateY(${yOffset}px)`, pointerEvents: opacity > 0.5 ? "auto" : "none" }}
+    >
+      <StepLabel step={step.step} />
+      <h3 className="text-zinc-100 text-4xl md:text-6xl lg:text-7xl xl:text-8xl font-bold font-['Urbanist'] leading-tight lg:leading-[88px]">
+        {step.title.split("\n").map((line, i) => (
+          <span key={i}>{i > 0 && <br />}{line}</span>
+        ))}
+      </h3>
+      <p className="text-zinc-400 text-base font-normal font-['Urbanist'] leading-6 pr-0 lg:pr-32">
+        {step.description}
+      </p>
+    </div>
+  );
+}
+
+function StickyVisualContent({
+  visual,
+  index,
+  normalised,
+  total,
+}: {
+  visual: React.ReactNode;
+  index: number;
+  normalised: number;
+  total: number;
+}) {
+  const isFirst = index === 0;
+  const isLast = index === total - 1;
+  const dist = normalised - index;
+
+  let opacity: number;
+
+  if (isFirst && dist <= 0) opacity = 1;
+  else if (isLast && dist >= 0) opacity = 1;
+  else {
+    const absDist = Math.abs(dist);
+    if (absDist <= 0.4) opacity = 1;
+    else if (absDist < 0.6) opacity = 1 - (absDist - 0.4) / 0.2;
+    else opacity = 0;
+  }
+
+  return (
+    <div
+      className="absolute inset-0 flex items-center justify-center transition-opacity duration-300 ease-out"
+      style={{ opacity, pointerEvents: opacity > 0.5 ? "auto" : "none" }}
+    >
+      {visual}
+    </div>
+  );
+}
+
+function DesktopStickySteps({ steps }: { steps: StepData[] }) {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const [normalised, setNormalised] = useState(0);
+
+  useEffect(() => {
+    const el = containerRef.current;
+    if (!el) return;
+
+    let rafId: number;
+    const onScroll = () => {
+      cancelAnimationFrame(rafId);
+      rafId = requestAnimationFrame(() => {
+        const rect = el.getBoundingClientRect();
+        const scrollableHeight = el.offsetHeight - window.innerHeight;
+        if (scrollableHeight <= 0) return;
+        const rawProgress = Math.max(0, Math.min(1, -rect.top / scrollableHeight));
+        setNormalised(rawProgress * (steps.length - 1));
+      });
+    };
+
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
+
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      cancelAnimationFrame(rafId);
+    };
+  }, [steps.length]);
+
+  return (
+    <div ref={containerRef} className="hidden lg:block relative w-full" style={{ height: "500vh" }}>
+      <div className="sticky top-0 h-screen flex items-center justify-center overflow-hidden">
+        <div className="w-full max-w-[1266px] mx-auto px-4 md:px-8 flex items-center">
+          {/* Left: Text content */}
+          <div className="flex-1 flex items-center">
+            <div className="relative w-full max-w-[569px]" style={{ minHeight: "420px" }}>
+              {steps.map((s, idx) => (
+                <StickyTextContent key={s.step} step={s} index={idx} normalised={normalised} total={steps.length} />
+              ))}
+            </div>
           </div>
-          <ProgressBar step={step} />
+
+          {/* Right: Visual + Progress bar */}
+          <div className="flex items-center gap-4 shrink-0">
+            <div className="relative" style={{ width: "500px", height: "660px" }}>
+              {steps.map((s, idx) => (
+                <StickyVisualContent key={s.step} visual={s.visual} index={idx} normalised={normalised} total={steps.length} />
+              ))}
+            </div>
+            <StickyProgressBar normalised={normalised} total={steps.length} />
+          </div>
         </div>
       </div>
     </div>
   );
 }
 
+/* ------------------------------------------------------------------ */
+/*  Mobile Step Section (vertical stack, < lg)                        */
+/* ------------------------------------------------------------------ */
+
+function MobileStepSection({ step, title, description, visual }: StepData) {
+  return (
+    <div className="w-full py-8">
+      <div className="flex flex-col items-center gap-8">
+        <div className="w-full flex flex-col gap-10">
+          <StepLabel step={step} />
+          <h3 className="text-zinc-100 text-4xl md:text-6xl font-bold font-['Urbanist'] leading-tight">
+            {title.split("\n").map((line, i) => (
+              <span key={i}>{i > 0 && <br />}{line}</span>
+            ))}
+          </h3>
+          <p className="text-zinc-400 text-base font-normal font-['Urbanist'] leading-6">
+            {description}
+          </p>
+        </div>
+        <div className="flex justify-center">
+          {visual}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+/* ------------------------------------------------------------------ */
+/*  Main Export                                                        */
+/* ------------------------------------------------------------------ */
+
 export function MarketingHowItWorksSection() {
-  const steps = [
+  const steps: StepData[] = [
     {
       step: 1,
       title: "Input Your\nCampaign\nBrief.",
@@ -336,10 +489,10 @@ export function MarketingHowItWorksSection() {
   ];
 
   return (
-    <section className="w-full px-6 md:px-24 py-12 md:py-20 bg-black">
-      <div className="max-w-[1266px] mx-auto flex flex-col gap-10 md:gap-14">
-        {/* Section header */}
-        <div className="flex flex-col items-center gap-6">
+    <section className="w-full bg-black">
+      {/* Section header */}
+      <div className="px-6 md:px-24 pt-12 md:pt-20 pb-10 md:pb-14">
+        <div className="max-w-[1266px] mx-auto flex flex-col items-center gap-6">
           <div className="w-32 h-9 px-3 py-1 bg-white/5 rounded-full flex justify-center items-center">
             <span className="text-white text-base font-bold font-['Urbanist']">How it Works</span>
           </div>
@@ -352,17 +505,16 @@ export function MarketingHowItWorksSection() {
             </p>
           </div>
         </div>
+      </div>
 
-        {/* Steps */}
-        <div className="flex flex-col gap-8 md:gap-0">
+      {/* Desktop: Sticky scroll animation */}
+      <DesktopStickySteps steps={steps} />
+
+      {/* Mobile: Vertical stack */}
+      <div className="lg:hidden px-6 md:px-24 pb-12 md:pb-20">
+        <div className="flex flex-col gap-8">
           {steps.map((s) => (
-            <StepSection
-              key={s.step}
-              step={s.step}
-              title={s.title}
-              description={s.description}
-              visual={s.visual}
-            />
+            <MobileStepSection key={s.step} step={s.step} title={s.title} description={s.description} visual={s.visual} />
           ))}
         </div>
       </div>
