@@ -32,34 +32,28 @@ function FinanceDashboardVisual() {
         <div className="bg-gradient-to-b from-stone-950 via-neutral-800 to-neutral-900 rounded-[20px] md:rounded-[38px] shadow-[0px_14px_24px_0px_rgba(0,0,0,0.38)] border-[2px] border-slate-500/20 p-5 md:p-7 flex flex-col gap-5">
           {/* User badge */}
           <div className="w-fit px-5 py-3 bg-white/[0.04] rounded-2xl border-2 border-white/10 flex items-center gap-3">
-            <div className="w-9 h-9 bg-purple-500 rounded-full shrink-0" />
-            <div className="w-10 h-10 bg-gradient-to-br from-zinc-400 to-zinc-600 rounded-full shrink-0" />
+            <img src="/images/figma/Ellipse 53.svg" alt="" className="w-10 h-10 rounded-full shrink-0 object-cover" />
             <span className="text-[#CBCACC] text-lg md:text-2xl font-semibold font-['Urbanist']">Franks Lampard</span>
           </div>
 
           {/* Task */}
           <div className="flex items-center gap-5">
-            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" className="shrink-0">
-              <path d="M18 22L21 25L28 16" stroke="#7D7C83" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-              <path d="M9 15V8M9 8L5 12M9 8L13 12" stroke="#7D7C83" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-              <rect x="3" y="5" width="26" height="22" rx="4" stroke="#7D7C83" strokeWidth="2" />
-            </svg>
+            <img src="/images/figma/task-done-01.svg" alt="" className="w-8 h-8 shrink-0" />
             <span className="text-[#CBCACC] text-lg md:text-2xl font-bold font-['Urbanist'] leading-tight">Collect revenue data from bank APIs</span>
           </div>
 
           <span className="text-[#7D7C83] text-lg md:text-2xl font-semibold font-['Urbanist']">2 hours ago</span>
 
-          {/* Avatars */}
+          {/* Integration icons */}
           <div className="flex -space-x-2">
-            {[0, 1, 2, 3, 4, 5].map((i) => (
-              <div key={i} className="w-12 h-12 rounded-full bg-zinc-300 border-2 border-zinc-700" />
-            ))}
+            <img src="/images/figma/image 24.svg" alt="" className="w-12 h-12 rounded-full border-2 border-zinc-700" />
+            <img src="/images/figma/image 24 (4).svg" alt="" className="w-12 h-12 rounded-full border-2 border-zinc-700" />
+            <img src="/images/figma/image 24 (5).svg" alt="" className="w-12 h-12 rounded-full border-2 border-zinc-700" />
           </div>
 
           {/* File attachment */}
           <div className="flex items-center gap-5">
-            <div className="w-9 h-8 bg-zinc-300 rounded shrink-0" />
-            <div className="w-14 h-8 bg-gradient-to-r from-indigo-600 to-violet-500 rounded shrink-0" />
+            <img src="/images/figma/image 25.svg" alt="Excel" className="w-9 h-9 rounded shrink-0 object-contain" />
             <span className="text-[#CBCACC] text-lg md:text-2xl font-semibold font-['Urbanist']">Stripe_revenue_report.csv</span>
           </div>
         </div>
@@ -70,8 +64,8 @@ function FinanceDashboardVisual() {
             <CheckCircleGreen />
             <span className="text-[#CBCACC] text-lg md:text-2xl font-semibold font-['Urbanist']">Initializing analytics dashboard</span>
           </div>
-          <div className="p-5 md:p-6 bg-white/[0.04] rounded-2xl md:rounded-3xl border-2 border-white/10 flex items-center gap-5">
-            <LoadingDots />
+          <div className="p-5 md:p-6 bg-white/[0.04 rounded-2xl md:rounded-3xl border-2 border-white/10 flex items-center gap-5">
+            <img src="/images/figma/Group.svg" alt="" className="w-8 h-8 shrink-0" />
             <span className="text-[#CBCACC] text-lg md:text-2xl font-bold font-['Urbanist']">Preparing campaign assets</span>
           </div>
         </div>
@@ -83,8 +77,8 @@ function FinanceDashboardVisual() {
 function ProblemItem({ icon, title, description }: { icon: React.ReactNode; title: string; description: string }) {
   return (
     <div className="w-full h-36 pl-8 pr-6 py-6 bg-gradient-to-r from-white/5 via-white/10 to-white/5 rounded-2xl border border-white/30 backdrop-blur-xl flex items-center gap-10">
-      <div className="w-12 h-12 opacity-60 bg-violet-500 rounded-full blur-xl shrink-0" />
       <div className="w-14 h-14 relative shrink-0 flex items-center justify-center">
+        <div className="absolute w-14 h-14 opacity-60 bg-violet-500 rounded-full blur-xl" />
         {icon}
       </div>
       <div className="flex-1 flex flex-col gap-4">
@@ -97,7 +91,7 @@ function ProblemItem({ icon, title, description }: { icon: React.ReactNode; titl
 
 export function FinanceProblemSection() {
   return (
-    <section className="w-full px-6 md:px-24 pt-24 md:pt-36 pb-12 md:pb-20 bg-black">
+    <section className="w-full px-6 md:px-24 pt-10 md:pt-16 pb-12 md:pb-20 bg-black">
       <div className="max-w-[1266px] mx-auto flex flex-col gap-12">
         {/* Section header */}
         <div className="flex flex-col items-center gap-6">
@@ -125,42 +119,28 @@ export function FinanceProblemSection() {
           <div className="flex-1 flex flex-col gap-4 max-w-[500px]">
             <ProblemItem
               icon={
-                <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
-                  <rect x="4" y="4" width="32" height="32" rx="4" stroke="#a855f7" strokeWidth="2.5" />
-                  <rect x="14" y="14" width="12" height="12" rx="2" stroke="#7D7C83" strokeWidth="2.5" />
-                </svg>
+                <img src="/images/figma/blend-2.svg" alt="" className="w-14 h-14" />
               }
               title="Manual reconciliation"
               description="You don't have to work in IT or even be tech savvy to use our products."
             />
             <ProblemItem
               icon={
-                <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
-                  <circle cx="20" cy="20" r="14" stroke="#a855f7" strokeWidth="2.5" />
-                  <path d="M14 20L20 14L26 20" stroke="#7D7C83" strokeWidth="2.5" strokeLinecap="round" />
-                </svg>
+                <img src="/images/figma/document.svg" alt="" className="w-14 h-14" />
               }
               title="Spreadsheet chaos"
               description="You don't have to work in IT or even be tech savvy to use our products."
             />
             <ProblemItem
               icon={
-                <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
-                  <rect x="8" y="4" width="24" height="32" rx="3" stroke="#7D7C83" strokeWidth="1.5" />
-                  <path d="M14 16L20 22L26 14" stroke="#a855f7" strokeWidth="2.5" strokeLinecap="round" />
-                  <line x1="20" y1="22" x2="20" y2="32" stroke="#8b5cf6" strokeWidth="2.5" />
-                </svg>
+                <img src="/images/figma/money-send.svg" alt="" className="w-14 h-14" />
               }
               title="Late financial reporting"
               description="You don't have to work in IT or even be tech savvy to use our products."
             />
             <ProblemItem
               icon={
-                <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
-                  <rect x="10" y="4" width="20" height="14" rx="3" stroke="#7D7C83" strokeWidth="2.5" />
-                  <rect x="10" y="22" width="20" height="14" rx="3" stroke="#a855f7" strokeWidth="2.5" />
-                  <path d="M10 4L10 36" stroke="#7D7C83" strokeWidth="2.5" />
-                </svg>
+                <img src="/images/figma/coin.svg" alt="" className="w-14 h-14" />
               }
               title="Revenue leakage"
               description="You don't have to work in IT or even be tech savvy to use our products."

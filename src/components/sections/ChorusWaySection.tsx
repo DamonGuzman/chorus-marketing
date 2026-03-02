@@ -27,7 +27,7 @@ function parseJsonOffThread(text: string): Promise<object> {
   });
 }
 
-export function ChorusWaySection() {
+export function ChorusWaySection({ badgeText = "The Solution" }: { badgeText?: string } = {}) {
   const [animationData, setAnimationData] = useState<object | null>(null);
   const sectionRef = useRef<HTMLDivElement>(null);
   const mobileLottieRef = useRef<LottieRefCurrentProps>(null);
@@ -96,11 +96,11 @@ export function ChorusWaySection() {
   }, []);
 
   return (
-    <Section className="relative py-16 px-0 md:py-0 md:px-8 overflow-hidden md:flex md:items-center" id="chorus-way">
-      <div ref={sectionRef} className="w-full px-4 md:px-0 md:py-20">
+    <Section className="relative py-8 px-0 md:py-0 md:px-8 overflow-hidden md:flex md:items-center" id="chorus-way">
+      <div ref={sectionRef} className="w-full px-4 md:px-0 md:py-10">
         {/* Mobile layout: centered, single column */}
         <div className="flex flex-col md:hidden items-center text-center gap-4">
-          <Badge>The Solution</Badge>
+          <Badge>{badgeText}</Badge>
 
           <div className="flex flex-col justify-start items-center gap-5">
             <ScrollTextReveal
@@ -146,7 +146,7 @@ export function ChorusWaySection() {
         {/* Desktop layout: side-by-side */}
         <div className="hidden md:flex w-full max-w-[1440px] mx-auto justify-start items-center gap-6 lg:gap-16 px-4">
           <AnimateOnScroll animation="slide-left" duration={0.9} className="md:w-[42%] md:shrink-0 lg:w-auto lg:shrink inline-flex flex-col justify-start items-start gap-4">
-            <Badge className="w-38 h-11 px-3 py-1">The Solution</Badge>
+            <Badge className="w-38 h-11 px-3 py-1">{badgeText}</Badge>
 
             <ScrollTextReveal
               text={["The Chorus Way", "Manifest Your Team Instantly"]}

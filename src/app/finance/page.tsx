@@ -3,7 +3,7 @@ import { AnimateOnScroll } from "@/components/ui";
 import { FinanceHeroSection } from "@/components/sections/FinanceHeroSection";
 import { FinanceProblemSection } from "@/components/sections/FinanceProblemSection";
 import { FinanceHowItWorksSection } from "@/components/sections/FinanceHowItWorksSection";
-import { FinanceSolutionSection } from "@/components/sections/FinanceSolutionSection";
+import { ChorusWaySection } from "@/components/sections/ChorusWaySection";
 import { FinalCTASection } from "@/components/sections/FinalCTASection";
 
 export default function FinancePage() {
@@ -21,9 +21,13 @@ export default function FinancePage() {
           <FinanceHowItWorksSection />
         </AnimateOnScroll>
 
-        <AnimateOnScroll animation="fade-up" duration={0.8}>
-          <FinanceSolutionSection />
-        </AnimateOnScroll>
+        <div className="-mt-26 md:-mt-32 px-6 md:px-24">
+          <div className="max-w-[1244px] mx-auto">
+            <AnimateOnScroll animation="fade-up" duration={0.8}>
+              <ChorusWaySection />
+            </AnimateOnScroll>
+          </div>
+        </div>
       </main>
 
       <AnimateOnScroll animation="fade-up" duration={0.9}>
