@@ -2,6 +2,7 @@
 "use client";
 
 import { useState } from "react";
+import { ScrollTextReveal } from "@/components/ui";
 
 function AgentCard({ name, pending = false, icon = "/images/figma/image 41.svg" }: { name: string; pending?: boolean; icon?: string }) {
   return (
@@ -68,9 +69,11 @@ export function MarketingHeroSection() {
               <div className="w-28 h-8 px-2.5 py-1 bg-white/5 rounded-full flex justify-center items-center">
                 <span className="text-white text-sm font-semibold font-['Urbanist']">Marketing</span>
               </div>
-              <h1 className="text-4xl md:text-6xl font-bold font-['Urbanist'] leading-tight md:leading-[70px] bg-gradient-to-b from-white to-white/40 bg-clip-text text-transparent">
-                AI Marketing, Executed Seamlessly.
-              </h1>
+              <ScrollTextReveal
+                text="AI Marketing, Executed Seamlessly."
+                stagger={150}
+                className="text-4xl md:text-6xl font-bold font-['Urbanist'] leading-tight md:leading-[70px]"
+              />
               <p className="text-zinc-400 text-base font-light font-['Urbanist'] leading-6">
                 Blocks are carefully crafted to help you distill powerful
                 messages from your information and data - no matter how

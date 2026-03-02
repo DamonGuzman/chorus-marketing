@@ -1,4 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
+"use client";
+
+import { ScrollTextReveal } from "@/components/ui";
 
 function ReportingCard() {
   return (
@@ -122,9 +125,10 @@ export function MarketingProblemSection() {
             <span className="text-white text-base font-bold font-['Urbanist']">The Problem</span>
           </div>
           <div className="flex flex-col items-center gap-8">
-            <h2 className="text-center text-white text-3xl md:text-5xl font-bold font-['Urbanist'] leading-tight md:leading-[78px]">
-              The Problem - What&apos;s Broken Today
-            </h2>
+            <ScrollTextReveal
+              text="The Problem - What's Broken Today"
+              className="text-center text-3xl md:text-5xl font-bold font-['Urbanist'] leading-tight md:leading-[78px]"
+            />
             <p className="text-center text-[#7D7C83] text-lg md:text-2xl font-medium font-['Urbanist'] leading-7 md:leading-9">
               Automate prospecting, enrichment, outreach, follow-ups, CRM updates
             </p>

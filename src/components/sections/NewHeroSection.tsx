@@ -1,4 +1,4 @@
-import { ButtonLink } from "@/components/ui";
+import { ButtonLink, ScrollTextReveal } from "@/components/ui";
 import { PRIMARY_CTA_HREF } from "@/content/site";
 
 export function NewHeroSection() {
@@ -9,9 +9,11 @@ export function NewHeroSection() {
         <div className="w-full max-w-[1183px] mx-auto flex flex-col justify-start items-center">
           <div className="self-stretch flex flex-col justify-start items-center gap-[20px] md:gap-7">
             <div className="self-stretch flex flex-col justify-start items-center gap-[14px] md:gap-5">
-              <h1 className="self-stretch text-center text-[36px] leading-[40px] md:text-5xl md:leading-[56px] lg:text-7xl lg:leading-[78px] font-extrabold font-['Urbanist'] text-white">
-                Stop Hiring. Start Building.
-              </h1>
+              <ScrollTextReveal
+                text="Stop Hiring. Start Building."
+                stagger={150}
+                className="self-stretch text-center text-[36px] leading-[40px] md:text-5xl md:leading-[56px] lg:text-7xl lg:leading-[78px] font-extrabold font-['Urbanist']"
+              />
               <p className="w-72 md:w-auto text-center text-base leading-6 md:text-xl md:leading-9 font-normal font-['Urbanist'] text-gray-100">
                 The best way to reach humans instead of spam folders. Deliver transactional and marketing emails at scale.
               </p>
