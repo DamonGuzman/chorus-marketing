@@ -3,6 +3,7 @@ import { AnimateOnScroll } from "@/components/ui";
 import { OperationsHeroSection } from "@/components/sections/OperationsHeroSection";
 import { OperationsProblemSection } from "@/components/sections/OperationsProblemSection";
 import { OperationsHowItWorksSection } from "@/components/sections/OperationsHowItWorksSection";
+import { ChorusWaySection } from "@/components/sections/ChorusWaySection";
 import { FinalCTASection } from "@/components/sections/FinalCTASection";
 
 export default function OperationsPage() {
@@ -19,6 +20,12 @@ export default function OperationsPage() {
         <AnimateOnScroll animation="fade-up" duration={0.8}>
           <OperationsHowItWorksSection />
         </AnimateOnScroll>
+
+        <div className="md:hidden">
+          <AnimateOnScroll animation="fade-up" duration={0.8}>
+            <ChorusWaySection maxWidth="1266px" />
+          </AnimateOnScroll>
+        </div>
       </main>
 
       <AnimateOnScroll animation="fade-up" duration={0.9}>
