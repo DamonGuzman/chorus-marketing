@@ -161,12 +161,18 @@ export function SolutionSection() {
             <div className="text-white text-lg font-bold font-['Urbanist'] leading-6">Filter the most engaging agents</div>
           </div>
           <div className="flex justify-start items-start gap-1">
-            {["Dennis", "PR Agent", "Peter", "HR Agent", "David"].map((name) => (
-              <div key={name} className="flex-1 flex flex-col justify-center items-center gap-1">
-                <div className="w-10 h-10 relative rounded-full outline outline-[3px] outline-zinc-800 bg-neutral-700">
-                  <img className="w-10 h-10 absolute rounded-full" src="https://placehold.co/40x40" alt={name} />
+            {[
+              { name: "Dennis", img: "/images/figma/image.svg" },
+              { name: "PR Agent", img: "/images/figma/Group 20963.svg" },
+              { name: "Peter", img: "/images/figma/Avatar [1.0].svg" },
+              { name: "HR Agent", img: "/images/figma/Group 20963 (1).svg" },
+              { name: "David", img: "/images/figma/Avatar [1.0] (1).svg" },
+            ].map((item) => (
+              <div key={item.name} className="flex-1 flex flex-col justify-center items-center gap-1">
+                <div className="w-10 h-10 rounded-full outline outline-[3px] outline-zinc-800 overflow-hidden">
+                  <img className="w-full h-full object-cover" src={item.img} alt={item.name} />
                 </div>
-                <div className="text-neutral-500 text-xs font-medium font-['Urbanist'] leading-5">{name}</div>
+                <div className="text-neutral-500 text-xs font-medium font-['Urbanist'] leading-5">{item.name}</div>
               </div>
             ))}
           </div>
@@ -178,7 +184,7 @@ export function SolutionSection() {
         {/* Spin up + Dots row */}
         <div className="flex gap-3">
           <div className="flex-1 p-4 bg-neutral-900 rounded-3xl shadow-[0px_0px_0px_6px_rgba(0,0,0,1.00)] outline outline-1 outline-neutral-700 flex flex-col justify-center items-center gap-3 overflow-hidden">
-            <div className="w-11 h-11 bg-white/5 rounded-2xl border border-white/20" />
+            <img src="/images/figma/Group 1707484005.svg" alt="" className="w-11 h-11" />
             <AnimatedProgressBar />
             <div className="text-center text-neutral-400 text-xs font-medium font-['Urbanist'] leading-5">Spin up any role in 60 seconds....</div>
           </div>
@@ -203,9 +209,8 @@ export function SolutionSection() {
         </div>
 
         {/* Harmony */}
-        <div className="h-48 bg-neutral-900 rounded-3xl shadow-[0px_0px_0px_6px_rgba(0,0,0,1.00)] outline outline-1 outline-neutral-700 overflow-hidden relative flex items-end">
-          <div className="absolute inset-0 bg-gradient-to-br from-transparent via-transparent to-orange-600/20" />
-          <div className="absolute top-0 right-0 w-2/3 h-full bg-gradient-to-l from-orange-500/15 via-rose-500/10 to-transparent" />
+        <div className="h-48 bg-neutral-900 rounded-3xl shadow-[0px_0px_0px_6px_rgba(0,0,0,1.00)] outline outline-1 outline-neutral-700 overflow-hidden relative flex items-center justify-center">
+          <img src="/images/figma/Image (1).svg" alt="" className="absolute inset-0 w-full h-full object-cover" />
           <div className="relative z-10 p-6">
             <ScrollTextReveal
               text={["Every role", "in perfect", "Harmony."]}

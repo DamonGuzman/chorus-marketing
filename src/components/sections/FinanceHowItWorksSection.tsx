@@ -44,7 +44,7 @@ function StreamedMessage({ charIndex }: { charIndex: number }) {
       remaining -= 1;
       elements.push(
         <span key={i} className="inline-flex items-center align-middle gap-[3px] md:gap-1.5 h-2.5 md:h-[22px] pl-[2.45px] md:pl-[5px] pr-[4.91px] md:pr-2.5 bg-white/[0.04] border border-white/10 rounded-full animate-[badgePop_0.25s_ease-out]">
-          <img src="/images/figma/stripe-logo.png" alt="Stripe" className="w-2.5 md:w-[19px] h-2.5 md:h-[19px] rounded-full object-cover" />
+          <img src="/images/figma/image 24 (5).svg" alt="Stripe" className="w-2.5 md:w-[19px] h-2.5 md:h-[19px] rounded-full object-cover" />
           <span className="text-white text-[5.89px] md:text-xs font-semibold font-['Urbanist'] leading-[8.84px] md:leading-normal">Stripe</span>
         </span>
       );
@@ -52,7 +52,7 @@ function StreamedMessage({ charIndex }: { charIndex: number }) {
       remaining -= 1;
       elements.push(
         <span key={i} className="inline-flex items-center align-middle gap-[3px] md:gap-1.5 h-2.5 md:h-[22px] pl-[2.45px] md:pl-[5px] pr-[4.91px] md:pr-2.5 bg-white/[0.04] border border-white/10 rounded-full animate-[badgePop_0.25s_ease-out]">
-          <img src="/images/figma/hubspot-logo.png" alt="HubSpot" className="w-2 md:w-4 h-2 md:h-4 rounded-full object-cover" />
+          <img src="/images/figma/image 24 (4).svg" alt="HubSpot" className="w-2 md:w-4 h-2 md:h-4 rounded-full object-cover" />
           <span className="text-white text-[5.89px] md:text-xs font-semibold font-['Urbanist'] leading-[8.84px] md:leading-normal">HubSpot</span>
         </span>
       );
@@ -164,7 +164,7 @@ function ConnectBankAPIsCard() {
 
               <div className={`flex items-center py-[3px] md:py-1.5 gap-[3px] md:gap-1.5 transition-all duration-500 ${phase >= 4 ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2"}`}>
                 <div className="flex items-center -space-x-1">
-                  <img src="/images/figma/thread-avatar-1.png" alt="" className="w-2.5 md:w-[22px] h-2.5 md:h-[22px] rounded-full object-cover" />
+                  <img src="/images/figma/Ellipse 52.svg" alt="" className="w-2.5 md:w-[22px] h-2.5 md:h-[22px] rounded-full object-cover" />
                   <div className="w-2.5 md:w-[22px] h-2.5 md:h-[22px] bg-[#0083cf] rounded-full flex items-center justify-center">
                     <span className="text-white text-[6.87px] md:text-xs font-bold font-['Urbanist'] leading-3 md:leading-normal">N</span>
                   </div>
@@ -373,7 +373,7 @@ function PullTransactionsCard() {
 const agentRows = [
   {
     name: "Revenue agent",
-    avatar: "/images/figma/avatar-revenue-agent.png",
+    avatar: "/images/figma/image 41 (2).svg",
     status: "Preparing...",
   },
   {
@@ -384,7 +384,7 @@ const agentRows = [
   },
   {
     name: "Reconciliation Agent",
-    avatar: "/images/figma/avatar-reconciliation-agent.png",
+    avatar: "/images/figma/image 41.svg",
     status: "Preparing...",
   },
   {

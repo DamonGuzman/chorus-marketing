@@ -123,20 +123,20 @@ export function FinanceHeroSection() {
 
         {/* Dashboard visual – cursor-tracking parallax */}
         <motion.div
-          className="absolute left-[53%] top-[66%] -translate-x-1/2 -translate-y-1/2 z-10 w-[650px] lg:w-[850px]"
+          className="absolute left-[53%] top-[58%] lg:top-[60%] -translate-x-1/2 -translate-y-1/2 z-10 w-[520px] lg:w-[850px]"
           style={{ x: moveX, y: moveY, rotateX, rotateY, perspective: 1000 }}
         >
           <img
             src="/images/figma/Group 1707484149.svg"
             alt="AI Finance dashboard"
-            className="w-full h-auto"
+            className="w-full h-auto mt-[20px]"
           />
         </motion.div>
       </div>
 
       {/* Left-side cards – parallax */}
       <motion.div
-        className="absolute left-[12%] lg:left-[17%] top-[61%] -translate-y-1/2 z-10 hidden md:flex flex-col items-start gap-4"
+        className="absolute left-[3%] lg:left-[8%] top-[79%] lg:top-[55%] -translate-y-1/2 z-10 hidden md:flex flex-col items-start gap-4"
         style={{ x: leftCardX, y: leftCardY }}
       >
         <img
@@ -148,7 +148,7 @@ export function FinanceHeroSection() {
 
       {/* Right-side card + Growth stats – parallax (opposite direction) */}
       <motion.div
-        className="absolute right-75 top-[71%] -translate-y-1/2 z-10 w-[160px] md:w-[280px] lg:w-[320px] hidden md:flex flex-col items-start gap-0"
+        className="absolute right-4 lg:right-15 top-[89%] lg:top-[65%] -translate-y-1/2 z-10 w-[160px] md:w-[200px] lg:w-[320px] hidden md:flex flex-col items-start gap-0"
         style={{ x: rightCardX, y: rightCardY }}
       >
         <img
