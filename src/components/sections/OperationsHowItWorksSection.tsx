@@ -152,10 +152,10 @@ function CheckCircleGreen() {
 
 function BulletPoint({ children, animDelay = 0 }: { children: React.ReactNode; animDelay?: number }) {
   return (
-    <AnimateOnScroll animation="fade-up" duration={0.6} delay={animDelay}>
-      <div className="inline-flex items-start gap-5">
-        <img src="/images/figma/Arrow.svg" alt="" className="w-7 h-7 shrink-0" />
-        <p className="max-w-[529px] text-[#7d7c83] text-sm font-medium font-['Urbanist'] leading-6">
+    <AnimateOnScroll animation="fade-up" duration={0.6} delay={animDelay} className="w-full">
+      <div className="flex items-start gap-3 md:gap-5 w-full">
+        <img src="/images/figma/Arrow.svg" alt="" className="w-5 h-5 md:w-7 md:h-7 shrink-0 mt-0.5" />
+        <p className="flex-1 min-w-0 text-[#7d7c83] text-sm font-medium font-['Urbanist'] leading-6">
           {children}
         </p>
       </div>
@@ -343,28 +343,33 @@ function ApiConnectionCard() {
 
 export function OperationsHowItWorksSection() {
   return (
-    <section className="w-full px-6 md:px-[100px] py-12 md:py-[75px] bg-black">
+    <section className="w-full px-6 md:px-[100px] pb-12 md:py-[75px] bg-black overflow-x-hidden">
       <div className="max-w-[1240px] mx-auto flex flex-col gap-[59px] items-start">
-        <div className="flex flex-col items-center">
+        <div className="flex flex-col items-center w-full">
           {/* Badge */}
           <Badge>How it Works</Badge>
           {/* Title + subtitle */}
-          <div className="flex flex-col items-center gap-6 text-center">
+          <div className="flex flex-col items-center gap-4 md:gap-6 text-center mt-4 md:mt-0">
+            {/* Mobile: plain text */}
+            <h2 className="md:hidden text-white text-[28px] font-bold font-['Urbanist'] leading-tight">
+              How Work Happens
+            </h2>
+            {/* Desktop: scroll reveal */}
             <ScrollTextReveal
               text="How Work Happens"
-              className="text-white text-3xl md:text-5xl font-bold font-['Urbanist'] leading-tight md:leading-[78px]"
+              className="hidden md:block text-white text-5xl font-bold font-['Urbanist'] leading-[78px]"
             />
-            <p className="text-[#7d7c83] text-3xl font-medium font-['Urbanist'] leading-10">
-              Automate prospecting, enrichment, outreach, follow-ups, CRM updates, and reporting
+            <p className="text-[#7d7c83] text-sm md:text-3xl font-medium font-['Urbanist'] leading-6 md:leading-10">
+              The Difference That Changes Everything
             </p>
           </div>
         </div>
 
         {/* Steps */}
-        <div className="flex flex-col gap-16 md:gap-24">
+        <div className="flex flex-col gap-10 md:gap-24">
           {/* Step 1: Detect Anomaly */}
-          <div className="flex flex-col lg:flex-row justify-between items-center gap-10 md:gap-16">
-            <div className="flex flex-col gap-[50px] max-w-[615px]">
+          <div className="flex flex-col lg:flex-row justify-between items-center gap-6 md:gap-16">
+            <div className="flex flex-col gap-6 md:gap-[50px] w-full max-w-[615px]">
               <div className="relative w-[82px] h-[82px]">
                 <div className="absolute inset-[-40%] bg-purple-500/15 rounded-full blur-2xl pointer-events-none" />
                 <img
@@ -392,11 +397,9 @@ export function OperationsHowItWorksSection() {
                   }
                 `}</style>
               </div>
-              <div className="flex flex-col gap-[49px] w-[545px] max-w-full">
-                <ScrollTextReveal
-                  text="1. Detect Anomaly"
-                  className="text-[#cbcacc] text-[40px] font-bold font-['Urbanist'] leading-[54px]"
-                />
+              <div className="flex flex-col gap-4 md:gap-[49px] w-full md:w-[545px]">
+                <h3 className="md:hidden text-[#cbcacc] text-[22px] font-bold font-['Urbanist'] leading-tight">1. Detect Anomaly</h3>
+                <ScrollTextReveal text="1. Detect Anomaly" className="hidden md:block text-[#cbcacc] text-[40px] font-bold font-['Urbanist'] leading-[54px]" />
                 <BulletPoint animDelay={0.15}>
                   Our simple drag-and-drop editor lets you dynamically change your email&apos;s content, images, and CTAs.
                 </BulletPoint>
@@ -482,16 +485,16 @@ export function OperationsHowItWorksSection() {
 
           {/* Step 2: Root Cause Analysis */}
           <div className="flex flex-col lg:flex-row items-center gap-10 lg:gap-[86px]">
-            {/* Left: Dashboard image */}
-            <div className="w-full lg:w-[573px] lg:shrink-0">
+            {/* Left: Dashboard image — moves below text on mobile */}
+            <div className="order-2 lg:order-1 w-full lg:w-[573px] lg:shrink-0">
               <img
                 src="/images/figma/Group root cause.svg"
                 alt="Output gallery showing root cause analysis dashboard"
                 className="w-full h-auto"
               />
             </div>
-            {/* Right: Text content */}
-            <div className="flex flex-col gap-[30px] max-w-[615px]">
+            {/* Right: Text content — comes first on mobile */}
+            <div className="order-1 lg:order-2 flex flex-col gap-[30px] w-full max-w-[615px]">
               <div className="relative w-[82px] h-[82px]">
                 <div className="absolute inset-[-40%] bg-purple-500/15 rounded-full blur-2xl pointer-events-none" />
                 <svg width="86" height="86" viewBox="0 0 86 86" fill="none" xmlns="http://www.w3.org/2000/svg" className="relative w-full h-full">
@@ -511,11 +514,9 @@ export function OperationsHowItWorksSection() {
                   <path className="diagram-wave" d="M17.7422 60.3218L34.0291 41.3027C36.7258 38.1802 41.5161 37.9672 44.4257 40.9124L47.7966 44.2833C50.7063 47.193 55.4965 47.0155 58.1933 43.8929L74.5156 24.8384" stroke="#7D7C83" strokeWidth="3" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round"/>
                 </svg>
               </div>
-              <div className="flex flex-col gap-[49px] w-[545px] max-w-full">
-                <ScrollTextReveal
-                  text="2. Root Cause Analysis"
-                  className="text-[#cbcacc] text-[40px] font-bold font-['Urbanist'] leading-[54px]"
-                />
+              <div className="flex flex-col gap-4 md:gap-[49px] w-full md:w-[545px]">
+                <h3 className="md:hidden text-[#cbcacc] text-[22px] font-bold font-['Urbanist'] leading-tight">2. Root Cause Analysis</h3>
+                <ScrollTextReveal text="2. Root Cause Analysis" className="hidden md:block text-[#cbcacc] text-[40px] font-bold font-['Urbanist'] leading-[54px]" />
                 <BulletPoint animDelay={0.15}>
                   Our simple drag-and-drop editor lets you dynamically change your email&apos;s content, images, and CTAs.
                 </BulletPoint>
@@ -531,7 +532,7 @@ export function OperationsHowItWorksSection() {
 
           {/* Step 3: Execute Fix */}
           <div className="flex flex-col lg:flex-row justify-between items-center gap-10 md:gap-16">
-            <div className="flex flex-col gap-[50px] max-w-[615px]">
+            <div className="flex flex-col gap-6 md:gap-[50px] w-full max-w-[615px]">
               <div className="relative w-[82px] h-[82px]">
                 <div className="absolute inset-[-40%] bg-purple-500/15 rounded-full blur-2xl pointer-events-none" />
                 <svg width="82" height="82" viewBox="0 0 82 82" fill="none" xmlns="http://www.w3.org/2000/svg" className="relative w-full h-full">
@@ -559,11 +560,9 @@ export function OperationsHowItWorksSection() {
                   <path className="wifi-arc2" d="M27.334 11.8823C31.2592 8.68898 35.947 6.83325 40.9821 6.83325C46.0331 6.83325 50.7346 8.70071 54.6673 11.9125" stroke="#B48AFB" strokeWidth="3" strokeLinejoin="round"/>
                 </svg>
               </div>
-              <div className="flex flex-col gap-[49px] w-[545px] max-w-full">
-                <ScrollTextReveal
-                  text="3. Execute Fix"
-                  className="text-[#cbcacc] text-[40px] font-bold font-['Urbanist'] leading-[54px]"
-                />
+              <div className="flex flex-col gap-4 md:gap-[49px] w-full md:w-[545px]">
+                <h3 className="md:hidden text-[#cbcacc] text-[22px] font-bold font-['Urbanist'] leading-tight">3. Execute Fix</h3>
+                <ScrollTextReveal text="3. Execute Fix" className="hidden md:block text-[#cbcacc] text-[40px] font-bold font-['Urbanist'] leading-[54px]" />
                 <BulletPoint animDelay={0.15}>
                   Our simple drag-and-drop editor lets you dynamically change your email&apos;s content, images, and CTAs.
                 </BulletPoint>
@@ -586,12 +585,12 @@ export function OperationsHowItWorksSection() {
 
           {/* Step 4: Escalate */}
           <div className="flex flex-col lg:flex-row items-center gap-10 lg:gap-[86px]">
-            {/* Left: Animated chat card */}
-            <div className="w-full lg:w-[573px] lg:shrink-0">
+            {/* Left: Animated chat card — moves below text on mobile */}
+            <div className="order-2 lg:order-1 w-full lg:w-[573px] lg:shrink-0">
               <AnimatedChatCard />
             </div>
-            {/* Right: Text content */}
-            <div className="flex flex-col gap-[30px] max-w-[615px]">
+            {/* Right: Text content — comes first on mobile */}
+            <div className="order-1 lg:order-2 flex flex-col gap-[30px] w-full max-w-[615px]">
               <div className="relative w-[82px] h-[82px]">
                 <div className="absolute inset-[-40%] bg-purple-500/15 rounded-full blur-2xl pointer-events-none" />
                 <svg width="86" height="86" viewBox="0 0 86 86" fill="none" xmlns="http://www.w3.org/2000/svg" className="relative w-full h-full">
@@ -631,11 +630,9 @@ export function OperationsHowItWorksSection() {
                   </circle>
                 </svg>
               </div>
-              <div className="flex flex-col gap-[49px] w-[545px] max-w-full">
-                <ScrollTextReveal
-                  text="4. Escalate"
-                  className="text-[#cbcacc] text-[40px] font-bold font-['Urbanist'] leading-[54px]"
-                />
+              <div className="flex flex-col gap-4 md:gap-[49px] w-full md:w-[545px]">
+                <h3 className="md:hidden text-[#cbcacc] text-[22px] font-bold font-['Urbanist'] leading-tight">4. Escalate</h3>
+                <ScrollTextReveal text="4. Escalate" className="hidden md:block text-[#cbcacc] text-[40px] font-bold font-['Urbanist'] leading-[54px]" />
                 <BulletPoint animDelay={0.15}>
                   Our simple drag-and-drop editor lets you dynamically change your email&apos;s content, images, and CTAs.
                 </BulletPoint>

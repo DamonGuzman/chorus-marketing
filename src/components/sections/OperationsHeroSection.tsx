@@ -26,6 +26,7 @@ function parseJsonOffThread(text: string): Promise<object> {
 
 export function OperationsHeroSection() {
   const [animationData, setAnimationData] = useState<object | null>(null);
+  const [mobileAnimationData, setMobileAnimationData] = useState<object | null>(null);
 
   useEffect(() => {
     fetch("/images/banner/Hero Banner Animation.json")
@@ -33,40 +34,59 @@ export function OperationsHeroSection() {
       .then((text) => parseJsonOffThread(text))
       .then((data) => setAnimationData(data))
       .catch(() => {});
+    fetch("/images/banner/Hero Banner Animation Mobile.json")
+      .then((res) => res.text())
+      .then((text) => parseJsonOffThread(text))
+      .then((data) => setMobileAnimationData(data))
+      .catch(() => {});
   }, []);
 
   return (
     <section className="relative w-full bg-black" style={{ overflowX: "clip" }}>
-      {/* Dot pattern background – top-right */}
+      {/* Dot pattern background – top-right (desktop only) */}
       <img
         src="/images/figma/bg_dots_pattern.svg"
         alt=""
         aria-hidden="true"
-        className="absolute top-0 right-50 w-[954px] h-[1014px] pointer-events-none select-none"
+        className="hidden md:block absolute top-0 right-50 w-[954px] h-[1014px] pointer-events-none select-none"
       />
 
       {/* Diffused glow behind the dashboard */}
       <div className="absolute left-1/2 top-[77px] -translate-x-1/2 w-[1032px] h-[516px] bg-white/10 rounded-full blur-[200px] opacity-50 pointer-events-none" />
 
-      {/* Title – Figma: y=147, h=148, text w=969 centered */}
-      <div className="relative z-10 pt-[117px] md:pt-[147px] flex flex-col items-center px-6">
+      {/* Title */}
+      <div className="relative z-10 pt-[117px] md:pt-[147px] flex flex-col items-center px-6 gap-4">
         <div className="flex flex-col items-center w-full max-w-[969px]">
+          {/* Mobile: plain text, fully visible on load */}
+          <h1 className="md:hidden text-[30px] font-bold font-['Urbanist'] leading-tight text-white text-center">
+            AI IT Operations That Monitor, Fix &amp; Optimize Automatically
+          </h1>
+          {/* Desktop: stagger scroll reveal */}
           <ScrollTextReveal
             text="AI IT Operations That Monitor, Fix & Optimize Automatically"
             stagger={150}
-            className="text-3xl md:text-[55px] font-bold font-['Urbanist'] leading-tight md:leading-[74px] text-center"
+            className="hidden md:block text-[55px] font-bold font-['Urbanist'] leading-[74px] text-center"
           />
         </div>
+        {/* Mobile subtitle only */}
+        <p className="md:hidden text-[#7D7C83] text-[18px] font-medium font-['Urbanist'] leading-6 text-center max-w-[320px]">
+          The best way to reach humans instead of spam folders. Deliver transactional and marketing emails at scale.
+        </p>
       </div>
 
-      <div className="relative z-[1] w-full max-w-[1252px] mx-auto mt-[-60px] md:mt-[-170px]">
+      {/* Mobile: sidebar-free animation */}
+      <div className="md:hidden relative z-[1] w-full mx-auto mt-[-60px] flex ml-[-40px]">
+        {mobileAnimationData ? (
+          <Lottie animationData={mobileAnimationData} loop autoplay className="w-full h-auto origin-top scale-x-[1.3] scale-y-[1.5]" />
+        ) : (
+          <div className="w-full" style={{ aspectRatio: "1252 / 695" }} />
+        )}
+      </div>
+
+      {/* Desktop: unchanged */}
+      <div className="hidden md:block relative z-[1] w-full max-w-[1252px] mx-auto mt-[-170px]">
         {animationData ? (
-          <Lottie
-            animationData={animationData}
-            loop
-            autoplay
-            className="w-full h-auto origin-top scale-[1.15]"
-          />
+          <Lottie animationData={animationData} loop autoplay className="w-full h-auto origin-top scale-[1.15]" />
         ) : (
           <div className="w-full" style={{ aspectRatio: "1252 / 695" }} />
         )}
