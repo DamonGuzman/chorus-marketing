@@ -1,4 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
+"use client";
+
+import { ScrollTextReveal, Badge, AnimateOnScroll } from "@/components/ui";
 
 function CheckCircleGreen() {
   return (
@@ -10,14 +13,16 @@ function CheckCircleGreen() {
   );
 }
 
-function BulletPoint({ children }: { children: React.ReactNode }) {
+function BulletPoint({ children, animDelay = 0 }: { children: React.ReactNode; animDelay?: number }) {
   return (
-    <div className="inline-flex items-start gap-5">
-      <img src="/images/figma/Arrow.svg" alt="" className="w-7 h-7 shrink-0" />
-      <p className="max-w-[529px] text-[#7d7c83] text-sm font-medium font-['Urbanist'] leading-6">
-        {children}
-      </p>
-    </div>
+    <AnimateOnScroll animation="fade-up" duration={0.6} delay={animDelay}>
+      <div className="inline-flex items-start gap-5">
+        <img src="/images/figma/Arrow.svg" alt="" className="w-7 h-7 shrink-0" />
+        <p className="max-w-[529px] text-[#7d7c83] text-sm font-medium font-['Urbanist'] leading-6">
+          {children}
+        </p>
+      </div>
+    </AnimateOnScroll>
   );
 }
 
@@ -154,17 +159,13 @@ export function OperationsHowItWorksSection() {
       <div className="max-w-[1240px] mx-auto flex flex-col gap-[59px] items-start">
         <div className="flex flex-col items-center">
           {/* Badge */}
-          <div className="relative h-9 px-3 py-1 rounded-[100px] overflow-hidden inline-flex justify-center items-center">
-            <span aria-hidden="true" className="absolute inset-0 rounded-[100px] bg-gradient-to-b from-white/30 to-white/[0.04]" />
-            <span aria-hidden="true" className="cta-orbit-ring cta-orbit-ring--pill" />
-            <span aria-hidden="true" className="absolute inset-[1px] rounded-[100px] bg-[#131313]" />
-            <span className="relative z-10 text-white text-base font-bold font-['Urbanist'] leading-6">How it Works</span>
-          </div>
+          <Badge>How it Works</Badge>
           {/* Title + subtitle */}
           <div className="flex flex-col items-center gap-6 text-center">
-            <h2 className="text-white text-5xl font-bold font-['Urbanist'] leading-[78px]">
-              How Work Happens
-            </h2>
+            <ScrollTextReveal
+              text="How Work Happens"
+              className="text-white text-3xl md:text-5xl font-bold font-['Urbanist'] leading-tight md:leading-[78px]"
+            />
             <p className="text-[#7d7c83] text-3xl font-medium font-['Urbanist'] leading-10">
               Automate prospecting, enrichment, outreach, follow-ups, CRM updates, and reporting
             </p>
@@ -185,16 +186,17 @@ export function OperationsHowItWorksSection() {
                 />
               </div>
               <div className="flex flex-col gap-[49px] w-[545px] max-w-full">
-                <h3 className="text-[#cbcacc] text-[40px] font-bold font-['Urbanist'] leading-[54px]">
-                  1. Detect Anomaly
-                </h3>
-                <BulletPoint>
+                <ScrollTextReveal
+                  text="1. Detect Anomaly"
+                  className="text-[#cbcacc] text-[40px] font-bold font-['Urbanist'] leading-[54px]"
+                />
+                <BulletPoint animDelay={0.15}>
                   Our simple drag-and-drop editor lets you dynamically change your email&apos;s content, images, and CTAs.
                 </BulletPoint>
-                <BulletPoint>
+                <BulletPoint animDelay={0.3}>
                   Connect with your recipients through every email by using interactive elements like polls, surveys, attachments, GIFs, images, videos, and reply tracking.
                 </BulletPoint>
-                <BulletPoint>
+                <BulletPoint animDelay={0.45}>
                   Take the guess work out of your campaign&apos;s content by testing in real time which version of your campaign performs best with your audience. A or B?
                 </BulletPoint>
               </div>
@@ -229,16 +231,17 @@ export function OperationsHowItWorksSection() {
                 />
               </div>
               <div className="flex flex-col gap-[49px] w-[545px] max-w-full">
-                <h3 className="text-[#cbcacc] text-[40px] font-bold font-['Urbanist'] leading-[54px]">
-                  2. Root Cause Analysis
-                </h3>
-                <BulletPoint>
+                <ScrollTextReveal
+                  text="2. Root Cause Analysis"
+                  className="text-[#cbcacc] text-[40px] font-bold font-['Urbanist'] leading-[54px]"
+                />
+                <BulletPoint animDelay={0.15}>
                   Our simple drag-and-drop editor lets you dynamically change your email&apos;s content, images, and CTAs.
                 </BulletPoint>
-                <BulletPoint>
+                <BulletPoint animDelay={0.3}>
                   Connect with your recipients through every email by using interactive elements like polls, surveys, attachments, GIFs, images, videos, and reply tracking.
                 </BulletPoint>
-                <BulletPoint>
+                <BulletPoint animDelay={0.45}>
                   Take the guess work out of your campaign&apos;s content by testing in real time which version of your campaign performs best with your audience. A or B?
                 </BulletPoint>
               </div>
@@ -257,16 +260,17 @@ export function OperationsHowItWorksSection() {
                 />
               </div>
               <div className="flex flex-col gap-[49px] w-[545px] max-w-full">
-                <h3 className="text-[#cbcacc] text-[40px] font-bold font-['Urbanist'] leading-[54px]">
-                  3. Execute Fix
-                </h3>
-                <BulletPoint>
+                <ScrollTextReveal
+                  text="3. Execute Fix"
+                  className="text-[#cbcacc] text-[40px] font-bold font-['Urbanist'] leading-[54px]"
+                />
+                <BulletPoint animDelay={0.15}>
                   Our simple drag-and-drop editor lets you dynamically change your email&apos;s content, images, and CTAs.
                 </BulletPoint>
-                <BulletPoint>
+                <BulletPoint animDelay={0.3}>
                   Connect with your recipients through every email by using interactive elements like polls, surveys, attachments, GIFs, images, videos, and reply tracking.
                 </BulletPoint>
-                <BulletPoint>
+                <BulletPoint animDelay={0.45}>
                   Take the guess work out of your campaign&apos;s content by testing in real time which version of your campaign performs best with your audience. A or B?
                 </BulletPoint>
               </div>
@@ -301,16 +305,17 @@ export function OperationsHowItWorksSection() {
                 />
               </div>
               <div className="flex flex-col gap-[49px] w-[545px] max-w-full">
-                <h3 className="text-[#cbcacc] text-[40px] font-bold font-['Urbanist'] leading-[54px]">
-                  4. Escalate
-                </h3>
-                <BulletPoint>
+                <ScrollTextReveal
+                  text="4. Escalate"
+                  className="text-[#cbcacc] text-[40px] font-bold font-['Urbanist'] leading-[54px]"
+                />
+                <BulletPoint animDelay={0.15}>
                   Our simple drag-and-drop editor lets you dynamically change your email&apos;s content, images, and CTAs.
                 </BulletPoint>
-                <BulletPoint>
+                <BulletPoint animDelay={0.3}>
                   Connect with your recipients through every email by using interactive elements like polls, surveys, attachments, GIFs, images, videos, and reply tracking.
                 </BulletPoint>
-                <BulletPoint>
+                <BulletPoint animDelay={0.45}>
                   Take the guess work out of your campaign&apos;s content by testing in real time which version of your campaign performs best with your audience. A or B?
                 </BulletPoint>
               </div>

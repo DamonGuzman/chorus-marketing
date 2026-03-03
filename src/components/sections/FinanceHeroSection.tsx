@@ -4,6 +4,7 @@
 import { useRef, useCallback } from "react";
 import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 import { PRIMARY_CTA_HREF } from "@/content/site";
+import { ScrollTextReveal } from "@/components/ui";
 
 export function FinanceHeroSection() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -76,11 +77,11 @@ export function FinanceHeroSection() {
       {/* Title */}
       <div className="relative z-10 pt-16 md:pt-[120px] flex flex-col items-center px-6">
         <div className="flex flex-col items-center gap-8 md:gap-12 max-w-[1229px]">
-          <h1 className="text-3xl md:text-6xl font-bold font-['Urbanist'] leading-tight md:leading-[74px] text-center">
-            <span className="text-white">AI Finance </span>
-            <span className="bg-gradient-to-r from-white to-white/50 bg-clip-text text-transparent">Team </span>
-            <span className="text-white/50">That Handles Reporting, Forecasting &amp; Compliance</span>
-          </h1>
+          <ScrollTextReveal
+            text="AI Finance Team That Handles Reporting, Forecasting & Compliance"
+            stagger={150}
+            className="text-3xl md:text-6xl font-bold font-['Urbanist'] leading-tight md:leading-[74px] text-center"
+          />
           <a
             href={PRIMARY_CTA_HREF}
             className="h-12 px-8 py-3 bg-gradient-to-br from-violet-500 via-fuchsia-300 to-indigo-700 rounded-[50px] shadow-[0px_0px_8px_0px_rgba(175,130,249,0.63)] flex items-center gap-2 overflow-hidden hover:brightness-110 transition-all"

@@ -1,4 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
+"use client";
+
+import { ScrollTextReveal, Badge } from "@/components/ui";
 
 function CheckIcon() {
   return (
@@ -243,13 +246,12 @@ export function FinanceHowItWorksSection() {
       <div className="max-w-[1500px] mx-auto flex flex-col gap-6">
         {/* Section header */}
         <div className="flex flex-col items-center gap-6">
-          <div className="w-32 h-9 px-3 py-1 bg-white/5 rounded-full flex justify-center items-center">
-            <span className="text-white text-base font-bold font-['Urbanist']">How it Works</span>
-          </div>
+          <Badge>How it Works</Badge>
           <div className="flex flex-col items-center gap-8">
-            <h2 className="text-center text-white text-3xl md:text-5xl font-bold font-['Urbanist'] leading-tight md:leading-[78px]">
-              How Work Happens
-            </h2>
+            <ScrollTextReveal
+              text="How Work Happens"
+              className="text-center text-white text-3xl md:text-5xl font-bold font-['Urbanist'] leading-tight md:leading-[78px]"
+            />
             <p className="text-center text-[#7D7C83] text-lg md:text-3xl font-medium font-['Urbanist'] leading-7 md:leading-10">
               Automate prospecting, enrichment, outreach, follow-ups, CRM updates, and reporting
             </p>
