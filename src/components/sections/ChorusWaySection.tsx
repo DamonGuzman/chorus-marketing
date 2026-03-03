@@ -96,7 +96,7 @@ export function ChorusWaySection({ badgeText = "The Solution", maxWidth }: { bad
   }, []);
 
   return (
-    <Section className={`relative py-8 px-0 md:py-0 ${maxWidth ? "md:px-24" : "md:px-8"} overflow-hidden md:flex md:items-center`} id="chorus-way">
+    <Section className={`relative pt-14 pb-8 px-0 md:py-0 ${maxWidth ? "md:px-24" : "md:px-8"} overflow-hidden md:flex md:items-center`} id="chorus-way">
       <div ref={sectionRef} className="w-full px-4 md:px-0 md:py-10">
         {/* Mobile layout: centered, single column */}
         <div className="flex flex-col md:hidden items-center text-center gap-4">
