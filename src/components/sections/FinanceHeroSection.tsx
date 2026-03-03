@@ -53,14 +53,14 @@ export function FinanceHeroSection() {
       ref={sectionRef}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
-      className="relative w-full min-h-[700px] md:min-h-[940px] bg-black overflow-hidden"
+      className="relative w-full bg-black overflow-hidden"
     >
-      {/* Blurred glow center */}
-      <div className="absolute left-1/2 top-[60%] -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-zinc-300/80 rounded-full blur-[280px]" />
+      {/* Blurred glow center – desktop only */}
+      <div className="hidden md:block absolute left-1/2 top-[60%] -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-zinc-300/80 rounded-full blur-[280px]" />
 
-      {/* Concentric orbital circles – parallax layer */}
+      {/* Concentric orbital circles – desktop only */}
       <motion.div
-        className="absolute inset-0 pointer-events-none"
+        className="hidden md:block absolute inset-0 pointer-events-none"
         style={{ x: ringsMoveX, y: ringsMoveY }}
       >
         <div className="absolute left-1/2 top-[75%] -translate-x-1/2 -translate-y-1/2">
@@ -74,34 +74,65 @@ export function FinanceHeroSection() {
         </div>
       </motion.div>
 
-      {/* Title */}
-      <div className="relative z-10 pt-16 md:pt-[120px] flex flex-col items-center px-6">
-        <div className="flex flex-col items-center gap-8 md:gap-12 max-w-[1229px]">
-          <ScrollTextReveal
-            text="AI Finance Team That Handles Reporting, Forecasting & Compliance"
-            stagger={150}
-            className="text-3xl md:text-6xl font-bold font-['Urbanist'] leading-tight md:leading-[74px] text-center"
+      {/* ── MOBILE HERO ── */}
+      <div className="md:hidden w-full flex flex-col items-center">
+        {/* Heading + subtitle */}
+        <div className="w-full px-6 pt-14 pb-5 flex flex-col items-center gap-4 text-center">
+          <h1 className="text-[30px] font-bold font-['Urbanist'] leading-[1.1] text-white mt-8">
+            AI Finance Team That Handles Reporting, Forecasting &amp; Compliance
+          </h1>
+          <p className="text-[#7D7C83] text-[18px] font-medium font-['Urbanist'] leading-6">
+            The best way to reach humans instead of spam folders. Deliver transactional and marketing emails at scale.
+          </p>
+        </div>
+
+        {/* Dashboard image – centered */}
+        <div className="relative z-10 w-full flex justify-center overflow-hidden">
+          <div
+            style={{
+              width: "140%",
+              aspectRatio: "372 / 369",
+              backgroundImage: "url('/images/figma/finance-mobile-hero.svg')",
+              backgroundSize: "cover",
+              backgroundRepeat: "no-repeat",
+              backgroundPosition: "center",
+              imageRendering: "crisp-edges",
+            }}
           />
-          <a
-            href={PRIMARY_CTA_HREF}
-            className="h-12 px-8 py-3 bg-gradient-to-br from-violet-500 via-fuchsia-300 to-indigo-700 rounded-[50px] shadow-[0px_0px_8px_0px_rgba(175,130,249,0.63)] flex items-center gap-2 overflow-hidden hover:brightness-110 transition-all"
-          >
-            <span className="text-center text-white text-sm font-bold font-['Urbanist'] leading-6">Build Your Team Now</span>
-          </a>
         </div>
       </div>
 
-      {/* Dashboard visual – cursor-tracking parallax */}
-      <motion.div
-        className="absolute left-[53%] top-[60%] -translate-x-1/2 -translate-y-1/2 z-10 w-[300px] md:w-[650px] lg:w-[850px]"
-        style={{ x: moveX, y: moveY, rotateX, rotateY, perspective: 1000 }}
-      >
-        <img
-          src="/images/figma/Group 1707484149.svg"
-          alt="AI Finance dashboard"
-          className="w-full h-auto"
-        />
-      </motion.div>
+      {/* ── DESKTOP HERO ── */}
+      <div className="hidden md:block">
+        {/* Title */}
+        <div className="relative z-10 pt-[120px] flex flex-col items-center px-6">
+          <div className="flex flex-col items-center gap-12 max-w-[1229px]">
+            <ScrollTextReveal
+              text="AI Finance Team That Handles Reporting, Forecasting & Compliance"
+              stagger={150}
+              className="text-6xl font-bold font-['Urbanist'] leading-[74px] text-center"
+            />
+            <a
+              href={PRIMARY_CTA_HREF}
+              className="h-12 px-8 py-3 bg-gradient-to-br from-violet-500 via-fuchsia-300 to-indigo-700 rounded-[50px] shadow-[0px_0px_8px_0px_rgba(175,130,249,0.63)] flex items-center gap-2 overflow-hidden hover:brightness-110 transition-all"
+            >
+              <span className="text-center text-white text-sm font-bold font-['Urbanist'] leading-6">Build Your Team Now</span>
+            </a>
+          </div>
+        </div>
+
+        {/* Dashboard visual – cursor-tracking parallax */}
+        <motion.div
+          className="absolute left-[53%] top-[60%] -translate-x-1/2 -translate-y-1/2 z-10 w-[650px] lg:w-[850px]"
+          style={{ x: moveX, y: moveY, rotateX, rotateY, perspective: 1000 }}
+        >
+          <img
+            src="/images/figma/Group 1707484149.svg"
+            alt="AI Finance dashboard"
+            className="w-full h-auto"
+          />
+        </motion.div>
+      </div>
 
       {/* Left-side cards – parallax */}
       <motion.div
@@ -133,6 +164,9 @@ export function FinanceHeroSection() {
           className="w-full h-auto"
         />
       </motion.div>
+
+      {/* Desktop min-height spacer */}
+      <div className="hidden md:block md:min-h-[940px]" />
 
       {/* Bottom gradient fade */}
       <div className="absolute bottom-0 left-0 right-0 h-64 bg-gradient-to-t from-black via-black/90 to-transparent z-[5]" />

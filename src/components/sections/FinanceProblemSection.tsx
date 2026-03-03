@@ -57,7 +57,7 @@ function FinanceDashboardVisual() {
       <div className="relative p-5 md:py-14 md:pl-10 md:pr-20">
         {/* Main card */}
         <div
-          className="bg-gradient-to-b from-stone-950 via-neutral-800 to-neutral-900 rounded-[16px] md:rounded-[24px] shadow-[0px_14px_24px_0px_rgba(0,0,0,0.38)] border-[2px] border-slate-500/20 p-4 md:p-5 flex flex-col gap-3.5 animate-[cardReveal_7s_ease-in-out_infinite]"
+          className="bg-gradient-to-b from-stone-950 via-neutral-800 to-neutral-900 rounded-[16px] md:rounded-[24px] shadow-[0px_14px_24px_0px_rgba(0,0,0,0.38)] border-[2px] border-slate-500/20 p-3 md:p-5 flex flex-col gap-2.5 md:gap-3.5 animate-[cardReveal_7s_ease-in-out_infinite]"
         >
           {/* User badge */}
           <div className="w-fit px-3.5 py-2 bg-white/[0.04] rounded-xl border-2 border-white/10 flex items-center gap-2.5">
@@ -68,27 +68,27 @@ function FinanceDashboardVisual() {
           {/* Task */}
           <div className="flex items-center gap-3.5">
             <img src="/images/figma/task-done-01.svg" alt="" className="w-6 h-6 shrink-0" />
-            <span className="text-[#CBCACC] text-2xl font-bold font-['Urbanist'] leading-10 line-clamp-1">Collect revenue data from bank APIs</span>
+            <span className="text-[#CBCACC] text-sm md:text-2xl font-bold font-['Urbanist'] leading-6 md:leading-10">Collect revenue data from bank APIs</span>
           </div>
 
-          <span className="text-[#7D7C83] text-2xl font-semibold font-['Urbanist'] leading-9">2 hours ago</span>
+          <span className="text-[#7D7C83] text-sm md:text-2xl font-semibold font-['Urbanist'] leading-5 md:leading-9">2 hours ago</span>
 
           {/* Integration icons */}
           <div className="flex -space-x-2">
-            <img src="/images/figma/image 24.svg" alt="" className="w-11 h-11 rounded-full border-2 border-zinc-700" />
-            <img src="/images/figma/image 24 (4).svg" alt="" className="w-11 h-11 rounded-full border-2 border-zinc-700" />
-            <img src="/images/figma/image 24 (5).svg" alt="" className="w-11 h-11 rounded-full border-2 border-zinc-700" />
+            <img src="/images/figma/image 24.svg" alt="" className="w-7 h-7 md:w-11 md:h-11 rounded-full border-2 border-zinc-700" />
+            <img src="/images/figma/image 24 (4).svg" alt="" className="w-7 h-7 md:w-11 md:h-11 rounded-full border-2 border-zinc-700" />
+            <img src="/images/figma/image 24 (5).svg" alt="" className="w-7 h-7 md:w-11 md:h-11 rounded-full border-2 border-zinc-700" />
           </div>
 
           {/* File attachment */}
           <div className="flex items-center gap-3.5">
-            <img src="/images/figma/image 25.svg" alt="Excel" className="w-14 h-8 rounded shrink-0 object-contain" />
-            <span className="text-[#CBCACC] text-2xl font-semibold font-['Urbanist'] leading-9">Stripe_revenue_report.csv</span>
+            <img src="/images/figma/image 25.svg" alt="Excel" className="w-10 h-6 md:w-14 md:h-8 rounded shrink-0 object-contain" />
+            <span className="text-[#CBCACC] text-sm md:text-2xl font-semibold font-['Urbanist'] leading-5 md:leading-9 truncate">Stripe_revenue_report.csv</span>
           </div>
         </div>
 
         {/* Status items below */}
-        <div className="mt-10 flex flex-col gap-4">
+        <div className="mt-4 md:mt-10 flex flex-col gap-3 md:gap-4">
           <div
             className="p-3.5 md:p-4 bg-white/[0.04] rounded-xl md:rounded-2xl border-2 border-white/10 flex items-center gap-3.5 animate-[cardReveal_7s_ease-in-out_infinite]"
             style={{ animationDelay: "0.8s" }}
@@ -96,7 +96,7 @@ function FinanceDashboardVisual() {
             <div className="animate-[iconPop_7s_ease-in-out_infinite]" style={{ animationDelay: "1.1s" }}>
               <CheckCircleGreen />
             </div>
-            <span className="text-[#CBCACC] text-2xl font-semibold font-['Urbanist'] leading-10 line-clamp-3">Initializing analytics dashboard</span>
+            <span className="text-[#CBCACC] text-sm md:text-2xl font-semibold font-['Urbanist'] leading-5 md:leading-10">Initializing analytics dashboard</span>
           </div>
           <div
             className="p-3.5 md:p-4 bg-white/[0.04] rounded-xl md:rounded-2xl border-2 border-white/10 flex items-center gap-3.5 animate-[cardReveal_7s_ease-in-out_infinite]"
@@ -105,7 +105,7 @@ function FinanceDashboardVisual() {
             <div className="animate-[iconPop_7s_ease-in-out_infinite]" style={{ animationDelay: "1.9s" }}>
               <img src="/images/figma/Group.svg" alt="" className="w-6 h-6 shrink-0" />
             </div>
-            <span className="text-[#CBCACC] text-2xl font-bold font-['Urbanist'] leading-10 line-clamp-3">Preparing campaign assets</span>
+            <span className="text-[#CBCACC] text-sm md:text-2xl font-bold font-['Urbanist'] leading-5 md:leading-10">Preparing campaign assets</span>
           </div>
         </div>
       </div>
@@ -116,20 +116,20 @@ function FinanceDashboardVisual() {
 function ProblemItem({ icon, title, description, offset = false, index = 0 }: { icon: React.ReactNode; title: string; description: string; offset?: boolean; index?: number }) {
   return (
     <div
-      className={`w-full max-w-[500px] h-36 pl-8 pr-6 py-6 bg-gradient-to-r from-white/5 via-white/10 to-white/5 rounded-2xl outline-[0.85px] outline-offset-[-0.85px] outline-white/30 backdrop-blur-xl flex items-center gap-10 opacity-0 animate-[slideInOnce_1s_ease-out_forwards] ${offset ? 'ml-[50px]' : ''}`}
+      className={`w-full max-w-[500px] min-h-[100px] pl-5 md:pl-8 pr-4 md:pr-6 py-5 md:py-6 bg-gradient-to-r from-white/5 via-white/10 to-white/5 rounded-2xl outline-[0.85px] outline-offset-[-0.85px] outline-white/30 backdrop-blur-xl flex items-center gap-5 md:gap-10 opacity-0 animate-[slideInOnce_1s_ease-out_forwards] ${offset ? 'md:ml-[50px]' : ''}`}
       style={{ animationDelay: `${0.5 + index * 0.6}s` }}
     >
-      <div className="w-14 h-14 relative shrink-0 flex items-center justify-center">
-        <div className="absolute w-12 h-12 opacity-60 bg-violet-500 rounded-full blur-xl" />
+      <div className="w-10 h-10 md:w-14 md:h-14 relative shrink-0 flex items-center justify-center">
+        <div className="absolute w-8 h-8 md:w-12 md:h-12 opacity-60 bg-violet-500 rounded-full blur-xl" />
         {icon}
       </div>
-      <div className="flex-1 flex flex-col gap-4">
+      <div className="flex-1 flex flex-col gap-2 md:gap-4">
         <ScrollTextReveal
           text={title}
-          className="text-white text-2xl font-bold font-['Urbanist']"
+          className="text-white text-base md:text-2xl font-bold font-['Urbanist']"
         />
         <AnimateOnScroll animation="fade-up" duration={0.6} delay={0.2}>
-          <p className="text-neutral-500 text-base font-semibold font-['Urbanist'] leading-6">{description}</p>
+          <p className="text-neutral-500 text-xs md:text-base font-semibold font-['Urbanist'] leading-5 md:leading-6">{description}</p>
         </AnimateOnScroll>
       </div>
     </div>
@@ -146,10 +146,10 @@ export function FinanceProblemSection() {
           <div className="flex flex-col items-center gap-8">
             <ScrollTextReveal
               text="The Problem - What's Broken Today"
-              className="text-center text-white text-3xl md:text-5xl font-bold font-['Urbanist'] leading-tight md:leading-[78px]"
+              className="text-center text-white text-[28px] md:text-5xl font-bold font-['Urbanist'] leading-tight md:leading-[78px]"
             />
-            <p className="text-center text-[#7D7C83] text-lg md:text-3xl font-medium font-['Urbanist'] leading-7 md:leading-10">
-              Automate prospecting, enrichment, outreach, follow-ups, CRM updates, and reporting
+            <p className="text-center text-[#7D7C83] text-sm md:text-3xl font-medium font-['Urbanist'] leading-5 md:leading-10">
+              The Difference That Changes Everything
             </p>
           </div>
         </div>
@@ -162,11 +162,11 @@ export function FinanceProblemSection() {
           </div>
 
           {/* Right: Problem items */}
-          <div className="flex-1 flex flex-col gap-8 max-w-[550px]">
+          <div className="flex flex-1 flex-col gap-6 lg:gap-8 max-w-[550px]">
             <ProblemItem
               index={0}
               icon={
-                <img src="/images/figma/blend-2.svg" alt="" className="w-14 h-14" />
+                <img src="/images/figma/blend-2.svg" alt="" className="w-8 h-8 md:w-14 md:h-14" />
               }
               title="Manual reconciliation"
               description="You don't have to work in IT or even be tech savvy to use our products."
@@ -175,7 +175,7 @@ export function FinanceProblemSection() {
               index={1}
               offset
               icon={
-                <img src="/images/figma/document.svg" alt="" className="w-14 h-14" />
+                <img src="/images/figma/document.svg" alt="" className="w-8 h-8 md:w-14 md:h-14" />
               }
               title="Spreadsheet chaos"
               description="You don't have to work in IT or even be tech savvy to use our products."
@@ -183,7 +183,7 @@ export function FinanceProblemSection() {
             <ProblemItem
               index={2}
               icon={
-                <img src="/images/figma/money-send.svg" alt="" className="w-14 h-14" />
+                <img src="/images/figma/money-send.svg" alt="" className="w-8 h-8 md:w-14 md:h-14" />
               }
               title="Late financial reporting"
               description="You don't have to work in IT or even be tech savvy to use our products."
@@ -192,7 +192,7 @@ export function FinanceProblemSection() {
               index={3}
               offset
               icon={
-                <img src="/images/figma/coin.svg" alt="" className="w-14 h-14" />
+                <img src="/images/figma/coin.svg" alt="" className="w-8 h-8 md:w-14 md:h-14" />
               }
               title="Revenue leakage"
               description="You don't have to work in IT or even be tech savvy to use our products."
