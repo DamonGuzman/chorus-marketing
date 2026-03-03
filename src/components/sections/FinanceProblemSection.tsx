@@ -166,7 +166,22 @@ export function FinanceProblemSection() {
             <ProblemItem
               index={0}
               icon={
-                <img src="/images/figma/blend-2.svg" alt="" className="w-8 h-8 md:w-14 md:h-14" />
+                <svg width="63" height="63" viewBox="0 0 63 63" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-8 h-8 md:w-14 md:h-14">
+                  <style>{`
+                    @keyframes blend-circle1 {
+                      0%        { stroke-dashoffset: 140; }
+                      40%, 100% { stroke-dashoffset: 0; }
+                    }
+                    @keyframes blend-circle2 {
+                      0%, 25%   { stroke-dashoffset: 140; }
+                      65%, 100% { stroke-dashoffset: 0; }
+                    }
+                    .blend-c1 { stroke-dasharray: 140; animation: blend-circle1 2.4s ease-out infinite; }
+                    .blend-c2 { stroke-dasharray: 140; animation: blend-circle2 2.4s ease-out infinite; }
+                  `}</style>
+                  <path className="blend-c1" d="M42.9726 22.124C42.9726 33.6498 33.6507 42.9716 22.125 42.9716C21.1719 42.9716 20.2487 42.9121 19.3552 42.7631C9.13988 41.4229 1.27734 32.6967 1.27734 22.124C1.27734 10.5982 10.5992 1.27637 22.125 1.27637C32.6977 1.27637 41.4239 9.1389 42.7641 19.3542C42.913 20.2477 42.9726 21.171 42.9726 22.124Z" stroke="#B48AFB" strokeWidth="2.55277" strokeLinecap="round" strokeLinejoin="round"/>
+                  <path className="blend-c2" d="M60.8422 39.9932C60.8422 51.5189 51.5204 60.8408 39.9946 60.8408C29.4219 60.8408 20.6957 52.9782 19.3555 42.7629C20.2489 42.9118 21.1722 42.9714 22.1252 42.9714C33.651 42.9714 42.9729 33.6495 42.9729 22.1238C42.9729 21.1707 42.9133 20.2475 42.7644 19.354C52.9797 20.6942 60.8422 29.4204 60.8422 39.9932Z" stroke="#7D7C83" strokeWidth="2.55277" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
               }
               title="Manual reconciliation"
               description="You don't have to work in IT or even be tech savvy to use our products."
@@ -175,7 +190,22 @@ export function FinanceProblemSection() {
               index={1}
               offset
               icon={
-                <img src="/images/figma/document.svg" alt="" className="w-8 h-8 md:w-14 md:h-14" />
+                <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-8 h-8 md:w-14 md:h-14">
+                  <style>{`
+                    @keyframes doc-body {
+                      0%        { stroke-dashoffset: 200; }
+                      40%, 100% { stroke-dashoffset: 0; }
+                    }
+                    @keyframes doc-fold {
+                      0%, 30%   { stroke-dashoffset: 50; }
+                      65%, 100% { stroke-dashoffset: 0; }
+                    }
+                    .doc-body { stroke-dasharray: 200; animation: doc-body 2.4s ease-out infinite; }
+                    .doc-fold { stroke-dasharray: 50;  animation: doc-fold 2.4s ease-out infinite; }
+                  `}</style>
+                  <path className="doc-body" d="M54.6001 24.8187V37.228C54.6001 49.6374 49.6364 54.6011 37.2271 54.6011H22.3359C9.92661 54.6011 4.96289 49.6374 4.96289 37.228V22.3369C4.96289 9.92759 9.92661 4.96387 22.3359 4.96387H34.7452" stroke="#B48AFB" strokeWidth="2.55277" strokeLinecap="round" strokeLinejoin="round"/>
+                  <path className="doc-fold" d="M54.601 24.8187H44.6735C37.228 24.8187 34.7461 22.3369 34.7461 14.8913V4.96387L54.601 24.8187Z" stroke="#7D7C83" strokeWidth="2.55277" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
               }
               title="Spreadsheet chaos"
               description="You don't have to work in IT or even be tech savvy to use our products."
@@ -183,7 +213,35 @@ export function FinanceProblemSection() {
             <ProblemItem
               index={2}
               icon={
-                <img src="/images/figma/money-send.svg" alt="" className="w-8 h-8 md:w-14 md:h-14" />
+                <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-8 h-8 md:w-14 md:h-14">
+                  <style>{`
+                    @keyframes money-dollar {
+                      0%        { stroke-dashoffset: 60; }
+                      30%, 100% { stroke-dashoffset: 0; }
+                    }
+                    @keyframes money-line {
+                      0%, 15%   { stroke-dashoffset: 25; }
+                      40%, 100% { stroke-dashoffset: 0; }
+                    }
+                    @keyframes money-circle {
+                      0%, 25%   { stroke-dashoffset: 170; }
+                      65%, 100% { stroke-dashoffset: 0; }
+                    }
+                    @keyframes money-arrow {
+                      0%, 50%   { stroke-dashoffset: 40; }
+                      80%, 100% { stroke-dashoffset: 0; }
+                    }
+                    .money-dollar { stroke-dasharray: 60;  animation: money-dollar 2.4s ease-out infinite; }
+                    .money-line   { stroke-dasharray: 25;  animation: money-line 2.4s ease-out infinite; }
+                    .money-circle { stroke-dasharray: 170; animation: money-circle 2.4s ease-out infinite; }
+                    .money-arrow  { stroke-dasharray: 40;  animation: money-arrow 2.4s ease-out infinite; }
+                  `}</style>
+                  <path className="money-dollar" d="M23.5781 34.1254C23.5781 36.5328 25.4396 38.4686 27.7229 38.4686H32.3887C34.3742 38.4686 35.9874 36.781 35.9874 34.6714C35.9874 32.4129 34.9947 31.5939 33.5304 31.0727L26.06 28.4667C24.5957 27.9455 23.603 27.1514 23.603 24.868C23.603 22.7833 25.2161 21.0708 27.2016 21.0708H31.8675C34.1508 21.0708 36.0123 23.0067 36.0123 25.4141" stroke="#B48AFB" strokeWidth="2.55277" strokeLinecap="round" strokeLinejoin="round"/>
+                  <path className="money-line" d="M29.7832 18.6138V40.9505" stroke="#C6A5FF" strokeWidth="2.55277" strokeLinecap="round" strokeLinejoin="round"/>
+                  <path className="money-circle" d="M54.6001 29.7825C54.6001 43.4823 43.4814 54.6011 29.7815 54.6011C16.0816 54.6011 4.96289 43.4823 4.96289 29.7825C4.96289 16.0826 16.0816 4.96387 29.7815 4.96387" stroke="#7D7C83" strokeWidth="1.27639" strokeLinecap="round" strokeLinejoin="round"/>
+                  <path className="money-arrow" d="M54.6013 14.8913V4.96387H44.6738" stroke="#7D7C83" strokeWidth="1.27639" strokeLinecap="round" strokeLinejoin="round"/>
+                  <path className="money-arrow" d="M42.1914 17.3732L54.6007 4.96387" stroke="#7D7C83" strokeWidth="1.27639" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
               }
               title="Late financial reporting"
               description="You don't have to work in IT or even be tech savvy to use our products."
@@ -192,7 +250,28 @@ export function FinanceProblemSection() {
               index={3}
               offset
               icon={
-                <img src="/images/figma/coin.svg" alt="" className="w-8 h-8 md:w-14 md:h-14" />
+                <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-8 h-8 md:w-14 md:h-14">
+                  <style>{`
+                    @keyframes coin-bottom {
+                      0%        { stroke-dashoffset: 120; }
+                      35%, 100% { stroke-dashoffset: 0; }
+                    }
+                    @keyframes coin-top {
+                      0%, 20%   { stroke-dashoffset: 140; }
+                      55%, 100% { stroke-dashoffset: 0; }
+                    }
+                    @keyframes coin-mid {
+                      0%, 35%   { stroke-dashoffset: 140; }
+                      70%, 100% { stroke-dashoffset: 0; }
+                    }
+                    .coin-bottom { stroke-dasharray: 120; animation: coin-bottom 2.4s ease-out infinite; }
+                    .coin-top    { stroke-dasharray: 140; animation: coin-top 2.4s ease-out infinite; }
+                    .coin-mid    { stroke-dasharray: 140; animation: coin-mid 2.4s ease-out infinite; }
+                  `}</style>
+                  <path className="coin-bottom" d="M45.9146 31.3955V40.5784C45.9146 48.3218 38.6924 54.6009 29.7825 54.6009C20.8726 54.6009 13.6504 48.3218 13.6504 40.5784V31.3955C13.6504 39.1389 20.8726 44.6735 29.7825 44.6735C38.6924 44.6735 45.9146 39.1389 45.9146 31.3955Z" stroke="#B48AFB" strokeWidth="2.55277" strokeLinecap="round" strokeLinejoin="round"/>
+                  <path className="coin-top" d="M45.9146 18.9864C45.9146 21.2449 45.2941 23.3296 44.2021 25.1166C41.5465 29.4846 36.0864 32.2643 29.7825 32.2643C23.4786 32.2643 18.0185 29.4846 15.3629 25.1166C14.2709 23.3296 13.6504 21.2449 13.6504 18.9864C13.6504 15.1147 15.4621 11.6153 18.3659 9.08375C21.2945 6.52744 25.3151 4.96387 29.7825 4.96387C34.2498 4.96387 38.2705 6.52744 41.1991 9.05894C44.1028 11.6153 45.9146 15.1147 45.9146 18.9864Z" stroke="#7D7C83" strokeWidth="2.55277" strokeLinecap="round" strokeLinejoin="round"/>
+                  <path className="coin-mid" d="M45.9146 18.9864V31.3957C45.9146 39.1391 38.6924 44.6736 29.7825 44.6736C20.8726 44.6736 13.6504 39.1391 13.6504 31.3957V18.9864C13.6504 11.243 20.8726 4.96387 29.7825 4.96387C34.2498 4.96387 38.2705 6.52744 41.1991 9.05894C44.1028 11.6153 45.9146 15.1147 45.9146 18.9864Z" stroke="#7D7C83" strokeWidth="2.55277" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
               }
               title="Revenue leakage"
               description="You don't have to work in IT or even be tech savvy to use our products."
