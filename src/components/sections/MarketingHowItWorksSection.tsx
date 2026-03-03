@@ -526,7 +526,7 @@ function DesktopStickySteps({ steps, header }: { steps: StepData[]; header: Reac
 
   return (
     <div ref={containerRef} className="hidden lg:block relative w-full" style={{ height: "300vh" }}>
-      <div className="sticky top-0 h-screen flex flex-col justify-center overflow-hidden">
+      <div className="sticky top-0 h-screen flex flex-col justify-center overflow-hidden pb-16">
         {/* Section header sits at the top of the sticky panel — no gap */}
         <div className="w-full max-w-[1266px] mx-auto px-4 md:px-8 pb-8">
           {header}
@@ -640,7 +640,7 @@ export function MarketingHowItWorksSection() {
   );
 
   return (
-    <section className="w-full bg-black">
+    <section className="w-full bg-black pb-16 md:pb-24">
       {/* Mobile-only section header */}
       <div className="lg:hidden px-6 md:px-24 pt-12 md:pt-20 pb-4 md:pb-6">
         {sectionHeader}
