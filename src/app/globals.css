@@ -653,6 +653,61 @@
   isolation: isolate;
 }
 
+@keyframes line-glow-travel {
+  0% {
+    stroke-dashoffset: 1600;
+  }
+  100% {
+    stroke-dashoffset: -1600;
+  }
+}
+
+@keyframes icon-row-left {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(-8%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes icon-row-right {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(8%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes cardRevealClip {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  15% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  70% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  85% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+}
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
