@@ -1,4 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
+"use client";
+
+import { ScrollTextReveal, Badge } from "@/components/ui";
 
 export function OperationsProblemSection() {
   return (
@@ -6,16 +9,12 @@ export function OperationsProblemSection() {
       {/* Section header */}
       <div className="max-w-[1266px] mx-auto flex flex-col gap-6">
         <div className="flex flex-col items-center gap-6">
-          <div className="relative w-32 h-9 px-3 py-1 rounded-[100px] overflow-hidden inline-flex justify-center items-center">
-            <span aria-hidden="true" className="absolute inset-0 rounded-[100px] bg-gradient-to-b from-white/30 to-white/[0.04]" />
-            <span aria-hidden="true" className="cta-orbit-ring cta-orbit-ring--pill" />
-            <span aria-hidden="true" className="absolute inset-[1px] rounded-[100px] bg-[#131313]" />
-            <span className="relative z-10 text-white text-base font-bold font-['Urbanist'] leading-6">The Problem</span>
-          </div>
+          <Badge>The Problem</Badge>
           <div className="flex flex-col items-center gap-8 text-center">
-            <h2 className="text-white text-5xl font-bold font-['Urbanist'] leading-[78px]">
-              The Problem - What&apos;s Broken Today
-            </h2>
+            <ScrollTextReveal
+              text="The Problem - What's Broken Today"
+              className="text-white text-3xl md:text-5xl font-bold font-['Urbanist'] leading-tight md:leading-[78px]"
+            />
             <p className="text-[#7d7c83] text-3xl font-medium font-['Urbanist'] leading-10">
               Automate prospecting, enrichment, outreach, follow-ups, CRM updates, and reporting
             </p>

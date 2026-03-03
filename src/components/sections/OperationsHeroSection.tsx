@@ -3,6 +3,7 @@
 
 import dynamic from "next/dynamic";
 import { useEffect, useState } from "react";
+import { ScrollTextReveal } from "@/components/ui";
 
 const Lottie = dynamic(() => import("lottie-react"), { ssr: false });
 
@@ -50,9 +51,11 @@ export function OperationsHeroSection() {
       {/* Title – Figma: y=147, h=148, text w=969 centered */}
       <div className="relative z-10 pt-[117px] md:pt-[147px] flex flex-col items-center px-6">
         <div className="flex flex-col items-center w-full max-w-[969px]">
-          <h1 className="text-transparent bg-clip-text bg-[radial-gradient(ellipse_at_left,white_0%,#cbcbcb_25%,#979797_50%,#646464_75%,#303030_100%)] text-3xl md:text-[55px] font-bold font-['Urbanist'] leading-tight md:leading-[74px] text-center">
-            AI IT Operations That Monitor, Fix &amp; Optimize Automatically
-          </h1>
+          <ScrollTextReveal
+            text="AI IT Operations That Monitor, Fix & Optimize Automatically"
+            stagger={150}
+            className="text-3xl md:text-[55px] font-bold font-['Urbanist'] leading-tight md:leading-[74px] text-center"
+          />
         </div>
       </div>
 

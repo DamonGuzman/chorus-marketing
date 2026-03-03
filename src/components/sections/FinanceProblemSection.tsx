@@ -1,4 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
+"use client";
+
+import { ScrollTextReveal, Badge, AnimateOnScroll } from "@/components/ui";
 
 function CheckCircleGreen() {
   return (
@@ -121,8 +124,13 @@ function ProblemItem({ icon, title, description, offset = false, index = 0 }: { 
         {icon}
       </div>
       <div className="flex-1 flex flex-col gap-4">
-        <h3 className="text-white text-2xl font-bold font-['Urbanist']">{title}</h3>
-        <p className="text-neutral-500 text-base font-semibold font-['Urbanist'] leading-6">{description}</p>
+        <ScrollTextReveal
+          text={title}
+          className="text-white text-2xl font-bold font-['Urbanist']"
+        />
+        <AnimateOnScroll animation="fade-up" duration={0.6} delay={0.2}>
+          <p className="text-neutral-500 text-base font-semibold font-['Urbanist'] leading-6">{description}</p>
+        </AnimateOnScroll>
       </div>
     </div>
   );
@@ -134,13 +142,12 @@ export function FinanceProblemSection() {
       <div className="max-w-[1266px] mx-auto flex flex-col gap-12">
         {/* Section header */}
         <div className="flex flex-col items-center gap-6">
-          <div className="w-32 h-9 px-3 py-1 bg-white/5 rounded-full flex justify-center items-center">
-            <span className="text-white text-base font-bold font-['Urbanist']">The Problem</span>
-          </div>
+          <Badge>The Problem</Badge>
           <div className="flex flex-col items-center gap-8">
-            <h2 className="text-center text-white text-3xl md:text-5xl font-bold font-['Urbanist'] leading-tight md:leading-[78px]">
-              The Problem - What&apos;s Broken Today
-            </h2>
+            <ScrollTextReveal
+              text="The Problem - What's Broken Today"
+              className="text-center text-white text-3xl md:text-5xl font-bold font-['Urbanist'] leading-tight md:leading-[78px]"
+            />
             <p className="text-center text-[#7D7C83] text-lg md:text-3xl font-medium font-['Urbanist'] leading-7 md:leading-10">
               Automate prospecting, enrichment, outreach, follow-ups, CRM updates, and reporting
             </p>
