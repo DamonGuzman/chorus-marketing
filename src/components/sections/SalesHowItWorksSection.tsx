@@ -1,6 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 "use client";
 
+import { useEffect, useRef, useState } from "react";
 import { ScrollTextReveal, Badge, AnimateOnScroll } from "@/components/ui";
 
 function CheckCircleGreen() {
@@ -325,6 +326,32 @@ function ApiConnectionCard() {
     "Send campaigns",
   ];
 
+  const cardRef = useRef<HTMLDivElement>(null);
+  const [visibleCount, setVisibleCount] = useState(0);
+  const hasTriggered = useRef(false);
+
+  useEffect(() => {
+    const el = cardRef.current;
+    if (!el) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !hasTriggered.current) {
+          hasTriggered.current = true;
+          observer.unobserve(el);
+          permissions.forEach((_, i) => {
+            setTimeout(() => setVisibleCount((c) => c + 1), (i + 1) * 400);
+          });
+        }
+      },
+      { threshold: 0.3 },
+    );
+
+    observer.observe(el);
+    return () => observer.disconnect();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   return (
     <div className="w-full max-w-[573px] px-5 md:px-7 pt-10 md:pt-12 pb-6 bg-gradient-to-r from-white/5 via-white/10 to-white/5 rounded-[40px] border border-white/30 backdrop-blur-[30px] flex flex-col items-center gap-7 md:gap-9">
       <div className="w-full max-w-[503px] flex flex-col gap-5">
@@ -348,7 +375,7 @@ function ApiConnectionCard() {
             <span className="text-gray-100 text-[10px] font-bold font-['Urbanist']">Pending</span>
           </div>
         </div>
-        <div className="p-5 bg-white/5 rounded-2xl flex flex-col gap-5">
+        <div ref={cardRef} className="p-5 bg-white/5 rounded-2xl flex flex-col gap-5">
           <div className="flex flex-col gap-3">
             <span className="text-gray-100 text-xs font-bold font-['Urbanist'] uppercase leading-7">API Endpoint :</span>
             <div className="h-8 px-2.5 bg-white/5 rounded-[10px] inline-flex items-center w-fit">
@@ -361,7 +388,15 @@ function ApiConnectionCard() {
             <span className="text-gray-100 text-xs font-bold font-['Urbanist'] uppercase leading-7">Permissions Requested :</span>
             <div className="flex flex-col gap-3">
               {permissions.map((perm, i) => (
-                <div key={i} className="flex items-center gap-2.5">
+                <div
+                  key={i}
+                  className="flex items-center gap-2.5"
+                  style={{
+                    opacity: i < visibleCount ? 1 : 0,
+                    transform: i < visibleCount ? "translateY(0)" : "translateY(12px)",
+                    transition: "opacity 0.4s cubic-bezier(0.16,1,0.3,1), transform 0.4s cubic-bezier(0.16,1,0.3,1)",
+                  }}
+                >
                   <img src="/images/figma/tick-circle.svg" alt="" className="w-4 h-4 shrink-0" />
                   <span className="text-white/75 text-sm font-medium font-['Urbanist'] leading-5">{perm}</span>
                 </div>
@@ -557,6 +592,13 @@ function AnimatedTaskTimeline() {
           85% { opacity: 0; transform: scale(0); }
           100% { opacity: 0; transform: scale(0); }
         }
+        @keyframes slideInLeft {
+          0% { opacity: 0; transform: translateX(-60px); }
+          12% { opacity: 1; transform: translateX(0); }
+          65% { opacity: 1; transform: translateX(0); }
+          80% { opacity: 0; transform: translateX(-60px); }
+          100% { opacity: 0; transform: translateX(-60px); }
+        }
       `}</style>
     </div>
   );
@@ -678,7 +720,7 @@ export function SalesHowItWorksSection() {
                     Setting up campaign infrastructure...
                   </span>
                 </div>
-                <div className="flex flex-col gap-3 md:gap-3.5">
+                <div className="flex flex-col gap-3 md:gap-3.5 overflow-hidden">
                   {[
                     { done: true, text: "Creating 6 AI agents" },
                     { done: true, text: "Configuring approval workflows" },
@@ -690,7 +732,8 @@ export function SalesHowItWorksSection() {
                   ].map((item, i) => (
                     <div
                       key={i}
-                      className="self-stretch px-4 py-4 md:px-3.5 md:py-2.5 bg-white/5 rounded-2xl outline-[1.20px] outline-offset-[-1.20px] outline-white/10 inline-flex items-center gap-3"
+                      className="self-stretch px-4 py-4 md:px-3.5 md:py-2.5 bg-white/5 rounded-2xl outline-[1.20px] outline-offset-[-1.20px] outline-white/10 inline-flex items-center gap-3 animate-[slideInLeft_8s_ease-in-out_infinite]"
+                      style={{ animationDelay: `${i * 0.4}s` }}
                     >
                       {item.done ? (
                         <div className="w-6 h-6 md:w-5 md:h-5 bg-green rounded-[43px] flex items-center justify-center shrink-0 overflow-hidden">
