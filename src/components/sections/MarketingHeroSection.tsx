@@ -77,9 +77,10 @@ export function MarketingHeroSection() {
                 className="text-4xl md:text-6xl font-bold font-['Urbanist'] leading-tight md:leading-[70px]"
               />
               <p className="text-zinc-400 text-base font-light font-['Urbanist'] leading-6">
-                Blocks are carefully crafted to help you distill powerful
+                <span className="md:hidden">The capabilities that let you direct instead of micromanage</span>
+                <span className="hidden md:inline">Blocks are carefully crafted to help you distill powerful
                 messages from your information and data - no matter how
-                complex.
+                complex.</span>
               </p>
             </div>
 
@@ -90,33 +91,33 @@ export function MarketingHeroSection() {
                 <img src="/images/Sidebar.svg" alt="" className="w-60 xl:w-72" />
               </div>
               {/* Top toolbar */}
-              <div className="hidden lg:flex justify-end items-center gap-2.5 mb-4 relative z-10">
-                <div className="h-9 px-3 rounded-md border border-white/25 flex justify-center items-center gap-2 overflow-hidden">
-                  <img src="/images/figma/call.svg" alt="" className="w-4 h-4" />
-                  <img src="/images/figma/arrow-down-01-round.svg" alt="" className="w-3 h-3" />
+              <div className="flex justify-end items-center gap-1.5 lg:gap-2.5 mb-2 lg:mb-4 relative z-10">
+                <div className="h-6 lg:h-9 px-2 lg:px-3 rounded-md border border-white/25 flex justify-center items-center gap-1.5 lg:gap-2 overflow-hidden">
+                  <img src="/images/figma/call.svg" alt="" className="w-3 lg:w-4 h-3 lg:h-4" />
+                  <img src="/images/figma/arrow-down-01-round.svg" alt="" className="w-2 lg:w-3 h-2 lg:h-3" />
                 </div>
-                <div className="h-9 px-3 rounded-md border border-white/25 flex items-center gap-2 overflow-hidden">
-                  <img src="/images/figma/user-add--01.svg" alt="" className="w-4 h-4" />
-                  <span className="text-[#CBCACC] text-xs font-semibold font-['Inter'] leading-6">Invite</span>
+                <div className="h-6 lg:h-9 px-2 lg:px-3 rounded-md border border-white/25 flex items-center gap-1.5 lg:gap-2 overflow-hidden">
+                  <img src="/images/figma/user-add--01.svg" alt="" className="w-3 lg:w-4 h-3 lg:h-4" />
+                  <span className="text-[#CBCACC] text-[9px] lg:text-xs font-semibold font-['Inter'] leading-4 lg:leading-6">Invite</span>
                 </div>
-                <div className="flex items-center -space-x-3">
-                  <div className="w-9 h-9 rounded-full bg-neutral-800 p-[1.5px] relative z-[1] transition-all duration-200 hover:scale-125 hover:z-10 hover:ring-2 hover:ring-violet-500/50 cursor-pointer">
+                <div className="flex items-center -space-x-2 lg:-space-x-3">
+                  <div className="w-6 lg:w-9 h-6 lg:h-9 rounded-full bg-neutral-800 p-[1px] lg:p-[1.5px] relative z-[1]">
                     <img src="/images/figma/image 19.svg" alt="" className="w-full h-full rounded-full object-cover" />
                   </div>
-                  <div className="w-9 h-9 rounded-full bg-neutral-800 p-[1.5px] relative z-[2] transition-all duration-200 hover:scale-125 hover:z-10 hover:ring-2 hover:ring-violet-500/50 cursor-pointer">
+                  <div className="w-6 lg:w-9 h-6 lg:h-9 rounded-full bg-neutral-800 p-[1px] lg:p-[1.5px] relative z-[2]">
                     <img src="/images/figma/Group 1707483916.svg" alt="" className="w-full h-full rounded-full object-cover" />
                   </div>
-                  <div className="w-9 h-9 rounded-full bg-neutral-800 p-[1.5px] relative z-[3] transition-all duration-200 hover:scale-125 hover:z-10 hover:ring-2 hover:ring-violet-500/50 cursor-pointer">
+                  <div className="w-6 lg:w-9 h-6 lg:h-9 rounded-full bg-neutral-800 p-[1px] lg:p-[1.5px] relative z-[3]">
                     <img src="/images/figma/image 19 (2).svg" alt="" className="w-full h-full rounded-full object-cover" />
                   </div>
-                  <div className="w-9 h-9 rounded-full bg-neutral-600 border-[1.5px] border-neutral-800 flex items-center justify-center relative z-[4] transition-all duration-200 hover:scale-125 hover:z-10 hover:ring-2 hover:ring-violet-500/50 cursor-pointer">
-                    <span className="text-white text-sm font-normal font-['Inter'] leading-6">+5</span>
+                  <div className="w-6 lg:w-9 h-6 lg:h-9 rounded-full bg-neutral-600 border-[1px] lg:border-[1.5px] border-neutral-800 flex items-center justify-center relative z-[4]">
+                    <span className="text-white text-[9px] lg:text-sm font-normal font-['Inter'] leading-4 lg:leading-6">+5</span>
                   </div>
                 </div>
-                <div className="w-9 h-9 rounded-full bg-neutral-800 flex items-center justify-center shrink-0">
-                  <img src="/images/figma/search.svg" alt="" className="w-5 h-5" />
+                <div className="w-6 lg:w-9 h-6 lg:h-9 rounded-full bg-neutral-800 flex items-center justify-center shrink-0">
+                  <img src="/images/figma/search.svg" alt="" className="w-3.5 lg:w-5 h-3.5 lg:h-5" />
                 </div>
-                <div className="w-9 h-9 rounded-full bg-neutral-800 flex items-center justify-center shrink-0">
+                <div className="w-6 lg:w-9 h-6 lg:h-9 rounded-full bg-neutral-800 flex items-center justify-center shrink-0">
                   <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
                     <circle cx="5" cy="10" r="1.2" fill="#7D7C83" />
                     <circle cx="10" cy="10" r="1.2" fill="#7D7C83" />

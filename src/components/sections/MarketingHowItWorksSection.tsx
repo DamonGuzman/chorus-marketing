@@ -219,14 +219,14 @@ function PhaseCard({ title, completed = false }: { title: string; completed?: bo
 function Step1Visual() {
   return (
     <div className="w-full max-w-[500px]">
-      <img src="/images/figma/Container_mark.svg" alt="" className="w-full h-[649px] object-contain" />
+      <img src="/images/figma/Container_mark.svg" alt="" className="w-full h-auto lg:h-[649px] object-contain" />
     </div>
   );
 }
 
 function Step2Visual() {
   return (
-    <div className="w-[498px] pl-4 pr-6 pt-8 pb-3 bg-gradient-to-b from-stone-950 via-neutral-800 to-stone-950 rounded-3xl shadow-[0px_7.4px_12.4px_0px_rgba(0,0,0,0.38)] outline outline-[1.24px] outline-offset-[-1.24px] outline-slate-500/20 flex flex-col gap-4 overflow-hidden">
+    <div className="w-full lg:w-[498px] pl-4 pr-6 pt-8 pb-3 bg-gradient-to-b from-stone-950 via-neutral-800 to-stone-950 rounded-3xl shadow-[0px_7.4px_12.4px_0px_rgba(0,0,0,0.38)] outline outline-[1.24px] outline-offset-[-1.24px] outline-slate-500/20 flex flex-col gap-4 overflow-hidden">
       <AgentCardLarge name="Social Media Agent" avatar="/images/figma/image 41.svg" />
       <AgentCardLarge name="Email Marketing Agent" pending avatar="/images/figma/image 41 (3).svg" />
       <AgentCardLarge name="Ad Campaign Agent" avatar="/images/figma/image 41 (4).svg" />
@@ -237,7 +237,7 @@ function Step2Visual() {
 
 function Step3Visual() {
   return (
-    <div className="w-[498px] h-[649px] pl-4 pr-6 pt-5 pb-3 bg-gradient-to-b from-stone-950 via-neutral-800 to-stone-950 rounded-3xl shadow-[0px_7.4px_12.4px_0px_rgba(0,0,0,0.38)] outline outline-[1.24px] outline-offset-[-1.24px] outline-slate-500/20 flex flex-col gap-4">
+    <div className="w-full lg:w-[498px] lg:h-[649px] pl-4 pr-6 pt-5 pb-3 bg-gradient-to-b from-stone-950 via-neutral-800 to-stone-950 rounded-3xl shadow-[0px_7.4px_12.4px_0px_rgba(0,0,0,0.38)] outline outline-[1.24px] outline-offset-[-1.24px] outline-slate-500/20 flex flex-col gap-4">
       <div className="flex items-center justify-between">
         <span className="text-white text-sm font-bold font-['Urbanist']">Milestones</span>
         <div className="flex gap-2.5">
@@ -565,9 +565,9 @@ function MobileStepSection({ step, title, description, visual }: StepData) {
   const [descVisible, setDescVisible] = useState(false);
 
   return (
-    <div className="w-full py-8">
-      <div className="flex flex-col items-center gap-8">
-        <div className="w-full flex flex-col gap-10">
+    <div className="w-full py-2">
+      <div className="flex flex-col items-center gap-3">
+        <div className="w-full flex flex-col gap-4">
           <StepLabel step={step} />
           <AnimatedTitle
             title={title}
@@ -651,7 +651,7 @@ export function MarketingHowItWorksSection() {
 
       {/* Mobile: Vertical stack */}
       <div className="lg:hidden px-6 md:px-24 pb-12 md:pb-20">
-        <div className="flex flex-col gap-8">
+        <div className="flex flex-col gap-2">
           {steps.map((s) => (
             <MobileStepSection key={s.step} step={s.step} title={s.title} description={s.description} visual={s.visual} />
           ))}
