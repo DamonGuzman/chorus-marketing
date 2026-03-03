@@ -47,6 +47,26 @@ export function SalesHeroSection() {
               transition={{ duration: 1, ease: [0.22, 1, 0.36, 1], delay: 0.3 }}
             />
           </motion.div>
+          <img
+            src="/images/figma/salesstrategyagent.svg"
+            alt="Sales Strategy Agent"
+            className="absolute"
+            style={{
+              left: "73.6%",
+              top: "43.5%",
+              width: "13.8%",
+            }}
+          />
+          <img
+            src="/images/figma/leadresearchagent.svg"
+            alt="Lead Research Agent"
+            className="absolute"
+            style={{
+              left: "17%",
+              top: "77%",
+              width: "13.8%",
+            }}
+          />
         </div>
       </div>
 

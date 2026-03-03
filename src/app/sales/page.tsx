@@ -7,7 +7,7 @@ import { FinalCTASection } from "@/components/sections/FinalCTASection";
 
 export default function SalesPage() {
   return (
-    <div className="min-h-screen bg-black" style={{ overflowX: "clip" }}>
+    <div className="min-h-screen bg-black overflow-x-hidden" style={{ overflowX: "clip" }}>
       <Header />
       <main className="w-full mx-auto">
         <SalesHeroSection />
