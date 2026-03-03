@@ -3,6 +3,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { ScrollTextReveal } from "@/components/ui/ScrollTextReveal";
+import { Badge } from "@/components/ui";
 
 function AnimatedProgressBar() {
   return (
@@ -58,13 +59,12 @@ export function SolutionSection() {
     <div className="self-stretch px-4 md:px-8 lg:px-24 py-10 md:py-20 bg-black flex flex-col justify-start items-center gap-10">
       {/* Header */}
       <div className="w-full max-w-[1240px] flex flex-col justify-start items-start gap-6">
-        <div className="w-32 h-9 px-3 py-1 bg-white/5 rounded-[100px] inline-flex justify-center items-center gap-2 overflow-hidden">
-          <div className="text-center text-white text-base font-semibold font-['Urbanist'] leading-6">The Solution</div>
-        </div>
+        <Badge>The Solution</Badge>
         <div className="flex flex-col justify-start items-start gap-4">
-          <h2 className="max-w-[1034px] text-white text-2xl md:text-4xl lg:text-5xl font-bold font-['Urbanist'] leading-tight md:leading-[50px] lg:leading-[78px]">
-            The Chorus Way Manifest Your Team Instantly
-          </h2>
+          <ScrollTextReveal
+            text="The Chorus Way Manifest Your Team Instantly"
+            className="max-w-[1034px] text-2xl md:text-4xl lg:text-5xl font-bold font-['Urbanist'] leading-tight md:leading-[50px] lg:leading-[78px]"
+          />
           <p className="text-neutral-400 text-sm md:text-base lg:text-xl font-normal font-['Urbanist'] leading-6 md:leading-7 lg:leading-9">
             The best way to reach humans instead of spam folders. Deliver transactional and marketing emails at scale.
           </p>

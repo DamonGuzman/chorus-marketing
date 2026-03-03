@@ -2,6 +2,113 @@
 "use client";
 
 import { useRef, useState, useEffect } from "react";
+import { ScrollTextReveal, Badge } from "@/components/ui";
+
+const WORD_STAGGER_MS = 110;
+const WORD_DURATION_MS = 750;
+
+function titleAnimationDuration(title: string) {
+  const wordCount = title.split(/[\s\n]+/).filter(Boolean).length;
+  return (wordCount - 1) * WORD_STAGGER_MS + WORD_DURATION_MS;
+}
+
+/** Word-by-word stagger animation for step headings. */
+function AnimatedTitle({
+  title,
+  active,
+  observeIntersection = false,
+  onRevealed,
+  className,
+}: {
+  title: string;
+  active?: boolean;
+  observeIntersection?: boolean;
+  /** Called once all words have finished animating in */
+  onRevealed?: () => void;
+  className?: string;
+}) {
+  const ref = useRef<HTMLDivElement>(null);
+  const [revealed, setRevealed] = useState(false);
+  const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  function triggerReveal() {
+    requestAnimationFrame(() =>
+      requestAnimationFrame(() => {
+        setRevealed(true);
+        if (onRevealed) {
+          timerRef.current = setTimeout(onRevealed, titleAnimationDuration(title));
+        }
+      }),
+    );
+  }
+
+  // Desktop sticky mode: re-trigger every time the step becomes active
+  useEffect(() => {
+    if (observeIntersection) return;
+    if (timerRef.current) clearTimeout(timerRef.current);
+    if (active) {
+      triggerReveal();
+    } else {
+      setRevealed(false);
+    }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [active, observeIntersection]);
+
+  // Mobile mode: trigger once when the element scrolls into view
+  useEffect(() => {
+    if (!observeIntersection) return;
+    const el = ref.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          triggerReveal();
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.2 },
+    );
+    observer.observe(el);
+    return () => {
+      observer.disconnect();
+      if (timerRef.current) clearTimeout(timerRef.current);
+    };
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [observeIntersection]);
+
+  const lines = title.split("\n");
+  let wordIdx = 0;
+
+  return (
+    <div ref={ref} className={className}>
+      {lines.map((line, lineIdx) => {
+        const words = line.split(/\s+/).filter(Boolean);
+        return (
+          <div key={lineIdx} className="block">
+            {words.map((word) => {
+              const idx = wordIdx++;
+              return (
+                <span
+                  key={idx}
+                  className="inline-block mr-[0.3em]"
+                  style={{
+                    color: revealed ? "#ffffff" : "rgba(255,255,255,0.08)",
+                    opacity: revealed ? 1 : 0,
+                    transform: revealed ? "translateY(0px)" : "translateY(14px)",
+                    transition: `color ${WORD_DURATION_MS}ms cubic-bezier(0.22, 1, 0.36, 1), opacity ${WORD_DURATION_MS}ms cubic-bezier(0.22, 1, 0.36, 1), transform ${WORD_DURATION_MS}ms cubic-bezier(0.22, 1, 0.36, 1)`,
+                    transitionDelay: `${idx * WORD_STAGGER_MS}ms`,
+                  }}
+                >
+                  {word}
+                </span>
+              );
+            })}
+          </div>
+        );
+      })}
+    </div>
+  );
+}
 
 function StepLabel({ step }: { step: number }) {
   return (
@@ -302,6 +409,14 @@ function StickyTextContent({
   const isFirst = index === 0;
   const isLast = index === total - 1;
   const dist = normalised - index;
+  const isActive = Math.round(normalised) === index;
+
+  const [descVisible, setDescVisible] = useState(false);
+
+  // Reset description when step becomes inactive
+  useEffect(() => {
+    if (!isActive) setDescVisible(false);
+  }, [isActive]);
 
   let opacity: number;
   let yOffset: number;
@@ -320,16 +435,24 @@ function StickyTextContent({
 
   return (
     <div
-      className="absolute inset-0 flex flex-col gap-10 transition-[opacity,transform] duration-300 ease-out"
+      className="absolute inset-0 flex flex-col gap-10 transition-[opacity,transform] duration-500 ease-out"
       style={{ opacity, transform: `translateY(${yOffset}px)`, pointerEvents: opacity > 0.5 ? "auto" : "none" }}
     >
       <StepLabel step={step.step} />
-      <h3 className="text-zinc-100 text-4xl md:text-6xl lg:text-7xl xl:text-8xl font-bold font-['Urbanist'] leading-tight lg:leading-[88px]">
-        {step.title.split("\n").map((line, i) => (
-          <span key={i}>{i > 0 && <br />}{line}</span>
-        ))}
-      </h3>
-      <p className="text-zinc-400 text-base font-normal font-['Urbanist'] leading-6 pr-0 lg:pr-32">
+      <AnimatedTitle
+        title={step.title}
+        active={isActive}
+        onRevealed={() => setDescVisible(true)}
+        className="text-4xl md:text-6xl lg:text-7xl xl:text-8xl font-bold font-['Urbanist'] leading-tight lg:leading-[88px]"
+      />
+      <p
+        className="text-zinc-400 text-base font-normal font-['Urbanist'] leading-6 pr-0 lg:pr-32"
+        style={{
+          opacity: descVisible ? 1 : 0,
+          transform: descVisible ? "translateY(0px)" : "translateY(10px)",
+          transition: "opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1), transform 0.6s cubic-bezier(0.22, 1, 0.36, 1)",
+        }}
+      >
         {step.description}
       </p>
     </div>
@@ -372,7 +495,7 @@ function StickyVisualContent({
   );
 }
 
-function DesktopStickySteps({ steps }: { steps: StepData[] }) {
+function DesktopStickySteps({ steps, header }: { steps: StepData[]; header: React.ReactNode }) {
   const containerRef = useRef<HTMLDivElement>(null);
   const [normalised, setNormalised] = useState(0);
 
@@ -402,8 +525,13 @@ function DesktopStickySteps({ steps }: { steps: StepData[] }) {
   }, [steps.length]);
 
   return (
-    <div ref={containerRef} className="hidden lg:block relative w-full" style={{ height: "500vh" }}>
-      <div className="sticky top-0 h-screen flex items-center justify-center overflow-hidden">
+    <div ref={containerRef} className="hidden lg:block relative w-full" style={{ height: "300vh" }}>
+      <div className="sticky top-0 h-screen flex flex-col justify-center overflow-hidden">
+        {/* Section header sits at the top of the sticky panel — no gap */}
+        <div className="w-full max-w-[1266px] mx-auto px-4 md:px-8 pb-8">
+          {header}
+        </div>
+
         <div className="w-full max-w-[1266px] mx-auto px-4 md:px-8 flex items-center">
           {/* Left: Text content */}
           <div className="flex-1 flex items-center">
@@ -416,7 +544,7 @@ function DesktopStickySteps({ steps }: { steps: StepData[] }) {
 
           {/* Right: Visual + Progress bar */}
           <div className="flex items-center gap-4 shrink-0">
-            <div className="relative" style={{ width: "500px", height: "660px" }}>
+            <div className="relative" style={{ width: "500px", height: "560px" }}>
               {steps.map((s, idx) => (
                 <StickyVisualContent key={s.step} visual={s.visual} index={idx} normalised={normalised} total={steps.length} />
               ))}
@@ -434,17 +562,27 @@ function DesktopStickySteps({ steps }: { steps: StepData[] }) {
 /* ------------------------------------------------------------------ */
 
 function MobileStepSection({ step, title, description, visual }: StepData) {
+  const [descVisible, setDescVisible] = useState(false);
+
   return (
     <div className="w-full py-2">
       <div className="flex flex-col items-center gap-3">
         <div className="w-full flex flex-col gap-4">
           <StepLabel step={step} />
-          <h3 className="text-zinc-100 text-4xl md:text-6xl font-bold font-['Urbanist'] leading-tight">
-            {title.split("\n").map((line, i) => (
-              <span key={i}>{i > 0 && <br />}{line}</span>
-            ))}
-          </h3>
-          <p className="text-zinc-400 text-base font-normal font-['Urbanist'] leading-6">
+          <AnimatedTitle
+            title={title}
+            observeIntersection
+            onRevealed={() => setDescVisible(true)}
+            className="text-4xl md:text-6xl font-bold font-['Urbanist'] leading-tight"
+          />
+          <p
+            className="text-zinc-400 text-base font-normal font-['Urbanist'] leading-6"
+            style={{
+              opacity: descVisible ? 1 : 0,
+              transform: descVisible ? "translateY(0px)" : "translateY(10px)",
+              transition: "opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1), transform 0.6s cubic-bezier(0.22, 1, 0.36, 1)",
+            }}
+          >
             {description}
           </p>
         </div>
@@ -488,27 +626,28 @@ export function MarketingHowItWorksSection() {
     },
   ];
 
+  const sectionHeader = (
+    <div className="flex flex-col items-center gap-4 pb-14">
+      <Badge>How it Works</Badge>
+      <ScrollTextReveal
+        text="How Work Happens"
+        className="text-center text-3xl md:text-5xl font-bold font-['Urbanist'] leading-tight md:leading-[78px]"
+      />
+      <p className="text-center text-[#7D7C83] text-lg md:text-2xl font-medium font-['Urbanist'] leading-7 md:leading-9 max-w-[760px]">
+        Automate prospecting, enrichment, outreach, follow-ups, CRM updates, and reporting
+      </p>
+    </div>
+  );
+
   return (
     <section className="w-full bg-black">
-      {/* Section header */}
-      <div className="px-6 md:px-24 pt-12 md:pt-20 pb-10 md:pb-14">
-        <div className="max-w-[1266px] mx-auto flex flex-col items-center gap-6">
-          <div className="w-32 h-9 px-3 py-1 bg-white/5 rounded-full flex justify-center items-center">
-            <span className="text-white text-base font-bold font-['Urbanist']">How it Works</span>
-          </div>
-          <div className="flex flex-col items-center gap-8">
-            <h2 className="text-center text-white text-3xl md:text-5xl font-bold font-['Urbanist'] leading-tight md:leading-[78px]">
-              How Work Happens
-            </h2>
-            <p className="text-center text-[#7D7C83] text-lg md:text-3xl font-medium font-['Urbanist'] leading-7 md:leading-10 max-w-[900px]">
-              Automate prospecting, enrichment, outreach, follow-ups, CRM updates, and reporting
-            </p>
-          </div>
-        </div>
+      {/* Mobile-only section header */}
+      <div className="lg:hidden px-6 md:px-24 pt-12 md:pt-20 pb-4 md:pb-6">
+        {sectionHeader}
       </div>
 
-      {/* Desktop: Sticky scroll animation */}
-      <DesktopStickySteps steps={steps} />
+      {/* Desktop: Sticky scroll animation (header is inside the sticky panel, no gap) */}
+      <DesktopStickySteps steps={steps} header={sectionHeader} />
 
       {/* Mobile: Vertical stack */}
       <div className="lg:hidden px-6 md:px-24 pb-12 md:pb-20">

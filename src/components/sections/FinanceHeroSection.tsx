@@ -1,24 +1,77 @@
 /* eslint-disable @next/next/no-img-element */
 "use client";
 
+import { useRef, useCallback } from "react";
+import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 import { PRIMARY_CTA_HREF } from "@/content/site";
 
 export function FinanceHeroSection() {
+  const sectionRef = useRef<HTMLElement>(null);
+
+  const mouseX = useMotionValue(0);
+  const mouseY = useMotionValue(0);
+
+  const softSpring = { damping: 20, stiffness: 300, mass: 0.3 };
+  const ringsSpring = { damping: 25, stiffness: 150, mass: 0.5 };
+
+  const smoothX = useSpring(mouseX, softSpring);
+  const smoothY = useSpring(mouseY, softSpring);
+  const ringsSmX = useSpring(mouseX, ringsSpring);
+  const ringsSmY = useSpring(mouseY, ringsSpring);
+
+  const moveX = useTransform(smoothX, [-1, 1], [-30, 30]);
+  const moveY = useTransform(smoothY, [-1, 1], [-20, 20]);
+  const rotateX = useTransform(smoothY, [-1, 1], [4, -4]);
+  const rotateY = useTransform(smoothX, [-1, 1], [-4, 4]);
+
+  const ringsMoveX = useTransform(ringsSmX, [-1, 1], [10, -10]);
+  const ringsMoveY = useTransform(ringsSmY, [-1, 1], [6, -6]);
+
+  const leftCardX = useTransform(smoothX, [-1, 1], [-20, 20]);
+  const leftCardY = useTransform(smoothY, [-1, 1], [-15, 15]);
+  const rightCardX = useTransform(smoothX, [-1, 1], [15, -15]);
+  const rightCardY = useTransform(smoothY, [-1, 1], [10, -10]);
+
+  const handleMouseMove = useCallback(
+    (e: React.MouseEvent) => {
+      const rect = sectionRef.current?.getBoundingClientRect();
+      if (!rect) return;
+      mouseX.set(((e.clientX - rect.left) / rect.width - 0.5) * 2);
+      mouseY.set(((e.clientY - rect.top) / rect.height - 0.5) * 2);
+    },
+    [mouseX, mouseY]
+  );
+
+  const handleMouseLeave = useCallback(() => {
+    mouseX.set(0);
+    mouseY.set(0);
+  }, [mouseX, mouseY]);
+
   return (
-    <section className="relative w-full min-h-[700px] md:min-h-[940px] bg-black overflow-hidden">
+    <section
+      ref={sectionRef}
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
+      className="relative w-full min-h-[700px] md:min-h-[940px] bg-black overflow-hidden"
+    >
       {/* Blurred glow center */}
       <div className="absolute left-1/2 top-[60%] -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-zinc-300/80 rounded-full blur-[280px]" />
 
-      {/* Concentric orbital circles */}
-      <div className="absolute left-1/2 top-[75%] -translate-x-1/2 -translate-y-1/2">
-        <div className="w-[500px] h-[500px] md:w-[935px] md:h-[911px] -rotate-[2.62deg] rounded-full border-[2.85px] border-white/5 shadow-[0px_6px_6px_0px_rgba(0,0,0,0.25)]" />
-      </div>
-      <div className="absolute left-1/2 top-[80%] -translate-x-1/2 -translate-y-1/2">
-        <div className="w-[400px] h-[390px] md:w-[736px] md:h-[717px] -rotate-[2.62deg] rounded-full border-[2.85px] border-white/10 shadow-[0px_6px_6px_0px_rgba(0,0,0,0.25)]" />
-      </div>
-      <div className="absolute left-1/2 top-[82%] -translate-x-1/2 -translate-y-1/2">
-        <div className="w-[310px] h-[300px] md:w-[584px] md:h-[569px] -rotate-[2.62deg] rounded-full border-[2.85px] border-white/20 shadow-[0px_6px_6px_0px_rgba(0,0,0,0.25)]" />
-      </div>
+      {/* Concentric orbital circles – parallax layer */}
+      <motion.div
+        className="absolute inset-0 pointer-events-none"
+        style={{ x: ringsMoveX, y: ringsMoveY }}
+      >
+        <div className="absolute left-1/2 top-[75%] -translate-x-1/2 -translate-y-1/2">
+          <div className="w-[500px] h-[500px] md:w-[935px] md:h-[911px] -rotate-[2.62deg] rounded-full border-[2.85px] border-white/5 shadow-[0px_6px_6px_0px_rgba(0,0,0,0.25)]" />
+        </div>
+        <div className="absolute left-1/2 top-[80%] -translate-x-1/2 -translate-y-1/2">
+          <div className="w-[400px] h-[390px] md:w-[736px] md:h-[717px] -rotate-[2.62deg] rounded-full border-[2.85px] border-white/10 shadow-[0px_6px_6px_0px_rgba(0,0,0,0.25)]" />
+        </div>
+        <div className="absolute left-1/2 top-[82%] -translate-x-1/2 -translate-y-1/2">
+          <div className="w-[310px] h-[300px] md:w-[584px] md:h-[569px] -rotate-[2.62deg] rounded-full border-[2.85px] border-white/20 shadow-[0px_6px_6px_0px_rgba(0,0,0,0.25)]" />
+        </div>
+      </motion.div>
 
       {/* Title */}
       <div className="relative z-10 pt-16 md:pt-[120px] flex flex-col items-center px-6">
@@ -37,17 +90,23 @@ export function FinanceHeroSection() {
         </div>
       </div>
 
-      {/* Dashboard visual – centered on the orbits */}
-      <div className="absolute left-[53%] top-[60%] -translate-x-1/2 -translate-y-1/2 z-10 w-[300px] md:w-[650px] lg:w-[850px]">
+      {/* Dashboard visual – cursor-tracking parallax */}
+      <motion.div
+        className="absolute left-[53%] top-[60%] -translate-x-1/2 -translate-y-1/2 z-10 w-[300px] md:w-[650px] lg:w-[850px]"
+        style={{ x: moveX, y: moveY, rotateX, rotateY, perspective: 1000 }}
+      >
         <img
           src="/images/figma/Group 1707484149.svg"
           alt="AI Finance dashboard"
           className="w-full h-auto"
         />
-      </div>
+      </motion.div>
 
-      {/* Left-side cards */}
-      <div className="absolute left-[5%] lg:left-[8%] top-[55%] -translate-y-1/2 z-10 hidden md:flex flex-col items-start gap-4">
+      {/* Left-side cards – parallax */}
+      <motion.div
+        className="absolute left-[5%] lg:left-[8%] top-[55%] -translate-y-1/2 z-10 hidden md:flex flex-col items-start gap-4"
+        style={{ x: leftCardX, y: leftCardY }}
+      >
         <img
           src="/images/figma/test (2).svg"
           alt="Finance Agent card"
@@ -60,16 +119,19 @@ export function FinanceHeroSection() {
             className="w-full h-auto object-contain"
           />
         </div>
-      </div>
+      </motion.div>
 
-      {/* Right-side card */}
-      <div className="absolute right-15 top-[65%] -translate-y-1/2 z-10 w-[160px] md:w-[280px] lg:w-[320px] hidden md:block">
+      {/* Right-side card – parallax (opposite direction) */}
+      <motion.div
+        className="absolute right-15 top-[65%] -translate-y-1/2 z-10 w-[160px] md:w-[280px] lg:w-[320px] hidden md:block"
+        style={{ x: rightCardX, y: rightCardY }}
+      >
         <img
           src="/images/figma/test (1).svg"
           alt="Finance Agent card"
           className="w-full h-auto"
         />
-      </div>
+      </motion.div>
 
       {/* Bottom gradient fade */}
       <div className="absolute bottom-0 left-0 right-0 h-64 bg-gradient-to-t from-black via-black/90 to-transparent z-[5]" />
