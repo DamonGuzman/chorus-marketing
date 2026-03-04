@@ -344,7 +344,7 @@ function CardContent({ card, paused }: { card: CardData; paused?: boolean }) {
             <AnimatedTimelineSVG />
           </div>
         ) : card.visualType === "scrollingImage" ? (
-          <div className="relative flex-1 w-full flex items-center justify-center md:justify-end md:min-h-[440px] max-w-[570px]">
+          <div className="relative flex-1 w-full hidden md:flex items-center justify-center md:justify-end md:min-h-[440px] max-w-[570px]">
             <ScrollingImage src={card.imageSrc!} alt={card.imageAlt || ""} paused={paused} />
           </div>
         ) : (
