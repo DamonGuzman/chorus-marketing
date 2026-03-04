@@ -21,7 +21,7 @@ export function NewHeroSection() {
 
   return (
     <section className="relative bg-black" id="about">
-      <div aria-hidden="true" className="hero-dot-grid" />
+      <div aria-hidden="true" className="hero-dot-grid hidden md:block" />
       <div className="relative z-10 pt-[60px] md:pt-[110px] px-6 md:px-10 lg:px-20 max-w-[1440px] mx-auto pb-12 md:pb-16">
         <div className="w-full max-w-[1183px] mx-auto flex flex-col justify-start items-center">
           <div className="self-stretch flex flex-col justify-start items-center gap-[20px] md:gap-7">
@@ -45,7 +45,36 @@ export function NewHeroSection() {
           </div>
         </div>
 
-        <div ref={cardRef} className="mt-10 md:mt-14 flex justify-center px-2 md:px-8" style={{ perspective: "1200px" }}>
+        {/* Mobile hero image — clean, no heavy glow wrappers */}
+        <div
+          ref={cardRef}
+          className="md:hidden mt-10 flex justify-center px-0 -mb-12"
+          style={{
+            opacity: revealed ? 1 : 0,
+            transform: revealed ? "translateY(0) scale(1)" : "translateY(40px) scale(0.95)",
+            transition: "opacity 1s cubic-bezier(0.16,1,0.3,1), transform 1.2s cubic-bezier(0.16,1,0.3,1)",
+          }}
+        >
+          <div className="relative w-full">
+            <div
+              className="absolute -inset-6 rounded-3xl pointer-events-none"
+              style={{ background: "radial-gradient(ellipse 70% 60% at 50% 45%, rgba(180,138,251,0.15) 0%, transparent 70%)" }}
+            />
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/images/figma/Group 1707484159.svg"
+              alt="Chorus platform interface"
+              className="relative w-full h-auto block brightness-[1.8]"
+            />
+            <div
+              className="absolute bottom-0 left-0 right-0 h-24 pointer-events-none"
+              style={{ background: "linear-gradient(to bottom, transparent, black)" }}
+            />
+          </div>
+        </div>
+
+        {/* Desktop hero image — with glow border and effects */}
+        <div className="hidden md:flex mt-14 justify-center px-8" style={{ perspective: "1200px" }}>
           <div
             className="relative w-full max-w-[1100px]"
             style={{
@@ -59,9 +88,8 @@ export function NewHeroSection() {
           >
             <div aria-hidden="true" className="hero-white-backlight" />
 
-            <div className="glow-border-card rounded-[16px] md:rounded-[24px]">
-              <div className="relative w-full overflow-hidden rounded-[14px] md:rounded-[22px] bg-[#08080c] shadow-[1px_-4px_14px_1px_white]">
-                {/* Shimmer overlay */}
+            <div className="glow-border-card rounded-[24px]">
+              <div className="relative w-full overflow-hidden rounded-[22px] bg-[#08080c] shadow-[1px_-4px_14px_1px_white]">
                 <div
                   className="absolute inset-0 z-10 pointer-events-none"
                   style={{
@@ -71,7 +99,6 @@ export function NewHeroSection() {
                   }}
                 />
 
-                {/* Scan line */}
                 <div
                   className="absolute left-0 right-0 h-[1px] z-10 pointer-events-none"
                   style={{
