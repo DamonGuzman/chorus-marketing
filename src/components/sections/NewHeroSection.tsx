@@ -9,14 +9,8 @@ export function NewHeroSection() {
   const [revealed, setRevealed] = useState(false);
 
   useEffect(() => {
-    const el = cardRef.current;
-    if (!el) return;
-    const observer = new IntersectionObserver(
-      ([entry]) => { if (entry.isIntersecting) { setRevealed(true); observer.disconnect(); } },
-      { threshold: 0.15 },
-    );
-    observer.observe(el);
-    return () => observer.disconnect();
+    const timer = setTimeout(() => setRevealed(true), 100);
+    return () => clearTimeout(timer);
   }, []);
 
   return (
@@ -45,31 +39,48 @@ export function NewHeroSection() {
           </div>
         </div>
 
-        {/* Mobile hero image — clean, no heavy glow wrappers */}
-        <div
-          ref={cardRef}
-          className="md:hidden mt-10 flex justify-center px-0 -mb-12"
-          style={{
-            opacity: revealed ? 1 : 0,
-            transform: revealed ? "translateY(0) scale(1)" : "translateY(40px) scale(0.95)",
-            transition: "opacity 1s cubic-bezier(0.16,1,0.3,1), transform 1.2s cubic-bezier(0.16,1,0.3,1)",
-          }}
-        >
-          <div className="relative w-full">
-            <div
-              className="absolute -inset-6 rounded-3xl pointer-events-none"
-              style={{ background: "radial-gradient(ellipse 70% 60% at 50% 45%, rgba(180,138,251,0.15) 0%, transparent 70%)" }}
-            />
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src="/images/figma/Group 1707484159.svg"
-              alt="Chorus platform interface"
-              className="relative w-full h-auto block brightness-[1.8]"
-            />
-            <div
-              className="absolute bottom-0 left-0 right-0 h-24 pointer-events-none"
-              style={{ background: "linear-gradient(to bottom, transparent, black)" }}
-            />
+        {/* Mobile hero image */}
+        <div className="md:hidden mt-10 flex justify-center px-2" style={{ perspective: "1200px" }}>
+          <div
+            ref={cardRef}
+            className="relative w-full"
+            style={{
+              opacity: revealed ? 1 : 0,
+              transform: revealed
+                ? "translateY(0) rotateX(0deg) scale(1)"
+                : "translateY(80px) rotateX(8deg) scale(0.92)",
+              transition: "opacity 1.2s cubic-bezier(0.16,1,0.3,1), transform 1.4s cubic-bezier(0.16,1,0.3,1)",
+              willChange: revealed ? "auto" : "opacity, transform",
+            }}
+          >
+            <div aria-hidden="true" className="hero-white-backlight" />
+            <div className="glow-border-card rounded-[16px]">
+              <div className="relative w-full overflow-hidden rounded-[14px] bg-[#08080c] shadow-[1px_-4px_14px_1px_white]">
+                <div
+                  className="absolute inset-0 z-10 pointer-events-none"
+                  style={{
+                    background: "linear-gradient(105deg, transparent 40%, rgba(255,255,255,0.03) 45%, rgba(255,255,255,0.06) 50%, rgba(255,255,255,0.03) 55%, transparent 60%)",
+                    backgroundSize: "200% 100%",
+                    animation: revealed ? "hero-shimmer 3s ease-in-out 1s 1 forwards" : "none",
+                  }}
+                />
+                <div
+                  className="absolute left-0 right-0 h-[1px] z-10 pointer-events-none"
+                  style={{
+                    background: "linear-gradient(90deg, transparent, rgba(180,138,251,0.4), rgba(255,255,255,0.6), rgba(180,138,251,0.4), transparent)",
+                    top: revealed ? "100%" : "0%",
+                    opacity: revealed ? 0 : 1,
+                    transition: "top 2s cubic-bezier(0.16,1,0.3,1) 0.4s, opacity 0.5s ease 2.2s",
+                  }}
+                />
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src="/images/figma/CleanShot 2024-10-20 at 22.27.03.svg"
+                  alt="Chorus platform interface"
+                  className="w-full h-auto block"
+                />
+              </div>
+            </div>
           </div>
         </div>
 
