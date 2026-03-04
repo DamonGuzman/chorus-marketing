@@ -60,7 +60,7 @@ function SalesCard() {
     <div className="w-80 md:w-96 shrink-0 snap-start bg-gradient-to-br from-blue-950/70 to-slate-950/70 rounded-[20px] shadow-[0px_0px_40px_20px_rgba(7,13,79,0.05),inset_0px_0px_0px_1px_rgba(255,255,255,0.06),inset_0px_1px_0px_0px_rgba(255,255,255,0.10)] flex flex-col overflow-hidden">
       <div className="px-6 pt-6 flex flex-col gap-6">
         <CardHeader emoji="📊" title="Sales" href="/sales" />
-        <p className="text-white text-base font-medium font-['Inter'] leading-6">
+        <p className="text-white text-base font-medium font-['Urbanist'] leading-6">
           Create, search and modify your issues<br />without leaving your keyboard.
         </p>
         <div className="h-px bg-white/5" />
