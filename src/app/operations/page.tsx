@@ -1,10 +1,12 @@
 import { Header, Footer } from "@/components/layout";
 import { AnimateOnScroll } from "@/components/ui";
 import { OperationsHeroSection } from "@/components/sections/OperationsHeroSection";
-import { OperationsProblemSection } from "@/components/sections/OperationsProblemSection";
-import { OperationsHowItWorksSection } from "@/components/sections/OperationsHowItWorksSection";
-import { ChorusWaySection } from "@/components/sections/ChorusWaySection";
-import { FinalCTASection } from "@/components/sections/FinalCTASection";
+import dynamic from "next/dynamic";
+
+const OperationsProblemSection = dynamic(() => import("@/components/sections/OperationsProblemSection").then(m => ({ default: m.OperationsProblemSection })));
+const OperationsHowItWorksSection = dynamic(() => import("@/components/sections/OperationsHowItWorksSection").then(m => ({ default: m.OperationsHowItWorksSection })));
+const ChorusWaySection = dynamic(() => import("@/components/sections/ChorusWaySection").then(m => ({ default: m.ChorusWaySection })));
+const FinalCTASection = dynamic(() => import("@/components/sections/FinalCTASection").then(m => ({ default: m.FinalCTASection })));
 
 export default function OperationsPage() {
   return (

@@ -1,9 +1,11 @@
 import { Header, Footer } from "@/components/layout";
 import { AnimateOnScroll } from "@/components/ui";
 import { MarketingHeroSection } from "@/components/sections/MarketingHeroSection";
-import { MarketingProblemSection } from "@/components/sections/MarketingProblemSection";
-import { MarketingHowItWorksSection } from "@/components/sections/MarketingHowItWorksSection";
-import { FinalCTASection } from "@/components/sections/FinalCTASection";
+import dynamic from "next/dynamic";
+
+const MarketingProblemSection = dynamic(() => import("@/components/sections/MarketingProblemSection").then(m => ({ default: m.MarketingProblemSection })));
+const MarketingHowItWorksSection = dynamic(() => import("@/components/sections/MarketingHowItWorksSection").then(m => ({ default: m.MarketingHowItWorksSection })));
+const FinalCTASection = dynamic(() => import("@/components/sections/FinalCTASection").then(m => ({ default: m.FinalCTASection })));
 
 export default function MarketingPage() {
   return (

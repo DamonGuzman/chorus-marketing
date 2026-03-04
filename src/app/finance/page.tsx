@@ -1,10 +1,12 @@
 import { Header, Footer } from "@/components/layout";
 import { AnimateOnScroll } from "@/components/ui";
 import { FinanceHeroSection } from "@/components/sections/FinanceHeroSection";
-import { FinanceProblemSection } from "@/components/sections/FinanceProblemSection";
-import { FinanceHowItWorksSection } from "@/components/sections/FinanceHowItWorksSection";
-import { ChorusWaySection } from "@/components/sections/ChorusWaySection";
-import { FinalCTASection } from "@/components/sections/FinalCTASection";
+import dynamic from "next/dynamic";
+
+const FinanceProblemSection = dynamic(() => import("@/components/sections/FinanceProblemSection").then(m => ({ default: m.FinanceProblemSection })));
+const FinanceHowItWorksSection = dynamic(() => import("@/components/sections/FinanceHowItWorksSection").then(m => ({ default: m.FinanceHowItWorksSection })));
+const ChorusWaySection = dynamic(() => import("@/components/sections/ChorusWaySection").then(m => ({ default: m.ChorusWaySection })));
+const FinalCTASection = dynamic(() => import("@/components/sections/FinalCTASection").then(m => ({ default: m.FinalCTASection })));
 
 export default function FinancePage() {
   return (

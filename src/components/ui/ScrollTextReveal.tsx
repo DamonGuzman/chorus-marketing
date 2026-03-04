@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState, useCallback, type CSSProperties } from "react";
+import { useScrollCallback } from "./SmoothScroll";
 
 interface ScrollTextRevealProps {
   text: string | string[];
@@ -8,7 +9,6 @@ interface ScrollTextRevealProps {
   style?: CSSProperties;
   dimColor?: string;
   brightColor?: string;
-  /** When set, reveals words one-by-one on mount with this ms delay between each word (for hero/above-fold headings) */
   stagger?: number;
 }
 
@@ -21,15 +21,17 @@ export function ScrollTextReveal({
   stagger,
 }: ScrollTextRevealProps) {
   const containerRef = useRef<HTMLDivElement>(null);
-  const [progress, setProgress] = useState(0);
-  // For stagger mode: triggers the CSS transitionDelay chain after mount
+  const progressRef = useRef(0);
+  const [, forceRender] = useState(0);
+  const inViewRef = useRef(false);
   const [staggerActive, setStaggerActive] = useState(false);
 
   const lines = Array.isArray(text) ? text : [text];
   const totalWords = lines.reduce((sum, line) => sum + line.split(/\s+/).filter(Boolean).length, 0);
 
-  const updateProgress = useCallback(() => {
+  const onScrollTick = useCallback(() => {
     if (stagger !== undefined) return;
+    if (!inViewRef.current) return;
     const el = containerRef.current;
     if (!el) return;
 
@@ -38,21 +40,31 @@ export function ScrollTextReveal({
     const start = windowH * 0.85;
     const end = windowH * 0.35;
     const raw = (start - rect.top) / (start - end);
-    setProgress(Math.max(0, Math.min(1, raw)));
+    const clamped = Math.max(0, Math.min(1, raw));
+
+    if (Math.abs(clamped - progressRef.current) > 0.003) {
+      progressRef.current = clamped;
+      forceRender(n => n + 1);
+    }
   }, [stagger]);
+
+  useScrollCallback(onScrollTick);
 
   useEffect(() => {
     if (stagger !== undefined) return;
     const el = containerRef.current;
     if (!el) return;
 
-    window.addEventListener("scroll", updateProgress, { passive: true });
-    updateProgress();
-    return () => window.removeEventListener("scroll", updateProgress);
-  }, [updateProgress, stagger]);
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        inViewRef.current = entry.isIntersecting;
+      },
+      { threshold: 0, rootMargin: "100px" },
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, [stagger]);
 
-  // Stagger mode: wait for the element to be visible (handles both above-fold
-  // and below-fold cases, including elements inside AnimateOnScroll wrappers)
   useEffect(() => {
     if (stagger === undefined) return;
     const el = containerRef.current;
@@ -61,7 +73,6 @@ export function ScrollTextReveal({
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          // Two frames: let browser paint dim state, then kick off transitions
           requestAnimationFrame(() => {
             requestAnimationFrame(() => setStaggerActive(true));
           });
@@ -74,6 +85,7 @@ export function ScrollTextReveal({
     return () => observer.disconnect();
   }, [stagger]);
 
+  const progress = progressRef.current;
   let globalIdx = 0;
 
   return (

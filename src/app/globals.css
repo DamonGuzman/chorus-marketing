@@ -733,3 +733,14 @@ body {
   color: var(--color-white);
   font-family: var(--font-urbanist);
 }
+
+/* Heavy section containment for layout isolation */
+section, [data-section] {
+  contain: layout style;
+}
+
+/* Pause SVG and CSS animations when offscreen via content-visibility */
+.offscreen-pause {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 600px;
+}

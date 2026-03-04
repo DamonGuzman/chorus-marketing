@@ -1,7 +1,9 @@
 import { Header, Footer } from "@/components/layout";
 import { AnimateOnScroll, Badge, ScrollTextReveal } from "@/components/ui";
-import { PressCarousel } from "@/components/sections/PressCarousel";
-import { AlternateCTASection } from "@/components/sections";
+import dynamic from "next/dynamic";
+
+const PressCarousel = dynamic(() => import("@/components/sections/PressCarousel").then(m => ({ default: m.PressCarousel })));
+const AlternateCTASection = dynamic(() => import("@/components/sections").then(m => ({ default: m.AlternateCTASection })));
 
 export default function AboutUsPage() {
   return (
@@ -12,7 +14,6 @@ export default function AboutUsPage() {
           id="about-us"
           className="bg-black pt-0 pb-12 md:pb-20 overflow-x-hidden"
         >
-          {/* first parent section */}
           {/* desktop */}
           <div className="hidden md:block self-stretch h-[720px] relative bg-black overflow-hidden max-w-[1440px] mx-auto px-6 md:px-10 lg:px-20">
               <img
@@ -278,7 +279,7 @@ export default function AboutUsPage() {
               </div>
             </div>
 
-            {/* Press Testimonials — Mobile: carousel, Desktop: grid */}
+            {/* Press Testimonials */}
             <PressCarousel />
 
             {/* Desktop grid */}
@@ -322,7 +323,7 @@ export default function AboutUsPage() {
                 </div>
               </div>
 
-              {/* Second row - outside the max-width container */}
+              {/* Second row */}
               <div className="w-full pl-8 lg:pl-32 xl:pl-48 2xl:pl-64 inline-flex justify-center items-end gap-10 lg:gap-14 xl:gap-16 2xl:gap-20">
                 <div className="inline-flex justify-start items-end gap-4 lg:gap-6 xl:gap-8 2xl:gap-9">
                   <img
@@ -394,7 +395,6 @@ export default function AboutUsPage() {
 
                 {/* Team Grid */}
                 <div className="w-full max-w-[1064px] grid grid-cols-2 lg:grid-cols-3 gap-8 md:gap-20 lg:gap-32">
-                  {/* Team Member 1 */}
                   {[
                     { src: "images/figma/about-us/team-person-1.png" },
                     { src: "images/figma/about-us/team-person-2.png" },
