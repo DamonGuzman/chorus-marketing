@@ -320,7 +320,7 @@ function ComposedIllustration() {
 /* ── Main Section ── */
 export function CollaborationHubSection() {
   return (
-    <section className="w-full bg-black flex flex-col items-center gap-[10px] px-4 py-[50px] md:px-8 md:pt-[120px] md:pb-[150px] overflow-hidden">
+    <section className="w-full bg-black flex flex-col items-center gap-[10px] px-6 py-12 md:px-10 lg:px-20 md:py-20 overflow-hidden">
       <div className="self-stretch flex flex-col items-center gap-[40px] md:gap-[80px]">
         {/* Header */}
         <div className="self-stretch flex flex-col items-center gap-1">

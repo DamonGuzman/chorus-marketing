@@ -55,7 +55,7 @@ function GlowCard({ children, className }: { children: ReactNode; className?: st
 export function OldWaySection() {
   return (
     <Section
-      className="self-stretch px-4 py-3 md:px-8 md:py-20 flex flex-col justify-start items-center gap-4 md:gap-10"
+      className="self-stretch px-6 py-12 md:px-10 lg:px-20 md:py-20 flex flex-col justify-start items-center gap-4 md:gap-10"
       id="old-way"
     >
       <div className="w-full max-w-[1440px] mx-auto flex flex-col items-center gap-10">

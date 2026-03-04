@@ -149,7 +149,7 @@ export function IntegrationsSection() {
   }, [videoInView]);
 
   return (
-    <section id="integrations" className="w-[100vw] left-1/2 -translate-x-1/2 relative px-4 py-10 md:px-8 md:py-20 bg-black flex flex-col items-center gap-2.5 overflow-hidden">
+    <section id="integrations" className="w-[100vw] left-1/2 -translate-x-1/2 relative px-6 py-12 md:px-10 lg:px-20 md:py-20 bg-black flex flex-col items-center gap-2.5 overflow-hidden">
       <div className="self-stretch flex flex-col justify-start items-center gap-6 md:gap-14">
         <div className="self-stretch flex flex-col justify-start items-center gap-1">
           <Badge className="w-32 h-9 px-3 py-1 bg-white/5 rounded-[100px] inline-flex justify-center items-center gap-2 overflow-hidden">

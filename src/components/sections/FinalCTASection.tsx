@@ -5,7 +5,7 @@ import { ScrollTextReveal } from "@/components/ui";
 
 export function FinalCTASection() {
   return (
-    <section className="relative bg-black overflow-hidden rounded-b-[20px] md:rounded-b-[28px] w-full px-4 py-16 md:px-8 md:pt-32 lg:pt-40 xl:pt-52 2xl:pt-60 md:pb-14 lg:pb-16 xl:pb-20 mt-4 md:mt-0 mb-4 md:mb-8" id="cta">
+    <section className="relative bg-black overflow-hidden rounded-b-[20px] md:rounded-b-[28px] w-full px-6 py-16 md:px-10 lg:px-20 md:pt-32 lg:pt-40 xl:pt-52 2xl:pt-60 md:pb-14 lg:pb-16 xl:pb-20 mt-4 md:mt-0 mb-4 md:mb-8" id="cta">
       {/* Background image — mobile version hides the horizontal SVG line */}
       <img
         src="/images/figma/image1234-mobile.svg"

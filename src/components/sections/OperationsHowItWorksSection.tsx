@@ -343,7 +343,7 @@ function ApiConnectionCard() {
 
 export function OperationsHowItWorksSection() {
   return (
-    <section className="w-full px-6 md:px-[100px] pb-12 md:py-[75px] bg-black overflow-x-hidden">
+    <section className="w-full px-6 md:px-10 lg:px-20 py-12 md:py-20 bg-black overflow-x-hidden">
       <div className="max-w-[1240px] mx-auto flex flex-col gap-[59px] items-start">
         <div className="flex flex-col items-center w-full">
           {/* Badge */}

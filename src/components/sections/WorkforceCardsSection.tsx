@@ -236,7 +236,7 @@ function OperationsCard() {
 export function WorkforceCardsSection() {
   return (
     <Section
-      className="self-stretch px-4 md:px-8 lg:px-24 py-10 md:py-20 bg-black flex flex-col justify-start items-center overflow-hidden"
+      className="self-stretch px-6 md:px-10 lg:px-20 py-12 md:py-20 bg-black flex flex-col justify-start items-center overflow-hidden"
       id="workforce-cards"
     >
       <div className="w-full max-w-[1240px] flex flex-col justify-start items-start gap-6">

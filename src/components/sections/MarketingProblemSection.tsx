@@ -154,7 +154,7 @@ function CrossChannelCard() {
 
 export function MarketingProblemSection() {
   return (
-    <section className="w-full px-6 md:px-24 py-12 md:py-20 bg-black">
+    <section className="relative z-0 w-full px-6 md:px-10 lg:px-20 py-12 md:py-20 bg-black">
       <div className="max-w-[1266px] mx-auto flex flex-col gap-6">
         <div className="flex flex-col items-center gap-6">
           <Badge>The Problem</Badge>

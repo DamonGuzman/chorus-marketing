@@ -391,7 +391,7 @@ export function FeaturesCardSection() {
   }, []);
 
   return (
-    <section className="w-full bg-black px-4 md:px-8 py-[50px] md:py-section-y">
+    <section className="w-full bg-black px-6 md:px-10 lg:px-20 py-12 md:py-20">
       <div className="max-w-[1240px] mx-auto flex flex-col items-center gap-[20px]">
 
         {/* ── Section Header ── */}

@@ -272,7 +272,7 @@ function Illustration() {
 
 export function CampaignSection() {
   return (
-    <section className="w-full bg-black px-4 md:px-8 py-[75px] overflow-hidden">
+    <section className="w-full bg-black px-6 md:px-10 lg:px-20 pt-6 pb-12 lg:pt-6 lg:pb-20 overflow-hidden">
       <div className="max-w-[1200px] mx-auto flex items-center justify-between gap-6">
         {/* Left – Step indicator */}
         <div className="flex flex-col items-center gap-[26px] shrink-0">

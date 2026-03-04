@@ -67,7 +67,7 @@ function OpsDashboardCard() {
 
 export function OperationsProblemSection() {
   return (
-    <section className="w-full px-6 md:px-24 py-24 md:py-12 bg-black" style={{ overflowX: "clip" }}>
+    <section className="w-full px-6 md:px-10 lg:px-20 py-12 md:py-20 bg-black" style={{ overflowX: "clip" }}>
       <div className="max-w-[1266px] mx-auto flex flex-col gap-2 md:gap-6">
 
         {/* Section header */}

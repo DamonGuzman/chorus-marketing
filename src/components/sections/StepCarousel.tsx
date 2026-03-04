@@ -116,7 +116,7 @@ export function StepCarousel() {
   };
 
   return (
-    <section className="lg:hidden w-full bg-black py-[50px]">
+    <section className="lg:hidden w-full bg-black py-12">
       {/* Fixed illustration — stays in place */}
       <ScaledIllustration>
         <GearIllustration />

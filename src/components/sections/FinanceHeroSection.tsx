@@ -86,19 +86,20 @@ export function FinanceHeroSection() {
           </p>
         </div>
 
-        {/* Dashboard image – centered */}
-        <div className="relative z-10 w-full flex justify-center overflow-hidden">
+        {/* Dashboard image – centered, height-capped with fade */}
+        <div className="relative w-full h-[340px] flex justify-center overflow-hidden">
           <div
             style={{
-              width: "140%",
-              aspectRatio: "372 / 369",
+              width: "110%",
+              height: "100%",
               backgroundImage: "url('/images/figma/finance-mobile-hero.svg')",
               backgroundSize: "cover",
               backgroundRepeat: "no-repeat",
-              backgroundPosition: "center",
+              backgroundPosition: "center top",
               imageRendering: "crisp-edges",
             }}
           />
+          <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-black to-transparent" />
         </div>
       </div>
 

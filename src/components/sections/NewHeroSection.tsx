@@ -5,7 +5,7 @@ export function NewHeroSection() {
   return (
     <section className="relative bg-black" id="about">
       <div aria-hidden="true" className="hero-dot-grid" />
-      <div className="relative z-10 pt-[60px] md:pt-[110px] px-4 sm:px-6 md:px-8 max-w-[1440px] mx-auto pb-12 md:pb-16">
+      <div className="relative z-10 pt-[60px] md:pt-[110px] px-6 md:px-10 lg:px-20 max-w-[1440px] mx-auto pb-12 md:pb-16">
         <div className="w-full max-w-[1183px] mx-auto flex flex-col justify-start items-center">
           <div className="self-stretch flex flex-col justify-start items-center gap-[20px] md:gap-7">
             <div className="self-stretch flex flex-col justify-start items-center gap-[14px] md:gap-5">

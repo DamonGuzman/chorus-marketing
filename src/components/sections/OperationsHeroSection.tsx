@@ -75,12 +75,15 @@ export function OperationsHeroSection() {
       </div>
 
       {/* Mobile: sidebar-free animation */}
-      <div className="md:hidden relative z-[1] w-full mx-auto mt-[-60px] flex ml-[-40px]">
-        {mobileAnimationData ? (
-          <Lottie animationData={mobileAnimationData} loop autoplay className="w-full h-auto origin-top scale-x-[1.3] scale-y-[1.5]" />
-        ) : (
-          <div className="w-full" style={{ aspectRatio: "1252 / 695" }} />
-        )}
+      <div className="md:hidden relative z-[1] w-full mx-auto mt-[-30px] overflow-hidden -mb-10">
+        <div className="flex justify-center -ml-8">
+          {mobileAnimationData ? (
+            <Lottie animationData={mobileAnimationData} loop autoplay className="w-[200%] h-auto" />
+          ) : (
+            <div className="w-full" style={{ aspectRatio: "1252 / 695" }} />
+          )}
+        </div>
+        <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-black to-transparent" />
       </div>
 
       {/* Desktop: unchanged */}

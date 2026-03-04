@@ -16,7 +16,7 @@ export default function FeaturesPage() {
   return (
     <div className="min-h-screen bg-black" style={{ overflowX: "clip" }}>
       <Header />
-      <main className="px-4 md:px-6 lg:px-10">
+      <main className="w-full mx-auto">
         <FeaturesHeroSection />
 
         <AnimateOnScroll animation="fade-up" duration={0.8}>

@@ -56,7 +56,7 @@ export function MarketingHeroSection() {
   const [activeCard, setActiveCard] = useState<string>("Email Marketing Agent");
 
   return (
-    <section className="relative w-full min-h-[700px] md:min-h-[940px] bg-black overflow-hidden">
+    <section className="relative w-full bg-black overflow-hidden pb-16 md:pb-24">
       {/* Background image */}
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
@@ -64,7 +64,7 @@ export function MarketingHeroSection() {
       />
 
       {/* Hero content */}
-      <div className="relative z-10 pt-24 md:pt-[130px] flex flex-col items-center px-4 md:px-6">
+      <div className="relative z-10 pt-24 md:pt-[130px] flex flex-col items-center px-6">
         {/* Main container */}
         <div className="w-full max-w-[1261px] lg:h-[638px] bg-neutral-900 rounded-[20px] md:rounded-[30px] p-2">
           <div className="flex flex-col lg:flex-row items-center lg:items-start gap-6 lg:gap-0 px-4 md:px-8 lg:px-12 py-6 lg:py-0 h-full">
