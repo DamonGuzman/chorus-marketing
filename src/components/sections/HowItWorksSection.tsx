@@ -17,7 +17,7 @@ const steps = [
     title: "AI That Works for Every Role",
     description:
       "Create AI agents for any role: SDR, Content Writer, Financial Analyst, Project Manager. Name them. Give them your data. Set their rules.",
-    image: "/images/figma/Group 1707484029.svg",
+    image: "",
   },
   {
     number: "2",
@@ -577,6 +577,34 @@ function ConnectedAppsCard() {
 }
 
 /* ============================================================
+   Step 1 Visual (three overlapping SVGs)
+   ============================================================ */
+
+function Step1Visual() {
+  return (
+    <div className="relative w-full h-full">
+      <img
+        src="/images/figma/AI1.svg"
+        alt="Agent Profile"
+        className="absolute top-[-7%] right-[0%] w-[115%] h-auto rounded-2xl animate-[slideFromRight_6s_ease-in-out_infinite]"
+      />
+      <img
+        src="/images/figma/AI2.svg"
+        alt="Current Task"
+        className="absolute top-[32%] left-[0%] w-[95%] h-auto rounded-2xl animate-[slideFromLeft_6s_ease-in-out_infinite]"
+        style={{ animationDelay: "0.5s" }}
+      />
+      <img
+        src="/images/figma/AI3.svg"
+        alt="Connected Apps"
+        className="absolute top-[63%] right-[-2%] w-[96%] h-auto rounded-2xl animate-[slideFromRight_6s_ease-in-out_infinite]"
+        style={{ animationDelay: "1s" }}
+      />
+    </div>
+  );
+}
+
+/* ============================================================
    Step 3 Visual (two overlapping SVGs with slide-in animation)
    ============================================================ */
 
@@ -722,6 +750,16 @@ function DesktopStickySection() {
                   >
                     <Step3Visual visible={idx === activeStep} />
                   </div>
+                ) : step.number === "1" ? (
+                  <div
+                    key={step.number}
+                    className={cn(
+                      "absolute inset-0 w-full h-full transition-opacity duration-500",
+                      idx === activeStep ? "opacity-100" : "opacity-0 pointer-events-none"
+                    )}
+                  >
+                    <Step1Visual />
+                  </div>
                 ) : step.image ? (
                   <img
                     key={step.number}
@@ -801,6 +839,43 @@ function MobileStepsSection() {
                           70% { opacity: 1; transform: translateX(0); }
                           85% { opacity: 0; transform: translateX(40px); }
                           100% { opacity: 0; transform: translateX(40px); }
+                        }
+                      `}</style>
+                    </div>
+                  </div>
+                ) : step.number === "1" ? (
+                  <div
+                    key={step.number}
+                    className={cn(
+                      "w-full relative transition-opacity duration-500",
+                      idx === activeStep ? "opacity-100" : "opacity-0 absolute inset-0"
+                    )}
+                  >
+                    <div className="flex flex-col w-full px-4">
+                      <img src="/images/figma/AI1.svg" alt="Agent Profile" className="w-[85%] h-auto relative z-[1] mt-6 rounded-2xl border border-white/15 animate-[mobileAI1_9s_ease-in-out_infinite]" style={{ marginLeft: "10%" }} />
+                      <img src="/images/figma/AI2.svg" alt="Current Task" className="w-[95%] h-auto self-end relative z-[2] animate-[mobileAI2_9s_ease-in-out_infinite]" style={{ marginTop: "-60%" }} />
+                      <img src="/images/figma/AI3.svg" alt="Connected Apps" className="w-[85%] h-auto self-end relative z-[3] animate-[mobileAI3_9s_ease-in-out_infinite]" style={{ marginTop: "-2%", marginLeft: "15%" }} />
+                      <style>{`
+                        @keyframes mobileAI1 {
+                          0% { transform: translateX(30px); opacity: 0; }
+                          5% { transform: translateX(0); opacity: 1; }
+                          75% { transform: translateX(0); opacity: 1; }
+                          85% { transform: translateX(30px); opacity: 0; }
+                          100% { transform: translateX(30px); opacity: 0; }
+                        }
+                        @keyframes mobileAI2 {
+                          0%, 15% { transform: translateX(-30px); opacity: 0; }
+                          22% { transform: translateX(0); opacity: 1; }
+                          75% { transform: translateX(0); opacity: 1; }
+                          85% { transform: translateX(-30px); opacity: 0; }
+                          100% { transform: translateX(-30px); opacity: 0; }
+                        }
+                        @keyframes mobileAI3 {
+                          0%, 30% { transform: translateX(30px); opacity: 0; }
+                          37% { transform: translateX(0); opacity: 1; }
+                          75% { transform: translateX(0); opacity: 1; }
+                          85% { transform: translateX(30px); opacity: 0; }
+                          100% { transform: translateX(30px); opacity: 0; }
                         }
                       `}</style>
                     </div>
