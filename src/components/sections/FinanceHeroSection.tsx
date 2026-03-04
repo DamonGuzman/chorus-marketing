@@ -86,20 +86,51 @@ export function FinanceHeroSection() {
           </p>
         </div>
 
-        {/* Dashboard image – centered, height-capped with fade */}
-        <div className="relative w-full h-[340px] flex justify-center overflow-hidden">
-          <div
-            style={{
-              width: "110%",
-              height: "100%",
-              backgroundImage: "url('/images/figma/finance-mobile-hero.svg')",
-              backgroundSize: "cover",
-              backgroundRepeat: "no-repeat",
-              backgroundPosition: "center top",
-              imageRendering: "crisp-edges",
-            }}
-          />
-          <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-black to-transparent" />
+        {/* Dashboard image + floating side cards — centered composition */}
+        <div className="w-full flex justify-center">
+          <div className="relative h-[500px] w-[400px]">
+
+            {/* Left card – upper-left */}
+            <div className="absolute left-0 top-[3%] z-10">
+              <img
+                src="/images/figma/test (2).svg"
+                alt="Finance Agent card"
+                className="w-[155px] h-auto"
+              />
+            </div>
+
+            {/* Main dashboard */}
+            <div
+              className="absolute top-0 bottom-0 z-20"
+              style={{
+                left: "0%",
+                right: "-10%",
+                backgroundImage: "url('/images/figma/finance-mobile-hero.svg')",
+                backgroundSize: "contain",
+                backgroundRepeat: "no-repeat",
+                backgroundPosition: "center top",
+                imageRendering: "crisp-edges",
+              }}
+            />
+
+            {/* Right card */}
+            <div className="absolute right-[-15px] top-[45%] z-10">
+              <img
+                src="/images/figma/test (1).svg"
+                alt="Finance Agent card"
+                className="w-[140px] h-auto"
+              />
+            </div>
+
+            {/* Growth badge */}
+            <div className="absolute bottom-32 right-[45px] z-30 rounded-2xl border border-white/15 p-2 bg-white/5 backdrop-blur-sm">
+              <img
+                src="/images/figma/Group 238031.svg"
+                alt="Finance stats"
+                className="w-[120px] h-auto object-contain"
+              />
+            </div>
+          </div>
         </div>
       </div>
 
@@ -169,8 +200,8 @@ export function FinanceHeroSection() {
       {/* Desktop min-height spacer */}
       <div className="hidden md:block md:min-h-[480px]" />
 
-      {/* Bottom gradient fade */}
-      <div className="absolute bottom-0 left-0 right-0 h-64 bg-gradient-to-t from-black via-black/90 to-transparent z-[5]" />
+      {/* Bottom gradient fade – desktop only */}
+      <div className="hidden md:block absolute bottom-0 left-0 right-0 h-64 bg-gradient-to-t from-black via-black/90 to-transparent z-[5]" />
     </section>
   );
 }
