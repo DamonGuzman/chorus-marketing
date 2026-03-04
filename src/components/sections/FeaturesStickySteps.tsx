@@ -1,7 +1,8 @@
 "use client";
 
 import Image from "next/image";
-import { useRef, useState, useEffect, type ReactNode } from "react";
+import { useRef, useCallback, type ReactNode } from "react";
+import { useScrollCallback } from "@/components/ui/SmoothScroll";
 
 const featureSteps = [
   {
@@ -140,167 +141,147 @@ const ILLUSTRATIONS: Record<string, () => ReactNode> = {
   goal: () => <GoalIllustration />,
 };
 
-function StepNumberIndicator({ normalised }: { normalised: number }) {
-  const total = featureSteps.length;
-  const barProgress = normalised / (total - 1);
-  const currentStep = featureSteps[Math.min(Math.round(normalised), total - 1)];
-
-  return (
-    <div className="flex flex-col items-center gap-[20px] shrink-0 h-[340px]">
-      <span
-        className="text-[26px] font-medium leading-[36px] text-center font-['Urbanist'] w-[36px] transition-colors duration-300"
-        style={{ color: normalised < 0.5 ? "rgba(255,255,255,0.9)" : "rgba(209,213,219,1)" }}
-      >
-        {currentStep.number}
-      </span>
-
-      <div className="relative w-[2px] flex-1 bg-white/16 rounded-full overflow-hidden">
-        <div
-          className="absolute top-0 left-0 w-full bg-white rounded-full transition-[height] duration-300 ease-out"
-          style={{ height: `${Math.max(0, Math.min(1, barProgress)) * 100}%` }}
-        />
-      </div>
-
-      <span className="text-gray-300 text-[26px] font-medium leading-[36px] text-center font-['Urbanist']">
-        03
-      </span>
-    </div>
-  );
-}
-
-function StepContent({
-  title,
-  description,
-  index,
-  normalised,
-}: {
-  title: string;
-  description: string;
-  index: number;
-  normalised: number;
-}) {
-  const total = featureSteps.length;
-  const isFirst = index === 0;
-  const isLast = index === total - 1;
-
-  const dist = normalised - index;
-  let opacity: number;
-  let yOffset: number;
-
-  if (isFirst && dist <= 0) { opacity = 1; yOffset = 0; }
-  else if (isLast && dist >= 0) { opacity = 1; yOffset = 0; }
-  else {
-    const absDist = Math.abs(dist);
-    if (absDist <= 0.4) { opacity = 1; yOffset = 0; }
-    else if (absDist < 0.6) { opacity = 1 - (absDist - 0.4) / 0.2; yOffset = (dist > 0 ? -1 : 1) * Math.min((absDist - 0.4) * 100, 30); }
-    else { opacity = 0; yOffset = (dist > 0 ? -1 : 1) * 30; }
-  }
-
-  return (
-    <div
-      className="absolute inset-0 flex flex-col gap-[30px] transition-[opacity,transform] duration-300 ease-out"
-      style={{ opacity, transform: `translateY(${yOffset}px)` }}
-    >
-      <h2 className="text-white text-[22px] md:text-[30px] font-bold leading-[32px] md:leading-[44px] font-['Urbanist']">
-        {title}
-      </h2>
-      <p className="text-gray-300 text-[14px] md:text-[18px] font-medium leading-[24px] md:leading-[32px] font-['Urbanist']">
-        {description}
-      </p>
-    </div>
-  );
-}
-
-function StepIllustration({
-  illustrationKey,
-  index,
-  normalised,
-}: {
-  illustrationKey: string;
-  index: number;
-  normalised: number;
-}) {
-  const total = featureSteps.length;
-  const isFirst = index === 0;
-  const isLast = index === total - 1;
-
-  const dist = normalised - index;
-  let opacity: number;
-
-  if (isFirst && dist <= 0) opacity = 1;
-  else if (isLast && dist >= 0) opacity = 1;
-  else {
-    const absDist = Math.abs(dist);
-    if (absDist <= 0.4) opacity = 1;
-    else if (absDist < 0.6) opacity = 1 - (absDist - 0.4) / 0.2;
-    else opacity = 0;
-  }
-
-  return (
-    <div
-      className="absolute inset-0 transition-opacity duration-300 ease-out"
-      style={{ opacity }}
-    >
-      {ILLUSTRATIONS[illustrationKey]?.()}
-    </div>
-  );
-}
-
 export function FeaturesStickySteps() {
   const containerRef = useRef<HTMLDivElement>(null);
-  const [normalised, setNormalised] = useState(0);
+  const numberRef = useRef<HTMLSpanElement>(null);
+  const barRef = useRef<HTMLDivElement>(null);
+  const contentRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const illustrationRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const prevNormRef = useRef(-1);
 
-  useEffect(() => {
+  const total = featureSteps.length;
+
+  const onScrollTick = useCallback(() => {
     const el = containerRef.current;
     if (!el) return;
 
-    let rafId: number;
-    const onScroll = () => {
-      cancelAnimationFrame(rafId);
-      rafId = requestAnimationFrame(() => {
-        const rect = el.getBoundingClientRect();
-        const scrollableHeight = el.offsetHeight - window.innerHeight;
-        if (scrollableHeight <= 0) return;
-        const rawProgress = Math.max(0, Math.min(1, -rect.top / scrollableHeight));
-        setNormalised(rawProgress * (featureSteps.length - 1));
-      });
-    };
+    const rect = el.getBoundingClientRect();
+    const scrollableHeight = el.offsetHeight - window.innerHeight;
+    if (scrollableHeight <= 0) return;
+    const rawProgress = Math.max(0, Math.min(1, -rect.top / scrollableHeight));
+    const normalised = rawProgress * (total - 1);
 
-    window.addEventListener("scroll", onScroll, { passive: true });
-    onScroll();
+    if (Math.abs(normalised - prevNormRef.current) < 0.002) return;
+    prevNormRef.current = normalised;
 
-    return () => {
-      window.removeEventListener("scroll", onScroll);
-      cancelAnimationFrame(rafId);
-    };
-  }, []);
+    const barProgress = normalised / (total - 1);
+    const currentStep = featureSteps[Math.min(Math.round(normalised), total - 1)];
+
+    if (numberRef.current) {
+      numberRef.current.textContent = currentStep.number;
+      numberRef.current.style.color = normalised < 0.5 ? "rgba(255,255,255,0.9)" : "rgba(209,213,219,1)";
+    }
+
+    if (barRef.current) {
+      barRef.current.style.height = `${Math.max(0, Math.min(1, barProgress)) * 100}%`;
+    }
+
+    for (let i = 0; i < total; i++) {
+      const contentEl = contentRefs.current[i];
+      const illustEl = illustrationRefs.current[i];
+      const isFirst = i === 0;
+      const isLast = i === total - 1;
+      const dist = normalised - i;
+
+      let opacity: number;
+      let yOffset: number;
+
+      if (isFirst && dist <= 0) { opacity = 1; yOffset = 0; }
+      else if (isLast && dist >= 0) { opacity = 1; yOffset = 0; }
+      else {
+        const absDist = Math.abs(dist);
+        if (absDist <= 0.4) { opacity = 1; yOffset = 0; }
+        else if (absDist < 0.6) { opacity = 1 - (absDist - 0.4) / 0.2; yOffset = (dist > 0 ? -1 : 1) * Math.min((absDist - 0.4) * 100, 30); }
+        else { opacity = 0; yOffset = (dist > 0 ? -1 : 1) * 30; }
+      }
+
+      if (contentEl) {
+        contentEl.style.opacity = String(opacity);
+        contentEl.style.transform = `translateY(${yOffset}px)`;
+      }
+
+      let illOpacity: number;
+      if (isFirst && dist <= 0) illOpacity = 1;
+      else if (isLast && dist >= 0) illOpacity = 1;
+      else {
+        const absDist = Math.abs(dist);
+        if (absDist <= 0.4) illOpacity = 1;
+        else if (absDist < 0.6) illOpacity = 1 - (absDist - 0.4) / 0.2;
+        else illOpacity = 0;
+      }
+
+      if (illustEl) {
+        illustEl.style.opacity = String(illOpacity);
+      }
+    }
+  }, [total]);
+
+  useScrollCallback(onScrollTick);
 
   return (
     <div ref={containerRef} className="hidden lg:block relative w-full" style={{ height: "250vh" }}>
       <div className="sticky top-0 h-screen flex items-center justify-center">
         <div className="w-full max-w-[1200px] mx-auto flex items-center gap-8 xl:gap-12 px-4 md:px-8">
-          <StepNumberIndicator normalised={normalised} />
+          {/* Step Number Indicator */}
+          <div className="flex flex-col items-center gap-[20px] shrink-0 h-[340px]">
+            <span
+              ref={numberRef}
+              className="text-[26px] font-medium leading-[36px] text-center font-['Urbanist'] w-[36px]"
+              style={{ color: "rgba(255,255,255,0.9)" }}
+            >
+              {featureSteps[0].number}
+            </span>
 
+            <div className="relative w-[2px] flex-1 bg-white/16 rounded-full overflow-hidden">
+              <div
+                ref={barRef}
+                className="absolute top-0 left-0 w-full bg-white rounded-full"
+                style={{ height: "0%", transition: "height 0.3s ease-out" }}
+              />
+            </div>
+
+            <span className="text-gray-300 text-[26px] font-medium leading-[36px] text-center font-['Urbanist']">
+              03
+            </span>
+          </div>
+
+          {/* Step Content */}
           <div className="relative flex-1 max-w-[470px]" style={{ minHeight: "240px" }}>
             {featureSteps.map((step, idx) => (
-              <StepContent
+              <div
                 key={step.number}
-                title={step.title}
-                description={step.description}
-                index={idx}
-                normalised={normalised}
-              />
+                ref={(el) => { contentRefs.current[idx] = el; }}
+                className="absolute inset-0 flex flex-col gap-[30px]"
+                style={{
+                  opacity: idx === 0 ? 1 : 0,
+                  transform: "translateY(0px)",
+                  willChange: "opacity, transform",
+                }}
+              >
+                <h2 className="text-white text-[22px] md:text-[30px] font-bold leading-[32px] md:leading-[44px] font-['Urbanist']">
+                  {step.title}
+                </h2>
+                <p className="text-gray-300 text-[14px] md:text-[18px] font-medium leading-[24px] md:leading-[32px] font-['Urbanist']">
+                  {step.description}
+                </p>
+              </div>
             ))}
           </div>
 
+          {/* Step Illustrations */}
           <div className="relative flex-1 min-w-0" style={{ minHeight: "600px" }}>
             {featureSteps.map((step, idx) => (
-              <StepIllustration
+              <div
                 key={step.number}
-                illustrationKey={step.illustration}
-                index={idx}
-                normalised={normalised}
-              />
+                ref={(el) => { illustrationRefs.current[idx] = el; }}
+                className="absolute inset-0"
+                style={{
+                  opacity: idx === 0 ? 1 : 0,
+                  willChange: "opacity",
+                }}
+              >
+                {ILLUSTRATIONS[step.illustration]?.()}
+              </div>
             ))}
           </div>
         </div>

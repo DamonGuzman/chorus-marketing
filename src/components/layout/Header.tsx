@@ -1,9 +1,10 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useCallback } from "react";
 import Link from "next/link";
 import { Logo, ChevronIcon } from "@/components/icons";
 import { ButtonLink } from "@/components/ui";
+import { useScrollCallback } from "@/components/ui/SmoothScroll";
 import { PRIMARY_CTA_HREF, PRIMARY_CTA_LABEL } from "@/content/site";
 
 
@@ -37,11 +38,8 @@ export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 50);
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
+  const onScrollTick = useCallback(() => setScrolled(window.scrollY > 50), []);
+  useScrollCallback(onScrollTick);
 
   return (
     <header

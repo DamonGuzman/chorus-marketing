@@ -3,10 +3,6 @@
 import { useEffect, useRef, useState, type CSSProperties, type ReactNode } from "react";
 import { cn } from "@/lib/utils";
 
-/* ============================================================
-   Animation presets — CSS transform strings (GPU-composited)
-   ============================================================ */
-
 type AnimationType =
   | "fade-up"
   | "fade-in"
@@ -36,10 +32,6 @@ const visibleStyles: Record<AnimationType, CSSProperties> = {
   "blur-in":      { opacity: 1, transform: "scale(1)" },
 };
 
-/* ============================================================
-   AnimateOnScroll  —  CSS transitions + IntersectionObserver
-   ============================================================ */
-
 interface AnimateOnScrollProps {
   children: ReactNode;
   animation?: AnimationType;
@@ -61,6 +53,7 @@ export function AnimateOnScroll({
 }: AnimateOnScrollProps) {
   const ref = useRef<HTMLDivElement>(null);
   const [isVisible, setIsVisible] = useState(false);
+  const [hasAnimated, setHasAnimated] = useState(false);
 
   useEffect(() => {
     const el = ref.current;
@@ -82,6 +75,13 @@ export function AnimateOnScroll({
     return () => observer.disconnect();
   }, [threshold, once]);
 
+  useEffect(() => {
+    if (isVisible && !hasAnimated) {
+      const timer = setTimeout(() => setHasAnimated(true), (delay + duration) * 1000 + 100);
+      return () => clearTimeout(timer);
+    }
+  }, [isVisible, hasAnimated, delay, duration]);
+
   const baseStyles = isVisible ? visibleStyles[animation] : hiddenStyles[animation];
 
   return (
@@ -91,18 +91,13 @@ export function AnimateOnScroll({
       style={{
         ...baseStyles,
         transition: `opacity ${duration}s cubic-bezier(0.16,1,0.3,1) ${delay}s, transform ${duration}s cubic-bezier(0.16,1,0.3,1) ${delay}s`,
-        willChange: isVisible ? "auto" : "opacity, transform",
+        willChange: hasAnimated ? "auto" : (isVisible ? "auto" : "opacity, transform"),
       }}
     >
       {children}
     </div>
   );
 }
-
-/* ============================================================
-   StaggerChildren  —  CSS transitions + Intersection Observer
-   Works with grids, flex, and any layout without extra wrappers.
-   ============================================================ */
 
 interface StaggerChildrenProps {
   children: ReactNode;

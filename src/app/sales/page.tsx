@@ -1,9 +1,11 @@
 import { Header, Footer } from "@/components/layout";
 import { AnimateOnScroll } from "@/components/ui";
 import { SalesHeroSection } from "@/components/sections/SalesHeroSection";
-import { SalesProblemSection } from "@/components/sections/SalesProblemSection";
-import { SalesHowItWorksSection } from "@/components/sections/SalesHowItWorksSection";
-import { FinalCTASection } from "@/components/sections/FinalCTASection";
+import dynamic from "next/dynamic";
+
+const SalesProblemSection = dynamic(() => import("@/components/sections/SalesProblemSection").then(m => ({ default: m.SalesProblemSection })));
+const SalesHowItWorksSection = dynamic(() => import("@/components/sections/SalesHowItWorksSection").then(m => ({ default: m.SalesHowItWorksSection })));
+const FinalCTASection = dynamic(() => import("@/components/sections/FinalCTASection").then(m => ({ default: m.FinalCTASection })));
 
 export default function SalesPage() {
   return (

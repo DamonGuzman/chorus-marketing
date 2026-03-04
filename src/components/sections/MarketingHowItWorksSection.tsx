@@ -1,8 +1,9 @@
 /* eslint-disable @next/next/no-img-element */
 "use client";
 
-import { useRef, useState, useEffect } from "react";
+import { useRef, useState, useEffect, useCallback } from "react";
 import { ScrollTextReveal, Badge } from "@/components/ui";
+import { useScrollCallback } from "@/components/ui/SmoothScroll";
 
 const WORD_STAGGER_MS = 110;
 const WORD_DURATION_MS = 750;
@@ -498,31 +499,23 @@ function StickyVisualContent({
 function DesktopStickySteps({ steps, header }: { steps: StepData[]; header: React.ReactNode }) {
   const containerRef = useRef<HTMLDivElement>(null);
   const [normalised, setNormalised] = useState(0);
+  const prevRef = useRef(-1);
 
-  useEffect(() => {
+  const onScrollTick = useCallback(() => {
     const el = containerRef.current;
     if (!el) return;
-
-    let rafId: number;
-    const onScroll = () => {
-      cancelAnimationFrame(rafId);
-      rafId = requestAnimationFrame(() => {
-        const rect = el.getBoundingClientRect();
-        const scrollableHeight = el.offsetHeight - window.innerHeight;
-        if (scrollableHeight <= 0) return;
-        const rawProgress = Math.max(0, Math.min(1, -rect.top / scrollableHeight));
-        setNormalised(rawProgress * (steps.length - 1));
-      });
-    };
-
-    window.addEventListener("scroll", onScroll, { passive: true });
-    onScroll();
-
-    return () => {
-      window.removeEventListener("scroll", onScroll);
-      cancelAnimationFrame(rafId);
-    };
+    const rect = el.getBoundingClientRect();
+    const scrollableHeight = el.offsetHeight - window.innerHeight;
+    if (scrollableHeight <= 0) return;
+    const rawProgress = Math.max(0, Math.min(1, -rect.top / scrollableHeight));
+    const val = rawProgress * (steps.length - 1);
+    if (Math.abs(val - prevRef.current) > 0.003) {
+      prevRef.current = val;
+      setNormalised(val);
+    }
   }, [steps.length]);
+
+  useScrollCallback(onScrollTick);
 
   return (
     <div ref={containerRef} className="hidden lg:block relative w-full" style={{ height: "300vh" }}>
