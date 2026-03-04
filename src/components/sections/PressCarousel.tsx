@@ -45,7 +45,7 @@ export function PressCarousel() {
   };
 
   return (
-    <div className="lg:hidden self-stretch bg-black pb-[50px] overflow-hidden">
+    <div className="lg:hidden self-stretch bg-black pb-12 overflow-hidden">
       <div
         ref={scrollRef}
         onScroll={handleScroll}

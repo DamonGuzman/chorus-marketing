@@ -7,14 +7,14 @@ export default function AboutUsPage() {
   return (
     <div className="min-h-screen bg-black overflow-x-hidden max-w-[100vw]">
       <Header />
-      <main className="w-full mx-auto px-4 md:px-6 lg:px-10 overflow-x-hidden">
+      <main className="w-full mx-auto overflow-x-hidden">
         <section
           id="about-us"
-          className="bg-black pt-0 pb-[50px] md:pb-section-y overflow-x-hidden"
+          className="bg-black pt-0 pb-12 md:pb-20 overflow-x-hidden"
         >
           {/* first parent section */}
           {/* desktop */}
-          <div className="hidden md:block self-stretch h-[720px] relative bg-black overflow-hidden max-w-[1440px] mx-auto px-4 md:px-8">
+          <div className="hidden md:block self-stretch h-[720px] relative bg-black overflow-hidden max-w-[1440px] mx-auto px-6 md:px-10 lg:px-20">
               <img
                 className="w-[900px] h-[660px] -right-[60px] top-[100px] absolute"
                 src="/images/figma/about-us/torch.svg"
@@ -86,7 +86,7 @@ export default function AboutUsPage() {
             </div>
 
           {/* testimonials */}
-          <div className="self-stretch px-4 md:px-8 pt-12 pb-2 bg-black flex flex-col justify-start items-center">
+          <div className="self-stretch px-6 md:px-10 lg:px-20 pt-12 pb-2 bg-black flex flex-col justify-start items-center">
             <div className="w-full max-w-[1440px] mx-auto">
                 <div className="flex flex-col md:flex-row justify-start items-start gap-8 lg:gap-12">
                   {/* Card 1 */}
@@ -174,7 +174,7 @@ export default function AboutUsPage() {
             </div>
 
           {/* Origin Story */}
-          <div className="self-stretch px-4 md:px-8 pt-2 pb-0 bg-black flex flex-col justify-start items-center">
+          <div className="self-stretch px-6 md:px-10 lg:px-20 pt-2 pb-0 bg-black flex flex-col justify-start items-center">
             <div className="w-full max-w-[1440px] mx-auto flex flex-col lg:flex-row justify-start items-center gap-2 lg:gap-0">
                 {/* Left Content */}
                 <div className="flex flex-col justify-start items-center lg:items-start gap-8 md:gap-12 flex-1 text-left lg:text-left">
@@ -256,7 +256,7 @@ export default function AboutUsPage() {
             </div>
 
           {/* Press Section */}
-          <div className="self-stretch px-4 md:px-8 pt-16 md:pt-20 pb-[50px] md:pb-20 bg-black flex flex-col justify-start items-center">
+          <div className="self-stretch px-6 md:px-10 lg:px-20 pt-12 md:pt-20 pb-12 md:pb-20 bg-black flex flex-col justify-start items-center">
             <div className="w-full max-w-[1440px] mx-auto flex flex-col justify-start items-center gap-4 md:gap-6">
                 <Badge className="w-28 h-8 px-3 py-1 text-sm font-semibold font-['Urbanist']">Features</Badge>
                 <div className="flex flex-col justify-start items-center gap-3 md:gap-4">
@@ -371,7 +371,7 @@ export default function AboutUsPage() {
             </div>
 
             {/* Our Team */}
-            <div className="self-stretch px-4 md:px-8 pt-[50px] md:pt-20 pb-[60px] md:pb-24 bg-black flex flex-col justify-start items-center">
+            <div className="self-stretch px-6 md:px-10 lg:px-20 pt-12 md:pt-20 pb-12 md:pb-20 bg-black flex flex-col justify-start items-center">
               <div className="flex flex-col justify-start items-center gap-[40px] md:gap-20">
                 {/* Header */}
                 <div className="flex flex-col justify-start items-center gap-4 md:gap-6">

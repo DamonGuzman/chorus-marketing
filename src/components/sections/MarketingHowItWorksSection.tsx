@@ -526,16 +526,16 @@ function DesktopStickySteps({ steps, header }: { steps: StepData[]; header: Reac
 
   return (
     <div ref={containerRef} className="hidden lg:block relative w-full" style={{ height: "300vh" }}>
-      <div className="sticky top-0 h-screen flex flex-col justify-center overflow-hidden pb-16">
-        {/* Section header sits at the top of the sticky panel — no gap */}
-        <div className="w-full max-w-[1266px] mx-auto px-4 md:px-8 pb-8">
+      <div className="sticky top-0 h-screen flex flex-col justify-center overflow-hidden py-6 xl:py-10">
+        {/* Section header sits at the top of the sticky panel */}
+        <div className="w-full max-w-[1266px] mx-auto px-6 lg:px-10 xl:px-8 pb-4 xl:pb-8">
           {header}
         </div>
 
-        <div className="w-full max-w-[1266px] mx-auto px-4 md:px-8 flex items-center">
+        <div className="w-full max-w-[1266px] mx-auto px-6 lg:px-10 xl:px-8 flex items-center">
           {/* Left: Text content */}
           <div className="flex-1 flex items-center">
-            <div className="relative w-full max-w-[569px]" style={{ minHeight: "420px" }}>
+            <div className="relative w-full max-w-[569px]" style={{ minHeight: "360px" }}>
               {steps.map((s, idx) => (
                 <StickyTextContent key={s.step} step={s} index={idx} normalised={normalised} total={steps.length} />
               ))}
@@ -544,7 +544,7 @@ function DesktopStickySteps({ steps, header }: { steps: StepData[]; header: Reac
 
           {/* Right: Visual + Progress bar */}
           <div className="flex items-center gap-4 shrink-0">
-            <div className="relative" style={{ width: "500px", height: "560px" }}>
+            <div className="relative lg:w-[400px] lg:h-[450px] xl:w-[500px] xl:h-[560px]">
               {steps.map((s, idx) => (
                 <StickyVisualContent key={s.step} visual={s.visual} index={idx} normalised={normalised} total={steps.length} />
               ))}
@@ -627,7 +627,7 @@ export function MarketingHowItWorksSection() {
   ];
 
   const sectionHeader = (
-    <div className="flex flex-col items-center gap-4 pb-14">
+    <div className="flex flex-col items-center gap-4 pb-6 lg:pb-4">
       <Badge>How it Works</Badge>
       <ScrollTextReveal
         text="How Work Happens"
@@ -640,9 +640,9 @@ export function MarketingHowItWorksSection() {
   );
 
   return (
-    <section className="w-full bg-black pb-16 md:pb-24">
+    <section className="relative z-10 w-full bg-black py-12 lg:pt-0 md:pb-20">
       {/* Mobile-only section header */}
-      <div className="lg:hidden px-6 md:px-24 pt-12 md:pt-20 pb-4 md:pb-6">
+      <div className="lg:hidden px-6 md:px-10 pb-4 md:pb-6">
         {sectionHeader}
       </div>
 
@@ -650,7 +650,7 @@ export function MarketingHowItWorksSection() {
       <DesktopStickySteps steps={steps} header={sectionHeader} />
 
       {/* Mobile: Vertical stack */}
-      <div className="lg:hidden px-6 md:px-24 pb-12 md:pb-20">
+      <div className="lg:hidden px-6 md:px-10">
         <div className="flex flex-col gap-2">
           {steps.map((s) => (
             <MobileStepSection key={s.step} step={s.step} title={s.title} description={s.description} visual={s.visual} />

@@ -752,7 +752,7 @@ function MobileStepsSection() {
 export function HowItWorksSection() {
   return (
     <Section
-      className="relative py-10 px-4 md:py-20 md:px-8 flex flex-col items-center"
+      className="relative py-12 px-6 md:py-20 md:px-10 lg:px-20 flex flex-col items-center"
       id="how-it-works"
     >
       <div className="w-full">

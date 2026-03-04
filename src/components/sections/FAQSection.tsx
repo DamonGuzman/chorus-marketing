@@ -144,8 +144,8 @@ export function FAQSection() {
   }, []);
 
   return (
-    <Section className="pt-[15px] pb-[100px] md:py-[100px]" id="faq">
-      <div className="max-w-[1280px] mx-auto px-4 md:px-8">
+    <Section className="px-6 md:px-10 lg:px-20 py-12 md:py-20" id="faq">
+      <div className="max-w-[1280px] mx-auto">
         <div
           ref={headerRef}
           className="flex flex-col items-center gap-[16px] mb-[50px] text-center transition-all duration-700 ease-out"

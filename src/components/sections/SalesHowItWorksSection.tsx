@@ -359,7 +359,7 @@ function ApiConnectionCard() {
   };
 
   return (
-    <div className="w-full max-w-[573px] px-5 md:px-7 pt-10 md:pt-12 pb-6 bg-gradient-to-r from-white/5 via-white/10 to-white/5 rounded-[40px] border border-white/30 backdrop-blur-[30px] flex flex-col items-center gap-7 md:gap-9">
+    <div className="w-full max-w-[573px] px-5 md:px-7 pt-10 md:pt-12 pb-10 md:pb-12 bg-gradient-to-r from-white/5 via-white/10 to-white/5 rounded-[40px] border border-white/30 backdrop-blur-[30px] flex flex-col items-center gap-7 md:gap-9">
       <div className="w-full max-w-[503px] flex flex-col gap-5">
         <div className="flex items-start gap-5 justify-between flex-wrap">
           <div className="flex items-center gap-5">
@@ -436,7 +436,7 @@ function ApiConnectionCard() {
         <div className="flex items-center justify-center gap-3 pt-1">
           <button
             onClick={() => handleButtonClick("request")}
-            className="group relative h-10 px-5 rounded-[50px] border border-white/20 bg-white/5 overflow-hidden transition-all duration-200 hover:border-white/40 hover:bg-white/10 active:scale-95"
+            className="group relative h-10 px-5 rounded-[50px] border border-white/20 bg-white/5 transition-all duration-200 hover:border-white/40 hover:bg-white/10 active:scale-95 whitespace-nowrap"
           >
             <span className="absolute inset-0 rounded-[50px] opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.06)_0%,transparent_70%)]" />
             <span className="relative text-white text-sm font-bold font-['Urbanist']">
@@ -445,7 +445,7 @@ function ApiConnectionCard() {
           </button>
           <button
             onClick={() => handleButtonClick("reject")}
-            className="group relative h-10 px-7 rounded-[50px] bg-red-500 overflow-hidden transition-all duration-200 hover:bg-red-400 hover:shadow-[0_0_20px_rgba(239,68,68,0.3)] active:scale-95 active:bg-red-600"
+            className="group relative h-10 px-7 rounded-[50px] bg-red-500 transition-all duration-200 hover:bg-red-400 hover:shadow-[0_0_20px_rgba(239,68,68,0.3)] active:scale-95 active:bg-red-600 whitespace-nowrap"
           >
             <span className="absolute inset-0 rounded-[50px] opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.15)_0%,transparent_70%)]" />
             <span className="relative text-white text-sm font-bold font-['Urbanist']">
@@ -454,7 +454,7 @@ function ApiConnectionCard() {
           </button>
           <button
             onClick={() => handleButtonClick("approve")}
-            className="group relative h-10 px-7 rounded-[50px] bg-green-500 overflow-hidden transition-all duration-200 hover:bg-green-400 hover:shadow-[0_0_20px_rgba(34,197,94,0.3)] active:scale-95 active:bg-green-600"
+            className="group relative h-10 px-7 rounded-[50px] bg-green-500 transition-all duration-200 hover:bg-green-400 hover:shadow-[0_0_20px_rgba(34,197,94,0.3)] active:scale-95 active:bg-green-600 whitespace-nowrap"
           >
             <span className="absolute inset-0 rounded-[50px] opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.15)_0%,transparent_70%)]" />
             <span className="relative text-white text-sm font-bold font-['Urbanist']">
@@ -656,7 +656,7 @@ function AnimatedTaskTimeline() {
 
 export function SalesHowItWorksSection() {
   return (
-    <section className="w-full px-6 md:px-24 py-12 md:py-20 bg-black">
+    <section className="w-full px-6 md:px-10 lg:px-20 py-12 md:py-20 bg-black">
       <div className="max-w-[1266px] mx-auto flex flex-col gap-10 md:gap-14">
         {/* Section header */}
         <div className="flex flex-col items-center gap-3 md:gap-8 text-center">

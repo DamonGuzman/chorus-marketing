@@ -64,7 +64,7 @@ export function AlternateCTASection() {
   //   </section>
   // );
   return (
-    <section className="relative bg-black overflow-hidden w-[100vw] left-1/2 -translate-x-1/2 px-4 py-10 md:px-8 md:py-20" id="cta">
+    <section className="relative bg-black overflow-hidden w-[100vw] left-1/2 -translate-x-1/2 px-6 py-12 md:px-10 lg:px-20 md:py-20" id="cta">
       {/* Stars particle background (same as hero) */}
       <img
         src="/images/figma/ctasection.svg"

@@ -48,7 +48,7 @@ export function SalesProblemSection() {
   const counter = useCountUp(5.24, 2000);
 
   return (
-    <section className="w-full px-6 md:px-24 py-12 md:py-20 bg-black">
+    <section className="w-full px-6 md:px-10 lg:px-20 py-12 md:py-20 bg-black">
       {/* Section header */}
       <div className="max-w-[1266px] mx-auto flex flex-col gap-6">
         <div className="flex flex-col gap-6">

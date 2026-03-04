@@ -138,7 +138,7 @@ function ProblemItem({ icon, title, description, offset = false, index = 0 }: { 
 
 export function FinanceProblemSection() {
   return (
-    <section className="w-full px-6 md:px-24 pt-10 md:pt-16 pb-12 md:pb-20 bg-black">
+    <section className="w-full px-6 md:px-10 lg:px-20 pt-26 pb-12 md:py-20 bg-black">
       <div className="max-w-[1266px] mx-auto flex flex-col gap-12">
         {/* Section header */}
         <div className="flex flex-col items-center gap-6">

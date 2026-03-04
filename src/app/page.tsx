@@ -19,7 +19,7 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-black" style={{ overflowX: "clip" }}>
       <Header />
-      <main className="w-full mx-auto px-4 md:px-6 lg:px-10">
+      <main className="w-full mx-auto">
         <NewHeroSection />
 
         <AnimateOnScroll animation="fade-up" duration={0.8}>
@@ -44,9 +44,9 @@ export default function Home() {
 
         <HowItWorksSection />
 
-        <AnimateOnScroll animation="fade-up" duration={0.8}>
+        {/* <AnimateOnScroll animation="fade-up" duration={0.8}>
           <CapabilitiesSection />
-        </AnimateOnScroll>
+        </AnimateOnScroll> */}
 
         <AnimateOnScroll animation="fade-up" duration={0.8}>
           <FoundersSection />
