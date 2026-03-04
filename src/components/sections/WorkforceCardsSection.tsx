@@ -205,8 +205,12 @@ function OperationsCard() {
 
       <div className="flex-1 relative overflow-hidden px-5 pt-5 pb-4">
         <div className="flex flex-col gap-3">
-          {members.map((member) => (
-            <div key={member.name} className={member.indent ? "ml-7" : ""}>
+          {members.map((member, idx) => (
+            <div
+              key={member.name}
+              className={`${member.indent ? "ml-7" : ""} animate-[opsReveal_7s_ease-in-out_infinite]`}
+              style={{ animationDelay: `${idx * 0.6}s` }}
+            >
               <div className="bg-gradient-to-b from-stone-950 via-zinc-700/30 to-stone-950 rounded-[20px] shadow-[0px_7.4px_12.4px_0px_rgba(0,0,0,0.38)] border border-slate-500/20 px-3 py-3.5">
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-2.5">
@@ -228,6 +232,15 @@ function OperationsCard() {
             </div>
           ))}
         </div>
+        <style>{`
+          @keyframes opsReveal {
+            0% { opacity: 0; transform: translateX(-30px); }
+            12% { opacity: 1; transform: translateX(0); }
+            70% { opacity: 1; transform: translateX(0); }
+            85% { opacity: 0; transform: translateX(-30px); }
+            100% { opacity: 0; transform: translateX(-30px); }
+          }
+        `}</style>
       </div>
     </div>
   );

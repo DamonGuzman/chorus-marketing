@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 
 import { AnimateOnScroll, Badge, Section, ScrollTextReveal } from "@/components/ui";
 import { TeamPreviewCard } from "@/components/sections/CapabilitiesSection";
@@ -31,7 +31,7 @@ const steps = [
     title: "Watch The Performance",
     description:
       "Real-time visibility into what\u2019s happening: emails sent, content created, analysis completed, deals closed. Full transparency. Every agent in sync. Zero micromanagement.",
-    image: "/images/figma/Group 1707484004.svg",
+    image: "",
   },
 ];
 
@@ -577,6 +577,55 @@ function ConnectedAppsCard() {
 }
 
 /* ============================================================
+   Step 3 Visual (two overlapping SVGs with slide-in animation)
+   ============================================================ */
+
+function Step3Visual({ visible }: { visible: boolean }) {
+  const [entered, setEntered] = useState(false);
+  const triggered = useRef(false);
+
+  useEffect(() => {
+    if (visible && !triggered.current) {
+      triggered.current = true;
+      const t = setTimeout(() => setEntered(true), 100);
+      return () => clearTimeout(t);
+    }
+  }, [visible]);
+
+  return (
+    <div className="relative w-full h-full">
+      <img
+        src="/images/figma/watchperformance1.svg"
+        alt="Chat interface"
+        className="absolute -top-[8%] -left-[5%] w-[120%] h-auto rounded-2xl animate-[slideFromLeft_6s_ease-in-out_infinite]"
+      />
+      <img
+        src="/images/figma/watchperformance2.svg"
+        alt="Track Monthly Revenue"
+        className="absolute top-[25%] right-[5%] w-[55%] h-auto rounded-2xl animate-[slideFromRight_6s_ease-in-out_infinite]"
+        style={{ animationDelay: "0.4s" }}
+      />
+      <style>{`
+        @keyframes slideFromLeft {
+          0% { opacity: 0; transform: translateX(-40px); }
+          15% { opacity: 1; transform: translateX(0); }
+          70% { opacity: 1; transform: translateX(0); }
+          85% { opacity: 0; transform: translateX(-40px); }
+          100% { opacity: 0; transform: translateX(-40px); }
+        }
+        @keyframes slideFromRight {
+          0% { opacity: 0; transform: translateX(40px); }
+          15% { opacity: 1; transform: translateX(0); }
+          70% { opacity: 1; transform: translateX(0); }
+          85% { opacity: 0; transform: translateX(40px); }
+          100% { opacity: 0; transform: translateX(40px); }
+        }
+      `}</style>
+    </div>
+  );
+}
+
+/* ============================================================
    Main Section Export
    ============================================================ */
 
@@ -663,7 +712,17 @@ function DesktopStickySection() {
 
             <div className="relative min-w-0 md:w-[58%] lg:w-[55%] md:h-[450px] lg:h-[600px]">
               {steps.map((step, idx) =>
-                step.image ? (
+                step.number === "3" ? (
+                  <div
+                    key={step.number}
+                    className={cn(
+                      "absolute inset-0 w-full h-full transition-opacity duration-500",
+                      idx === activeStep ? "opacity-100" : "opacity-0 pointer-events-none"
+                    )}
+                  >
+                    <Step3Visual visible={idx === activeStep} />
+                  </div>
+                ) : step.image ? (
                   <img
                     key={step.number}
                     src={step.image}
@@ -683,7 +742,7 @@ function DesktopStickySection() {
                       idx === activeStep ? "opacity-100" : "opacity-0"
                     )}
                   >
-                    <TeamPreviewCard animated={false} />
+                    <TeamPreviewCard className="!bg-transparent" />
                   </div>
                 )
               )}
@@ -699,7 +758,7 @@ function MobileStepsSection() {
   const [activeStep, setActiveStep] = useState(0);
 
   return (
-    <div className="md:hidden w-full overflow-hidden py-[30px]">
+    <div className="md:hidden w-full overflow-x-clip overflow-y-visible py-[30px]">
       <div className="flex flex-col items-center gap-[14px]">
         {steps.map((step, idx) => (
           <div key={step.number}>
@@ -715,9 +774,38 @@ function MobileStepsSection() {
 
         <div className="flex justify-center mt-4">
           <div className="w-full rounded-[24px]">
-            <div className="relative w-full overflow-hidden rounded-[24px]">
+            <div className="relative w-full overflow-visible rounded-[24px]">
               {steps.map((step, idx) =>
-                step.image ? (
+                step.number === "3" ? (
+                  <div
+                    key={step.number}
+                    className={cn(
+                      "w-full relative transition-opacity duration-500",
+                      idx === activeStep ? "opacity-100" : "opacity-0 absolute inset-0"
+                    )}
+                  >
+                    <div className="relative w-full pb-[30%]">
+                      <img src="/images/figma/watchperformance1.svg" alt="Chat interface" className="w-[85%] h-auto rounded-2xl animate-[slideFromLeft_6s_ease-in-out_infinite]" />
+                      <img src="/images/figma/watchperformance2.svg" alt="Track Monthly Revenue" className="absolute top-[30%] right-0 w-[55%] h-auto rounded-2xl animate-[slideFromRight_6s_ease-in-out_infinite]" style={{ animationDelay: "0.4s" }} />
+                      <style>{`
+                        @keyframes slideFromLeft {
+                          0% { opacity: 0; transform: translateX(-40px); }
+                          15% { opacity: 1; transform: translateX(0); }
+                          70% { opacity: 1; transform: translateX(0); }
+                          85% { opacity: 0; transform: translateX(-40px); }
+                          100% { opacity: 0; transform: translateX(-40px); }
+                        }
+                        @keyframes slideFromRight {
+                          0% { opacity: 0; transform: translateX(40px); }
+                          15% { opacity: 1; transform: translateX(0); }
+                          70% { opacity: 1; transform: translateX(0); }
+                          85% { opacity: 0; transform: translateX(40px); }
+                          100% { opacity: 0; transform: translateX(40px); }
+                        }
+                      `}</style>
+                    </div>
+                  </div>
+                ) : step.image ? (
                   <img
                     key={step.number}
                     src={step.image}
@@ -737,7 +825,7 @@ function MobileStepsSection() {
                       idx === activeStep ? "opacity-100" : "opacity-0 absolute inset-0"
                     )}
                   >
-                    <TeamPreviewCard animated={false} />
+                    <TeamPreviewCard className="!bg-transparent" />
                   </div>
                 )
               )}
