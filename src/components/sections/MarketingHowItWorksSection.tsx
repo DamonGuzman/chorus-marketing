@@ -141,7 +141,7 @@ function AgentCardLarge({ name, pending = false, avatar }: { name: string; pendi
         </svg>
       </div>
       <div className="py-1 px-3 rounded-[10px] border border-white/10 flex items-center justify-between mt-1">
-        <div className="w-56 flex flex-col gap-0.5 pl-2">
+        <div className="flex-1 min-w-0 flex flex-col gap-0.5 pl-2">
           <span className="text-[#7D7C83] text-[10px] font-normal font-['Urbanist'] leading-4">Currently working on</span>
           <div className="flex items-center gap-1.5">
             <div className="w-[5px] h-[5px] bg-violet-500 rounded-full" />
@@ -227,7 +227,7 @@ function Step1Visual() {
 
 function Step2Visual() {
   return (
-    <div className="w-full lg:w-[498px] pl-4 pr-6 pt-8 pb-3 bg-gradient-to-b from-stone-950 via-neutral-800 to-stone-950 rounded-3xl shadow-[0px_7.4px_12.4px_0px_rgba(0,0,0,0.38)] outline outline-[1.24px] outline-offset-[-1.24px] outline-slate-500/20 flex flex-col gap-4 overflow-hidden">
+    <div className="w-full lg:w-[498px] pl-4 pr-6 pt-8 pb-3 bg-gradient-to-b from-stone-950 via-neutral-800 to-stone-950 rounded-3xl shadow-[0px_7.4px_12.4px_0px_rgba(0,0,0,0.38)] outline outline-[1.24px] outline-offset-[-1.24px] outline-slate-500/20 flex flex-col gap-4 overflow-hidden max-w-full">
       <AgentCardLarge name="Social Media Agent" avatar="/images/figma/image 41.svg" />
       <AgentCardLarge name="Email Marketing Agent" pending avatar="/images/figma/image 41 (3).svg" />
       <AgentCardLarge name="Ad Campaign Agent" avatar="/images/figma/image 41 (4).svg" />
@@ -238,7 +238,7 @@ function Step2Visual() {
 
 function Step3Visual() {
   return (
-    <div className="w-full lg:w-[498px] lg:h-[649px] pl-4 pr-6 pt-5 pb-3 bg-gradient-to-b from-stone-950 via-neutral-800 to-stone-950 rounded-3xl shadow-[0px_7.4px_12.4px_0px_rgba(0,0,0,0.38)] outline outline-[1.24px] outline-offset-[-1.24px] outline-slate-500/20 flex flex-col gap-4">
+    <div className="w-full lg:w-[498px] lg:h-[649px] pl-4 pr-6 pt-5 pb-3 bg-gradient-to-b from-stone-950 via-neutral-800 to-stone-950 rounded-3xl shadow-[0px_7.4px_12.4px_0px_rgba(0,0,0,0.38)] outline outline-[1.24px] outline-offset-[-1.24px] outline-slate-500/20 flex flex-col gap-4 max-w-full overflow-hidden">
       <div className="flex items-center justify-between">
         <span className="text-white text-sm font-bold font-['Urbanist']">Milestones</span>
         <div className="flex gap-2.5">
@@ -298,21 +298,21 @@ function Step3Visual() {
           </svg>
           <span className="text-[#7D7C83] text-xs font-normal font-['Urbanist']">1 hr 30 mins</span>
         </div>
-        <div className="py-3 px-3 rounded-xl bg-white/[0.03] flex items-center justify-between">
-          <div className="flex flex-col gap-0.5 pl-2">
-            <span className="text-[#7D7C83] text-[10px] font-normal font-['Urbanist'] leading-4">Currently working on</span>
-            <div className="flex items-center gap-1.5">
-              <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+        <div className="py-3 px-3 rounded-xl bg-white/[0.03] flex flex-nowrap items-center justify-between gap-2">
+          <div className="flex flex-col gap-0.5 pl-2 min-w-0 flex-1 overflow-hidden">
+            <span className="text-[#7D7C83] text-[10px] font-normal font-['Urbanist'] leading-4 whitespace-nowrap">Currently working on</span>
+            <div className="flex items-center gap-1.5 min-w-0">
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none" className="shrink-0">
                 <circle cx="7" cy="5" r="3.5" stroke="#dc2626" strokeWidth="1" />
                 <path d="M7 7V9" stroke="#dc2626" strokeWidth="1" strokeLinecap="round" />
                 <circle cx="7" cy="10.5" r="0.5" fill="#dc2626" />
               </svg>
-              <span className="text-[#CBCACC] text-xs font-semibold font-['Urbanist']">Review LinkedIn post schedule</span>
+              <span className="text-[#CBCACC] text-xs font-semibold font-['Urbanist'] truncate">Review LinkedIn post schedule</span>
             </div>
           </div>
-          <div className="h-8 px-2.5 py-1 bg-red-600 rounded-xl flex items-center gap-2">
-            <span className="text-white text-sm font-bold font-['Urbanist']">3 Actions</span>
-            <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+          <div className="h-8 px-2.5 py-1 bg-red-600 rounded-xl flex flex-nowrap items-center gap-2 shrink-0">
+            <span className="text-white text-sm font-bold font-['Urbanist'] whitespace-nowrap">3 Actions</span>
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" className="shrink-0">
               <path d="M5 3L9 7L5 11" stroke="white" strokeWidth="1" strokeLinecap="round" />
             </svg>
           </div>
@@ -579,7 +579,7 @@ function MobileStepSection({ step, title, description, visual }: StepData) {
             {description}
           </p>
         </div>
-        <div className="flex justify-center">
+        <div className="flex justify-center w-full">
           {visual}
         </div>
       </div>

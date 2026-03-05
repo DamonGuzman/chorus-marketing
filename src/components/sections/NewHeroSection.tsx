@@ -1,23 +1,38 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, useCallback } from "react";
 import { ButtonLink, ScrollTextReveal } from "@/components/ui";
 import { PRIMARY_CTA_HREF } from "@/content/site";
 import { HeroAppPreview } from "@/components/figma/HeroAppPreview";
 
 export function NewHeroSection() {
-  const cardRef = useRef<HTMLDivElement>(null);
-  const [revealed, setRevealed] = useState(false);
+  const cardRef    = useRef<HTMLDivElement>(null);
+  const previewRef = useRef<HTMLDivElement>(null);
+  const [revealed,    setRevealed]  = useState(false);
+  const [mobileWidth, setMobileWidth] = useState(340);
 
   useEffect(() => {
     const timer = setTimeout(() => setRevealed(true), 100);
     return () => clearTimeout(timer);
   }, []);
 
+  // Measure the exact inner container so HeroAppPreview never overflows
+  const measureMobile = useCallback(() => {
+    if (previewRef.current) {
+      setMobileWidth(previewRef.current.clientWidth);
+    }
+  }, []);
+
+  useEffect(() => {
+    measureMobile();
+    window.addEventListener("resize", measureMobile);
+    return () => window.removeEventListener("resize", measureMobile);
+  }, [measureMobile]);
+
   return (
     <section className="relative bg-black" id="about">
       <div aria-hidden="true" className="hero-dot-grid hidden md:block" />
-      <div className="relative z-10 pt-[60px] md:pt-[110px] px-6 md:px-10 lg:px-20 max-w-[1440px] mx-auto pb-12 md:pb-16">
+      <div className="relative z-10 pt-[60px] px-6 md:px-10 lg:px-20 max-w-[1440px] mx-auto pb-12 md:pb-16">
         <div className="w-full max-w-[1183px] mx-auto flex flex-col justify-start items-center">
           <div className="self-stretch flex flex-col justify-start items-center gap-[20px] md:gap-7">
             <div className="self-stretch flex flex-col justify-start items-center gap-[14px] md:gap-5">
@@ -48,15 +63,16 @@ export function NewHeroSection() {
             style={{
               opacity: revealed ? 1 : 0,
               transform: revealed
-                ? "translateY(0) rotateX(0deg) scale(1)"
-                : "translateY(80px) rotateX(8deg) scale(0.92)",
+                ? "translateY(0) rotateX(0deg) scale(1) translateZ(0)"
+                : "translateY(80px) rotateX(8deg) scale(0.92) translateZ(0)",
               transition: "opacity 1.2s cubic-bezier(0.16,1,0.3,1), transform 1.4s cubic-bezier(0.16,1,0.3,1)",
-              willChange: revealed ? "auto" : "opacity, transform",
+              willChange: "transform, opacity",
+              backfaceVisibility: "hidden",
             }}
           >
             <div aria-hidden="true" className="hero-white-backlight" />
             <div className="glow-border-card rounded-[16px]">
-              <div className="relative w-full overflow-hidden rounded-[14px] shadow-[1px_-4px_14px_1px_white]">
+              <div ref={previewRef} className="relative w-full overflow-hidden rounded-[14px] shadow-[1px_-4px_14px_1px_white]">
                 {/* Shimmer sweep */}
                 <div
                   className="absolute inset-0 z-10 pointer-events-none"
@@ -76,7 +92,7 @@ export function NewHeroSection() {
                     transition: "top 2s cubic-bezier(0.16,1,0.3,1) 0.4s, opacity 0.5s ease 2.2s",
                   }}
                 />
-                <HeroAppPreview displayWidth={340} />
+                <HeroAppPreview displayWidth={mobileWidth} />
               </div>
             </div>
           </div>

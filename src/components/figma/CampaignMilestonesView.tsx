@@ -456,12 +456,12 @@ const MilestonePhaseCard: React.FC<MilestonePhaseCardProps> = ({
             </div>
           </div>
 
-          <div className="self-stretch h-11 px-3 bg-white/[0.03] hover:bg-white/[0.06] rounded-lg flex justify-between items-center gap-2 cursor-pointer transition-colors">
-            <div className="flex flex-col justify-center items-start min-w-0 flex-1">
-              <span className="text-[#7d7c83] text-[10px] font-normal font-[Urbanist,sans-serif] leading-4">
+          <div className="self-stretch min-h-11 px-3 bg-white/[0.03] hover:bg-white/[0.06] rounded-lg flex flex-nowrap justify-between items-center gap-2 cursor-pointer transition-colors">
+            <div className="flex flex-col justify-center items-start min-w-0 flex-1 overflow-hidden">
+              <span className="text-[#7d7c83] text-[10px] font-normal font-[Urbanist,sans-serif] leading-4 whitespace-nowrap">
                 Currently working on
               </span>
-              <div className="flex justify-start items-center gap-1.5 max-w-full">
+              <div className="flex justify-start items-center gap-1.5 w-full min-w-0">
                 {actionCount > 0 ? (
                   <AlertCircle className="w-3 h-3 text-red-600 flex-shrink-0" />
                 ) : (
@@ -473,7 +473,7 @@ const MilestonePhaseCard: React.FC<MilestonePhaseCardProps> = ({
               </div>
             </div>
 
-            <div className="flex items-center flex-shrink-0">
+            <div className="flex items-center flex-shrink-0 ml-2">
               {actionCount > 0 ? (
                 <div
                   role="button"
@@ -482,7 +482,7 @@ const MilestonePhaseCard: React.FC<MilestonePhaseCardProps> = ({
                   onKeyDown={(e) => {
                     if (e.key === 'Enter' || e.key === ' ') { e.stopPropagation(); e.preventDefault(); onActionClick?.(phase.id); }
                   }}
-                  className="h-7 px-2 bg-red-600 rounded-lg flex items-center gap-1.5 overflow-hidden cursor-pointer hover:bg-red-700 transition-colors"
+                  className="h-7 px-2.5 bg-red-600 rounded-lg flex flex-nowrap items-center gap-1 flex-shrink-0 cursor-pointer hover:bg-red-700 transition-colors"
                 >
                   <AlertCircle className="w-3 h-3 text-white flex-shrink-0" />
                   <span className="text-white text-xs font-bold font-[Urbanist,sans-serif] whitespace-nowrap">{actionCount} Actions</span>

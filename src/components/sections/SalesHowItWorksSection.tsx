@@ -433,31 +433,31 @@ function ApiConnectionCard() {
         </div>
 
         {/* Action buttons */}
-        <div className="flex items-center justify-center gap-3 pt-1">
+        <div className="flex flex-wrap items-center justify-center gap-2 pt-1">
           <button
             onClick={() => handleButtonClick("request")}
-            className="group relative h-10 px-5 rounded-[50px] border border-white/20 bg-white/5 transition-all duration-200 hover:border-white/40 hover:bg-white/10 active:scale-95 whitespace-nowrap"
+            className="group relative h-9 md:h-10 px-3 md:px-5 rounded-[50px] border border-white/20 bg-white/5 transition-all duration-200 hover:border-white/40 hover:bg-white/10 active:scale-95 whitespace-nowrap"
           >
             <span className="absolute inset-0 rounded-[50px] opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.06)_0%,transparent_70%)]" />
-            <span className="relative text-white text-sm font-bold font-['Urbanist']">
+            <span className="relative text-white text-xs md:text-sm font-bold font-['Urbanist']">
               Request Changes
             </span>
           </button>
           <button
             onClick={() => handleButtonClick("reject")}
-            className="group relative h-10 px-7 rounded-[50px] bg-red-500 transition-all duration-200 hover:bg-red-400 hover:shadow-[0_0_20px_rgba(239,68,68,0.3)] active:scale-95 active:bg-red-600 whitespace-nowrap"
+            className="group relative h-9 md:h-10 px-4 md:px-7 rounded-[50px] bg-red-500 transition-all duration-200 hover:bg-red-400 hover:shadow-[0_0_20px_rgba(239,68,68,0.3)] active:scale-95 active:bg-red-600 whitespace-nowrap"
           >
             <span className="absolute inset-0 rounded-[50px] opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.15)_0%,transparent_70%)]" />
-            <span className="relative text-white text-sm font-bold font-['Urbanist']">
+            <span className="relative text-white text-xs md:text-sm font-bold font-['Urbanist']">
               Reject
             </span>
           </button>
           <button
             onClick={() => handleButtonClick("approve")}
-            className="group relative h-10 px-7 rounded-[50px] bg-green-500 transition-all duration-200 hover:bg-green-400 hover:shadow-[0_0_20px_rgba(34,197,94,0.3)] active:scale-95 active:bg-green-600 whitespace-nowrap"
+            className="group relative h-9 md:h-10 px-4 md:px-7 rounded-[50px] bg-green-500 transition-all duration-200 hover:bg-green-400 hover:shadow-[0_0_20px_rgba(34,197,94,0.3)] active:scale-95 active:bg-green-600 whitespace-nowrap"
           >
             <span className="absolute inset-0 rounded-[50px] opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.15)_0%,transparent_70%)]" />
-            <span className="relative text-white text-sm font-bold font-['Urbanist']">
+            <span className="relative text-white text-xs md:text-sm font-bold font-['Urbanist']">
               Approve
             </span>
           </button>

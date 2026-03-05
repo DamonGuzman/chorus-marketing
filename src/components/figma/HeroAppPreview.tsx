@@ -11,7 +11,7 @@
  * Canvas: 1440 × 1044 px (exact Figma frame), CSS-scaled to `displayWidth`.
  */
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
 import {
@@ -346,13 +346,14 @@ function WorkspaceList() {
   );
 }
 
-function FigmaSidebar() {
+function FigmaSidebar({ disableBlur = false }: { disableBlur?: boolean }) {
   return (
     <div className="absolute rounded-2xl overflow-hidden flex"
       style={{ left: 10, top: 10, width: 320, height: 1022,
         background: "radial-gradient(ellipse 52.92% 85.55% at 39.01% 48.24%, rgba(255,255,255,0) 0%, rgba(255,255,255,0.05) 100%)",
         boxShadow: "0px 64px 64px -32px rgba(255,255,255,0.56)",
-        backdropFilter: "blur(80px)", WebkitBackdropFilter: "blur(80px)" }}>
+        backdropFilter: disableBlur ? "none" : "blur(80px)",
+        WebkitBackdropFilter: disableBlur ? "none" : "blur(80px)" }}>
       <IconRail />
       <WorkspaceList />
     </div>
@@ -751,40 +752,57 @@ export function HeroAppPreview({ displayWidth = 1100, className }: HeroAppPrevie
   const scale         = displayWidth / CANVAS_W;
   const displayHeight = CANVAS_H * scale;
 
+  const containerRef = useRef<HTMLDivElement>(null);
   const [view,      setView]      = useState<"milestones" | "workspace" | "hierarchy">("milestones");
   const [showModal, setShowModal] = useState(true);
   const [activeTab, setActiveTab] = useState("work");
+  const [isVisible, setIsVisible] = useState(true);
+
+  // Pause the loop when scrolled off-screen to avoid scroll jank
+  useEffect(() => {
+    const el = containerRef.current;
+    if (!el || typeof IntersectionObserver === "undefined") return;
+    const obs = new IntersectionObserver(
+      ([entry]) => setIsVisible(entry.isIntersecting),
+      { threshold: 0.05 }
+    );
+    obs.observe(el);
+    return () => obs.disconnect();
+  }, []);
 
   useEffect(() => {
+    if (!isVisible) return; // don't run timers while off-screen
+
     let timers: ReturnType<typeof setTimeout>[] = [];
 
     function startCycle() {
-      // Reset to initial state
       setView("milestones");
       setShowModal(true);
 
       timers = [
-        setTimeout(() => setShowModal(false),   2500),   // modal fades
-        setTimeout(() => setView("workspace"),  4500),   // → workspace
-        setTimeout(() => setView("hierarchy"),  9000),   // → hierarchy
-        setTimeout(() => startCycle(),          13000),  // loop back
+        setTimeout(() => setShowModal(false),   2500),
+        setTimeout(() => setView("workspace"),  4500),
+        setTimeout(() => setView("hierarchy"),  9000),
+        setTimeout(() => startCycle(),          13000),
       ];
     }
 
     startCycle();
     return () => timers.forEach(clearTimeout);
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [isVisible]);
 
   return (
-    <div className={cn("relative", className)} style={{ width: displayWidth, height: displayHeight }}>
+    <div ref={containerRef} className={cn("relative", className)} style={{ width: displayWidth, height: displayHeight }}>
       <div className="relative overflow-hidden rounded-2xl"
         style={{ width: CANVAS_W, height: CANVAS_H,
           transformOrigin: "top left", transform: `scale(${scale})`,
-          background: "#080812" }}>
+          background: "#080812",
+          willChange: "transform",
+          backfaceVisibility: "hidden" }}>
 
         {/* ── Sidebar always visible; header only on milestone + hierarchy screens ── */}
-        <FigmaSidebar />
+        <FigmaSidebar disableBlur={scale < 0.5} />
         {view !== "workspace" && (
           <FigmaHeader
             activeTab={activeTab}

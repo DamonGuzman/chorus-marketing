@@ -218,42 +218,65 @@ export function SalesProblemSection() {
             {/* Card 3: Manual lead research - fixed 589px */}
             <div className="lg:w-[589px] lg:shrink-0 bg-[#101010] rounded-[20px] overflow-hidden flex flex-col transition-transform duration-500 ease-out hover:scale-[1.03] hover:-translate-y-1">
               <div className="pt-4 flex flex-col items-center gap-2 md:gap-4">
-                <div className="w-full h-[280px] md:h-[349px] relative overflow-hidden order-2 md:order-1">
-                  {/* Row 1: slides left */}
+                {/*
+                  No clipPath — uses height + overflow:hidden for each strip.
+                  clipPath breaks overflow-hidden for composited children on mobile Safari.
+                  Row heights: R1=40%, R2=33%, R3=27% (must sum to 100%)
+                  Image is scaled up inside each strip so only the correct band is visible.
+                */}
+                <div
+                  className="w-full h-[280px] md:h-[349px] relative order-2 md:order-1"
+                  style={{ overflow: "hidden", transform: "translateZ(0)" }}
+                >
+                  {/* Row 1 — top 40% of image, slides left */}
                   <div
-                    className="absolute inset-0"
-                    style={{ clipPath: "inset(0 0 60% 0)" }}
+                    className="absolute left-0 right-0 overflow-hidden"
+                    style={{ top: "0%", height: "40%" }}
                   >
-                    <img
-                      src="/images/figma/sales_lead_search.svg"
-                      alt="Tool icons grid showing Salesforce, HubSpot, Mailchimp, and more"
-                      className="w-full h-full object-contain object-top"
-                      style={{ animation: "icon-row-left 5s linear infinite" }}
-                    />
+                    <div
+                      className="absolute w-full"
+                      style={{ top: 0, height: "250%", animation: "icon-row-left 5s linear infinite" }}
+                    >
+                      <img
+                        src="/images/figma/sales_lead_search.svg"
+                        alt="Tool icons grid showing Salesforce, HubSpot, Mailchimp, and more"
+                        className="w-full h-full object-contain object-top"
+                      />
+                    </div>
                   </div>
-                  {/* Row 2: slides right */}
+
+                  {/* Row 2 — middle 33% of image (40%→73%), slides right */}
                   <div
-                    className="absolute inset-0"
-                    style={{ clipPath: "inset(40% 0 27% 0)" }}
+                    className="absolute left-0 right-0 overflow-hidden"
+                    style={{ top: "40%", height: "33%" }}
                   >
-                    <img
-                      src="/images/figma/sales_lead_search.svg"
-                      alt=""
-                      className="w-full h-full object-contain object-top"
-                      style={{ animation: "icon-row-right 5s linear infinite" }}
-                    />
+                    <div
+                      className="absolute w-full"
+                      style={{ top: "-121.2%", height: "303.1%", animation: "icon-row-right 5s linear infinite" }}
+                    >
+                      <img
+                        src="/images/figma/sales_lead_search.svg"
+                        alt=""
+                        className="w-full h-full object-contain object-top"
+                      />
+                    </div>
                   </div>
-                  {/* Row 3: slides left */}
+
+                  {/* Row 3 — bottom 27% of image (73%→100%), slides left */}
                   <div
-                    className="absolute inset-0"
-                    style={{ clipPath: "inset(73% 0 0 0)" }}
+                    className="absolute left-0 right-0 overflow-hidden"
+                    style={{ top: "73%", height: "27%" }}
                   >
-                    <img
-                      src="/images/figma/sales_lead_search.svg"
-                      alt=""
-                      className="w-full h-full object-contain object-top"
-                      style={{ animation: "icon-row-left 5s linear infinite" }}
-                    />
+                    <div
+                      className="absolute w-full"
+                      style={{ top: "-270.4%", height: "370.4%", animation: "icon-row-left 5s linear infinite" }}
+                    >
+                      <img
+                        src="/images/figma/sales_lead_search.svg"
+                        alt=""
+                        className="w-full h-full object-contain object-top"
+                      />
+                    </div>
                   </div>
                 </div>
                 <div className="w-full px-6 pt-6 pb-6 md:px-14 md:pt-10 md:pb-16 flex flex-col gap-4 items-center md:items-start order-1 md:order-2">

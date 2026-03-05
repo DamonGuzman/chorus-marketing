@@ -47,41 +47,32 @@ export default function AboutUsPage() {
             </div>
 
             {/* mobile */}
-            <div className="block md:hidden self-stretch h-[509px] relative bg-black overflow-hidden">
+            <div className="block md:hidden relative bg-black overflow-hidden px-6 pt-10 pb-40">
+              {/* Torch image — bottom right decorative */}
               <img
-                className="w-72 h-56 right-0 top-[259px] absolute"
+                className="w-60 h-48 absolute right-0 bottom-0 opacity-60 pointer-events-none"
                 src="/images/figma/about-us/torch.svg"
                 alt=""
                 loading="lazy"
               />
-              <div
-                data-size="lg"
-                data-state="view"
-                data-type="img"
-                className="w-7 h-7 left-[527.21px] top-[55.38px] absolute rounded-3xl"
-              >
-                <div className="w-7 h-7 -left-px -top-px absolute rounded-full outline-1 outline-gray-200" />
-              </div>
-              <div className="w-52 h-80 left-[18px] top-[28.99px] absolute inline-flex flex-col justify-start items-start">
-                <div className="flex flex-col justify-start items-center gap-7">
-                  <Badge className="w-28 h-9 px-3 py-1 text-base font-bold font-['Urbanist']">About us</Badge>
-                  <div className="self-stretch flex flex-col justify-start items-start gap-6">
-                    <div className="w-80 text-center justify-center text-white text-4xl font-bold font-['Urbanist'] leading-10">
-                      <span className="text-white">Chorus is the </span>
-                      <span className="bg-linear-to-r from-[#CACACC] to-[#7C7B82] bg-clip-text text-transparent">
-                        agentic AI platform
-                      </span>
-                      <span className="bg-linear-to-r from-[#7C7B82] via-[#7C7B82] to-[#7C7B82] bg-clip-text text-transparent">
-                        {" "}
-                        that proves real magic exists
-                      </span>
-                    </div>
-                    <AnimateOnScroll animation="fade-up" duration={0.8} threshold={0.3}>
-                      <div className="self-stretch text-center justify-start text-[#CACACC] text-base font-normal font-['Urbanist'] leading-6">
-                        We don&apos;t promise the impossible. We deliver it.
-                      </div>
-                    </AnimateOnScroll>
-                  </div>
+              {/* Centered content */}
+              <div className="relative z-10 flex flex-col items-center gap-7 text-center">
+                <Badge className="w-28 h-9 px-3 py-1 text-base font-bold font-['Urbanist']">About us</Badge>
+                <div className="flex flex-col items-center gap-6">
+                  <h1 className="text-white text-4xl font-bold font-['Urbanist'] leading-10">
+                    <span className="text-white">Chorus is the </span>
+                    <span className="bg-linear-to-r from-[#CACACC] to-[#7C7B82] bg-clip-text text-transparent">
+                      agentic AI platform
+                    </span>
+                    <span className="bg-linear-to-r from-[#7C7B82] via-[#7C7B82] to-[#7C7B82] bg-clip-text text-transparent">
+                      {" "}that proves real magic exists
+                    </span>
+                  </h1>
+                  <AnimateOnScroll animation="fade-up" duration={0.8} threshold={0.3}>
+                    <p className="text-[#CACACC] text-base font-normal font-['Urbanist'] leading-6">
+                      We don&apos;t promise the impossible. We deliver it.
+                    </p>
+                  </AnimateOnScroll>
                 </div>
               </div>
             </div>
