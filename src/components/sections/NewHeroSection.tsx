@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import { ButtonLink, ScrollTextReveal } from "@/components/ui";
 import { PRIMARY_CTA_HREF } from "@/content/site";
+import { HeroAppPreview } from "@/components/figma/HeroAppPreview";
 
 export function NewHeroSection() {
   const cardRef = useRef<HTMLDivElement>(null);
@@ -39,7 +40,7 @@ export function NewHeroSection() {
           </div>
         </div>
 
-        {/* Mobile hero image */}
+        {/* Mobile hero preview */}
         <div className="md:hidden mt-10 flex justify-center px-2" style={{ perspective: "1200px" }}>
           <div
             ref={cardRef}
@@ -55,7 +56,8 @@ export function NewHeroSection() {
           >
             <div aria-hidden="true" className="hero-white-backlight" />
             <div className="glow-border-card rounded-[16px]">
-              <div className="relative w-full overflow-hidden rounded-[14px] bg-[#08080c] shadow-[1px_-4px_14px_1px_white]">
+              <div className="relative w-full overflow-hidden rounded-[14px] shadow-[1px_-4px_14px_1px_white]">
+                {/* Shimmer sweep */}
                 <div
                   className="absolute inset-0 z-10 pointer-events-none"
                   style={{
@@ -64,6 +66,7 @@ export function NewHeroSection() {
                     animation: revealed ? "hero-shimmer 3s ease-in-out 1s 1 forwards" : "none",
                   }}
                 />
+                {/* Scan-line sweep */}
                 <div
                   className="absolute left-0 right-0 h-[1px] z-10 pointer-events-none"
                   style={{
@@ -73,18 +76,13 @@ export function NewHeroSection() {
                     transition: "top 2s cubic-bezier(0.16,1,0.3,1) 0.4s, opacity 0.5s ease 2.2s",
                   }}
                 />
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src="/images/figma/CleanShot 2024-10-20 at 22.27.03.svg"
-                  alt="Chorus platform interface"
-                  className="w-full h-auto block"
-                />
+                <HeroAppPreview displayWidth={340} />
               </div>
             </div>
           </div>
         </div>
 
-        {/* Desktop hero image — with glow border and effects */}
+        {/* Desktop hero preview — live interactive component with original glow effects */}
         <div className="hidden md:flex mt-14 justify-center px-8" style={{ perspective: "1200px" }}>
           <div
             className="relative w-full max-w-[1100px]"
@@ -98,9 +96,9 @@ export function NewHeroSection() {
             }}
           >
             <div aria-hidden="true" className="hero-white-backlight" />
-
             <div className="glow-border-card rounded-[24px]">
-              <div className="relative w-full overflow-hidden rounded-[22px] bg-[#08080c] shadow-[1px_-4px_14px_1px_white]">
+              <div className="relative w-full overflow-hidden rounded-[22px] shadow-[1px_-4px_14px_1px_white]">
+                {/* Shimmer sweep */}
                 <div
                   className="absolute inset-0 z-10 pointer-events-none"
                   style={{
@@ -109,7 +107,7 @@ export function NewHeroSection() {
                     animation: revealed ? "hero-shimmer 3s ease-in-out 1s 1 forwards" : "none",
                   }}
                 />
-
+                {/* Scan-line sweep */}
                 <div
                   className="absolute left-0 right-0 h-[1px] z-10 pointer-events-none"
                   style={{
@@ -119,13 +117,7 @@ export function NewHeroSection() {
                     transition: "top 2s cubic-bezier(0.16,1,0.3,1) 0.4s, opacity 0.5s ease 2.2s",
                   }}
                 />
-
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src="/images/figma/CleanShot 2024-10-20 at 22.27.03.svg"
-                  alt="Chorus platform interface"
-                  className="w-full h-auto block"
-                />
+                <HeroAppPreview displayWidth={1100} className="mx-auto" />
               </div>
             </div>
           </div>

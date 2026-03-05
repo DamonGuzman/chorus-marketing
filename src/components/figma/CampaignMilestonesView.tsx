@@ -3,12 +3,10 @@
 import React, { useState } from 'react';
 import { cn } from '@/lib/utils';
 import {
-  X,
   FileText,
   ChevronRight,
   Clock,
   AlertCircle,
-  CheckCircle2,
   MoreHorizontal,
 } from 'lucide-react';
 
@@ -513,6 +511,8 @@ interface CampaignMilestonesViewProps {
   onActionClick?: (phaseId: string) => void;
   onAgentClick?: () => void;
   onClose?: () => void;
+  /** When true the internal workspace header is hidden (use when a shared header is rendered outside) */
+  hideHeader?: boolean;
 }
 
 export function CampaignMilestonesView({
@@ -523,13 +523,14 @@ export function CampaignMilestonesView({
   onActionClick,
   onAgentClick,
   onClose,
+  hideHeader = false,
 }: CampaignMilestonesViewProps) {
   const [activeTab, setActiveTab] = useState<WorkspaceTab>('work');
 
   return (
     <div className="flex flex-col h-full bg-[#0f0f13]">
-      {/* Workspace header */}
-      <div className="flex items-center px-6 py-5 border-b border-white/[0.08] shrink-0 bg-[#0c0c10]">
+      {/* Workspace header — hidden when a shared header is rendered outside */}
+      {!hideHeader && <div className="flex items-center px-6 py-5 border-b border-white/[0.08] shrink-0 bg-[#0c0c10]">
         <div className="min-w-0 shrink-0">
           <h1 className="text-white text-lg font-bold font-[Urbanist,sans-serif]">{campaignTitle}</h1>
           <p className="text-white/30 text-xs font-medium font-[Urbanist,sans-serif] mt-0.5">
@@ -569,7 +570,7 @@ export function CampaignMilestonesView({
             <MoreHorizontal size={15} strokeWidth={2} />
           </button>
         </div>
-      </div>
+      </div>}
 
       {/* Phase cards */}
       <div className="flex-1 overflow-y-auto px-4 py-4 flex flex-col gap-3">
