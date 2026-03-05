@@ -26,7 +26,7 @@
  */
 
 import { useState, useCallback } from 'react';
-import { useSearchParams } from 'react-router-dom';
+import { useSearchParams, useRouter, usePathname } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
 import { cn } from '@/lib/utils';
 import { AgentWorkspaceHeader } from './AgentWorkspaceHeader';
@@ -831,40 +831,36 @@ export function AgentWorkspaceView({
    * ?view=hierarchy          → hierarchy open, default tab ('work')
    * ?view=hierarchy&tab=apps → hierarchy open, Apps & Work tab active
    */
-  const [searchParams, setSearchParams] = useSearchParams();
+  const searchParams = useSearchParams();
+  const router = useRouter();
+  const pathname = usePathname();
 
   const isHierarchyOpen = searchParams.get('view') === 'hierarchy';
   const hierarchyTab = (searchParams.get('tab') as AgentHierarchyTab | null) ?? 'work';
 
   /** Opens the hierarchy panel and optionally sets a specific tab. */
   const openHierarchy = useCallback((tab: AgentHierarchyTab = 'work') => {
-    setSearchParams((prev) => {
-      const next = new URLSearchParams(prev);
-      next.set('view', 'hierarchy');
-      next.set('tab', tab);
-      return next;
-    }, { replace: true });
-  }, [setSearchParams]);
+    const next = new URLSearchParams(searchParams.toString());
+    next.set('view', 'hierarchy');
+    next.set('tab', tab);
+    router.replace(`${pathname}?${next.toString()}`);
+  }, [searchParams, router, pathname]);
 
   /** Closes the hierarchy panel and removes the view/tab params from the URL. */
   const closeHierarchy = useCallback(() => {
-    setSearchParams((prev) => {
-      const next = new URLSearchParams(prev);
-      next.delete('view');
-      next.delete('tab');
-      return next;
-    }, { replace: true });
-  }, [setSearchParams]);
+    const next = new URLSearchParams(searchParams.toString());
+    next.delete('view');
+    next.delete('tab');
+    router.replace(`${pathname}?${next.toString()}`);
+  }, [searchParams, router, pathname]);
 
   /** Changes the active hierarchy tab and reflects it in the URL. */
   const setHierarchyTab = useCallback((tab: AgentHierarchyTab) => {
-    setSearchParams((prev) => {
-      const next = new URLSearchParams(prev);
-      next.set('view', 'hierarchy');
-      next.set('tab', tab);
-      return next;
-    }, { replace: true });
-  }, [setSearchParams]);
+    const next = new URLSearchParams(searchParams.toString());
+    next.set('view', 'hierarchy');
+    next.set('tab', tab);
+    router.replace(`${pathname}?${next.toString()}`);
+  }, [searchParams, router, pathname]);
 
 
   /**

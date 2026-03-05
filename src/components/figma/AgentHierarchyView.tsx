@@ -446,7 +446,7 @@ function ConnectorManagerToMid({ startDelay = 0 }: { startDelay?: number }) {
     initial: { pathLength: 0, opacity: 0 },
     animate: { pathLength: 1, opacity: 1 },
     transition: {
-      pathLength: { duration: 0.45, delay: startDelay + extraDelay, ease: 'easeOut' },
+      pathLength: { duration: 0.45, delay: startDelay + extraDelay, ease: 'easeOut' as const },
       opacity:    { duration: 0.1,  delay: startDelay + extraDelay },
     },
   });
@@ -515,7 +515,7 @@ function ConnectorMidToLeaves({ startDelay = 0 }: { startDelay?: number }) {
     initial: { pathLength: 0, opacity: 0 },
     animate: { pathLength: 1, opacity: 1 },
     transition: {
-      pathLength: { duration, delay: startDelay + extraDelay, ease: 'easeOut' },
+      pathLength: { duration, delay: startDelay + extraDelay, ease: 'easeOut' as const },
       opacity:    { duration: 0.1, delay: startDelay + extraDelay },
     },
   });
