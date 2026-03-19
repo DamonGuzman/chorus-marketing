@@ -1,103 +1,78 @@
 "use client";
 
-import {
-  useEffect,
-  useRef,
-  createContext,
-  useContext,
-  useCallback,
-  useSyncExternalStore,
-} from "react";
-import Lenis from "lenis";
-
-/* ------------------------------------------------------------------ */
-/*  Lenis context                                                      */
-/* ------------------------------------------------------------------ */
-
-const LenisContext = createContext<Lenis | null>(null);
-
-export function useLenisInstance() {
-  return useContext(LenisContext);
-}
-
-/* ------------------------------------------------------------------ */
-/*  Shared scroll-bus: one Lenis "scroll" listener, many subscribers   */
-/* ------------------------------------------------------------------ */
+import { useEffect, useSyncExternalStore } from "react";
 
 type ScrollCallback = () => void;
-const subscribers = new Set<ScrollCallback>();
-let currentLenis: Lenis | null = null;
 
-function subscribe(cb: ScrollCallback) {
-  subscribers.add(cb);
-  return () => { subscribers.delete(cb); };
-}
+const subscribers = new Set<ScrollCallback>();
+let providerCount = 0;
+let detachProviderListener: (() => void) | null = null;
 
 function emitScroll() {
-  subscribers.forEach((cb) => cb());
+  subscribers.forEach((callback) => callback());
 }
 
-/**
- * Hook that lets any component run a callback on every Lenis scroll tick.
- * Falls back to native `scroll` event if Lenis isn't mounted yet.
- */
-export function useScrollCallback(cb: ScrollCallback) {
+function getScrollY() {
+  return typeof window === "undefined" ? 0 : window.scrollY;
+}
+
+function subscribe(callback: ScrollCallback) {
+  subscribers.add(callback);
+
+  return () => {
+    subscribers.delete(callback);
+  };
+}
+
+function attachProviderListener() {
+  if (detachProviderListener || typeof window === "undefined") return;
+
+  const onScroll = () => {
+    emitScroll();
+  };
+
+  window.addEventListener("scroll", onScroll, { passive: true });
+  detachProviderListener = () => {
+    window.removeEventListener("scroll", onScroll);
+  };
+}
+
+function detachListenerIfUnused() {
+  if (providerCount !== 0 || !detachProviderListener) return;
+
+  detachProviderListener();
+  detachProviderListener = null;
+}
+
+export function useLenisInstance() {
+  return null;
+}
+
+export function useScrollCallback(callback: ScrollCallback) {
   useEffect(() => {
-    if (currentLenis) {
-      const unsub = subscribe(cb);
-      return unsub;
+    if (providerCount > 0) {
+      return subscribe(callback);
     }
-    window.addEventListener("scroll", cb, { passive: true });
-    return () => window.removeEventListener("scroll", cb);
-  }, [cb]);
-}
 
-/**
- * Returns the current scroll-Y, updated on every Lenis tick.
- * Useful for deriving scroll progress without adding listeners.
- */
-const getScrollY = () => (currentLenis ? currentLenis.scroll : (typeof window !== "undefined" ? window.scrollY : 0));
-const getServerScrollY = () => 0;
+    window.addEventListener("scroll", callback, { passive: true });
+    return () => window.removeEventListener("scroll", callback);
+  }, [callback]);
+}
 
 export function useScrollY() {
-  return useSyncExternalStore(subscribe, getScrollY, getServerScrollY);
+  return useSyncExternalStore(subscribe, getScrollY, () => 0);
 }
 
-/* ------------------------------------------------------------------ */
-/*  Provider                                                           */
-/* ------------------------------------------------------------------ */
-
 export function SmoothScroll({ children }: { children: React.ReactNode }) {
-  const lenisRef = useRef<Lenis | null>(null);
+  useEffect(() => {
+    providerCount += 1;
+    attachProviderListener();
 
-  const initLenis = useCallback(() => {
-    if (lenisRef.current) return;
-    const lenis = new Lenis({
-      duration: 1.2,
-      easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-      touchMultiplier: 1.5,
-      wheelMultiplier: 1.0,
-      infinite: false,
-      autoRaf: true,
-    });
-
-    lenis.on("scroll", emitScroll);
-    lenisRef.current = lenis;
-    currentLenis = lenis;
+    return () => {
+      providerCount -= 1;
+      detachListenerIfUnused();
+    };
   }, []);
 
-  useEffect(() => {
-    initLenis();
-    return () => {
-      lenisRef.current?.destroy();
-      lenisRef.current = null;
-      currentLenis = null;
-    };
-  }, [initLenis]);
-
-  return (
-    <LenisContext.Provider value={lenisRef.current}>
-      {children}
-    </LenisContext.Provider>
-  );
+  return children;
 }
